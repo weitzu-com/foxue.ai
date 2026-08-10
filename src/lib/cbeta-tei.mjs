@@ -45,33 +45,55 @@ export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
   const body = removeElements(
     bodyMatch[1].replace(/<!--[\s\S]*?-->/g, ""),
     ["note", "rdg"],
-  ).replace(/<lb\b[^>]*\/>/g, (tag) => {
-    const line = tag.match(/\bn="([^"]+)"/)?.[1];
-    if (!line) throw new Error(`${canonId} 存在没有 n 属性的 lb`);
-    return `\nFOXUE_LINE_${line}\n`;
-  });
+  );
 
-  const chunks = body.split(/\nFOXUE_LINE_([^\n]+)\n/);
+  const markerPattern = /<(?:milestone|lb)\b[^>]*\/>/g;
   const segments = [];
   const seen = new Set();
-  for (let index = 1; index < chunks.length; index += 2) {
-    const sourceLine = chunks[index];
-    const content = decodeXml(chunks[index + 1] ?? "")
+  let currentJuan = String(juan).padStart(3, "0");
+  let activeLine = null;
+  let contentStart = 0;
+
+  const appendLine = (contentEnd) => {
+    if (!activeLine) return;
+    const content = decodeXml(body.slice(contentStart, contentEnd))
       .replace(/<[^>]+>/g, "")
       .replace(/\s+/g, "")
       .trim();
-    if (!content) continue;
+    if (!content) return;
 
-    const id = `${canonId}.${juan}.${sourceLine}`;
-    if (seen.has(id)) throw new Error(`${canonId} 出现重复行号 ${sourceLine}`);
+    const id = `${canonId}.${activeLine.juan}.${activeLine.sourceLine}`;
+    if (seen.has(id)) throw new Error(`${canonId} 出现重复行号 ${activeLine.sourceLine}`);
     seen.add(id);
     segments.push({
       id,
-      sourceLine,
-      page: sourceLine.slice(0, 5),
+      juan: activeLine.juan,
+      sourceLine: activeLine.sourceLine,
+      page: activeLine.sourceLine.slice(0, 5),
       text: content,
     });
+  };
+
+  let match;
+  while ((match = markerPattern.exec(body)) !== null) {
+    appendLine(match.index);
+    activeLine = null;
+
+    const tag = match[0];
+    if (tag.startsWith("<milestone")) {
+      if (tag.match(/\bunit="([^"]+)"/)?.[1] === "juan") {
+        const milestoneJuan = tag.match(/\bn="([^"]+)"/)?.[1];
+        if (!milestoneJuan) throw new Error(`${canonId} 存在没有 n 属性的卷标记`);
+        currentJuan = milestoneJuan.padStart(3, "0");
+      }
+    } else {
+      const sourceLine = tag.match(/\bn="([^"]+)"/)?.[1];
+      if (!sourceLine) throw new Error(`${canonId} 存在没有 n 属性的 lb`);
+      activeLine = { juan: currentJuan, sourceLine };
+    }
+    contentStart = markerPattern.lastIndex;
   }
+  appendLine(body.length);
 
   if (segments.length === 0) throw new Error(`${canonId} 没有可读行段`);
   return segments;
@@ -80,8 +102,9 @@ export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
 export function buildPageNavigation(segments) {
   const pages = new Map();
   for (const segment of segments) {
-    if (!pages.has(segment.page)) {
-      pages.set(segment.page, { id: segment.id, label: segment.page });
+    const key = `${segment.juan}:${segment.page}`;
+    if (!pages.has(key)) {
+      pages.set(key, { id: segment.id, label: segment.page, juan: segment.juan });
     }
   }
   return [...pages.values()];

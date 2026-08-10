@@ -3,6 +3,7 @@ export type SutraSegment = {
   text: string;
   note?: string;
   legacyIds?: string[];
+  juan?: string;
   sourceLine?: string;
   page?: string;
 };
@@ -116,19 +117,22 @@ export const sutras: Sutra[] = [
     sourceName: "CBETA Online",
     sourceUrl: "https://cbetaonline.dila.edu.tw/zh/T0210_001",
     sourceLicense: "CBETA 授权条款；古典原文",
-    status: "目录样本",
+    status: "完整原文 · 行段试行",
     segments: [
       {
-        id: "T0210.004.0562a13",
+        id: "T0210.001.0562a13",
+        legacyIds: ["T0210.004.0562a13"],
         text: "心为法本，心尊心使；中心念恶，即言即行，罪苦自追，车轹于辙。",
         note: "汉译《法句经》的篇章结构与巴利本并非逐句对应，跨本对读必须标明版本。",
       },
       {
-        id: "T0210.004.0562a16",
+        id: "T0210.001.0562a15",
+        legacyIds: ["T0210.004.0562a16"],
         text: "心为法本，心尊心使；中心念善，即言即行，福乐自追，如影随形。",
       },
       {
-        id: "T0210.004.0562a27",
+        id: "T0210.001.0562a21",
+        legacyIds: ["T0210.004.0562a27"],
         text: "不好责彼，务自省身，如有知此，永灭无患。",
       },
     ],

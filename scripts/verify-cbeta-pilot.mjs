@@ -23,10 +23,17 @@ requireValue(manifest.rightsDecision?.commercialUse === "prohibited_without_addi
 const expectedSnippets = {
   T0251: "照見五蘊皆空度一切苦厄",
   T0235: "應無所住而生其心",
+  T0210: "心為法本心尊心使中心念惡",
 };
 const expectedReadingViews = {
-  T0251: { segments: 72, pages: 3, anchor: "T0251.001.0848c06" },
-  T0235: { segments: 340, pages: 13, anchor: "T0235.001.0749c22" },
+  T0251: { segments: 72, pages: 3, juans: ["001"], anchors: ["T0251.001.0848c06"] },
+  T0235: { segments: 340, pages: 13, juans: ["001"], anchors: ["T0235.001.0749c22"] },
+  T0210: {
+    segments: 1400,
+    pages: 50,
+    juans: ["001", "002"],
+    anchors: ["T0210.001.0562a13", "T0210.002.0567a03"],
+  },
 };
 
 for (const file of manifest.files) {
@@ -43,7 +50,8 @@ for (const file of manifest.files) {
   requireValue(file.localBytes === file.upstreamBytes + 1, `${file.id} 规范化必须只增加一个字节`);
   requireValue(text.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), `${file.id} 不是声明的 UTF-8 XML`);
   requireValue(text.includes(`<TEI xmlns="http://www.tei-c.org/ns/1.0"`), `${file.id} 缺少 TEI P5 根元素`);
-  requireValue(text.includes(`xml:id="${file.id.replace("T0", "T08n0")}"`) || text.includes(`xml:id="T08n${file.id.slice(1)}"`), `${file.id} TEI 标识不匹配`);
+  const expectedTeiId = file.upstreamPath.split("/").at(-1).replace(/\.xml$/, "");
+  requireValue(text.includes(`xml:id="${expectedTeiId}"`), `${file.id} TEI 标识不匹配`);
   requireValue(text.includes("<teiHeader>"), `${file.id} 缺少 teiHeader`);
   requireValue(text.includes("Available for non-commercial use when distributed with this header intact."), `${file.id} 缺少非商业与保留头部声明`);
   requireValue(text.includes("財團法人佛教電子佛典基金會 (CBETA)"), `${file.id} 缺少 CBETA 来源署名`);
@@ -55,7 +63,14 @@ for (const file of manifest.files) {
   const readingView = expectedReadingViews[file.id];
   requireValue(readingLines.length === readingView.segments, `${file.id} 稳定行段数量漂移`);
   requireValue(buildPageNavigation(readingLines).length === readingView.pages, `${file.id} 页码导航数量漂移`);
-  requireValue(readingLines.some((line) => line.id === readingView.anchor), `${file.id} 关键母版锚点缺失`);
+  requireValue(
+    JSON.stringify([...new Set(readingLines.map((line) => line.juan))]) === JSON.stringify(readingView.juans),
+    `${file.id} 卷号结构漂移`,
+  );
+  requireValue(
+    readingView.anchors.every((anchor) => readingLines.some((line) => line.id === anchor)),
+    `${file.id} 关键母版锚点缺失`,
+  );
 
   const registryExpression = registry.works
     .flatMap((work) => work.expressions)

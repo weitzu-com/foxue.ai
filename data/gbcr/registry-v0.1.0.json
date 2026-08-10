@@ -204,11 +204,17 @@
           "sourceSnapshotId": "cbeta_xml_p5",
           "localSlug": "fajujing",
           "cataloged": true,
-          "fullSourceText": false,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T04n0210.xml",
+            "format": "application/tei+xml",
+            "sha256": "5f265927bba467f46652c5436e981e52944fd5c8f8609aa55f1027e11c81d035",
+            "rightsStatus": "restricted_noncommercial"
+          },
           "sampled": true,
-          "stableSegments": 3,
+          "stableSegments": 1400,
           "rightsReviewed": true,
-          "qualityStatus": "catalog_sample"
+          "qualityStatus": "verified_sample"
         }
       ]
     }

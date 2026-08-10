@@ -1235,7 +1235,7 @@ a {
 .reader-header__status span:first-child { display: flex; align-items: center; gap: 6px; color: var(--success); }
 .reader-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr) 195px; gap: 46px; padding-top: 48px; align-items: start; }
 .reader-toc, .reader-meta { position: sticky; top: 105px; }
-.reader-toc ol { margin: 20px 0 26px; padding: 0; list-style: none; }
+.reader-toc ol { max-height: calc(100vh - 250px); margin: 20px 0 26px; padding: 0 8px 0 0; overflow-y: auto; list-style: none; scrollbar-width: thin; }
 .reader-toc li { border-bottom: 1px solid var(--line); }
 .reader-toc li a { display: block; padding: 10px 0; color: var(--muted); font-size: 0.65rem; word-break: break-all; }
 .reader-toc li span { margin-right: 7px; color: var(--cinnabar); }

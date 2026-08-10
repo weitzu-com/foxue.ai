@@ -26,6 +26,7 @@ export default async function SutraPage({ params }: PageProps) {
   const sutra = getSutra(slug);
   if (!sutra) notFound();
   const reading = await getSutraReading(sutra);
+  const multiJuan = new Set(reading.segments.map((segment) => segment.juan).filter(Boolean)).size > 1;
 
   return (
     <div className="reader-page page-shell">
@@ -56,7 +57,9 @@ export default async function SutraPage({ params }: PageProps) {
               <li key={item.id}>
                 <a href={`#${item.id}`}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  {reading.complete ? `大正藏 ${item.label}` : item.id}
+                  {reading.complete
+                    ? `${multiJuan ? `卷 ${Number(item.juan)} · ` : ""}大正藏 ${item.label}`
+                    : item.id}
                 </a>
               </li>
             ))}

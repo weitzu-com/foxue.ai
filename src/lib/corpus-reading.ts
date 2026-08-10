@@ -6,12 +6,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs
 const completeAssets: Record<string, { filename: string; canonId: string }> = {
   xinjing: { filename: "T08n0251.xml", canonId: "T0251" },
   jingangjing: { filename: "T08n0235.xml", canonId: "T0235" },
+  fajujing: { filename: "T04n0210.xml", canonId: "T0210" },
 };
 
 export type SutraReading = {
   complete: boolean;
   segments: SutraSegment[];
-  navigation: Array<{ id: string; label: string }>;
+  navigation: Array<{ id: string; label: string; juan?: string }>;
 };
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {

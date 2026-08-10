@@ -1,5 +1,6 @@
 export type CbetaReadingLine = {
   id: string;
+  juan: string;
   sourceLine: string;
   page: string;
   text: string;
@@ -12,4 +13,4 @@ export function parseCbetaReadingLines(
 
 export function buildPageNavigation(
   segments: CbetaReadingLine[],
-): Array<{ id: string; label: string }>;
+): Array<{ id: string; label: string; juan: string }>;

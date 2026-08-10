@@ -12,6 +12,7 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
+    "import:cbeta": "node scripts/import-cbeta-source.mjs",
     "snapshot:upstream": "node scripts/snapshot-upstream-catalogs.mjs",
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
