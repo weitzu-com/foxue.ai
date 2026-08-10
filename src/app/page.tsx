@@ -221,8 +221,8 @@ export default function Home() {
             </p>
             <div className="corpus-status">
               <div>
-                <span>全球目录基线</span>
-                <strong>筹建中</strong>
+                <span>覆盖登记册</span>
+                <strong>v0.1 公开</strong>
               </div>
               <div>
                 <span>首版校对样本</span>
@@ -233,8 +233,8 @@ export default function Home() {
                 <strong>5—20 年</strong>
               </div>
             </div>
-            <Link className="button-secondary" href="/touming">
-              查看公开覆盖方法 <ArrowRight aria-hidden="true" size={16} />
+            <Link className="button-secondary" href="/fugai">
+              打开覆盖登记册 <ArrowRight aria-hidden="true" size={16} />
             </Link>
           </div>
         </div>

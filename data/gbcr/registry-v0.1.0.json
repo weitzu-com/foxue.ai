@@ -1,0 +1,204 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/registry-v0.1",
+  "registry": {
+    "id": "gbcr",
+    "title": "全球佛典覆盖登记册",
+    "titleEn": "Global Buddhist Canon Registry",
+    "version": "0.1.0",
+    "publishedAt": "2026-08-11",
+    "status": "public_draft",
+    "maintainer": "foxue.ai",
+    "canonicalUrl": "https://foxue.ai/fugai"
+  },
+  "claimPolicy": {
+    "target": "99%",
+    "publishable": false,
+    "reason": "全球分母尚未完成跨传统、跨语种和独立评审，因此不得发布总体覆盖百分比。",
+    "rule": "目录、完整原文、稳定段落、译文、权利和质量必须分别计算；未知分母不得以零代替，也不得合并成单一营销数字。",
+    "reviewGate": "只有在分母定义公开、来源快照冻结、重复项规则可复算，并经至少两个独立机构或专家组复核后，才可发布全球百分比。"
+  },
+  "dimensions": [
+    { "id": "catalog", "label": "目录覆盖", "definition": "已建立规范作品标识，并记录至少一个可核验的外部目录标识。" },
+    { "id": "full_source_text", "label": "完整原文", "definition": "完整表达版本已合法取得、格式化并通过结构校验；摘录不计入。" },
+    { "id": "stable_segments", "label": "稳定段落", "definition": "可公开访问的文本片段具有持久标识，旧链接可解析。" },
+    { "id": "translation", "label": "译文覆盖", "definition": "按目标语言分别统计完整译文；机器候选与人工确认分开。" },
+    { "id": "rights", "label": "权利可发布", "definition": "已逐对象记录许可、地域、用途、署名与再分发限制。" },
+    { "id": "quality", "label": "质量通过", "definition": "来源、结构、段落和抽样文本通过人工或独立质量门。" }
+  ],
+  "globalDenominators": {
+    "catalogWorks": null,
+    "fullSourceTextWorks": null,
+    "translationWorks": null,
+    "rightsPublishableWorks": null,
+    "qualityApprovedWorks": null,
+    "status": "definition_in_progress",
+    "unknownMeans": "not_yet_measured"
+  },
+  "sourceFamilies": [
+    {
+      "id": "cbeta_chinese",
+      "title": "汉文佛典",
+      "traditions": ["汉传佛教"],
+      "languages": ["lzh-Hant", "zh-Hant"],
+      "primarySources": ["cbeta_xml_p5"],
+      "denominatorStatus": "catalog_snapshot_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "同一作品的异译、别本与不同藏经见证须分离为 Work、Expression 与 Witness，不能按文件数直接求和。"
+    },
+    {
+      "id": "suttacentral_early_buddhist_texts",
+      "title": "早期佛教经文与巴利经藏",
+      "traditions": ["上座部佛教", "跨传承早期佛教文本"],
+      "languages": ["pi", "lzh", "sa", "pra", "bo", "multi"],
+      "primarySources": ["suttacentral_bilara"],
+      "denominatorStatus": "catalog_snapshot_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "平行经、经组、分卷和译本不直接等同于独立作品；采用 SuttaCentral 标识并保留平行关系。"
+    },
+    {
+      "id": "tibetan_kangyur_tengyur",
+      "title": "藏文甘珠尔与丹珠尔",
+      "traditions": ["藏传佛教"],
+      "languages": ["bo", "sa", "en"],
+      "primarySources": ["bdrc_linked_data", "bdrc_iiif", "84000_progress"],
+      "denominatorStatus": "edition_alignment_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "德格版等目录、不同版次见证与 84000 译文进度必须分层记录，不能把页数、文本数和作品数混用。"
+    },
+    {
+      "id": "sanskrit_fragments_and_witnesses",
+      "title": "梵文写本、残片与跨语种见证",
+      "traditions": ["跨传统"],
+      "languages": ["sa", "pra", "multi"],
+      "primarySources": ["bdrc_linked_data", "bdrc_iiif"],
+      "denominatorStatus": "federated_sources_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "残片、写本、校勘本和规范作品须分别建模；一个实物见证不自动等于一部独立佛典。"
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "id": "cbeta_xml_p5",
+      "name": "CBETA XML P5",
+      "role": "汉文佛典 TEI P5 文本与目录候选源",
+      "homepage": "https://cbeta.org/",
+      "dataUrl": "https://github.com/cbeta-org/xml-p5",
+      "licenseUrl": "https://cbeta.org/copyright",
+      "formatUrl": "https://archive2.cbeta.org/en/format/xml.php",
+      "snapshot": { "type": "git", "ref": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9", "capturedAt": "2026-08-11" },
+      "rights": { "status": "restricted_noncommercial", "summary": "默认许可与例外按 CBETA 官方版权页逐项执行；第三方类别 B 内容不得套用统一许可。" }
+    },
+    {
+      "id": "suttacentral_bilara",
+      "name": "SuttaCentral Bilara Data",
+      "role": "经文、段落标识、译文与平行关系候选源",
+      "homepage": "https://suttacentral.net/",
+      "dataUrl": "https://github.com/suttacentral/bilara-data",
+      "licenseUrl": "https://suttacentral.net/licensing",
+      "formatUrl": "https://github.com/suttacentral/bilara-data",
+      "snapshot": { "type": "git", "ref": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719", "capturedAt": "2026-08-11" },
+      "rights": { "status": "mixed_item_level", "summary": "SuttaCentral 自有材料、公共领域原文和第三方译文的权利不同，必须读取每个文件或出版物的许可记录。" }
+    },
+    {
+      "id": "bdrc_linked_data",
+      "name": "BDRC BUDA Linked Data",
+      "role": "规范实体、目录关系和跨语种书目候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/lds-pdi",
+      "licenseUrl": "https://github.com/buda-base/lds-pdi/blob/master/LICENSE",
+      "formatUrl": "https://github.com/buda-base/lds-pdi",
+      "snapshot": { "type": "git", "ref": "0cad5793279cca2516af64988a75326112587ea5", "capturedAt": "2026-08-11" },
+      "rights": { "status": "object_level_review", "summary": "API 代码许可不等于每个文本、元数据或图像对象的许可；对象权利须另行核对。" }
+    },
+    {
+      "id": "bdrc_iiif",
+      "name": "BDRC BUDA IIIF Presentation",
+      "role": "写本与印本图像清单候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/buda-iiif-presentation",
+      "licenseUrl": "https://github.com/buda-base/buda-iiif-presentation/blob/master/LICENSE",
+      "formatUrl": "https://iiif.io/api/presentation/",
+      "snapshot": { "type": "git", "ref": "3642a7ce06d66f4da694fe9973763112c850d910", "capturedAt": "2026-08-11" },
+      "rights": { "status": "object_level_review", "summary": "IIIF 服务代码可开放，不代表清单所指向的每一张图像都可再分发。" }
+    },
+    {
+      "id": "84000_progress",
+      "name": "84000 Translating the Words of the Buddha",
+      "role": "藏文甘珠尔英译进度与公开出版物核对源",
+      "homepage": "https://84000.co/",
+      "dataUrl": "https://84000.co/about/progress-impact",
+      "licenseUrl": "https://84000.co/",
+      "formatUrl": "https://84000.co/",
+      "snapshot": { "type": "web", "ref": "captured-2026-08-11", "capturedAt": "2026-08-11" },
+      "rights": { "status": "item_level_review", "summary": "网站进度可作为外部核对证据；译文出版物的具体许可与禁止改作条件须逐项遵守。" }
+    }
+  ],
+  "works": [
+    {
+      "id": "gbcr:work:prajnaparamita-hrdaya",
+      "canonicalTitle": "般若波罗蜜多心经",
+      "traditions": ["汉传佛教"],
+      "externalIds": { "cbeta": "T0251" },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0251-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "般若波罗蜜多心经",
+          "translator": "玄奘",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "xinjing",
+          "cataloged": true,
+          "fullSourceText": false,
+          "sampled": true,
+          "stableSegments": 4,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:vajracchedika-prajnaparamita",
+      "canonicalTitle": "金刚般若波罗蜜经",
+      "traditions": ["汉传佛教"],
+      "externalIds": { "cbeta": "T0235" },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0235-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "金刚般若波罗蜜经",
+          "translator": "鸠摩罗什",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "jingangjing",
+          "cataloged": true,
+          "fullSourceText": false,
+          "sampled": true,
+          "stableSegments": 4,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:dharmapada-t0210",
+      "canonicalTitle": "法句经",
+      "traditions": ["汉传佛教"],
+      "externalIds": { "cbeta": "T0210" },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0210-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "法句经",
+          "translator": "维祇难等",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "fajujing",
+          "cataloged": true,
+          "fullSourceText": false,
+          "sampled": true,
+          "stableSegments": 3,
+          "rightsReviewed": true,
+          "qualityStatus": "catalog_sample"
+        }
+      ]
+    }
+  ]
+}

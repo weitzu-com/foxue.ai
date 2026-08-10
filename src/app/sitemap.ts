@@ -3,7 +3,7 @@ import { sutras } from "@/data/sutras";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
-  const staticRoutes = ["", "/wenjing", "/jingzang", "/yuanze", "/touming"];
+  const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/yuanze", "/touming"];
   return [
     ...staticRoutes.map((path) => ({
       url: `${baseUrl}${path}`,

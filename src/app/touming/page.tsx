@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, CircleDashed, Clock3, ExternalLink, FileWarning } from "lucide-react";
 import { sutras } from "@/data/sutras";
+import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 
 export const metadata: Metadata = {
   title: "透明度",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const systems = [
   { name: "经典阅读", status: "可用", detail: "3 部样本 · 稳定段落链接", icon: Check },
   { name: "引证式问经", status: "原型", detail: "确定性规则 · 未启用 LLM", icon: Clock3 },
+  { name: "覆盖登记册", status: "公开草案", detail: "GBCR v0.1 · 分母尚待审计", icon: Check },
   { name: "全局检索", status: "筹建中", detail: "等待语料权利与索引审计", icon: CircleDashed },
   { name: "用户账户", status: "未开放", detail: "先完成隐私与数据导出设计", icon: CircleDashed },
 ];
@@ -38,6 +40,7 @@ const sources = [
 
 export default function TransparencyPage() {
   const segmentCount = sutras.reduce((sum, item) => sum + item.segments.length, 0);
+  const coverage = buildCoverageSnapshot();
 
   return (
     <div className="transparency-page page-shell">
@@ -56,7 +59,7 @@ export default function TransparencyPage() {
         <div><span>登记经典</span><strong>{sutras.length}</strong><small>部样本</small></div>
         <div><span>稳定段落</span><strong>{segmentCount}</strong><small>个</small></div>
         <div><span>生成式回答</span><strong>0</strong><small>尚未启用</small></div>
-        <div><span>99% 分母</span><strong>—</strong><small>登记册筹建中</small></div>
+        <div><span>99% 分母</span><strong>—</strong><small>GBCR v0.1 · 未知</small></div>
       </section>
 
       <section className="transparency-section">
@@ -98,6 +101,23 @@ export default function TransparencyPage() {
         </div>
       </section>
 
+      <section className="transparency-section">
+        <div className="transparency-section__heading">
+          <p className="eyebrow">COVERAGE REGISTRY</p>
+          <h2>可复算覆盖</h2>
+        </div>
+        <div className="coverage-summary-inline">
+          <p>
+            当前登记 {coverage.localHoldings.registeredWorks} 部作品、{coverage.localHoldings.stableSegments} 个稳定样本段落，
+            完整原文为 {coverage.localHoldings.fullSourceTextWorks} 部。全球分母仍未知，因此不会发布总体百分比。
+          </p>
+          <Link className="button-secondary" href="/fugai">
+            打开全球佛典覆盖登记册 <ArrowRight aria-hidden="true" size={16} />
+          </Link>
+          <a className="text-link" href="/api/v1/corpus/coverage">机器可读 API</a>
+        </div>
+      </section>
+
       <section className="known-limits">
         <FileWarning aria-hidden="true" />
         <div>
@@ -106,7 +126,7 @@ export default function TransparencyPage() {
           <ul>
             <li>经藏仅有 3 部短样本，不能支持广泛的佛学问答。</li>
             <li>段落定位需要在正式导入 CBETA 数据时重新自动核对。</li>
-            <li>尚未建立全球佛典覆盖登记册，因此不会发布覆盖百分比。</li>
+            <li>覆盖登记册已发布 v0.1 草案，但全球目录分母尚未完成独立审计。</li>
             <li>尚未完成法师、学者、译者和不同传统用户的外部评审。</li>
             <li>当前问经回答为代码内人工编写示例，不是实时 AI 生成。</li>
           </ul>

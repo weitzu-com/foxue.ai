@@ -5,6 +5,7 @@ import { BrandMark } from "@/components/brand-mark";
 const navigation = [
   { href: "/wenjing", label: "问经" },
   { href: "/jingzang", label: "经藏" },
+  { href: "/fugai", label: "覆盖" },
   { href: "/yuanze", label: "原则" },
   { href: "/touming", label: "透明" },
 ];

@@ -1,6 +1,6 @@
 {
   "name": "foxue-ai",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "packageManager": "pnpm@11.16.0",
   "engines": {
@@ -12,8 +12,9 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
+    "verify:corpus": "node scripts/verify-corpus-registry.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:corpus && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

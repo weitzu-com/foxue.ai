@@ -5,12 +5,12 @@ export function GET() {
     {
       status: "ok",
       service: "foxue.ai",
-      version: "0.1.0",
+      version: "0.2.0",
       capabilities: {
         reading: "available",
         citedAnswers: "prototype",
         generativeAI: "disabled",
-        corpusRegistry: "building",
+        corpusRegistry: "v0.1.0-public-draft",
       },
       timestamp: new Date().toISOString(),
     },

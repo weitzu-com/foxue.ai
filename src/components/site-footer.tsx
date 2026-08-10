@@ -15,6 +15,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <Link href="/jingzang">浏览经藏</Link>
+          <Link href="/fugai">佛典覆盖</Link>
           <Link href="/yuanze">方法与边界</Link>
           <Link href="/touming">数据透明</Link>
           <a
@@ -28,7 +29,7 @@ export function SiteFooter() {
       </div>
       <div className="page-shell footer-bottom">
         <span>代码 Apache-2.0 · 佛典与译文遵循各自来源许可</span>
-        <span>当前版本：可信原型 0.1</span>
+        <span>当前版本：可信原型 0.2 · GBCR 0.1</span>
       </div>
     </footer>
   );
