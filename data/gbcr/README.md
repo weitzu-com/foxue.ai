@@ -1,6 +1,6 @@
 # 全球佛典覆盖登记册（GBCR）
 
-本目录是 foxue.ai “收录 99% 佛经”承诺的可审计基础。`registry-v0.1.0.json` 是当前单一真相来源，网页与 API 都由它生成。
+本目录是 foxue.ai “收录 99% 佛经”承诺的可审计基础。`registry-v0.1.0.json` 是作品登记单一真相来源；`source-snapshots-v0.1.0.json` 保存固定上游提交的候选记录库存。网页与 API 都由这些受控文件生成。
 
 ## 统计纪律
 
@@ -19,6 +19,14 @@ pnpm verify:corpus
 ```
 
 校验器会检查结构、唯一标识、来源快照、统计纪律和 SHA-256 校验和。版本发布时不得覆盖旧文件，应新增版本并保留历史。
+
+联网复算 CBETA 与 SuttaCentral 固定提交的候选记录：
+
+```bash
+pnpm verify:upstream-snapshots
+```
+
+该检查验证固定 Git tree、提取规则和候选路径摘要，但不会把文件或章节记录自动升级为独立作品。
 
 ## 权利边界
 

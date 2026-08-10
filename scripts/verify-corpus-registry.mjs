@@ -4,9 +4,12 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const registryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.1.0.json");
 const checksumPath = resolve(root, "data/gbcr/checksums.sha256");
 const raw = await readFile(registryPath, "utf8");
+const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const registry = JSON.parse(raw);
+const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
 const errors = [];
 
 const requireValue = (condition, message) => {
@@ -54,11 +57,29 @@ for (const source of registry.sourceSnapshots) {
   requireValue(source.rights?.status && source.rights?.summary, `${source.id} 缺少权利审核状态`);
 }
 
-const checksumLine = (await readFile(checksumPath, "utf8")).trim();
-const [expectedHash, expectedFile] = checksumLine.split(/\s+/);
-const actualHash = createHash("sha256").update(raw).digest("hex");
-requireValue(expectedFile === "registry-v0.1.0.json", "校验和文件名不匹配");
-requireValue(expectedHash === actualHash, "登记册 SHA-256 校验和不匹配；修改后请更新 checksums.sha256");
+requireValue(sourceSnapshots.denominatorReady === false, "候选来源记录尚未去重，不得标为分母就绪");
+requireValue(sourceSnapshots.sources?.length === 2, "首版来源候选快照必须包含 CBETA 与 SuttaCentral");
+for (const snapshot of sourceSnapshots.sources ?? []) {
+  const registrySource = registry.sourceSnapshots.find((item) => item.id === snapshot.id);
+  requireValue(registrySource?.snapshot.ref === snapshot.commit, `${snapshot.id} 的来源提交与登记册不一致`);
+  requireValue(snapshot.treeTruncated === false, `${snapshot.id} 的 Git tree 快照被截断`);
+  requireValue(snapshot.candidateRecordCount > 0, `${snapshot.id} 没有候选记录`);
+  requireValue(/^[a-f0-9]{64}$/.test(snapshot.candidatePathSha256), `${snapshot.id} 缺少候选路径摘要`);
+}
+
+const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
+const checksums = new Map(checksumLines.map((line) => {
+  const [hash, file] = line.trim().split(/\s+/);
+  return [file, hash];
+}));
+const controlledFiles = [
+  ["registry-v0.1.0.json", raw],
+  ["source-snapshots-v0.1.0.json", sourceSnapshotsRaw],
+];
+for (const [file, content] of controlledFiles) {
+  const actualHash = createHash("sha256").update(content).digest("hex");
+  requireValue(checksums.get(file) === actualHash, `${file} 的 SHA-256 校验和不匹配`);
+}
 
 if (errors.length > 0) {
   console.error(errors.map((item) => `- ${item}`).join("\n"));
@@ -67,4 +88,5 @@ if (errors.length > 0) {
 
 const expressions = registry.works.flatMap((work) => work.expressions);
 const segmentCount = expressions.reduce((sum, item) => sum + item.stableSegments, 0);
-console.log(`GBCR ${registry.registry.version} 已通过校验：${registry.works.length} 部登记作品，${segmentCount} 个稳定样本段落。`);
+const candidateCount = sourceSnapshots.sources.reduce((sum, source) => sum + source.candidateRecordCount, 0);
+console.log(`GBCR ${registry.registry.version} 已通过校验：${registry.works.length} 部登记作品，${segmentCount} 个稳定样本段落，${candidateCount} 条上游候选记录。`);

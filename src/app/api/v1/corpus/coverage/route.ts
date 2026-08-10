@@ -10,6 +10,7 @@ export function GET() {
         human: "https://foxue.ai/fugai",
         registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v0.1.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
+        sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v0.1.0.json",
       },
       sourceSnapshots: corpusRegistry.sourceSnapshots.map((source) => ({
         id: source.id,

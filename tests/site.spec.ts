@@ -43,6 +43,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByRole("heading", { level: 1, name: /先把世界的佛典/ })).toBeVisible();
   await expect(page.getByText("尚不可声明")).toBeVisible();
   await expect(page.getByText("“—” 表示尚未测量，不表示 0。")).toBeVisible();
+  await expect(page.getByText("5,005")).toBeVisible();
+  await expect(page.getByText("7,584")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -50,6 +52,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.claim.publishable).toBe(false);
   expect(coverage.globalDenominators.catalogWorks).toBeNull();
   expect(coverage.globalPercentages.catalog).toBeNull();
+  expect(coverage.candidateInventory).toMatchObject({
+    denominatorReady: false,
+    totalSourceRecords: 12589,
+  });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3,
     fullSourceTextWorks: 0,

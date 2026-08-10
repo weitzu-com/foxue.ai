@@ -41,7 +41,7 @@
       "traditions": ["汉传佛教"],
       "languages": ["lzh-Hant", "zh-Hant"],
       "primarySources": ["cbeta_xml_p5"],
-      "denominatorStatus": "catalog_snapshot_pending",
+      "denominatorStatus": "candidate_snapshot_ready",
       "denominatorWorks": null,
       "deduplicationNote": "同一作品的异译、别本与不同藏经见证须分离为 Work、Expression 与 Witness，不能按文件数直接求和。"
     },
@@ -51,7 +51,7 @@
       "traditions": ["上座部佛教", "跨传承早期佛教文本"],
       "languages": ["pi", "lzh", "sa", "pra", "bo", "multi"],
       "primarySources": ["suttacentral_bilara"],
-      "denominatorStatus": "catalog_snapshot_pending",
+      "denominatorStatus": "candidate_snapshot_ready",
       "denominatorWorks": null,
       "deduplicationNote": "平行经、经组、分卷和译本不直接等同于独立作品；采用 SuttaCentral 标识并保留平行关系。"
     },

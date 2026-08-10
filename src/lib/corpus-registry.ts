@@ -1,8 +1,10 @@
 import registryDocument from "../../data/gbcr/registry-v0.1.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.1.0.json";
 
 type Expression = (typeof registryDocument.works)[number]["expressions"][number];
 
 export const corpusRegistry = registryDocument;
+export const sourceSnapshotInventory = sourceSnapshotsDocument;
 
 export function buildCoverageSnapshot() {
   const expressions = corpusRegistry.works.flatMap((work) => work.expressions);
@@ -44,6 +46,20 @@ export function buildCoverageSnapshot() {
       translation: null,
       rightsPublishable: null,
       qualityApproved: null,
+    },
+    candidateInventory: {
+      denominatorReady: sourceSnapshotInventory.denominatorReady,
+      totalSourceRecords: sourceSnapshotInventory.sources.reduce(
+        (sum, source) => sum + source.candidateRecordCount,
+        0,
+      ),
+      sources: sourceSnapshotInventory.sources.map((source) => ({
+        id: source.id,
+        candidateRecordCount: source.candidateRecordCount,
+        recordUnit: source.recordUnit,
+        candidatePathSha256: source.candidatePathSha256,
+        denominatorCaveat: source.denominatorCaveat,
+      })),
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({
       id: family.id,

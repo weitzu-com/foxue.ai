@@ -10,7 +10,11 @@ import {
   Fingerprint,
   Scale,
 } from "lucide-react";
-import { buildCoverageSnapshot, corpusRegistry } from "@/lib/corpus-registry";
+import {
+  buildCoverageSnapshot,
+  corpusRegistry,
+  sourceSnapshotInventory,
+} from "@/lib/corpus-registry";
 
 export const metadata: Metadata = {
   title: "佛典覆盖登记册",
@@ -18,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 const statusLabels: Record<string, string> = {
+  candidate_snapshot_ready: "候选快照已冻结",
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
   federated_sources_pending: "联邦来源待建",
@@ -66,6 +71,24 @@ export default function CoveragePage() {
           <div><dt>完整原文</dt><dd>{snapshot.localHoldings.fullSourceTextWorks}<small>部</small></dd></div>
           <div><dt>已核验样本</dt><dd>{snapshot.localHoldings.qualityVerifiedSampleWorks}<small>部</small></dd></div>
         </dl>
+      </section>
+
+      <section className="candidate-inventory page-shell" aria-labelledby="candidate-title">
+        <div>
+          <p className="eyebrow">FIRST SOURCE SNAPSHOTS</p>
+          <h2 id="candidate-title">已经数清来源记录，<br />还没有数清独立作品。</h2>
+          <p>{sourceSnapshotInventory.warning}</p>
+        </div>
+        <div className="candidate-cards">
+          {sourceSnapshotInventory.sources.map((source) => (
+            <article key={source.id}>
+              <span>{source.id === "cbeta_xml_p5" ? "CBETA" : "SUTTACENTRAL"}</span>
+              <strong>{source.candidateRecordCount.toLocaleString("zh-CN")}</strong>
+              <p>条候选来源记录</p>
+              <small>{source.denominatorCaveat}</small>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="coverage-method">

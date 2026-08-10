@@ -1383,6 +1383,16 @@ a {
 .coverage-numbers dd { margin: 28px 0 0; color: #f1b5a8; font-family: var(--font-serif), serif; font-size: 3.4rem; line-height: 1; }
 .coverage-numbers small { margin-left: 8px; color: #aeb8af; font-family: var(--font-sans), sans-serif; font-size: 0.65rem; }
 
+.candidate-inventory { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 75px; align-items: start; padding-top: 110px; }
+.candidate-inventory h2 { margin: 0; font-family: var(--font-serif), serif; font-size: clamp(2.25rem, 3.8vw, 3.5rem); font-weight: 500; line-height: 1.35; }
+.candidate-inventory > div:first-child > p:last-child { max-width: 480px; margin: 25px 0 0; color: var(--warning); font-size: 0.74rem; line-height: 1.85; }
+.candidate-cards { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--line); }
+.candidate-cards article { min-height: 330px; display: flex; flex-direction: column; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgb(255 253 247 / 32%); }
+.candidate-cards article > span { color: var(--cinnabar); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; }
+.candidate-cards strong { margin-top: 42px; color: var(--ink); font-family: var(--font-serif), serif; font-size: clamp(3.2rem, 5.5vw, 5.2rem); font-weight: 500; letter-spacing: -0.06em; line-height: 1; }
+.candidate-cards p { margin: 9px 0 0; color: var(--muted); font-size: 0.72rem; }
+.candidate-cards small { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.65rem; line-height: 1.75; }
+
 .coverage-method { margin-top: 110px; padding: 105px 0; background: var(--paper); border-block: 1px solid var(--line); }
 .coverage-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 45px; }
 .coverage-section-heading h2 { margin: 0; font-family: var(--font-serif), serif; font-size: clamp(2.35rem, 4.5vw, 4.1rem); font-weight: 500; letter-spacing: -0.045em; }
@@ -1496,6 +1506,7 @@ a {
   .coverage-hero { grid-template-columns: 1fr; gap: 45px; }
   .coverage-claim { min-height: 270px; }
   .coverage-ledger { grid-template-columns: 1fr; padding: 45px; }
+  .candidate-inventory { grid-template-columns: 1fr; gap: 42px; }
   .dimension-grid { grid-template-columns: repeat(2, 1fr); }
   .snapshot-grid { grid-template-columns: 1fr; gap: 48px; }
   .snapshot-grid > div:first-child { position: static; }
@@ -1569,6 +1580,9 @@ a {
   .coverage-numbers { grid-template-columns: 1fr 1fr; }
   .coverage-numbers > div { min-height: 125px; padding: 16px; }
   .coverage-numbers dd { font-size: 2.7rem; }
+  .candidate-inventory { padding-top: 80px; }
+  .candidate-cards { grid-template-columns: 1fr; }
+  .candidate-cards article { min-height: 270px; }
   .coverage-method { margin-top: 80px; padding-block: 78px; }
   .coverage-section-heading { align-items: start; }
   .coverage-section-heading > svg { display: none; }

@@ -35,6 +35,12 @@ pnpm verify
 pnpm verify:corpus
 ```
 
+联网复算固定上游提交的目录候选快照：
+
+```bash
+pnpm verify:upstream-snapshots
+```
+
 ## 项目文档
 
 完整产品、语料、AI、治理和百年保存方案见：
