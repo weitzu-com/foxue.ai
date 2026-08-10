@@ -2,6 +2,9 @@ export type SutraSegment = {
   id: string;
   text: string;
   note?: string;
+  legacyIds?: string[];
+  sourceLine?: string;
+  page?: string;
 };
 
 export type Sutra = {
@@ -16,7 +19,7 @@ export type Sutra = {
   sourceName: string;
   sourceUrl: string;
   sourceLicense: string;
-  status: "已校对样本" | "目录样本";
+  status: "完整原文 · 行段试行" | "目录样本";
   segments: SutraSegment[];
 };
 
@@ -34,25 +37,29 @@ export const sutras: Sutra[] = [
     sourceName: "CBETA Online",
     sourceUrl: "https://cbetaonline.dila.edu.tw/zh/T0251_001",
     sourceLicense: "CBETA 授权条款；古典原文",
-    status: "已校对样本",
+    status: "完整原文 · 行段试行",
     segments: [
       {
-        id: "T0251.001.0848c08",
+        id: "T0251.001.0848c06",
+        legacyIds: ["T0251.001.0848c08"],
         text: "观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。",
         note: "“五蕴”指色、受、想、行、识；本段把观照、空与离苦连在一起。",
       },
       {
-        id: "T0251.001.0848c09",
+        id: "T0251.001.0848c07",
+        legacyIds: ["T0251.001.0848c09"],
         text: "舍利子！色不异空，空不异色；色即是空，空即是色。",
         note: "此处不是否定经验世界，而是指出诸法不具独立、恒常的自性。",
       },
       {
-        id: "T0251.001.0848c10",
+        id: "T0251.001.0848c08",
+        legacyIds: ["T0251.001.0848c10"],
         text: "受、想、行、识，亦复如是。",
         note: "空义同样适用于其余四蕴。",
       },
       {
-        id: "T0251.001.0848c11",
+        id: "T0251.001.0848c09",
+        legacyIds: ["T0251.001.0848c11"],
         text: "舍利子！是诸法空相：不生不灭，不垢不净，不增不减。",
       },
     ],
@@ -70,24 +77,28 @@ export const sutras: Sutra[] = [
     sourceName: "CBETA Online",
     sourceUrl: "https://cbetaonline.dila.edu.tw/zh/T0235_001",
     sourceLicense: "CBETA 授权条款；古典原文",
-    status: "已校对样本",
+    status: "完整原文 · 行段试行",
     segments: [
       {
-        id: "T0235.001.0752b06",
+        id: "T0235.001.0749a24",
+        legacyIds: ["T0235.001.0752b06"],
         text: "凡所有相，皆是虚妄；若见诸相非相，则见如来。",
         note: "“非相”不是消灭现象，而是不把现象误认作固定自性。",
       },
       {
-        id: "T0235.001.0752c17",
+        id: "T0235.001.0749c22",
+        legacyIds: ["T0235.001.0752c17"],
         text: "应无所住而生其心。",
         note: "发心与行动并未被取消；经文强调行动时不住著于对象和自我。",
       },
       {
-        id: "T0235.001.0752c25",
+        id: "T0235.001.0750a19",
+        legacyIds: ["T0235.001.0752c25"],
         text: "如来说世界，非世界，是名世界。",
       },
       {
-        id: "T0235.001.0752c28",
+        id: "T0235.001.0752b28",
+        legacyIds: ["T0235.001.0752c28"],
         text: "一切有为法，如梦幻泡影，如露亦如电，应作如是观。",
       },
     ],

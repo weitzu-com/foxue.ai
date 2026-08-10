@@ -1245,12 +1245,17 @@ a {
 .sutra-paper__notice svg { flex: 0 0 auto; width: 17px; color: var(--cinnabar); }
 .sutra-paper__notice p { margin: 0; }
 .sutra-segment { display: grid; grid-template-columns: 50px 1fr; gap: 18px; padding: 37px 40px 37px 25px; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
+.sutra-segment { position: relative; }
 .sutra-segment:target { background: rgb(159 57 43 / 4%); box-shadow: inset 3px 0 var(--cinnabar); }
+.legacy-anchor { position: absolute; top: -110px; left: 0; width: 1px; height: 1px; pointer-events: none; }
 .segment-number { padding-top: 7px; color: var(--cinnabar); font-family: var(--font-serif), serif; font-size: 0.72rem; }
 .segment-text { margin: 0; font-family: var(--font-serif), serif; font-size: clamp(1.25rem, 2.2vw, 1.65rem); line-height: 2.05; letter-spacing: 0.035em; }
 .segment-note { display: grid; grid-template-columns: 38px 1fr; gap: 10px; margin: 20px 0 0; color: var(--muted); font-size: 0.74rem; line-height: 1.8; }
 .segment-note span { color: var(--cinnabar); font-weight: 700; }
-.segment-anchor { display: inline-flex; align-items: center; gap: 5px; margin-top: 17px; color: #8a8b82; font-size: 0.62rem; }
+.segment-anchor { display: inline-flex; align-items: center; gap: 5px; margin-top: 17px; color: var(--muted); font-size: 0.62rem; }
+.sutra-paper--complete .sutra-segment { padding-block: 25px; }
+.sutra-paper--complete .segment-number { font-size: 0.64rem; font-variant-numeric: tabular-nums; }
+.sutra-paper--complete .segment-text { font-size: clamp(1.05rem, 1.8vw, 1.35rem); line-height: 1.95; }
 .reader-meta dl { margin: 20px 0 0; }
 .reader-meta dl div { padding: 10px 0; border-bottom: 1px solid var(--line); }
 .reader-meta dt { color: var(--cinnabar); font-size: 0.62rem; font-weight: 700; }

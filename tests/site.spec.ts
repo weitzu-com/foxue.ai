@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const criticalRoutes = ["/", "/wenjing", "/jingzang", "/fugai", "/touming"];
+const criticalRoutes = ["/", "/wenjing", "/jingzang", "/jingzang/jingangjing", "/fugai", "/touming"];
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   await page.goto("/");
@@ -59,8 +59,18 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3,
     fullSourceTextWorks: 2,
-    stableSegments: 11,
+    stableSegments: 415,
   });
+});
+
+test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
+  await page.goto("/jingzang/jingangjing#T0235.001.0749c22");
+  await expect(page.getByText("完整原文 · 行段试行").first()).toBeVisible();
+  await expect(page.locator('[id="T0235.001.0749c22"]')).toContainText("應無所");
+  await expect(page.getByText("340 个稳定行段 · 完整 TEI")).toBeVisible();
+
+  await page.goto("/jingzang/jingangjing#T0235.001.0752c17");
+  await expect(page.locator('[id="T0235.001.0752c17"]')).toHaveCount(1);
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

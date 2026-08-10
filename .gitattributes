@@ -1,1 +1,2 @@
+# CBETA TEI 母版必须按原始字节保存，禁止 Git 自动转换换行符。
 data/corpus/cbeta/*.xml -text

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, BookMarked, CircleCheck, Link2 } from "lucide-react";
 import { getSutra, sutras } from "@/data/sutras";
+import { getSutraReading } from "@/lib/corpus-reading";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -24,6 +25,7 @@ export default async function SutraPage({ params }: PageProps) {
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
+  const reading = await getSutraReading(sutra);
 
   return (
     <div className="reader-page page-shell">
@@ -50,11 +52,11 @@ export default async function SutraPage({ params }: PageProps) {
         <aside className="reader-toc">
           <p className="eyebrow">本页段落</p>
           <ol>
-            {sutra.segments.map((segment, index) => (
-              <li key={segment.id}>
-                <a href={`#${segment.id}`}>
+            {reading.navigation.map((item, index) => (
+              <li key={item.id}>
+                <a href={`#${item.id}`}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  {segment.id}
+                  {reading.complete ? `大正藏 ${item.label}` : item.id}
                 </a>
               </li>
             ))}
@@ -64,14 +66,23 @@ export default async function SutraPage({ params }: PageProps) {
           </a>
         </aside>
 
-        <article className="sutra-paper">
+        <article className={`sutra-paper${reading.complete ? " sutra-paper--complete" : ""}`}>
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
-            <p><strong>阅读样本</strong>　当前仅展示用于界面和引证验证的段落，不代表全经已收录。</p>
+            {reading.complete ? (
+              <p><strong>完整原文 · 行段试行</strong>　按 CBETA 大正藏物理行号展示，异文与注释未混入正文；原始 TEI、权利头部与哈希完整保留。</p>
+            ) : (
+              <p><strong>阅读样本</strong>　当前仅展示用于界面和引证验证的段落，不代表全经已收录。</p>
+            )}
           </div>
-          {sutra.segments.map((segment, index) => (
+          {reading.segments.map((segment, index) => (
             <section className="sutra-segment" id={segment.id} key={segment.id}>
-              <div className="segment-number">{String(index + 1).padStart(2, "0")}</div>
+              {segment.legacyIds?.map((legacyId) => (
+                <span className="legacy-anchor" id={legacyId} aria-hidden="true" key={legacyId} />
+              ))}
+              <div className="segment-number">
+                {reading.complete ? segment.sourceLine : String(index + 1).padStart(2, "0")}
+              </div>
               <div>
                 <p className="segment-text">{segment.text}</p>
                 {segment.note && <p className="segment-note"><span>边注</span>{segment.note}</p>}
@@ -91,6 +102,7 @@ export default async function SutraPage({ params }: PageProps) {
             <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
+            <div><dt>收录</dt><dd>{reading.complete ? `${reading.segments.length} 个稳定行段 · 完整 TEI` : `${reading.segments.length} 个阅读样本`}</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

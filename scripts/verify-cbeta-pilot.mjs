@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFile, stat } from "node:fs/promises";
 import { resolve } from "node:path";
+import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
 const manifest = JSON.parse(
@@ -22,6 +23,10 @@ requireValue(manifest.rightsDecision?.commercialUse === "prohibited_without_addi
 const expectedSnippets = {
   T0251: "照見五蘊皆空度一切苦厄",
   T0235: "應無所住而生其心",
+};
+const expectedReadingViews = {
+  T0251: { segments: 72, pages: 3, anchor: "T0251.001.0848c06" },
+  T0235: { segments: 340, pages: 13, anchor: "T0235.001.0749c22" },
 };
 
 for (const file of manifest.files) {
@@ -45,6 +50,17 @@ for (const file of manifest.files) {
   requireValue(text.includes("<text><body>"), `${file.id} 缺少完整正文结构`);
   requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${file.id} XML 末尾结构不完整`);
   requireValue(normalizedText.includes(expectedSnippets[file.id]), `${file.id} 未找到已发布样本的核对短语`);
+
+  const readingLines = parseCbetaReadingLines(text, { canonId: file.id });
+  const readingView = expectedReadingViews[file.id];
+  requireValue(readingLines.length === readingView.segments, `${file.id} 稳定行段数量漂移`);
+  requireValue(buildPageNavigation(readingLines).length === readingView.pages, `${file.id} 页码导航数量漂移`);
+  requireValue(readingLines.some((line) => line.id === readingView.anchor), `${file.id} 关键母版锚点缺失`);
+
+  const registryExpression = registry.works
+    .flatMap((work) => work.expressions)
+    .find((expression) => expression.sourceTextAsset?.path === file.localPath);
+  requireValue(registryExpression?.stableSegments === readingLines.length, `${file.id} 阅读行段数与 GBCR 不一致`);
 }
 
 if (errors.length > 0) {

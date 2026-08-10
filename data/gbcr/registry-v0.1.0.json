@@ -156,7 +156,7 @@
             "rightsStatus": "restricted_noncommercial"
           },
           "sampled": true,
-          "stableSegments": 4,
+          "stableSegments": 72,
           "rightsReviewed": true,
           "qualityStatus": "verified_sample"
         }
@@ -184,7 +184,7 @@
             "rightsStatus": "restricted_noncommercial"
           },
           "sampled": true,
-          "stableSegments": 4,
+          "stableSegments": 340,
           "rightsReviewed": true,
           "qualityStatus": "verified_sample"
         }
