@@ -41,12 +41,19 @@ pnpm verify:corpus
 pnpm verify:upstream-snapshots
 ```
 
+生成可离线恢复的源码、Git 历史与完整性清单：
+
+```bash
+pnpm preserve
+```
+
 ## 项目文档
 
 完整产品、语料、AI、治理和百年保存方案见：
 
 - `docs/foxue.ai_建站方案_v1.0_20260811.md`
 - `data/gbcr/README.md` — 99% 覆盖统计纪律、版本与完整性规则
+- `docs/RECOVERY.md` — 灾难恢复、3-2-1 保存与百年交接演练
 
 机器可读覆盖快照：`GET /api/v1/corpus/coverage`
 

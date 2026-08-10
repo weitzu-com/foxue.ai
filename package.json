@@ -15,6 +15,7 @@
     "snapshot:upstream": "node scripts/snapshot-upstream-catalogs.mjs",
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
+    "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
     "verify": "pnpm verify:corpus && pnpm lint && pnpm typecheck && pnpm build"
   },
