@@ -104,7 +104,12 @@ export function buildPageNavigation(segments) {
   for (const segment of segments) {
     const key = `${segment.juan}:${segment.page}`;
     if (!pages.has(key)) {
-      pages.set(key, { id: segment.id, label: segment.page, juan: segment.juan });
+      pages.set(key, {
+        key: `${segment.juan}-${segment.page}`,
+        id: segment.id,
+        label: segment.page,
+        juan: segment.juan,
+      });
     }
   }
   return [...pages.values()];

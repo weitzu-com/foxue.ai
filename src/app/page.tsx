@@ -114,7 +114,7 @@ export default function Home() {
                   <strong>《般若波罗蜜多心经》</strong>
                   <span>唐·玄奘译 · T0251</span>
                 </div>
-                <Link href="/jingzang/xinjing#T0251.001.0848c06">
+                <Link href="/jingzang/xinjing/001-0848c#T0251.001.0848c06">
                   打开原文 <ArrowRight aria-hidden="true" size={15} />
                 </Link>
               </div>
@@ -187,7 +187,7 @@ export default function Home() {
             <div className="inline-evidence">
               <span className="inline-evidence__marker">原典 01</span>
               <blockquote>“应无所住而生其心。”</blockquote>
-              <Link href="/jingzang/jingangjing#T0235.001.0749c22">
+              <Link href="/jingzang/jingangjing/001-0749c#T0235.001.0749c22">
                 T0235.001.0749c22 <ArrowRight aria-hidden="true" size={14} />
               </Link>
             </div>

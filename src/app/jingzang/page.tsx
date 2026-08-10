@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpenText, Database, Search } from "lucide-react";
 import { corpusPrinciples, sutras } from "@/data/sutras";
+import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 
 export const metadata: Metadata = {
   title: "经藏",
-  description: "浏览已登记佛典样本、来源、版本、经号与稳定段落。",
+  description: "浏览已登记佛典全文、来源、版本、经号与稳定行段。",
 };
 
 export default function LibraryPage() {
+  const snapshot = buildCoverageSnapshot();
   return (
     <div className="library-page">
       <header className="subpage-hero">
@@ -19,12 +21,12 @@ export default function LibraryPage() {
           </div>
           <div className="subpage-hero__aside">
             <p>
-              这里展示的是经过来源登记的首批样本，不把目录条目冒充全文，
+              这里展示经过来源登记与哈希核验的首批全文，不把目录条目冒充经文，
               也不把机器识别文本冒充校订本。
             </p>
             <div className="subpage-stats">
-              <span><strong>{sutras.length}</strong> 部样本</span>
-              <span><strong>{sutras.reduce((sum, item) => sum + item.segments.length, 0)}</strong> 个稳定段落</span>
+              <span><strong>{snapshot.localHoldings.fullSourceTextWorks}</strong> 部完整原文</span>
+              <span><strong>{snapshot.localHoldings.stableSegments}</strong> 个稳定行段</span>
             </div>
           </div>
         </div>

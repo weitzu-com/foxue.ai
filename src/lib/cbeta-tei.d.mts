@@ -13,4 +13,4 @@ export function parseCbetaReadingLines(
 
 export function buildPageNavigation(
   segments: CbetaReadingLine[],
-): Array<{ id: string; label: string; juan: string }>;
+): Array<{ key: string; id: string; label: string; juan: string }>;

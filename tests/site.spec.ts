@@ -1,7 +1,15 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const criticalRoutes = ["/", "/wenjing", "/jingzang", "/jingzang/jingangjing", "/jingzang/fajujing", "/fugai", "/touming"];
+const criticalRoutes = [
+  "/",
+  "/wenjing",
+  "/jingzang",
+  "/jingzang/fajujing",
+  "/jingzang/fajujing/001-0559a",
+  "/fugai",
+  "/touming",
+];
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   await page.goto("/");
@@ -25,7 +33,9 @@ test("问经结果同时展示结论、范围和原典证据", async ({ page }) 
   await expect(page.getByRole("heading", { name: /“空”不是虚无/ })).toBeVisible();
   await expect(page.getByText("范围与提醒")).toBeVisible();
   await expect(page.getByRole("heading", { name: "证据", exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: /打开心经原文/ }).first()).toBeVisible();
+  const sourceLink = page.getByRole("link", { name: /打开心经原文/ }).first();
+  await expect(sourceLink).toBeVisible();
+  await expect(sourceLink).toHaveAttribute("href", /\/jingzang\/xinjing\/001-0848c#/);
   expect(new URL(page.url()).search).toBe("");
   expect(page.url()).not.toContain(encodeURIComponent(question));
 });
@@ -65,19 +75,51 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
 
 test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await page.goto("/jingzang/jingangjing#T0235.001.0749c22");
-  await expect(page.getByText("完整原文 · 行段试行").first()).toBeVisible();
+  await page.waitForURL(/\/jingzang\/jingangjing\/001-0749c#T0235\.001\.0749c22$/);
+  await page.waitForLoadState("networkidle");
+  await expect(page.getByText("完整原文 · 分页阅读").first()).toBeVisible();
   await expect(page.locator('[id="T0235.001.0749c22"]')).toContainText("應無所");
-  await expect(page.getByText("340 个稳定行段 · 完整 TEI")).toBeVisible();
+  await expect(page.getByText(/全经 340 稳定行段/)).toBeVisible();
 
   await page.goto("/jingzang/jingangjing#T0235.001.0752c17");
+  await page.waitForURL(/\/jingzang\/jingangjing\/001-0749c#T0235\.001\.0752c17$/);
+  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0235.001.0752c17"]')).toHaveCount(1);
 
   await page.goto("/jingzang/fajujing#T0210.002.0567a03");
+  await page.waitForURL(/\/jingzang\/fajujing\/002-0567a#T0210\.002\.0567a03$/);
+  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0210.002.0567a03"]')).toContainText("法句經卷下");
-  await expect(page.getByText("1400 个稳定行段 · 完整 TEI")).toBeVisible();
+  await expect(page.getByText(/全经 1400 稳定行段/)).toBeVisible();
 
   await page.goto("/jingzang/fajujing#T0210.004.0562a16");
+  await page.waitForURL(/\/jingzang\/fajujing\/001-0562a#T0210\.004\.0562a16$/);
+  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
+});
+
+test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, request }) => {
+  await page.goto("/jingzang/fajujing/001-0559a");
+  const visibleSegments = page.locator(".sutra-segment");
+  await expect(visibleSegments.first()).toBeVisible();
+  expect(await visibleSegments.count()).toBeLessThan(40);
+  await expect(page.getByRole("link", { name: /下一版页/ }).first()).toBeVisible();
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+
+  const landing = await request.get("/jingzang/fajujing");
+  const folio = await request.get("/jingzang/fajujing/001-0559a");
+  expect(landing.ok()).toBeTruthy();
+  expect(folio.ok()).toBeTruthy();
+  expect((await landing.body()).byteLength).toBeLessThan(300_000);
+  expect((await folio.body()).byteLength).toBeLessThan(300_000);
+
+  const missing = await request.get("/jingzang/fajujing/999-9999z");
+  expect(missing.status()).toBe(404);
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/fajujing/002-0567a");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

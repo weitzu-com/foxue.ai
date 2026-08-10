@@ -1,4 +1,5 @@
 import { sutras } from "@/data/sutras";
+import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
   label: string;
@@ -30,7 +31,7 @@ function evidenceFor(slug: string, segmentIndex: number, relation: "直接" | "�
   return {
     label: sutra.alternateTitle,
     quote: segment.text,
-    href: `/jingzang/${sutra.slug}#${segment.id}`,
+    href: segmentHref(sutra.slug, segment.id),
     source: sutra.sourceName,
     locator: segment.id,
     relation,

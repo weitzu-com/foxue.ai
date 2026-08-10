@@ -1,103 +1,75 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, BookMarked, CircleCheck, Link2 } from "lucide-react";
-import { getSutra, sutras } from "@/data/sutras";
-import { getSutraReading } from "@/lib/corpus-reading";
+import { ArrowRight, BookOpenText, Layers3 } from "lucide-react";
+import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
+import { getSutra } from "@/data/sutras";
+import { buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
+import { folioHref } from "@/lib/reader-routes";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return sutras.map((sutra) => ({ slug: sutra.slug }));
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const sutra = getSutra(slug);
-  if (!sutra) return { title: "经典未找到" };
-  return {
-    title: sutra.alternateTitle,
-    description: `${sutra.title}：${sutra.summary}`,
-  };
-}
-
-export default async function SutraPage({ params }: PageProps) {
+export default async function SutraIndexPage({ params }: PageProps) {
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
   const reading = await getSutraReading(sutra);
-  const multiJuan = new Set(reading.segments.map((segment) => segment.juan).filter(Boolean)).size > 1;
+  const firstFolio = reading.navigation[0];
+  const multiJuan = new Set(reading.navigation.map((item) => item.juan).filter(Boolean)).size > 1;
 
   return (
-    <div className="reader-page page-shell">
-      <div className="page-breadcrumb">
-        <Link href="/jingzang"><ArrowLeft aria-hidden="true" size={15} /> 经藏</Link>
-        <span>/</span>
-        <span>{sutra.alternateTitle}</span>
-      </div>
+    <>
+      <ReaderHashRedirect
+        slug={sutra.slug}
+        aliases={buildLegacyAliasMap(reading.segments)}
+      />
 
-      <header className="reader-header">
-        <div className="reader-header__mark" aria-hidden="true">经</div>
-        <div className="reader-header__title">
-          <p className="eyebrow">{sutra.tradition}</p>
-          <h1>{sutra.title}</h1>
-          <p>{sutra.alternateTitle} · {sutra.translator}</p>
-        </div>
-        <div className="reader-header__status">
-          <span><CircleCheck aria-hidden="true" /> {sutra.status}</span>
-          <span>{sutra.canonRef}</span>
-        </div>
-      </header>
+      <div className="reader-index-layout">
+        <section className="reader-index-lead">
+          <Layers3 aria-hidden="true" />
+          <p className="eyebrow">经本目录 · READING EDITION</p>
+          <h2>按卷与版页，<br />展开一部经。</h2>
+          <p>
+            每页只加载一个大正藏版页，稳定行号依然可引用。
+            这使长经也能快速阅读，并为未来数千部经典留出空间。
+          </p>
+          <dl className="reader-index-stats">
+            <div><dt>版页</dt><dd>{reading.navigation.length}</dd></div>
+            <div><dt>稳定行段</dt><dd>{reading.segments.length}</dd></div>
+          </dl>
+          {firstFolio && (
+            <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)}>
+              <BookOpenText aria-hidden="true" size={17} /> 从第一页开始
+            </Link>
+          )}
+        </section>
 
-      <div className="reader-layout">
-        <aside className="reader-toc">
-          <p className="eyebrow">本页段落</p>
-          <ol>
+        <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
+          <div className="reader-folio-directory__heading">
+            <div>
+              <p className="eyebrow">版页目录</p>
+              <h2 id="folio-directory-title">大正藏物理版页</h2>
+            </div>
+            <span>{reading.navigation.length} 页</span>
+          </div>
+          <ol className="reader-folio-grid">
             {reading.navigation.map((item, index) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  {reading.complete
-                    ? `${multiJuan ? `卷 ${Number(item.juan)} · ` : ""}大正藏 ${item.label}`
-                    : item.id}
-                </a>
+              <li key={item.key}>
+                <Link href={folioHref(sutra.slug, item.key)} prefetch={false}>
+                  <span className="reader-folio-card__index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="reader-folio-card__label">
+                    <strong>大正藏 {item.label}</strong>
+                    <small>{multiJuan ? `卷 ${Number(item.juan)}` : "单卷"} · {item.id.split(".").at(-1)}</small>
+                  </span>
+                  <ArrowRight aria-hidden="true" size={16} />
+                </Link>
               </li>
             ))}
           </ol>
-          <a className="source-outlink" href={sutra.sourceUrl} target="_blank" rel="noreferrer">
-            打开来源母版 <ArrowUpRight aria-hidden="true" size={14} />
-          </a>
-        </aside>
+        </section>
 
-        <article className={`sutra-paper${reading.complete ? " sutra-paper--complete" : ""}`}>
-          <div className="sutra-paper__notice">
-            <BookMarked aria-hidden="true" />
-            {reading.complete ? (
-              <p><strong>完整原文 · 行段试行</strong>　按 CBETA 大正藏物理行号展示，异文与注释未混入正文；原始 TEI、权利头部与哈希完整保留。</p>
-            ) : (
-              <p><strong>阅读样本</strong>　当前仅展示用于界面和引证验证的段落，不代表全经已收录。</p>
-            )}
-          </div>
-          {reading.segments.map((segment, index) => (
-            <section className="sutra-segment" id={segment.id} key={segment.id}>
-              {segment.legacyIds?.map((legacyId) => (
-                <span className="legacy-anchor" id={legacyId} aria-hidden="true" key={legacyId} />
-              ))}
-              <div className="segment-number">
-                {reading.complete ? segment.sourceLine : String(index + 1).padStart(2, "0")}
-              </div>
-              <div>
-                <p className="segment-text">{segment.text}</p>
-                {segment.note && <p className="segment-note"><span>边注</span>{segment.note}</p>}
-                <a className="segment-anchor" href={`#${segment.id}`}>
-                  <Link2 aria-hidden="true" size={13} /> {segment.id}
-                </a>
-              </div>
-            </section>
-          ))}
-        </article>
-
-        <aside className="reader-meta">
+        <aside className="reader-meta reader-index-meta">
           <p className="eyebrow">版本与权利</p>
           <dl>
             <div><dt>经号</dt><dd>{sutra.canonRef}</dd></div>
@@ -105,13 +77,13 @@ export default async function SutraPage({ params }: PageProps) {
             <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.complete ? `${reading.segments.length} 个稳定行段 · 完整 TEI` : `${reading.segments.length} 个阅读样本`}</dd></div>
+            <div><dt>收录</dt><dd>{reading.segments.length} 个稳定行段 · 完整 TEI</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。
           </p>
         </aside>
       </div>
-    </div>
+    </>
   );
 }
