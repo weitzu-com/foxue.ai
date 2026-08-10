@@ -59,8 +59,9 @@ pnpm build
 1. 核对 `data/gbcr/checksums.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA 与 SuttaCentral 候选路径摘要。
-4. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
-5. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
+4. 运行 `pnpm verify:cbeta-pilot`，核对首批完整 TEI 文件的哈希、头部、来源声明和代表性短语。
+5. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
+6. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 

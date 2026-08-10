@@ -35,6 +35,12 @@ pnpm verify
 pnpm verify:corpus
 ```
 
+首批 CBETA 完整原文可单独校验：
+
+```bash
+pnpm verify:cbeta-pilot
+```
+
 联网复算固定上游提交的目录候选快照：
 
 ```bash
@@ -53,6 +59,7 @@ pnpm preserve
 
 - `docs/foxue.ai_建站方案_v1.0_20260811.md`
 - `data/gbcr/README.md` — 99% 覆盖统计纪律、版本与完整性规则
+- `data/corpus/cbeta/NOTICE.md` — 首批完整原文的来源、非商业限制与字节规范化
 - `docs/RECOVERY.md` — 灾难恢复、3-2-1 保存与百年交接演练
 
 机器可读覆盖快照：`GET /api/v1/corpus/coverage`

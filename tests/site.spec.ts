@@ -58,7 +58,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3,
-    fullSourceTextWorks: 0,
+    fullSourceTextWorks: 2,
     stableSegments: 11,
   });
 });

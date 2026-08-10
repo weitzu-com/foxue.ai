@@ -54,6 +54,10 @@ const requiredPaths = [
   "data/gbcr/registry-v0.1.0.json",
   "data/gbcr/source-snapshots-v0.1.0.json",
   "data/gbcr/checksums.sha256",
+  "data/corpus/cbeta/NOTICE.md",
+  "data/corpus/cbeta/manifest-v0.1.0.json",
+  "data/corpus/cbeta/T08n0251.xml",
+  "data/corpus/cbeta/T08n0235.xml",
 ];
 for (const path of requiredPaths) {
   if (!archivedPaths.includes(path)) throw new Error(`保存包缺少关键文件：${path}`);

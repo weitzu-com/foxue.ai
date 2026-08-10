@@ -45,7 +45,10 @@ for (const work of registry.works) {
     expressionIds.push(expression.id);
     requireValue(sourceIds.has(expression.sourceSnapshotId), `${expression.id} 引用了未知来源快照`);
     requireValue(Number.isInteger(expression.stableSegments) && expression.stableSegments >= 0, `${expression.id} 段落数无效`);
-    requireValue(expression.fullSourceText === false, `${expression.id} 当前仅有摘录，不得标为完整原文`);
+    if (expression.fullSourceText) {
+      requireValue(expression.sourceTextAsset?.path, `${expression.id} 标为完整原文但没有受控资产路径`);
+      requireValue(/^[a-f0-9]{64}$/.test(expression.sourceTextAsset?.sha256 ?? ""), `${expression.id} 完整原文缺少 SHA-256`);
+    }
   }
 }
 unique(expressionIds, "expressions");

@@ -1,0 +1,51 @@
+{
+  "schema": "https://foxue.ai/schemas/corpus-asset-manifest-v0.1",
+  "version": "0.1.0",
+  "source": {
+    "name": "CBETA XML P5",
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "copyrightUrl": "https://cbeta.org/copyright",
+    "formatUrl": "https://archive2.cbeta.org/en/format/xml.php"
+  },
+  "rightsDecision": {
+    "status": "approved_noncommercial_with_attribution_and_header",
+    "category": "CBETA Category A candidate; Taishō volume 8",
+    "commercialUse": "prohibited_without_additional_permission",
+    "headerMustRemain": true,
+    "reviewedAt": "2026-08-11",
+    "note": "文件内 availability 声明与 CBETA 官方版权页共同构成审核依据；代码许可证不覆盖这些 XML。"
+  },
+  "normalization": {
+    "id": "append-terminal-lf-v1",
+    "description": "仅在上游文件末尾追加一个 LF；TEI 内容、标记与头部不变。"
+  },
+  "files": [
+    {
+      "id": "T0251",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "localPath": "data/corpus/cbeta/T08n0251.xml",
+      "upstreamPath": "T/T08/T08n0251.xml",
+      "upstreamGitBlobSha1": "c8809532a2c9aaeef8a7523ceec52b2738b9b101",
+      "upstreamBytes": 14489,
+      "upstreamSha256": "27f563e67dfbd155a48e514152432378b3880541ebcb88033c14f96f20de1860",
+      "localBytes": 14490,
+      "localSha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0235",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "localPath": "data/corpus/cbeta/T08n0235.xml",
+      "upstreamPath": "T/T08/T08n0235.xml",
+      "upstreamGitBlobSha1": "37f3f5db4f6b52ef1deb2f2ffc94de229ee51095",
+      "upstreamBytes": 60229,
+      "upstreamSha256": "6852f861a314809c935de6e676994226d5a9021f63b88a7e18a6af60768285e9",
+      "localBytes": 60230,
+      "localSha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    }
+  ]
+}

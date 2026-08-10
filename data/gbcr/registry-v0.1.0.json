@@ -148,7 +148,13 @@
           "sourceSnapshotId": "cbeta_xml_p5",
           "localSlug": "xinjing",
           "cataloged": true,
-          "fullSourceText": false,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0251.xml",
+            "format": "application/tei+xml",
+            "sha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+            "rightsStatus": "restricted_noncommercial"
+          },
           "sampled": true,
           "stableSegments": 4,
           "rightsReviewed": true,
@@ -170,7 +176,13 @@
           "sourceSnapshotId": "cbeta_xml_p5",
           "localSlug": "jingangjing",
           "cataloged": true,
-          "fullSourceText": false,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0235.xml",
+            "format": "application/tei+xml",
+            "sha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+            "rightsStatus": "restricted_noncommercial"
+          },
           "sampled": true,
           "stableSegments": 4,
           "rightsReviewed": true,

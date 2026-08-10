@@ -15,9 +15,10 @@
     "snapshot:upstream": "node scripts/snapshot-upstream-catalogs.mjs",
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
+    "verify:cbeta-pilot": "node scripts/verify-cbeta-pilot.mjs",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:corpus && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",
