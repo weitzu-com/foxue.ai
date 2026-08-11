@@ -1,13 +1,29 @@
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
 const runText = (command, args) =>
   execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim();
-const runBuffer = (command, args) => execFileSync(command, args, { cwd: root });
+const runBuffer = (command, args) => execFileSync(command, args, { cwd: root, maxBuffer: 16 * 1024 * 1024 });
 const sha256 = (content) => createHash("sha256").update(content).digest("hex");
+const hashGitPath = (commit, path) => new Promise((resolveHash, rejectHash) => {
+  const digest = createHash("sha256");
+  const child = spawn("git", ["show", `${commit}:${path}`], {
+    cwd: root,
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let stderr = "";
+  child.stdout.on("data", (chunk) => digest.update(chunk));
+  child.stderr.setEncoding("utf8");
+  child.stderr.on("data", (chunk) => { stderr += chunk; });
+  child.on("error", rejectHash);
+  child.on("close", (code) => {
+    if (code === 0) resolveHash(digest.digest("hex"));
+    else rejectHash(new Error(`无法读取 Git 关键资产 ${path}：${stderr.trim()}`));
+  });
+});
 
 const commit = runText("git", ["rev-parse", "HEAD"]);
 const shortCommit = commit.slice(0, 12);
@@ -80,9 +96,10 @@ for (const path of requiredPaths) {
   if (!archivedPaths.includes(path)) throw new Error(`保存包缺少关键文件：${path}`);
 }
 
-const criticalAssets = Object.fromEntries(
-  requiredPaths.map((path) => [path, sha256(runBuffer("git", ["show", `${commit}:${path}`]))]),
-);
+const criticalAssets = {};
+for (const path of requiredPaths) {
+  criticalAssets[path] = await hashGitPath(commit, path);
+}
 const sourceArchive = await readFile(sourceArchivePath);
 const gitBundle = await readFile(gitBundlePath);
 const sourceArchiveStat = await stat(sourceArchivePath);
