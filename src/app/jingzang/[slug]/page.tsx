@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, BookOpenText, Layers3 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { getSutra } from "@/data/sutras";
-import { buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
+import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -14,7 +14,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
   if (!sutra) notFound();
   const reading = await getSutraReading(sutra);
   const firstFolio = reading.navigation[0];
-  const multiJuan = new Set(reading.navigation.map((item) => item.juan).filter(Boolean)).size > 1;
+  const juanNavigation = buildJuanNavigation(reading.navigation);
+  const multiJuan = juanNavigation.length > 1;
 
   return (
     <>
@@ -46,21 +47,25 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">
             <div>
-              <p className="eyebrow">版页目录</p>
-              <h2 id="folio-directory-title">大正藏物理版页</h2>
+              <p className="eyebrow">卷页目录</p>
+              <h2 id="folio-directory-title">{multiJuan ? "先选卷，再读版页" : "大正藏物理版页"}</h2>
             </div>
-            <span>{reading.navigation.length} 页</span>
+            <span>{multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`}</span>
           </div>
           <ol className="reader-folio-grid">
-            {reading.navigation.map((item, index) => (
-              <li key={item.key}>
-                <Link href={folioHref(sutra.slug, item.key)} prefetch={false}>
+            {(multiJuan ? juanNavigation : reading.navigation.map((item) => ({ first: item, pages: 1 }))).map((group, index) => (
+              <li key={group.first.key}>
+                <Link href={folioHref(sutra.slug, group.first.key)} prefetch={false}>
                   <span className="reader-folio-card__index">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="reader-folio-card__label">
-                    <strong>大正藏 {item.label}</strong>
-                    <small>{multiJuan ? `卷 ${Number(item.juan)}` : "单卷"} · {item.id.split(".").at(-1)}</small>
+                    <strong>{multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`}</strong>
+                    <small>
+                      {multiJuan
+                        ? `${group.pages} 个版页 · 从大正藏 ${group.first.label} 开始`
+                        : `单卷 · ${group.first.id.split(".").at(-1)}`}
+                    </small>
                   </span>
                   <ArrowRight aria-hidden="true" size={16} />
                 </Link>

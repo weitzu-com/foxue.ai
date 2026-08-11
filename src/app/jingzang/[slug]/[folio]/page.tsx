@@ -6,6 +6,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { getSutra } from "@/data/sutras";
 import {
   buildLegacyAliasMap,
+  buildJuanNavigation,
   getSutraFolio,
   getSutraReading,
   type ReaderNavigationItem,
@@ -76,6 +77,10 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const reading = await getSutraReading(sutra);
   const folio = await getSutraFolio(sutra, reading, folioKey);
   if (!folio) notFound();
+  const juanNavigation = buildJuanNavigation(reading.navigation);
+  const currentJuanNavigation = folio.item.juan
+    ? reading.navigation.filter((item) => item.juan === folio.item.juan)
+    : reading.navigation;
 
   return (
     <>
@@ -91,8 +96,29 @@ export default async function SutraFolioPage({ params }: PageProps) {
           <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`}>
             <ArrowLeft aria-hidden="true" size={13} /> 返回经本目录
           </Link>
-          <ol>
-            {reading.navigation.map((item, index) => (
+          {juanNavigation.length > 1 && (
+            <>
+              <p className="reader-toc__section-label">卷目录 · {juanNavigation.length} 卷</p>
+              <ol className="reader-toc__juan-list">
+                {juanNavigation.map((group) => (
+                  <li key={group.juan}>
+                    <Link
+                      href={folioHref(sutra.slug, group.first.key)}
+                      prefetch={false}
+                      aria-current={group.juan === folio.item.juan ? "location" : undefined}
+                    >
+                      卷 {Number(group.juan)} <span>{group.pages} 页</span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </>
+          )}
+          <p className="reader-toc__section-label">
+            {juanNavigation.length > 1 ? `本卷版页 · ${currentJuanNavigation.length} 页` : "版页目录"}
+          </p>
+          <ol className="reader-toc__page-list">
+            {currentJuanNavigation.map((item, index) => (
               <li key={item.key}>
                 <Link
                   href={folioHref(sutra.slug, item.key)}
@@ -100,7 +126,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   aria-current={item.key === folio.item.key ? "page" : undefined}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  卷 {Number(item.juan)} · {item.label}
+                  {juanNavigation.length > 1 ? item.label : `卷 ${Number(item.juan)} · ${item.label}`}
                 </Link>
               </li>
             ))}

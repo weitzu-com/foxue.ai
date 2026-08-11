@@ -157,6 +157,9 @@ test("四部阿含全本可分页阅读并保持超长经稳定锚点", async ({
   const folio = await request.get("/jingzang/zaahanjing/050-0373b");
   expect(folio.ok()).toBeTruthy();
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
+  const directory = await request.get("/jingzang/zaahanjing");
+  expect(directory.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/changahanjing/022-0149c");
   expect(sitemap).toContain("/jingzang/zengyiahanjing/051-0830b");

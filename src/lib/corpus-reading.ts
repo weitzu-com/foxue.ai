@@ -20,6 +20,23 @@ export type ReaderNavigationItem = {
   juan?: string;
 };
 
+export type ReaderJuanNavigationItem = {
+  juan?: string;
+  first: ReaderNavigationItem;
+  pages: number;
+};
+
+export function buildJuanNavigation(navigation: ReaderNavigationItem[]) {
+  const groups = new Map<string, ReaderJuanNavigationItem>();
+  for (const item of navigation) {
+    const key = item.juan ?? "";
+    const group = groups.get(key);
+    if (group) group.pages += 1;
+    else groups.set(key, { juan: item.juan, first: item, pages: 1 });
+  }
+  return [...groups.values()];
+}
+
 type CorpusNavigationItem = ReaderNavigationItem & {
   objectKey: string;
   position: number;
