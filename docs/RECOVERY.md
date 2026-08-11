@@ -8,6 +8,7 @@
 |---|---:|---:|---:|
 | 源码与治理文档 | 每次主分支提交 | 4 小时 | 3 份、2 种介质、1 份异地 |
 | GBCR 登记册与快照 | 每个版本 | 4 小时 | Git 历史、对象存储、离线介质 |
+| 经藏不可变发布对象 | 每个版本 | 24 小时 | R2、离线发布包、仓库内受控原文 |
 | 只读经典阅读站 | 最近稳定发布 | 24 小时 | 可从源码独立构建 |
 | 域名与 DNS | 最近导出的受控配置 | 4 小时 | 注册商账户、加密离线记录、继任托管 |
 | 用户数据（未来） | 24 小时以内 | 24 小时 | 加密备份；当前版本尚无账户数据 |
@@ -28,6 +29,8 @@ pnpm preserve
 - `*-history.bundle`：可克隆的 Git 历史；
 - `preservation-manifest.json`：提交、时间、大小、关键资产和 SHA-256；
 - `SHA256SUMS`：逐文件完整性校验。
+
+源码归档同时包含语料发布器、逐对象校验器、只读 Worker、R2 配置和本手册。生成后的 `artifacts/corpus-release/` 不直接进入 Git；它必须从受控原文与发布脚本确定性重建并复核。
 
 保存包不包含 `.env`、访问令牌、平台密钥、用户数据或未经许可的第三方全文。
 
@@ -60,8 +63,9 @@ pnpm build
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA 与 SuttaCentral 候选路径摘要。
 4. 运行 `pnpm verify:cbeta-pilot`，核对首批完整 TEI 文件的哈希、头部、来源声明和代表性短语。
-5. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
-6. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
+5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
+6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
+7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
@@ -71,9 +75,23 @@ Vercel 恢复顺序：
 
 1. 新建 Next.js 项目并连接恢复后的 Git 仓库；
 2. 生产分支设为 `main`，Node 设为 22.x；
-3. 设置 `NEXT_PUBLIC_SITE_URL=https://foxue.ai`；
+3. 设置 `NEXT_PUBLIC_SITE_URL=https://foxue.ai`；经藏边缘层尚未恢复时不要设置 `CORPUS_ASSET_BASE_URL`，网站会使用仓库内受控原文；
 4. 部署后验证 `/api/health`、`/api/v1/corpus/coverage`、`/fugai` 和三个阅读页；
 5. 通过后再切换 DNS，失败则保留原站或静态维护页。
+
+### 5.1 恢复经藏对象存储与只读边缘层
+
+当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
+
+1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
+2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；
+3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
+4. 运行 `pnpm cloudflare:types:check` 与 `pnpm cloudflare:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 部署只读 Worker；
+5. 将 `canon.foxue.ai` 绑定到 Worker，验证 `/health`、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；
+6. 边缘层全部通过后，才在网站生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 并重新部署；
+7. 若 R2、Worker 或自定义域名失败，移除该环境变量即可回到本地受控原文，不改变稳定段落 ID 或公开网址。
+
+恢复时不得先写 `v1/latest.json`，也不得覆盖既有版本目录。任何供应商迁移都应保持 `v1/releases/<release-id>/...` 对象键、内容类型、哈希和缓存语义不变。
 
 ## 6. 恢复域名、DNS 与 TLS
 

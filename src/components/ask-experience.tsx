@@ -12,6 +12,7 @@ import {
   QUESTION_SESSION_KEY,
   saveQuestionToSession,
 } from "@/lib/question-session";
+import { trackEvent } from "@/lib/analytics";
 
 function subscribeToQuestion(onStoreChange: () => void) {
   window.addEventListener(QUESTION_CHANGE_EVENT, onStoreChange);
@@ -46,8 +47,15 @@ export function AskExperience() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const normalized = saveQuestionToSession(inputValue);
+    const nextResult = buildResearchResult(normalized);
     setDraft(normalized);
     setSubmitted(normalized);
+    trackEvent("question_submitted", {
+      entry_point: "ask",
+      evidence_count: nextResult.evidence.length,
+      input_length: normalized.length,
+      result_status: nextResult.status,
+    });
   }
 
   return (

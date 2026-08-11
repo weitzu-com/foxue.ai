@@ -76,25 +76,21 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
 test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await page.goto("/jingzang/jingangjing#T0235.001.0749c22");
   await page.waitForURL(/\/jingzang\/jingangjing\/001-0749c#T0235\.001\.0749c22$/);
-  await page.waitForLoadState("networkidle");
   await expect(page.getByText("完整原文 · 分页阅读").first()).toBeVisible();
   await expect(page.locator('[id="T0235.001.0749c22"]')).toContainText("應無所");
   await expect(page.getByText(/全经 340 稳定行段/)).toBeVisible();
 
   await page.goto("/jingzang/jingangjing#T0235.001.0752c17");
   await page.waitForURL(/\/jingzang\/jingangjing\/001-0749c#T0235\.001\.0752c17$/);
-  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0235.001.0752c17"]')).toHaveCount(1);
 
   await page.goto("/jingzang/fajujing#T0210.002.0567a03");
   await page.waitForURL(/\/jingzang\/fajujing\/002-0567a#T0210\.002\.0567a03$/);
-  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0210.002.0567a03"]')).toContainText("法句經卷下");
   await expect(page.getByText(/全经 1400 稳定行段/)).toBeVisible();
 
   await page.goto("/jingzang/fajujing#T0210.004.0562a16");
   await page.waitForURL(/\/jingzang\/fajujing\/001-0562a#T0210\.004\.0562a16$/);
-  await page.waitForLoadState("networkidle");
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
 });
 

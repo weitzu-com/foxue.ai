@@ -50,14 +50,23 @@ const requiredPaths = [
   "package.json",
   "pnpm-lock.yaml",
   "docs/RECOVERY.md",
+  "docs/ANALYTICS.md",
   "docs/foxue.ai_建站方案_v1.0_20260811.md",
   "data/gbcr/registry-v0.1.0.json",
   "data/gbcr/source-snapshots-v0.1.0.json",
   "data/gbcr/checksums.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/manifest-v0.1.0.json",
+  "data/corpus/cbeta/T04n0210.xml",
   "data/corpus/cbeta/T08n0251.xml",
   "data/corpus/cbeta/T08n0235.xml",
+  "scripts/build-corpus-release.mjs",
+  "scripts/corpus-release-context.mjs",
+  "scripts/publish-corpus-release.mjs",
+  "scripts/verify-corpus-release.mjs",
+  "infra/corpus-edge/src/index.ts",
+  "infra/corpus-edge/wrangler.jsonc",
+  "infra/corpus-edge/worker-configuration.d.ts",
 ];
 for (const path of requiredPaths) {
   if (!archivedPaths.includes(path)) throw new Error(`保存包缺少关键文件：${path}`);

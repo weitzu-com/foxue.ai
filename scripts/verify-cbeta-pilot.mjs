@@ -35,6 +35,7 @@ const expectedReadingViews = {
     anchors: ["T0210.001.0562a13", "T0210.002.0567a03"],
   },
 };
+const slugs = new Set();
 
 for (const file of manifest.files) {
   const path = resolve(root, file.localPath);
@@ -61,6 +62,9 @@ for (const file of manifest.files) {
 
   const readingLines = parseCbetaReadingLines(text, { canonId: file.id });
   const readingView = expectedReadingViews[file.id];
+  requireValue(typeof file.slug === "string" && /^[a-z0-9-]+$/.test(file.slug), `${file.id} 缺少稳定阅读 slug`);
+  requireValue(!slugs.has(file.slug), `${file.id} 阅读 slug 重复`);
+  slugs.add(file.slug);
   requireValue(readingLines.length === readingView.segments, `${file.id} 稳定行段数量漂移`);
   requireValue(buildPageNavigation(readingLines).length === readingView.pages, `${file.id} 页码导航数量漂移`);
   requireValue(

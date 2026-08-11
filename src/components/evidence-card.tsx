@@ -16,7 +16,14 @@ export function EvidenceCard({ evidence, index }: { evidence: Evidence; index: n
           <strong>{evidence.label}</strong>
           <span>{evidence.locator}</span>
         </div>
-        <Link href={evidence.href} aria-label={`打开${evidence.label}原文`}>
+        <Link
+          href={evidence.href}
+          aria-label={`打开${evidence.label}原文`}
+          data-analytics-event="source_opened"
+          data-analytics-location="answer_evidence"
+          data-analytics-content-id={evidence.locator}
+          data-analytics-label={evidence.label}
+        >
           看原文 <ArrowUpRight aria-hidden="true" size={14} />
         </Link>
       </div>

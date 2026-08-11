@@ -11,6 +11,9 @@ export function GET() {
         citedAnswers: "prototype",
         generativeAI: "disabled",
         corpusRegistry: "v0.1.0-public-draft",
+        corpusBackend: process.env.CORPUS_ASSET_BASE_URL
+          ? "edge_with_local_fallback"
+          : "local_controlled_assets",
       },
       timestamp: new Date().toISOString(),
     },

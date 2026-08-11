@@ -23,6 +23,7 @@
   "files": [
     {
       "id": "T0251",
+      "slug": "xinjing",
       "workId": "gbcr:work:prajnaparamita-hrdaya",
       "localPath": "data/corpus/cbeta/T08n0251.xml",
       "upstreamPath": "T/T08/T08n0251.xml",
@@ -36,6 +37,7 @@
     },
     {
       "id": "T0235",
+      "slug": "jingangjing",
       "workId": "gbcr:work:vajracchedika-prajnaparamita",
       "localPath": "data/corpus/cbeta/T08n0235.xml",
       "upstreamPath": "T/T08/T08n0235.xml",
@@ -49,6 +51,7 @@
     },
     {
       "id": "T0210",
+      "slug": "fajujing",
       "workId": "gbcr:work:dharmapada-t0210",
       "localPath": "data/corpus/cbeta/T04n0210.xml",
       "upstreamPath": "T/T04/T04n0210.xml",

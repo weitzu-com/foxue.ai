@@ -57,7 +57,14 @@ export default function LibraryPage() {
                   <span>{sutra.status}</span>
                 </div>
               </div>
-              <Link href={`/jingzang/${sutra.slug}`} aria-label={`阅读${sutra.title}`}>
+              <Link
+                href={`/jingzang/${sutra.slug}`}
+                aria-label={`阅读${sutra.title}`}
+                data-analytics-event="scripture_opened"
+                data-analytics-location="library"
+                data-analytics-content-id={sutra.canonRef}
+                data-analytics-label={sutra.title}
+              >
                 <BookOpenText aria-hidden="true" />
                 <span>阅读</span>
                 <ArrowRight aria-hidden="true" />

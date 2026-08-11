@@ -1,16 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
-const editorial = EB_Garamond({
-  subsets: ["latin"],
-  variable: "--font-editorial",
-  display: "swap",
-});
-
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const gaMeasurementId = /^G-[A-Z0-9]+$/.test(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "")
+  ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  : undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,6 +35,12 @@ export const metadata: Metadata = {
     description: "全球佛学交流的可信 AI 平台。",
   },
   alternates: { canonical: siteUrl },
+  verification: googleSiteVerification
+    ? { google: googleSiteVerification }
+    : undefined,
+  other: gaMeasurementId
+    ? { "ga4-measurement-id": gaMeasurementId }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -50,7 +54,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-Hans" className={editorial.variable}>
+    <html lang="zh-Hans">
       <body>
         <a className="skip-link" href="#main-content">
           跳到主要内容
@@ -58,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <GoogleAnalytics />
       </body>
     </html>
   );

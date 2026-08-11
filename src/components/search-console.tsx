@@ -7,6 +7,7 @@ import {
   QUESTION_MAX_LENGTH,
   saveQuestionToSession,
 } from "@/lib/question-session";
+import { trackEvent } from "@/lib/analytics";
 
 const modes = [
   { id: "scripture", label: "找经文", icon: BookOpenText },
@@ -26,8 +27,14 @@ export function SearchConsole() {
   const [mode, setMode] = useState("meaning");
   const [query, setQuery] = useState("");
 
-  function openQuestion(question: string) {
+  function openQuestion(question: string, exampleUsed = false) {
     saveQuestionToSession(question, mode);
+    trackEvent("question_started", {
+      entry_point: "home",
+      example_used: exampleUsed,
+      input_length: question.trim().length,
+      mode,
+    });
     router.push("/wenjing");
   }
 
@@ -77,7 +84,7 @@ export function SearchConsole() {
       <div className="search-examples" aria-label="问题示例">
         <span>可以这样问</span>
         {examples.map((example) => (
-          <button key={example} type="button" onClick={() => openQuestion(example)}>
+          <button key={example} type="button" onClick={() => openQuestion(example, true)}>
             {example}
           </button>
         ))}

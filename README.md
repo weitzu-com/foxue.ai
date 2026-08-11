@@ -8,6 +8,7 @@
 
 - 从问题回到原典的引证式问经体验；
 - 带稳定段落标识和来源说明的经典阅读；
+- 可复算、按版页拆分的不可变语料发布，以及只读边缘读取与本地自动降级；
 - 数据覆盖、许可证、AI 能力和局限的透明披露；
 - 版本化的全球佛典覆盖登记册（GBCR）与公开覆盖 API；
 - 可被下一代维护者接管的开放代码与文档。
@@ -41,6 +42,20 @@ pnpm verify:corpus
 pnpm verify:cbeta-pilot
 ```
 
+构建并逐对象校验可发布的经藏版本：
+
+```bash
+pnpm build:corpus-release
+pnpm verify:corpus-release
+```
+
+检查 Cloudflare Worker 的类型和部署包（不修改远端）：
+
+```bash
+pnpm cloudflare:types:check
+pnpm cloudflare:check
+```
+
 联网复算固定上游提交的目录候选快照：
 
 ```bash
@@ -53,6 +68,20 @@ pnpm verify:upstream-snapshots
 pnpm preserve
 ```
 
+## 经藏发布架构
+
+经藏发布以内容寻址的版本目录为单一真相来源。`v1/latest.json` 只负责指向当前版本；版本清单、作品索引、原始 TEI 与逐版页 JSON 一经发布即不可变，并由 SHA-256 清单复核。Cloudflare Worker 仅允许白名单内的 `GET`、`HEAD` 与 `OPTIONS`，拒绝写入和路径穿越。
+
+生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 后读取边缘语料。变量未设置、R2 尚未启用或边缘读取失败时，服务端自动回退到仓库内已经核验的三部受控原文，因此经典阅读不依赖单一供应商存活。
+
+已授权的维护者在通过校验后可执行：
+
+```bash
+pnpm publish:corpus:r2
+```
+
+发布器先上传全部不可变对象，最后才更新 `v1/latest.json`，避免读者看到半完成版本。完整恢复顺序见 `docs/RECOVERY.md`。
+
 ## 项目文档
 
 完整产品、语料、AI、治理和百年保存方案见：
@@ -61,6 +90,7 @@ pnpm preserve
 - `data/gbcr/README.md` — 99% 覆盖统计纪律、版本与完整性规则
 - `data/corpus/cbeta/NOTICE.md` — 首批完整原文的来源、非商业限制与字节规范化
 - `docs/RECOVERY.md` — 灾难恢复、3-2-1 保存与百年交接演练
+- `docs/ANALYTICS.md` — 隐私优先的 GA4、Search Console 与事件口径
 
 机器可读覆盖快照：`GET /api/v1/corpus/coverage`
 

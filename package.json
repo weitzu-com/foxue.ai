@@ -17,9 +17,15 @@
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
     "verify:cbeta-pilot": "node scripts/verify-cbeta-pilot.mjs",
+    "build:corpus-release": "node scripts/build-corpus-release.mjs",
+    "verify:corpus-release": "node scripts/verify-corpus-release.mjs",
+    "publish:corpus:r2": "node scripts/publish-corpus-release.mjs",
+    "cloudflare:types": "wrangler types infra/corpus-edge/worker-configuration.d.ts --config infra/corpus-edge/wrangler.jsonc",
+    "cloudflare:types:check": "wrangler types infra/corpus-edge/worker-configuration.d.ts --config infra/corpus-edge/wrangler.jsonc --check",
+    "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",
@@ -35,6 +41,7 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "4.120.1"
   }
 }

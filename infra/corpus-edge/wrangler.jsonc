@@ -1,0 +1,26 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "foxue-ai-corpus-edge",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-10",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "canon.foxue.ai",
+      "custom_domain": true
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "CORPUS",
+      "bucket_name": "foxue-ai-corpus"
+    }
+  ],
+  "vars": {
+    "RELEASE_ID": "cbeta-0.1.0-2b8ab8d5e4fe-cc02a484e61e"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

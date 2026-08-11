@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
+import { AnalyticsPreferencesButton } from "@/components/google-analytics";
 
 export function SiteFooter() {
   return (
@@ -25,6 +26,7 @@ export function SiteFooter() {
           >
             GitHub <ArrowUpRight aria-hidden="true" size={14} />
           </a>
+          <AnalyticsPreferencesButton />
         </div>
       </div>
       <div className="page-shell footer-bottom">

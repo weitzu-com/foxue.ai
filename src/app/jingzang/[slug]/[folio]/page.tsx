@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const sutra = getSutra(slug);
   if (!sutra) return { title: "经典未找到" };
   const reading = await getSutraReading(sutra);
-  const folio = getSutraFolio(reading, folioKey);
+  const folio = await getSutraFolio(sutra, reading, folioKey);
   if (!folio) return { title: "版页未找到" };
   return {
     title: `${sutra.alternateTitle} · 大正藏 ${folio.item.label}`,
@@ -74,7 +74,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const sutra = getSutra(slug);
   if (!sutra) notFound();
   const reading = await getSutraReading(sutra);
-  const folio = getSutraFolio(reading, folioKey);
+  const folio = await getSutraFolio(sutra, reading, folioKey);
   if (!folio) notFound();
 
   return (
@@ -155,7 +155,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>本页</dt><dd>{folio.segments.length} 行 · 全经 {reading.segments.length} 稳定行段</dd></div>
+            <div><dt>本页</dt><dd>{folio.segments.length} 行 · 全经 {reading.segmentCount} 稳定行段</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

@@ -34,7 +34,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
           </p>
           <dl className="reader-index-stats">
             <div><dt>版页</dt><dd>{reading.navigation.length}</dd></div>
-            <div><dt>稳定行段</dt><dd>{reading.segments.length}</dd></div>
+            <div><dt>稳定行段</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
           {firstFolio && (
             <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)}>
@@ -77,7 +77,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.segments.length} 个稳定行段 · 完整 TEI</dd></div>
+            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定行段 · 完整 TEI</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

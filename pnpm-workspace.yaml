@@ -1,2 +1,7 @@
 allowBuilds:
+  esbuild: true
   unrs-resolver: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - miniflare@5.20260804.0-alpha
+  - wrangler@4.120.1
