@@ -26,6 +26,15 @@ export function folioHref(slug: string, folioKey: string, segmentId?: string) {
   return segmentId ? `${path}#${segmentId}` : path;
 }
 
+export function buildSegmentFolioMap(
+  segments: Array<{ id: string; juan?: string; page?: string }>,
+) {
+  return Object.fromEntries(segments.flatMap((segment) =>
+    segment.juan && segment.page
+      ? [[segment.id, `${segment.juan}-${segment.page}`]]
+      : []));
+}
+
 export function segmentHref(slug: string, segmentId: string) {
   const folioKey = folioKeyFromSegmentId(segmentId);
   return folioKey

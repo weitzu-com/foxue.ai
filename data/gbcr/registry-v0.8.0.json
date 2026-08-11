@@ -1,0 +1,2697 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/registry-v0.1",
+  "registry": {
+    "id": "gbcr",
+    "title": "全球佛典覆盖登记册",
+    "titleEn": "Global Buddhist Canon Registry",
+    "version": "0.8.0",
+    "publishedAt": "2026-08-11",
+    "status": "public_draft",
+    "maintainer": "foxue.ai",
+    "canonicalUrl": "https://foxue.ai/fugai"
+  },
+  "claimPolicy": {
+    "target": "99%",
+    "publishable": false,
+    "reason": "全球分母尚未完成跨传统、跨语种和独立评审，因此不得发布总体覆盖百分比。",
+    "rule": "目录、完整原文、稳定段落、译文、权利和质量必须分别计算；未知分母不得以零代替，也不得合并成单一营销数字。",
+    "reviewGate": "只有在分母定义公开、来源快照冻结、重复项规则可复算，并经至少两个独立机构或专家组复核后，才可发布全球百分比。"
+  },
+  "dimensions": [
+    {
+      "id": "catalog",
+      "label": "目录覆盖",
+      "definition": "已建立规范作品标识，并记录至少一个可核验的外部目录标识。"
+    },
+    {
+      "id": "full_source_text",
+      "label": "完整原文",
+      "definition": "完整表达版本已合法取得、格式化并通过结构校验；摘录不计入。"
+    },
+    {
+      "id": "stable_segments",
+      "label": "稳定段落",
+      "definition": "可公开访问的文本片段具有持久标识，旧链接可解析。"
+    },
+    {
+      "id": "translation",
+      "label": "译文覆盖",
+      "definition": "按目标语言分别统计完整译文；机器候选与人工确认分开。"
+    },
+    {
+      "id": "rights",
+      "label": "权利可发布",
+      "definition": "已逐对象记录许可、地域、用途、署名与再分发限制。"
+    },
+    {
+      "id": "quality",
+      "label": "质量通过",
+      "definition": "来源、结构、段落和抽样文本通过人工或独立质量门。"
+    }
+  ],
+  "globalDenominators": {
+    "catalogWorks": null,
+    "fullSourceTextWorks": null,
+    "translationWorks": null,
+    "rightsPublishableWorks": null,
+    "qualityApprovedWorks": null,
+    "status": "definition_in_progress",
+    "unknownMeans": "not_yet_measured"
+  },
+  "sourceFamilies": [
+    {
+      "id": "cbeta_chinese",
+      "title": "汉文佛典",
+      "traditions": [
+        "汉传佛教"
+      ],
+      "languages": [
+        "lzh-Hant",
+        "zh-Hant"
+      ],
+      "primarySources": [
+        "cbeta_xml_p5"
+      ],
+      "denominatorStatus": "candidate_expression_snapshot_ready",
+      "denominatorWorks": null,
+      "deduplicationNote": "同一作品的异译、别本与不同藏经见证须分离为 Work、Expression 与 Witness，不能按文件数直接求和。",
+      "candidateSubsetId": "taisho_chinese_sutra_t01_t17",
+      "candidateExpressionRecords": 881,
+      "controlledExpressionRecords": 38,
+      "candidateExpressionBytes": 247280257,
+      "controlledExpressionBytes": 87649399,
+      "denominatorNote": "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。"
+    },
+    {
+      "id": "suttacentral_early_buddhist_texts",
+      "title": "早期佛教经文与巴利经藏",
+      "traditions": [
+        "上座部佛教",
+        "跨传承早期佛教文本"
+      ],
+      "languages": [
+        "pi",
+        "lzh",
+        "sa",
+        "pra",
+        "bo",
+        "multi"
+      ],
+      "primarySources": [
+        "suttacentral_bilara"
+      ],
+      "denominatorStatus": "candidate_snapshot_with_controlled_collections",
+      "denominatorWorks": null,
+      "deduplicationNote": "平行经、经组、分卷和译本不直接等同于独立作品；采用 SuttaCentral 标识并保留平行关系。",
+      "controlledWorks": 35,
+      "controlledExpressions": 35,
+      "controlledRootRecords": 60,
+      "controlledRootBytes": 1920173,
+      "denominatorNote": "7,288 是固定提交中的巴利 root 候选记录；当前 60 个物理文件组成《法句经》与《长部》34 经，文件数不是全球作品分母。"
+    },
+    {
+      "id": "tibetan_kangyur_tengyur",
+      "title": "藏文甘珠尔与丹珠尔",
+      "traditions": [
+        "藏传佛教"
+      ],
+      "languages": [
+        "bo",
+        "sa",
+        "en"
+      ],
+      "primarySources": [
+        "bdrc_linked_data",
+        "bdrc_iiif",
+        "84000_progress"
+      ],
+      "denominatorStatus": "edition_alignment_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "德格版等目录、不同版次见证与 84000 译文进度必须分层记录，不能把页数、文本数和作品数混用。"
+    },
+    {
+      "id": "sanskrit_fragments_and_witnesses",
+      "title": "梵文写本、残片与跨语种见证",
+      "traditions": [
+        "跨传统"
+      ],
+      "languages": [
+        "sa",
+        "pra",
+        "multi"
+      ],
+      "primarySources": [
+        "bdrc_linked_data",
+        "bdrc_iiif"
+      ],
+      "denominatorStatus": "federated_sources_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "残片、写本、校勘本和规范作品须分别建模；一个实物见证不自动等于一部独立佛典。"
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "id": "cbeta_xml_p5",
+      "name": "CBETA XML P5",
+      "role": "汉文佛典 TEI P5 文本与目录候选源",
+      "homepage": "https://cbeta.org/",
+      "dataUrl": "https://github.com/cbeta-org/xml-p5",
+      "licenseUrl": "https://cbeta.org/copyright",
+      "formatUrl": "https://archive2.cbeta.org/en/format/xml.php",
+      "snapshot": {
+        "type": "git",
+        "ref": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "restricted_noncommercial",
+        "summary": "默认许可与例外按 CBETA 官方版权页逐项执行；第三方类别 B 内容不得套用统一许可。"
+      }
+    },
+    {
+      "id": "suttacentral_bilara",
+      "name": "SuttaCentral Bilara Data",
+      "role": "经文、段落标识、译文与平行关系候选源",
+      "homepage": "https://suttacentral.net/",
+      "dataUrl": "https://github.com/suttacentral/bilara-data",
+      "licenseUrl": "https://suttacentral.net/licensing",
+      "formatUrl": "https://github.com/suttacentral/bilara-data",
+      "snapshot": {
+        "type": "git",
+        "ref": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "mixed_item_level",
+        "summary": "SuttaCentral 自有材料、公共领域原文和第三方译文的权利不同，必须读取每个文件或出版物的许可记录。"
+      }
+    },
+    {
+      "id": "bdrc_linked_data",
+      "name": "BDRC BUDA Linked Data",
+      "role": "规范实体、目录关系和跨语种书目候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/lds-pdi",
+      "licenseUrl": "https://github.com/buda-base/lds-pdi/blob/master/LICENSE",
+      "formatUrl": "https://github.com/buda-base/lds-pdi",
+      "snapshot": {
+        "type": "git",
+        "ref": "0cad5793279cca2516af64988a75326112587ea5",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "object_level_review",
+        "summary": "API 代码许可不等于每个文本、元数据或图像对象的许可；对象权利须另行核对。"
+      }
+    },
+    {
+      "id": "bdrc_iiif",
+      "name": "BDRC BUDA IIIF Presentation",
+      "role": "写本与印本图像清单候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/buda-iiif-presentation",
+      "licenseUrl": "https://github.com/buda-base/buda-iiif-presentation/blob/master/LICENSE",
+      "formatUrl": "https://iiif.io/api/presentation/",
+      "snapshot": {
+        "type": "git",
+        "ref": "3642a7ce06d66f4da694fe9973763112c850d910",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "object_level_review",
+        "summary": "IIIF 服务代码可开放，不代表清单所指向的每一张图像都可再分发。"
+      }
+    },
+    {
+      "id": "84000_progress",
+      "name": "84000 Translating the Words of the Buddha",
+      "role": "藏文甘珠尔英译进度与公开出版物核对源",
+      "homepage": "https://84000.co/",
+      "dataUrl": "https://84000.co/about/progress-impact",
+      "licenseUrl": "https://84000.co/",
+      "formatUrl": "https://84000.co/",
+      "snapshot": {
+        "type": "web",
+        "ref": "captured-2026-08-11",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "item_level_review",
+        "summary": "网站进度可作为外部核对证据；译文出版物的具体许可与禁止改作条件须逐项遵守。"
+      }
+    }
+  ],
+  "works": [
+    {
+      "id": "gbcr:work:prajnaparamita-hrdaya",
+      "canonicalTitle": "般若波羅蜜多心經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0251"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0251-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "般若波羅蜜多心經",
+          "translator": "唐 · 玄奘譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "xinjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": true,
+          "stableSegments": 72,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0251.xml",
+            "format": "application/tei+xml",
+            "sha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:vajracchedika-prajnaparamita",
+      "canonicalTitle": "金剛般若波羅蜜經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0235"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0235-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "金剛般若波羅蜜經",
+          "translator": "後秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "jingangjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": true,
+          "stableSegments": 340,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0235.xml",
+            "format": "application/tei+xml",
+            "sha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:dharmapada-t0210",
+      "canonicalTitle": "法句經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0210"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0210-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "法句經",
+          "translator": "吳 · 維祇難等譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "fajujing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": true,
+          "stableSegments": 1400,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T04n0210.xml",
+            "format": "application/tei+xml",
+            "sha256": "5f265927bba467f46652c5436e981e52944fd5c8f8609aa55f1027e11c81d035",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ],
+      "textFamilyId": "gbcr:text-family:dhammapada",
+      "workType": "distinct_recension",
+      "relationDecision": "与巴利 DHP 同属法句文本家族；汉译本为 39 品，不建立未经学术复核的逐章或逐段等同关系。"
+    },
+    {
+      "id": "gbcr:work:saddharma-pundarika-t0262",
+      "canonicalTitle": "妙法蓮華經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0262"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0262-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "妙法蓮華經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "fahuajing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 5343,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T09n0262.xml",
+            "format": "application/tei+xml",
+            "sha256": "345b8a2496986e30ed27be77198afe5128ffbda0ea996e12db5e4b2fef9be1aa",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:larger-sukhavati-vyuha-t0360",
+      "canonicalTitle": "佛說無量壽經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0360"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0360-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說無量壽經",
+          "translator": "曹魏 · 康僧鎧譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "wuliangshoujing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 1184,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0360.xml",
+            "format": "application/tei+xml",
+            "sha256": "e8f1856f3f725fbd5370ef92135d37ed364bae55130d284071538476201c362b",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:amitayurdhyana-sutra-t0365",
+      "canonicalTitle": "佛說觀無量壽佛經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0365"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0365-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說觀無量壽佛經",
+          "translator": "劉宋 · 畺良耶舍譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "guan-wuliangshoufo-jing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 510,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0365.xml",
+            "format": "application/tei+xml",
+            "sha256": "e6e0c460ccdf80f7fb425cfa64c1b4c1038986c3ff45f9373e43e8ab51998b18",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:smaller-sukhavati-vyuha-t0366",
+      "canonicalTitle": "佛說阿彌陀經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0366"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0366-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說阿彌陀經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "amituojing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 141,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0366.xml",
+            "format": "application/tei+xml",
+            "sha256": "e994cb83282a603feb7ffc3c9af5b2d6edbc92586bf9b00facfb0fc4b89b1aea",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:lankavatara-t0670",
+      "canonicalTitle": "楞伽經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0670",
+          "T0671",
+          "T0672"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0670-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "楞伽阿跋多羅寶經",
+          "translator": "劉宋 · 求那跋陀羅譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 3083,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0670.xml",
+            "format": "application/tei+xml",
+            "sha256": "b535498341f2d440a0ea6f22f922c0787a47438ba9b17d706a327b0d9f121444",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        },
+        {
+          "id": "gbcr:expression:T0671-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "入楞伽經",
+          "translator": "元魏 · 菩提流支譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "ru-lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 6231,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0671.xml",
+            "format": "application/tei+xml",
+            "sha256": "94d41e18abd80b270d9aae6499d2679512a19e9157c33c22854a545a6af8d99e",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        },
+        {
+          "id": "gbcr:expression:T0672-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大乘入楞伽經",
+          "translator": "唐 · 實叉難陀譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "dasheng-ru-lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 4646,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0672.xml",
+            "format": "application/tei+xml",
+            "sha256": "5c0996e5b3f50e444e6467052aae97c45ff5ab5b401863667103bd8f25afb955",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:surangama-t0945",
+      "canonicalTitle": "大佛頂如來密因修證了義諸菩薩萬行首楞嚴經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0945"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0945-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大佛頂如來密因修證了義諸菩薩萬行首楞嚴經",
+          "translator": "唐 · 般剌蜜帝譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "lengyanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 4212,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T19n0945.xml",
+            "format": "application/tei+xml",
+            "sha256": "ab5f41b7b5e662943af05048b6e47012b45a6d2e664864539b255129424ad6c3",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:vimalakirti-nirdesa-t0475",
+      "canonicalTitle": "維摩詰所說經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0475"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0475-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "維摩詰所說經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "weimojiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 1786,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T14n0475.xml",
+            "format": "application/tei+xml",
+            "sha256": "2e35609f39274f7d994d18c9bb09d34f817243b0e6b2172120dfa1527fd95541",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:sutra-of-forty-two-sections-t0784",
+      "canonicalTitle": "四十二章經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0784"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0784-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "四十二章經",
+          "translator": "後漢 · 迦葉摩騰、法蘭譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "sishierzhangjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 173,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T17n0784.xml",
+            "format": "application/tei+xml",
+            "sha256": "cb09f42210a27e43b25baf35d73bb2006b88d6a5f1399bdfb7ace3b1330183ee",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:perfect-enlightenment-sutra-t0842",
+      "canonicalTitle": "大方廣圓覺修多羅了義經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0842"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0842-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大方廣圓覺修多羅了義經",
+          "translator": "唐 · 佛陀多羅譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "yuanjuejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 784,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T17n0842.xml",
+            "format": "application/tei+xml",
+            "sha256": "25d3ce021a57daabaf9a2f679e6ddc74d536894b49c1ead9447c2380853191e5",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:dirgha-agama-t0001",
+      "canonicalTitle": "長阿含經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0001"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0001-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "長阿含經",
+          "translator": "後秦 · 佛陀耶舍、竺佛念譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "changahanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 12853,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T01n0001.xml",
+            "format": "application/tei+xml",
+            "sha256": "c40fb7718064c46d7c290ac7d82efec706090eb8955dce86fcc6d45769fc3077",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:madhyama-agama-t0026",
+      "canonicalTitle": "中阿含經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0026"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0026-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "中阿含經",
+          "translator": "東晉 · 瞿曇僧伽提婆譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "zhongahanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 33424,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T01n0026.xml",
+            "format": "application/tei+xml",
+            "sha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:samyukta-agama-t0099",
+      "canonicalTitle": "雜阿含經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0099"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0099-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "雜阿含經",
+          "translator": "劉宋 · 求那跋陀羅譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "zaahanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 32193,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T02n0099.xml",
+            "format": "application/tei+xml",
+            "sha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:ekottarika-agama-t0125",
+      "canonicalTitle": "增壹阿含經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0125"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0125-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "增壹阿含經",
+          "translator": "東晉 · 瞿曇僧伽提婆譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "zengyiahanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 24172,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T02n0125.xml",
+            "format": "application/tei+xml",
+            "sha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:maha-prajnaparamita-t0223",
+      "canonicalTitle": "摩訶般若波羅蜜經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0223"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0223-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "摩訶般若波羅蜜經",
+          "translator": "後秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "moheboreboluomijing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 17877,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0223.xml",
+            "format": "application/tei+xml",
+            "sha256": "523014dbe8b835f994de69ddd902cb6931ff91b0ee157046ff16b094626beb0a",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:avatamsaka-t0278",
+      "canonicalTitle": "大方廣佛華嚴經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0278",
+          "T0279"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0278-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大方廣佛華嚴經",
+          "translator": "東晉 · 佛馱跋陀羅譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "liushi-huayanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 33914,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T09n0278.xml",
+            "format": "application/tei+xml",
+            "sha256": "1c388f449db5a9f4402c05bd2e7ad077a18e3115f06e0d84852410960f58acba",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        },
+        {
+          "id": "gbcr:expression:T0279-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大方廣佛華嚴經",
+          "translator": "唐 · 實叉難陀譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "bashi-huayanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 38257,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T10n0279.xml",
+            "format": "application/tei+xml",
+            "sha256": "caba9d3ff16b2b6dad5ec813b529087356001a5c981bd0a5c3443047b2789fa0",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:maharatnakuta-t0310",
+      "canonicalTitle": "大寶積經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0310"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0310-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大寶積經",
+          "translator": "唐 · 菩提流志譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "dabaojijing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 58977,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T11n0310.xml",
+            "format": "application/tei+xml",
+            "sha256": "03db65d7fb5388bf01a65a76ebf4f7c6fdef96aafdbb388c12931b699a628996",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:mahaparinirvana-t0374",
+      "canonicalTitle": "大般涅槃經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0374",
+          "T0375"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0374-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大般涅槃經",
+          "translator": "北涼 · 曇無讖譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "beiben-dabanniepanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 20621,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0374.xml",
+            "format": "application/tei+xml",
+            "sha256": "77b846ff977334a0db6c94124f4c9ab1eed02f4c89e6dd7728ec1ba5e9fbf290",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        },
+        {
+          "id": "gbcr:expression:T0375-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大般涅槃經",
+          "translator": "宋 · 慧嚴等依《泥洹經》加治",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "nanben-dabanniepanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 21362,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0375.xml",
+            "format": "application/tei+xml",
+            "sha256": "88fc4edb2a5789dca43cc4242db4cbc1fb7db0def7f1722e508b6bee870e9f2e",
+            "rightsStatus": "restricted_noncommercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:maha-prajnaparamita-t0220",
+      "canonicalTitle": "大般若波羅蜜多經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0220-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大般若波羅蜜多經",
+          "translator": "唐 · 玄奘譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "daboruo-jing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 279477,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "T0220a",
+              "path": "data/corpus/cbeta/T05n0220a.xml",
+              "format": "application/tei+xml",
+              "sha256": "87d57b5ced905d5f86a6db56986255434486e2442a2e63afbd8c48ba104c4392",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 2,
+              "id": "T0220b",
+              "path": "data/corpus/cbeta/T06n0220b.xml",
+              "format": "application/tei+xml",
+              "sha256": "64827ed2c9f95b45e0f1f5f17ba97ad4a70cb5e75dbd4360cfcacd0428b81aad",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 3,
+              "id": "T0220c",
+              "path": "data/corpus/cbeta/T07n0220c.xml",
+              "format": "application/tei+xml",
+              "sha256": "e3b4f8ced80b6f9223a4063632bdc311ff20352a6edfddbc23ec25cbd27ca2dc",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 4,
+              "id": "T0220d",
+              "path": "data/corpus/cbeta/T07n0220d.xml",
+              "format": "application/tei+xml",
+              "sha256": "65e865ffa4fe32c7ec3560c9839d49253368d885942613ffed46e4afefb07c15",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 5,
+              "id": "T0220e",
+              "path": "data/corpus/cbeta/T07n0220e.xml",
+              "format": "application/tei+xml",
+              "sha256": "cbe1728f8139e98b50f36c38514f1c6a96e1d2be54019bd0adcb3e8b38bf156f",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 6,
+              "id": "T0220f",
+              "path": "data/corpus/cbeta/T07n0220f.xml",
+              "format": "application/tei+xml",
+              "sha256": "b65f3f585883c7d0446fd9c7b4b336a76bde65c32a02ad6a1e75d1e4eba01d32",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 7,
+              "id": "T0220g",
+              "path": "data/corpus/cbeta/T07n0220g.xml",
+              "format": "application/tei+xml",
+              "sha256": "62c5c0b540eaeadc687b7927bd0a443bfd68f7f50b0d9b8382d2a00d7caa6482",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 8,
+              "id": "T0220h",
+              "path": "data/corpus/cbeta/T07n0220h.xml",
+              "format": "application/tei+xml",
+              "sha256": "ff46b6d1064921f47d44db32c171805121a1688c5e51b838c626e91bbda30f43",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 9,
+              "id": "T0220i",
+              "path": "data/corpus/cbeta/T07n0220i.xml",
+              "format": "application/tei+xml",
+              "sha256": "79033f49f76dec361d2aa844ca1db96bab2c320e4ddc757a926b2133928cf46b",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 10,
+              "id": "T0220j",
+              "path": "data/corpus/cbeta/T07n0220j.xml",
+              "format": "application/tei+xml",
+              "sha256": "4c9b14f1a8d65b568048e1db120d7789e846020cb40b118161f4cfdfa4c3604b",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 11,
+              "id": "T0220k",
+              "path": "data/corpus/cbeta/T07n0220k.xml",
+              "format": "application/tei+xml",
+              "sha256": "ad9f211f7bdee86b63dbc7069a6a61d5dc3f9c76cf78a11ffe984ad63f30d17e",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 12,
+              "id": "T0220l",
+              "path": "data/corpus/cbeta/T07n0220l.xml",
+              "format": "application/tei+xml",
+              "sha256": "b75e8748237a174233f106102a421a89514ded6ae788252288fefc16f96cdc92",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 13,
+              "id": "T0220m",
+              "path": "data/corpus/cbeta/T07n0220m.xml",
+              "format": "application/tei+xml",
+              "sha256": "8bf9001ac635b52b6011f280ab898417e0dd94087a51b6a065e26ac6a78f0d0d",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 14,
+              "id": "T0220n",
+              "path": "data/corpus/cbeta/T07n0220n.xml",
+              "format": "application/tei+xml",
+              "sha256": "e21a2da1985283f6c00e03831365e2183cd7d988956898d1363e1172c799508e",
+              "rightsStatus": "restricted_noncommercial"
+            },
+            {
+              "part": 15,
+              "id": "T0220o",
+              "path": "data/corpus/cbeta/T07n0220o.xml",
+              "format": "application/tei+xml",
+              "sha256": "2b65152979e2eeb86183ba98bde4d40b0ccfeebebad535fcfa3d9a9888c388e4",
+              "rightsStatus": "restricted_noncommercial"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:dhammapada-pali",
+      "textFamilyId": "gbcr:text-family:dhammapada",
+      "workType": "distinct_recension",
+      "canonicalTitle": "Dhammapada",
+      "canonicalTitleZh": "法句（巴利本）",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dhp"
+        ]
+      },
+      "relationDecision": "与汉译 T0210 同属法句文本家族；结构与内容不完全相同，不声明为同一作品的逐句翻译。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DHP-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Dhammapada",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "dhammapada-pali",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 2234,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "dhp1-20",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp1-20_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "ca61ef7fd91d39a1adffd3cb0cc807b3a4e03c152f6b2492bffe906511f6072d",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 2,
+              "id": "dhp21-32",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp21-32_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "85389c37251e787c58bd956f3a0a4cc0b4f20258b6fde4dc2f94ef91e97b4f7d",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 3,
+              "id": "dhp33-43",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp33-43_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "7019adc7a876ba0a8f0298f23be9cc4382c96848d07e1dab89163f7f09c744b2",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 4,
+              "id": "dhp44-59",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp44-59_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "145b67de7954b5794f6adc20b4916b28ef2443e3154c55f56cac658701e1879b",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 5,
+              "id": "dhp60-75",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp60-75_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "d6567afa7fdbb095e0d36fe07097056adc7bd24aa053e353e4d69fbb57e99ce2",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 6,
+              "id": "dhp76-89",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp76-89_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "250f1abdeb17ef4e9af2b01dc4ce655075cfaff2d5aa00de99ee89c745dcc388",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 7,
+              "id": "dhp90-99",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp90-99_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "eb6d06a3abdd8169080b1eb6fcfbc1826a237634f059b2becd2f75f448d416b9",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 8,
+              "id": "dhp100-115",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp100-115_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "6b8376d026834cf2d705bcaec7bdcf6f270995215bd6b28e65c0cd9b73aadd0c",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 9,
+              "id": "dhp116-128",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp116-128_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "39a41a906ebcb8f7fe63efefb095134b0da4d0171d8f87f0cb0d7860cbb791fa",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 10,
+              "id": "dhp129-145",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp129-145_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "51fc61087993d3647a18368ae54b62294b27bbb918a67eda1eb6baeec548927d",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 11,
+              "id": "dhp146-156",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp146-156_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "67aa6fcf49a7e673e5b735ebd3ecf335a134837fbf114e4412cfa002a2a037e9",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 12,
+              "id": "dhp157-166",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp157-166_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "7c177e4c52be29feeb8b4769154124a6e47885041f9b06030b5adbe0f7d60c3d",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 13,
+              "id": "dhp167-178",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp167-178_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "bf65bf70ca8e84c26420d11d9dc06b1525a085392a3e89a6d929259ea21b6f47",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 14,
+              "id": "dhp179-196",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp179-196_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "500457d5e856389de07b8ef754a8fe50500d73f9dc34ff7153312653e13fa465",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 15,
+              "id": "dhp197-208",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp197-208_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "ce72f3d4770edeee1757193618680ddeb025e211c1e6033db9bfb8b9ba4bc730",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 16,
+              "id": "dhp209-220",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp209-220_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "7f3d5862e364be7bbeb6115c22108e36e13740f17f3ad93fe82e41ef8de4f56e",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 17,
+              "id": "dhp221-234",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp221-234_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "28ca8e23803c981a5b8faacec9cdb76588dea828ca2edb15a41b6ad80f97acaf",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 18,
+              "id": "dhp235-255",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp235-255_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "e0a57977dc812daeb6bced321aac1db9c08dbba6b04811c507f09b2bd08affd3",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 19,
+              "id": "dhp256-272",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp256-272_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "e4c771ae325234f9ac12171186db2061f4c9c14ae931e0ee2108ed544467aaf1",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 20,
+              "id": "dhp273-289",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp273-289_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "44af68bb70cfa8718ad5736f8e4b11292b1c77d0381e5ffb6c6b2d6729021370",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 21,
+              "id": "dhp290-305",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp290-305_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "234a1d8f336e0ee3676dce30d9e33f233745a56c247b44b0731582cb2b74edba",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 22,
+              "id": "dhp306-319",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp306-319_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "d3d010d7e8383987d11eb866db5433099c8807aae57c5d28675d03f4db25426d",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 23,
+              "id": "dhp320-333",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp320-333_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "7d42bd0ffb42a09f2d7be1a9fe3a12cfd88e36e61c883074cd6c32fb04885225",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 24,
+              "id": "dhp334-359",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp334-359_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "5054dcc1fb90ac5b7bf2cf7bd73e4b725fc0c89c4dcc69d5811211ebbdc187c5",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 25,
+              "id": "dhp360-382",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp360-382_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "5cf64a9de6dfc4a89073a142c3e928c614b7f925f90533378913706fecda5126",
+              "rightsStatus": "public_domain"
+            },
+            {
+              "part": 26,
+              "id": "dhp383-423",
+              "path": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp383-423_root-pli-ms.json",
+              "format": "application/json",
+              "sha256": "13444a396a5c5fbbbc8b128c15fef9b914f2cce0052eca9f2716f70107630460",
+              "rightsStatus": "public_domain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn1-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Brahmajālasutta",
+      "canonicalTitleZh": "长部第 1 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn1"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN1-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Brahmajālasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn1",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 662,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn1_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "44021f56124e465aa53bba8103282980da02450fd37315b77bb54ba7b3b648fe",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn2-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Sāmaññaphalasutta",
+      "canonicalTitleZh": "长部第 2 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn2"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN2-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Sāmaññaphalasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn2",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 650,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn2_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "e8be9a3293688a648c9f3c4437fb017c670176639344b482d16ddf814d75232c",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn3-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Ambaṭṭhasutta",
+      "canonicalTitleZh": "长部第 3 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn3"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN3-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Ambaṭṭhasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn3",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 437,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn3_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "e299393913e42a6c7c26e6447808424aa21db319217826d585b7d534c892934a",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn4-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Soṇadaṇḍasutta",
+      "canonicalTitleZh": "长部第 4 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn4"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN4-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Soṇadaṇḍasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn4",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 297,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn4_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "b600ba1a422cbaa11e5da31ed6199d5125a3c98783344ac3ae6893bf5525a4dd",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn5-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Kūṭadantasutta",
+      "canonicalTitleZh": "长部第 5 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn5"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN5-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Kūṭadantasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn5",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 374,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn5_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "7e3a2c62ea3f80bdf44923d6cdea1586e784c5869d261044f3b4cd76156feac1",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn6-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahālisutta",
+      "canonicalTitleZh": "长部第 6 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn6"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN6-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahālisutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn6",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 156,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn6_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "021cfd39385c59875c1e7cc7e6f69e0aeff68a3cc3dbc32de8300ca1884ad89c",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn7-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Jāliyasutta",
+      "canonicalTitleZh": "长部第 7 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn7"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN7-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Jāliyasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn7",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 51,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn7_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "97f15004169932dfba6630a66676f5f5333b35bd21ec6572803231a2d71e08b9",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn8-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāsīhanādasutta",
+      "canonicalTitleZh": "长部第 8 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn8"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN8-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāsīhanādasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn8",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 252,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn8_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "722a27fdbeb5706edc87370e633fb005c1508a6854aa8bafec40ecf3046bb77d",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn9-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Poṭṭhapādasutta",
+      "canonicalTitleZh": "长部第 9 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn9"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN9-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Poṭṭhapādasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn9",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 474,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn9_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "2302d308dfd77684e7a55d2efb0621b4339b75dd0acebd7040e7cc49553c9099",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn10-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Subhasutta",
+      "canonicalTitleZh": "长部第 10 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn10"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN10-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Subhasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn10",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 285,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn10_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "e422c1ab8f1aa308b51018eb81f279f2d10d13f86546ee52ffcd71b0287cbeb8",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn11-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Kevaṭṭasutta",
+      "canonicalTitleZh": "长部第 11 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn11"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN11-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Kevaṭṭasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn11",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 199,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn11_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "8a52aa26398916c75b9ca09899e4e1b1d18b2374dcfefec6f84eb43c370f98ba",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn12-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Lohiccasutta",
+      "canonicalTitleZh": "长部第 12 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn12"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN12-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Lohiccasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn12",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 189,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn12_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "4e2914d8eb29691088ada9dc9b92a9dedf6f7762438f7db65b62fd8cca7c5eae",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn13-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Tevijjasutta",
+      "canonicalTitleZh": "长部第 13 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn13"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN13-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Tevijjasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn13",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 280,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn13_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "e7665e5e3eae8985d5143696b0db7e637e3875acad6887113575f3915365322e",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn14-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāpadānasutta",
+      "canonicalTitleZh": "长部第 14 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn14"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN14-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāpadānasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn14",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 851,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn14_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "2264e893b24946ca9a6421cb89f90870d4bb99514b793df9bce80ca414c9549b",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn15-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahānidānasutta",
+      "canonicalTitleZh": "长部第 15 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn15"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN15-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahānidānasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn15",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 277,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn15_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "84be107c5ab5475653a9fddccf700a35aff1445b16e656c71530ecf14bb899a0",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn16-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāparinibbānasutta",
+      "canonicalTitleZh": "长部第 16 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn16"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN16-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāparinibbānasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn16",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 1664,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn16_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "7de6320bc7f01c7481968346d5c2d4a233d71a01036804d460ef7f4a3e5d306f",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn17-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāsudassanasutta",
+      "canonicalTitleZh": "长部第 17 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn17"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN17-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāsudassanasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn17",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 444,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn17_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "5a67d1b75394bec1829a34279480851379b2468fbb2828215f0fc85854c42c4e",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn18-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Janavasabhasutta",
+      "canonicalTitleZh": "长部第 18 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn18"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN18-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Janavasabhasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn18",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 299,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn18_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "0f331564d8ae313d95848ac73b1f37722e944347d4a770d9d9e0166fe9c97638",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn19-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāgovindasutta",
+      "canonicalTitleZh": "长部第 19 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn19"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN19-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāgovindasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn19",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 559,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn19_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "f98fdae7e76d499160ba4fe03e6c4e50841c15869179c1b16d79be990a58aec8",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn20-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāsamayasutta",
+      "canonicalTitleZh": "长部第 20 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn20"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN20-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāsamayasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn20",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 337,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn20_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "7eaa6690132fbde985e10534d948714ee630da5294f653f7bc463b970c57a69f",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn21-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Sakkapañhasutta",
+      "canonicalTitleZh": "长部第 21 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn21"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN21-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Sakkapañhasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn21",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 515,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn21_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "6fdae1ebfd189018e4d6ab915ad4698140129c398311abf50dcfcdd36ecfe5a1",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn22-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Mahāsatipaṭṭhānasutta",
+      "canonicalTitleZh": "长部第 22 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn22"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN22-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Mahāsatipaṭṭhānasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn22",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 454,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn22_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "aecc657f160159e85cb73ef0512c7cc32a4dd6d29e6e7083f7027d93ef33446e",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn23-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Pāyāsisutta",
+      "canonicalTitleZh": "长部第 23 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn23"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN23-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Pāyāsisutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn23",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 715,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn23_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "4d2a25a6f32e7211a7a92ea74db9d7a5b595911510d690e40072a955f0a7acb7",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn24-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Pāthikasutta",
+      "canonicalTitleZh": "长部第 24 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn24"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN24-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Pāthikasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn24",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 581,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn24_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "f68a8d395124f2b8eba18da08cf9a7abb87ab19f06d5d482260c2f05b1974306",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn25-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Udumbarikasutta",
+      "canonicalTitleZh": "长部第 25 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn25"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN25-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Udumbarikasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn25",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 383,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn25_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "1d3374b6a1aa968e9c2f983484782d996f0297de383cd7c72f24db72df1f5257",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn26-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Cakkavattisutta",
+      "canonicalTitleZh": "长部第 26 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn26"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN26-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Cakkavattisutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn26",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 355,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn26_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "a33359b3ecb90ac4b4335e6a76f95f156e7c15ba506a98c402e0abafe7643606",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn27-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Aggaññasutta",
+      "canonicalTitleZh": "长部第 27 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn27"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN27-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Aggaññasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn27",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 323,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn27_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "dd445a31b628b7e06e4f47631b925d98b61254fe19c8605a22a58dd089690881",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn28-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Sampasādanīyasutta",
+      "canonicalTitleZh": "长部第 28 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn28"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN28-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Sampasādanīyasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn28",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 250,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn28_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "e0cbf1b16ed73509b09793ddb5110461a5763e5a98444dba5fe5000363d9c80c",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn29-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Pāsādikasutta",
+      "canonicalTitleZh": "长部第 29 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn29"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN29-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Pāsādikasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn29",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 465,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn29_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "30c52f94cbe1de6da8226a7bbb65b76889c4e42b7e9d095e8ee951d1b8e2ee6b",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn30-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Lakkhaṇasutta",
+      "canonicalTitleZh": "长部第 30 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn30"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN30-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Lakkhaṇasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn30",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 721,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn30_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "b077a697528e91b299540a5d6e9966cbf78d1901bc8be16113c42b8cace128bb",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn31-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Siṅgālasutta",
+      "canonicalTitleZh": "长部第 31 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn31"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN31-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Siṅgālasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn31",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 267,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn31_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "d04b2a7e721bed6c4dd4e1cc2dba38d6957d296fb348ce1d7e54aeff24e34de7",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn32-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Āṭānāṭiyasutta",
+      "canonicalTitleZh": "长部第 32 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn32"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN32-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Āṭānāṭiyasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn32",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 574,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn32_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "ff0d1d8e307e166108764bd074c24876db150d272b41f34c0334dd4377d1ff05",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn33-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Saṅgītisutta",
+      "canonicalTitleZh": "长部第 33 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn33"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN33-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Saṅgītisutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn33",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 1167,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn33_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "ee562e766ecac8d1de1e72e0a21f54f47a870fcc8a06b780f8a10f840af83f88",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:digha-nikaya-dn34-pali",
+      "workType": "canonical_sutta",
+      "canonicalTitle": "Dasuttarasutta",
+      "canonicalTitleZh": "长部第 34 经",
+      "traditions": [
+        "上座部佛教"
+      ],
+      "externalIds": {
+        "suttacentral": [
+          "dn34"
+        ]
+      },
+      "relationDecision": "作为巴利《长部》中的独立经文登记；未经学术复核，不自动声称与汉译阿含或其他语种文本逐段对应。",
+      "expressions": [
+        {
+          "id": "gbcr:expression:DN34-pi-Latn-ms",
+          "language": "pi-Latn",
+          "title": "Dasuttarasutta",
+          "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+          "sourceSnapshotId": "suttacentral_bilara",
+          "localSlug": "digha-nikaya-dn34",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sampled": false,
+          "stableSegments": 894,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceTextAsset": {
+            "path": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn34_root-pli-ms.json",
+            "format": "application/json",
+            "sha256": "52520543c791671a0f0ec6f4dc09f465a1566cf820ac1b72a67d461296a56471",
+            "rightsStatus": "public_domain"
+          }
+        }
+      ]
+    }
+  ],
+  "textFamilies": [
+    {
+      "id": "gbcr:text-family:dhammapada",
+      "canonicalLabel": "Dhammapada / Dharmapada 法句文本家族",
+      "relationType": "related_recensions",
+      "members": [
+        {
+          "workId": "gbcr:work:dharmapada-t0210",
+          "tradition": "汉传佛教",
+          "externalId": "T0210"
+        },
+        {
+          "workId": "gbcr:work:dhammapada-pali",
+          "tradition": "上座部佛教",
+          "externalId": "SuttaCentral dhp"
+        }
+      ],
+      "alignmentStatus": "family_level_only",
+      "alignmentPolicy": "只有经过可引用研究或人工复核的对应关系才能进入平行段落层；共同题名或相似偈颂不自动等同。"
+    }
+  ],
+  "parallelRelations": [
+    {
+      "id": "gbcr:parallel:dhammapada-t0210-dhp",
+      "familyId": "gbcr:text-family:dhammapada",
+      "members": [
+        "gbcr:work:dharmapada-t0210",
+        "gbcr:work:dhammapada-pali"
+      ],
+      "relation": "related_recensions",
+      "segmentAlignment": "not_asserted",
+      "note": "当前只发布文本家族关系，不发布自动生成的逐章或逐偈对应。"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.7.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.8.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -126,6 +126,8 @@ for (const work of releaseManifest.expressions) {
       requireValue(segment.page === (navigation.sourcePage ?? navigation.label), `${segment.id} 页码与导航不一致`);
       if ((sourceFile.parser ?? "cbeta_tei") === "bilara_root_json") {
         requireValue(/^dhp\d+:\d+(?:\.\d+)?$/.test(segment.id), `${segment.id} Bilara 原生标识无效`);
+      } else if (sourceFile.parser === "bilara_single_root_json") {
+        requireValue(/^dn\d+:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 长部原生标识无效`);
       } else {
         requireValue(segment.id === `${work.canonId}.${segment.juan}.${segment.sourceLine}`, `${segment.id} 行号结构不一致`);
       }

@@ -25,11 +25,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const reading = await getSutraReading(sutra);
   const folio = await getSutraFolio(sutra, reading, folioKey);
   if (!folio) return { title: "版页未找到" };
-  const bilara = sutra.readerMode === "bilara-chapter";
+  const chaptered = sutra.readerMode === "bilara-chapter";
+  const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   return {
     title: `${sutra.alternateTitle} · ${folio.item.label}`,
-    description: bilara
+    description: chaptered
       ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
+      : bilara
+        ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} 巴利原文。`
       : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
     alternates: { canonical: `/jingzang/${sutra.slug}/${folio.item.key}` },
   };
@@ -42,6 +45,7 @@ function FolioPager({
   next,
   position,
   bilara,
+  chaptered,
 }: {
   slug: string;
   current: ReaderNavigationItem;
@@ -49,8 +53,9 @@ function FolioPager({
   next?: ReaderNavigationItem;
   position: "top" | "bottom";
   bilara: boolean;
+  chaptered: boolean;
 }) {
-  const unit = bilara ? "品" : "版页";
+  const unit = chaptered ? "品" : bilara ? "阅读页" : "版页";
   return (
     <nav className={`reader-pager reader-pager--${position}`} aria-label={`经文${unit}导航`}>
       {previous ? (
@@ -59,11 +64,11 @@ function FolioPager({
           <span>上一{unit}<small>{previous.label}</small></span>
         </Link>
       ) : (
-        <span className="reader-pager__edge">{bilara ? "品集之首" : "卷首"}</span>
+        <span className="reader-pager__edge">{chaptered ? "品集之首" : bilara ? "全经之首" : "卷首"}</span>
       )}
       <div>
         <span>当前{unit}</span>
-        <strong>{bilara ? `第 ${Number(current.juan)} 品 · ${current.label}` : `卷 ${Number(current.juan)} · 大正藏 ${current.label}`}</strong>
+        <strong>{chaptered ? `第 ${Number(current.juan)} 品 · ${current.label}` : bilara ? `第 ${Number(current.juan)} 阅读页 · ${current.label}` : `卷 ${Number(current.juan)} · 大正藏 ${current.label}`}</strong>
       </div>
       {next ? (
         <Link href={folioHref(slug, next.key)} rel="next">
@@ -71,7 +76,7 @@ function FolioPager({
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
       ) : (
-        <span className="reader-pager__edge">{bilara ? "品集之末" : "卷末"}</span>
+        <span className="reader-pager__edge">{chaptered ? "品集之末" : bilara ? "全经之末" : "卷末"}</span>
       )}
     </nav>
   );
@@ -90,8 +95,9 @@ export default async function SutraFolioPage({ params }: PageProps) {
     : reading.navigation;
   const useCompactJuanSelector = juanNavigation.length > 200;
   const currentJuanGroup = juanNavigation.find((group) => group.juan === folio.item.juan);
-  const bilara = sutra.readerMode === "bilara-chapter";
-  const groupUnit = bilara ? "品" : "卷";
+  const chaptered = sutra.readerMode === "bilara-chapter";
+  const bilara = chaptered || sutra.readerMode === "bilara-sutta";
+  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : "卷";
 
   return (
     <>
@@ -103,7 +109,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
 
       <div className="reader-layout">
         <aside className="reader-toc">
-          <p className="eyebrow">{bilara ? "品目录" : "版页目录"}</p>
+          <p className="eyebrow">{chaptered ? "品目录" : bilara ? "阅读目录" : "版页目录"}</p>
           <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`}>
             <ArrowLeft aria-hidden="true" size={13} /> 返回经本目录
           </Link>
@@ -129,7 +135,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
                         prefetch={false}
                         aria-current={group.juan === folio.item.juan ? "location" : undefined}
                       >
-                        {bilara ? `第 ${Number(group.juan)} 品` : `卷 ${Number(group.juan)}`} <span>{group.pages} {bilara ? "项" : "页"}</span>
+                        {chaptered ? `第 ${Number(group.juan)} 品` : bilara ? `第 ${Number(group.juan)} 阅读页` : `卷 ${Number(group.juan)}`} <span>{group.pages} {bilara ? "项" : "页"}</span>
                       </Link>
                     </li>
                   ))}
@@ -138,8 +144,10 @@ export default async function SutraFolioPage({ params }: PageProps) {
             </>
           )}
           <p className="reader-toc__section-label">
-            {bilara
+            {chaptered
               ? `当前品 · ${folio.item.label}`
+              : bilara
+                ? `当前阅读页 · ${folio.item.label}`
               : (juanNavigation.length > 1 ? `本卷版页 · ${currentJuanNavigation.length} 页` : "版页目录")}
           </p>
           <ol className="reader-toc__page-list">
@@ -169,13 +177,16 @@ export default async function SutraFolioPage({ params }: PageProps) {
             next={folio.next}
             position="top"
             bilara={bilara}
+            chaptered={chaptered}
           />
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
             <p>
-              <strong>{bilara ? "完整巴利原文 · 分品阅读" : "完整原文 · 分页阅读"}</strong>　
-              {bilara
+              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? "完整巴利原文 · 稳定分页" : "完整原文 · 分页阅读"}</strong>　
+              {chaptered
                 ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
+                : bilara
+                  ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
                 : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
             </p>
           </div>
@@ -201,20 +212,21 @@ export default async function SutraFolioPage({ params }: PageProps) {
             next={folio.next}
             position="bottom"
             bilara={bilara}
+            chaptered={chaptered}
           />
         </article>
 
         <aside className="reader-meta">
           <p className="eyebrow">版本与权利</p>
           <dl>
-            <div><dt>当前</dt><dd>{bilara ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`}</dd></div>
+            <div><dt>当前</dt><dd>{chaptered ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : bilara ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`}</dd></div>
             <div><dt>{bilara ? "目录" : "经号"}</dt><dd>{sutra.canonRef}</dd></div>
             <div><dt>语言</dt><dd>{sutra.language}</dd></div>
             <div><dt>{bilara ? "版本" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
             <div>
-              <dt>{bilara ? "本品" : "本页"}</dt>
+              <dt>{chaptered ? "本品" : "本页"}</dt>
               <dd>{bilara
                 ? `${folio.segments.length} 段 · 全经 ${reading.segmentCount} 稳定段落`
                 : `${folio.segments.length} 行 · 全经 ${reading.segmentCount} 稳定行段`}</dd>

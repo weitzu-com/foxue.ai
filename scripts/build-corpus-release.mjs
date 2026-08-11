@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
-import { parseBilaraDhammapadaSources } from "../src/lib/bilara-reading.mjs";
+import { parseBilaraDhammapadaSources, parseBilaraSuttaSource } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
@@ -83,6 +83,8 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
   }
   if (sourceFile.parser === "bilara_root_json") {
     ({ segments, navigation } = parseBilaraDhammapadaSources(sourceContents));
+  } else if (sourceFile.parser === "bilara_single_root_json") {
+    ({ segments, navigation } = parseBilaraSuttaSource(sourceContents[0]));
   } else {
     navigation = buildPageNavigation(segments);
   }

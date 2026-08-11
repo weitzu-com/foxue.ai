@@ -1,4 +1,4 @@
-const immutableObjectPattern = /^v1\/releases\/[a-z0-9][a-z0-9.-]{0,95}\/(?:manifest\.json|works\/(?:T\d{4}|DHP)\/(?:index\.json|source\.(?:xml|json)|sources\/\d{2}-[A-Za-z0-9._-]+\.(?:xml|json)|folios\/[a-z0-9][a-z0-9.-]{0,95}\.json))$/;
+const immutableObjectPattern = /^v1\/releases\/[a-z0-9][a-z0-9.-]{0,95}\/(?:manifest\.json|works\/(?:T\d{4}|DHP|DN\d{1,2})\/(?:index\.json|source\.(?:xml|json)|sources\/\d{2}-[A-Za-z0-9._-]+\.(?:xml|json)|folios\/[a-z0-9][a-z0-9.-]{0,95}\.json))$/;
 
 const corsOrigin = "https://foxue.ai";
 

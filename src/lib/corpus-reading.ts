@@ -4,22 +4,26 @@ import { join } from "node:path";
 import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v0.6.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
+import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
-import { parseBilaraDhammapadaSources } from "@/lib/bilara-reading.mjs";
+import { parseBilaraDhammapadaSources, parseBilaraSuttaSource } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 
 type CorpusManifestFile = {
   id: string;
   slug: string;
-  parser?: "cbeta_tei" | "bilara_root_json";
+  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json";
   localPath?: string;
   sourceParts?: Array<{ localPath: string }>;
 };
 
-const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: "cbeta_tei" | "bilara_root_json" }> = Object.fromEntries(
+type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json";
+
+const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: CorpusParser }> = Object.fromEntries(
   [
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
+    ...(dighaNikayaManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -243,7 +247,9 @@ const loadEdgeFolio = cache(async (
     }
     const valid = value.segments.every((segment) => (
       typeof segment.id === "string" && (
-        segment.id.startsWith(`${canonId}.`) || (canonId === "DHP" && /^dhp\d+:/.test(segment.id))
+        segment.id.startsWith(`${canonId}.`) ||
+        (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
+        (/^DN\d+$/.test(canonId) && /^dn\d+:/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
       segment.juan === value.folio.juan &&
@@ -267,6 +273,12 @@ const loadCompleteReading = cache(async (slug: string) => {
       filename: asset.localPaths[index].split("/").at(-1),
       text,
     })));
+  }
+  if (asset.parser === "bilara_single_root_json") {
+    return parseBilaraSuttaSource({
+      filename: asset.localPaths[0].split("/").at(-1),
+      text: sourceParts[0],
+    });
   }
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };

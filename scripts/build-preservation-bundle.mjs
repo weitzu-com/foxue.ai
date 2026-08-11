@@ -63,8 +63,14 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
 );
+const suttacentralDighaSources = archivedPaths.filter((path) =>
+  path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/dn/") && path.endsWith(".json"),
+);
 if (suttacentralDhammapadaSources.length !== 26) {
   throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
+}
+if (suttacentralDighaSources.length !== 34) {
+  throw new Error(`保存包应包含 34 个巴利《长部》来源文件，实际为 ${suttacentralDighaSources.length}`);
 }
 const requiredPaths = [
   "README.md",
@@ -76,10 +82,12 @@ const requiredPaths = [
   "docs/foxue.ai_建站方案_v1.0_20260811.md",
   "data/gbcr/registry-v0.6.0.json",
   "data/gbcr/registry-v0.7.0.json",
+  "data/gbcr/registry-v0.8.0.json",
   "data/gbcr/source-snapshots-v0.2.1.json",
   "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
+  "data/gbcr/checksums-v0.8.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -89,7 +97,10 @@ const requiredPaths = [
   "data/corpus/suttacentral/NOTICE.md",
   "data/corpus/suttacentral/batch-v0.7.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",
+  "data/corpus/suttacentral/dn-batch-v0.8.0.json",
+  "data/corpus/suttacentral/dn-manifest-v0.8.0.json",
   ...suttacentralDhammapadaSources,
+  ...suttacentralDighaSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
   "data/corpus/cbeta/T02n0099.xml",
@@ -132,7 +143,9 @@ const requiredPaths = [
   "scripts/build-cbeta-catalog.mjs",
   "scripts/build-corpus-catalog.mjs",
   "scripts/build-suttacentral-catalog.mjs",
+  "scripts/build-suttacentral-dn-catalog.mjs",
   "scripts/import-suttacentral-source.mjs",
+  "scripts/import-suttacentral-dn-source.mjs",
   "scripts/build-federated-corpus.mjs",
   "scripts/build-corpus-release.mjs",
   "scripts/corpus-release-context.mjs",

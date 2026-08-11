@@ -8,7 +8,7 @@ const manifest = JSON.parse(
   await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.6.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.7.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.8.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
   await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.6.0.json"), "utf8"),

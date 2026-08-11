@@ -1,0 +1,1296 @@
+{
+  "schema": "https://foxue.ai/schemas/corpus-asset-manifest-v0.3",
+  "version": "0.8.0",
+  "source": {
+    "id": "suttacentral_bilara",
+    "name": "SuttaCentral Bilara Data",
+    "repository": "suttacentral/bilara-data",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "branchSemantics": "published",
+    "homepage": "https://suttacentral.net/",
+    "licenseUrl": "https://suttacentral.net/licensing"
+  },
+  "rightsDecision": {
+    "status": "public_domain",
+    "sourceTexts": "public_domain",
+    "referenceData": "public_domain",
+    "attributionRequested": true,
+    "trainingUse": "prohibited_by_foxue_policy",
+    "summary": "巴利原文依 SuttaCentral 官方许可页属于公共领域；foxue.ai 保留来源署名，仅用于阅读、研究与有来源检索，不用于训练生成式模型。"
+  },
+  "normalization": {
+    "operation": "append_single_lf",
+    "contentChange": "none",
+    "segmentIds": "preserved_verbatim"
+  },
+  "collection": {
+    "id": "DN",
+    "canonicalTitle": "Dīgha Nikāya",
+    "titleZh": "长部",
+    "tradition": "上座部佛教",
+    "language": "pi-Latn",
+    "recordCount": 34,
+    "sourceBytes": 1820223,
+    "stableSegments": 16401
+  },
+  "files": [
+    {
+      "id": "DN1",
+      "slug": "digha-nikaya-dn1",
+      "workId": "gbcr:work:digha-nikaya-dn1-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn1_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn1_root-pli-ms.json",
+      "upstreamGitBlobSha1": "024817255924dfd96c5ddc149054f9952baa117f",
+      "upstreamBytes": 97073,
+      "upstreamSha256": "16b1b1c26b9c3bee3845edd384136dfcc8d43abe80c2a75af5a7c7c64487e916",
+      "localBytes": 97074,
+      "localSha256": "44021f56124e465aa53bba8103282980da02450fd37315b77bb54ba7b3b648fe",
+      "firstSegmentId": "dn1:0.1",
+      "lastSegmentId": "dn1:3.74.7",
+      "presentation": {
+        "title": "长部第 1 经",
+        "alternateTitle": "Brahmajālasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN1",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 1 经 Brahmajālasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn1/pli/ms"
+      },
+      "verification": {
+        "segments": 662,
+        "readingUnits": 6,
+        "anchors": [
+          "dn1:0.1",
+          "dn1:3.74.7"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN2",
+      "slug": "digha-nikaya-dn2",
+      "workId": "gbcr:work:digha-nikaya-dn2-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn2_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn2_root-pli-ms.json",
+      "upstreamGitBlobSha1": "eb373b3ecc8109896b27a424e3c00e623ad349c7",
+      "upstreamBytes": 88116,
+      "upstreamSha256": "618bd8b69cda5bc6f316ded24faed55753a59142d60a3452414633f19c72477e",
+      "localBytes": 88117,
+      "localSha256": "e8be9a3293688a648c9f3c4437fb017c670176639344b482d16ddf814d75232c",
+      "firstSegmentId": "dn2:0.1",
+      "lastSegmentId": "dn2:102.7",
+      "presentation": {
+        "title": "长部第 2 经",
+        "alternateTitle": "Sāmaññaphalasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN2",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 2 经 Sāmaññaphalasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn2/pli/ms"
+      },
+      "verification": {
+        "segments": 650,
+        "readingUnits": 6,
+        "anchors": [
+          "dn2:0.1",
+          "dn2:102.7"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN3",
+      "slug": "digha-nikaya-dn3",
+      "workId": "gbcr:work:digha-nikaya-dn3-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn3_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn3_root-pli-ms.json",
+      "upstreamGitBlobSha1": "64b3eccffa44405c2285ee75c83ecd9c94266fd7",
+      "upstreamBytes": 52126,
+      "upstreamSha256": "c7e31c3bc08c510d66ad9f3aa35da19fb3384b26ae7b4f60493b9025de537621",
+      "localBytes": 52127,
+      "localSha256": "e299393913e42a6c7c26e6447808424aa21db319217826d585b7d534c892934a",
+      "firstSegmentId": "dn3:0.1",
+      "lastSegmentId": "dn3:2.22.9",
+      "presentation": {
+        "title": "长部第 3 经",
+        "alternateTitle": "Ambaṭṭhasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN3",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 3 经 Ambaṭṭhasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn3/pli/ms"
+      },
+      "verification": {
+        "segments": 437,
+        "readingUnits": 4,
+        "anchors": [
+          "dn3:0.1",
+          "dn3:2.22.9"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN4",
+      "slug": "digha-nikaya-dn4",
+      "workId": "gbcr:work:digha-nikaya-dn4-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn4_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn4_root-pli-ms.json",
+      "upstreamGitBlobSha1": "b32106f49cbe207f490e3f5b62143482e5881421",
+      "upstreamBytes": 35496,
+      "upstreamSha256": "d85a5eae768ec702fab84655824a770ed1a3355311623806d22b9f9acbe061c9",
+      "localBytes": 35497,
+      "localSha256": "b600ba1a422cbaa11e5da31ed6199d5125a3c98783344ac3ae6893bf5525a4dd",
+      "firstSegmentId": "dn4:0.1",
+      "lastSegmentId": "dn4:27.2",
+      "presentation": {
+        "title": "长部第 4 经",
+        "alternateTitle": "Soṇadaṇḍasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN4",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 4 经 Soṇadaṇḍasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn4/pli/ms"
+      },
+      "verification": {
+        "segments": 297,
+        "readingUnits": 3,
+        "anchors": [
+          "dn4:0.1",
+          "dn4:27.2"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN5",
+      "slug": "digha-nikaya-dn5",
+      "workId": "gbcr:work:digha-nikaya-dn5-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn5_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn5_root-pli-ms.json",
+      "upstreamGitBlobSha1": "f459e28ff6dd8354edfa9b9274e8cea54fe3592f",
+      "upstreamBytes": 50162,
+      "upstreamSha256": "c508d28e58ac67b823a36bedddf802958d280fe1e2015df8e4077e7adcbd45c2",
+      "localBytes": 50163,
+      "localSha256": "7e3a2c62ea3f80bdf44923d6cdea1586e784c5869d261044f3b4cd76156feac1",
+      "firstSegmentId": "dn5:0.1",
+      "lastSegmentId": "dn5:30.11",
+      "presentation": {
+        "title": "长部第 5 经",
+        "alternateTitle": "Kūṭadantasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN5",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 5 经 Kūṭadantasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn5/pli/ms"
+      },
+      "verification": {
+        "segments": 374,
+        "readingUnits": 4,
+        "anchors": [
+          "dn5:0.1",
+          "dn5:30.11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN6",
+      "slug": "digha-nikaya-dn6",
+      "workId": "gbcr:work:digha-nikaya-dn6-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn6_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn6_root-pli-ms.json",
+      "upstreamGitBlobSha1": "d6066775ff00b3f0d04d96f5b792edbd25e6b1fc",
+      "upstreamBytes": 20471,
+      "upstreamSha256": "c33c3dc944ec6e3a2f02c59603c77c24edb93ba5072696ffa2e01d27905d3405",
+      "localBytes": 20472,
+      "localSha256": "021cfd39385c59875c1e7cc7e6f69e0aeff68a3cc3dbc32de8300ca1884ad89c",
+      "firstSegmentId": "dn6:0.1",
+      "lastSegmentId": "dn6:19.11",
+      "presentation": {
+        "title": "长部第 6 经",
+        "alternateTitle": "Mahālisutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN6",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 6 经 Mahālisutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn6/pli/ms"
+      },
+      "verification": {
+        "segments": 156,
+        "readingUnits": 2,
+        "anchors": [
+          "dn6:0.1",
+          "dn6:19.11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN7",
+      "slug": "digha-nikaya-dn7",
+      "workId": "gbcr:work:digha-nikaya-dn7-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn7_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn7_root-pli-ms.json",
+      "upstreamGitBlobSha1": "82de8f36503c6a35c5974183afc9387ee85b6f50",
+      "upstreamBytes": 4374,
+      "upstreamSha256": "f9bc33094420668e8632a9b71de295378d33026bd6beacd644b61aa81f2fd5f4",
+      "localBytes": 4375,
+      "localSha256": "97f15004169932dfba6630a66676f5f5333b35bd21ec6572803231a2d71e08b9",
+      "firstSegmentId": "dn7:0.1",
+      "lastSegmentId": "dn7:5.11",
+      "presentation": {
+        "title": "长部第 7 经",
+        "alternateTitle": "Jāliyasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN7",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 7 经 Jāliyasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn7/pli/ms"
+      },
+      "verification": {
+        "segments": 51,
+        "readingUnits": 1,
+        "anchors": [
+          "dn7:0.1",
+          "dn7:5.11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN8",
+      "slug": "digha-nikaya-dn8",
+      "workId": "gbcr:work:digha-nikaya-dn8-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn8_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn8_root-pli-ms.json",
+      "upstreamGitBlobSha1": "59ae907052b193f56673deed5a2a1311a1171050",
+      "upstreamBytes": 31575,
+      "upstreamSha256": "c237b0194e2313bc69fe3d57d39a7fe7cd3e294fef533ca50742f1498d0f1f59",
+      "localBytes": 31576,
+      "localSha256": "722a27fdbeb5706edc87370e633fb005c1508a6854aa8bafec40ecf3046bb77d",
+      "firstSegmentId": "dn8:0.1",
+      "lastSegmentId": "dn8:24.8",
+      "presentation": {
+        "title": "长部第 8 经",
+        "alternateTitle": "Mahāsīhanādasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN8",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 8 经 Mahāsīhanādasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn8/pli/ms"
+      },
+      "verification": {
+        "segments": 252,
+        "readingUnits": 3,
+        "anchors": [
+          "dn8:0.1",
+          "dn8:24.8"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN9",
+      "slug": "digha-nikaya-dn9",
+      "workId": "gbcr:work:digha-nikaya-dn9-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn9_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn9_root-pli-ms.json",
+      "upstreamGitBlobSha1": "ef2beec51a3f9910cacf0e5003d788542b7cee97",
+      "upstreamBytes": 52081,
+      "upstreamSha256": "4d9e529571d37709b5059b8c592909580066de1da46154ac6471cfdd29588b06",
+      "localBytes": 52082,
+      "localSha256": "2302d308dfd77684e7a55d2efb0621b4339b75dd0acebd7040e7cc49553c9099",
+      "firstSegmentId": "dn9:0.1",
+      "lastSegmentId": "dn9:56.5",
+      "presentation": {
+        "title": "长部第 9 经",
+        "alternateTitle": "Poṭṭhapādasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN9",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 9 经 Poṭṭhapādasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn9/pli/ms"
+      },
+      "verification": {
+        "segments": 474,
+        "readingUnits": 4,
+        "anchors": [
+          "dn9:0.1",
+          "dn9:56.5"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN10",
+      "slug": "digha-nikaya-dn10",
+      "workId": "gbcr:work:digha-nikaya-dn10-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn10_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn10_root-pli-ms.json",
+      "upstreamGitBlobSha1": "497c53f53878d37578021bbf46d80a24bb159710",
+      "upstreamBytes": 40366,
+      "upstreamSha256": "4319e49abfb0f6a303f1a46a078e56f8f6c3c2cd5f8285acb161339339ffb69e",
+      "localBytes": 40367,
+      "localSha256": "e422c1ab8f1aa308b51018eb81f279f2d10d13f86546ee52ffcd71b0287cbeb8",
+      "firstSegmentId": "dn10:0.1",
+      "lastSegmentId": "dn10:2.37.11",
+      "presentation": {
+        "title": "长部第 10 经",
+        "alternateTitle": "Subhasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN10",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 10 经 Subhasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn10/pli/ms"
+      },
+      "verification": {
+        "segments": 285,
+        "readingUnits": 3,
+        "anchors": [
+          "dn10:0.1",
+          "dn10:2.37.11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN11",
+      "slug": "digha-nikaya-dn11",
+      "workId": "gbcr:work:digha-nikaya-dn11-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn11_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn11_root-pli-ms.json",
+      "upstreamGitBlobSha1": "64192d27d51aadccf0918e76bd5380720a6adb2a",
+      "upstreamBytes": 21508,
+      "upstreamSha256": "6d24010a64ae2323d076d1784420bdffbe0609e4e292f3f2e6f38e952af97fb6",
+      "localBytes": 21509,
+      "localSha256": "8a52aa26398916c75b9ca09899e4e1b1d18b2374dcfefec6f84eb43c370f98ba",
+      "firstSegmentId": "dn11:0.1",
+      "lastSegmentId": "dn11:85.30",
+      "presentation": {
+        "title": "长部第 11 经",
+        "alternateTitle": "Kevaṭṭasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN11",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 11 经 Kevaṭṭasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn11/pli/ms"
+      },
+      "verification": {
+        "segments": 199,
+        "readingUnits": 2,
+        "anchors": [
+          "dn11:0.1",
+          "dn11:85.30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN12",
+      "slug": "digha-nikaya-dn12",
+      "workId": "gbcr:work:digha-nikaya-dn12-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn12_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn12_root-pli-ms.json",
+      "upstreamGitBlobSha1": "26829764a76d22757785fdf19e8af332e33439fc",
+      "upstreamBytes": 20343,
+      "upstreamSha256": "b09895d52c5c6bd241162091fd785afefa43a871cb01a0fa743c531611776b14",
+      "localBytes": 20344,
+      "localSha256": "4e2914d8eb29691088ada9dc9b92a9dedf6f7762438f7db65b62fd8cca7c5eae",
+      "firstSegmentId": "dn12:0.1",
+      "lastSegmentId": "dn12:78.8",
+      "presentation": {
+        "title": "长部第 12 经",
+        "alternateTitle": "Lohiccasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN12",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 12 经 Lohiccasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn12/pli/ms"
+      },
+      "verification": {
+        "segments": 189,
+        "readingUnits": 2,
+        "anchors": [
+          "dn12:0.1",
+          "dn12:78.8"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN13",
+      "slug": "digha-nikaya-dn13",
+      "workId": "gbcr:work:digha-nikaya-dn13-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn13_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn13_root-pli-ms.json",
+      "upstreamGitBlobSha1": "a6812d86158131b9827458a8451731aa87464216",
+      "upstreamBytes": 33531,
+      "upstreamSha256": "596dde405ee94d1dc7e5a4dc2f4ef36919975df68436dbf8d5a3e81c17574434",
+      "localBytes": 33532,
+      "localSha256": "e7665e5e3eae8985d5143696b0db7e637e3875acad6887113575f3915365322e",
+      "firstSegmentId": "dn13:0.1",
+      "lastSegmentId": "dn13:83.5",
+      "presentation": {
+        "title": "长部第 13 经",
+        "alternateTitle": "Tevijjasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN13",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 13 经 Tevijjasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn13/pli/ms"
+      },
+      "verification": {
+        "segments": 280,
+        "readingUnits": 3,
+        "anchors": [
+          "dn13:0.1",
+          "dn13:83.5"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN14",
+      "slug": "digha-nikaya-dn14",
+      "workId": "gbcr:work:digha-nikaya-dn14-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn14_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn14_root-pli-ms.json",
+      "upstreamGitBlobSha1": "cedafa40199a91d827c61f553a83ce99d5da03cf",
+      "upstreamBytes": 107271,
+      "upstreamSha256": "f2a2b026fb3b69639e6cb88c865e260b63786dff2877b352f0b6677405db050c",
+      "localBytes": 107272,
+      "localSha256": "2264e893b24946ca9a6421cb89f90870d4bb99514b793df9bce80ca414c9549b",
+      "firstSegmentId": "dn14:0.1",
+      "lastSegmentId": "dn14:3.33.7",
+      "presentation": {
+        "title": "长部第 14 经",
+        "alternateTitle": "Mahāpadānasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN14",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 14 经 Mahāpadānasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn14/pli/ms"
+      },
+      "verification": {
+        "segments": 851,
+        "readingUnits": 8,
+        "anchors": [
+          "dn14:0.1",
+          "dn14:3.33.7"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN15",
+      "slug": "digha-nikaya-dn15",
+      "workId": "gbcr:work:digha-nikaya-dn15-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn15_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn15_root-pli-ms.json",
+      "upstreamGitBlobSha1": "5a4fa6ea98d32c1b77c8e20b8fa1877bf4e8c5fc",
+      "upstreamBytes": 33647,
+      "upstreamSha256": "e94db212b9375c37f5edd205921a7c425f1f579b946f45cea9017ca754b6b5d8",
+      "localBytes": 33648,
+      "localSha256": "84be107c5ab5475653a9fddccf700a35aff1445b16e656c71530ecf14bb899a0",
+      "firstSegmentId": "dn15:0.1",
+      "lastSegmentId": "dn15:36.6",
+      "presentation": {
+        "title": "长部第 15 经",
+        "alternateTitle": "Mahānidānasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN15",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 15 经 Mahānidānasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn15/pli/ms"
+      },
+      "verification": {
+        "segments": 277,
+        "readingUnits": 3,
+        "anchors": [
+          "dn15:0.1",
+          "dn15:36.6"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN16",
+      "slug": "digha-nikaya-dn16",
+      "workId": "gbcr:work:digha-nikaya-dn16-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn16_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn16_root-pli-ms.json",
+      "upstreamGitBlobSha1": "639428bc657a1550d612d7f2638b127d291a6a5f",
+      "upstreamBytes": 193334,
+      "upstreamSha256": "b876c751764f72fecd74c6dd3af7adc243d4f7a695c6002583100d80ec83e159",
+      "localBytes": 193335,
+      "localSha256": "7de6320bc7f01c7481968346d5c2d4a233d71a01036804d460ef7f4a3e5d306f",
+      "firstSegmentId": "dn16:0.1",
+      "lastSegmentId": "dn16:6.28.21",
+      "presentation": {
+        "title": "长部第 16 经",
+        "alternateTitle": "Mahāparinibbānasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN16",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 16 经 Mahāparinibbānasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn16/pli/ms"
+      },
+      "verification": {
+        "segments": 1664,
+        "readingUnits": 14,
+        "anchors": [
+          "dn16:0.1",
+          "dn16:6.28.21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN17",
+      "slug": "digha-nikaya-dn17",
+      "workId": "gbcr:work:digha-nikaya-dn17-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn17_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn17_root-pli-ms.json",
+      "upstreamGitBlobSha1": "8cc5e7e336b1386166639131f1ef02359cfdcae7",
+      "upstreamBytes": 57175,
+      "upstreamSha256": "cd14733c1b1818e024d96a74cee5400de4c1b3f8e939f995c291fe57f9d7352c",
+      "localBytes": 57176,
+      "localSha256": "5a67d1b75394bec1829a34279480851379b2468fbb2828215f0fc85854c42c4e",
+      "firstSegmentId": "dn17:0.1",
+      "lastSegmentId": "dn17:2.17.9",
+      "presentation": {
+        "title": "长部第 17 经",
+        "alternateTitle": "Mahāsudassanasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN17",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 17 经 Mahāsudassanasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn17/pli/ms"
+      },
+      "verification": {
+        "segments": 444,
+        "readingUnits": 4,
+        "anchors": [
+          "dn17:0.1",
+          "dn17:2.17.9"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN18",
+      "slug": "digha-nikaya-dn18",
+      "workId": "gbcr:work:digha-nikaya-dn18-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn18_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn18_root-pli-ms.json",
+      "upstreamGitBlobSha1": "7ae94664d69a6c7b5bba37737c5ad5774b962de6",
+      "upstreamBytes": 36073,
+      "upstreamSha256": "ee23e439307ae0016af71ba727ac67b43516f4aaedf6eec7749b203322ac0078",
+      "localBytes": 36074,
+      "localSha256": "0f331564d8ae313d95848ac73b1f37722e944347d4a770d9d9e0166fe9c97638",
+      "firstSegmentId": "dn18:0.1",
+      "lastSegmentId": "dn18:29.5",
+      "presentation": {
+        "title": "长部第 18 经",
+        "alternateTitle": "Janavasabhasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN18",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 18 经 Janavasabhasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn18/pli/ms"
+      },
+      "verification": {
+        "segments": 299,
+        "readingUnits": 3,
+        "anchors": [
+          "dn18:0.1",
+          "dn18:29.5"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN19",
+      "slug": "digha-nikaya-dn19",
+      "workId": "gbcr:work:digha-nikaya-dn19-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn19_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn19_root-pli-ms.json",
+      "upstreamGitBlobSha1": "85d82e2c4fc2b1b49075e5d696b39c96d7937d8d",
+      "upstreamBytes": 59004,
+      "upstreamSha256": "e03cb40f0fdd06a50d103bcdef4045524d601baff1a7931cbbfd306139409e20",
+      "localBytes": 59005,
+      "localSha256": "f98fdae7e76d499160ba4fe03e6c4e50841c15869179c1b16d79be990a58aec8",
+      "firstSegmentId": "dn19:0.1",
+      "lastSegmentId": "dn19:62.8",
+      "presentation": {
+        "title": "长部第 19 经",
+        "alternateTitle": "Mahāgovindasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN19",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 19 经 Mahāgovindasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn19/pli/ms"
+      },
+      "verification": {
+        "segments": 559,
+        "readingUnits": 5,
+        "anchors": [
+          "dn19:0.1",
+          "dn19:62.8"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN20",
+      "slug": "digha-nikaya-dn20",
+      "workId": "gbcr:work:digha-nikaya-dn20-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn20_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn20_root-pli-ms.json",
+      "upstreamGitBlobSha1": "59902269a6f62fdff030af60da16a04a26cb6f79",
+      "upstreamBytes": 16876,
+      "upstreamSha256": "da56cfe154c64e5bee8ee0de6be4fa2504f94bfc9415b09a86fb1650bba7fe51",
+      "localBytes": 16877,
+      "localSha256": "7eaa6690132fbde985e10534d948714ee630da5294f653f7bc463b970c57a69f",
+      "firstSegmentId": "dn20:0.1",
+      "lastSegmentId": "dn20:22.15",
+      "presentation": {
+        "title": "长部第 20 经",
+        "alternateTitle": "Mahāsamayasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN20",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 20 经 Mahāsamayasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn20/pli/ms"
+      },
+      "verification": {
+        "segments": 337,
+        "readingUnits": 3,
+        "anchors": [
+          "dn20:0.1",
+          "dn20:22.15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN21",
+      "slug": "digha-nikaya-dn21",
+      "workId": "gbcr:work:digha-nikaya-dn21-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn21_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn21_root-pli-ms.json",
+      "upstreamGitBlobSha1": "04538abec3442ecb51127de5751a92ee5867833a",
+      "upstreamBytes": 44738,
+      "upstreamSha256": "42e1ea1b92ade556694f1df1bcc74d31e6c5133519d91a98e412e8cd4e9dc736",
+      "localBytes": 44739,
+      "localSha256": "6fdae1ebfd189018e4d6ab915ad4698140129c398311abf50dcfcdd36ecfe5a1",
+      "firstSegmentId": "dn21:0.1",
+      "lastSegmentId": "dn21:2.10.14",
+      "presentation": {
+        "title": "长部第 21 经",
+        "alternateTitle": "Sakkapañhasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN21",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 21 经 Sakkapañhasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn21/pli/ms"
+      },
+      "verification": {
+        "segments": 515,
+        "readingUnits": 5,
+        "anchors": [
+          "dn21:0.1",
+          "dn21:2.10.14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN22",
+      "slug": "digha-nikaya-dn22",
+      "workId": "gbcr:work:digha-nikaya-dn22-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn22_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn22_root-pli-ms.json",
+      "upstreamGitBlobSha1": "1303f3ea01e52bdf6fcaaebe3a3301c9d9834459",
+      "upstreamBytes": 49255,
+      "upstreamSha256": "3872197cb1998b3281225c66c2929bf6a9535654ef630118ab372a6f33385e49",
+      "localBytes": 49256,
+      "localSha256": "aecc657f160159e85cb73ef0512c7cc32a4dd6d29e6e7083f7027d93ef33446e",
+      "firstSegmentId": "dn22:0.1",
+      "lastSegmentId": "dn22:22.28",
+      "presentation": {
+        "title": "长部第 22 经",
+        "alternateTitle": "Mahāsatipaṭṭhānasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN22",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 22 经 Mahāsatipaṭṭhānasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn22/pli/ms"
+      },
+      "verification": {
+        "segments": 454,
+        "readingUnits": 4,
+        "anchors": [
+          "dn22:0.1",
+          "dn22:22.28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN23",
+      "slug": "digha-nikaya-dn23",
+      "workId": "gbcr:work:digha-nikaya-dn23-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn23_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn23_root-pli-ms.json",
+      "upstreamGitBlobSha1": "c3b0813029069452e7f4370b87357b4efc63ddd5",
+      "upstreamBytes": 80331,
+      "upstreamSha256": "553be95c480542f5bb01d404a087b418a9b1a1df4f3c090078dcad60973d4610",
+      "localBytes": 80332,
+      "localSha256": "4d2a25a6f32e7211a7a92ea74db9d7a5b595911510d690e40072a955f0a7acb7",
+      "firstSegmentId": "dn23:0.1",
+      "lastSegmentId": "dn23:35.7",
+      "presentation": {
+        "title": "长部第 23 经",
+        "alternateTitle": "Pāyāsisutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN23",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 23 经 Pāyāsisutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn23/pli/ms"
+      },
+      "verification": {
+        "segments": 715,
+        "readingUnits": 6,
+        "anchors": [
+          "dn23:0.1",
+          "dn23:35.7"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN24",
+      "slug": "digha-nikaya-dn24",
+      "workId": "gbcr:work:digha-nikaya-dn24-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn24_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn24_root-pli-ms.json",
+      "upstreamGitBlobSha1": "446e6917daf685cd3128610e056f6cce29107e5d",
+      "upstreamBytes": 68725,
+      "upstreamSha256": "092e0c9967ac5d449977c7f9fa56ab5a7b85f412fb7384a72e655d7ac683f5fd",
+      "localBytes": 68726,
+      "localSha256": "f68a8d395124f2b8eba18da08cf9a7abb87ab19f06d5d482260c2f05b1974306",
+      "firstSegmentId": "dn24:0.1",
+      "lastSegmentId": "dn24:2.21.17",
+      "presentation": {
+        "title": "长部第 24 经",
+        "alternateTitle": "Pāthikasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN24",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 24 经 Pāthikasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn24/pli/ms"
+      },
+      "verification": {
+        "segments": 581,
+        "readingUnits": 5,
+        "anchors": [
+          "dn24:0.1",
+          "dn24:2.21.17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN25",
+      "slug": "digha-nikaya-dn25",
+      "workId": "gbcr:work:digha-nikaya-dn25-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn25_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn25_root-pli-ms.json",
+      "upstreamGitBlobSha1": "fb9aa433fe999ae8361b0d2d9e41eac7f589ccac",
+      "upstreamBytes": 42562,
+      "upstreamSha256": "678f3407b5a246169f543e1c2c26819eb6d0cdd19fb079ce205a09582f14fb4c",
+      "localBytes": 42563,
+      "localSha256": "1d3374b6a1aa968e9c2f983484782d996f0297de383cd7c72f24db72df1f5257",
+      "firstSegmentId": "dn25:0.1",
+      "lastSegmentId": "dn25:24.8",
+      "presentation": {
+        "title": "长部第 25 经",
+        "alternateTitle": "Udumbarikasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN25",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 25 经 Udumbarikasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn25/pli/ms"
+      },
+      "verification": {
+        "segments": 383,
+        "readingUnits": 4,
+        "anchors": [
+          "dn25:0.1",
+          "dn25:24.8"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN26",
+      "slug": "digha-nikaya-dn26",
+      "workId": "gbcr:work:digha-nikaya-dn26-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn26_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn26_root-pli-ms.json",
+      "upstreamGitBlobSha1": "03f7989f83a4bbe998929772d56eb2e4976d4002",
+      "upstreamBytes": 44280,
+      "upstreamSha256": "94e224f695e619a0636752678dff52f9e6c1a44ebffd0c2bb65c2bb70fc7863a",
+      "localBytes": 44281,
+      "localSha256": "a33359b3ecb90ac4b4335e6a76f95f156e7c15ba506a98c402e0abafe7643606",
+      "firstSegmentId": "dn26:0.1",
+      "lastSegmentId": "dn26:28.32",
+      "presentation": {
+        "title": "长部第 26 经",
+        "alternateTitle": "Cakkavattisutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN26",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 26 经 Cakkavattisutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn26/pli/ms"
+      },
+      "verification": {
+        "segments": 355,
+        "readingUnits": 3,
+        "anchors": [
+          "dn26:0.1",
+          "dn26:28.32"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN27",
+      "slug": "digha-nikaya-dn27",
+      "workId": "gbcr:work:digha-nikaya-dn27-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn27_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn27_root-pli-ms.json",
+      "upstreamGitBlobSha1": "48b705bea1339f0d17feccbc681958cb3b92a255",
+      "upstreamBytes": 37660,
+      "upstreamSha256": "112b5fa89a829e0ffb7dcf9d1090e7692ad927c27804558e0ab00db9f32e9116",
+      "localBytes": 37661,
+      "localSha256": "dd445a31b628b7e06e4f47631b925d98b61254fe19c8605a22a58dd089690881",
+      "firstSegmentId": "dn27:0.1",
+      "lastSegmentId": "dn27:32.14",
+      "presentation": {
+        "title": "长部第 27 经",
+        "alternateTitle": "Aggaññasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN27",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 27 经 Aggaññasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn27/pli/ms"
+      },
+      "verification": {
+        "segments": 323,
+        "readingUnits": 3,
+        "anchors": [
+          "dn27:0.1",
+          "dn27:32.14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN28",
+      "slug": "digha-nikaya-dn28",
+      "workId": "gbcr:work:digha-nikaya-dn28-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn28_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn28_root-pli-ms.json",
+      "upstreamGitBlobSha1": "fd82e14df68fbe9df6b80e3244eaaf467ff03dfd",
+      "upstreamBytes": 34017,
+      "upstreamSha256": "946db99ea91c7bd66c1900ceb3f15ec9ae1008b2800d75d8258af0aba8576f73",
+      "localBytes": 34018,
+      "localSha256": "e0cbf1b16ed73509b09793ddb5110461a5763e5a98444dba5fe5000363d9c80c",
+      "firstSegmentId": "dn28:0.1",
+      "lastSegmentId": "dn28:21.6",
+      "presentation": {
+        "title": "长部第 28 经",
+        "alternateTitle": "Sampasādanīyasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN28",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 28 经 Sampasādanīyasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn28/pli/ms"
+      },
+      "verification": {
+        "segments": 250,
+        "readingUnits": 3,
+        "anchors": [
+          "dn28:0.1",
+          "dn28:21.6"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN29",
+      "slug": "digha-nikaya-dn29",
+      "workId": "gbcr:work:digha-nikaya-dn29-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn29_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn29_root-pli-ms.json",
+      "upstreamGitBlobSha1": "860bd0a25543f31b1c8a8754ca2742b9c168d9aa",
+      "upstreamBytes": 50229,
+      "upstreamSha256": "97284776a84e3784b7d3bdf279eb23f5c398e9bdd3854a146ac5ca72969ed09e",
+      "localBytes": 50230,
+      "localSha256": "30c52f94cbe1de6da8226a7bbb65b76889c4e42b7e9d095e8ee951d1b8e2ee6b",
+      "firstSegmentId": "dn29:0.1",
+      "lastSegmentId": "dn29:41.9",
+      "presentation": {
+        "title": "长部第 29 经",
+        "alternateTitle": "Pāsādikasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN29",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 29 经 Pāsādikasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn29/pli/ms"
+      },
+      "verification": {
+        "segments": 465,
+        "readingUnits": 4,
+        "anchors": [
+          "dn29:0.1",
+          "dn29:41.9"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN30",
+      "slug": "digha-nikaya-dn30",
+      "workId": "gbcr:work:digha-nikaya-dn30-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn30_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn30_root-pli-ms.json",
+      "upstreamGitBlobSha1": "0396c1eddfb32d77aa31ce555a79f08dcfef1426",
+      "upstreamBytes": 56379,
+      "upstreamSha256": "f1bb8227555cb4ead68a9d9d9616a646a9773e13399fd6ee651f8881d7f95a6b",
+      "localBytes": 56380,
+      "localSha256": "b077a697528e91b299540a5d6e9966cbf78d1901bc8be16113c42b8cace128bb",
+      "firstSegmentId": "dn30:0.1",
+      "lastSegmentId": "dn30:2.31.32",
+      "presentation": {
+        "title": "长部第 30 经",
+        "alternateTitle": "Lakkhaṇasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN30",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 30 经 Lakkhaṇasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn30/pli/ms"
+      },
+      "verification": {
+        "segments": 721,
+        "readingUnits": 7,
+        "anchors": [
+          "dn30:0.1",
+          "dn30:2.31.32"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN31",
+      "slug": "digha-nikaya-dn31",
+      "workId": "gbcr:work:digha-nikaya-dn31-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn31_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn31_root-pli-ms.json",
+      "upstreamGitBlobSha1": "e3d6db7e3cc6279394cbd4a058b997019b636278",
+      "upstreamBytes": 22713,
+      "upstreamSha256": "7b14e99b8e11e7d85af51aadb900797ce2c66ed1e15ea16b0917348e0204e9dd",
+      "localBytes": 22714,
+      "localSha256": "d04b2a7e721bed6c4dd4e1cc2dba38d6957d296fb348ce1d7e54aeff24e34de7",
+      "firstSegmentId": "dn31:0.1",
+      "lastSegmentId": "dn31:35.6",
+      "presentation": {
+        "title": "长部第 31 经",
+        "alternateTitle": "Siṅgālasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN31",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 31 经 Siṅgālasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn31/pli/ms"
+      },
+      "verification": {
+        "segments": 267,
+        "readingUnits": 3,
+        "anchors": [
+          "dn31:0.1",
+          "dn31:35.6"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN32",
+      "slug": "digha-nikaya-dn32",
+      "workId": "gbcr:work:digha-nikaya-dn32-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn32_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn32_root-pli-ms.json",
+      "upstreamGitBlobSha1": "28c95c0f01e32fda90869a8530d37c283aab5ac9",
+      "upstreamBytes": 37768,
+      "upstreamSha256": "2df7001295c6bf47c60f489decea561c97defb799e594f3a298cca9343d547e9",
+      "localBytes": 37769,
+      "localSha256": "ff0d1d8e307e166108764bd074c24876db150d272b41f34c0334dd4377d1ff05",
+      "firstSegmentId": "dn32:0.1",
+      "lastSegmentId": "dn32:13.7",
+      "presentation": {
+        "title": "长部第 32 经",
+        "alternateTitle": "Āṭānāṭiyasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN32",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 32 经 Āṭānāṭiyasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn32/pli/ms"
+      },
+      "verification": {
+        "segments": 574,
+        "readingUnits": 5,
+        "anchors": [
+          "dn32:0.1",
+          "dn32:13.7"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN33",
+      "slug": "digha-nikaya-dn33",
+      "workId": "gbcr:work:digha-nikaya-dn33-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn33_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn33_root-pli-ms.json",
+      "upstreamGitBlobSha1": "f89d130e88f7be1d12042272005620d4f44722d8",
+      "upstreamBytes": 118264,
+      "upstreamSha256": "a4ee8d3aead6729a4ea9730e3ad56a5ac2900c602f30b011c779c72c92afadfa",
+      "localBytes": 118265,
+      "localSha256": "ee562e766ecac8d1de1e72e0a21f54f47a870fcc8a06b780f8a10f840af83f88",
+      "firstSegmentId": "dn33:0.1",
+      "lastSegmentId": "dn33:3.4.6",
+      "presentation": {
+        "title": "长部第 33 经",
+        "alternateTitle": "Saṅgītisutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN33",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 33 经 Saṅgītisutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn33/pli/ms"
+      },
+      "verification": {
+        "segments": 1167,
+        "readingUnits": 10,
+        "anchors": [
+          "dn33:0.1",
+          "dn33:3.4.6"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "DN34",
+      "slug": "digha-nikaya-dn34",
+      "workId": "gbcr:work:digha-nikaya-dn34-pali",
+      "language": "pi-Latn",
+      "parser": "bilara_single_root_json",
+      "format": "application/json",
+      "completeness": "complete",
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/dn/dn34_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/dn/dn34_root-pli-ms.json",
+      "upstreamGitBlobSha1": "33f8323d5132d8c302ee37734358e8052522c9da",
+      "upstreamBytes": 82700,
+      "upstreamSha256": "0dc1170b36893eb989d981398f1819084d6a1f445068a2617926c3adc4c92749",
+      "localBytes": 82701,
+      "localSha256": "52520543c791671a0f0ec6f4dc09f465a1566cf820ac1b72a67d461296a56471",
+      "firstSegmentId": "dn34:0.1",
+      "lastSegmentId": "dn34:2.4.11",
+      "presentation": {
+        "title": "长部第 34 经",
+        "alternateTitle": "Dasuttarasutta",
+        "tradition": "上座部佛教",
+        "language": "巴利语（罗马字母）",
+        "canonRef": "SuttaCentral DN34",
+        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+        "summary": "巴利《长部》第 34 经 Dasuttarasutta；保留 SuttaCentral Bilara 原生段落标识。",
+        "sourceUrl": "https://suttacentral.net/dn34/pli/ms"
+      },
+      "verification": {
+        "segments": 894,
+        "readingUnits": 8,
+        "anchors": [
+          "dn34:0.1",
+          "dn34:2.4.11"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

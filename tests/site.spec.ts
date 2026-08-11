@@ -9,6 +9,8 @@ const criticalRoutes = [
   "/jingzang/fajujing/001-0559a",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
+  "/jingzang/digha-nikaya-dn1",
+  "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/fugai",
   "/touming",
 ];
@@ -69,12 +71,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 22,
-    registeredExpressions: 26,
-    fullSourceTextWorks: 22,
-    fullSourceTextExpressions: 26,
-    stableSegments: 605266,
-    structureVerifiedWorks: 22,
+    registeredWorks: 56,
+    registeredExpressions: 60,
+    fullSourceTextWorks: 56,
+    fullSourceTextExpressions: 60,
+    stableSegments: 621667,
+    structureVerifiedWorks: 56,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
@@ -86,10 +88,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
-    controlled: 26,
-    percentage: 0.36,
-    controlledBytes: 99950,
-    controlledWorks: 1,
+    controlled: 60,
+    percentage: 0.82,
+    controlledBytes: 1920173,
+    controlledWorks: 35,
   });
 });
 
@@ -225,6 +227,26 @@ test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ 
   expect((await chapter.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/dhammapada-pali/026-dhp410-423");
+});
+
+test("巴利长部三十四经保留 Bilara 原生锚点并受控分页", async ({ page, request }) => {
+  await page.goto("/jingzang/digha-nikaya-dn1#dn1:1.1.1");
+  await page.waitForURL(/\/jingzang\/digha-nikaya-dn1\/001-dn1-0001-0120#dn1:1\.1\.1$/);
+  await expect(page.locator('[id="dn1:1.1.1"]')).toContainText("Evaṁ me sutaṁ");
+  await expect(page.getByText(/全经 662 稳定段落/)).toBeVisible();
+
+  await page.goto("/jingzang/digha-nikaya-dn1#dn1:3.74.7");
+  await page.waitForURL(/\/jingzang\/digha-nikaya-dn1\/006-dn1-0601-0662#dn1:3\.74\.7$/);
+  await expect(page.locator('[id="dn1:3.74.7"]')).toContainText("Brahmajālasuttaṁ niṭṭhitaṁ");
+
+  const directory = await request.get("/jingzang/digha-nikaya-dn1");
+  const finalUnit = await request.get("/jingzang/digha-nikaya-dn1/006-dn1-0601-0662");
+  expect(directory.ok()).toBeTruthy();
+  expect(finalUnit.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(300_000);
+  expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/digha-nikaya-dn34");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

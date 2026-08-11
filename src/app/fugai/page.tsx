@@ -118,11 +118,11 @@ export default function CoveragePage() {
             </strong>
             <p>
               {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
-              26 个文件合成 1 部《法句经》
+              60 个文件组成《法句经》与《长部》34 经
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
-            <Link className="text-link" href="/jingzang/dhammapada-pali">
-              阅读巴利原文 <ArrowRight aria-hidden="true" size={13} />
+            <Link className="text-link" href="/jingzang/digha-nikaya-dn1">
+              阅读巴利《长部》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
         </div>

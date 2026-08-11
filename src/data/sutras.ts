@@ -1,5 +1,6 @@
 import catalog from "../../data/corpus/cbeta/catalog-v0.6.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
+import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 
 export type SutraSegment = {
   id: string;
@@ -24,7 +25,7 @@ export type Sutra = {
   sourceUrl: string;
   sourceLicense: string;
   status: "完整原文 · 行段试行" | "完整原文 · 原生段落" | "目录样本";
-  readerMode?: "cbeta-folio" | "bilara-chapter";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
 
@@ -173,6 +174,21 @@ export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(fil
   sourceLicense: "巴利原文属公有领域；请求保留 SuttaCentral 来源署名",
   status: "完整原文 · 原生段落" as const,
   readerMode: "bilara-chapter" as const,
+  segments: [],
+}))).concat(dighaNikayaManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "巴利原文属公有领域；请求保留 SuttaCentral 来源署名",
+  status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-sutta" as const,
   segments: [],
 })));
 

@@ -5,7 +5,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { getSutra } from "@/data/sutras";
 import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
-import { folioHref } from "@/lib/reader-routes";
+import { buildSegmentFolioMap, folioHref } from "@/lib/reader-routes";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -18,27 +18,31 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const juanNavigation = buildJuanNavigation(reading.navigation);
   const multiJuan = juanNavigation.length > 1;
   const useCompactJuanSelector = juanNavigation.length > 200;
-  const bilara = sutra.readerMode === "bilara-chapter";
+  const chaptered = sutra.readerMode === "bilara-chapter";
+  const bilara = chaptered || sutra.readerMode === "bilara-sutta";
 
   return (
     <>
       <ReaderHashRedirect
         slug={sutra.slug}
         aliases={buildLegacyAliasMap(reading.segments)}
+        segmentFolios={sutra.readerMode === "bilara-sutta" ? buildSegmentFolioMap(reading.segments) : undefined}
       />
 
       <div className="reader-index-layout">
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
           <p className="eyebrow">经本目录 · READING EDITION</p>
-          <h2>{bilara ? <>按品次，<br />展开一部经。</> : <>按卷与版页，<br />展开一部经。</>}</h2>
+          <h2>{chaptered ? <>按品次，<br />展开一部经。</> : bilara ? <>按阅读单元，<br />展开一部经。</> : <>按卷与版页，<br />展开一部经。</>}</h2>
           <p>
-            {bilara
+            {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
+              : bilara
+                ? "全经按原生段落次序确定性分页，每页最多 120 段。Bilara 标识原样保留，未加入未经审核的译文或跨本对齐。"
               : "每页只加载一个大正藏版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。"}
           </p>
           <dl className="reader-index-stats">
-            <div><dt>{bilara ? "品" : "版页"}</dt><dd>{bilara ? juanNavigation.length : reading.navigation.length}</dd></div>
+            <div><dt>{chaptered ? "品" : bilara ? "阅读页" : "版页"}</dt><dd>{chaptered ? juanNavigation.length : reading.navigation.length}</dd></div>
             <div><dt>{bilara ? "稳定段落" : "稳定行段"}</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
           {firstFolio && (
@@ -51,10 +55,10 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">
             <div>
-              <p className="eyebrow">{bilara ? "品次目录" : "卷页目录"}</p>
-              <h2 id="folio-directory-title">{bilara ? "二十六品，次第展开" : (multiJuan ? "先选卷，再读版页" : "大正藏物理版页")}</h2>
+              <p className="eyebrow">{chaptered ? "品次目录" : bilara ? "阅读目录" : "卷页目录"}</p>
+              <h2 id="folio-directory-title">{chaptered ? "二十六品，次第展开" : bilara ? "原生段落，次第展开" : (multiJuan ? "先选卷，再读版页" : "大正藏物理版页")}</h2>
             </div>
-            <span>{bilara ? `${juanNavigation.length} 品 · 423 偈` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
+            <span>{chaptered ? `${juanNavigation.length} 品 · 423 偈` : bilara ? `${reading.navigation.length} 阅读页 · ${reading.segmentCount} 段` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
           </div>
           {useCompactJuanSelector ? (
             <ReaderJuanSelect
@@ -74,7 +78,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="reader-folio-card__label">
-                      <strong>{bilara ? `第 ${Number(group.first.juan)} 品` : (multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`)}</strong>
+                      <strong>{chaptered ? `第 ${Number(group.first.juan)} 品` : bilara ? `第 ${Number(group.first.juan)} 阅读页` : (multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`)}</strong>
                       <small>
                         {bilara
                           ? group.first.label

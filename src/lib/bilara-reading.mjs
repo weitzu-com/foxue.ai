@@ -1,5 +1,6 @@
 const RANGE_FILE = /^dhp(\d+)-(\d+)_root-pli-ms\.json$/;
 const SEGMENT_ID = /^dhp(\d+):(\d+(?:\.\d+)?)$/;
+const SINGLE_SUTTA_FILE = /^(dn\d+)_root-pli-ms\.json$/;
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
@@ -76,4 +77,65 @@ export function parseBilaraDhammapadaSources(sources) {
     throw new Error("巴利《法句经》必须完整覆盖 26 品、第 1–423 偈");
   }
   return { segments, navigation };
+}
+
+export function parseBilaraSuttaSource(source, options = {}) {
+  const filename = source.filename ?? source.localPath?.split("/").at(-1);
+  const fileMatch = filename?.match(SINGLE_SUTTA_FILE);
+  if (!fileMatch) throw new Error(`无法识别 Bilara 单经文件：${filename}`);
+  const suttaId = fileMatch[1];
+  const value = JSON.parse(source.text);
+  if (!value || Array.isArray(value) || typeof value !== "object") {
+    throw new Error(`${filename} 不是 Bilara 键值对象`);
+  }
+  const entries = Object.entries(value);
+  if (entries.length === 0) throw new Error(`${filename} 没有段落`);
+  const title = value[`${suttaId}:0.2`]?.trim();
+  if (!title) throw new Error(`${filename} 缺少经名段落`);
+  const maxSegments = options.maxSegments ?? 120;
+  if (!Number.isSafeInteger(maxSegments) || maxSegments < 1 || maxSegments > 250) {
+    throw new Error("Bilara 阅读单元段落上限无效");
+  }
+
+  const stableIds = new Set();
+  const parsed = entries.map(([id, rawText], index) => {
+    const match = id.match(new RegExp(`^${suttaId}:(\\d+(?:[.-]\\d+)*)$`));
+    if (!match) throw new Error(`${filename} 含无效原生段落标识 ${id}`);
+    if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
+    if (typeof rawText !== "string" || rawText.trim().length === 0) {
+      throw new Error(`${id} 缺少文本`);
+    }
+    stableIds.add(id);
+    return { id, text: rawText.trim(), sourceLine: match[1], ordinal: index + 1 };
+  });
+
+  const segments = [];
+  const navigation = [];
+  const totalUnits = Math.ceil(parsed.length / maxSegments);
+  for (let offset = 0; offset < parsed.length; offset += maxSegments) {
+    const unit = parsed.slice(offset, offset + maxSegments);
+    const position = Math.floor(offset / maxSegments) + 1;
+    const juan = String(position).padStart(3, "0");
+    const firstOrdinal = String(unit[0].ordinal).padStart(4, "0");
+    const lastOrdinal = String(unit.at(-1).ordinal).padStart(4, "0");
+    const page = `${suttaId}-${firstOrdinal}-${lastOrdinal}`;
+    for (const segment of unit) {
+      segments.push({
+        id: segment.id,
+        text: segment.text,
+        juan,
+        page,
+        sourceLine: segment.sourceLine,
+      });
+    }
+    navigation.push({
+      key: `${juan}-${page}`,
+      id: unit[0].id,
+      label: `${title} · ${position}/${totalUnits}`,
+      juan,
+      sourcePage: page,
+    });
+  }
+
+  return { segments, navigation, title };
 }
