@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
 import {
   parseBilaraDhammapadaSources,
-  parseBilaraSamyuttaSources,
+  parseBilaraCollectionSources,
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
@@ -90,7 +90,7 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
   } else if (sourceFile.parser === "bilara_single_root_json") {
     ({ segments, navigation } = parseBilaraSuttaSource(sourceContents[0]));
   } else if (sourceFile.parser === "bilara_collection_root_json") {
-    ({ segments, navigation } = parseBilaraSamyuttaSources(sourceContents));
+    ({ segments, navigation } = parseBilaraCollectionSources(sourceContents));
   } else {
     navigation = buildPageNavigation(segments);
   }

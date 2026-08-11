@@ -1,7 +1,11 @@
 const RANGE_FILE = /^dhp(\d+)-(\d+)_root-pli-ms\.json$/;
 const SEGMENT_ID = /^dhp(\d+):(\d+(?:\.\d+)?)$/;
 const SINGLE_SUTTA_FILE = /^((?:dn|mn)\d+)_root-pli-ms\.json$/;
-const SAMYUTTA_FILE = /^sn(\d+)\.(\d+)(?:-(\d+))?_root-pli-ms\.json$/;
+const GROUPED_NIKAYA_FILE = /^(sn|an)(\d+)\.(\d+)(?:-(\d+))?_root-pli-ms\.json$/;
+const GROUPED_NIKAYA_TITLES = {
+  sn: "Saṁyutta Nikāya",
+  an: "Aṅguttara Nikāya",
+};
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
@@ -141,13 +145,13 @@ export function parseBilaraSuttaSource(source, options = {}) {
   return { segments, navigation, title };
 }
 
-export function parseBilaraSamyuttaSources(sources, options = {}) {
+export function parseBilaraCollectionSources(sources, options = {}) {
   const maxSegments = options.maxSegments ?? 120;
   if (!Number.isSafeInteger(maxSegments) || maxSegments < 1 || maxSegments > 250) {
     throw new Error("Bilara 阅读单元段落上限无效");
   }
   if (!Array.isArray(sources) || sources.length === 0) {
-    throw new Error("相应部来源文件不能为空");
+    throw new Error("Bilara 经集来源文件不能为空");
   }
 
   const segments = [];
@@ -155,20 +159,26 @@ export function parseBilaraSamyuttaSources(sources, options = {}) {
   const stableIds = new Set();
   const omittedEmptySegmentIds = [];
   let groupNumber;
+  let collectionPrefix;
   let expectedStart = 1;
   let representedSuttas = 0;
   let readingPosition = 0;
 
   for (const source of sources) {
     const filename = source.filename ?? source.localPath?.split("/").at(-1);
-    const fileMatch = filename?.match(SAMYUTTA_FILE);
-    if (!fileMatch) throw new Error(`无法识别 Bilara 相应部来源文件：${filename}`);
-    const currentGroup = Number(fileMatch[1]);
-    const start = Number(fileMatch[2]);
-    const end = Number(fileMatch[3] ?? fileMatch[2]);
+    const fileMatch = filename?.match(GROUPED_NIKAYA_FILE);
+    if (!fileMatch) throw new Error(`无法识别 Bilara 经集来源文件：${filename}`);
+    const currentPrefix = fileMatch[1];
+    const currentGroup = Number(fileMatch[2]);
+    const start = Number(fileMatch[3]);
+    const end = Number(fileMatch[4] ?? fileMatch[3]);
+    if (collectionPrefix === undefined) collectionPrefix = currentPrefix;
     if (groupNumber === undefined) groupNumber = currentGroup;
-    if (currentGroup !== groupNumber || start !== expectedStart || end < start) {
-      throw new Error(`${filename} 的相应或经号范围不连续`);
+    if (
+      currentPrefix !== collectionPrefix || currentGroup !== groupNumber ||
+      start !== expectedStart || end < start
+    ) {
+      throw new Error(`${filename} 的经集、分组或经号范围不连续`);
     }
     expectedStart = end + 1;
     representedSuttas += end - start + 1;
@@ -179,17 +189,18 @@ export function parseBilaraSamyuttaSources(sources, options = {}) {
     }
     const entries = Object.entries(value);
     if (entries.length === 0) throw new Error(`${filename} 没有段落`);
-    const title = entries.find(([id]) => id.endsWith(":0.3"))?.[1]?.trim();
     const division = entries.find(([id]) => id.endsWith(":0.2"))?.[1]?.trim();
+    const titleCandidate = entries.find(([id]) => id.endsWith(":0.3"))?.[1]?.trim();
+    const title = titleCandidate && titleCandidate !== "~" ? titleCandidate : division;
     if (!title || !division) throw new Error(`${filename} 缺少经名或品名段落`);
 
     const parsed = [];
     for (const [id, rawText] of entries) {
-      const match = id.match(/^sn(\d+)\.(\d+(?:-\d+)?):(\d+(?:[.-]\d+)*)$/);
-      if (!match || Number(match[1]) !== groupNumber) {
+      const match = id.match(/^(sn|an)(\d+)\.(\d+(?:-\d+)?):(\d+(?:[.-]\d+)*)$/);
+      if (!match || match[1] !== collectionPrefix || Number(match[2]) !== groupNumber) {
         throw new Error(`${filename} 含无效原生段落标识 ${id}`);
       }
-      const [representedStart, representedEnd = representedStart] = match[2]
+      const [representedStart, representedEnd = representedStart] = match[3]
         .split("-")
         .map(Number);
       if (
@@ -209,13 +220,13 @@ export function parseBilaraSamyuttaSources(sources, options = {}) {
       parsed.push({
         id,
         text: rawText.trim(),
-        sourceLine: match[3],
+        sourceLine: match[4],
         ordinal: parsed.length + 1,
       });
     }
     if (parsed.length === 0) throw new Error(`${filename} 没有可读段落`);
 
-    const recordId = `sn${groupNumber}.${start}${end === start ? "" : `-${end}`}`;
+    const recordId = `${collectionPrefix}${groupNumber}.${start}${end === start ? "" : `-${end}`}`;
     const pageStem = recordId.replaceAll(".", "-");
     const recordUnits = Math.ceil(parsed.length / maxSegments);
     for (let offset = 0; offset < parsed.length; offset += maxSegments) {
@@ -248,8 +259,21 @@ export function parseBilaraSamyuttaSources(sources, options = {}) {
   return {
     segments,
     navigation,
-    title: `Saṁyutta Nikāya ${groupNumber}`,
+    title: `${GROUPED_NIKAYA_TITLES[collectionPrefix]} ${groupNumber}`,
+    collectionPrefix,
     representedSuttas,
     omittedEmptySegmentIds,
   };
+}
+
+export function parseBilaraSamyuttaSources(sources, options = {}) {
+  const reading = parseBilaraCollectionSources(sources, options);
+  if (reading.collectionPrefix !== "sn") throw new Error("来源不是巴利《相应部》");
+  return reading;
+}
+
+export function parseBilaraAnguttaraSources(sources, options = {}) {
+  const reading = parseBilaraCollectionSources(sources, options);
+  if (reading.collectionPrefix !== "an") throw new Error("来源不是巴利《增支部》");
+  return reading;
 }

@@ -119,11 +119,11 @@ export default function CoveragePage() {
             </strong>
             <p>
               {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
-              2,031 个物理文件组成《法句经》《长部》34 经、《中部》152 经与《相应部》56 个相应级经集；后者连续表示 3,024 个经号
+              3,439 个物理文件组成《法句经》《长部》34 经、《中部》152 经、《相应部》56 个相应级经集与《增支部》11 个集级经集；后两者分别连续表示 3,024 与 8,122 个经号
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
-            <Link className="text-link" href="/jingzang/samyutta-nikaya-sn1">
-              阅读巴利《相应部》 <ArrowRight aria-hidden="true" size={13} />
+            <Link className="text-link" href="/jingzang/anguttara-nikaya-an1">
+              阅读巴利《增支部》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
         </div>

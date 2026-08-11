@@ -7,10 +7,11 @@ import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
 import samyuttaNikayaManifest from "../../data/corpus/suttacentral/sn-manifest-v1.0.0.json";
+import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-v1.1.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
-  parseBilaraSamyuttaSources,
+  parseBilaraCollectionSources,
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
@@ -32,6 +33,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(dighaNikayaManifest.files as CorpusManifestFile[]),
     ...(majjhimaNikayaManifest.files as CorpusManifestFile[]),
     ...(samyuttaNikayaManifest.files as CorpusManifestFile[]),
+    ...(anguttaraNikayaManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -258,7 +260,7 @@ const loadEdgeFolio = cache(async (
         segment.id.startsWith(`${canonId}.`) ||
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
         (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id)) ||
-        (/^SN\d+$/.test(canonId) && /^sn\d+\./.test(segment.id))
+        (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
       segment.juan === value.folio.juan &&
@@ -273,10 +275,7 @@ const loadEdgeFolio = cache(async (
 const loadCompleteReading = cache(async (slug: string) => {
   const asset = completeAssets[slug];
   if (!asset) return null;
-  const sourceParts = await Promise.all(asset.localPaths.map((localPath) => readFile(
-    join(process.cwd(), "data", "corpus", localPath),
-    "utf8",
-  )));
+  const sourceParts = await Promise.all(asset.localPaths.map(readControlledCorpusAsset));
   if (asset.parser === "bilara_root_json") {
     return parseBilaraDhammapadaSources(sourceParts.map((text, index) => ({
       filename: asset.localPaths[index].split("/").at(-1),
@@ -290,7 +289,7 @@ const loadCompleteReading = cache(async (slug: string) => {
     });
   }
   if (asset.parser === "bilara_collection_root_json") {
-    return parseBilaraSamyuttaSources(sourceParts.map((text, index) => ({
+    return parseBilaraCollectionSources(sourceParts.map((text, index) => ({
       filename: asset.localPaths[index].split("/").at(-1),
       text,
     })));
@@ -298,6 +297,34 @@ const loadCompleteReading = cache(async (slug: string) => {
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };
 });
+
+async function readControlledCorpusAsset(localPath: string) {
+  const root = process.cwd();
+  if (/^cbeta\/[A-Za-z0-9._-]+\.xml$/.test(localPath)) {
+    return readFile(join(root, "data", "corpus", "cbeta", localPath.slice("cbeta/".length)), "utf8");
+  }
+  const dhammapadaPrefix = "suttacentral/root/pli/ms/sutta/kn/dhp/";
+  if (localPath.startsWith(dhammapadaPrefix) && /^dhp\d+-\d+_root-pli-ms\.json$/.test(localPath.slice(dhammapadaPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "kn", "dhp", localPath.slice(dhammapadaPrefix.length)), "utf8");
+  }
+  const dighaPrefix = "suttacentral/root/pli/ms/sutta/dn/";
+  if (localPath.startsWith(dighaPrefix) && /^dn\d+_root-pli-ms\.json$/.test(localPath.slice(dighaPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "dn", localPath.slice(dighaPrefix.length)), "utf8");
+  }
+  const majjhimaPrefix = "suttacentral/root/pli/ms/sutta/mn/";
+  if (localPath.startsWith(majjhimaPrefix) && /^mn\d+_root-pli-ms\.json$/.test(localPath.slice(majjhimaPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "mn", localPath.slice(majjhimaPrefix.length)), "utf8");
+  }
+  const samyuttaPrefix = "suttacentral/root/pli/ms/sutta/sn/";
+  if (localPath.startsWith(samyuttaPrefix) && /^sn\d+\/sn\d+\.\d+(?:-\d+)?_root-pli-ms\.json$/.test(localPath.slice(samyuttaPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "sn", localPath.slice(samyuttaPrefix.length)), "utf8");
+  }
+  const anguttaraPrefix = "suttacentral/root/pli/ms/sutta/an/";
+  if (localPath.startsWith(anguttaraPrefix) && /^an\d+\/an\d+\.\d+(?:-\d+)?_root-pli-ms\.json$/.test(localPath.slice(anguttaraPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "an", localPath.slice(anguttaraPrefix.length)), "utf8");
+  }
+  throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
+}
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
   const asset = completeAssets[sutra.slug];

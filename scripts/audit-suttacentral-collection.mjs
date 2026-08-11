@@ -33,12 +33,23 @@ const collections = {
     expectedGroups: 56,
     version: "1.0.0",
     slugPrefix: "samyutta-nikaya",
+    groupLabel: "相应",
+  },
+  an: {
+    id: "AN",
+    canonicalTitle: "Aṅguttara Nikāya",
+    titleZh: "增支部",
+    expectedRecords: 1408,
+    expectedGroups: 11,
+    version: "1.1.0",
+    slugPrefix: "anguttara-nikaya",
+    groupLabel: "集",
   },
 };
 const requested = process.argv[2]?.toLowerCase();
 const collection = collections[requested];
 if (!collection) {
-  console.error("用法：node scripts/audit-suttacentral-collection.mjs dn|mn|sn");
+  console.error("用法：node scripts/audit-suttacentral-collection.mjs dn|mn|sn|an");
   process.exit(1);
 }
 
@@ -53,7 +64,7 @@ const curl = async (url, maxBuffer = 2 * 1024 * 1024) => {
   return stdout;
 };
 const upstreamDirectory = `root/pli/ms/sutta/${requested}`;
-const flatCollection = requested !== "sn";
+const flatCollection = !["sn", "an"].includes(requested);
 const apiUrl = flatCollection
   ? `https://api.github.com/repos/${source.repository}/contents/${upstreamDirectory}?ref=${source.commit}`
   : `https://api.github.com/repos/${source.repository}/git/trees/${source.commit}?recursive=1`;
@@ -61,7 +72,7 @@ const apiDocument = JSON.parse((await curl(apiUrl, flatCollection ? 8 * 1024 * 1
 const directory = flatCollection ? apiDocument : apiDocument.tree;
 const filenamePattern = flatCollection
   ? new RegExp(`^${requested}(\\d+)_root-pli-ms\\.json$`)
-  : /^sn(\d+)\.(\d+)(?:-(\d+))?_root-pli-ms\.json$/;
+  : new RegExp(`^${requested}(\\d+)\\.(\\d+)(?:-(\\d+))?_root-pli-ms\\.json$`);
 const candidates = directory
   .map((entry) => ({ ...entry, name: entry.name ?? entry.path?.split("/").at(-1) }))
   .filter((entry) => (
@@ -106,7 +117,7 @@ if (!flatCollection) {
     let expectedStart = 1;
     for (const interval of intervals) {
       if (interval.start !== expectedStart || interval.end < interval.start) {
-        throw new Error(`SN${groupNumber} 的经号范围不连续`);
+      throw new Error(`${collection.id}${groupNumber} 的经号范围不连续`);
       }
       expectedStart = interval.end + 1;
     }
@@ -129,7 +140,7 @@ async function auditNext() {
     const candidate = candidates[index];
     const suttaId = flatCollection
       ? `${requested}${candidate.number}`
-      : `sn${candidate.groupNumber}.${candidate.start}${candidate.end === candidate.start ? "" : `-${candidate.end}`}`;
+      : `${requested}${candidate.groupNumber}.${candidate.start}${candidate.end === candidate.start ? "" : `-${candidate.end}`}`;
     const rawUrl = `https://raw.githubusercontent.com/${source.repository}/${source.commit}/${candidate.path}`;
     const upstream = await curl(rawUrl);
     if (
@@ -147,7 +158,7 @@ async function auditNext() {
     const escapedSuttaId = suttaId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const segmentPattern = flatCollection
       ? new RegExp(`^${escapedSuttaId}:(\\d+(?:[.-]\\d+)*)$`)
-      : new RegExp(`^sn${candidate.groupNumber}\\.(\\d+(?:-\\d+)?):(\\d+(?:[.-]\\d+)*)$`);
+      : new RegExp(`^${requested}${candidate.groupNumber}\\.(\\d+(?:-\\d+)?):(\\d+(?:[.-]\\d+)*)$`);
     const validSegmentId = (id) => {
       const match = id.match(segmentPattern);
       if (!match) return false;
@@ -173,9 +184,14 @@ async function auditNext() {
       .filter(([, text]) => !text.trim())
       .map(([id]) => id);
     if (readableEntries.length === 0) throw new Error(`${suttaId} 没有可读段落`);
+    const titleCandidate = entries.find(([id]) => id.endsWith(":0.3"))?.[1]?.trim();
     const titlePali = flatCollection
       ? parsed[`${suttaId}:0.2`]?.trim()
-      : entries.find(([id]) => id.endsWith(":0.3"))?.[1]?.trim();
+      : (
+          titleCandidate && titleCandidate !== "~"
+            ? titleCandidate
+            : entries.find(([id]) => id.endsWith(":0.2"))?.[1]?.trim()
+        );
     if (!titlePali) throw new Error(`${suttaId} 缺少 Bilara 经名段落`);
     const divisionPali = flatCollection
       ? undefined
@@ -196,18 +212,18 @@ async function auditNext() {
       id: suttaId.toUpperCase(),
       suttaId,
       ...(flatCollection ? {} : {
-        groupId: `SN${candidate.groupNumber}`,
+        groupId: `${collection.id}${candidate.groupNumber}`,
         groupNumber: candidate.groupNumber,
         representedSuttas: candidate.end - candidate.start + 1,
       }),
-      slug: `${collection.slugPrefix}-${flatCollection ? suttaId : `sn${candidate.groupNumber}`}`,
-      workId: `gbcr:work:${collection.slugPrefix}-${flatCollection ? suttaId : `sn${candidate.groupNumber}`}-pali`,
+      slug: `${collection.slugPrefix}-${flatCollection ? suttaId : `${requested}${candidate.groupNumber}`}`,
+      workId: `gbcr:work:${collection.slugPrefix}-${flatCollection ? suttaId : `${requested}${candidate.groupNumber}`}-pali`,
       language: "pi-Latn",
       parser: flatCollection ? "bilara_single_root_json" : "bilara_collection_root_json",
       format: "application/json",
       titleZh: flatCollection
         ? `${collection.titleZh}第 ${candidate.number} 经`
-        : `${collection.titleZh}第 ${candidate.groupNumber} 相应`,
+        : `${collection.titleZh}第 ${candidate.groupNumber} ${collection.groupLabel}`,
       titlePali,
       ...(divisionPali ? { divisionPali } : {}),
       tradition: "上座部佛教",
@@ -251,7 +267,7 @@ const batch = {
       simpleRecords: files.filter((file) => file.representedSuttas === 1).length,
       rangeRecords: files.filter((file) => file.representedSuttas > 1).length,
       emptySegmentIds: files.reduce((sum, file) => sum + (file.emptySegmentIds?.length ?? 0), 0),
-      workCountingDecision: "56 samyutta groups; 1,819 physical root records and 3,024 represented sutta numbers are tracked separately",
+      workCountingDecision: `${collection.expectedGroups} ${collection.id} groups; ${files.length} physical root records and ${files.reduce((sum, file) => sum + file.representedSuttas, 0)} represented sutta numbers are tracked separately`,
     }),
   },
   files,

@@ -20,3 +20,20 @@ export function parseBilaraSamyuttaSources(
   representedSuttas: number;
   omittedEmptySegmentIds: string[];
 };
+
+export function parseBilaraCollectionSources(
+  sources: Array<{ filename?: string; localPath?: string; text: string }>,
+  options?: { maxSegments?: number },
+): {
+  segments: SutraSegment[];
+  navigation: ReaderNavigationItem[];
+  title: string;
+  collectionPrefix: "sn" | "an";
+  representedSuttas: number;
+  omittedEmptySegmentIds: string[];
+};
+
+export function parseBilaraAnguttaraSources(
+  sources: Array<{ filename?: string; localPath?: string; text: string }>,
+  options?: { maxSegments?: number },
+): ReturnType<typeof parseBilaraCollectionSources>;

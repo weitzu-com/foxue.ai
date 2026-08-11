@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.0.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.1.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -147,7 +147,7 @@ export function buildCoverageSnapshot() {
         controlledBytes: paliControlledBytes,
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
-        caveat: "2,031 个物理 JSON 文件组成《法句经》《长部》34 经、《中部》152 经与《相应部》56 个相应级经集，并连续表示《相应部》3,024 个经号；文件比例不是作品覆盖率。",
+        caveat: "3,439 个物理 JSON 文件组成《法句经》《长部》34 经、《中部》152 经、《相应部》56 个相应级经集与《增支部》11 个集级经集；后两者分别连续表示 3,024 与 8,122 个经号。文件比例不是作品覆盖率。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

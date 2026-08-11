@@ -3,10 +3,10 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v1.0.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v1.1.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v1.0.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v1.1.0.sha256");
 const suttacentralBatchPath = resolve(root, "data/corpus/suttacentral/batch-v0.7.0.json");
 const suttacentralManifestPath = resolve(root, "data/corpus/suttacentral/manifest-v0.7.0.json");
 const dighaBatchPath = resolve(root, "data/corpus/suttacentral/dn-batch-v0.8.0.json");
@@ -15,6 +15,8 @@ const majjhimaBatchPath = resolve(root, "data/corpus/suttacentral/mn-batch-v0.9.
 const majjhimaManifestPath = resolve(root, "data/corpus/suttacentral/mn-manifest-v0.9.0.json");
 const samyuttaBatchPath = resolve(root, "data/corpus/suttacentral/sn-batch-v1.0.0.json");
 const samyuttaManifestPath = resolve(root, "data/corpus/suttacentral/sn-manifest-v1.0.0.json");
+const anguttaraBatchPath = resolve(root, "data/corpus/suttacentral/an-batch-v1.1.0.json");
+const anguttaraManifestPath = resolve(root, "data/corpus/suttacentral/an-manifest-v1.1.0.json");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -26,6 +28,8 @@ const majjhimaBatchRaw = await readFile(majjhimaBatchPath, "utf8");
 const majjhimaManifestRaw = await readFile(majjhimaManifestPath, "utf8");
 const samyuttaBatchRaw = await readFile(samyuttaBatchPath, "utf8");
 const samyuttaManifestRaw = await readFile(samyuttaManifestPath, "utf8");
+const anguttaraBatchRaw = await readFile(anguttaraBatchPath, "utf8");
+const anguttaraManifestRaw = await readFile(anguttaraManifestPath, "utf8");
 const registry = JSON.parse(raw);
 const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
 const inventory = JSON.parse(inventoryRaw);
@@ -37,6 +41,8 @@ const majjhimaBatch = JSON.parse(majjhimaBatchRaw);
 const majjhimaManifest = JSON.parse(majjhimaManifestRaw);
 const samyuttaBatch = JSON.parse(samyuttaBatchRaw);
 const samyuttaManifest = JSON.parse(samyuttaManifestRaw);
+const anguttaraBatch = JSON.parse(anguttaraBatchRaw);
+const anguttaraManifest = JSON.parse(anguttaraManifestRaw);
 const errors = [];
 
 const requireValue = (condition, message) => {
@@ -44,7 +50,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "1.0.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "1.1.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -122,10 +128,10 @@ requireValue(chineseFamily?.controlledExpressionBytes === 87649399, "汉译经�
 const suttacentralFamily = registry.sourceFamilies.find(
   (family) => family.id === "suttacentral_early_buddhist_texts",
 );
-requireValue(suttacentralFamily?.controlledWorks === 243, "巴利受控作品数不匹配");
-requireValue(suttacentralFamily?.controlledExpressions === 243, "巴利受控表达数不匹配");
-requireValue(suttacentralFamily?.controlledRootRecords === 2031, "巴利受控 root 记录数不匹配");
-requireValue(suttacentralFamily?.controlledRootBytes === 8757707, "巴利受控 root 字节数不匹配");
+requireValue(suttacentralFamily?.controlledWorks === 254, "巴利受控作品数不匹配");
+requireValue(suttacentralFamily?.controlledExpressions === 254, "巴利受控表达数不匹配");
+requireValue(suttacentralFamily?.controlledRootRecords === 3439, "巴利受控 root 记录数不匹配");
+requireValue(suttacentralFamily?.controlledRootBytes === 12832638, "巴利受控 root 字节数不匹配");
 requireValue(suttacentralManifest?.files?.[0]?.verification?.segments === 2234, "巴利原生段落数漂移");
 requireValue(suttacentralManifest?.files?.[0]?.sourceParts?.length === 26, "巴利来源资产数漂移");
 requireValue(suttacentralBatch?.source?.commit === "eac6c24781dd1eefdc17dc2f787b54bf6fe31719", "巴利来源提交漂移");
@@ -143,6 +149,13 @@ requireValue(samyuttaManifest?.collection?.representedSuttas === 3024, "《相�
 requireValue(samyuttaManifest?.collection?.sourceBytes === 3765299, "《相应部》来源字节数漂移");
 requireValue(samyuttaManifest?.collection?.stableSegments === 43466, "《相应部》原生段落数漂移");
 requireValue(samyuttaManifest?.collection?.emptySegmentIds === 2, "《相应部》空白占位段落数漂移");
+requireValue(anguttaraBatch?.source?.commit === suttacentralBatch?.source?.commit, "《增支部》来源提交漂移");
+requireValue(anguttaraManifest?.files?.length === 11, "《增支部》必须包含 11 个集级经集");
+requireValue(anguttaraManifest?.collection?.recordCount === 1408, "《增支部》物理 root 记录数漂移");
+requireValue(anguttaraManifest?.collection?.representedSuttas === 8122, "《增支部》连续经号数漂移");
+requireValue(anguttaraManifest?.collection?.sourceBytes === 4074931, "《增支部》来源字节数漂移");
+requireValue(anguttaraManifest?.collection?.stableSegments === 41839, "《增支部》原生段落数漂移");
+requireValue(anguttaraManifest?.collection?.emptySegmentIds === 4, "《增支部》空白占位段落数漂移");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -150,7 +163,7 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v1.0.0.json", raw],
+  ["registry-v1.1.0.json", raw],
   ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["batch-v0.7.0.json", suttacentralBatchRaw],
@@ -161,6 +174,8 @@ const controlledFiles = [
   ["mn-manifest-v0.9.0.json", majjhimaManifestRaw],
   ["sn-batch-v1.0.0.json", samyuttaBatchRaw],
   ["sn-manifest-v1.0.0.json", samyuttaManifestRaw],
+  ["an-batch-v1.1.0.json", anguttaraBatchRaw],
+  ["an-manifest-v1.1.0.json", anguttaraManifestRaw],
 ];
 for (const [file, content] of controlledFiles) {
   const actualHash = createHash("sha256").update(content).digest("hex");
@@ -182,9 +197,9 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.works.length === 264, "v1.0 必须登记 264 部去重作品");
-requireValue(expressions.length === 268, "v1.0 必须登记 268 个完整文本表达");
-requireValue(segmentCount === 692328, "v1.0 稳定行段总数漂移");
+requireValue(registry.works.length === 275, "v1.1 必须登记 275 部去重作品");
+requireValue(expressions.length === 279, "v1.1 必须登记 279 个完整文本表达");
+requireValue(segmentCount === 734167, "v1.1 稳定行段总数漂移");
 requireValue(paliDhammapada?.expressions?.length === 1, "巴利《法句经》必须登记为一个文本表达");
 requireValue(paliDhammapada?.expressions?.[0]?.sourceTextAssets?.length === 26, "巴利《法句经》必须保留 26 个来源资产");
 requireValue(paliDhammapada?.expressions?.[0]?.stableSegments === 2234, "巴利《法句经》原生段落数漂移");
@@ -204,6 +219,13 @@ requireValue(samyuttaWorks.every((work) => work.expressions?.length === 1), "《
 requireValue(
   samyuttaWorks.reduce((sum, work) => sum + (work.expressions?.[0]?.sourceTextAssets?.length ?? 0), 0) === 1819,
   "《相应部》必须保留 1,819 个可独立校验的来源资产",
+);
+const anguttaraWorks = registry.works.filter((work) => /^gbcr:work:anguttara-nikaya-an\d+-pali$/.test(work.id));
+requireValue(anguttaraWorks.length === 11, "《增支部》11 个集级经集的作品记录不完整");
+requireValue(anguttaraWorks.every((work) => work.expressions?.length === 1), "《增支部》每个集应有一个巴利文本表达");
+requireValue(
+  anguttaraWorks.reduce((sum, work) => sum + (work.expressions?.[0]?.sourceTextAssets?.length ?? 0), 0) === 1408,
+  "《增支部》必须保留 1,408 个可独立校验的来源资产",
 );
 requireValue(
   JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
