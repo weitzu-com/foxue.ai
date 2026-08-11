@@ -4,9 +4,13 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const inputs = {
-  base: "data/gbcr/registry-v1.1.0.json",
+  base: "data/gbcr/registry-v1.2.0.json",
   snapshots: "data/gbcr/source-snapshots-v0.2.1.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  cbetaBatch: "data/corpus/cbeta/batch-v1.3.0.json",
+  cbetaCatalog: "data/corpus/cbeta/catalog-v1.3.0.json",
+  cbetaManifest: "data/corpus/cbeta/manifest-v1.3.0.json",
+  cbetaRegistry: "data/gbcr/registry-cbeta-v1.3.0.json",
   dhammapadaBatch: "data/corpus/suttacentral/batch-v0.7.0.json",
   dhammapadaManifest: "data/corpus/suttacentral/manifest-v0.7.0.json",
   dighaBatch: "data/corpus/suttacentral/dn-batch-v0.8.0.json",
@@ -27,6 +31,10 @@ const entries = await Promise.all(Object.entries(inputs).map(async ([id, relativ
 ]));
 const rawById = Object.fromEntries(entries.map(([id, , raw]) => [id, raw]));
 const base = JSON.parse(rawById.base);
+const cbetaBatch = JSON.parse(rawById.cbetaBatch);
+const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
+const cbetaManifest = JSON.parse(rawById.cbetaManifest);
+const cbetaRegistry = JSON.parse(rawById.cbetaRegistry);
 const dighaBatch = JSON.parse(rawById.dighaBatch);
 const dighaManifest = JSON.parse(rawById.dighaManifest);
 const majjhimaBatch = JSON.parse(rawById.majjhimaBatch);
@@ -37,8 +45,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v1.2.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v1.2.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v1.3.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v1.3.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -97,82 +105,66 @@ if (
 ) {
   throw new Error("SuttaCentral 《小部》固定批次、清单或结构统计不一致");
 }
+if (
+  cbetaBatch.version !== "1.3.0" || cbetaBatch.files.length !== 151 ||
+  cbetaBatch.collection.sourceRecordDenominator !== 155 ||
+  cbetaBatch.collection.controlledSourceRecords !== 155 ||
+  cbetaBatch.collection.newSourceBytes !== 10508944 ||
+  cbetaBatch.collection.newStableSegments !== 52551 ||
+  cbetaCatalog.files.length !== 176 || cbetaManifest.files.length !== 176 ||
+  cbetaRegistry.registry.version !== "1.3.0" || cbetaRegistry.works.length !== 172 ||
+  cbetaRegistry.works.flatMap((work) => work.expressions).length !== 176
+) throw new Error("CBETA T01–T02 固定批次、目录、清单或登记册统计不一致");
 
-const khuddakaWorks = khuddakaManifest.files.map((file) => {
-  const book = khuddakaManifest.books.find((candidate) => candidate.id === file.id);
-  if (!book) throw new Error(`${file.id} 缺少《小部》书级元数据`);
-  return {
-    id: file.workId,
-    workType: "canonical_text_collection",
-    canonicalTitle: file.presentation.alternateTitle,
-    canonicalTitleZh: file.presentation.title,
-    traditions: ["上座部佛教"],
-    externalIds: {
-      suttacentralCollection: [book.prefix],
-      suttacentralSourceRecords: file.sourceParts.map((source) => source.id.toLowerCase()),
-    },
-    relationDecision: `${book.scopeNoteZh} 作为巴利《小部》的书级文本集合登记；物理 root 记录与规范作品分开计数，不因其位于同一目录就声称全部为佛陀亲说或在所有传承中具有相同正典地位。`,
-    expressions: [
-      {
-        id: `gbcr:expression:${file.id}-pi-Latn-ms`,
-        language: file.language,
-        title: file.presentation.alternateTitle,
-        edition: file.presentation.translator,
-        sourceSnapshotId: "suttacentral_bilara",
-        localSlug: file.slug,
-        cataloged: true,
-        fullSourceText: true,
-        sampled: false,
-        stableSegments: file.verification.segments,
-        rightsReviewed: true,
-        qualityStatus: "verified_structure_and_anchors",
-        sourceTextAssets: file.sourceParts.map((source) => ({
-          path: source.localPath,
-          format: source.format,
-          sha256: source.localSha256,
-          rightsStatus: "public_domain",
-        })),
-      },
-    ],
-  };
+const cbetaFamily = cbetaRegistry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
+if (
+  cbetaFamily?.controlledExpressionRecords !== 189 ||
+  cbetaFamily?.controlledExpressionBytes !== 98158343
+) throw new Error("CBETA 汉译经藏受控来源记录统计不一致");
+const nonCbetaWorks = base.works.filter((work) =>
+  !(work.expressions ?? []).some((expression) => expression.sourceSnapshotId === "cbeta_xml_p5"),
+);
+if (nonCbetaWorks.length !== 273) throw new Error("v1.2 非 CBETA 作品基线漂移");
+const baseCbetaById = new Map(base.works
+  .filter((work) => (work.expressions ?? []).some((expression) => expression.sourceSnapshotId === "cbeta_xml_p5"))
+  .map((work) => [work.id, work]));
+const cbetaWorks = cbetaRegistry.works.map((work) => {
+  const existing = baseCbetaById.get(work.id);
+  return existing ? {
+    ...work,
+    ...existing,
+    traditions: work.traditions,
+    externalIds: work.externalIds,
+    expressions: work.expressions,
+  } : work;
 });
-
 const sourceFamilies = base.sourceFamilies.map((family) =>
-  family.id === "suttacentral_early_buddhist_texts"
-    ? {
-        ...family,
-        denominatorStatus: "candidate_snapshot_with_controlled_collections",
-        controlledWorks: 273,
-        controlledExpressions: 273,
-        controlledRootRecords: 5764,
-        controlledRootBytes: 22786236,
-        controlledSuttaRootRecords: 5764,
-        suttaRootRecordDenominator: 5764,
-        suttaRootRecordPercentage: 100,
-        denominatorWorks: null,
-        denominatorNote: "固定提交含 7,288 条巴利 root 候选记录，其中经藏目录为 5,764 条，现已逐条受控（100%）；其余 1,102 条论藏与 422 条律藏不混入经藏完成率。当前 273 个书级或经级作品登记保留物理记录、经号、文本集合与作品层的区别。",
-      }
-    : family,
+  family.id === "cbeta_chinese" ? cbetaFamily : family,
 );
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "1.2.0", publishedAt: "2026-08-12" },
+  registry: { ...base.registry, version: "1.3.0", publishedAt: "2026-08-12" },
   sourceFamilies,
-  works: [...base.works, ...khuddakaWorks],
+  works: [...nonCbetaWorks, ...cbetaWorks],
 };
+if (
+  registry.works.length !== 445 ||
+  registry.works.flatMap((work) => work.expressions).length !== 449 ||
+  new Set(registry.works.map((work) => work.id)).size !== registry.works.length
+) throw new Error("跨语种登记册 v1.3.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v1.2.0.json`,
+  `${sha256(registryRaw)}  registry-v1.3.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v1.2.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v1.2.0.sha256 不可复现");
-  console.log("跨语种登记册 v1.2.0 可复现：294 部作品、298 个文本表达。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v1.3.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v1.3.0.sha256 不可复现");
+  console.log("跨语种登记册 v1.3.0 可复现：445 个作品实体、449 个完整文本表达。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v1.2.0 已生成：新增巴利《小部》19 个书级文本集合，经藏 root 记录完成 100%。");
+  console.log("跨语种登记册 v1.3.0 已生成：CBETA T01–T02 固定来源记录完成 155/155。");
 }

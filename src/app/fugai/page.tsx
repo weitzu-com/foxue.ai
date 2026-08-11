@@ -66,10 +66,10 @@ export default function CoveragePage() {
         <div className="coverage-ledger__intro">
           <p className="eyebrow">CURRENT HOLDINGS</p>
           <h2 id="ledger-title">仓库里真实拥有的，只有这些。</h2>
-          <p>外部项目的目录与翻译进度只作为来源证据，不会算进 foxue.ai 的本地收录。</p>
+          <p>外部项目的目录与翻译进度只作为来源证据，不会算进 foxue.ai 的本地收录；暂定书目实体也不会冒充已完成去重的作品。</p>
         </div>
         <dl className="coverage-numbers">
-          <div><dt>登记作品</dt><dd>{snapshot.localHoldings.registeredWorks}<small>部</small></dd></div>
+          <div><dt>作品实体</dt><dd>{snapshot.localHoldings.registeredWorks}<small>个</small></dd></div>
           <div><dt>稳定行段</dt><dd>{snapshot.localHoldings.stableSegments}<small>段</small></dd></div>
           <div><dt>完整文本</dt><dd>{snapshot.localHoldings.fullSourceTextExpressions}<small>个</small></dd></div>
           <div><dt>结构核验</dt><dd>{snapshot.localHoldings.structureVerifiedWorks}<small>部</small></dd></div>
@@ -99,7 +99,9 @@ export default function CoveragePage() {
             </strong>
             <p>
               {snapshot.candidateInventory.chineseSutraRecordSubset.percentage}% 候选文本记录进入受控全文库；
-              固定清单合计 {(snapshot.candidateInventory.chineseSutraRecordSubset.sourceBytes! / 1_000_000).toFixed(1)} MB
+              固定清单合计 {(snapshot.candidateInventory.chineseSutraRecordSubset.sourceBytes! / 1_000_000).toFixed(1)} MB；
+              其中 T01–T02 阿含部固定来源已完成 {snapshot.candidateInventory.chineseAgamaSourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseAgamaSourceRecords.denominator}（{snapshot.candidateInventory.chineseAgamaSourceRecords.percentage}%）
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

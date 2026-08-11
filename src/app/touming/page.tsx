@@ -105,8 +105,8 @@ export default function TransparencyPage() {
         </div>
         <div className="coverage-summary-inline">
           <p>
-            当前登记 {coverage.localHoldings.registeredWorks} 部去重作品、{coverage.localHoldings.registeredExpressions} 个文本表达、
-            {coverage.localHoldings.stableSegments} 个稳定行段。全球分母仍未知，因此不会发布总体百分比。
+            当前登记 {coverage.localHoldings.registeredWorks} 个可追踪作品实体、{coverage.localHoldings.registeredExpressions} 个文本表达、
+            {coverage.localHoldings.stableSegments} 个稳定行段。部分新增经号仍是暂定书目实体；全球分母与作品级去重尚未完成，因此不会发布总体百分比。
           </p>
           <Link className="button-secondary" href="/fugai">
             打开全球佛典覆盖登记册 <ArrowRight aria-hidden="true" size={16} />
@@ -121,7 +121,7 @@ export default function TransparencyPage() {
           <p className="eyebrow">KNOWN LIMITS</p>
           <h2>当前已知局限</h2>
           <ul>
-            <li>经藏现有 {coverage.localHoldings.registeredWorks} 部去重作品、{coverage.localHoldings.fullSourceTextExpressions} 个完整文本，仍不能支持全部佛学问答。</li>
+            <li>经藏现有 {coverage.localHoldings.registeredWorks} 个可追踪作品实体、{coverage.localHoldings.fullSourceTextExpressions} 个完整文本；其中部分汉译经号仍待异译与平行经去重，仍不能支持全部佛学问答。</li>
             <li>{coverage.localHoldings.structureVerifiedWorks} 部作品已通过结构与锚点核验，其中 {coverage.localHoldings.qualityVerifiedSampleWorks} 部完成代表性人工样本复核。</li>
             <li>覆盖登记册已发布 v{coverage.generatedFrom.registryVersion} 草案；汉译与巴利来源记录可复算，但全球作品分母尚未完成独立审计。</li>
             <li>尚未完成法师、学者、译者和不同传统用户的外部评审。</li>

@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.2.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.3.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -41,6 +41,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseControlledBytes = "controlledExpressionBytes" in (chineseFamily ?? {})
     ? chineseFamily?.controlledExpressionBytes ?? null
+    : null;
+  const chineseAgamaDenominator = "agamaSourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.agamaSourceRecordDenominator ?? null
+    : null;
+  const chineseAgamaControlled = "agamaControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.agamaControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -143,6 +149,15 @@ export function buildCoverageSnapshot() {
         inventorySha256: chineseSubsetInventory?.inventorySha256 ?? null,
         unit: "CBETA 大正藏 T01–T17 汉译经藏候选文本记录",
         caveat: "这是固定来源中的文本记录进度，不是去重作品覆盖率或全球佛典覆盖率。",
+      },
+      chineseAgamaSourceRecords: {
+        denominator: chineseAgamaDenominator,
+        controlled: chineseAgamaControlled,
+        percentage: chineseAgamaDenominator && chineseAgamaControlled !== null
+          ? Number(((chineseAgamaControlled / chineseAgamaDenominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T01–T02 阿含部来源记录",
+        caveat: "155/155 表示固定来源记录完整性；新增经号仍是暂定书目实体，不能当作已经去重的全球佛经作品。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

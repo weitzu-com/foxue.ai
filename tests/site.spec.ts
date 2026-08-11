@@ -7,6 +7,8 @@ const criticalRoutes = [
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
+  "/jingzang/taisho-t0002",
+  "/jingzang/taisho-t0002/001-0150a",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -79,20 +81,25 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 294,
-    registeredExpressions: 298,
-    fullSourceTextWorks: 294,
-    fullSourceTextExpressions: 298,
-    stableSegments: 887734,
-    structureVerifiedWorks: 294,
+    registeredWorks: 445,
+    registeredExpressions: 449,
+    fullSourceTextWorks: 445,
+    fullSourceTextExpressions: 449,
+    stableSegments: 940285,
+    structureVerifiedWorks: 445,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 38,
-    percentage: 4.31,
+    controlled: 189,
+    percentage: 21.45,
     sourceBytes: 247280257,
-    controlledBytes: 87649399,
-    bytePercentage: 35.45,
+    controlledBytes: 98158343,
+    bytePercentage: 39.7,
+  });
+  expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
+    denominator: 155,
+    controlled: 155,
+    percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -220,6 +227,28 @@ test("六百卷大般若经作为一个文本表达跨十五个来源资产完�
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");
+});
+
+test("汉译阿含部 T01–T02 固定来源记录完整并保留页栏行锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0002#T0002.001.0150a07");
+  await page.waitForURL(/\/jingzang\/taisho-t0002\/001-0150a#T0002\.001\.0150a07$/);
+  await expect(page.locator('[id="T0002.001.0150a07"]')).toContainText("如是我聞");
+  await expect(page.getByText(/全经 376 稳定行段/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0100#T0100.001.0374a07");
+  await page.waitForURL(/\/jingzang\/taisho-t0100\/001-0374a#T0100\.001\.0374a07$/);
+  await expect(page.locator('[id="T0100.001.0374a07"]')).toContainText("如是我聞");
+  await expect(page.getByText(/全经 10216 稳定行段/)).toBeVisible();
+
+  const directory = await request.get("/jingzang/taisho-t0100");
+  const finalFolio = await request.get("/jingzang/taisho-t0151/001-0884b");
+  expect(directory.ok()).toBeTruthy();
+  expect(finalFolio.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(400_000);
+  expect((await finalFolio.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0002/001-0150a");
+  expect(sitemap).toContain("/jingzang/taisho-t0151/001-0884b");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
