@@ -10,6 +10,7 @@ export default defineConfig([
     ".vercel/**",
     "artifacts/**",
     "data/corpus/**/*.xml",
+    "infra/corpus-edge/worker-configuration.d.ts",
     "out/**",
     "build/**",
     "next-env.d.ts",

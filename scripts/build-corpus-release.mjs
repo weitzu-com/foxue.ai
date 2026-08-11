@@ -149,7 +149,13 @@ const releaseManifest = {
     bytes: objectEntries.reduce((sum, object) => sum + object.bytes, 0),
   },
   works: workEntries,
-  objects: objectEntries.map(({ relativePath: _relativePath, ...object }) => object),
+  objects: objectEntries.map((object) => ({
+    key: object.key,
+    bytes: object.bytes,
+    sha256: object.sha256,
+    contentType: object.contentType,
+    cacheControl: object.cacheControl,
+  })),
 };
 const releaseManifestObject = await addObject(
   `v1/releases/${releaseId}/manifest.json`,

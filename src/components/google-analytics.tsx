@@ -102,7 +102,8 @@ export function GoogleAnalytics() {
     }
 
     if (stored === "granted") enableAnalytics();
-    setConsent(stored);
+    const animationFrame = window.requestAnimationFrame(() => setConsent(stored));
+    return () => window.cancelAnimationFrame(animationFrame);
   }, []);
 
   useEffect(() => {
