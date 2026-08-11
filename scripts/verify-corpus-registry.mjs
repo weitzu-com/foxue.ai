@@ -3,13 +3,16 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.2.0.json");
-const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v0.2.0.sha256");
+const registryPath = resolve(root, "data/gbcr/registry-v0.2.1.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
+const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.2.1.sha256");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
+const inventoryRaw = await readFile(inventoryPath, "utf8");
 const registry = JSON.parse(raw);
 const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
+const inventory = JSON.parse(inventoryRaw);
 const errors = [];
 
 const requireValue = (condition, message) => {
@@ -17,7 +20,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.2.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.2.1", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -73,13 +76,23 @@ const chineseSubset = sourceSnapshots.sources
   .find((source) => source.id === "cbeta_xml_p5")
   ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
 requireValue(chineseSubset?.candidateRecordCount === 881, "汉译经藏候选记录分母漂移");
+requireValue(chineseSubset?.candidateBytes === 247280257, "汉译经藏候选字节数漂移");
 requireValue(
   chineseSubset?.candidatePathSha256 === "69eb2530ae53000a606478824eec70e21fb238b495c0ee6c703e2e44f161cf44",
   "汉译经藏候选路径摘要漂移",
 );
+requireValue(chineseSubset?.inventoryFile === "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json", "汉译经藏逐文件清单路径不匹配");
+requireValue(chineseSubset?.inventorySha256 === createHash("sha256").update(inventoryRaw).digest("hex"), "汉译经藏逐文件清单摘要不匹配");
+requireValue(inventory?.totals?.records === 881, "汉译经藏逐文件清单记录数漂移");
+requireValue(inventory?.totals?.upstreamBytes === 247280257, "汉译经藏逐文件清单字节数漂移");
+requireValue(inventory?.records?.length === 881, "汉译经藏逐文件清单不完整");
+unique(inventory.records.map((record) => record.sourceRecordId), "汉译经藏来源记录");
+unique(inventory.records.map((record) => record.upstreamPath), "汉译经藏上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.candidateExpressionRecords === 881, "汉译经藏候选记录未写入来源族");
 requireValue(chineseFamily?.controlledExpressionRecords === 8, "汉译经藏受控记录数不匹配");
+requireValue(chineseFamily?.candidateExpressionBytes === 247280257, "汉译经藏候选字节数未写入来源族");
+requireValue(chineseFamily?.controlledExpressionBytes === 2766131, "汉译经藏受控字节数不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -87,8 +100,9 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.2.0.json", raw],
-  ["source-snapshots-v0.2.0.json", sourceSnapshotsRaw],
+  ["registry-v0.2.1.json", raw],
+  ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
+  ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
 ];
 for (const [file, content] of controlledFiles) {
   const actualHash = createHash("sha256").update(content).digest("hex");

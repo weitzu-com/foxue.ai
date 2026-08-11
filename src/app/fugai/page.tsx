@@ -95,8 +95,19 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseSutraRecordSubset.controlled}
               <small> / {snapshot.candidateInventory.chineseSutraRecordSubset.denominator}</small>
             </strong>
-            <p>{snapshot.candidateInventory.chineseSutraRecordSubset.percentage}% 候选文本记录进入受控全文库</p>
+            <p>
+              {snapshot.candidateInventory.chineseSutraRecordSubset.percentage}% 候选文本记录进入受控全文库；
+              固定清单合计 {(snapshot.candidateInventory.chineseSutraRecordSubset.sourceBytes! / 1_000_000).toFixed(1)} MB
+            </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 881 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
           </article>
         </div>
       </section>

@@ -76,6 +76,9 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     denominator: 881,
     controlled: 8,
     percentage: 0.91,
+    sourceBytes: 247280257,
+    controlledBytes: 2766131,
+    bytePercentage: 1.12,
   });
 });
 

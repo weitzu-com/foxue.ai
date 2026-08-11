@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v0.2.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.0.json";
+import registryDocument from "../../data/gbcr/registry-v0.2.1.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = (typeof registryDocument.works)[number]["expressions"][number];
 
@@ -23,6 +23,20 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseControlledRecords = "controlledExpressionRecords" in (chineseFamily ?? {})
     ? chineseFamily?.controlledExpressionRecords ?? null
+    : null;
+  const chineseCandidateBytes = "candidateExpressionBytes" in (chineseFamily ?? {})
+    ? chineseFamily?.candidateExpressionBytes ?? null
+    : null;
+  const chineseControlledBytes = "controlledExpressionBytes" in (chineseFamily ?? {})
+    ? chineseFamily?.controlledExpressionBytes ?? null
+    : null;
+  const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "cbeta_xml_p5",
+  );
+  const chineseSubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_chinese_sutra_t01_t17",
+      ) ?? null
     : null;
 
   return {
@@ -86,6 +100,12 @@ export function buildCoverageSnapshot() {
         percentage: chineseCandidateRecords && chineseControlledRecords !== null
           ? Number(((chineseControlledRecords / chineseCandidateRecords) * 100).toFixed(2))
           : null,
+        sourceBytes: chineseCandidateBytes,
+        controlledBytes: chineseControlledBytes,
+        bytePercentage: chineseCandidateBytes && chineseControlledBytes !== null
+          ? Number(((chineseControlledBytes / chineseCandidateBytes) * 100).toFixed(2))
+          : null,
+        inventorySha256: chineseSubsetInventory?.inventorySha256 ?? null,
         unit: "CBETA 大正藏 T01–T17 汉译经藏候选文本记录",
         caveat: "这是固定来源中的文本记录进度，不是去重作品覆盖率或全球佛典覆盖率。",
       },

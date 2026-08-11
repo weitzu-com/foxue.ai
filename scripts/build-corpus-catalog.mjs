@@ -4,11 +4,15 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
+const outputVersion = "0.2.1";
 const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v0.2.0.json");
-const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.0.json");
+const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
+const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
+const inventoryRaw = await readFile(inventoryPath, "utf8");
+const inventory = JSON.parse(inventoryRaw);
 const previousRegistry = JSON.parse(await readFile(previousRegistryPath, "utf8"));
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const requireUnique = (values, label) => {
@@ -28,6 +32,18 @@ if (
 ) {
   throw new Error("受控目录、来源快照与登记册的 CBETA 提交不一致");
 }
+const cbetaSubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
+  (subset) => subset.id === "taisho_chinese_sutra_t01_t17",
+);
+if (
+  inventory.source.commit !== catalog.source.commit ||
+  inventory.totals.records !== cbetaSubsetSnapshot?.candidateRecordCount ||
+  inventory.totals.upstreamBytes !== cbetaSubsetSnapshot?.candidateBytes ||
+  sha256(inventoryRaw) !== cbetaSubsetSnapshot?.inventorySha256
+) {
+  throw new Error("汉译经藏逐文件清单与来源快照不一致");
+}
+const inventoryByPath = new Map(inventory.records.map((record) => [record.upstreamPath, record]));
 
 const files = [];
 const works = [];
@@ -79,7 +95,7 @@ for (const entry of catalog.files) {
 
 const manifest = {
   schema: "https://foxue.ai/schemas/corpus-asset-manifest-v0.2",
-  version: catalog.version,
+  version: outputVersion,
   source: catalog.source,
   rightsDecision: catalog.rightsDecision,
   normalization: catalog.normalization,
@@ -91,6 +107,18 @@ const cbetaSubset = snapshots.sources
   ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
 if (!cbetaSubset) throw new Error("缺少汉译经藏候选子集快照");
 const controlledSubsetRecords = files.filter((file) => /^T\/T(0[1-9]|1[0-7])\//.test(file.upstreamPath)).length;
+const controlledSubsetFiles = files.filter((file) => /^T\/T(0[1-9]|1[0-7])\//.test(file.upstreamPath));
+for (const file of controlledSubsetFiles) {
+  const inventoryRecord = inventoryByPath.get(file.upstreamPath);
+  if (
+    !inventoryRecord ||
+    inventoryRecord.upstreamGitBlobSha1 !== file.upstreamGitBlobSha1 ||
+    inventoryRecord.upstreamBytes !== file.upstreamBytes
+  ) {
+    throw new Error(`${file.id} 与汉译经藏逐文件清单不一致`);
+  }
+}
+const controlledSubsetBytes = controlledSubsetFiles.reduce((sum, file) => sum + file.upstreamBytes, 0);
 const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id === "cbeta_chinese"
   ? {
       ...family,
@@ -98,13 +126,15 @@ const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id
       candidateSubsetId: cbetaSubset.id,
       candidateExpressionRecords: cbetaSubset.candidateRecordCount,
       controlledExpressionRecords: controlledSubsetRecords,
+      candidateExpressionBytes: cbetaSubset.candidateBytes,
+      controlledExpressionBytes: controlledSubsetBytes,
       denominatorWorks: null,
       denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。"
     }
   : family);
 const registry = {
   ...previousRegistry,
-  registry: { ...previousRegistry.registry, version: catalog.version, publishedAt: catalog.publishedAt },
+  registry: { ...previousRegistry.registry, version: outputVersion, publishedAt: catalog.publishedAt },
   sourceFamilies,
   works
 };
@@ -113,11 +143,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-v0.2.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.0.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-v0.2.1.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v0.2.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-v0.2.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-v0.2.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v0.2.1.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-v0.2.1.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-v0.2.1.sha256"), checksumRaw],
 ];
 if (process.argv.includes("--verify")) {
   for (const [path, expected] of outputs) {
@@ -125,8 +155,8 @@ if (process.argv.includes("--verify")) {
       throw new Error(`${path} 与受控目录确定性输出不一致`);
     }
   }
-  console.log(`语料目录 v${catalog.version} 可复现：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
+  console.log(`语料目录 v${outputVersion} 可复现：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
 } else {
   for (const [path, content] of outputs) await writeFile(path, content, "utf8");
-  console.log(`语料目录 v${catalog.version} 已生成：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
+  console.log(`语料目录 v${outputVersion} 已生成：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
 }

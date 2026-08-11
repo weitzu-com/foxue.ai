@@ -1,6 +1,10 @@
 import { createHash } from "node:crypto";
+import { execFile } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { promisify } from "node:util";
+
+const execFileAsync = promisify(execFile);
 
 const sources = {
   cbeta: {
@@ -14,19 +18,25 @@ const sources = {
 };
 
 const fetchTree = async ({ repository, commit }) => {
-  const headers = {
-    Accept: "application/vnd.github+json",
-    "User-Agent": "foxue-ai-gbcr-snapshot",
-    "X-GitHub-Api-Version": "2022-11-28",
-  };
-  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-
-  const response = await fetch(
-    `https://api.github.com/repos/${repository}/git/trees/${commit}?recursive=1`,
-    { headers },
-  );
-  if (!response.ok) throw new Error(`${repository} GitHub tree 请求失败：${response.status}`);
-  return response.json();
+  const url = `https://api.github.com/repos/${repository}/git/trees/${commit}?recursive=1`;
+  const args = [
+    "-fsSL",
+    "--retry", "4",
+    "--retry-all-errors",
+    "--retry-delay", "1",
+    "--connect-timeout", "15",
+    "--max-time", "120",
+    "-H", "Accept: application/vnd.github+json",
+    "-H", "User-Agent: foxue-ai-gbcr-snapshot",
+    "-H", "X-GitHub-Api-Version: 2022-11-28",
+  ];
+  if (process.env.GITHUB_TOKEN) args.push("-H", `Authorization: Bearer ${process.env.GITHUB_TOKEN}`);
+  args.push(url);
+  const { stdout } = await execFileAsync("curl", args, {
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
+  });
+  return JSON.parse(stdout);
 };
 
 const countBy = (items, selector) =>
@@ -40,6 +50,7 @@ const countBy = (items, selector) =>
 
 const digestPaths = (paths) =>
   createHash("sha256").update([...paths].sort().join("\n")).digest("hex");
+const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 const [cbetaTree, suttacentralTree] = await Promise.all([
   fetchTree(sources.cbeta),
@@ -57,6 +68,9 @@ const cbetaPaths = cbetaTree.tree
 const cbetaChineseSutraPaths = cbetaPaths.filter((path) =>
   /^T\/T(0[1-9]|1[0-7])\/T(0[1-9]|1[0-7])n[0-9A-Za-z_]+\.xml$/.test(path),
 );
+const cbetaChineseSutraItems = cbetaTree.tree
+  .filter((item) => cbetaChineseSutraPaths.includes(item.path))
+  .sort((left, right) => left.path.localeCompare(right.path));
 const suttacentralRootPaths = suttacentralTree.tree
   .map((item) => item.path)
   .filter((path) => path.startsWith("root/") && path.endsWith(".json"))
@@ -66,9 +80,40 @@ const suttacentralCandidatePaths = suttacentralRootPaths.filter((path) =>
   canonicalLanguages.has(path.split("/")[1]),
 );
 
+const cbetaChineseSutraInventory = {
+  schema: "https://foxue.ai/schemas/gbcr/cbeta-source-record-inventory-v0.2",
+  version: "0.2.1",
+  source: {
+    repository: sources.cbeta.repository,
+    commit: sources.cbeta.commit,
+  },
+  subset: {
+    id: "taisho_chinese_sutra_t01_t17",
+    inclusionRule: "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
+    recordUnit: "TEI P5 source record",
+  },
+  totals: {
+    records: cbetaChineseSutraItems.length,
+    upstreamBytes: cbetaChineseSutraItems.reduce((sum, item) => sum + item.size, 0),
+  },
+  records: cbetaChineseSutraItems.map((item) => {
+    const filename = item.path.split("/").at(-1);
+    const sourceRecordId = filename.replace(/\.xml$/, "");
+    return {
+      sourceRecordId,
+      canonWitnessId: sourceRecordId.replace(/^T\d{2}n/, "T"),
+      volume: item.path.split("/")[1],
+      upstreamPath: item.path,
+      upstreamGitBlobSha1: item.sha,
+      upstreamBytes: item.size,
+    };
+  }),
+};
+const inventorySerialized = `${JSON.stringify(cbetaChineseSutraInventory, null, 2)}\n`;
+
 const snapshot = {
   schema: "https://foxue.ai/schemas/gbcr/source-snapshots-v0.2",
-  version: "0.2.0",
+  version: "0.2.1",
   capturedAt: "2026-08-11",
   status: "candidate_record_inventory",
   denominatorReady: false,
@@ -93,6 +138,9 @@ const snapshot = {
           recordUnit: "TEI P5 source record",
           inclusionRule: "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
           candidatePathSha256: digestPaths(cbetaChineseSutraPaths),
+          candidateBytes: cbetaChineseSutraInventory.totals.upstreamBytes,
+          inventoryFile: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+          inventorySha256: sha256(inventorySerialized),
           groups: countBy(cbetaChineseSutraPaths, (path) => path.split("/")[1]),
           denominatorCaveat: "这是可复算的汉译经藏文本记录子集，不是去重作品数，也不是全球佛典分母。",
         },
@@ -120,17 +168,22 @@ const snapshot = {
 
 const serialized = `${JSON.stringify(snapshot, null, 2)}\n`;
 if (process.argv.includes("--verify")) {
-  const checkedPath = resolve(process.cwd(), "data/gbcr/source-snapshots-v0.2.0.json");
-  const checked = await readFile(checkedPath, "utf8");
-  if (checked !== serialized) {
-    console.error("上游目录快照已漂移，或固定提交/提取规则与受控文件不一致。");
-    process.exit(1);
+  const outputs = [
+    ["data/gbcr/source-snapshots-v0.2.1.json", serialized],
+    ["data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json", inventorySerialized],
+  ];
+  for (const [relativePath, expected] of outputs) {
+    const checked = await readFile(resolve(process.cwd(), relativePath), "utf8");
+    if (checked !== expected) {
+      console.error(`${relativePath} 已漂移，或固定提交/提取规则与受控文件不一致。`);
+      process.exit(1);
+    }
   }
-  console.log(`上游目录快照验证通过：CBETA ${cbetaPaths.length}，SuttaCentral ${suttacentralCandidatePaths.length} 条候选记录。`);
+  console.log(`上游目录快照验证通过：CBETA ${cbetaPaths.length}，汉译经藏 ${cbetaChineseSutraItems.length} 条 / ${cbetaChineseSutraInventory.totals.upstreamBytes} 字节，SuttaCentral ${suttacentralCandidatePaths.length} 条。`);
 } else if (process.argv.includes("--write")) {
-  const outputPath = resolve(process.cwd(), "data/gbcr/source-snapshots-v0.2.0.json");
-  await writeFile(outputPath, serialized, "utf8");
-  console.log(`上游目录快照已写入：CBETA ${cbetaPaths.length}，其中汉译经藏候选 ${cbetaChineseSutraPaths.length} 条。`);
+  await writeFile(resolve(process.cwd(), "data/gbcr/source-snapshots-v0.2.1.json"), serialized, "utf8");
+  await writeFile(resolve(process.cwd(), "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json"), inventorySerialized, "utf8");
+  console.log(`上游目录快照已写入：CBETA ${cbetaPaths.length}，其中汉译经藏候选 ${cbetaChineseSutraItems.length} 条 / ${cbetaChineseSutraInventory.totals.upstreamBytes} 字节。`);
 } else {
   process.stdout.write(serialized);
 }
