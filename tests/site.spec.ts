@@ -13,6 +13,8 @@ const criticalRoutes = [
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/jingzang/majjhima-nikaya-mn1",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
+  "/jingzang/samyutta-nikaya-sn1",
+  "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
   "/fugai",
   "/touming",
 ];
@@ -73,12 +75,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 208,
-    registeredExpressions: 212,
-    fullSourceTextWorks: 208,
-    fullSourceTextExpressions: 212,
-    stableSegments: 648862,
-    structureVerifiedWorks: 208,
+    registeredWorks: 264,
+    registeredExpressions: 268,
+    fullSourceTextWorks: 264,
+    fullSourceTextExpressions: 268,
+    stableSegments: 692328,
+    structureVerifiedWorks: 264,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
@@ -90,10 +92,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
-    controlled: 212,
-    percentage: 2.91,
-    controlledBytes: 4992408,
-    controlledWorks: 187,
+    controlled: 2031,
+    percentage: 27.87,
+    controlledBytes: 8757707,
+    controlledWorks: 243,
   });
 });
 
@@ -269,6 +271,26 @@ test("巴利中部一百五十二经保留 Bilara 原生锚点并受控分页", 
   expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/majjhima-nikaya-mn152");
+});
+
+test("巴利相应部五十六个相应保留原生锚点、范围记录与受控分页", async ({ page, request }) => {
+  await page.goto("/jingzang/samyutta-nikaya-sn1#sn1.1:1.1");
+  await page.waitForURL(/\/jingzang\/samyutta-nikaya-sn1\/001-sn1-1-0001-0020#sn1\.1:1\.1$/);
+  await expect(page.locator('[id="sn1.1:1.1"]')).toContainText("Evaṁ me sutaṁ");
+  await expect(page.getByText(/全经 1605 稳定段落/)).toBeVisible();
+
+  await page.goto("/jingzang/samyutta-nikaya-sn42#sn42.13:33.5");
+  await page.waitForURL(/\/jingzang\/samyutta-nikaya-sn42\/016-sn42-13-0241-0300#sn42\.13:33\.5$/);
+  await expect(page.locator('[id="sn42.13:33.5"]')).toContainText("Gāmaṇisaṁyuttaṁ samattaṁ");
+
+  const largeDirectory = await request.get("/jingzang/samyutta-nikaya-sn35");
+  const finalUnit = await request.get("/jingzang/samyutta-nikaya-sn56/109-sn56-131-0001-0029");
+  expect(largeDirectory.ok()).toBeTruthy();
+  expect(finalUnit.ok()).toBeTruthy();
+  expect((await largeDirectory.body()).byteLength).toBeLessThan(300_000);
+  expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/samyutta-nikaya-sn56");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

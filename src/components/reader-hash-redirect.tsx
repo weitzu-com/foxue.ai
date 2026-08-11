@@ -18,7 +18,12 @@ export function ReaderHashRedirect({ slug, aliases, segmentFolios, currentFolio 
     const hash = decodeURIComponent(window.location.hash.slice(1));
     if (!hash) return;
     const canonicalId = aliases[hash] ?? hash;
-    const targetFolio = segmentFolios?.[canonicalId] ?? folioKeyFromSegmentId(canonicalId);
+    const prefix = canonicalId.includes(":")
+      ? `${canonicalId.slice(0, canonicalId.indexOf(":"))}:*`
+      : "";
+    const targetFolio = segmentFolios?.[canonicalId] ??
+      (prefix ? segmentFolios?.[prefix] : undefined) ??
+      folioKeyFromSegmentId(canonicalId);
     if (!targetFolio || targetFolio === currentFolio) return;
     router.replace(folioHref(slug, targetFolio, hash));
   }, [aliases, currentFolio, router, segmentFolios, slug]);

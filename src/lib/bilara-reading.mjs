@@ -1,6 +1,7 @@
 const RANGE_FILE = /^dhp(\d+)-(\d+)_root-pli-ms\.json$/;
 const SEGMENT_ID = /^dhp(\d+):(\d+(?:\.\d+)?)$/;
 const SINGLE_SUTTA_FILE = /^((?:dn|mn)\d+)_root-pli-ms\.json$/;
+const SAMYUTTA_FILE = /^sn(\d+)\.(\d+)(?:-(\d+))?_root-pli-ms\.json$/;
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
@@ -138,4 +139,117 @@ export function parseBilaraSuttaSource(source, options = {}) {
   }
 
   return { segments, navigation, title };
+}
+
+export function parseBilaraSamyuttaSources(sources, options = {}) {
+  const maxSegments = options.maxSegments ?? 120;
+  if (!Number.isSafeInteger(maxSegments) || maxSegments < 1 || maxSegments > 250) {
+    throw new Error("Bilara 阅读单元段落上限无效");
+  }
+  if (!Array.isArray(sources) || sources.length === 0) {
+    throw new Error("相应部来源文件不能为空");
+  }
+
+  const segments = [];
+  const navigation = [];
+  const stableIds = new Set();
+  const omittedEmptySegmentIds = [];
+  let groupNumber;
+  let expectedStart = 1;
+  let representedSuttas = 0;
+  let readingPosition = 0;
+
+  for (const source of sources) {
+    const filename = source.filename ?? source.localPath?.split("/").at(-1);
+    const fileMatch = filename?.match(SAMYUTTA_FILE);
+    if (!fileMatch) throw new Error(`无法识别 Bilara 相应部来源文件：${filename}`);
+    const currentGroup = Number(fileMatch[1]);
+    const start = Number(fileMatch[2]);
+    const end = Number(fileMatch[3] ?? fileMatch[2]);
+    if (groupNumber === undefined) groupNumber = currentGroup;
+    if (currentGroup !== groupNumber || start !== expectedStart || end < start) {
+      throw new Error(`${filename} 的相应或经号范围不连续`);
+    }
+    expectedStart = end + 1;
+    representedSuttas += end - start + 1;
+
+    const value = JSON.parse(source.text);
+    if (!value || Array.isArray(value) || typeof value !== "object") {
+      throw new Error(`${filename} 不是 Bilara 键值对象`);
+    }
+    const entries = Object.entries(value);
+    if (entries.length === 0) throw new Error(`${filename} 没有段落`);
+    const title = entries.find(([id]) => id.endsWith(":0.3"))?.[1]?.trim();
+    const division = entries.find(([id]) => id.endsWith(":0.2"))?.[1]?.trim();
+    if (!title || !division) throw new Error(`${filename} 缺少经名或品名段落`);
+
+    const parsed = [];
+    for (const [id, rawText] of entries) {
+      const match = id.match(/^sn(\d+)\.(\d+(?:-\d+)?):(\d+(?:[.-]\d+)*)$/);
+      if (!match || Number(match[1]) !== groupNumber) {
+        throw new Error(`${filename} 含无效原生段落标识 ${id}`);
+      }
+      const [representedStart, representedEnd = representedStart] = match[2]
+        .split("-")
+        .map(Number);
+      if (
+        !Number.isSafeInteger(representedStart) ||
+        !Number.isSafeInteger(representedEnd) ||
+        representedStart < start || representedEnd > end || representedEnd < representedStart
+      ) {
+        throw new Error(`${id} 超出 ${filename} 的经号范围`);
+      }
+      if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
+      if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
+      stableIds.add(id);
+      if (!rawText.trim()) {
+        omittedEmptySegmentIds.push(id);
+        continue;
+      }
+      parsed.push({
+        id,
+        text: rawText.trim(),
+        sourceLine: match[3],
+        ordinal: parsed.length + 1,
+      });
+    }
+    if (parsed.length === 0) throw new Error(`${filename} 没有可读段落`);
+
+    const recordId = `sn${groupNumber}.${start}${end === start ? "" : `-${end}`}`;
+    const pageStem = recordId.replaceAll(".", "-");
+    const recordUnits = Math.ceil(parsed.length / maxSegments);
+    for (let offset = 0; offset < parsed.length; offset += maxSegments) {
+      const unit = parsed.slice(offset, offset + maxSegments);
+      readingPosition += 1;
+      const juan = String(readingPosition).padStart(3, "0");
+      const firstOrdinal = String(unit[0].ordinal).padStart(4, "0");
+      const lastOrdinal = String(unit.at(-1).ordinal).padStart(4, "0");
+      const page = `${pageStem}-${firstOrdinal}-${lastOrdinal}`;
+      for (const segment of unit) {
+        segments.push({
+          id: segment.id,
+          text: segment.text,
+          juan,
+          page,
+          sourceLine: segment.sourceLine,
+        });
+      }
+      const unitPosition = Math.floor(offset / maxSegments) + 1;
+      navigation.push({
+        key: `${juan}-${page}`,
+        id: unit[0].id,
+        label: `${recordId.toUpperCase()} · ${title}${recordUnits > 1 ? ` · ${unitPosition}/${recordUnits}` : ""}`,
+        juan,
+        sourcePage: page,
+      });
+    }
+  }
+
+  return {
+    segments,
+    navigation,
+    title: `Saṁyutta Nikāya ${groupNumber}`,
+    representedSuttas,
+    omittedEmptySegmentIds,
+  };
 }

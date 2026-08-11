@@ -29,10 +29,27 @@ export function folioHref(slug: string, folioKey: string, segmentId?: string) {
 export function buildSegmentFolioMap(
   segments: Array<{ id: string; juan?: string; page?: string }>,
 ) {
-  return Object.fromEntries(segments.flatMap((segment) =>
-    segment.juan && segment.page
-      ? [[segment.id, `${segment.juan}-${segment.page}`]]
-      : []));
+  const foliosByPrefix = new Map<string, Set<string>>();
+  for (const segment of segments) {
+    if (!segment.juan || !segment.page || !segment.id.includes(":")) continue;
+    const prefix = segment.id.slice(0, segment.id.indexOf(":"));
+    const folio = `${segment.juan}-${segment.page}`;
+    const folios = foliosByPrefix.get(prefix) ?? new Set<string>();
+    folios.add(folio);
+    foliosByPrefix.set(prefix, folios);
+  }
+  const entries: Array<[string, string]> = [];
+  for (const [prefix, folios] of foliosByPrefix) {
+    if (folios.size === 1) entries.push([`${prefix}:*`, [...folios][0]]);
+    else {
+      entries.push(...segments.flatMap((segment) => (
+        segment.id.startsWith(`${prefix}:`) && segment.juan && segment.page
+          ? [[segment.id, `${segment.juan}-${segment.page}`] as [string, string]]
+          : []
+      )));
+    }
+  }
+  return Object.fromEntries(entries);
 }
 
 export function segmentHref(slug: string, segmentId: string) {

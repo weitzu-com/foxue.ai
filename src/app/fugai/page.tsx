@@ -25,6 +25,7 @@ const statusLabels: Record<string, string> = {
   candidate_snapshot_ready: "候选快照已冻结",
   candidate_expression_snapshot_ready: "候选文本记录已冻结",
   candidate_snapshot_with_controlled_pilot: "候选快照与受控试点已完成",
+  candidate_snapshot_with_controlled_collections: "候选快照与受控经集已完成",
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
   federated_sources_pending: "联邦来源待建",
@@ -111,18 +112,18 @@ export default function CoveragePage() {
             </a>
           </article>
           <article>
-            <span>巴利 ROOT 试点</span>
+            <span>巴利 ROOT 受控进度</span>
             <strong>
               {snapshot.candidateInventory.suttacentralPaliRootPilot.controlled}
               <small> / {snapshot.candidateInventory.suttacentralPaliRootPilot.denominator}</small>
             </strong>
             <p>
               {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
-              212 个文件组成《法句经》《长部》34 经与《中部》152 经
+              2,031 个物理文件组成《法句经》《长部》34 经、《中部》152 经与《相应部》56 个相应级经集；后者连续表示 3,024 个经号
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
-            <Link className="text-link" href="/jingzang/majjhima-nikaya-mn1">
-              阅读巴利《中部》 <ArrowRight aria-hidden="true" size={13} />
+            <Link className="text-link" href="/jingzang/samyutta-nikaya-sn1">
+              阅读巴利《相应部》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
         </div>
