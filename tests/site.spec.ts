@@ -11,6 +11,8 @@ const criticalRoutes = [
   "/jingzang/taisho-t0002/001-0150a",
   "/jingzang/taisho-t0152",
   "/jingzang/taisho-t0152/001-0001a",
+  "/jingzang/taisho-t0221",
+  "/jingzang/taisho-t0221/001-0001a",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -83,20 +85,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 516,
-    registeredExpressions: 520,
-    fullSourceTextWorks: 516,
-    fullSourceTextExpressions: 520,
-    stableSegments: 1090668,
-    structureVerifiedWorks: 516,
+    registeredWorks: 544,
+    registeredExpressions: 559,
+    fullSourceTextWorks: 544,
+    fullSourceTextExpressions: 559,
+    stableSegments: 1150898,
+    structureVerifiedWorks: 544,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 260,
-    percentage: 29.51,
+    controlled: 299,
+    percentage: 33.94,
     sourceBytes: 247280257,
-    controlledBytes: 131310546,
-    bytePercentage: 53.1,
+    controlledBytes: 142623438,
+    bytePercentage: 57.68,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -106,6 +108,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseBenyuanSourceRecords).toMatchObject({
     denominator: 72,
     controlled: 72,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chinesePrajnaparamitaSourceRecords).toMatchObject({
+    denominator: 57,
+    controlled: 57,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -284,6 +291,29 @@ test("汉译本缘部 T03–T04 固定来源完整并公开关系边界", async 
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/taisho-t0152/001-0001a");
   expect(sitemap).toContain("/jingzang/taisho-t0213/004-0799c");
+});
+
+test("汉译般若部 T05–T08 完整受控并保留作品、署名与读诵见证边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0221#T0221.001.0001a02");
+  await page.waitForURL(/\/jingzang\/taisho-t0221\/001-0001a#T0221\.001\.0001a02$/);
+  await expect(page.locator('[id="T0221.001.0001a02"]')).toBeVisible();
+  await expect(page.getByText("书目关系边界：")).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0236b/001-0757a");
+  await expect(page.getByText("归属边界：")).toBeVisible();
+  await expect(page.getByText(/归属边界：目录保留传统译者署名/)).toBeVisible();
+  await expect(page.getByText(/金刚般若经.*汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0250/001-0847c");
+  await expect(page.getByText(/归属边界：目录保留传统译者署名/)).toBeVisible();
+  await expect(page.getByText(/般若心经.*长短本组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0256/001-0851a");
+  await expect(page.getByText(/梵汉对音与读诵见证/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0221/020-0146c");
+  expect(sitemap).toContain("/jingzang/taisho-t0256/001-0851a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

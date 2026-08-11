@@ -1,0 +1,2468 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.5",
+  "version": "1.5.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.4.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T05–T08 source-record closure",
+  "workOverrides": {
+    "gbcr:work:maha-prajnaparamita-t0220": {
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "large-prajnaparamita-chinese",
+          "label": "二万五千颂般若汉译与《大般若经》第二会",
+          "evidence": "DILA 经录与 84000 的《二万五千颂般若》导言共同关联 T0221、T0222、T0223 和 T0220 第二会，并提醒不同底本之间存在复杂亲疏关系；因此确认为文本家族，不直接合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(2)",
+              "T0221",
+              "T0222",
+              "T0223"
+            ],
+            "toh": [
+              "toh9"
+            ]
+          }
+        },
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        },
+        {
+          "type": "assembly_parallel_verified",
+          "groupId": "suvikrantavikramin-chinese",
+          "label": "《胜天王般若》与《大般若经》第六会",
+          "evidence": "DILA 经录把 T0231 明确关联到 T0220 第六会；在《大般若经》分会组件模型完成前，两者保留为独立可寻址表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(6)",
+              "T0231"
+            ],
+            "toh": [
+              "toh14"
+            ]
+          }
+        },
+        {
+          "type": "same_work_and_assembly_candidate",
+          "groupId": "manjusri-prajnaparamita-chinese",
+          "label": "文殊般若汉译与《大般若经》第七会",
+          "evidence": "DILA 经录把 T0232、T0233 与 T0220 第七会列为相关经典；卷数和文本形态不同，须完成逐段对齐后再决定是否合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(7)",
+              "T0232",
+              "T0233"
+            ],
+            "toh": [
+              "toh24"
+            ]
+          }
+        },
+        {
+          "type": "assembly_parallel_verified",
+          "groupId": "nagasri-prajnaparamita-chinese",
+          "label": "《濡首菩萨经》与《大般若经》第八会",
+          "evidence": "DILA 经录把 T0234 明确关联到 T0220 第八会；在经会组件与版本见证层建立前不把整部《大般若经》和本经合并计数。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(8)",
+              "T0234"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        },
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:maha-prajnaparamita-t0223": {
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "large-prajnaparamita-chinese",
+          "label": "二万五千颂般若汉译与《大般若经》第二会",
+          "evidence": "DILA 经录与 84000 的《二万五千颂般若》导言共同关联 T0221、T0222、T0223 和 T0220 第二会，并提醒不同底本之间存在复杂亲疏关系；因此确认为文本家族，不直接合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(2)",
+              "T0221",
+              "T0222",
+              "T0223"
+            ],
+            "toh": [
+              "toh9"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:vajracchedika-prajnaparamita": {
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:prajnaparamita-hrdaya": {
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "collection": {
+    "id": "CBETA-TAISHO-T05-T08",
+    "title": "大正藏 T05–T08 般若部固定来源记录",
+    "sourceRecordDenominator": 57,
+    "previouslyControlledSourceRecords": 18,
+    "newSourceRecords": 39,
+    "controlledSourceRecords": 57,
+    "newSourceBytes": 11312892,
+    "newStableSegments": 60230,
+    "newFolios": 2201,
+    "verifiedSameWorkExpressions": 11,
+    "provisionalRecords": 28,
+    "relationAnnotatedRecords": 35,
+    "attributionBoundaryRecords": 3,
+    "workCountingDecision": "39 个新增来源记录全部保留为独立文本表达。依据 DILA 与 84000 的明确目录证据，金刚经五个新增译本和心经六个新增长短本分别并入既有规范作品；其余 28 个记录仍为 provisional_canon_record。大品、八千颂和《大般若经》各会只登记关系，不因题名相近而贸然合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_translation_groups_and_relation_candidates_recorded",
+    "verifiedSameWorkGroups": [
+      "vajracchedika-chinese",
+      "prajnaparamita-hrdaya-chinese"
+    ],
+    "assemblyRelations": [
+      "suvikrantavikramin-chinese",
+      "manjusri-prajnaparamita-chinese",
+      "nagasri-prajnaparamita-chinese"
+    ],
+    "recensionFamilies": [
+      "large-prajnaparamita-chinese",
+      "eight-thousand-prajnaparamita-chinese",
+      "prajnaparamita-naya-chinese"
+    ],
+    "crossLanguageCandidates": [
+      "prajnaparamita-one-hundred-eight-names",
+      "prajnaparamita-fifty-lines",
+      "kausika-prajnaparamita",
+      "prajnaparamita-few-syllables"
+    ],
+    "attributionCaveats": [
+      "T0236b",
+      "T0250",
+      "T0256"
+    ],
+    "caveat": "经会平行、文本家族和题名级跨语种候选不会触发作品合并；只有权威目录明确且作品边界足够稳定的金刚经、心经译本组共享规范作品实体。"
+  },
+  "files": [
+    {
+      "id": "T0221",
+      "slug": "taisho-t0221",
+      "workId": "gbcr:work:taisho-t0221",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "large-prajnaparamita-chinese",
+          "label": "二万五千颂般若汉译与《大般若经》第二会",
+          "evidence": "DILA 经录与 84000 的《二万五千颂般若》导言共同关联 T0221、T0222、T0223 和 T0220 第二会，并提醒不同底本之间存在复杂亲疏关系；因此确认为文本家族，不直接合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(2)",
+              "T0221",
+              "T0222",
+              "T0223"
+            ],
+            "toh": [
+              "toh9"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0221.xml",
+      "upstreamPath": "T/T08/T08n0221.xml",
+      "upstreamGitBlobSha1": "8d6969e8f0e82cccd2ced19cb01b2b29956a3e5b",
+      "upstreamBytes": 2042668,
+      "upstreamSha256": "6cdd1709221920926f8ed7742826a3981503aee05468095657c148fe2ee75192",
+      "localBytes": 2042669,
+      "localSha256": "d78abbb76059ebae02b662a2a9ef1bc96e4a1a986be19d3a85d6f5daa7788096",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "放光般若經",
+        "alternateTitle": "放光般若經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 221",
+        "translator": "西晉 · 無羅叉譯",
+        "summary": "20卷。本站完整保存 T0221 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0221_001"
+      },
+      "verification": {
+        "segments": 12631,
+        "folios": 450,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T0221.001.0001a02",
+          "T0221.020.0146c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0222",
+      "slug": "taisho-t0222",
+      "workId": "gbcr:work:taisho-t0222",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "large-prajnaparamita-chinese",
+          "label": "二万五千颂般若汉译与《大般若经》第二会",
+          "evidence": "DILA 经录与 84000 的《二万五千颂般若》导言共同关联 T0221、T0222、T0223 和 T0220 第二会，并提醒不同底本之间存在复杂亲疏关系；因此确认为文本家族，不直接合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(2)",
+              "T0221",
+              "T0222",
+              "T0223"
+            ],
+            "toh": [
+              "toh9"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0222.xml",
+      "upstreamPath": "T/T08/T08n0222.xml",
+      "upstreamGitBlobSha1": "27ef3e5784d57896e896f4610535f229a992526c",
+      "upstreamBytes": 1292156,
+      "upstreamSha256": "3c3211adeb043b12af958842426eac85964e71e746a8225837ba76efdcafbc02",
+      "localBytes": 1292157,
+      "localSha256": "a5ce8931b20b622fb2c4be870f644f41c2a14bafbd20c034d31493a69e71308e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "光讚經",
+        "alternateTitle": "光讚經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 222",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "10卷。本站完整保存 T0222 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0222_001"
+      },
+      "verification": {
+        "segments": 6012,
+        "folios": 216,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0222.001.0147a02",
+          "T0222.010.0216b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0224",
+      "slug": "taisho-t0224",
+      "workId": "gbcr:work:taisho-t0224",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0224.xml",
+      "upstreamPath": "T/T08/T08n0224.xml",
+      "upstreamGitBlobSha1": "901883690a0a3dc3f133a350c12fd0886a8d791b",
+      "upstreamBytes": 1300686,
+      "upstreamSha256": "550d84fa1becd049bfe1736dd9986785be8bdc08ec762d61ca9fcb21ef98b075",
+      "localBytes": 1300687,
+      "localSha256": "a7fda422fc22e365c29a7667723c29a8e170e513a69ebdb7c77833d83df01d2a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "道行般若經",
+        "alternateTitle": "道行般若經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 224",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "10卷。本站完整保存 T0224 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0224_001"
+      },
+      "verification": {
+        "segments": 4614,
+        "folios": 168,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0224.001.0425a02",
+          "T0224.010.0478b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0225",
+      "slug": "taisho-t0225",
+      "workId": "gbcr:work:taisho-t0225",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0225.xml",
+      "upstreamPath": "T/T08/T08n0225.xml",
+      "upstreamGitBlobSha1": "36ccd8a18b71895f04f53c7744c92f699c28d560",
+      "upstreamBytes": 896899,
+      "upstreamSha256": "0ceed8e7e8577e024aa76889932ae173cfa56fae16fc4a67853202a77761e67b",
+      "localBytes": 896900,
+      "localSha256": "ae3f48894d93d107a774a7b1cef5f3de211f9d4750c4b9c3c3d9da498a134570",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大明度經",
+        "alternateTitle": "大明度經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 225",
+        "translator": "吳 · 支謙譯",
+        "summary": "6卷。本站完整保存 T0225 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0225_001"
+      },
+      "verification": {
+        "segments": 2512,
+        "folios": 94,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0225.001.0478b18",
+          "T0225.006.0508b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0226",
+      "slug": "taisho-t0226",
+      "workId": "gbcr:work:taisho-t0226",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0226.xml",
+      "upstreamPath": "T/T08/T08n0226.xml",
+      "upstreamGitBlobSha1": "f12be2f2ecfd30f92b7bf77ba5055acd959cf74b",
+      "upstreamBytes": 418879,
+      "upstreamSha256": "b19588d6df4eac8b66b106d2fae9dfd3f60f6e35ac085c977e0017c824abdb6f",
+      "localBytes": 418880,
+      "localSha256": "454223ee17b5e5a0aff93382e616ef48ef1a6f334da7d35dcd558536b5b0fb2b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶般若鈔經",
+        "alternateTitle": "摩訶般若鈔經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 226",
+        "translator": "前秦 · 曇摩蜱共竺佛念譯",
+        "summary": "5卷。本站完整保存 T0226 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0226_001"
+      },
+      "verification": {
+        "segments": 2452,
+        "folios": 89,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0226.001.0508b15",
+          "T0226.005.0536c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0227",
+      "slug": "taisho-t0227",
+      "workId": "gbcr:work:taisho-t0227",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0227.xml",
+      "upstreamPath": "T/T08/T08n0227.xml",
+      "upstreamGitBlobSha1": "b9328d6e03891b78d9580fba9e7249c777a02a82",
+      "upstreamBytes": 884213,
+      "upstreamSha256": "987bae5bc302d19231d7585c9918dbb106c6296f0976cb3b0e75c2d0f29e85cb",
+      "localBytes": 884214,
+      "localSha256": "91cd93e24044feca758b9d1f4c9a1c64266b6e5edf44dcdd8e1ce8f3f765f441",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "小品般若波羅蜜經",
+        "alternateTitle": "小品般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 227",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "10卷。本站完整保存 T0227 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0227_001"
+      },
+      "verification": {
+        "segments": 4291,
+        "folios": 157,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0227.001.0536c14",
+          "T0227.010.0586c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0228",
+      "slug": "taisho-t0228",
+      "workId": "gbcr:work:taisho-t0228",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "recension_family_verified",
+          "groupId": "eight-thousand-prajnaparamita-chinese",
+          "label": "八千颂般若汉译与《大般若经》第四、第五会",
+          "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(4)",
+              "T0220(5)",
+              "T0224",
+              "T0225",
+              "T0226",
+              "T0227",
+              "T0228"
+            ],
+            "toh": [
+              "toh12"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0228.xml",
+      "upstreamPath": "T/T08/T08n0228.xml",
+      "upstreamGitBlobSha1": "e57ff2a1ecc7d23377e2cada309a2a3580f1bf7e",
+      "upstreamBytes": 917653,
+      "upstreamSha256": "c4a1be4b48ac18fd0d581e4f20d01e4f9dd5d300f93a878f6f4d134397c2386b",
+      "localBytes": 917654,
+      "localSha256": "afe20672fa2aed3abde826ee6da0b8ebac4a0709bd53563bf5777e81fb41d631",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說佛母出生三法藏般若波羅蜜多經",
+        "alternateTitle": "佛說佛母出生三法藏般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 228",
+        "translator": "宋 · 施護譯",
+        "summary": "25卷。本站完整保存 T0228 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0228_001"
+      },
+      "verification": {
+        "segments": 7725,
+        "folios": 289,
+        "juanRange": [
+          1,
+          25
+        ],
+        "anchors": [
+          "T0228.001.0587a02",
+          "T0228.025.0676c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0229",
+      "slug": "taisho-t0229",
+      "workId": "gbcr:work:taisho-t0229",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "related_distinct_work_verified",
+          "groupId": "prajnaparamita-verse-summary",
+          "label": "般若摄颂／宝德藏偈文本",
+          "evidence": "T0229 题名与目录对应 Prajñāpāramitā-ratnaguṇasaṃcayagāthā；84000 将其作为概括般若义的独立偈颂作品列于八千颂之后，因此只建立相关作品关系。",
+          "externalIds": {
+            "cbeta": [
+              "T0229"
+            ],
+            "toh": [
+              "toh13"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0229.xml",
+      "upstreamPath": "T/T08/T08n0229.xml",
+      "upstreamGitBlobSha1": "d9e2b2d329c483283d5c21545f1bde5aeb501095",
+      "upstreamBytes": 117008,
+      "upstreamSha256": "532663e17a0f746d904252c10b29ebad43c5463e21ce1a02a87ff725a608b783",
+      "localBytes": 117009,
+      "localSha256": "394001c3fd7b4afcfead21ddbb9c48618a1682574701cebe54d48a41ba14bdf8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說佛母寶德藏般若波羅蜜經",
+        "alternateTitle": "佛說佛母寶德藏般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 229",
+        "translator": "宋 · 法賢譯",
+        "summary": "3卷。本站完整保存 T0229 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0229_001"
+      },
+      "verification": {
+        "segments": 670,
+        "folios": 25,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0229.001.0676c17",
+          "T0229.003.0684b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0230",
+      "slug": "taisho-t0230",
+      "workId": "gbcr:work:taisho-t0230",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_title_candidate",
+          "groupId": "prajnaparamita-one-hundred-eight-names",
+          "label": "般若波罗蜜多一百八名文本",
+          "evidence": "T0230 的题名明确为般若波罗蜜多一百八名陀罗尼；84000 藏经目录另列同名的一百八名体裁作品 Toh 25。现只登记跨语种题名候选，等待内容级对齐。",
+          "externalIds": {
+            "cbeta": [
+              "T0230"
+            ],
+            "toh": [
+              "toh25"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0230.xml",
+      "upstreamPath": "T/T08/T08n0230.xml",
+      "upstreamGitBlobSha1": "94a2323fdb187aac0014129986a1901fffd1632b",
+      "upstreamBytes": 17386,
+      "upstreamSha256": "839d05949c4128f6611bcaf61e8e42353338b30b4fbbc7d432ec9567d5a9a4a3",
+      "localBytes": 17387,
+      "localSha256": "c5b0266bf8f5825b69297e9dd1aaf0fc7e611a8964704ce71c9c2cc77c115868",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "聖八千頌般若波羅蜜多一百八名真實圓義陀羅尼經",
+        "alternateTitle": "聖八千頌般若波羅蜜多一百八名真實圓義陀羅尼經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 230",
+        "translator": "宋 · 施護等譯",
+        "summary": "1卷。本站完整保存 T0230 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0230_001"
+      },
+      "verification": {
+        "segments": 68,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0230.001.0684c02",
+          "T0230.001.0685b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0231",
+      "slug": "taisho-t0231",
+      "workId": "gbcr:work:taisho-t0231",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "assembly_parallel_verified",
+          "groupId": "suvikrantavikramin-chinese",
+          "label": "《胜天王般若》与《大般若经》第六会",
+          "evidence": "DILA 经录把 T0231 明确关联到 T0220 第六会；在《大般若经》分会组件模型完成前，两者保留为独立可寻址表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(6)",
+              "T0231"
+            ],
+            "toh": [
+              "toh14"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0231.xml",
+      "upstreamPath": "T/T08/T08n0231.xml",
+      "upstreamGitBlobSha1": "a1060bc8018ef99eda1558d9ba59efd9c7a4e756",
+      "upstreamBytes": 579982,
+      "upstreamSha256": "95ef4f02174595342aedacc37c181b4324240019ebd2d92c9e398991683155b0",
+      "localBytes": 579983,
+      "localSha256": "7c1107d507614cc7658b7a9fe80fd1202774449a292f3d94f516193d0f00d301",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝天王般若波羅蜜經",
+        "alternateTitle": "勝天王般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 231",
+        "translator": "陳 · 月婆首那譯",
+        "summary": "7卷。本站完整保存 T0231 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0231_001"
+      },
+      "verification": {
+        "segments": 3394,
+        "folios": 122,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0231.001.0687a02",
+          "T0231.007.0726a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0232",
+      "slug": "taisho-t0232",
+      "workId": "gbcr:work:taisho-t0232",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_assembly_candidate",
+          "groupId": "manjusri-prajnaparamita-chinese",
+          "label": "文殊般若汉译与《大般若经》第七会",
+          "evidence": "DILA 经录把 T0232、T0233 与 T0220 第七会列为相关经典；卷数和文本形态不同，须完成逐段对齐后再决定是否合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(7)",
+              "T0232",
+              "T0233"
+            ],
+            "toh": [
+              "toh24"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0232.xml",
+      "upstreamPath": "T/T08/T08n0232.xml",
+      "upstreamGitBlobSha1": "9821a19277840aa05acfa1424416873f95654300",
+      "upstreamBytes": 99131,
+      "upstreamSha256": "2ede61cbe22cfd01043f7e7ed7fea35887bd88b0b03bceefd2062c0e7a8a9f5b",
+      "localBytes": 99132,
+      "localSha256": "bbdb9de420d39ba4b83848f5e7dcf5a568adb2c834c9663542ebbcaadbadf2ca",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊師利所說摩訶般若波羅蜜經",
+        "alternateTitle": "文殊師利所說摩訶般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 232",
+        "translator": "梁 · 曼陀羅仙譯",
+        "summary": "2卷。本站完整保存 T0232 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0232_001"
+      },
+      "verification": {
+        "segments": 571,
+        "folios": 22,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0232.001.0726a24",
+          "T0232.002.0732c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0233",
+      "slug": "taisho-t0233",
+      "workId": "gbcr:work:taisho-t0233",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_assembly_candidate",
+          "groupId": "manjusri-prajnaparamita-chinese",
+          "label": "文殊般若汉译与《大般若经》第七会",
+          "evidence": "DILA 经录把 T0232、T0233 与 T0220 第七会列为相关经典；卷数和文本形态不同，须完成逐段对齐后再决定是否合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(7)",
+              "T0232",
+              "T0233"
+            ],
+            "toh": [
+              "toh24"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0233.xml",
+      "upstreamPath": "T/T08/T08n0233.xml",
+      "upstreamGitBlobSha1": "e5597002536bbd0161d7a695343e4dd7a0c4cebc",
+      "upstreamBytes": 127569,
+      "upstreamSha256": "1fb44383c50200674ba3580ebcf080471eb8a46f6e7a6fcf282a1d800a6c900b",
+      "localBytes": 127570,
+      "localSha256": "a32c4a1ee5ecd92d62d1a8542968f0a71fa7b973bb63407a8349c3f645d9c0e3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊師利所說般若波羅蜜經",
+        "alternateTitle": "文殊師利所說般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 233",
+        "translator": "梁 · 僧伽婆羅譯",
+        "summary": "1卷。本站完整保存 T0233 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0233_001"
+      },
+      "verification": {
+        "segments": 626,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0233.001.0732c11",
+          "T0233.001.0739c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0234",
+      "slug": "taisho-t0234",
+      "workId": "gbcr:work:taisho-t0234",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "assembly_parallel_verified",
+          "groupId": "nagasri-prajnaparamita-chinese",
+          "label": "《濡首菩萨经》与《大般若经》第八会",
+          "evidence": "DILA 经录把 T0234 明确关联到 T0220 第八会；在经会组件与版本见证层建立前不把整部《大般若经》和本经合并计数。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(8)",
+              "T0234"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0234.xml",
+      "upstreamPath": "T/T08/T08n0234.xml",
+      "upstreamGitBlobSha1": "362686a97c02d996c01292b36a8c42285a6d7780",
+      "upstreamBytes": 220767,
+      "upstreamSha256": "793b8416c648c0d54798ac3df535ffeb30c30b048102a736b1913cf1ff84dfc5",
+      "localBytes": 220768,
+      "localSha256": "5f7d49d1c1a5f99ef24ddac0d0572c0aed6fae609a2f14b350d5842c257af344",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說濡首菩薩無上清淨分衛經",
+        "alternateTitle": "佛說濡首菩薩無上清淨分衛經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 234",
+        "translator": "宋 · 翔公譯",
+        "summary": "2卷。本站完整保存 T0234 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0234_001"
+      },
+      "verification": {
+        "segments": 766,
+        "folios": 27,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0234.001.0740a01",
+          "T0234.002.0748c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0236a",
+      "slug": "taisho-t0236a",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        },
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "vajracchedika-bodhiruci-witnesses",
+          "label": "T0236a/b 菩提流支署名见证组",
+          "evidence": "DILA 分别保存同题、同传统译者署名的 T0236a 与 T0236b；CBETA 研究讨论另提示 T0236b 与 T0237 接近且署名可能有争议，因此保留两个表达并标记待复核。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0236a.xml",
+      "upstreamPath": "T/T08/T08n0236a.xml",
+      "upstreamGitBlobSha1": "83802a5f25cccecbe8114c33464f88d4a1529152",
+      "upstreamBytes": 68689,
+      "upstreamSha256": "46020171456e3942e05e5e23e432a8f1607251b5411bdee2093ebed340b9d555",
+      "localBytes": 68690,
+      "localSha256": "61f66534c202826c2a0a755b4e679b1a04a81570c9220bc46874cec528e99ff0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經",
+        "alternateTitle": "金剛般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 236a",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "1卷。本站完整保存 T0236a 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0236a_001"
+      },
+      "verification": {
+        "segments": 388,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0236a.001.0752c09",
+          "T0236a.001.0757a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0236b",
+      "slug": "taisho-t0236b",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "traditional_translation_attribution_disputed",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        },
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "vajracchedika-bodhiruci-witnesses",
+          "label": "T0236a/b 菩提流支署名见证组",
+          "evidence": "DILA 分别保存同题、同传统译者署名的 T0236a 与 T0236b；CBETA 研究讨论另提示 T0236b 与 T0237 接近且署名可能有争议，因此保留两个表达并标记待复核。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0236b.xml",
+      "upstreamPath": "T/T08/T08n0236b.xml",
+      "upstreamGitBlobSha1": "0e6c39ad1c7937cdd688c698172ec4364b58dd79",
+      "upstreamBytes": 45173,
+      "upstreamSha256": "67e49c91b81b7dca0545e58856f73d766373386a3808d5971d8f1251c207408c",
+      "localBytes": 45174,
+      "localSha256": "2bfe056a044d9b7696064aeb7780606fbd5292db9cf19b3015b522b4ebe022e7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經",
+        "alternateTitle": "金剛般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 236b",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "1卷。本站完整保存 T0236b 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0236b_001"
+      },
+      "verification": {
+        "segments": 413,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0236b.001.0757a22",
+          "T0236b.001.0761c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0237",
+      "slug": "taisho-t0237",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0237.xml",
+      "upstreamPath": "T/T08/T08n0237.xml",
+      "upstreamGitBlobSha1": "9d2ad4ad916a9ba7e588c22d617f4b643b449f75",
+      "upstreamBytes": 80815,
+      "upstreamSha256": "d841ac099ef0b84b1943e9644b434014b6a17b10d7c0bb991bce41eb5284cd37",
+      "localBytes": 80816,
+      "localSha256": "1d115dc31a556e98c60d1b57255fb7a315df807e3a994afddf979da0a63196fb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經",
+        "alternateTitle": "金剛般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 237",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。本站完整保存 T0237 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0237_001"
+      },
+      "verification": {
+        "segments": 415,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0237.001.0762a02",
+          "T0237.001.0766c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0238",
+      "slug": "taisho-t0238",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0238.xml",
+      "upstreamPath": "T/T08/T08n0238.xml",
+      "upstreamGitBlobSha1": "ba17826add2ef559163f59db1e3726f99371e89b",
+      "upstreamBytes": 75791,
+      "upstreamSha256": "c4d9cb016671d5618397e06b9d1a2c8db3623d53217e158ddb778324b8d8942c",
+      "localBytes": 75792,
+      "localSha256": "e3ab21fbbf1737eba33666c21b5ce40c7709215e4e7931e61b96e1911525fdc5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛能斷般若波羅蜜經",
+        "alternateTitle": "金剛能斷般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 238",
+        "translator": "隋 · 笈多譯",
+        "summary": "1卷。本站完整保存 T0238 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0238_001"
+      },
+      "verification": {
+        "segments": 440,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0238.001.0766c13",
+          "T0238.001.0771c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0239",
+      "slug": "taisho-t0239",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-chinese",
+          "label": "Vajracchedikā／《金刚般若经》汉译组",
+          "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(9)",
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239"
+            ],
+            "toh": [
+              "toh16"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0239.xml",
+      "upstreamPath": "T/T08/T08n0239.xml",
+      "upstreamGitBlobSha1": "529063d4715300195bfdc37f4666a0a82000819f",
+      "upstreamBytes": 52652,
+      "upstreamSha256": "c99c5501a1524061254780a93e2bf1f380ff48492dc33d6d87b0fb4318ce8e9f",
+      "localBytes": 52653,
+      "localSha256": "1098a768161531e88f293ab49cc8c5e252a76b8829822b7041b609a49dfd8146",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說能斷金剛般若波羅蜜多經",
+        "alternateTitle": "佛說能斷金剛般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 239",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0239 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0239_001"
+      },
+      "verification": {
+        "segments": 326,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0239.001.0771c20",
+          "T0239.001.0775b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0240",
+      "slug": "taisho-t0240",
+      "workId": "gbcr:work:taisho-t0240",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0240.xml",
+      "upstreamPath": "T/T08/T08n0240.xml",
+      "upstreamGitBlobSha1": "ad866caf5f076db4f0b53d6cf01cc6620c609010",
+      "upstreamBytes": 31304,
+      "upstreamSha256": "40cacc4d3d3b9ca53a90ef79ef6a2b658cf8e60a0fa48524671aac7f4cc260ad",
+      "localBytes": 31305,
+      "localSha256": "84039ca2426939bce94eb5595e56a88b4071d3049c755ce43e94d32e461ebb92",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "實相般若波羅蜜經",
+        "alternateTitle": "實相般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 240",
+        "translator": "唐 · 菩提流志譯",
+        "summary": "1卷。本站完整保存 T0240 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0240_001"
+      },
+      "verification": {
+        "segments": 215,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0240.001.0776a03",
+          "T0240.001.0778b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0241",
+      "slug": "taisho-t0241",
+      "workId": "gbcr:work:taisho-t0241",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0241.xml",
+      "upstreamPath": "T/T08/T08n0241.xml",
+      "upstreamGitBlobSha1": "6d9564f1fcf01196c2f564c7c1121b0c39b833fd",
+      "upstreamBytes": 32476,
+      "upstreamSha256": "8bd2f70feaa09df02e0789287ddc557a781d0b3b0c1d116244c143c09f98b73d",
+      "localBytes": 32477,
+      "localSha256": "dd233cdd835128f588e0970c912aa8f7a722b5642de2b5a07086a4da2d520170",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽理趣般若經",
+        "alternateTitle": "金剛頂瑜伽理趣般若經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 241",
+        "translator": "唐 · 金剛智譯",
+        "summary": "1卷。本站完整保存 T0241 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0241_001"
+      },
+      "verification": {
+        "segments": 280,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0241.001.0778b18",
+          "T0241.001.0781c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0242",
+      "slug": "taisho-t0242",
+      "workId": "gbcr:work:taisho-t0242",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0242.xml",
+      "upstreamPath": "T/T08/T08n0242.xml",
+      "upstreamGitBlobSha1": "42c5d5cf84ec07169e96bbe5071b7c308c291ea6",
+      "upstreamBytes": 40367,
+      "upstreamSha256": "d7cccfa0957c70555ebd82047e34c114d128751ccc52a4b2326d3c2b90691b56",
+      "localBytes": 40368,
+      "localSha256": "53265ac75c75044015c98f330a0c4257079b730c0b44b0587c71a634cc5b31ca",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說遍照般若波羅蜜經",
+        "alternateTitle": "佛說遍照般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 242",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0242 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0242_001"
+      },
+      "verification": {
+        "segments": 199,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0242.001.0781c10",
+          "T0242.001.0784a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0243",
+      "slug": "taisho-t0243",
+      "workId": "gbcr:work:taisho-t0243",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0243.xml",
+      "upstreamPath": "T/T08/T08n0243.xml",
+      "upstreamGitBlobSha1": "3c1e5ae71615dad815c2775d54aded3d99446505",
+      "upstreamBytes": 58014,
+      "upstreamSha256": "ad0ce5be6d15ebf3851bd484daf5c774649c39079110809222c8df2b9677527d",
+      "localBytes": 58015,
+      "localSha256": "56480c7179e9fcea3e9da6388fe9492221429f67dbf1a7280c3a82ba61bdbbf9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大樂金剛不空真實三麼耶經",
+        "alternateTitle": "大樂金剛不空真實三麼耶經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 243",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0243 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0243_001"
+      },
+      "verification": {
+        "segments": 211,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0243.001.0784a08",
+          "T0243.001.0786b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0244",
+      "slug": "taisho-t0244",
+      "workId": "gbcr:work:taisho-t0244",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_verified",
+          "groupId": "prajnaparamita-naya-chinese",
+          "label": "般若理趣汉译与扩展文本家族",
+          "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220(10)",
+              "T0240",
+              "T0241",
+              "T0242",
+              "T0243",
+              "T0244"
+            ],
+            "toh": [
+              "toh17"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0244.xml",
+      "upstreamPath": "T/T08/T08n0244.xml",
+      "upstreamGitBlobSha1": "13b06b18f6f02cdeb5fb6634350db3c74d73ea50",
+      "upstreamBytes": 521089,
+      "upstreamSha256": "a32207438a6c79c336833cb6ab198fd1230ea11c1b3de950e3d17e6fe0b0da6c",
+      "localBytes": 521090,
+      "localSha256": "9953d407f529d84d4dbeb7542272da4bcaecc3dbfee583f996cf39cd05ede722",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說最上根本大樂金剛不空三昧大教王經",
+        "alternateTitle": "佛說最上根本大樂金剛不空三昧大教王經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 244",
+        "translator": "宋 · 法賢譯",
+        "summary": "7卷。本站完整保存 T0244 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0244_001"
+      },
+      "verification": {
+        "segments": 3235,
+        "folios": 117,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0244.001.0786b17",
+          "T0244.007.0824a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0245",
+      "slug": "taisho-t0245",
+      "workId": "gbcr:work:taisho-t0245",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "humane-king-prajnaparamita-chinese",
+          "label": "《仁王般若》两译候选组",
+          "evidence": "DILA 经录将 T0245 与 T0246 互列为相关经典；两者内容和真言段落存在差异，来源与成书问题尚需专门复核，当前不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T0246"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0245.xml",
+      "upstreamPath": "T/T08/T08n0245.xml",
+      "upstreamGitBlobSha1": "5ef692edb6dfc47492375ff22512701801060c7d",
+      "upstreamBytes": 178169,
+      "upstreamSha256": "de1b127d3d6d2539eeb515bc4e91e1e7a2130f60a1af13dfcccb114cf1545af7",
+      "localBytes": 178170,
+      "localSha256": "6a8dfa5c7257f9d8d80e390155c1e4a0b57dc0e656cb405d42bb4f8821740a1b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說仁王般若波羅蜜經",
+        "alternateTitle": "佛說仁王般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 245",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0245 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0245_001"
+      },
+      "verification": {
+        "segments": 787,
+        "folios": 29,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0245.001.0825a02",
+          "T0245.002.0834a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0246",
+      "slug": "taisho-t0246",
+      "workId": "gbcr:work:taisho-t0246",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "humane-king-prajnaparamita-chinese",
+          "label": "《仁王般若》两译候选组",
+          "evidence": "DILA 经录将 T0245 与 T0246 互列为相关经典；两者内容和真言段落存在差异，来源与成书问题尚需专门复核，当前不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T0246"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0246.xml",
+      "upstreamPath": "T/T08/T08n0246.xml",
+      "upstreamGitBlobSha1": "1f079a734ff914a2b63f51511c0216aaba5501c1",
+      "upstreamBytes": 140465,
+      "upstreamSha256": "76a6826fa1bb6221af1a85652900e3899df391d599c8ccf18f4f31ff497da12b",
+      "localBytes": 140466,
+      "localSha256": "7aa32d2f39e46a0b7f852bcee1cf64817f830a61a47d0b615a683d021ae9023c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王護國般若波羅蜜多經",
+        "alternateTitle": "仁王護國般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 246",
+        "translator": "唐 · 不空譯",
+        "summary": "2卷。本站完整保存 T0246 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0246_001"
+      },
+      "verification": {
+        "segments": 931,
+        "folios": 34,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0246.001.0834a11",
+          "T0246.002.0845a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0247",
+      "slug": "taisho-t0247",
+      "workId": "gbcr:work:taisho-t0247",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T08n0247.xml",
+      "upstreamPath": "T/T08/T08n0247.xml",
+      "upstreamGitBlobSha1": "af51bc92747b83f6aee777aa86254aec3a2708d3",
+      "upstreamBytes": 13323,
+      "upstreamSha256": "ea37a8854ecab82058922284f93e1e2f0a3444ea409655a4c11f488bb17d7fd0",
+      "localBytes": 13324,
+      "localSha256": "e8159151acf09a18cc2d9b054822adda7a6b26c78d21af2525e1f0a9700f4fb6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說了義般若波羅蜜多經",
+        "alternateTitle": "佛說了義般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 247",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0247 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0247_001"
+      },
+      "verification": {
+        "segments": 69,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0247.001.0845a05",
+          "T0247.001.0845c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0248",
+      "slug": "taisho-t0248",
+      "workId": "gbcr:work:taisho-t0248",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_title_candidate",
+          "groupId": "prajnaparamita-fifty-lines",
+          "label": "五十颂般若跨语种候选",
+          "evidence": "T0248 的题名与 84000 般若部目录所列《五十颂般若》相合；尚未逐偈对齐，先登记题名级候选。",
+          "externalIds": {
+            "cbeta": [
+              "T0248"
+            ],
+            "toh": [
+              "toh18"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0248.xml",
+      "upstreamPath": "T/T08/T08n0248.xml",
+      "upstreamGitBlobSha1": "d9af12828f178bb69e4d25090a292a3789cef07a",
+      "upstreamBytes": 12092,
+      "upstreamSha256": "43b68abb498260c38d9285b7c1e2c45995ca25f26cc436e44ce0e4910d4b504a",
+      "localBytes": 12093,
+      "localSha256": "930666ba8666d9eea768e2543cbb9414489b98c24baca614a25204038208f2ed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說五十頌聖般若波羅蜜經",
+        "alternateTitle": "佛說五十頌聖般若波羅蜜經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 248",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0248 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0248_001"
+      },
+      "verification": {
+        "segments": 53,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0248.001.0845c19",
+          "T0248.001.0846b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0249",
+      "slug": "taisho-t0249",
+      "workId": "gbcr:work:taisho-t0249",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_parallel_candidate",
+          "groupId": "kausika-prajnaparamita",
+          "label": "帝释／Kauśika 般若跨语种候选",
+          "evidence": "T0249 以帝释为题，84000 的 Kauśika 般若明确讨论对应汉译；现登记跨语种候选，等待逐句对齐后确认作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T0249"
+            ],
+            "toh": [
+              "toh19"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0249.xml",
+      "upstreamPath": "T/T08/T08n0249.xml",
+      "upstreamGitBlobSha1": "dde580cbf531f561e234453b89c209e381eefc8f",
+      "upstreamBytes": 33766,
+      "upstreamSha256": "bcbfeaa4b1f0f57c06f52a68fb2d1b62e526ad40eefb5dfb1ee30ba0c8925532",
+      "localBytes": 33767,
+      "localSha256": "5b6ef9a27082a3d779fe50e4acf39ac09cfcdb7d42dc9b607430e2fdc9356fd0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說帝釋般若波羅蜜多心經",
+        "alternateTitle": "佛說帝釋般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 249",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0249 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0249_001"
+      },
+      "verification": {
+        "segments": 101,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0249.001.0846b17",
+          "T0249.001.0847c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0250",
+      "slug": "taisho-t0250",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "traditional_translation_attribution_disputed",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0250.xml",
+      "upstreamPath": "T/T08/T08n0250.xml",
+      "upstreamGitBlobSha1": "8fae4574f8aa8533af08076f3783823d2b36fd80",
+      "upstreamBytes": 9979,
+      "upstreamSha256": "059fd9ba675c66fd7ac8f78bbf48062af5ff8bd53ddeca455691e7ba8098b74d",
+      "localBytes": 9980,
+      "localSha256": "9cf07d83af365b7fbac74524c84e5577f733a0e7fb6e6f011dfd46de8434f080",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶般若波羅蜜大明呪經",
+        "alternateTitle": "摩訶般若波羅蜜大明呪經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 250",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T0250 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0250_001"
+      },
+      "verification": {
+        "segments": 23,
+        "folios": 1,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0250.001.0847c06",
+          "T0250.001.0847c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0252",
+      "slug": "taisho-t0252",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0252.xml",
+      "upstreamPath": "T/T08/T08n0252.xml",
+      "upstreamGitBlobSha1": "2f7e5b20d4a9cf96ce28001d7ff978c0b73b5a6d",
+      "upstreamBytes": 8152,
+      "upstreamSha256": "c2257b4aaeb3079e55d8dbbdec5249069514a3208a9de14d1003dfc16fb5ebe1",
+      "localBytes": 8153,
+      "localSha256": "a8d990c38ca732ac33716e5288b384a44cdef447f8c4be427bf886809ed466e2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "普遍智藏般若波羅蜜多心經",
+        "alternateTitle": "普遍智藏般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 252",
+        "translator": "唐 · 法月重譯",
+        "summary": "1卷。本站完整保存 T0252 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0252_001"
+      },
+      "verification": {
+        "segments": 45,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0252.001.0849a03",
+          "T0252.001.0849b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0253",
+      "slug": "taisho-t0253",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0253.xml",
+      "upstreamPath": "T/T08/T08n0253.xml",
+      "upstreamGitBlobSha1": "26cdd3538f6d9294937ffa8c6f4bfdb3a9932dd3",
+      "upstreamBytes": 7611,
+      "upstreamSha256": "fcf1215b60f75fbb0ea6b6851cefb2a68f8ab9e5c01d3195e73de2c205ca80c5",
+      "localBytes": 7612,
+      "localSha256": "4e1f4deea96c0e8f30c1369e41659ed625468e587929faf19dfc2a00e5711a23",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經",
+        "alternateTitle": "般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 253",
+        "translator": "唐 · 般若共利言等譯",
+        "summary": "1卷。本站完整保存 T0253 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0253_001"
+      },
+      "verification": {
+        "segments": 38,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0253.001.0849b22",
+          "T0253.001.0850a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0254",
+      "slug": "taisho-t0254",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0254.xml",
+      "upstreamPath": "T/T08/T08n0254.xml",
+      "upstreamGitBlobSha1": "552aedce8ec0b73829ec399ff83177a9da8e1366",
+      "upstreamBytes": 7520,
+      "upstreamSha256": "35c007fae4e6159693aa0dcb7b50693f64e92cef893e0d8cba2fba5cd2b71a4d",
+      "localBytes": 7521,
+      "localSha256": "f98d83c855977e36e054584647ccd035da0d86ecce79c28678ae915fe8051e65",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經",
+        "alternateTitle": "般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 254",
+        "translator": "唐 · 智慧輪譯",
+        "summary": "1卷。本站完整保存 T0254 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0254_001"
+      },
+      "verification": {
+        "segments": 41,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0254.001.0850a05",
+          "T0254.001.0850b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0255",
+      "slug": "taisho-t0255",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0255.xml",
+      "upstreamPath": "T/T08/T08n0255.xml",
+      "upstreamGitBlobSha1": "bd48a8cf5d0cc4311457c90f50022705ede98cc8",
+      "upstreamBytes": 7491,
+      "upstreamSha256": "11b0cfb60ae8f8b17ca129ca6b13bb5c75a16654fca2eb2a7dff25a1eb7c20a8",
+      "localBytes": 7492,
+      "localSha256": "e770129856cceafc38e61a79dfeeb27ac2eb30553cf8439d8ed86f6c8b11057a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經",
+        "alternateTitle": "般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 255",
+        "translator": "唐 · 法成譯",
+        "summary": "1卷。本站完整保存 T0255 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0255_001"
+      },
+      "verification": {
+        "segments": 40,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0255.001.0850b19",
+          "T0255.001.0851a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0256",
+      "slug": "taisho-t0256",
+      "workId": "gbcr:work:taisho-t0256",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "liturgical_transliteration_witness",
+      "bibliographicRelations": [
+        {
+          "type": "transliteration_witness_candidate",
+          "groupId": "prajnaparamita-hrdaya-transliteration",
+          "label": "《心经》梵汉对音见证",
+          "evidence": "T0256 以梵汉对音和音注保存《心经》读诵见证，不是另一部独立汉译；在见证层模型完成前保留为单独书目实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0256"
+            ],
+            "relatedWork": [
+              "gbcr:work:prajnaparamita-hrdaya"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0256.xml",
+      "upstreamPath": "T/T08/T08n0256.xml",
+      "upstreamGitBlobSha1": "4ec8070b4d0ca220b11051cb9b560dc529f464bc",
+      "upstreamBytes": 42544,
+      "upstreamSha256": "83afae5b19f73c75e97fa93ba89cc1eea29665c970ffedb7f772950dd602c12b",
+      "localBytes": 42545,
+      "localSha256": "7ca9034989e1310e4de4b6a31f7155aeee2aa94c168f218b2ac644f1624be023",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唐梵翻對字音般若波羅蜜多心經",
+        "alternateTitle": "唐梵翻對字音般若波羅蜜多心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 256",
+        "translator": "西京大興善寺石璧上錄出慈恩和尚 · 奉 · 詔述序",
+        "summary": "1卷。本站完整保存 T0256 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0256_001"
+      },
+      "verification": {
+        "segments": 96,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0256.001.0851a04",
+          "T0256.001.0852a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0257",
+      "slug": "taisho-t0257",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_recension_group_verified",
+          "groupId": "prajnaparamita-hrdaya-chinese",
+          "label": "Hṛdaya／《般若心经》汉译与长短本组",
+          "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+          "externalIds": {
+            "cbeta": [
+              "T0250",
+              "T0251",
+              "T0252",
+              "T0253",
+              "T0254",
+              "T0255",
+              "T0257"
+            ],
+            "toh": [
+              "toh21"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0257.xml",
+      "upstreamPath": "T/T08/T08n0257.xml",
+      "upstreamGitBlobSha1": "560892b2649120889dd3fa98cb589f1b18c0bc3f",
+      "upstreamBytes": 13656,
+      "upstreamSha256": "eca13956d576d313a71c4233bacd97471d7efa90421908b17f271667ae228f01",
+      "localBytes": 13657,
+      "localSha256": "4a41305cf706e0748ebf261e0ff4390edc4457ad08f33613d39cf6c4eb96f971",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說聖佛母般若波羅蜜多經",
+        "alternateTitle": "佛說聖佛母般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 257",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0257 的固定 CBETA TEI 文本与可校验页栏行锚点；已由权威目录确认与规范作品的译本或长短本关系，并保留为独立文本表达；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0257_001"
+      },
+      "verification": {
+        "segments": 47,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0257.001.0852b02",
+          "T0257.001.0852c20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0258",
+      "slug": "taisho-t0258",
+      "workId": "gbcr:work:taisho-t0258",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_title_candidate",
+          "groupId": "prajnaparamita-few-syllables",
+          "label": "小字／少字般若跨语种候选",
+          "evidence": "T0258 的“小字般若”题名与 84000 所列少字般若体裁相合；现仅登记题名级候选，等待梵藏汉内容对齐。",
+          "externalIds": {
+            "cbeta": [
+              "T0258"
+            ],
+            "toh": [
+              "toh22"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T08n0258.xml",
+      "upstreamPath": "T/T08/T08n0258.xml",
+      "upstreamGitBlobSha1": "591dd062b40c60c9b1b5101cf6c7093da5ed9ff6",
+      "upstreamBytes": 27931,
+      "upstreamSha256": "70f798ce8ba768dc812cf70c7bfe67b1ba8db75ea66dc08ac59eecf93cb7c978",
+      "localBytes": 27932,
+      "localSha256": "ac02aeca0ee98939f307521268241db0b4a6eace909be74cf5992b4da28f2484",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說聖佛母小字般若波羅蜜多經",
+        "alternateTitle": "佛說聖佛母小字般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 258",
+        "translator": "宋 · 天息災譯",
+        "summary": "1卷。本站完整保存 T0258 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0258_001"
+      },
+      "verification": {
+        "segments": 90,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0258.001.0852c22",
+          "T0258.001.0853c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0259",
+      "slug": "taisho-t0259",
+      "workId": "gbcr:work:taisho-t0259",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T08n0259.xml",
+      "upstreamPath": "T/T08/T08n0259.xml",
+      "upstreamGitBlobSha1": "17fae8b464025233aff7030b0714dfc8deb7af35",
+      "upstreamBytes": 15937,
+      "upstreamSha256": "461d06da0f7a7e00f4ec1c2efafedff8e2714cbdb568b7c81cddc9a9512c2a53",
+      "localBytes": 15938,
+      "localSha256": "9cbf63faabb149663323d4c12696938772c269026538a02b3872c8651a43482b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說觀想佛母般若波羅蜜多菩薩經",
+        "alternateTitle": "佛說觀想佛母般若波羅蜜多菩薩經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 259",
+        "translator": "宋 · 天息災譯",
+        "summary": "1卷。本站完整保存 T0259 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0259_001"
+      },
+      "verification": {
+        "segments": 53,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0259.001.0854a03",
+          "T0259.001.0854b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0260",
+      "slug": "taisho-t0260",
+      "workId": "gbcr:work:taisho-t0260",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T08n0260.xml",
+      "upstreamPath": "T/T08/T08n0260.xml",
+      "upstreamGitBlobSha1": "dadf7e7a881fdcc0949cf29411ca942c21274cf5",
+      "upstreamBytes": 82878,
+      "upstreamSha256": "a85fddb3bf938aa40a059ff32190e54211addcfa190af5dd89d7d186b05164ef",
+      "localBytes": 82879,
+      "localSha256": "0336c14a4dcacb58e85a965e54114ebc6f91664620c513dac6d8277752b13357",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說開覺自性般若波羅蜜多經",
+        "alternateTitle": "佛說開覺自性般若波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 260",
+        "translator": "宋 · 惟淨等譯",
+        "summary": "4卷。本站完整保存 T0260 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0260_001"
+      },
+      "verification": {
+        "segments": 851,
+        "folios": 33,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0260.001.0854c03",
+          "T0260.004.0864b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0261",
+      "slug": "taisho-t0261",
+      "workId": "gbcr:work:taisho-t0261",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T08n0261.xml",
+      "upstreamPath": "T/T08/T08n0261.xml",
+      "upstreamGitBlobSha1": "b8931cd70b4a80c6dea8c4aed54316c38c9244ef",
+      "upstreamBytes": 790011,
+      "upstreamSha256": "1b262e53883b365408f530ccbea330f7a27565705759f59b68c278eedbc58110",
+      "localBytes": 790012,
+      "localSha256": "8a0c8840b44958bfa601666b5867eca842c1058acea2a1838087e73c01d66133",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘理趣六波羅蜜多經",
+        "alternateTitle": "大乘理趣六波羅蜜多經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 261",
+        "translator": "唐 · 般若譯",
+        "summary": "10卷。本站完整保存 T0261 的固定 CBETA TEI 文本与可校验页栏行锚点；作品同一性、经会关系与跨语种平行仍按逐条证据管理；一个物理记录不自动等同于一部全球去重佛经。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0261_001"
+      },
+      "verification": {
+        "segments": 4511,
+        "folios": 163,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0261.001.0865a02",
+          "T0261.010.0917b12"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

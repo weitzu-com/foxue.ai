@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.4.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.5.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -157,10 +157,19 @@ const cbetaRelations = (file: (typeof catalog.files)[number]) =>
     ? file.bibliographicRelations
     : [];
 
-const cbetaAttributionNote = (file: (typeof catalog.files)[number]) =>
-  "sourceRole" in file && file.sourceRole === "attributed_authored_or_compiled_text"
-    ? "来源题记显示为造、撰、集或论类文本；平台保留传统目录位置，但不将其标作佛陀亲说。"
-    : undefined;
+const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
+  if (!("sourceRole" in file)) return undefined;
+  if (file.sourceRole === "attributed_authored_or_compiled_text") {
+    return "来源题记显示为造、撰、集或论类文本；平台保留传统目录位置，但不将其标作佛陀亲说。";
+  }
+  if (file.sourceRole === "traditional_translation_attribution_disputed") {
+    return "目录保留传统译者署名；现代研究对实际译者或成书路径存在争议，平台不把传统署名当作已裁决事实。";
+  }
+  if (file.sourceRole === "liturgical_transliteration_witness") {
+    return "本记录保存梵汉对音与读诵见证，不作为另一部独立汉译或佛陀亲说作品计数。";
+  }
+  return undefined;
+};
 
 export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(file.slug) ?? ({
   slug: file.slug,

@@ -103,7 +103,9 @@ export default function CoveragePage() {
               其中 T01–T02 阿含部固定来源已完成 {snapshot.candidateInventory.chineseAgamaSourceRecords.controlled}
               /{snapshot.candidateInventory.chineseAgamaSourceRecords.denominator}（{snapshot.candidateInventory.chineseAgamaSourceRecords.percentage}%），
               T03–T04 本缘部固定来源已完成 {snapshot.candidateInventory.chineseBenyuanSourceRecords.controlled}
-              /{snapshot.candidateInventory.chineseBenyuanSourceRecords.denominator}（{snapshot.candidateInventory.chineseBenyuanSourceRecords.percentage}%）
+              /{snapshot.candidateInventory.chineseBenyuanSourceRecords.denominator}（{snapshot.candidateInventory.chineseBenyuanSourceRecords.percentage}%），
+              T05–T08 般若部固定来源已完成 {snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.controlled}
+              /{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.denominator}（{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.percentage}%）
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

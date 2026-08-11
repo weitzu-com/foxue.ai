@@ -2,8 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const batchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
-const outputPath = resolve(root, "data/corpus/cbeta/catalog-v1.4.0.json");
+const batchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
+const outputPath = resolve(root, "data/corpus/cbeta/catalog-v1.5.0.json");
 const batch = JSON.parse(await readFile(batchPath, "utf8"));
 const base = JSON.parse(await readFile(resolve(root, batch.baseCatalog), "utf8"));
 const inventory = JSON.parse(await readFile(resolve(root, batch.inventory), "utf8"));
@@ -53,7 +53,18 @@ const additions = batch.files.map((file) => {
 const files = [
   ...base.files.map((file) => {
     const override = batch.workOverrides[file.workId];
-    return override ? { ...file, workTitle: override.canonicalTitle } : file;
+    if (!override) return file;
+    return {
+      ...file,
+      ...(override.canonicalTitle ? { workTitle: override.canonicalTitle } : {}),
+      ...(override.sourceRole ? { sourceRole: override.sourceRole } : {}),
+      ...(override.bibliographicRelations?.length ? {
+        bibliographicRelations: [
+          ...(file.bibliographicRelations ?? []),
+          ...override.bibliographicRelations,
+        ],
+      } : {}),
+    };
   }),
   ...additions,
 ];
