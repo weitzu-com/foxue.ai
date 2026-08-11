@@ -17,7 +17,7 @@
     }
   ],
   "vars": {
-    "RELEASE_ID": "cbeta-0.5.0-2b8ab8d5e4fe-207f72f55d00"
+    "RELEASE_ID": "cbeta-0.6.0-2b8ab8d5e4fe-3cb0f4099a44"
   },
   "observability": {
     "enabled": true,

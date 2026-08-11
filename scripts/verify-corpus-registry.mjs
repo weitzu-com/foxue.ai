@@ -3,10 +3,10 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.5.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v0.6.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v0.5.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.6.0.sha256");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -20,7 +20,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.5.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.6.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -49,8 +49,10 @@ for (const work of registry.works) {
     requireValue(sourceIds.has(expression.sourceSnapshotId), `${expression.id} 引用了未知来源快照`);
     requireValue(Number.isInteger(expression.stableSegments) && expression.stableSegments >= 0, `${expression.id} 段落数无效`);
     if (expression.fullSourceText) {
-      requireValue(expression.sourceTextAsset?.path, `${expression.id} 标为完整原文但没有受控资产路径`);
-      requireValue(/^[a-f0-9]{64}$/.test(expression.sourceTextAsset?.sha256 ?? ""), `${expression.id} 完整原文缺少 SHA-256`);
+      const assets = expression.sourceTextAssets ?? [expression.sourceTextAsset].filter(Boolean);
+      requireValue(assets.length > 0, `${expression.id} 标为完整原文但没有受控资产路径`);
+      requireValue(assets.every((asset) => asset.path), `${expression.id} 完整原文资产缺少路径`);
+      requireValue(assets.every((asset) => /^[a-f0-9]{64}$/.test(asset.sha256 ?? "")), `${expression.id} 完整原文缺少 SHA-256`);
     }
   }
 }
@@ -90,9 +92,9 @@ unique(inventory.records.map((record) => record.sourceRecordId), "汉译经藏�
 unique(inventory.records.map((record) => record.upstreamPath), "汉译经藏上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.candidateExpressionRecords === 881, "汉译经藏候选记录未写入来源族");
-requireValue(chineseFamily?.controlledExpressionRecords === 23, "汉译经藏受控记录数不匹配");
+requireValue(chineseFamily?.controlledExpressionRecords === 38, "汉译经藏受控记录数不匹配");
 requireValue(chineseFamily?.candidateExpressionBytes === 247280257, "汉译经藏候选字节数未写入来源族");
-requireValue(chineseFamily?.controlledExpressionBytes === 58444300, "汉译经藏受控字节数不匹配");
+requireValue(chineseFamily?.controlledExpressionBytes === 87649399, "汉译经藏受控字节数不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -100,7 +102,7 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.5.0.json", raw],
+  ["registry-v0.6.0.json", raw],
   ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
 ];
@@ -120,9 +122,10 @@ const candidateCount = sourceSnapshots.sources.reduce((sum, source) => sum + sou
 const lankavatara = registry.works.find((work) => work.id === "gbcr:work:lankavatara-t0670");
 const avatamsaka = registry.works.find((work) => work.id === "gbcr:work:avatamsaka-t0278");
 const mahaparinirvana = registry.works.find((work) => work.id === "gbcr:work:mahaparinirvana-t0374");
-requireValue(registry.works.length === 20, "v0.5 必须登记 20 部去重作品");
-requireValue(expressions.length === 24, "v0.5 必须登记 24 个完整文本表达");
-requireValue(segmentCount === 323555, "v0.5 稳定行段总数漂移");
+const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:maha-prajnaparamita-t0220");
+requireValue(registry.works.length === 21, "v0.6 必须登记 21 部去重作品");
+requireValue(expressions.length === 25, "v0.6 必须登记 25 个完整文本表达");
+requireValue(segmentCount === 603032, "v0.6 稳定行段总数漂移");
 requireValue(
   JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
   "《楞伽经》三个汉译文本未正确归并",
@@ -138,6 +141,15 @@ requireValue(
   "《大般涅槃经》北本与南本未正确归并",
 );
 requireValue(mahaparinirvana?.expressions?.length === 2, "《大般涅槃经》必须保留两个独立文本表达");
+requireValue(
+  JSON.stringify(mahaPrajnaparamita?.externalIds?.cbeta) === JSON.stringify(["T0220"]),
+  "《大般若经》必须登记为一个目录学文本表达",
+);
+requireValue(mahaPrajnaparamita?.expressions?.length === 1, "《大般若经》不得按物理文件拆成多个文本表达");
+requireValue(
+  mahaPrajnaparamita?.expressions?.[0]?.sourceTextAssets?.length === 15,
+  "《大般若经》必须保留 15 个可独立校验的来源资产",
+);
 if (errors.length > 0) {
   console.error(errors.map((item) => `- ${item}`).join("\n"));
   process.exit(1);

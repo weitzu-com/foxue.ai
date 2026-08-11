@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifest } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.6.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -18,6 +18,9 @@ const requireValue = (condition, message) => {
   if (!condition) errors.push(message);
 };
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+const sourceUnits = (file) => file.sourceParts ?? [file];
+const expressionSourcePaths = (expression) => expression?.sourceTextAssets?.map((asset) => asset.path) ??
+  [expression?.sourceTextAsset?.path].filter(Boolean);
 
 requireValue(uploadPlan.releaseId === releaseId, "上传计划 releaseId 不一致");
 requireValue(workerConfig.vars?.RELEASE_ID === releaseId, "Worker RELEASE_ID 与发布包不一致");
@@ -40,7 +43,8 @@ const expectedSegments = sourceManifest.files.reduce((sum, sourceFile) => {
   const work = registry.works.find((candidate) => candidate.id === sourceFile.workId);
   requireValue(Boolean(work), `${sourceFile.id} 在 GBCR 中缺少作品记录`);
   const expression = work?.expressions.find(
-    (candidate) => candidate.sourceTextAsset?.path === sourceFile.localPath,
+    (candidate) => JSON.stringify(expressionSourcePaths(candidate)) ===
+      JSON.stringify(sourceUnits(sourceFile).map((source) => source.localPath)),
   );
   requireValue(Boolean(expression), `${sourceFile.id} 在 GBCR 中缺少对应文本表达`);
   return sum + (expression?.stableSegments ?? 0);
@@ -73,9 +77,19 @@ for (const work of releaseManifest.works) {
   requireValue(index.navigation.length === index.totals.folios, `${work.canonId} 版页数不一致`);
   requireValue(index.totals.segments === work.segments, `${work.canonId} 行段数不一致`);
 
-  const sourceBytes = await readFile(resolve(outputRoot, index.source.objectKey));
-  requireValue(sha256(sourceBytes) === sourceFile.localSha256, `${work.canonId} TEI 来源哈希不一致`);
-  requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${work.canonId} TEI 头部缺失`);
+  const expectedSources = sourceUnits(sourceFile);
+  requireValue(index.sources?.length === expectedSources.length, `${work.canonId} TEI 来源资产数量不一致`);
+  for (const [position, expectedSource] of expectedSources.entries()) {
+    const source = index.sources?.[position];
+    requireValue(source?.part === (expectedSource.part ?? position + 1), `${expectedSource.id} 来源分片顺序不一致`);
+    requireValue(source?.id === expectedSource.id, `${expectedSource.id} 来源资产标识不一致`);
+    requireValue(source?.upstreamPath === expectedSource.upstreamPath, `${expectedSource.id} 上游路径不一致`);
+    const sourceBytes = source?.objectKey
+      ? await readFile(resolve(outputRoot, source.objectKey))
+      : Buffer.alloc(0);
+    requireValue(sha256(sourceBytes) === expectedSource.localSha256, `${expectedSource.id} TEI 来源哈希不一致`);
+    requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${expectedSource.id} TEI 头部缺失`);
+  }
 
   let workSegments = 0;
   for (const [position, navigation] of index.navigation.entries()) {

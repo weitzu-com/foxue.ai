@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
@@ -18,6 +18,7 @@ const workEntries = [];
 
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const jsonBytes = (value) => Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+const sourceUnits = (file) => file.sourceParts ?? [file];
 
 async function writeGenerated(relativePath, bytes) {
   const destination = resolve(outputRoot, relativePath);
@@ -42,21 +43,38 @@ async function addObject(key, bytes, contentType, cacheControl = "public, max-ag
 }
 
 for (const sourceFile of sourceManifest.files) {
-  const sourceBytes = await readFile(resolve(root, sourceFile.localPath));
-  if (sha256(sourceBytes) !== sourceFile.localSha256) {
-    throw new Error(`${sourceFile.id} 源文件哈希与受控清单不一致`);
-  }
-
-  const segments = parseCbetaReadingLines(sourceBytes.toString("utf8"), {
-    canonId: sourceFile.id,
-  });
-  const navigation = buildPageNavigation(segments);
+  const sources = sourceUnits(sourceFile);
   const workPrefix = `v1/releases/${releaseId}/works/${sourceFile.id}`;
-  const sourceObject = await addObject(
-    `${workPrefix}/source.xml`,
-    sourceBytes,
-    "application/tei+xml; charset=utf-8",
-  );
+  const segments = [];
+  const sourceObjects = [];
+  for (const [index, source] of sources.entries()) {
+    const sourceBytes = await readFile(resolve(root, source.localPath));
+    if (sha256(sourceBytes) !== source.localSha256) {
+      throw new Error(`${source.id} 源文件哈希与受控清单不一致`);
+    }
+    segments.push(...parseCbetaReadingLines(sourceBytes.toString("utf8"), {
+      canonId: sourceFile.id,
+    }));
+    const sourceKey = sources.length === 1
+      ? `${workPrefix}/source.xml`
+      : `${workPrefix}/sources/${String(index + 1).padStart(2, "0")}-${basename(source.localPath)}`;
+    const object = await addObject(
+      sourceKey,
+      sourceBytes,
+      "application/tei+xml; charset=utf-8",
+    );
+    sourceObjects.push({
+      part: source.part ?? index + 1,
+      id: source.id,
+      objectKey: object.key,
+      bytes: object.bytes,
+      sha256: object.sha256,
+      format: source.format,
+      upstreamPath: source.upstreamPath,
+      upstreamGitBlobSha1: source.upstreamGitBlobSha1,
+    });
+  }
+  const navigation = buildPageNavigation(segments);
   const folioObjects = [];
 
   for (const item of navigation) {
@@ -86,19 +104,12 @@ for (const sourceFile of sourceManifest.files) {
   }
 
   const indexDocument = {
-    schema: "https://foxue.ai/schemas/corpus-work-index-v0.1",
+    schema: "https://foxue.ai/schemas/corpus-work-index-v0.2",
     releaseId,
     workId: sourceFile.workId,
     canonId: sourceFile.id,
     slug: sourceFile.slug,
-    source: {
-      objectKey: sourceObject.key,
-      bytes: sourceObject.bytes,
-      sha256: sourceObject.sha256,
-      format: sourceFile.format,
-      upstreamPath: sourceFile.upstreamPath,
-      upstreamGitBlobSha1: sourceFile.upstreamGitBlobSha1,
-    },
+    sources: sourceObjects,
     rights: sourceManifest.rightsDecision,
     totals: {
       segments: segments.length,
@@ -124,7 +135,7 @@ for (const sourceFile of sourceManifest.files) {
     slug: sourceFile.slug,
     indexObjectKey: indexObject.key,
     indexSha256: indexObject.sha256,
-    sourceObjectKey: sourceObject.key,
+    sourceObjectKeys: sourceObjects.map((source) => source.objectKey),
     segments: segments.length,
     folios: navigation.length,
   });

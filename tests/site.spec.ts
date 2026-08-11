@@ -67,20 +67,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 20,
-    registeredExpressions: 24,
-    fullSourceTextWorks: 20,
-    fullSourceTextExpressions: 24,
-    stableSegments: 323555,
-    structureVerifiedWorks: 20,
+    registeredWorks: 21,
+    registeredExpressions: 25,
+    fullSourceTextWorks: 21,
+    fullSourceTextExpressions: 25,
+    stableSegments: 603032,
+    structureVerifiedWorks: 21,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 23,
-    percentage: 2.61,
+    controlled: 38,
+    percentage: 4.31,
     sourceBytes: 247280257,
-    controlledBytes: 58444300,
-    bytePercentage: 23.63,
+    controlledBytes: 87649399,
+    bytePercentage: 35.45,
   });
 });
 
@@ -180,6 +180,22 @@ test("般若华严宝积涅槃大部经典可分页阅读且保持作品级去�
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/liushi-huayanjing/060-0788b");
   expect(sitemap).toContain("/jingzang/nanben-dabanniepanjing/036-0852b");
+});
+
+test("六百卷大般若经作为一个文本表达跨十五个来源资产完整阅读", async ({ page, request }) => {
+  await page.goto("/jingzang/daboruo-jing#T0220.600.1110b04");
+  await page.waitForURL(/\/jingzang\/daboruo-jing\/600-1110b#T0220\.600\.1110b04$/);
+  await expect(page.locator('[id="T0220.600.1110b04"]')).toBeVisible();
+  await expect(page.getByText(/全经 279477 稳定行段/)).toBeVisible();
+
+  const directory = await request.get("/jingzang/daboruo-jing");
+  const folio = await request.get("/jingzang/daboruo-jing/600-1110b");
+  expect(directory.ok()).toBeTruthy();
+  expect(folio.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(400_000);
+  expect((await folio.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

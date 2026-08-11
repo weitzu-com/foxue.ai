@@ -5,13 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.6.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.6.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.6.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {
@@ -32,37 +32,43 @@ const expectedReadingViews = Object.fromEntries(
   catalog.files.map((file) => [file.id, file.verification]),
 );
 const slugs = new Set();
+const sourceUnits = (file) => file.sourceParts ?? [file];
 
 for (const file of manifest.files) {
-  const path = resolve(root, file.localPath);
-  const content = await readFile(path);
-  const fileStat = await stat(path);
-  const text = content.toString("utf8");
-  const normalizedText = text
+  const texts = [];
+  const readingLines = [];
+  for (const source of sourceUnits(file)) {
+    const path = resolve(root, source.localPath);
+    const content = await readFile(path);
+    const fileStat = await stat(path);
+    const text = content.toString("utf8");
+    texts.push(text);
+
+    requireValue(fileStat.size === source.localBytes, `${source.id} 本地字节数不匹配`);
+    requireValue(createHash("sha256").update(content).digest("hex") === source.localSha256, `${source.id} 本地 SHA-256 不匹配`);
+    requireValue(source.localBytes === source.upstreamBytes + 1, `${source.id} 规范化必须只增加一个字节`);
+    requireValue(text.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), `${source.id} 不是声明的 UTF-8 XML`);
+    requireValue(text.includes(`<TEI xmlns="http://www.tei-c.org/ns/1.0"`), `${source.id} 缺少 TEI P5 根元素`);
+    const expectedTeiId = source.upstreamPath.split("/").at(-1).replace(/\.xml$/, "");
+    requireValue(text.includes(`xml:id="${expectedTeiId}"`), `${source.id} TEI 标识不匹配`);
+    requireValue(text.includes("<teiHeader>"), `${source.id} 缺少 teiHeader`);
+    requireValue(text.includes("Available for non-commercial use when distributed with this header intact."), `${source.id} 缺少非商业与保留头部声明`);
+    const hasCbetaAttribution = [
+      "財團法人佛教電子佛典基金會 (CBETA)",
+      "中華電子佛典協會 （CBETA）",
+    ].some((attribution) => text.includes(attribution));
+    requireValue(hasCbetaAttribution, `${source.id} 缺少 CBETA 来源署名`);
+    requireValue(text.includes("<text><body>"), `${source.id} 缺少完整正文结构`);
+    requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${source.id} XML 末尾结构不完整`);
+    readingLines.push(...parseCbetaReadingLines(text, { canonId: file.id }));
+  }
+  const normalizedText = texts.join("")
     .replace(/<[^>]+>/g, "")
     .replace(/[\s，。；：、！？「」『』]/g, "");
-
-  requireValue(fileStat.size === file.localBytes, `${file.id} 本地字节数不匹配`);
-  requireValue(createHash("sha256").update(content).digest("hex") === file.localSha256, `${file.id} 本地 SHA-256 不匹配`);
-  requireValue(file.localBytes === file.upstreamBytes + 1, `${file.id} 规范化必须只增加一个字节`);
-  requireValue(text.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), `${file.id} 不是声明的 UTF-8 XML`);
-  requireValue(text.includes(`<TEI xmlns="http://www.tei-c.org/ns/1.0"`), `${file.id} 缺少 TEI P5 根元素`);
-  const expectedTeiId = file.upstreamPath.split("/").at(-1).replace(/\.xml$/, "");
-  requireValue(text.includes(`xml:id="${expectedTeiId}"`), `${file.id} TEI 标识不匹配`);
-  requireValue(text.includes("<teiHeader>"), `${file.id} 缺少 teiHeader`);
-  requireValue(text.includes("Available for non-commercial use when distributed with this header intact."), `${file.id} 缺少非商业与保留头部声明`);
-  const hasCbetaAttribution = [
-    "財團法人佛教電子佛典基金會 (CBETA)",
-    "中華電子佛典協會 （CBETA）",
-  ].some((attribution) => text.includes(attribution));
-  requireValue(hasCbetaAttribution, `${file.id} 缺少 CBETA 来源署名`);
-  requireValue(text.includes("<text><body>"), `${file.id} 缺少完整正文结构`);
-  requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${file.id} XML 末尾结构不完整`);
   if (expectedSnippets[file.id]) {
     requireValue(normalizedText.includes(expectedSnippets[file.id]), `${file.id} 未找到已发布样本的核对短语`);
   }
 
-  const readingLines = parseCbetaReadingLines(text, { canonId: file.id });
   const readingView = expectedReadingViews[file.id];
   requireValue(typeof file.slug === "string" && /^[a-z0-9-]+$/.test(file.slug), `${file.id} 缺少稳定阅读 slug`);
   requireValue(!slugs.has(file.slug), `${file.id} 阅读 slug 重复`);
@@ -80,7 +86,11 @@ for (const file of manifest.files) {
 
   const registryExpression = registry.works
     .flatMap((work) => work.expressions)
-    .find((expression) => expression.sourceTextAsset?.path === file.localPath);
+    .find((expression) => {
+      const paths = expression.sourceTextAssets?.map((asset) => asset.path) ??
+        [expression.sourceTextAsset?.path].filter(Boolean);
+      return JSON.stringify(paths) === JSON.stringify(sourceUnits(file).map((source) => source.localPath));
+    });
   requireValue(registryExpression?.stableSegments === readingLines.length, `${file.id} 阅读行段数与 GBCR 不一致`);
 }
 
@@ -89,4 +99,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`CBETA 完整原文批次通过：${manifest.files.length} 部，来源提交 ${manifest.source.commit.slice(0, 12)}。`);
+const sourceAssetCount = manifest.files.flatMap(sourceUnits).length;
+console.log(`CBETA 完整原文批次通过：${manifest.files.length} 个文本表达、${sourceAssetCount} 个来源资产，来源提交 ${manifest.source.commit.slice(0, 12)}。`);

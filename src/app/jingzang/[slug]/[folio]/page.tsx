@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, Link2 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
+import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { getSutra } from "@/data/sutras";
 import {
   buildLegacyAliasMap,
@@ -81,6 +82,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const currentJuanNavigation = folio.item.juan
     ? reading.navigation.filter((item) => item.juan === folio.item.juan)
     : reading.navigation;
+  const useCompactJuanSelector = juanNavigation.length > 200;
+  const currentJuanGroup = juanNavigation.find((group) => group.juan === folio.item.juan);
 
   return (
     <>
@@ -99,19 +102,31 @@ export default async function SutraFolioPage({ params }: PageProps) {
           {juanNavigation.length > 1 && (
             <>
               <p className="reader-toc__section-label">卷目录 · {juanNavigation.length} 卷</p>
-              <ol className="reader-toc__juan-list">
-                {juanNavigation.map((group) => (
-                  <li key={group.juan}>
-                    <Link
-                      href={folioHref(sutra.slug, group.first.key)}
-                      prefetch={false}
-                      aria-current={group.juan === folio.item.juan ? "location" : undefined}
-                    >
-                      卷 {Number(group.juan)} <span>{group.pages} 页</span>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
+              {useCompactJuanSelector ? (
+                <ReaderJuanSelect
+                  slug={sutra.slug}
+                  currentKey={currentJuanGroup?.first.key}
+                  items={juanNavigation.map((group) => ({
+                    key: group.first.key,
+                    juan: group.juan,
+                    pages: group.pages,
+                  }))}
+                />
+              ) : (
+                <ol className="reader-toc__juan-list">
+                  {juanNavigation.map((group) => (
+                    <li key={group.juan}>
+                      <Link
+                        href={folioHref(sutra.slug, group.first.key)}
+                        prefetch={false}
+                        aria-current={group.juan === folio.item.juan ? "location" : undefined}
+                      >
+                        卷 {Number(group.juan)} <span>{group.pages} 页</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              )}
             </>
           )}
           <p className="reader-toc__section-label">

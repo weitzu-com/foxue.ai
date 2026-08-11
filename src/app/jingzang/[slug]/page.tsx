@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, BookOpenText, Layers3 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
+import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { getSutra } from "@/data/sutras";
 import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
@@ -16,6 +17,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const firstFolio = reading.navigation[0];
   const juanNavigation = buildJuanNavigation(reading.navigation);
   const multiJuan = juanNavigation.length > 1;
+  const useCompactJuanSelector = juanNavigation.length > 200;
 
   return (
     <>
@@ -52,26 +54,37 @@ export default async function SutraIndexPage({ params }: PageProps) {
             </div>
             <span>{multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`}</span>
           </div>
-          <ol className="reader-folio-grid">
-            {(multiJuan ? juanNavigation : reading.navigation.map((item) => ({ first: item, pages: 1 }))).map((group, index) => (
-              <li key={group.first.key}>
-                <Link href={folioHref(sutra.slug, group.first.key)} prefetch={false}>
-                  <span className="reader-folio-card__index">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="reader-folio-card__label">
-                    <strong>{multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`}</strong>
-                    <small>
-                      {multiJuan
-                        ? `${group.pages} 个版页 · 从大正藏 ${group.first.label} 开始`
-                        : `单卷 · ${group.first.id.split(".").at(-1)}`}
-                    </small>
-                  </span>
-                  <ArrowRight aria-hidden="true" size={16} />
-                </Link>
-              </li>
-            ))}
-          </ol>
+          {useCompactJuanSelector ? (
+            <ReaderJuanSelect
+              slug={sutra.slug}
+              items={juanNavigation.map((group) => ({
+                key: group.first.key,
+                juan: group.juan,
+                pages: group.pages,
+              }))}
+            />
+          ) : (
+            <ol className="reader-folio-grid">
+              {(multiJuan ? juanNavigation : reading.navigation.map((item) => ({ first: item, pages: 1 }))).map((group, index) => (
+                <li key={group.first.key}>
+                  <Link href={folioHref(sutra.slug, group.first.key)} prefetch={false}>
+                    <span className="reader-folio-card__index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="reader-folio-card__label">
+                      <strong>{multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`}</strong>
+                      <small>
+                        {multiJuan
+                          ? `${group.pages} 个版页 · 从大正藏 ${group.first.label} 开始`
+                          : `单卷 · ${group.first.id.split(".").at(-1)}`}
+                      </small>
+                    </span>
+                    <ArrowRight aria-hidden="true" size={16} />
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          )}
         </section>
 
         <aside className="reader-meta reader-index-meta">

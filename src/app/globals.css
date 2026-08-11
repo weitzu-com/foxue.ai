@@ -1261,6 +1261,13 @@ a {
 .reader-folio-card__label strong { font-family: var(--font-serif), serif; font-size: 0.96rem; font-weight: 500; }
 .reader-folio-card__label small { margin-top: 6px; overflow: hidden; color: var(--muted); font-size: 0.58rem; text-overflow: ellipsis; white-space: nowrap; }
 .reader-folio-grid svg { color: var(--line-dark); }
+.reader-juan-select { display: grid; gap: 10px; padding: 24px; border: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 55%, transparent); }
+.reader-juan-select > span { color: var(--cinnabar); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; }
+.reader-juan-select select { width: 100%; min-height: 48px; padding: 0 38px 0 14px; border: 1px solid var(--line-dark); border-radius: 0; background: var(--paper); color: var(--ink); font: 0.84rem var(--font-sans), sans-serif; }
+.reader-juan-select small { color: var(--muted); font-size: 0.62rem; line-height: 1.65; }
+.reader-toc .reader-juan-select { margin: 18px 0 12px; padding: 12px; }
+.reader-toc .reader-juan-select select { min-height: 40px; font-size: 0.7rem; }
+.reader-toc .reader-juan-select small { font-size: 0.56rem; }
 .reader-index-meta { position: sticky; top: 105px; }
 .reader-layout { min-width: 0; display: grid; grid-template-columns: 180px minmax(0, 1fr) 195px; gap: 46px; padding-top: 48px; align-items: start; }
 .reader-layout > * { min-width: 0; }

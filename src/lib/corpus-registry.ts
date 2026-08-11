@@ -1,9 +1,21 @@
-import registryDocument from "../../data/gbcr/registry-v0.5.0.json";
+import registryDocument from "../../data/gbcr/registry-v0.6.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
-type Expression = (typeof registryDocument.works)[number]["expressions"][number];
+type Expression = {
+  id: string;
+  cataloged: boolean;
+  fullSourceText: boolean;
+  sampled: boolean;
+  stableSegments: number;
+  rightsReviewed: boolean;
+  qualityStatus: string;
+};
 
-export const corpusRegistry = registryDocument;
+type RegistryDocument = Omit<typeof registryDocument, "works"> & {
+  works: Array<{ id: string; expressions: Expression[] }>;
+};
+
+export const corpusRegistry = registryDocument as unknown as RegistryDocument;
 export const sourceSnapshotInventory = sourceSnapshotsDocument;
 
 export function buildCoverageSnapshot() {

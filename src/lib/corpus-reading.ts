@@ -2,14 +2,25 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cache } from "react";
-import corpusManifest from "../../data/corpus/cbeta/manifest-v0.5.0.json";
+import corpusManifest from "../../data/corpus/cbeta/manifest-v0.6.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 
-const completeAssets: Record<string, { filename: string; canonId: string }> = Object.fromEntries(
-  corpusManifest.files.map((file) => [
+type CorpusManifestFile = {
+  id: string;
+  slug: string;
+  localPath?: string;
+  sourceParts?: Array<{ localPath: string }>;
+};
+
+const completeAssets: Record<string, { filenames: string[]; canonId: string }> = Object.fromEntries(
+  (corpusManifest.files as CorpusManifestFile[]).map((file) => [
     file.slug,
-    { filename: file.localPath.split("/").at(-1)!, canonId: file.id },
+    {
+      filenames: (file.sourceParts ?? [{ localPath: file.localPath! }])
+        .map((source) => source.localPath.split("/").at(-1)!),
+      canonId: file.id,
+    },
   ]),
 );
 
@@ -225,11 +236,11 @@ const loadEdgeFolio = cache(async (
 const loadCompleteLines = cache(async (slug: string) => {
   const asset = completeAssets[slug];
   if (!asset) return null;
-  const xml = await readFile(
-    join(process.cwd(), "data", "corpus", "cbeta", asset.filename),
+  const xmlParts = await Promise.all(asset.filenames.map((filename) => readFile(
+    join(process.cwd(), "data", "corpus", "cbeta", filename),
     "utf8",
-  );
-  return parseCbetaReadingLines(xml, { canonId: asset.canonId });
+  )));
+  return xmlParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
 });
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {

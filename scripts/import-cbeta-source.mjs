@@ -6,7 +6,7 @@ import { promisify } from "node:util";
 
 const root = process.cwd();
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.6.0.json"), "utf8"),
 );
 const requested = process.argv.slice(2);
 const selected = requested.includes("--all")
@@ -23,7 +23,8 @@ const gitBlobSha1 = (value) => createHash("sha1")
   .update(value)
   .digest("hex");
 const execFileAsync = promisify(execFile);
-for (const source of selected) {
+const selectedSources = selected.flatMap((file) => file.sourceParts ?? [file]);
+for (const source of selectedSources) {
   const url = `https://raw.githubusercontent.com/${catalog.source.repository}/${catalog.source.commit}/${source.upstreamPath}`;
   const { stdout: upstream } = await execFileAsync(
     "curl",
