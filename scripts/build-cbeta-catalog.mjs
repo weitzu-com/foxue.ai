@@ -2,8 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const batchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
-const outputPath = resolve(root, "data/corpus/cbeta/catalog-v1.3.0.json");
+const batchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
+const outputPath = resolve(root, "data/corpus/cbeta/catalog-v1.4.0.json");
 const batch = JSON.parse(await readFile(batchPath, "utf8"));
 const base = JSON.parse(await readFile(resolve(root, batch.baseCatalog), "utf8"));
 const inventory = JSON.parse(await readFile(resolve(root, batch.inventory), "utf8"));

@@ -101,7 +101,9 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseSutraRecordSubset.percentage}% 候选文本记录进入受控全文库；
               固定清单合计 {(snapshot.candidateInventory.chineseSutraRecordSubset.sourceBytes! / 1_000_000).toFixed(1)} MB；
               其中 T01–T02 阿含部固定来源已完成 {snapshot.candidateInventory.chineseAgamaSourceRecords.controlled}
-              /{snapshot.candidateInventory.chineseAgamaSourceRecords.denominator}（{snapshot.candidateInventory.chineseAgamaSourceRecords.percentage}%）
+              /{snapshot.candidateInventory.chineseAgamaSourceRecords.denominator}（{snapshot.candidateInventory.chineseAgamaSourceRecords.percentage}%），
+              T03–T04 本缘部固定来源已完成 {snapshot.candidateInventory.chineseBenyuanSourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseBenyuanSourceRecords.denominator}（{snapshot.candidateInventory.chineseBenyuanSourceRecords.percentage}%）
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

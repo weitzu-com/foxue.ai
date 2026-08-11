@@ -235,6 +235,12 @@ export default async function SutraFolioPage({ params }: PageProps) {
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。
           </p>
+          {sutra.bibliographicNote ? (
+            <p className="reader-meta__caution"><strong>书目关系边界：</strong>{sutra.bibliographicNote}</p>
+          ) : null}
+          {sutra.attributionNote ? (
+            <p className="reader-meta__caution"><strong>归属边界：</strong>{sutra.attributionNote}</p>
+          ) : null}
         </aside>
       </div>
     </>

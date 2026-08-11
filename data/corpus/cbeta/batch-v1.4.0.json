@@ -1,0 +1,2956 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.4",
+  "version": "1.4.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.3.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T03–T04 source-record closure",
+  "workOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T03-T04",
+    "title": "大正藏 T03–T04 本缘部固定来源记录",
+    "sourceRecordDenominator": 72,
+    "previouslyControlledSourceRecords": 1,
+    "newSourceRecords": 71,
+    "controlledSourceRecords": 72,
+    "newSourceBytes": 33152203,
+    "newStableSegments": 150383,
+    "newFolios": 5489,
+    "attributedAuthoredOrCompiledRecords": 8,
+    "relationAnnotatedRecords": 17,
+    "workCountingDecision": "71 个新增经号先以 provisional_canon_record 建立可追踪书目实体。已识别的藏本见证、同作品候选、巴利平行和法句文本家族写入逐条关系证据，但在见证层模型与人工章节对齐完成前不合并计数。T03–T04 的 72 是固定来源记录完整性，不是全球作品覆盖率。"
+  },
+  "boundaryAudit": {
+    "status": "relation_candidates_recorded_work_dedup_pending",
+    "witnessGroups": [
+      "sama-jataka-chinese",
+      "nine-colored-deer-witnesses",
+      "deer-mother-witnesses"
+    ],
+    "sameWorkCandidates": [
+      "karunapundarika-chinese",
+      "sama-jataka-chinese",
+      "lalitavistara-chinese"
+    ],
+    "crossLanguageParallels": [
+      "atthakavagga-parallel",
+      "avadanasataka-parallel"
+    ],
+    "textFamilies": [
+      "dharmapada-udanavarga-family"
+    ],
+    "caveat": "关系证据用于阻止错误去重或重复计数；除章节级平行已由 CBETA 校勘注直接支持外，其余候选仍需版本学复核。"
+  },
+  "files": [
+    {
+      "id": "T0152",
+      "slug": "taisho-t0152",
+      "workId": "gbcr:work:taisho-t0152",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0152.xml",
+      "upstreamPath": "T/T03/T03n0152.xml",
+      "upstreamGitBlobSha1": "ab23ea62c111eade158d7b47243e3cdbcc3e5628",
+      "upstreamBytes": 1395102,
+      "upstreamSha256": "b5935b001ca9efd0330b4ba6a0f22df0ccde11b6230f7aa61a6aff7a6b0919a4",
+      "localBytes": 1395103,
+      "localSha256": "04590bed26585dd9d056417a7b3f1a23ce43f46e3efd04df2ddf28c248731aed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "六度集經",
+        "alternateTitle": "六度集經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 152",
+        "translator": "吳 · 康僧會譯",
+        "summary": "8卷。本站完整保存 T0152 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0152_001"
+      },
+      "verification": {
+        "segments": 4441,
+        "folios": 161,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0152.001.0001a02",
+          "T0152.008.0052b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0153",
+      "slug": "taisho-t0153",
+      "workId": "gbcr:work:taisho-t0153",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0153.xml",
+      "upstreamPath": "T/T03/T03n0153.xml",
+      "upstreamGitBlobSha1": "f89f82d71d2e1d9f0e89802aed8d446e549bf74e",
+      "upstreamBytes": 307104,
+      "upstreamSha256": "1b254765dd66edb9b2c04cd53ac52b2a4a8f2fb9cb670083f84319a272d366f9",
+      "localBytes": 307105,
+      "localSha256": "ead9a0481104cd0f1401e03e2758157e76c6c616e240910559c1ba6a878297db",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩本緣經",
+        "alternateTitle": "菩薩本緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 153",
+        "translator": "吳 · 支謙譯",
+        "summary": "3卷。本站完整保存 T0153 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0153_001"
+      },
+      "verification": {
+        "segments": 1530,
+        "folios": 56,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0153.001.0052b05",
+          "T0153.003.0070a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0154",
+      "slug": "taisho-t0154",
+      "workId": "gbcr:work:taisho-t0154",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0154.xml",
+      "upstreamPath": "T/T03/T03n0154.xml",
+      "upstreamGitBlobSha1": "6268a1b0acfce148ca08eaf3397c9c92dfe5c1fc",
+      "upstreamBytes": 702761,
+      "upstreamSha256": "196f3021fd21ddb6823835e71b9c3dbe6b7aa38ee1e74c127bef2cda61b3f058",
+      "localBytes": 702762,
+      "localSha256": "87aee0e6848ef1001c04b1112ac621c1669f70abf1e646dcf6c2f948df42b679",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "生經",
+        "alternateTitle": "生經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 154",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "5卷。本站完整保存 T0154 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0154_001"
+      },
+      "verification": {
+        "segments": 3353,
+        "folios": 119,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0154.001.0070a11",
+          "T0154.005.0108c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0155",
+      "slug": "taisho-t0155",
+      "workId": "gbcr:work:taisho-t0155",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0155.xml",
+      "upstreamPath": "T/T03/T03n0155.xml",
+      "upstreamGitBlobSha1": "9dc29dd6a98bd7c03e00e005ba309fbd61df576f",
+      "upstreamBytes": 250396,
+      "upstreamSha256": "fff7d58ab2b998d4317fde2d29f95f9aceda98a9c8ce407f117f88b847287f79",
+      "localBytes": 250397,
+      "localSha256": "6f2e6012d3695a97e07130c78e4f11f9a9b73d63b31612e532c7fd8ec105ec9f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩本行經",
+        "alternateTitle": "菩薩本行經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 155",
+        "translator": "失譯",
+        "summary": "3卷。本站完整保存 T0155 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0155_001"
+      },
+      "verification": {
+        "segments": 1326,
+        "folios": 49,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0155.001.0108c15",
+          "T0155.003.0124a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0156",
+      "slug": "taisho-t0156",
+      "workId": "gbcr:work:taisho-t0156",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0156.xml",
+      "upstreamPath": "T/T03/T03n0156.xml",
+      "upstreamGitBlobSha1": "e0c175dba4f56cb184b6084189ad7e0967b03de7",
+      "upstreamBytes": 708293,
+      "upstreamSha256": "ddb1e302b5dcb6d2ad0e2e804d1545ea5d68d8afd8e2d7b42e366d77c000ff04",
+      "localBytes": 708294,
+      "localSha256": "34a4dbd5c68a3b82d71d058a75033040c95a93b75f15e93ad0b4325fca32736c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方便佛報恩經",
+        "alternateTitle": "大方便佛報恩經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 156",
+        "translator": "失譯",
+        "summary": "7卷。本站完整保存 T0156 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0156_001"
+      },
+      "verification": {
+        "segments": 3639,
+        "folios": 133,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0156.001.0124a17",
+          "T0156.007.0166a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0157",
+      "slug": "taisho-t0157",
+      "workId": "gbcr:work:taisho-t0157",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "karunapundarika-chinese",
+          "label": "《悲华经》汉译组",
+          "evidence": "T0157 的 CBETA 校勘资料保留梵名 Karuṇāpuṇḍarīka-sūtra，并逐行引用 T0158；在独立书目复核前先建立候选关系，不合并计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0157.xml",
+      "upstreamPath": "T/T03/T03n0157.xml",
+      "upstreamGitBlobSha1": "448bf441ac66980eac3049a2150be04ddccc03b8",
+      "upstreamBytes": 1207083,
+      "upstreamSha256": "3b1fef3ff56676010cc20b6668827e985e1e46ec9707381d493205931f49e473",
+      "localBytes": 1207084,
+      "localSha256": "39ac625755177d74bbd2c8455af339f2d3df1a51d4641e6f6755921aa2af2a65",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "悲華經",
+        "alternateTitle": "悲華經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 157",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "10卷。本站完整保存 T0157 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0157_001"
+      },
+      "verification": {
+        "segments": 5760,
+        "folios": 208,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0157.001.0167a03",
+          "T0157.010.0233c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0158",
+      "slug": "taisho-t0158",
+      "workId": "gbcr:work:taisho-t0158",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "karunapundarika-chinese",
+          "label": "《悲华经》汉译组",
+          "evidence": "T0157 的 CBETA 校勘资料保留梵名 Karuṇāpuṇḍarīka-sūtra，并逐行引用 T0158；在独立书目复核前先建立候选关系，不合并计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0158.xml",
+      "upstreamPath": "T/T03/T03n0158.xml",
+      "upstreamGitBlobSha1": "884bc865256f249a94051639eefd9a1eefff954d",
+      "upstreamBytes": 1068335,
+      "upstreamSha256": "389cc698c9fa5cbad2ba80b48e78e5823db3dbef1f346a4bfa1773f246e76d2a",
+      "localBytes": 1068336,
+      "localSha256": "9ba41fc496d4eae79c51ee24a082ff66f315bc94452201072c4aca599d765170",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘悲分陀利經",
+        "alternateTitle": "大乘悲分陀利經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 158",
+        "translator": "失譯",
+        "summary": "8卷。本站完整保存 T0158 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0158_001"
+      },
+      "verification": {
+        "segments": 4802,
+        "folios": 172,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0158.001.0233c11",
+          "T0158.008.0289a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0159",
+      "slug": "taisho-t0159",
+      "workId": "gbcr:work:taisho-t0159",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0159.xml",
+      "upstreamPath": "T/T03/T03n0159.xml",
+      "upstreamGitBlobSha1": "35dfbbb339df977bf6601474f3acd3217dc80e1d",
+      "upstreamBytes": 512965,
+      "upstreamSha256": "a09d8454b0749e8930a7bd0a832bf7c8b0d17732d96e289cd792440a8015c8ea",
+      "localBytes": 512966,
+      "localSha256": "aa33b36a310be6b921b99ab470820c215f5ea708e9ca5200340b1abc212b9de6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘本生心地觀經",
+        "alternateTitle": "大乘本生心地觀經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 159",
+        "translator": "唐 · 般若譯",
+        "summary": "8卷。本站完整保存 T0159 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0159_001"
+      },
+      "verification": {
+        "segments": 3521,
+        "folios": 127,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0159.001.0291a02",
+          "T0159.008.0331c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0160",
+      "slug": "taisho-t0160",
+      "workId": "gbcr:work:taisho-t0160",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T03n0160.xml",
+      "upstreamPath": "T/T03/T03n0160.xml",
+      "upstreamGitBlobSha1": "ad3381a2850ac869ad9484d5a7df9f34c9f787bc",
+      "upstreamBytes": 421119,
+      "upstreamSha256": "2971d854b2eb8be8daea038072a9769618439cc31c058788e5c086dabf5b1a51",
+      "localBytes": 421120,
+      "localSha256": "fb82d5a9737e654cec8ae8c17c301f9c705a619b078c10aef1fb943560ed7b75",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩本生鬘論",
+        "alternateTitle": "菩薩本生鬘論",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 160",
+        "translator": "宋 · 紹德慧詢等譯",
+        "summary": "16卷。本站完整保存 T0160 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0160_001"
+      },
+      "verification": {
+        "segments": 4640,
+        "folios": 173,
+        "juanRange": [
+          1,
+          16
+        ],
+        "anchors": [
+          "T0160.001.0331c14",
+          "T0160.016.0385c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0161",
+      "slug": "taisho-t0161",
+      "workId": "gbcr:work:taisho-t0161",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0161.xml",
+      "upstreamPath": "T/T03/T03n0161.xml",
+      "upstreamGitBlobSha1": "6f3cb659640ddab2d64b71dd1331e4b0ced85f52",
+      "upstreamBytes": 100569,
+      "upstreamSha256": "e413f0167f7085e3dfdde852d3f08b55cf3baa5d4773eabc6e5a5702876e90a3",
+      "localBytes": 100570,
+      "localSha256": "8591802734088b349d10b02589699d2fff5bc983aae1ade88b070d03e5d005d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長壽王經",
+        "alternateTitle": "長壽王經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 161",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0161 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0161_001"
+      },
+      "verification": {
+        "segments": 172,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0161.001.0386a02",
+          "T0161.001.0388a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0162",
+      "slug": "taisho-t0162",
+      "workId": "gbcr:work:taisho-t0162",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0162.xml",
+      "upstreamPath": "T/T03/T03n0162.xml",
+      "upstreamGitBlobSha1": "3781ba6c1908493f8a322bb053baa848ca54efd5",
+      "upstreamBytes": 43096,
+      "upstreamSha256": "f987466f61515a345596501a622c938744581de4b0f52dcd4e4a7ace7060e93a",
+      "localBytes": 43097,
+      "localSha256": "73abdca09f8d37de0d094c2b2da41faf24d51d89c300961b08e1747d6e0ca20e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金色王經",
+        "alternateTitle": "金色王經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 162",
+        "translator": "東魏 · 瞿曇般若流支譯",
+        "summary": "1卷。本站完整保存 T0162 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0162_001"
+      },
+      "verification": {
+        "segments": 238,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0162.001.0388a16",
+          "T0162.001.0390c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0163",
+      "slug": "taisho-t0163",
+      "workId": "gbcr:work:taisho-t0163",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0163.xml",
+      "upstreamPath": "T/T03/T03n0163.xml",
+      "upstreamGitBlobSha1": "adb9c52605b86dd9c031f964ef5dd07ff906e8b7",
+      "upstreamBytes": 22535,
+      "upstreamSha256": "b1be2b0fe7b0c03afd40358cd303c8e7216f281d77dbc1a09b60c22b27b726ae",
+      "localBytes": 22536,
+      "localSha256": "1937cf0db96b16cbf3e24cd4a0fd1d8faeb3004814e757aa3aad4f15cc48e370",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙色王因緣經",
+        "alternateTitle": "妙色王因緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 163",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0163 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0163_001"
+      },
+      "verification": {
+        "segments": 86,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0163.001.0390c24",
+          "T0163.001.0391c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0164",
+      "slug": "taisho-t0164",
+      "workId": "gbcr:work:taisho-t0164",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0164.xml",
+      "upstreamPath": "T/T03/T03n0164.xml",
+      "upstreamGitBlobSha1": "67a62090fb1c16583cfa471fdcb71097cae7d258",
+      "upstreamBytes": 24652,
+      "upstreamSha256": "5775e824522504f2208c1e58c723dac18e6b0d86a0047f09cc324b7a2ce6ad1a",
+      "localBytes": 24653,
+      "localSha256": "b2dc4ada9fc69fbd28938fe38d11375b5db3502488e432bf4708ea5e88fc25cf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "師子素馱娑王斷肉經",
+        "alternateTitle": "師子素馱娑王斷肉經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 164",
+        "translator": "唐 · 智嚴譯",
+        "summary": "1卷。本站完整保存 T0164 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0164_001"
+      },
+      "verification": {
+        "segments": 93,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0164.001.0392a02",
+          "T0164.001.0393a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0165",
+      "slug": "taisho-t0165",
+      "workId": "gbcr:work:taisho-t0165",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0165.xml",
+      "upstreamPath": "T/T03/T03n0165.xml",
+      "upstreamGitBlobSha1": "8822c72240bc341eb504a107b5fce3305b4aaf1e",
+      "upstreamBytes": 159205,
+      "upstreamSha256": "ad9b4f07e811e42d7763ac37623e96a113d7114ee6e04a5e17aaf05341b67595",
+      "localBytes": 159206,
+      "localSha256": "866c35ad1f534c869e0008aabeee349e2893bfef81b84deeed5fd01290e6b41a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "頂生王因緣經",
+        "alternateTitle": "頂生王因緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 165",
+        "translator": "宋 · 施護等譯",
+        "summary": "6卷。本站完整保存 T0165 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0165_001"
+      },
+      "verification": {
+        "segments": 1153,
+        "folios": 45,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0165.001.0393a11",
+          "T0165.006.0406b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0166",
+      "slug": "taisho-t0166",
+      "workId": "gbcr:work:taisho-t0166",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0166.xml",
+      "upstreamPath": "T/T03/T03n0166.xml",
+      "upstreamGitBlobSha1": "4311e57638b26983e8d26abced806dd6667d6025",
+      "upstreamBytes": 24683,
+      "upstreamSha256": "a510a6ed3c94651bd16433e61b50746ec3d640ee8bd9a25af980051d11adfcdc",
+      "localBytes": 24684,
+      "localSha256": "eb008cd5c7e24de86793fd82b76c1e58f7fd296fe42e9ce7a29289808eba9084",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "月光菩薩經",
+        "alternateTitle": "月光菩薩經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 166",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。本站完整保存 T0166 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0166_001"
+      },
+      "verification": {
+        "segments": 149,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0166.001.0406b26",
+          "T0166.001.0408b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0167",
+      "slug": "taisho-t0167",
+      "workId": "gbcr:work:taisho-t0167",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0167.xml",
+      "upstreamPath": "T/T03/T03n0167.xml",
+      "upstreamGitBlobSha1": "03de86c8ab305b9ec6c8110e7de090ffd20282bf",
+      "upstreamBytes": 37914,
+      "upstreamSha256": "37b7723a29d1ba2717d7cfcad98e1cdf1b13f135b9a6d431fa80ee3e207f0bf9",
+      "localBytes": 37915,
+      "localSha256": "094dd380cffb1240e88a707008a578ace96b12ddf0e65fca9c7e870c0e27f5c0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "太子慕魄經",
+        "alternateTitle": "太子慕魄經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 167",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0167 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0167_001"
+      },
+      "verification": {
+        "segments": 145,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0167.001.0408b04",
+          "T0167.001.0410a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0168",
+      "slug": "taisho-t0168",
+      "workId": "gbcr:work:taisho-t0168",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0168.xml",
+      "upstreamPath": "T/T03/T03n0168.xml",
+      "upstreamGitBlobSha1": "6ccf3fd7c1be6b1584212ae5989ad19fb87d9759",
+      "upstreamBytes": 52841,
+      "upstreamSha256": "1ede5a216c3b965c3a2f0460101479043daf0f3f07c438e5a59749f988a96c10",
+      "localBytes": 52842,
+      "localSha256": "54c3cde03d6a062c6f8708c3983631d5c79456cbcbbe222ab2de65d12c2a60f4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "太子墓魄經",
+        "alternateTitle": "太子墓魄經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 168",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0168 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0168_001"
+      },
+      "verification": {
+        "segments": 77,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0168.001.0410a07",
+          "T0168.001.0411a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0169",
+      "slug": "taisho-t0169",
+      "workId": "gbcr:work:taisho-t0169",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0169.xml",
+      "upstreamPath": "T/T03/T03n0169.xml",
+      "upstreamGitBlobSha1": "c25a697877bccffd6f8dc4d8a1fdc67407d928bc",
+      "upstreamBytes": 19980,
+      "upstreamSha256": "ec5f858d59ecafdfc576e20f2e5028382029583a9ce5dc6ca34cf35ac2d3d989",
+      "localBytes": 19981,
+      "localSha256": "1f123c358f87b8a3bb2ec8e32ca4ecfb26e4bc99f25c9be1cc9c05f84d4117aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "月明菩薩經",
+        "alternateTitle": "月明菩薩經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 169",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0169 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0169_001"
+      },
+      "verification": {
+        "segments": 78,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0169.001.0411a07",
+          "T0169.001.0411c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0170",
+      "slug": "taisho-t0170",
+      "workId": "gbcr:work:taisho-t0170",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0170.xml",
+      "upstreamPath": "T/T03/T03n0170.xml",
+      "upstreamGitBlobSha1": "f15b237613830dc8d10049d9980afa5a277f524e",
+      "upstreamBytes": 153035,
+      "upstreamSha256": "857492db17c30e6880045cc93d35c58cc3387e4ef0a558c148b35e4c1ac7015b",
+      "localBytes": 153036,
+      "localSha256": "3589bf254aad379cca32138a84c0a3374558d46ccb5f4c9a60e7209ae70bde13",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "德光太子經",
+        "alternateTitle": "德光太子經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 170",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0170 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0170_001"
+      },
+      "verification": {
+        "segments": 592,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0170.001.0412a02",
+          "T0170.001.0418c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0171",
+      "slug": "taisho-t0171",
+      "workId": "gbcr:work:taisho-t0171",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0171.xml",
+      "upstreamPath": "T/T03/T03n0171.xml",
+      "upstreamGitBlobSha1": "b76778f5e7b293365eda40e8a78982194d8b7a9d",
+      "upstreamBytes": 220772,
+      "upstreamSha256": "0f08c84f32978d012b6967aacc63a2f149c0784d7bba5ebd3d6662b3c34b4dc8",
+      "localBytes": 220773,
+      "localSha256": "0ed9ce62d5c09851b8956f393358bafdea70da28079a48d0f9e05cf0c4e591ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "太子須大拏經",
+        "alternateTitle": "太子須大拏經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 171",
+        "translator": "西秦 · 聖堅譯",
+        "summary": "1卷。本站完整保存 T0171 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0171_001"
+      },
+      "verification": {
+        "segments": 461,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0171.001.0418c17",
+          "T0171.001.0424a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0172",
+      "slug": "taisho-t0172",
+      "workId": "gbcr:work:taisho-t0172",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0172.xml",
+      "upstreamPath": "T/T03/T03n0172.xml",
+      "upstreamGitBlobSha1": "c5bc5751163662d9700baec06c773af7a8f24d6c",
+      "upstreamBytes": 154223,
+      "upstreamSha256": "b3a9b2c5753221aa905b27bde6330e55dc472052e9c5e571c326a0c62dc39b3b",
+      "localBytes": 154224,
+      "localSha256": "cb36a5bdd3450106c09a806e820ba05813b48bb6d6cc3b2c6a47d11d3fc7542a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩投身飴餓虎起塔因緣經",
+        "alternateTitle": "菩薩投身飴餓虎起塔因緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 172",
+        "translator": "北涼 · 法盛譯",
+        "summary": "1卷。本站完整保存 T0172 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0172_001"
+      },
+      "verification": {
+        "segments": 316,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0172.001.0424b03",
+          "T0172.001.0428a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0173",
+      "slug": "taisho-t0173",
+      "workId": "gbcr:work:taisho-t0173",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0173.xml",
+      "upstreamPath": "T/T03/T03n0173.xml",
+      "upstreamGitBlobSha1": "4a09f64640f7e81ce90f6579f88cb50eff23f7aa",
+      "upstreamBytes": 88871,
+      "upstreamSha256": "893f8c46f95a329f6a377b43087bcd4e849a0333f9589d2a3889a07b306f055f",
+      "localBytes": 88872,
+      "localSha256": "9956f28ff00d30dedfd142899e545e9ee1008b38804a1ba69cfef23299a765dd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "福力太子因緣經",
+        "alternateTitle": "福力太子因緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 173",
+        "translator": "宋 · 施護等譯",
+        "summary": "4卷。本站完整保存 T0173 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0173_001"
+      },
+      "verification": {
+        "segments": 693,
+        "folios": 26,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0173.001.0428a14",
+          "T0173.004.0436a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0174",
+      "slug": "taisho-t0174",
+      "workId": "gbcr:work:taisho-t0174",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_witness_candidate",
+          "groupId": "sama-jataka-chinese",
+          "label": "睒子本生汉译与藏本见证组",
+          "evidence": "T0175c 的 CBETA 校勘注明确标为 Sāma-jātaka 540；T0175a/b/c 的题记与校勘注显示不同藏本形态，T0174 为相关汉译。见证层模型完成前不合并表达计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0174.xml",
+      "upstreamPath": "T/T03/T03n0174.xml",
+      "upstreamGitBlobSha1": "cbe54356203a19b3216ad05c025dd028fc22c1e3",
+      "upstreamBytes": 65033,
+      "upstreamSha256": "8ea3f705b0e5204419485f75b6367a3d7afa8529cc6c17c5bb59f218b6a16405",
+      "localBytes": 65034,
+      "localSha256": "f3e3d8363423b8dad3cfb5fb11d213586c2d179c753962d24a1a4fd4f5562fc9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩睒子經",
+        "alternateTitle": "菩薩睒子經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 174",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0174 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0174_001"
+      },
+      "verification": {
+        "segments": 173,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0174.001.0436b02",
+          "T0174.001.0438b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0175a",
+      "slug": "taisho-t0175a",
+      "workId": "gbcr:work:taisho-t0175a",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_witness_candidate",
+          "groupId": "sama-jataka-chinese",
+          "label": "睒子本生汉译与藏本见证组",
+          "evidence": "T0175c 的 CBETA 校勘注明确标为 Sāma-jātaka 540；T0175a/b/c 的题记与校勘注显示不同藏本形态，T0174 为相关汉译。见证层模型完成前不合并表达计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0175a.xml",
+      "upstreamPath": "T/T03/T03n0175a.xml",
+      "upstreamGitBlobSha1": "859d75cef0be7875404f96879b365d753c1acb1a",
+      "upstreamBytes": 18231,
+      "upstreamSha256": "abb184d164cbb53d6ce0647fc286cb2275b8dc9e81167cd85d2a3cbf814f18bc",
+      "localBytes": 18232,
+      "localSha256": "c4512ea548bc1eef07135745817507993ecdc7d4fe0052edfdd21b79e4f02a65",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "睒子經",
+        "alternateTitle": "睒子經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 175a",
+        "translator": "西秦 · 聖堅譯",
+        "summary": "1卷。本站完整保存 T0175a 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0175a_001"
+      },
+      "verification": {
+        "segments": 151,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0175a.001.0438b06",
+          "T0175a.001.0440a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0175b",
+      "slug": "taisho-t0175b",
+      "workId": "gbcr:work:taisho-t0175b",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_witness_candidate",
+          "groupId": "sama-jataka-chinese",
+          "label": "睒子本生汉译与藏本见证组",
+          "evidence": "T0175c 的 CBETA 校勘注明确标为 Sāma-jātaka 540；T0175a/b/c 的题记与校勘注显示不同藏本形态，T0174 为相关汉译。见证层模型完成前不合并表达计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0175b.xml",
+      "upstreamPath": "T/T03/T03n0175b.xml",
+      "upstreamGitBlobSha1": "ecad37ab6fb3fec1057c83af7221dcda5cc64c26",
+      "upstreamBytes": 19375,
+      "upstreamSha256": "c2ad55ddb1a7ad7d9f7ec4d2a4313e108e824cd9624f8c8d766ee619a70bbc59",
+      "localBytes": 19376,
+      "localSha256": "de8b6edbccd838bf5f307a6483162e215c8718b3e5125fdc2b70f12aa7b4b4c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說睒子經",
+        "alternateTitle": "佛說睒子經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 175b",
+        "translator": "乞伏秦 · 聖堅譯",
+        "summary": "1卷。本站完整保存 T0175b 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0175b_001"
+      },
+      "verification": {
+        "segments": 159,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0175b.001.0440a14",
+          "T0175b.001.0441c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0175c",
+      "slug": "taisho-t0175c",
+      "workId": "gbcr:work:taisho-t0175c",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_and_witness_candidate",
+          "groupId": "sama-jataka-chinese",
+          "label": "睒子本生汉译与藏本见证组",
+          "evidence": "T0175c 的 CBETA 校勘注明确标为 Sāma-jātaka 540；T0175a/b/c 的题记与校勘注显示不同藏本形态，T0174 为相关汉译。见证层模型完成前不合并表达计数。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0175c.xml",
+      "upstreamPath": "T/T03/T03n0175c.xml",
+      "upstreamGitBlobSha1": "79262d601a7010591224324ebcb7f584657fd530",
+      "upstreamBytes": 26646,
+      "upstreamSha256": "153a382a23a439606f4351ec3324af64e0aed303e43ddd88bda3faa7c99f1567",
+      "localBytes": 26647,
+      "localSha256": "579ee55b75b601c4e55cc4fa1493dc2879f969836e8d3f4118c08dca7779e117",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說睒子經",
+        "alternateTitle": "佛說睒子經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 175c",
+        "translator": "姚秦 · 聖堅譯",
+        "summary": "1卷。本站完整保存 T0175c 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0175c_001"
+      },
+      "verification": {
+        "segments": 159,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0175c.001.0442a02",
+          "T0175c.001.0443c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0176",
+      "slug": "taisho-t0176",
+      "workId": "gbcr:work:taisho-t0176",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0176.xml",
+      "upstreamPath": "T/T03/T03n0176.xml",
+      "upstreamGitBlobSha1": "7a5b1eee4fe9ddbc891d43501b3a5bbe1c4e6b6a",
+      "upstreamBytes": 41655,
+      "upstreamSha256": "078e800f960b4bdce4f7e1044214e970ab89f88b85b724ca9ae3efd258b3be83",
+      "localBytes": 41656,
+      "localSha256": "8d2fc4b33b3ec91ddde910f390716754303ac5a413775b3bf472de18c84dda5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "師子月佛本生經",
+        "alternateTitle": "師子月佛本生經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 176",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0176 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0176_001"
+      },
+      "verification": {
+        "segments": 208,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0176.001.0443c18",
+          "T0176.001.0446a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0177",
+      "slug": "taisho-t0177",
+      "workId": "gbcr:work:taisho-t0177",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0177.xml",
+      "upstreamPath": "T/T03/T03n0177.xml",
+      "upstreamGitBlobSha1": "194ea7b2b1bb184855f738bda9a06f072e941b24",
+      "upstreamBytes": 27362,
+      "upstreamSha256": "7f4deac85e530d0af8ee52d4726b1ef4eb3bf8fdebccd5e0a1c538cf7f0b401b",
+      "localBytes": 27363,
+      "localSha256": "d1647535c5f029390f5473e5c6c785317a390efcd8e99ac1525bb76c8da4a96b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大意經",
+        "alternateTitle": "大意經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 177",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "1卷。本站完整保存 T0177 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0177_001"
+      },
+      "verification": {
+        "segments": 139,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0177.001.0446a25",
+          "T0177.001.0447c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0178",
+      "slug": "taisho-t0178",
+      "workId": "gbcr:work:taisho-t0178",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0178.xml",
+      "upstreamPath": "T/T03/T03n0178.xml",
+      "upstreamGitBlobSha1": "8b6ab3a2a9c45f5092ab4642b0a5c746959594b1",
+      "upstreamBytes": 119437,
+      "upstreamSha256": "b3ea249b4c94ca01c58cf6ec413fa4707f1aa786b4a39b916683098c49534daf",
+      "localBytes": 119438,
+      "localSha256": "cb0f3aca3877927bd5856c97f44e5db41c011ad63a8182237ebdacb732ecaaf2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "前世三轉經",
+        "alternateTitle": "前世三轉經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 178",
+        "translator": "西晉 · 法炬譯",
+        "summary": "1卷。本站完整保存 T0178 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0178_001"
+      },
+      "verification": {
+        "segments": 172,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0178.001.0447c21",
+          "T0178.001.0450a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0179",
+      "slug": "taisho-t0179",
+      "workId": "gbcr:work:taisho-t0179",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0179.xml",
+      "upstreamPath": "T/T03/T03n0179.xml",
+      "upstreamGitBlobSha1": "8a64bdcba9e967f04b7eaba6903154fe76f033dd",
+      "upstreamBytes": 32324,
+      "upstreamSha256": "69175476537d4440619aa0b9f35211dc40f66f0627ac89e1cb43235a40d4b1a4",
+      "localBytes": 32325,
+      "localSha256": "0ea1b9163f7454f16dd2e0027b8fb2503affdd0da7bf06619587c6df38e05943",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "銀色女經",
+        "alternateTitle": "銀色女經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 179",
+        "translator": "元魏 · 佛陀扇多譯",
+        "summary": "1卷。本站完整保存 T0179 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0179_001"
+      },
+      "verification": {
+        "segments": 175,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0179.001.0450a10",
+          "T0179.001.0452a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0180",
+      "slug": "taisho-t0180",
+      "workId": "gbcr:work:taisho-t0180",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0180.xml",
+      "upstreamPath": "T/T03/T03n0180.xml",
+      "upstreamGitBlobSha1": "cbdade62735106312aee0a888d66e08e922203b1",
+      "upstreamBytes": 18960,
+      "upstreamSha256": "06f45c06acde18519eb1fbfc0d6411d4ab03f1b45d1e99fc1172de83c8a7839f",
+      "localBytes": 18961,
+      "localSha256": "b4519e52a970a634179aa5dab82724d4ca73ff94300cbdf88ccfab0cb3e235d6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "過去世佛分衛經",
+        "alternateTitle": "過去世佛分衛經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 180",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0180 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0180_001"
+      },
+      "verification": {
+        "segments": 39,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0180.001.0452a13",
+          "T0180.001.0452b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0181a",
+      "slug": "taisho-t0181a",
+      "workId": "gbcr:work:taisho-t0181a",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "nine-colored-deer-witnesses",
+          "label": "《九色鹿经》藏本见证组",
+          "evidence": "两份来源同题材、同译者；CBETA 原校注分别说明丽本/明本及宋元本对校关系。见证层模型完成前不合并。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0181a.xml",
+      "upstreamPath": "T/T03/T03n0181a.xml",
+      "upstreamGitBlobSha1": "34059e2428edcbb6c34feb06e63d03058ca649aa",
+      "upstreamBytes": 10199,
+      "upstreamSha256": "805cb872f595fbd7c4fdbf168f637e22443fb0f64e9223e6dd94e7f471e30cfb",
+      "localBytes": 10200,
+      "localSha256": "53ae2ee1058b5ef69c0d186fc109fdb114935f9ea049efbdd9a153d7885b8e0a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "九色鹿經",
+        "alternateTitle": "九色鹿經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 181a",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0181a 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0181a_001"
+      },
+      "verification": {
+        "segments": 60,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0181a.001.0452b25",
+          "T0181a.001.0453a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0181b",
+      "slug": "taisho-t0181b",
+      "workId": "gbcr:work:taisho-t0181b",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "nine-colored-deer-witnesses",
+          "label": "《九色鹿经》藏本见证组",
+          "evidence": "两份来源同题材、同译者；CBETA 原校注分别说明丽本/明本及宋元本对校关系。见证层模型完成前不合并。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0181b.xml",
+      "upstreamPath": "T/T03/T03n0181b.xml",
+      "upstreamGitBlobSha1": "fbe3b6275b5b3cb1656f2d26cfd7c7838e3250ba",
+      "upstreamBytes": 10680,
+      "upstreamSha256": "5af742a54554e4b5ceffc9814df46079ef894b3becddd9a224c24539d40a08c4",
+      "localBytes": 10681,
+      "localSha256": "32db1728aacfd70d9849d6d75e595b47bae426f900b1a29a0e81e324be44b51a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說九色鹿經",
+        "alternateTitle": "佛說九色鹿經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 181b",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0181b 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0181b_001"
+      },
+      "verification": {
+        "segments": 58,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0181b.001.0453b02",
+          "T0181b.001.0454a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0182a",
+      "slug": "taisho-t0182a",
+      "workId": "gbcr:work:taisho-t0182a",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "deer-mother-witnesses",
+          "label": "《鹿母经》藏本见证组",
+          "evidence": "两份来源同题名核心、同译者；CBETA 原校注说明不同藏本及对校关系。见证层模型完成前不合并。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0182a.xml",
+      "upstreamPath": "T/T03/T03n0182a.xml",
+      "upstreamGitBlobSha1": "ab445fbae247fde4d1cf4057cc536487d80c0b15",
+      "upstreamBytes": 14257,
+      "upstreamSha256": "ee51f55dae30146099384b1bb7628acb4ce2ecca5abbc32b8a9297182e3bb83c",
+      "localBytes": 14258,
+      "localSha256": "cc2fc8f6a2cb01c4327e496cee8edb7bd50d280fabbd32b7caba26b3fd0d2957",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鹿母經",
+        "alternateTitle": "鹿母經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 182a",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0182a 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0182a_001"
+      },
+      "verification": {
+        "segments": 96,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0182a.001.0454a04",
+          "T0182a.001.0455a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0182b",
+      "slug": "taisho-t0182b",
+      "workId": "gbcr:work:taisho-t0182b",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_translation_witness_candidate",
+          "groupId": "deer-mother-witnesses",
+          "label": "《鹿母经》藏本见证组",
+          "evidence": "两份来源同题名核心、同译者；CBETA 原校注说明不同藏本及对校关系。见证层模型完成前不合并。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0182b.xml",
+      "upstreamPath": "T/T03/T03n0182b.xml",
+      "upstreamGitBlobSha1": "f3d69d8263a842fa751f0dbc6fd3a91ece4b1b2b",
+      "upstreamBytes": 31646,
+      "upstreamSha256": "e8ffa9235228562587dbcc8dfdb1792b8e4461db1977fad15334890718cdb6fb",
+      "localBytes": 31647,
+      "localSha256": "576eda1c6d13e919763ded0581ab742d4c342769968b87d98c3ee76a049ef803",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說鹿母經",
+        "alternateTitle": "佛說鹿母經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 182b",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0182b 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0182b_001"
+      },
+      "verification": {
+        "segments": 228,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0182b.001.0455a16",
+          "T0182b.001.0457c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0183",
+      "slug": "taisho-t0183",
+      "workId": "gbcr:work:taisho-t0183",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0183.xml",
+      "upstreamPath": "T/T03/T03n0183.xml",
+      "upstreamGitBlobSha1": "049b2e6feaf0d77277e86d7093415363edacf901",
+      "upstreamBytes": 28473,
+      "upstreamSha256": "5890c08c11bce7f7809cb87535de5d23ffc9928551b651d2ddf17d541d2091cf",
+      "localBytes": 28474,
+      "localSha256": "e5e7b3f4ae68289566146e146ead79926ea5c91df463ee99756f44b04fd87e39",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "一切智光明仙人慈心因緣不食肉經",
+        "alternateTitle": "一切智光明仙人慈心因緣不食肉經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 183",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0183 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0183_001"
+      },
+      "verification": {
+        "segments": 124,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0183.001.0457c14",
+          "T0183.001.0459a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0184",
+      "slug": "taisho-t0184",
+      "workId": "gbcr:work:taisho-t0184",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0184.xml",
+      "upstreamPath": "T/T03/T03n0184.xml",
+      "upstreamGitBlobSha1": "8554c3e6470c032ff515587ee104a2e091b85c65",
+      "upstreamBytes": 281399,
+      "upstreamSha256": "6909209878a63e32fa2922043458820ff448dec0379308b2b7a728487aa31f54",
+      "localBytes": 281400,
+      "localSha256": "ad291f9763c4eacb0a4bd3eec23b63fb5fbccdab0793960f299e2499919d6ba2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "修行本起經",
+        "alternateTitle": "修行本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 184",
+        "translator": "後漢 · 竺大力共康孟詳譯",
+        "summary": "2卷。本站完整保存 T0184 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0184_001"
+      },
+      "verification": {
+        "segments": 1005,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0184.001.0461a02",
+          "T0184.002.0472b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0185",
+      "slug": "taisho-t0185",
+      "workId": "gbcr:work:taisho-t0185",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0185.xml",
+      "upstreamPath": "T/T03/T03n0185.xml",
+      "upstreamGitBlobSha1": "a34a2ae0f9d22c612c7acddbbb874340a04f52bc",
+      "upstreamBytes": 317153,
+      "upstreamSha256": "1b11a217fa09dce0e70d945e3ebe17c2563caa98f8721c362e51ff9edcbce530",
+      "localBytes": 317154,
+      "localSha256": "4547d905e70187f7898764d4c5cb19ec2f4eee051d72138b638426d1526ccff1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "太子瑞應本起經",
+        "alternateTitle": "太子瑞應本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 185",
+        "translator": "吳 · 支謙譯",
+        "summary": "2卷。本站完整保存 T0185 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0185_001"
+      },
+      "verification": {
+        "segments": 897,
+        "folios": 32,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0185.001.0472c02",
+          "T0185.002.0483a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0186",
+      "slug": "taisho-t0186",
+      "workId": "gbcr:work:taisho-t0186",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "lalitavistara-chinese",
+          "label": "Lalitavistara 汉译组",
+          "evidence": "T0187 的 CBETA 校勘资料保留梵名 Lalitavistara；T0186 与 T0187 均为佛传章品结构。先登记候选关系，等待章节级对齐后再合并作品。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0186.xml",
+      "upstreamPath": "T/T03/T03n0186.xml",
+      "upstreamGitBlobSha1": "7e8976120e838a8250cb443ce0d48af4ecbd8884",
+      "upstreamBytes": 1485131,
+      "upstreamSha256": "c59f0eb3b1d1caa4e906a5242e8bfe1eb648928b13229898e25d2e5b27913742",
+      "localBytes": 1485132,
+      "localSha256": "ee694ee40e41656cf46593409d19388c849a283cc40aa7cd8f023da112d52ec5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "普曜經",
+        "alternateTitle": "普曜經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 186",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "8卷。本站完整保存 T0186 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0186_001"
+      },
+      "verification": {
+        "segments": 4755,
+        "folios": 173,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0186.001.0483a16",
+          "T0186.008.0538a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0187",
+      "slug": "taisho-t0187",
+      "workId": "gbcr:work:taisho-t0187",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate",
+          "groupId": "lalitavistara-chinese",
+          "label": "Lalitavistara 汉译组",
+          "evidence": "T0187 的 CBETA 校勘资料保留梵名 Lalitavistara；T0186 与 T0187 均为佛传章品结构。先登记候选关系，等待章节级对齐后再合并作品。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T03n0187.xml",
+      "upstreamPath": "T/T03/T03n0187.xml",
+      "upstreamGitBlobSha1": "fa518529c644c3a81e5c9135f678a3275b9b5d89",
+      "upstreamBytes": 1117927,
+      "upstreamSha256": "a7a4912f6821f94156a2a85ae82b82ed6bec254976765b9514cb536c27d070ba",
+      "localBytes": 1117928,
+      "localSha256": "eeb6d7c7edd4e81622f25584738415666f5f52454814c8025b63e021efe538a6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "方廣大莊嚴經",
+        "alternateTitle": "方廣大莊嚴經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 187",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "12卷。本站完整保存 T0187 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0187_001"
+      },
+      "verification": {
+        "segments": 6753,
+        "folios": 245,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T0187.001.0539a02",
+          "T0187.012.0617b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0188",
+      "slug": "taisho-t0188",
+      "workId": "gbcr:work:taisho-t0188",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0188.xml",
+      "upstreamPath": "T/T03/T03n0188.xml",
+      "upstreamGitBlobSha1": "293119d871b3f2084fabe41ab20939341dd95a4d",
+      "upstreamBytes": 60985,
+      "upstreamSha256": "46f54b33d5d3d7ad24398464ec67dc4102e55440d68e041fcfa962c2e108d0b8",
+      "localBytes": 60986,
+      "localSha256": "6c4f1961390b41da5b9b6e6374046fc61eb3a951696f42c91b53964a07d00791",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "異出菩薩本起經",
+        "alternateTitle": "異出菩薩本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 188",
+        "translator": "西晉 · 聶道真譯",
+        "summary": "1卷。本站完整保存 T0188 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0188_001"
+      },
+      "verification": {
+        "segments": 284,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0188.001.0617b14",
+          "T0188.001.0620c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0189",
+      "slug": "taisho-t0189",
+      "workId": "gbcr:work:taisho-t0189",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0189.xml",
+      "upstreamPath": "T/T03/T03n0189.xml",
+      "upstreamGitBlobSha1": "440df7af1fbf8a56b8e6ee2e9b0a08396a8837ae",
+      "upstreamBytes": 544700,
+      "upstreamSha256": "78244dfe332c4ac71879b55a445eb7d4dda2cd39219248cabff2074732a11cec",
+      "localBytes": 544701,
+      "localSha256": "3346f59f7db7f0c1cb5ac8470b66e3636fb58644986db56d33e0dde9202d01d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "過去現在因果經",
+        "alternateTitle": "過去現在因果經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 189",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "4卷。本站完整保存 T0189 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0189_001"
+      },
+      "verification": {
+        "segments": 2847,
+        "folios": 101,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0189.001.0620c11",
+          "T0189.004.0653b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0190",
+      "slug": "taisho-t0190",
+      "workId": "gbcr:work:taisho-t0190",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0190.xml",
+      "upstreamPath": "T/T03/T03n0190.xml",
+      "upstreamGitBlobSha1": "b0ea674be52cf1cfdcf75107e85c44cdda536d12",
+      "upstreamBytes": 4340967,
+      "upstreamSha256": "dbcc38386ade10c3f10efffbea2056294c99c0cfecf9e5269154b07915676e02",
+      "localBytes": 4340968,
+      "localSha256": "0ec253f1318fa11a56fed4d7665ac8e97591af8c39e7b64a7bbd30ce19d17bdb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛本行集經",
+        "alternateTitle": "佛本行集經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 190",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "60卷。本站完整保存 T0190 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0190_001"
+      },
+      "verification": {
+        "segments": 23881,
+        "folios": 878,
+        "juanRange": [
+          1,
+          60
+        ],
+        "anchors": [
+          "T0190.001.0655a03",
+          "T0190.060.0932a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0191",
+      "slug": "taisho-t0191",
+      "workId": "gbcr:work:taisho-t0191",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T03n0191.xml",
+      "upstreamPath": "T/T03/T03n0191.xml",
+      "upstreamGitBlobSha1": "5b15d4eedd9ce7fbf8c6beb661e21415ff62b9f3",
+      "upstreamBytes": 479241,
+      "upstreamSha256": "18fdaa46ebe8871e1b35607ce177f65faab82917cb65a6c95d89f61f4c754338",
+      "localBytes": 479242,
+      "localSha256": "364f351ad5cb3e9e3402299621da4f00497d8efefb1372cc62ee402193ff108d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "眾許摩訶帝經",
+        "alternateTitle": "眾許摩訶帝經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T03, no. 191",
+        "translator": "宋 · 法賢譯",
+        "summary": "13卷。本站完整保存 T0191 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0191_001"
+      },
+      "verification": {
+        "segments": 3748,
+        "folios": 140,
+        "juanRange": [
+          1,
+          13
+        ],
+        "anchors": [
+          "T0191.001.0932a24",
+          "T0191.013.0975c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0192",
+      "slug": "taisho-t0192",
+      "workId": "gbcr:work:taisho-t0192",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0192.xml",
+      "upstreamPath": "T/T04/T04n0192.xml",
+      "upstreamGitBlobSha1": "52d90d4677163c3410748eea4ee9baacbadcbb66",
+      "upstreamBytes": 1094310,
+      "upstreamSha256": "5f44e5b2b405ed5a5a836b458c05126850e394b794b670904cf9025fa5b8734f",
+      "localBytes": 1094311,
+      "localSha256": "0c24968f719ec512bc75808830e91a44d4045aefd01883fb390af0ae27320903",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛所行讚",
+        "alternateTitle": "佛所行讚",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 192",
+        "translator": "馬鳴菩薩造 · 北涼 · 曇無讖譯",
+        "summary": "5卷。本站完整保存 T0192 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0192_001"
+      },
+      "verification": {
+        "segments": 4663,
+        "folios": 166,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0192.001.0001a02",
+          "T0192.005.0054c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0193",
+      "slug": "taisho-t0193",
+      "workId": "gbcr:work:taisho-t0193",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0193.xml",
+      "upstreamPath": "T/T04/T04n0193.xml",
+      "upstreamGitBlobSha1": "8419737989cdf102015fe8b8c04068252e4f8c2d",
+      "upstreamBytes": 1269294,
+      "upstreamSha256": "b82872cc4e9788fbc1cb427eb83ef415418a48a3c8c7770e4290a50ce1a05b6d",
+      "localBytes": 1269295,
+      "localSha256": "947dc0dc46afd8612cd7c437d9d3512d9bf49ff1c19725929f08af70954e5281",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛本行經",
+        "alternateTitle": "佛本行經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 193",
+        "translator": "宋 · 釋寶雲譯",
+        "summary": "7卷。本站完整保存 T0193 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0193_001"
+      },
+      "verification": {
+        "segments": 5259,
+        "folios": 189,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0193.001.0054c11",
+          "T0193.007.0115b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0194",
+      "slug": "taisho-t0194",
+      "workId": "gbcr:work:taisho-t0194",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0194.xml",
+      "upstreamPath": "T/T04/T04n0194.xml",
+      "upstreamGitBlobSha1": "6be376f45bc7eecbcdc819a41de7c2d2b1f72adf",
+      "upstreamBytes": 508762,
+      "upstreamSha256": "e56f32f16c2dfe1ad68ec6d936832b59c7b25431be756312d7e52240abcd376c",
+      "localBytes": 508763,
+      "localSha256": "28f29f6f0ab6c2db273c711dd0b12138ef700a4adc6fa7c776f2096b3eb49ddf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "僧伽羅剎所集經",
+        "alternateTitle": "僧伽羅剎所集經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 194",
+        "translator": "符秦 · 僧伽跋澄等譯",
+        "summary": "3卷。本站完整保存 T0194 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0194_001"
+      },
+      "verification": {
+        "segments": 2608,
+        "folios": 93,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0194.001.0115b14",
+          "T0194.003.0145b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0195",
+      "slug": "taisho-t0195",
+      "workId": "gbcr:work:taisho-t0195",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0195.xml",
+      "upstreamPath": "T/T04/T04n0195.xml",
+      "upstreamGitBlobSha1": "399bab6dc7c576ef4c42d8c3f29d85acaf403008",
+      "upstreamBytes": 36223,
+      "upstreamSha256": "231687bad8555d1098e031beed9bd0881d25fa78cf8a1a8e0354e5a90fcc41bb",
+      "localBytes": 36224,
+      "localSha256": "4a1457c81560c4778412e352327fdc9328e52e87559f3fc9207a3a931752b605",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說十二遊經",
+        "alternateTitle": "佛說十二遊經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 195",
+        "translator": "東晉 · 迦留陀伽譯",
+        "summary": "1卷。本站完整保存 T0195 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0195_001"
+      },
+      "verification": {
+        "segments": 142,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0195.001.0146a02",
+          "T0195.001.0147b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0196",
+      "slug": "taisho-t0196",
+      "workId": "gbcr:work:taisho-t0196",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0196.xml",
+      "upstreamPath": "T/T04/T04n0196.xml",
+      "upstreamGitBlobSha1": "9350f8c2bf5f6550ff4dba43266a576e99777cea",
+      "upstreamBytes": 566253,
+      "upstreamSha256": "41143cd5cc47c3f7f61c9892dcb0abbcc53301430c880a6a07aa90c0996c0500",
+      "localBytes": 566254,
+      "localSha256": "3165ffd4b607b1c04734a1c1d3536bcb51588a002d1e2d52f1fd7c5374833e76",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中本起經",
+        "alternateTitle": "中本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 196",
+        "translator": "後漢 · 曇果共康孟詳譯",
+        "summary": "2卷。本站完整保存 T0196 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0196_001"
+      },
+      "verification": {
+        "segments": 1382,
+        "folios": 49,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0196.001.0147c01",
+          "T0196.002.0163c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0197",
+      "slug": "taisho-t0197",
+      "workId": "gbcr:work:taisho-t0197",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0197.xml",
+      "upstreamPath": "T/T04/T04n0197.xml",
+      "upstreamGitBlobSha1": "e3653581119d2c460a5cbf7daedb4dcc5af5b999",
+      "upstreamBytes": 207927,
+      "upstreamSha256": "d46f351bb94438dbcca52e75657ab41689e7ee99bb22b8c661c6a2f19fc771a0",
+      "localBytes": 207928,
+      "localSha256": "028901780ea743ddd6096b0bf0196b6c8a0a0206a18867115401d9d3de814135",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說興起行經",
+        "alternateTitle": "佛說興起行經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 197",
+        "translator": "後漢 · 康孟詳譯",
+        "summary": "2卷。本站完整保存 T0197 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0197_001"
+      },
+      "verification": {
+        "segments": 915,
+        "folios": 34,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0197.001.0163c10",
+          "T0197.002.0174b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0198",
+      "slug": "taisho-t0198",
+      "workId": "gbcr:work:taisho-t0198",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "chapter_level_parallel_verified",
+          "groupId": "atthakavagga-parallel",
+          "label": "《义足经》与《经集·八颂品》平行组",
+          "evidence": "CBETA 校勘注逐章标识 Sn. Aṭṭhaka-vagga 及对应偈号；这是章节级平行关系，不把两个传承的文本直接合并为同一表达。",
+          "externalIds": {
+            "suttacentral": [
+              "snp4"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T04n0198.xml",
+      "upstreamPath": "T/T04/T04n0198.xml",
+      "upstreamGitBlobSha1": "22a90a637f1c0b6c0eeb8935d9d5b264487fa295",
+      "upstreamBytes": 316497,
+      "upstreamSha256": "ecf7f2aae58b99321b034cf7e89b0eec0ec2a90ae5c13c9caaaa2fba61a579b3",
+      "localBytes": 316498,
+      "localSha256": "e6f6809910564dfca567873f87298605ebf693d246ad2160cdf79f5e3298e97e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說義足經",
+        "alternateTitle": "佛說義足經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 198",
+        "translator": "吳 · 支謙譯",
+        "summary": "2卷。本站完整保存 T0198 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0198_001"
+      },
+      "verification": {
+        "segments": 1348,
+        "folios": 48,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0198.001.0174b07",
+          "T0198.002.0189c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0199",
+      "slug": "taisho-t0199",
+      "workId": "gbcr:work:taisho-t0199",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0199.xml",
+      "upstreamPath": "T/T04/T04n0199.xml",
+      "upstreamGitBlobSha1": "d1061339b68afd8cf82e92c47b2a47aa07d64886",
+      "upstreamBytes": 231408,
+      "upstreamSha256": "ace594ed0fecd69a26462dea292a172f0fbebdaa19a3c02810b6dbc1da83e6dc",
+      "localBytes": 231409,
+      "localSha256": "e611f56497e74982c612f0f98e52dc84dd8813cfd7da134450e099e947ccb16c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛五百弟子自說本起經",
+        "alternateTitle": "佛五百弟子自說本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 199",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0199 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0199_001"
+      },
+      "verification": {
+        "segments": 1057,
+        "folios": 37,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0199.001.0190a02",
+          "T0199.001.0202a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0200",
+      "slug": "taisho-t0200",
+      "workId": "gbcr:work:taisho-t0200",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "sanskrit_parallel_candidate",
+          "groupId": "avadanasataka-parallel",
+          "label": "《撰集百缘经》与 Avadānaśataka 平行组",
+          "evidence": "CBETA 校勘注引用 Avadānaśataka 梵本；需完成故事级对齐后才能决定作品边界。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T04n0200.xml",
+      "upstreamPath": "T/T04/T04n0200.xml",
+      "upstreamGitBlobSha1": "37af8383d7f1f9160e3826970fc2c39b25f75e76",
+      "upstreamBytes": 2172438,
+      "upstreamSha256": "2bb73a6b03f43ff8d3ddb23fc2eaf827f8e2114d35b42780c002a4ba55803639",
+      "localBytes": 2172439,
+      "localSha256": "18878624eb8c6a5d3e3649afe3a2038c5d8d2420fbe4021116fc7d4f704bdeda",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "撰集百緣經",
+        "alternateTitle": "撰集百緣經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 200",
+        "translator": "吳 · 支謙譯",
+        "summary": "10卷。本站完整保存 T0200 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0200_001"
+      },
+      "verification": {
+        "segments": 4387,
+        "folios": 169,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0200.001.0203a02",
+          "T0200.010.0257a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0201",
+      "slug": "taisho-t0201",
+      "workId": "gbcr:work:taisho-t0201",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0201.xml",
+      "upstreamPath": "T/T04/T04n0201.xml",
+      "upstreamGitBlobSha1": "60f9d977fa75098f20025d8fce81da0f262c3909",
+      "upstreamBytes": 1323299,
+      "upstreamSha256": "0f838d2cf176cb1fd6b03ef164f0961b8e667ac1c787cb6a9f11ce5813f42bbd",
+      "localBytes": 1323300,
+      "localSha256": "0f635fa6a0bfb317d4d2a6187b687e95954311b0ce95e65b0d2b757a53724150",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大莊嚴論經",
+        "alternateTitle": "大莊嚴論經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 201",
+        "translator": "馬鳴菩薩造 · 後秦 · 鳩摩羅什譯",
+        "summary": "15卷。本站完整保存 T0201 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0201_001"
+      },
+      "verification": {
+        "segments": 7897,
+        "folios": 283,
+        "juanRange": [
+          1,
+          15
+        ],
+        "anchors": [
+          "T0201.001.0257a05",
+          "T0201.015.0348b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0202",
+      "slug": "taisho-t0202",
+      "workId": "gbcr:work:taisho-t0202",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0202.xml",
+      "upstreamPath": "T/T04/T04n0202.xml",
+      "upstreamGitBlobSha1": "4f6c40d8ace0fa9b417b9edbebac8b3d007dbc36",
+      "upstreamBytes": 2013445,
+      "upstreamSha256": "8afc8bbe1a4f464813571d83349efa73dab290930925f37cf44c2c793d8394fa",
+      "localBytes": 2013446,
+      "localSha256": "f284261f4606632cc8d34328f4df7700106048465744c7555dc97ae1b19b1e24",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "賢愚經",
+        "alternateTitle": "賢愚經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 202",
+        "translator": "元魏 · 慧覺等譯",
+        "summary": "13卷。本站完整保存 T0202 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0202_001"
+      },
+      "verification": {
+        "segments": 8301,
+        "folios": 298,
+        "juanRange": [
+          1,
+          13
+        ],
+        "anchors": [
+          "T0202.001.0349a02",
+          "T0202.013.0445a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0203",
+      "slug": "taisho-t0203",
+      "workId": "gbcr:work:taisho-t0203",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0203.xml",
+      "upstreamPath": "T/T04/T04n0203.xml",
+      "upstreamGitBlobSha1": "3f974fb1316fae7ba6d2838612d6656a3a24910c",
+      "upstreamBytes": 1131969,
+      "upstreamSha256": "738fc002cc1cccaaea40c762d8a0d5aed7d31e9e887e9dbd172e571ccaf40357",
+      "localBytes": 1131970,
+      "localSha256": "749bb07b10bf9c50b90fc17c4a29837f700f0513c851995b41472ab5b6d89e3d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜寶藏經",
+        "alternateTitle": "雜寶藏經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 203",
+        "translator": "元魏 · 吉迦夜共曇曜譯",
+        "summary": "10卷。本站完整保存 T0203 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0203_001"
+      },
+      "verification": {
+        "segments": 4512,
+        "folios": 163,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0203.001.0447a03",
+          "T0203.010.0499a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0204",
+      "slug": "taisho-t0204",
+      "workId": "gbcr:work:taisho-t0204",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0204.xml",
+      "upstreamPath": "T/T04/T04n0204.xml",
+      "upstreamGitBlobSha1": "a1a6cf9d62cce73d58509635a114aa9e5d89f579",
+      "upstreamBytes": 67961,
+      "upstreamSha256": "0901ec8cd733c142585ebb3105398cdf1b39c41a0075907d379905cce2ff39a7",
+      "localBytes": 67962,
+      "localSha256": "96c5f82999cfff4a7cee121eda9adae7e30db5c4df29a0df976987d23ea72294",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜譬喻經",
+        "alternateTitle": "雜譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 204",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "1卷。本站完整保存 T0204 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0204_001"
+      },
+      "verification": {
+        "segments": 252,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0204.001.0499b02",
+          "T0204.001.0502a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0205",
+      "slug": "taisho-t0205",
+      "workId": "gbcr:work:taisho-t0205",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0205.xml",
+      "upstreamPath": "T/T04/T04n0205.xml",
+      "upstreamGitBlobSha1": "09a80ba9a9b62a91a4837188a5d54530577fc996",
+      "upstreamBytes": 215020,
+      "upstreamSha256": "348ba3382422b31abf3dfe39c75e5aa973e96417d272ff8ff6e4dcd668e6b339",
+      "localBytes": 215021,
+      "localSha256": "429fd3b8015c061aa1b7e531cd15bb0b2a8ef5927e4ff98d046fea22211d3e72",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜譬喻經",
+        "alternateTitle": "雜譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 205",
+        "translator": "失譯",
+        "summary": "2卷。本站完整保存 T0205 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0205_001"
+      },
+      "verification": {
+        "segments": 700,
+        "folios": 27,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0205.001.0502a24",
+          "T0205.002.0510b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0206",
+      "slug": "taisho-t0206",
+      "workId": "gbcr:work:taisho-t0206",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0206.xml",
+      "upstreamPath": "T/T04/T04n0206.xml",
+      "upstreamGitBlobSha1": "213a570ddd9880fbfcfe69b3d944c79e48499e12",
+      "upstreamBytes": 271323,
+      "upstreamSha256": "5c9321b45049989713bea6cb4d8b8726ee7729e28df8ba0fbaed01464448c815",
+      "localBytes": 271324,
+      "localSha256": "5df02439ab50ed5c4e2ab62a06baa142ed3c8ec6062ebd0778bd7ed3e098e298",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "舊雜譬喻經",
+        "alternateTitle": "舊雜譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 206",
+        "translator": "吳 · 康僧會譯",
+        "summary": "2卷。本站完整保存 T0206 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0206_001"
+      },
+      "verification": {
+        "segments": 1047,
+        "folios": 37,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0206.001.0510b04",
+          "T0206.002.0522b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0207",
+      "slug": "taisho-t0207",
+      "workId": "gbcr:work:taisho-t0207",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0207.xml",
+      "upstreamPath": "T/T04/T04n0207.xml",
+      "upstreamGitBlobSha1": "45d4c71066aca35e7e4c9c166be821c64f0d9ec3",
+      "upstreamBytes": 86846,
+      "upstreamSha256": "522382ff23af7d127b12829ad02e394a3b40869078ecb8e2c997ef4e3b13ef3c",
+      "localBytes": 86847,
+      "localSha256": "afc427a89fc46e4f92514d8a505ddce43d50473b32a22e838d77b216a943694d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜譬喻經",
+        "alternateTitle": "雜譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 207",
+        "translator": "道略集",
+        "summary": "1卷。本站完整保存 T0207 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0207_001"
+      },
+      "verification": {
+        "segments": 771,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0207.001.0522b15",
+          "T0207.001.0531b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0208",
+      "slug": "taisho-t0208",
+      "workId": "gbcr:work:taisho-t0208",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0208.xml",
+      "upstreamPath": "T/T04/T04n0208.xml",
+      "upstreamGitBlobSha1": "20cd41ab2fa2c4620cc156e78b0536d00f9a66f1",
+      "upstreamBytes": 127235,
+      "upstreamSha256": "dd78a6602a72cd5f82965a2a46329794146319cfdb22b519751339f4dcc42eae",
+      "localBytes": 127236,
+      "localSha256": "765258933e15387c263f72ea93e80cafe89d6c2ebcd22a0bea6f7b6758cd0a5e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "眾經撰雜譬喻",
+        "alternateTitle": "眾經撰雜譬喻",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 208",
+        "translator": "道略集 · 姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0208 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0208_001"
+      },
+      "verification": {
+        "segments": 1006,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0208.001.0531b05",
+          "T0208.002.0542c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0209",
+      "slug": "taisho-t0209",
+      "workId": "gbcr:work:taisho-t0209",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T04n0209.xml",
+      "upstreamPath": "T/T04/T04n0209.xml",
+      "upstreamGitBlobSha1": "040a38ce908c1a33e3c47fe76b77ce8ce0bf2635",
+      "upstreamBytes": 303875,
+      "upstreamSha256": "309aea42fc09e60806c4ed8a021edebd0a18023a398ac597a71c52b497463f37",
+      "localBytes": 303876,
+      "localSha256": "b04faa9308d9edea5289c6f40844dd57788185a78fb3b4ed07ffabfdc6b8bdf1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "百喻經",
+        "alternateTitle": "百喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 209",
+        "translator": "僧伽斯那撰 · 蕭齊 · 求那毘地譯",
+        "summary": "4卷。本站完整保存 T0209 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0209_001"
+      },
+      "verification": {
+        "segments": 1289,
+        "folios": 48,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0209.001.0543a03",
+          "T0209.004.0557c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0211",
+      "slug": "taisho-t0211",
+      "workId": "gbcr:work:taisho-t0211",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_candidate",
+          "groupId": "dharmapada-udanavarga-family",
+          "label": "法句—譬喻—出曜—法集要颂文本家族",
+          "evidence": "这些文本共享法句/出曜偈颂传统，但包含偈颂、譬喻与注释等不同层次；只建立文本家族，不合并为单一作品。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T04n0211.xml",
+      "upstreamPath": "T/T04/T04n0211.xml",
+      "upstreamGitBlobSha1": "1d1f62c4e10d341f685c21aca893fb517eb16365",
+      "upstreamBytes": 1295384,
+      "upstreamSha256": "7b5cc693bcf7577517762165bc27184486aa624825291853ee3ad67b8daafb97",
+      "localBytes": 1295385,
+      "localSha256": "7730184e5781f12cc7e351846b85a891ffc6a17d71b17534e78a08534aaa770c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法句譬喻經",
+        "alternateTitle": "法句譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 211",
+        "translator": "晉世 · 法炬共法立譯",
+        "summary": "4卷。本站完整保存 T0211 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0211_001"
+      },
+      "verification": {
+        "segments": 2886,
+        "folios": 106,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0211.001.0575b14",
+          "T0211.004.0609b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0212",
+      "slug": "taisho-t0212",
+      "workId": "gbcr:work:taisho-t0212",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_candidate",
+          "groupId": "dharmapada-udanavarga-family",
+          "label": "法句—譬喻—出曜—法集要颂文本家族",
+          "evidence": "这些文本共享法句/出曜偈颂传统，但包含偈颂、譬喻与注释等不同层次；只建立文本家族，不合并为单一作品。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T04n0212.xml",
+      "upstreamPath": "T/T04/T04n0212.xml",
+      "upstreamGitBlobSha1": "f0174bb53a433d13000c66d5b0e146f8ad4484c6",
+      "upstreamBytes": 2850853,
+      "upstreamSha256": "f22bdda9d712b204da00f0e18753c9b53e16c20c9fb5dfdc3c6a391f98a7c705",
+      "localBytes": 2850854,
+      "localSha256": "04a7a6519a3e118e6bad429fd1f705e7b3d501a7ca0722d46c3ea433b566cb1a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "出曜經",
+        "alternateTitle": "出曜經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 212",
+        "translator": "姚秦 · 竺佛念譯",
+        "summary": "30卷。本站完整保存 T0212 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0212_001"
+      },
+      "verification": {
+        "segments": 14382,
+        "folios": 522,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T0212.001.0609b24",
+          "T0212.030.0776a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0213",
+      "slug": "taisho-t0213",
+      "workId": "gbcr:work:taisho-t0213",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_candidate",
+          "groupId": "dharmapada-udanavarga-family",
+          "label": "法句—譬喻—出曜—法集要颂文本家族",
+          "evidence": "这些文本共享法句/出曜偈颂传统，但包含偈颂、譬喻与注释等不同层次；只建立文本家族，不合并为单一作品。"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T04n0213.xml",
+      "upstreamPath": "T/T04/T04n0213.xml",
+      "upstreamGitBlobSha1": "f5777d222dc08eadb17a5ec043547209c7d8a689",
+      "upstreamBytes": 230233,
+      "upstreamSha256": "d1d066cdb9ed64cb897f21c023c9d679cfc0dffa95aebc028755fe5708ce45dd",
+      "localBytes": 230234,
+      "localSha256": "106fcfad061e78cbbad7073c88e10b71ef6ee09ab045a7c4fcee85564509e074",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法集要頌經",
+        "alternateTitle": "法集要頌經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 213",
+        "translator": "法救集 · 宋 · 天息災譯",
+        "summary": "4卷。本站完整保存 T0213 的固定 CBETA TEI 文本与可校验页栏行锚点；题记显示为造、撰、集或论类文本，不标作佛陀亲说；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0213_001"
+      },
+      "verification": {
+        "segments": 1970,
+        "folios": 72,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0213.001.0777a01",
+          "T0213.004.0799c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0214",
+      "slug": "taisho-t0214",
+      "workId": "gbcr:work:taisho-t0214",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0214.xml",
+      "upstreamPath": "T/T04/T04n0214.xml",
+      "upstreamGitBlobSha1": "99d9d07743a94fe6c493f8652ac591d878dd71d9",
+      "upstreamBytes": 13462,
+      "upstreamSha256": "4f833cc091d27ed2e8c5cf25dcf648ad83bb9e5e69656b18a1f3d57e7b64c478",
+      "localBytes": 13463,
+      "localSha256": "d9605c028b54dc3941e677ca395235f8eddf321965a7692091d5626299597a0b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "猘狗經",
+        "alternateTitle": "猘狗經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 214",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0214 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0214_001"
+      },
+      "verification": {
+        "segments": 48,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0214.001.0799c08",
+          "T0214.001.0800a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0215",
+      "slug": "taisho-t0215",
+      "workId": "gbcr:work:taisho-t0215",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0215.xml",
+      "upstreamPath": "T/T04/T04n0215.xml",
+      "upstreamGitBlobSha1": "4b638484da8f6248f8b9db1deb8fa6eceb959bf1",
+      "upstreamBytes": 10909,
+      "upstreamSha256": "a42bea234b5a692ec951067e927fbd05772d4a24adb8c23cbaca0c8307230743",
+      "localBytes": 10910,
+      "localSha256": "022a436df319f65b7803d6dad7a60c44ec6d6168ba3c1e3baeb708736cf1daf1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "群牛譬經",
+        "alternateTitle": "群牛譬經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 215",
+        "translator": "西晉 · 法炬譯",
+        "summary": "1卷。本站完整保存 T0215 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0215_001"
+      },
+      "verification": {
+        "segments": 41,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0215.001.0800b02",
+          "T0215.001.0800c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0216",
+      "slug": "taisho-t0216",
+      "workId": "gbcr:work:taisho-t0216",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0216.xml",
+      "upstreamPath": "T/T04/T04n0216.xml",
+      "upstreamGitBlobSha1": "a526a88a9b67a240384c596adba25adb0ba6e22f",
+      "upstreamBytes": 12189,
+      "upstreamSha256": "20b93e0716daa4789bebcf818c0e2c8ca905364fc7e49e710e8a72e863a58f2c",
+      "localBytes": 12190,
+      "localSha256": "e19d7676b74f9345b9978326627dc74aa45185b0d93d5c139cb2ed55b6f5fc7c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大魚事經",
+        "alternateTitle": "大魚事經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 216",
+        "translator": "東晉 · 竺曇無蘭譯",
+        "summary": "1卷。本站完整保存 T0216 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0216_001"
+      },
+      "verification": {
+        "segments": 42,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0216.001.0800c16",
+          "T0216.001.0801a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0217",
+      "slug": "taisho-t0217",
+      "workId": "gbcr:work:taisho-t0217",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0217.xml",
+      "upstreamPath": "T/T04/T04n0217.xml",
+      "upstreamGitBlobSha1": "3479ac9f877a2d5e607f6cb194b822f97f374566",
+      "upstreamBytes": 11587,
+      "upstreamSha256": "ebc006b526c2bfb1053a7b791015f86c7523e60b56e49e1d57bb27543e60cf2b",
+      "localBytes": 11588,
+      "localSha256": "82641d09dbdbda9066901f53ed1e88c9e15d4d2b48ec9f366f56f4cea12fcf08",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "譬喻經",
+        "alternateTitle": "譬喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 217",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0217 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0217_001"
+      },
+      "verification": {
+        "segments": 38,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0217.001.0801b02",
+          "T0217.001.0801c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0218",
+      "slug": "taisho-t0218",
+      "workId": "gbcr:work:taisho-t0218",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0218.xml",
+      "upstreamPath": "T/T04/T04n0218.xml",
+      "upstreamGitBlobSha1": "1ab9aa756c8093bfe072d26e688467a0f92a5043",
+      "upstreamBytes": 7766,
+      "upstreamSha256": "6194cc1da9eb133f01584dc968b412a403ac35a4d2c29a6c3f943e3e40143d26",
+      "localBytes": 7767,
+      "localSha256": "de7efd2993ce1fccea537185ba167dbcb2185e425caa0839a307babadf9c80b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "灌頂王喻經",
+        "alternateTitle": "灌頂王喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 218",
+        "translator": "宋 · 施護等譯",
+        "summary": "1卷。本站完整保存 T0218 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0218_001"
+      },
+      "verification": {
+        "segments": 29,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0218.001.0801c13",
+          "T0218.001.0802a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0219",
+      "slug": "taisho-t0219",
+      "workId": "gbcr:work:taisho-t0219",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T04n0219.xml",
+      "upstreamPath": "T/T04/T04n0219.xml",
+      "upstreamGitBlobSha1": "39aa25d261fa5d804cc08c849b33d04e0b494d7c",
+      "upstreamBytes": 8420,
+      "upstreamSha256": "72fac617c059ff87272870a11149a1c85ff266b709ac28cee86dd054b282a2fa",
+      "localBytes": 8421,
+      "localSha256": "51816eef3d49474e3b563bbafc9fb0c786c7ff60d936a180e3f11acd01e7f031",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "醫喻經",
+        "alternateTitle": "醫喻經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 219",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0219 的固定 CBETA TEI 文本与可校验页栏行锚点；传承归属与作品同一性仍待跨目录校勘；一个经号记录不自动等同于全球去重作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0219_001"
+      },
+      "verification": {
+        "segments": 35,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0219.001.0802a15",
+          "T0219.001.0802b21"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

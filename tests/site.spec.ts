@@ -9,6 +9,8 @@ const criticalRoutes = [
   "/jingzang/fajujing/001-0559a",
   "/jingzang/taisho-t0002",
   "/jingzang/taisho-t0002/001-0150a",
+  "/jingzang/taisho-t0152",
+  "/jingzang/taisho-t0152/001-0001a",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -81,24 +83,29 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 445,
-    registeredExpressions: 449,
-    fullSourceTextWorks: 445,
-    fullSourceTextExpressions: 449,
-    stableSegments: 940285,
-    structureVerifiedWorks: 445,
+    registeredWorks: 516,
+    registeredExpressions: 520,
+    fullSourceTextWorks: 516,
+    fullSourceTextExpressions: 520,
+    stableSegments: 1090668,
+    structureVerifiedWorks: 516,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 189,
-    percentage: 21.45,
+    controlled: 260,
+    percentage: 29.51,
     sourceBytes: 247280257,
-    controlledBytes: 98158343,
-    bytePercentage: 39.7,
+    controlledBytes: 131310546,
+    bytePercentage: 53.1,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
     controlled: 155,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseBenyuanSourceRecords).toMatchObject({
+    denominator: 72,
+    controlled: 72,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -249,6 +256,34 @@ test("汉译阿含部 T01–T02 固定来源记录完整并保留页栏行锚点
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/taisho-t0002/001-0150a");
   expect(sitemap).toContain("/jingzang/taisho-t0151/001-0884b");
+});
+
+test("汉译本缘部 T03–T04 固定来源完整并公开关系边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0152#T0152.001.0001a07");
+  await page.waitForURL(/\/jingzang\/taisho-t0152\/001-0001a#T0152\.001\.0001a07$/);
+  await expect(page.locator('[id="T0152.001.0001a07"]')).toContainText("聞如是");
+  await expect(page.getByText(/全经 4441 稳定行段/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0198#T0198.001.0174b12");
+  await page.waitForURL(/\/jingzang\/taisho-t0198\/001-0174b#T0198\.001\.0174b12$/);
+  await expect(page.locator('[id="T0198.001.0174b12"]')).toContainText("聞如是");
+  await expect(page.getByText(/全经 1348 稳定行段/)).toBeVisible();
+  await expect(page.getByText("书目关系边界：")).toBeVisible();
+  await expect(page.getByText(/Sn\. Aṭṭhaka-vagga/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0213/001-0777a");
+  await expect(page.getByText("归属边界：")).toBeVisible();
+  await expect(page.getByText(/不将其标作佛陀亲说/)).toBeVisible();
+
+  const directory = await request.get("/jingzang/taisho-t0152");
+  const finalFolio = await request.get("/jingzang/taisho-t0213/004-0799c");
+  expect(directory.ok()).toBeTruthy();
+  expect(finalFolio.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(400_000);
+  expect((await finalFolio.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0152/001-0001a");
+  expect(sitemap).toContain("/jingzang/taisho-t0213/004-0799c");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

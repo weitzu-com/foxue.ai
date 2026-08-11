@@ -16,6 +16,7 @@
     "verify:cbeta-catalog": "node scripts/build-cbeta-catalog.mjs --verify",
     "import:cbeta": "node scripts/import-cbeta-source.mjs",
     "audit:cbeta:agama": "node scripts/audit-cbeta-agama.mjs",
+    "audit:cbeta:benyuan": "node scripts/audit-cbeta-benyuan.mjs",
     "build:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs",
     "verify:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs --verify",
     "import:suttacentral": "node scripts/import-suttacentral-source.mjs",

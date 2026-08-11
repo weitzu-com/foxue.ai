@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.3.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.4.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -28,6 +28,8 @@ export type Sutra = {
   sourceName: string;
   sourceUrl: string;
   sourceLicense: string;
+  bibliographicNote?: string;
+  attributionNote?: string;
   status: "完整原文 · 行段试行" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
@@ -150,6 +152,16 @@ const curatedSutras: Sutra[] = [
 
 const curatedBySlug = new Map(curatedSutras.map((sutra) => [sutra.slug, sutra]));
 
+const cbetaRelations = (file: (typeof catalog.files)[number]) =>
+  "bibliographicRelations" in file && Array.isArray(file.bibliographicRelations)
+    ? file.bibliographicRelations
+    : [];
+
+const cbetaAttributionNote = (file: (typeof catalog.files)[number]) =>
+  "sourceRole" in file && file.sourceRole === "attributed_authored_or_compiled_text"
+    ? "来源题记显示为造、撰、集或论类文本；平台保留传统目录位置，但不将其标作佛陀亲说。"
+    : undefined;
+
 export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(file.slug) ?? ({
   slug: file.slug,
   title: file.presentation.title,
@@ -162,6 +174,10 @@ export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(fil
   sourceName: "CBETA Online",
   sourceUrl: file.presentation.sourceUrl,
   sourceLicense: "CBETA 授權條款；古典原文",
+  bibliographicNote: cbetaRelations(file).length
+    ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
+    : undefined,
+  attributionNote: cbetaAttributionNote(file),
   status: "完整原文 · 行段试行" as const,
   segments: [],
 })).concat(suttacentralManifest.files.map((file) => ({
