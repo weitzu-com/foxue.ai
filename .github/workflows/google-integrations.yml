@@ -19,4 +19,6 @@ jobs:
         with:
           node-version: 22
       - name: Verify GA4, GSC, CSP and sitemap
+        env:
+          EXPECTED_GA4_MEASUREMENT_ID: G-3MWMWV1MQC
         run: node scripts/verify-google-integrations.mjs https://foxue.ai

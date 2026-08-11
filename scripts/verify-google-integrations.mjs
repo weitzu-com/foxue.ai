@@ -1,6 +1,7 @@
 import { resolveTxt } from "node:dns/promises";
 
 const baseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://foxue.ai");
+const expectedMeasurementId = process.env.EXPECTED_GA4_MEASUREMENT_ID;
 const failures = [];
 const successes = [];
 
@@ -20,6 +21,36 @@ async function get(pathname) {
   return { body, response };
 }
 
+async function getTxtRecords(hostname) {
+  try {
+    return (await resolveTxt(hostname)).map((parts) => parts.join(""));
+  } catch (systemDnsError) {
+    const endpoint = new URL("https://cloudflare-dns.com/dns-query");
+    endpoint.searchParams.set("name", hostname);
+    endpoint.searchParams.set("type", "TXT");
+
+    try {
+      const response = await fetch(endpoint, {
+        headers: { accept: "application/dns-json" },
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!response.ok) throw new Error(`DoH 返回 ${response.status}`);
+
+      const payload = await response.json();
+      const records = (payload.Answer ?? [])
+        .filter((answer) => answer.type === 16 && typeof answer.data === "string")
+        .map((answer) => answer.data.replace(/^"|"$/g, "").replace(/"\s+"/g, ""));
+      if (records.length === 0) throw new Error("DoH 未返回 TXT 记录");
+      return records;
+    } catch (dohError) {
+      throw new AggregateError(
+        [systemDnsError, dohError],
+        "系统 DNS 与备用 DNS 均无法读取 TXT",
+      );
+    }
+  }
+}
+
 const [home, robots, sitemap] = await Promise.all([
   get("/"),
   get("/robots.txt"),
@@ -30,9 +61,12 @@ const measurementMatch = home.body.match(
   /name=["']ga4-measurement-id["']\s+content=["'](G-[A-Z0-9]+)["']/i,
 );
 check(
-  Boolean(measurementMatch),
+  Boolean(measurementMatch) &&
+    (!expectedMeasurementId || measurementMatch?.[1] === expectedMeasurementId),
   `GA4 衡量 ID 已发布（${measurementMatch?.[1] ?? ""}）`,
-  "首页缺少有效的 GA4 衡量 ID 标记",
+  expectedMeasurementId
+    ? `GA4 衡量 ID 不匹配（期望 ${expectedMeasurementId}，实际 ${measurementMatch?.[1] ?? "缺失"}）`
+    : "首页缺少有效的 GA4 衡量 ID 标记",
 );
 
 const csp = home.response.headers.get("content-security-policy") ?? "";
@@ -56,7 +90,7 @@ check(
 );
 
 try {
-  const records = (await resolveTxt(baseUrl.hostname)).map((parts) => parts.join(""));
+  const records = await getTxtRecords(baseUrl.hostname);
   check(
     records.some((record) => record.startsWith("google-site-verification=")),
     "GSC 网域资源 DNS 验证记录存在",
