@@ -1,6 +1,7 @@
 import catalog from "../../data/corpus/cbeta/catalog-v0.6.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
+import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
 
 export type SutraSegment = {
   id: string;
@@ -176,6 +177,21 @@ export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(fil
   readerMode: "bilara-chapter" as const,
   segments: [],
 }))).concat(dighaNikayaManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "巴利原文属公有领域；请求保留 SuttaCentral 来源署名",
+  status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-sutta" as const,
+  segments: [],
+}))).concat(majjhimaNikayaManifest.files.map((file) => ({
   slug: file.slug,
   title: file.presentation.title,
   alternateTitle: file.presentation.alternateTitle,

@@ -17,7 +17,7 @@ const sources = [
   },
   {
     name: "SuttaCentral",
-    use: "巴利《法句经》与《长部》34 经原文、原生段落标识与跨传本关系",
+    use: "巴利《法句经》《长部》34 经与《中部》152 经原文、原生段落标识与跨传本关系",
     href: "https://suttacentral.net/",
     rights: "本批巴利原文属公有领域；保留来源署名，不用于模型训练",
   },

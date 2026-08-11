@@ -3,14 +3,16 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.8.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v0.9.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v0.8.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.9.0.sha256");
 const suttacentralBatchPath = resolve(root, "data/corpus/suttacentral/batch-v0.7.0.json");
 const suttacentralManifestPath = resolve(root, "data/corpus/suttacentral/manifest-v0.7.0.json");
 const dighaBatchPath = resolve(root, "data/corpus/suttacentral/dn-batch-v0.8.0.json");
 const dighaManifestPath = resolve(root, "data/corpus/suttacentral/dn-manifest-v0.8.0.json");
+const majjhimaBatchPath = resolve(root, "data/corpus/suttacentral/mn-batch-v0.9.0.json");
+const majjhimaManifestPath = resolve(root, "data/corpus/suttacentral/mn-manifest-v0.9.0.json");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -18,6 +20,8 @@ const suttacentralBatchRaw = await readFile(suttacentralBatchPath, "utf8");
 const suttacentralManifestRaw = await readFile(suttacentralManifestPath, "utf8");
 const dighaBatchRaw = await readFile(dighaBatchPath, "utf8");
 const dighaManifestRaw = await readFile(dighaManifestPath, "utf8");
+const majjhimaBatchRaw = await readFile(majjhimaBatchPath, "utf8");
+const majjhimaManifestRaw = await readFile(majjhimaManifestPath, "utf8");
 const registry = JSON.parse(raw);
 const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
 const inventory = JSON.parse(inventoryRaw);
@@ -25,6 +29,8 @@ const suttacentralBatch = JSON.parse(suttacentralBatchRaw);
 const suttacentralManifest = JSON.parse(suttacentralManifestRaw);
 const dighaBatch = JSON.parse(dighaBatchRaw);
 const dighaManifest = JSON.parse(dighaManifestRaw);
+const majjhimaBatch = JSON.parse(majjhimaBatchRaw);
+const majjhimaManifest = JSON.parse(majjhimaManifestRaw);
 const errors = [];
 
 const requireValue = (condition, message) => {
@@ -32,7 +38,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.8.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.9.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -110,16 +116,20 @@ requireValue(chineseFamily?.controlledExpressionBytes === 87649399, "汉译经�
 const suttacentralFamily = registry.sourceFamilies.find(
   (family) => family.id === "suttacentral_early_buddhist_texts",
 );
-requireValue(suttacentralFamily?.controlledWorks === 35, "巴利受控作品数不匹配");
-requireValue(suttacentralFamily?.controlledExpressions === 35, "巴利受控表达数不匹配");
-requireValue(suttacentralFamily?.controlledRootRecords === 60, "巴利受控 root 记录数不匹配");
-requireValue(suttacentralFamily?.controlledRootBytes === 1920173, "巴利受控 root 字节数不匹配");
+requireValue(suttacentralFamily?.controlledWorks === 187, "巴利受控作品数不匹配");
+requireValue(suttacentralFamily?.controlledExpressions === 187, "巴利受控表达数不匹配");
+requireValue(suttacentralFamily?.controlledRootRecords === 212, "巴利受控 root 记录数不匹配");
+requireValue(suttacentralFamily?.controlledRootBytes === 4992408, "巴利受控 root 字节数不匹配");
 requireValue(suttacentralManifest?.files?.[0]?.verification?.segments === 2234, "巴利原生段落数漂移");
 requireValue(suttacentralManifest?.files?.[0]?.sourceParts?.length === 26, "巴利来源资产数漂移");
 requireValue(suttacentralBatch?.source?.commit === "eac6c24781dd1eefdc17dc2f787b54bf6fe31719", "巴利来源提交漂移");
 requireValue(dighaBatch?.source?.commit === suttacentralBatch?.source?.commit, "《长部》来源提交漂移");
 requireValue(dighaManifest?.files?.length === 34, "《长部》必须包含 34 部完整原文");
 requireValue(dighaManifest?.collection?.stableSegments === 16401, "《长部》原生段落数漂移");
+requireValue(majjhimaBatch?.source?.commit === suttacentralBatch?.source?.commit, "《中部》来源提交漂移");
+requireValue(majjhimaManifest?.files?.length === 152, "《中部》必须包含 152 部完整原文");
+requireValue(majjhimaManifest?.collection?.sourceBytes === 3072235, "《中部》来源字节数漂移");
+requireValue(majjhimaManifest?.collection?.stableSegments === 27195, "《中部》原生段落数漂移");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -127,13 +137,15 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.8.0.json", raw],
+  ["registry-v0.9.0.json", raw],
   ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["batch-v0.7.0.json", suttacentralBatchRaw],
   ["manifest-v0.7.0.json", suttacentralManifestRaw],
   ["dn-batch-v0.8.0.json", dighaBatchRaw],
   ["dn-manifest-v0.8.0.json", dighaManifestRaw],
+  ["mn-batch-v0.9.0.json", majjhimaBatchRaw],
+  ["mn-manifest-v0.9.0.json", majjhimaManifestRaw],
 ];
 for (const [file, content] of controlledFiles) {
   const actualHash = createHash("sha256").update(content).digest("hex");
@@ -155,9 +167,9 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.works.length === 56, "v0.8 必须登记 56 部去重作品");
-requireValue(expressions.length === 60, "v0.8 必须登记 60 个完整文本表达");
-requireValue(segmentCount === 621667, "v0.8 稳定行段总数漂移");
+requireValue(registry.works.length === 208, "v0.9 必须登记 208 部去重作品");
+requireValue(expressions.length === 212, "v0.9 必须登记 212 个完整文本表达");
+requireValue(segmentCount === 648862, "v0.9 稳定行段总数漂移");
 requireValue(paliDhammapada?.expressions?.length === 1, "巴利《法句经》必须登记为一个文本表达");
 requireValue(paliDhammapada?.expressions?.[0]?.sourceTextAssets?.length === 26, "巴利《法句经》必须保留 26 个来源资产");
 requireValue(paliDhammapada?.expressions?.[0]?.stableSegments === 2234, "巴利《法句经》原生段落数漂移");
@@ -168,6 +180,9 @@ requireValue(registry.parallelRelations?.[0]?.segmentAlignment === "not_asserted
 const dighaWorks = registry.works.filter((work) => /^gbcr:work:digha-nikaya-dn\d+-pali$/.test(work.id));
 requireValue(dighaWorks.length === 34, "《长部》34 经的作品记录不完整");
 requireValue(dighaWorks.every((work) => work.expressions?.length === 1), "《长部》每经应有一个巴利文本表达");
+const majjhimaWorks = registry.works.filter((work) => /^gbcr:work:majjhima-nikaya-mn\d+-pali$/.test(work.id));
+requireValue(majjhimaWorks.length === 152, "《中部》152 经的作品记录不完整");
+requireValue(majjhimaWorks.every((work) => work.expressions?.length === 1), "《中部》每经应有一个巴利文本表达");
 requireValue(
   JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
   "《楞伽经》三个汉译文本未正确归并",

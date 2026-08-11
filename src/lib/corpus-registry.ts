@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v0.8.0.json";
+import registryDocument from "../../data/gbcr/registry-v0.9.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -147,7 +147,7 @@ export function buildCoverageSnapshot() {
         controlledBytes: paliControlledBytes,
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
-        caveat: "60 个物理 JSON 文件组成《法句经》与《长部》34 经；文件比例不是作品覆盖率。",
+        caveat: "212 个物理 JSON 文件组成《法句经》《长部》34 经与《中部》152 经；文件比例不是作品覆盖率。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

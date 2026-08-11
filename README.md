@@ -43,6 +43,7 @@ pnpm verify:corpus
 pnpm verify:cbeta-pilot
 pnpm verify:suttacentral-catalog
 pnpm verify:suttacentral-dn-catalog
+pnpm verify:suttacentral-mn-catalog
 ```
 
 从固定 CBETA 提交重建受控批次及登记册：
@@ -54,6 +55,8 @@ pnpm build:suttacentral-catalog
 pnpm import:suttacentral --all
 pnpm build:suttacentral-dn-catalog
 pnpm import:suttacentral:dn --all
+pnpm build:suttacentral-mn-catalog
+pnpm import:suttacentral:mn --all
 pnpm snapshot:upstream
 pnpm build:corpus-catalog
 pnpm verify:corpus-catalog
@@ -89,7 +92,7 @@ pnpm preserve
 
 经藏发布以内容寻址的版本目录为单一真相来源。`v1/latest.json` 只负责指向当前版本；版本清单、作品索引、原始 TEI 与逐版页 JSON 一经发布即不可变，并由 SHA-256 清单复核。Cloudflare Worker 仅允许白名单内的 `GET`、`HEAD` 与 `OPTIONS`，拒绝写入和路径穿越。
 
-生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 后读取边缘语料。变量未设置、R2 尚未启用或边缘读取失败时，服务端自动回退到仓库内已核验的 60 个完整文本表达，因此经典阅读不依赖单一供应商存活。《大般若经》按一个 600 卷文本表达登记，同时保留 15 个可独立校验的 CBETA 来源资产；巴利《法句经》与《长部》34 经共保留 60 个 Bilara 来源文件和 18,635 个原生稳定段落标识。物理文件数、文本表达和规范作品始终分层统计。
+生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 后读取边缘语料。变量未设置、R2 尚未启用或边缘读取失败时，服务端自动回退到仓库内已核验的 212 个完整文本表达，因此经典阅读不依赖单一供应商存活。《大般若经》按一个 600 卷文本表达登记，同时保留 15 个可独立校验的 CBETA 来源资产；巴利《法句经》《长部》34 经与《中部》152 经共保留 212 个 Bilara 来源文件和 45,830 个原生稳定段落标识。物理文件数、文本表达和规范作品始终分层统计。
 
 已授权的维护者在通过校验后可执行：
 
@@ -106,7 +109,7 @@ pnpm publish:corpus:r2
 - `docs/foxue.ai_建站方案_v1.0_20260811.md`
 - `data/gbcr/README.md` — 99% 覆盖统计纪律、版本与完整性规则
 - `data/corpus/cbeta/NOTICE.md` — 首批完整原文的来源、非商业限制与字节规范化
-- `data/corpus/suttacentral/NOTICE.md` — 巴利《法句经》与《长部》的固定来源、公共领域决定与原生段落标识
+- `data/corpus/suttacentral/NOTICE.md` — 巴利《法句经》《长部》与《中部》的固定来源、公共领域决定与原生段落标识
 - `docs/RECOVERY.md` — 灾难恢复、3-2-1 保存与百年交接演练
 - `docs/ANALYTICS.md` — 隐私优先的 GA4、Search Console 与事件口径
 

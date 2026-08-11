@@ -1,6 +1,6 @@
 const RANGE_FILE = /^dhp(\d+)-(\d+)_root-pli-ms\.json$/;
 const SEGMENT_ID = /^dhp(\d+):(\d+(?:\.\d+)?)$/;
-const SINGLE_SUTTA_FILE = /^(dn\d+)_root-pli-ms\.json$/;
+const SINGLE_SUTTA_FILE = /^((?:dn|mn)\d+)_root-pli-ms\.json$/;
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];

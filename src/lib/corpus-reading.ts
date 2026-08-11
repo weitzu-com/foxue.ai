@@ -5,6 +5,7 @@ import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v0.6.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
+import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import { parseBilaraDhammapadaSources, parseBilaraSuttaSource } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
@@ -24,6 +25,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
     ...(dighaNikayaManifest.files as CorpusManifestFile[]),
+    ...(majjhimaNikayaManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -249,7 +251,7 @@ const loadEdgeFolio = cache(async (
       typeof segment.id === "string" && (
         segment.id.startsWith(`${canonId}.`) ||
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
-        (/^DN\d+$/.test(canonId) && /^dn\d+:/.test(segment.id))
+        (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
       segment.juan === value.folio.juan &&

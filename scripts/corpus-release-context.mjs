@@ -8,6 +8,7 @@ export async function loadCorpusReleaseContext(root) {
     ["cbeta_xml_p5", "data/corpus/cbeta/manifest-v0.6.0.json"],
     ["suttacentral_bilara_dhammapada", "data/corpus/suttacentral/manifest-v0.7.0.json"],
     ["suttacentral_bilara_digha_nikaya", "data/corpus/suttacentral/dn-manifest-v0.8.0.json"],
+    ["suttacentral_bilara_majjhima_nikaya", "data/corpus/suttacentral/mn-manifest-v0.9.0.json"],
   ];
   const sourceManifests = await Promise.all(manifestInputs.map(async ([id, relativePath]) => {
     const bytes = await readFile(resolve(root, relativePath));
@@ -30,7 +31,7 @@ export async function loadCorpusReleaseContext(root) {
   const releaseFingerprint = fingerprint.digest("hex").slice(0, 12);
   const releaseId = [
     "gbcr",
-    "0.8.0",
+    "0.9.0",
     sourceManifests[0].manifest.source.commit.slice(0, 12),
     sourceManifests[1].manifest.source.commit.slice(0, 12),
     releaseFingerprint,
