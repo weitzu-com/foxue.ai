@@ -1,2 +1,5 @@
 # CBETA TEI 母版必须按原始字节保存，禁止 Git 自动转换换行符。
 data/corpus/cbeta/*.xml -text
+
+# Wrangler 运行时类型由上游生成器控制格式；保留其字节级输出。
+infra/corpus-edge/worker-configuration.d.ts whitespace=-blank-at-eol
