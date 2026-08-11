@@ -2,8 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const batchPath = resolve(root, "data/corpus/cbeta/batch-v0.3.0.json");
-const outputPath = resolve(root, "data/corpus/cbeta/catalog-v0.3.0.json");
+const batchPath = resolve(root, "data/corpus/cbeta/batch-v0.4.0.json");
+const outputPath = resolve(root, "data/corpus/cbeta/catalog-v0.4.0.json");
 const batch = JSON.parse(await readFile(batchPath, "utf8"));
 const base = JSON.parse(await readFile(resolve(root, batch.baseCatalog), "utf8"));
 const inventory = JSON.parse(await readFile(resolve(root, batch.inventory), "utf8"));
@@ -48,7 +48,7 @@ const catalog = {
 const serialized = `${JSON.stringify(catalog, null, 2)}\n`;
 if (process.argv.includes("--verify")) {
   if (await readFile(outputPath, "utf8") !== serialized) {
-    throw new Error("catalog-v0.3.0.json 与基础目录和批次定义不一致");
+    throw new Error("catalog-v0.4.0.json 与基础目录和批次定义不一致");
   }
   console.log(`CBETA 受控目录 v${batch.version} 可复现：${files.length} 个完整文本表达。`);
 } else {

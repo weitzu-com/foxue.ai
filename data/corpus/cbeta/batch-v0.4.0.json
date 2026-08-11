@@ -1,0 +1,135 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.1",
+  "version": "0.4.0",
+  "publishedAt": "2026-08-11",
+  "baseCatalog": "data/corpus/cbeta/catalog-v0.3.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1, 2, 4, 8, 9, 12, 14, 16, 17 and 19",
+  "workOverrides": {},
+  "files": [
+    {
+      "id": "T0001",
+      "slug": "changahanjing",
+      "workId": "gbcr:work:dirgha-agama-t0001",
+      "localPath": "data/corpus/cbeta/T01n0001.xml",
+      "upstreamPath": "T/T01/T01n0001.xml",
+      "upstreamGitBlobSha1": "77d4b7c4d55311af325f02116caaac603e331ecc",
+      "upstreamBytes": 3090079,
+      "upstreamSha256": "b56a7185d67dd0eb8fa21cf4d343114bd7abf306d200991c934dea41b48197af",
+      "localBytes": 3090080,
+      "localSha256": "c40fb7718064c46d7c290ac7d82efec706090eb8955dce86fcc6d45769fc3077",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長阿含經",
+        "alternateTitle": "長阿含",
+        "tradition": "漢傳佛教 · 阿含部",
+        "language": "漢文",
+        "canonRef": "大正藏 T01, no. 1",
+        "translator": "後秦 · 佛陀耶舍、竺佛念譯",
+        "summary": "二十二卷，匯集較長篇幅的早期佛教經說，涵蓋佛陀行跡、修行次第、社會倫理與宇宙觀；平台按本漢譯文本見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0001_001"
+      },
+      "verification": {
+        "segments": 12853,
+        "folios": 466,
+        "juans": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022"],
+        "anchors": ["T0001.001.0001a01", "T0001.022.0149c24"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0026",
+      "slug": "zhongahanjing",
+      "workId": "gbcr:work:madhyama-agama-t0026",
+      "localPath": "data/corpus/cbeta/T01n0026.xml",
+      "upstreamPath": "T/T01/T01n0026.xml",
+      "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+      "upstreamBytes": 6904134,
+      "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+      "localBytes": 6904135,
+      "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中阿含經",
+        "alternateTitle": "中阿含",
+        "tradition": "漢傳佛教 · 阿含部",
+        "language": "漢文",
+        "canonRef": "大正藏 T01, no. 26",
+        "translator": "東晉 · 瞿曇僧伽提婆譯",
+        "summary": "六十卷、二百二十二經，以中等篇幅經說系統呈現戒定慧、緣起、四諦與在家、出家修行。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0026_001"
+      },
+      "verification": {
+        "segments": 33424,
+        "folios": 1217,
+        "juans": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "030", "031", "032", "033", "034", "035", "036", "037", "038", "039", "040", "041", "042", "043", "044", "045", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059", "060"],
+        "anchors": ["T0026.001.0421a02", "T0026.060.0809c14"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0099",
+      "slug": "zaahanjing",
+      "workId": "gbcr:work:samyukta-agama-t0099",
+      "localPath": "data/corpus/cbeta/T02n0099.xml",
+      "upstreamPath": "T/T02/T02n0099.xml",
+      "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+      "upstreamBytes": 6347276,
+      "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+      "localBytes": 6347277,
+      "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜阿含經",
+        "alternateTitle": "雜阿含",
+        "tradition": "漢傳佛教 · 阿含部",
+        "language": "漢文",
+        "canonRef": "大正藏 T02, no. 99",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "五十卷，按蘊、處、緣起、道品等主題組織相應教說，是研究早期佛教教義與修行的重要漢譯阿含文本。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0099_001"
+      },
+      "verification": {
+        "segments": 32193,
+        "folios": 1155,
+        "juans": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "030", "031", "032", "033", "034", "035", "036", "037", "038", "039", "040", "041", "042", "043", "044", "045", "046", "047", "048", "049", "050"],
+        "anchors": ["T0099.001.0001a02", "T0099.050.0373b18"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0125",
+      "slug": "zengyiahanjing",
+      "workId": "gbcr:work:ekottarika-agama-t0125",
+      "localPath": "data/corpus/cbeta/T02n0125.xml",
+      "upstreamPath": "T/T02/T02n0125.xml",
+      "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+      "upstreamBytes": 7459818,
+      "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+      "localBytes": 7459819,
+      "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增壹阿含經",
+        "alternateTitle": "增一阿含經",
+        "tradition": "漢傳佛教 · 阿含部",
+        "language": "漢文",
+        "canonRef": "大正藏 T02, no. 125",
+        "translator": "東晉 · 瞿曇僧伽提婆譯",
+        "summary": "五十一卷，以數目遞增方式編排法義，涵蓋持戒、禪修、布施、因果與僧俗實踐。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0125_001"
+      },
+      "verification": {
+        "segments": 24172,
+        "folios": 876,
+        "juans": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "030", "031", "032", "033", "034", "035", "036", "037", "038", "039", "040", "041", "042", "043", "044", "045", "046", "047", "048", "049", "050", "051"],
+        "anchors": ["T0125.001.0549a01", "T0125.051.0830b26"],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

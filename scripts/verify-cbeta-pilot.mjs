@@ -5,13 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.3.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.4.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.3.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.4.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.3.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.4.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {
@@ -51,7 +51,11 @@ for (const file of manifest.files) {
   requireValue(text.includes(`xml:id="${expectedTeiId}"`), `${file.id} TEI 标识不匹配`);
   requireValue(text.includes("<teiHeader>"), `${file.id} 缺少 teiHeader`);
   requireValue(text.includes("Available for non-commercial use when distributed with this header intact."), `${file.id} 缺少非商业与保留头部声明`);
-  requireValue(text.includes("財團法人佛教電子佛典基金會 (CBETA)"), `${file.id} 缺少 CBETA 来源署名`);
+  const hasCbetaAttribution = [
+    "財團法人佛教電子佛典基金會 (CBETA)",
+    "中華電子佛典協會 （CBETA）",
+  ].some((attribution) => text.includes(attribution));
+  requireValue(hasCbetaAttribution, `${file.id} 缺少 CBETA 来源署名`);
   requireValue(text.includes("<text><body>"), `${file.id} 缺少完整正文结构`);
   requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${file.id} XML 末尾结构不完整`);
   if (expectedSnippets[file.id]) {

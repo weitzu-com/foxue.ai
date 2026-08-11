@@ -224,7 +224,7 @@ export default function Home() {
             <div className="corpus-status">
               <div>
                 <span>覆盖登记册</span>
-                <strong>v0.3 公开</strong>
+                <strong>v0.4 公开</strong>
               </div>
               <div>
                 <span>受控完整原文</span>

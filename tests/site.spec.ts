@@ -67,20 +67,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 12,
-    registeredExpressions: 14,
-    fullSourceTextWorks: 12,
-    fullSourceTextExpressions: 14,
-    stableSegments: 29905,
-    structureVerifiedWorks: 12,
+    registeredWorks: 16,
+    registeredExpressions: 18,
+    fullSourceTextWorks: 16,
+    fullSourceTextExpressions: 18,
+    stableSegments: 132547,
+    structureVerifiedWorks: 16,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 13,
-    percentage: 1.48,
+    controlled: 17,
+    percentage: 1.93,
     sourceBytes: 247280257,
-    controlledBytes: 5149387,
-    bytePercentage: 2.08,
+    controlledBytes: 28950694,
+    bytePercentage: 11.71,
   });
 });
 
@@ -146,6 +146,20 @@ test("新增维摩诘经完整原文可分页阅读并保留末卷锚点", async
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/weimojiejing/003-0557b");
   expect(sitemap).toContain("/jingzang/dasheng-ru-lengqiejing/007-0640c");
+});
+
+test("四部阿含全本可分页阅读并保持超长经稳定锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/zhongahanjing#T0026.060.0809c14");
+  await page.waitForURL(/\/jingzang\/zhongahanjing\/060-0809c#T0026\.060\.0809c14$/);
+  await expect(page.locator('[id="T0026.060.0809c14"]')).toBeVisible();
+  await expect(page.getByText(/全经 33424 稳定行段/)).toBeVisible();
+
+  const folio = await request.get("/jingzang/zaahanjing/050-0373b");
+  expect(folio.ok()).toBeTruthy();
+  expect((await folio.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/changahanjing/022-0149c");
+  expect(sitemap).toContain("/jingzang/zengyiahanjing/051-0830b");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

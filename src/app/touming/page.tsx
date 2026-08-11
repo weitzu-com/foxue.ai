@@ -34,7 +34,7 @@ export default function TransparencyPage() {
   const systems = [
     { name: "经典阅读", status: "可用", detail: `${coverage.localHoldings.fullSourceTextExpressions} 个完整文本 · 稳定段落链接`, icon: Check },
     { name: "引证式问经", status: "原型", detail: "确定性规则 · 未启用 LLM", icon: Clock3 },
-    { name: "覆盖登记册", status: "公开草案", detail: "GBCR v0.3 · 全球分母尚待审计", icon: Check },
+    { name: "覆盖登记册", status: "公开草案", detail: "GBCR v0.4 · 全球分母尚待审计", icon: Check },
     { name: "全局检索", status: "筹建中", detail: "等待语料权利与索引审计", icon: CircleDashed },
     { name: "用户账户", status: "未开放", detail: "先完成隐私与数据导出设计", icon: CircleDashed },
   ];
@@ -56,7 +56,7 @@ export default function TransparencyPage() {
         <div><span>完整文本</span><strong>{coverage.localHoldings.fullSourceTextExpressions}</strong><small>个</small></div>
         <div><span>稳定段落</span><strong>{coverage.localHoldings.stableSegments}</strong><small>个</small></div>
         <div><span>生成式回答</span><strong>0</strong><small>尚未启用</small></div>
-        <div><span>99% 分母</span><strong>—</strong><small>GBCR v0.3 · 未知</small></div>
+        <div><span>99% 分母</span><strong>—</strong><small>GBCR v0.4 · 未知</small></div>
       </section>
 
       <section className="transparency-section">
@@ -121,9 +121,9 @@ export default function TransparencyPage() {
           <p className="eyebrow">KNOWN LIMITS</p>
           <h2>当前已知局限</h2>
           <ul>
-            <li>经藏现有 12 部去重作品、14 个完整文本，仍不能支持广泛的佛学问答。</li>
-            <li>14 个文本均已通过结构与锚点核验，其中 3 部作品完成代表性人工样本复核。</li>
-            <li>覆盖登记册已发布 v0.3 草案；汉译候选文本记录可复算，但全球作品分母尚未完成独立审计。</li>
+            <li>经藏现有 16 部去重作品、18 个完整文本，仍不能支持全部佛学问答。</li>
+            <li>18 个文本均已通过结构与锚点核验，其中 3 部作品完成代表性人工样本复核。</li>
+            <li>覆盖登记册已发布 v0.4 草案；汉译候选文本记录可复算，但全球作品分母尚未完成独立审计。</li>
             <li>尚未完成法师、学者、译者和不同传统用户的外部评审。</li>
             <li>当前问经回答为代码内人工编写示例，不是实时 AI 生成。</li>
           </ul>

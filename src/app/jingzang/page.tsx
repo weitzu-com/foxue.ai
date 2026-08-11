@@ -16,7 +16,7 @@ export default function LibraryPage() {
       <header className="subpage-hero">
         <div className="page-shell subpage-hero__grid">
           <div>
-            <p className="eyebrow">开放经藏 · CORPUS 0.3</p>
+            <p className="eyebrow">开放经藏 · CORPUS 0.4</p>
             <h1>经文先于工具，<br />来源先于答案。</h1>
           </div>
           <div className="subpage-hero__aside">
