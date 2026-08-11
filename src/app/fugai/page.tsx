@@ -119,11 +119,13 @@ export default function CoveragePage() {
             </strong>
             <p>
               {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
-              3,439 个物理文件组成《法句经》《长部》34 经、《中部》152 经、《相应部》56 个相应级经集与《增支部》11 个集级经集；后两者分别连续表示 3,024 与 8,122 个经号
+              其中固定提交的巴利经藏目录已完成 {snapshot.candidateInventory.suttacentralPaliSuttaRoot.controlled}
+              /{snapshot.candidateInventory.suttacentralPaliSuttaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliSuttaRoot.percentage}%）逐文件受控；
+              律藏与论藏仍保持独立统计
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
-            <Link className="text-link" href="/jingzang/anguttara-nikaya-an1">
-              阅读巴利《增支部》 <ArrowRight aria-hidden="true" size={13} />
+            <Link className="text-link" href="/jingzang/khuddaka-nikaya-snp">
+              阅读巴利《小部·经集》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
         </div>
@@ -232,8 +234,8 @@ export default function CoveragePage() {
       <section className="coverage-next page-shell">
         <div>
           <p className="eyebrow">NEXT AUDIT GATE</p>
-          <h2>下一步：扩展汉译与巴利受控原文。</h2>
-          <p>候选目录快照与跨语种导入契约已经建立。下一阶段继续纳入汉译经藏候选记录，并在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
+          <h2>下一步：扩展汉译，并复核跨语种作品关系。</h2>
+          <p>固定提交中的巴利经藏目录已逐条受控。下一阶段继续纳入汉译经藏候选记录，并在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
         </div>
         <Link className="button-primary" href="/touming">
           查看完整透明度报告 <ArrowRight aria-hidden="true" size={16} />

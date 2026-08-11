@@ -37,3 +37,14 @@ export function parseBilaraAnguttaraSources(
   sources: Array<{ filename?: string; localPath?: string; text: string }>,
   options?: { maxSegments?: number },
 ): ReturnType<typeof parseBilaraCollectionSources>;
+
+export function parseBilaraSeriesSources(
+  sources: Array<{ filename?: string; localPath?: string; text: string }>,
+  options?: { maxSegments?: number; collectionTitle?: string },
+): {
+  segments: SutraSegment[];
+  navigation: ReaderNavigationItem[];
+  title: string;
+  collectionPrefix: string;
+  sourceRecords: number;
+};

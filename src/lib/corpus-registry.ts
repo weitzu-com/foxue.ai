@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.1.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.2.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -65,6 +65,12 @@ export function buildCoverageSnapshot() {
     : null;
   const paliControlledWorks = "controlledWorks" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.controlledWorks ?? null
+    : null;
+  const paliSuttaRootDenominator = "suttaRootRecordDenominator" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.suttaRootRecordDenominator ?? null
+    : null;
+  const paliControlledSuttaRootRecords = "controlledSuttaRootRecords" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledSuttaRootRecords ?? null
     : null;
 
   return {
@@ -147,7 +153,16 @@ export function buildCoverageSnapshot() {
         controlledBytes: paliControlledBytes,
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
-        caveat: "3,439 个物理 JSON 文件组成《法句经》《长部》34 经、《中部》152 经、《相应部》56 个相应级经集与《增支部》11 个集级经集；后两者分别连续表示 3,024 与 8,122 个经号。文件比例不是作品覆盖率。",
+        caveat: "5,764 个物理 JSON 文件覆盖固定提交的巴利经藏目录；其中《小部》按书级文本集合登记，并明确区分经、偈颂、义释、论辩和方法论文本。物理文件比例不是作品覆盖率。",
+      },
+      suttacentralPaliSuttaRoot: {
+        denominator: paliSuttaRootDenominator,
+        controlled: paliControlledSuttaRootRecords,
+        percentage: paliSuttaRootDenominator && paliControlledSuttaRootRecords !== null
+          ? Number(((paliControlledSuttaRootRecords / paliSuttaRootDenominator) * 100).toFixed(2))
+          : null,
+        unit: "SuttaCentral 固定提交 root/pli/ms/sutta 目录物理记录",
+        caveat: "这是一个固定来源版本的经藏目录完整性，不是全球佛经作品覆盖率，也不把律藏、论藏或不同传统佛典算入分母。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

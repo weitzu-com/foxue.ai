@@ -41,15 +41,42 @@ export function buildSegmentFolioMap(
   const entries: Array<[string, string]> = [];
   for (const [prefix, folios] of foliosByPrefix) {
     if (folios.size === 1) entries.push([`${prefix}:*`, [...folios][0]]);
-    else {
-      entries.push(...segments.flatMap((segment) => (
-        segment.id.startsWith(`${prefix}:`) && segment.juan && segment.page
-          ? [[segment.id, `${segment.juan}-${segment.page}`] as [string, string]]
-          : []
-      )));
-    }
   }
   return Object.fromEntries(entries);
+}
+
+export type SegmentFolioRange = {
+  first: string;
+  last: string;
+  folio: string;
+};
+
+export function buildSegmentFolioRanges(
+  segments: Array<{ id: string; juan?: string; page?: string }>,
+) {
+  const foliosByPrefix = new Map<string, Map<string, string[]>>();
+  for (const segment of segments) {
+    if (!segment.juan || !segment.page || !segment.id.includes(":")) continue;
+    const prefix = segment.id.slice(0, segment.id.indexOf(":"));
+    const folio = `${segment.juan}-${segment.page}`;
+    const folios = foliosByPrefix.get(prefix) ?? new Map<string, string[]>();
+    const ids = folios.get(folio) ?? [];
+    ids.push(segment.id);
+    folios.set(folio, ids);
+    foliosByPrefix.set(prefix, folios);
+  }
+
+  return Object.fromEntries(
+    [...foliosByPrefix.entries()].flatMap(([prefix, folios]) => (
+      folios.size < 2
+        ? []
+        : [[prefix, [...folios.entries()].map(([folio, ids]) => ({
+            first: ids[0],
+            last: ids.at(-1)!,
+            folio,
+          }))]]
+    )),
+  ) as Record<string, SegmentFolioRange[]>;
 }
 
 export function segmentHref(slug: string, segmentId: string) {

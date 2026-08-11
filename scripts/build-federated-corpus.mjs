@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const inputs = {
-  base: "data/gbcr/registry-v1.0.0.json",
+  base: "data/gbcr/registry-v1.1.0.json",
   snapshots: "data/gbcr/source-snapshots-v0.2.1.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   dhammapadaBatch: "data/corpus/suttacentral/batch-v0.7.0.json",
@@ -17,6 +17,8 @@ const inputs = {
   samyuttaManifest: "data/corpus/suttacentral/sn-manifest-v1.0.0.json",
   anguttaraBatch: "data/corpus/suttacentral/an-batch-v1.1.0.json",
   anguttaraManifest: "data/corpus/suttacentral/an-manifest-v1.1.0.json",
+  khuddakaBatch: "data/corpus/suttacentral/kn-batch-v1.2.0.json",
+  khuddakaManifest: "data/corpus/suttacentral/kn-manifest-v1.2.0.json",
 };
 const entries = await Promise.all(Object.entries(inputs).map(async ([id, relativePath]) => [
   id,
@@ -33,8 +35,10 @@ const samyuttaBatch = JSON.parse(rawById.samyuttaBatch);
 const samyuttaManifest = JSON.parse(rawById.samyuttaManifest);
 const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v1.1.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v1.1.0.sha256");
+const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
+const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
+const outputPath = resolve(root, "data/gbcr/registry-v1.2.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v1.2.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -78,75 +82,97 @@ if (
 ) {
   throw new Error("SuttaCentral 《增支部》固定批次、清单或结构统计不一致");
 }
+if (
+  khuddakaManifest.source.commit !== khuddakaBatch.source.commit ||
+  khuddakaManifest.source.commit !== dighaManifest.source.commit ||
+  khuddakaManifest.files.length !== 19 ||
+  khuddakaManifest.collection.bookCount !== 20 ||
+  khuddakaManifest.collection.newBookCount !== 19 ||
+  khuddakaManifest.collection.recordCount !== 2351 ||
+  khuddakaManifest.collection.newRecordCount !== 2325 ||
+  khuddakaManifest.collection.sourceBytes !== 10053548 ||
+  khuddakaManifest.collection.newSourceBytes !== 9953598 ||
+  khuddakaManifest.collection.stableSegments !== 155801 ||
+  khuddakaManifest.collection.newStableSegments !== 153567
+) {
+  throw new Error("SuttaCentral 《小部》固定批次、清单或结构统计不一致");
+}
 
-const anguttaraWorks = anguttaraManifest.files.map((file) => ({
-  id: file.workId,
-  workType: "canonical_sutta_collection",
-  canonicalTitle: file.presentation.alternateTitle,
-  canonicalTitleZh: file.presentation.title,
-  traditions: ["上座部佛教"],
-  externalIds: {
-    suttacentralCollection: [file.id.toLowerCase()],
-    suttacentralSourceRecords: file.sourceParts.map((source) => source.id.toLowerCase()),
-  },
-  relationDecision: "作为巴利《增支部》的集级经集登记；物理 root 记录、连续表示的经号与规范作品分别计数；未经学术复核，不自动声称与汉译《增壹阿含经》或其他语种文本逐段对应。",
-  expressions: [
-    {
-      id: `gbcr:expression:${file.id}-pi-Latn-ms`,
-      language: file.language,
-      title: file.presentation.alternateTitle,
-      edition: file.presentation.translator,
-      sourceSnapshotId: "suttacentral_bilara",
-      localSlug: file.slug,
-      cataloged: true,
-      fullSourceText: true,
-      sampled: false,
-      stableSegments: file.verification.segments,
-      rightsReviewed: true,
-      qualityStatus: "verified_structure_and_anchors",
-      sourceTextAssets: file.sourceParts.map((source) => ({
-        path: source.localPath,
-        format: source.format,
-        sha256: source.localSha256,
-        rightsStatus: "public_domain",
-      })),
+const khuddakaWorks = khuddakaManifest.files.map((file) => {
+  const book = khuddakaManifest.books.find((candidate) => candidate.id === file.id);
+  if (!book) throw new Error(`${file.id} 缺少《小部》书级元数据`);
+  return {
+    id: file.workId,
+    workType: "canonical_text_collection",
+    canonicalTitle: file.presentation.alternateTitle,
+    canonicalTitleZh: file.presentation.title,
+    traditions: ["上座部佛教"],
+    externalIds: {
+      suttacentralCollection: [book.prefix],
+      suttacentralSourceRecords: file.sourceParts.map((source) => source.id.toLowerCase()),
     },
-  ],
-}));
+    relationDecision: `${book.scopeNoteZh} 作为巴利《小部》的书级文本集合登记；物理 root 记录与规范作品分开计数，不因其位于同一目录就声称全部为佛陀亲说或在所有传承中具有相同正典地位。`,
+    expressions: [
+      {
+        id: `gbcr:expression:${file.id}-pi-Latn-ms`,
+        language: file.language,
+        title: file.presentation.alternateTitle,
+        edition: file.presentation.translator,
+        sourceSnapshotId: "suttacentral_bilara",
+        localSlug: file.slug,
+        cataloged: true,
+        fullSourceText: true,
+        sampled: false,
+        stableSegments: file.verification.segments,
+        rightsReviewed: true,
+        qualityStatus: "verified_structure_and_anchors",
+        sourceTextAssets: file.sourceParts.map((source) => ({
+          path: source.localPath,
+          format: source.format,
+          sha256: source.localSha256,
+          rightsStatus: "public_domain",
+        })),
+      },
+    ],
+  };
+});
 
 const sourceFamilies = base.sourceFamilies.map((family) =>
   family.id === "suttacentral_early_buddhist_texts"
     ? {
         ...family,
         denominatorStatus: "candidate_snapshot_with_controlled_collections",
-        controlledWorks: 254,
-        controlledExpressions: 254,
-        controlledRootRecords: 3439,
-        controlledRootBytes: 12832638,
+        controlledWorks: 273,
+        controlledExpressions: 273,
+        controlledRootRecords: 5764,
+        controlledRootBytes: 22786236,
+        controlledSuttaRootRecords: 5764,
+        suttaRootRecordDenominator: 5764,
+        suttaRootRecordPercentage: 100,
         denominatorWorks: null,
-        denominatorNote: "7,288 是固定提交中的巴利 root 候选记录；当前 3,439 个物理文件组成《法句经》《长部》34 经、《中部》152 经、《相应部》56 个相应级经集与《增支部》11 个集级经集；后两者分别连续表示 3,024 与 8,122 个经号。文件数、经号数与作品数不得混用。",
+        denominatorNote: "固定提交含 7,288 条巴利 root 候选记录，其中经藏目录为 5,764 条，现已逐条受控（100%）；其余 1,102 条论藏与 422 条律藏不混入经藏完成率。当前 273 个书级或经级作品登记保留物理记录、经号、文本集合与作品层的区别。",
       }
     : family,
 );
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "1.1.0", publishedAt: "2026-08-12" },
+  registry: { ...base.registry, version: "1.2.0", publishedAt: "2026-08-12" },
   sourceFamilies,
-  works: [...base.works, ...anguttaraWorks],
+  works: [...base.works, ...khuddakaWorks],
 };
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v1.1.0.json`,
+  `${sha256(registryRaw)}  registry-v1.2.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v1.1.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v1.1.0.sha256 不可复现");
-  console.log("跨语种登记册 v1.1.0 可复现：275 部作品、279 个文本表达。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v1.2.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v1.2.0.sha256 不可复现");
+  console.log("跨语种登记册 v1.2.0 可复现：294 部作品、298 个文本表达。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v1.1.0 已生成：新增巴利《增支部》11 个集级经集。");
+  console.log("跨语种登记册 v1.2.0 已生成：新增巴利《小部》19 个书级文本集合，经藏 root 记录完成 100%。");
 }

@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v1.1.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v1.2.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -130,6 +130,8 @@ for (const work of releaseManifest.expressions) {
         requireValue(/^(?:dn|mn)\d+:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 单经原生标识无效`);
       } else if (sourceFile.parser === "bilara_collection_root_json") {
         requireValue(/^(?:sn|an)\d+\.\d+(?:-\d+)?:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 经集原生标识无效`);
+      } else if (sourceFile.parser === "bilara_series_root_json") {
+        requireValue(/^[a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 多文件文本原生标识无效`);
       } else {
         requireValue(segment.id === `${work.canonId}.${segment.juan}.${segment.sourceLine}`, `${segment.id} 行号结构不一致`);
       }

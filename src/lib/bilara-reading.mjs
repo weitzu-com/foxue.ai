@@ -6,6 +6,7 @@ const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
 };
+const SERIES_FILE = /^([a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*)_root-pli-ms\.json$/;
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
@@ -276,4 +277,94 @@ export function parseBilaraAnguttaraSources(sources, options = {}) {
   const reading = parseBilaraCollectionSources(sources, options);
   if (reading.collectionPrefix !== "an") throw new Error("来源不是巴利《增支部》");
   return reading;
+}
+
+export function parseBilaraSeriesSources(sources, options = {}) {
+  const maxSegments = options.maxSegments ?? 120;
+  if (!Number.isSafeInteger(maxSegments) || maxSegments < 1 || maxSegments > 250) {
+    throw new Error("Bilara 阅读单元段落上限无效");
+  }
+  if (!Array.isArray(sources) || sources.length === 0) {
+    throw new Error("Bilara 多文件文本来源不能为空");
+  }
+
+  const segments = [];
+  const navigation = [];
+  const stableIds = new Set();
+  const sourceIds = new Set();
+  let collectionPrefix;
+  let readingPosition = 0;
+
+  for (const source of sources) {
+    const filename = source.filename ?? source.localPath?.split("/").at(-1);
+    const fileMatch = filename?.match(SERIES_FILE);
+    if (!fileMatch) throw new Error(`无法识别 Bilara 多文件文本来源：${filename}`);
+    const sourceId = fileMatch[1];
+    const prefix = sourceId.match(/^[a-z]+(?:-[a-z]+)?/)?.[0];
+    if (!prefix) throw new Error(`${filename} 缺少文本集合前缀`);
+    if (collectionPrefix === undefined) collectionPrefix = prefix;
+    if (prefix !== collectionPrefix) throw new Error(`${filename} 混入其他文本集合`);
+    if (sourceIds.has(sourceId)) throw new Error(`Bilara 来源记录重复：${sourceId}`);
+    sourceIds.add(sourceId);
+
+    const value = JSON.parse(source.text);
+    if (!value || Array.isArray(value) || typeof value !== "object") {
+      throw new Error(`${filename} 不是 Bilara 键值对象`);
+    }
+    const entries = Object.entries(value);
+    if (entries.length === 0) throw new Error(`${filename} 没有段落`);
+    const escapedSourceId = sourceId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const segmentPattern = new RegExp(`^${escapedSourceId}:(\\d+(?:[.-]\\d+)*)$`);
+    const title = ["0.4", "0.3", "0.2", "0.1"]
+      .map((suffix) => value[`${sourceId}:${suffix}`]?.trim())
+      .find((candidate) => candidate && candidate !== "~");
+    if (!title) throw new Error(`${filename} 缺少可读标题段落`);
+
+    const parsed = entries.map(([id, rawText], index) => {
+      const match = id.match(segmentPattern);
+      if (!match) throw new Error(`${filename} 含无效原生段落标识 ${id}`);
+      if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
+      if (typeof rawText !== "string" || rawText.trim().length === 0) {
+        throw new Error(`${id} 缺少文本`);
+      }
+      stableIds.add(id);
+      return { id, text: rawText.trim(), sourceLine: match[1], ordinal: index + 1 };
+    });
+
+    const recordUnits = Math.ceil(parsed.length / maxSegments);
+    const pageStem = sourceId.replaceAll(".", "-");
+    for (let offset = 0; offset < parsed.length; offset += maxSegments) {
+      const unit = parsed.slice(offset, offset + maxSegments);
+      readingPosition += 1;
+      const juan = String(readingPosition).padStart(3, "0");
+      const firstOrdinal = String(unit[0].ordinal).padStart(4, "0");
+      const lastOrdinal = String(unit.at(-1).ordinal).padStart(4, "0");
+      const page = `${pageStem}-${firstOrdinal}-${lastOrdinal}`;
+      for (const segment of unit) {
+        segments.push({
+          id: segment.id,
+          text: segment.text,
+          juan,
+          page,
+          sourceLine: segment.sourceLine,
+        });
+      }
+      const unitPosition = Math.floor(offset / maxSegments) + 1;
+      navigation.push({
+        key: `${juan}-${page}`,
+        id: unit[0].id,
+        label: `${sourceId.toUpperCase()} · ${title}${recordUnits > 1 ? ` · ${unitPosition}/${recordUnits}` : ""}`,
+        juan,
+        sourcePage: page,
+      });
+    }
+  }
+
+  return {
+    segments,
+    navigation,
+    title: options.collectionTitle ?? collectionPrefix.toUpperCase(),
+    collectionPrefix,
+    sourceRecords: sourceIds.size,
+  };
 }

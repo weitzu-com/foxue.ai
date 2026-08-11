@@ -75,6 +75,11 @@ const suttacentralSamyuttaSources = archivedPaths.filter((path) =>
 const suttacentralAnguttaraSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/an/") && path.endsWith(".json"),
 );
+const suttacentralKhuddakaAdditionalSources = archivedPaths.filter((path) =>
+  path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/") &&
+  !path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") &&
+  path.endsWith(".json"),
+);
 if (suttacentralDhammapadaSources.length !== 26) {
   throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
 }
@@ -90,6 +95,9 @@ if (suttacentralSamyuttaSources.length !== 1819) {
 if (suttacentralAnguttaraSources.length !== 1408) {
   throw new Error(`保存包应包含 1,408 个巴利《增支部》来源文件，实际为 ${suttacentralAnguttaraSources.length}`);
 }
+if (suttacentralKhuddakaAdditionalSources.length !== 2325) {
+  throw new Error(`保存包应新增 2,325 个巴利《小部》来源文件，实际为 ${suttacentralKhuddakaAdditionalSources.length}`);
+}
 const requiredPaths = [
   "README.md",
   "LICENSE",
@@ -104,6 +112,7 @@ const requiredPaths = [
   "data/gbcr/registry-v0.9.0.json",
   "data/gbcr/registry-v1.0.0.json",
   "data/gbcr/registry-v1.1.0.json",
+  "data/gbcr/registry-v1.2.0.json",
   "data/gbcr/source-snapshots-v0.2.1.json",
   "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   "data/gbcr/checksums-v0.6.0.sha256",
@@ -112,6 +121,7 @@ const requiredPaths = [
   "data/gbcr/checksums-v0.9.0.sha256",
   "data/gbcr/checksums-v1.0.0.sha256",
   "data/gbcr/checksums-v1.1.0.sha256",
+  "data/gbcr/checksums-v1.2.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -129,11 +139,14 @@ const requiredPaths = [
   "data/corpus/suttacentral/sn-manifest-v1.0.0.json",
   "data/corpus/suttacentral/an-batch-v1.1.0.json",
   "data/corpus/suttacentral/an-manifest-v1.1.0.json",
+  "data/corpus/suttacentral/kn-batch-v1.2.0.json",
+  "data/corpus/suttacentral/kn-manifest-v1.2.0.json",
   ...suttacentralDhammapadaSources,
   ...suttacentralDighaSources,
   ...suttacentralMajjhimaSources,
   ...suttacentralSamyuttaSources,
   ...suttacentralAnguttaraSources,
+  ...suttacentralKhuddakaAdditionalSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
   "data/corpus/cbeta/T02n0099.xml",
@@ -181,11 +194,14 @@ const requiredPaths = [
   "scripts/build-suttacentral-mn-catalog.mjs",
   "scripts/build-suttacentral-sn-catalog.mjs",
   "scripts/build-suttacentral-an-catalog.mjs",
+  "scripts/audit-suttacentral-khuddaka.mjs",
+  "scripts/build-suttacentral-kn-catalog.mjs",
   "scripts/import-suttacentral-source.mjs",
   "scripts/import-suttacentral-dn-source.mjs",
   "scripts/import-suttacentral-mn-source.mjs",
   "scripts/import-suttacentral-sn-source.mjs",
   "scripts/import-suttacentral-an-source.mjs",
+  "scripts/import-suttacentral-kn-source.mjs",
   "scripts/build-federated-corpus.mjs",
   "scripts/build-corpus-release.mjs",
   "scripts/corpus-release-context.mjs",

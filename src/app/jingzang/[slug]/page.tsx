@@ -5,7 +5,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { getSutra } from "@/data/sutras";
 import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
-import { buildSegmentFolioMap, folioHref } from "@/lib/reader-routes";
+import { buildSegmentFolioMap, buildSegmentFolioRanges, folioHref } from "@/lib/reader-routes";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -27,6 +27,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
         slug={sutra.slug}
         aliases={buildLegacyAliasMap(reading.segments)}
         segmentFolios={sutra.readerMode === "bilara-sutta" ? buildSegmentFolioMap(reading.segments) : undefined}
+        segmentFolioRanges={sutra.readerMode === "bilara-sutta" ? buildSegmentFolioRanges(reading.segments) : undefined}
       />
 
       <div className="reader-index-layout">

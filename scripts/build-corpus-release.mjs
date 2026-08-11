@@ -4,6 +4,7 @@ import { basename, dirname, resolve } from "node:path";
 import {
   parseBilaraDhammapadaSources,
   parseBilaraCollectionSources,
+  parseBilaraSeriesSources,
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
@@ -91,6 +92,8 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
     ({ segments, navigation } = parseBilaraSuttaSource(sourceContents[0]));
   } else if (sourceFile.parser === "bilara_collection_root_json") {
     ({ segments, navigation } = parseBilaraCollectionSources(sourceContents));
+  } else if (sourceFile.parser === "bilara_series_root_json") {
+    ({ segments, navigation } = parseBilaraSeriesSources(sourceContents));
   } else {
     navigation = buildPageNavigation(segments);
   }

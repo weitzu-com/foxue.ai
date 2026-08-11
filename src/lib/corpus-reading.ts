@@ -8,10 +8,12 @@ import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
 import samyuttaNikayaManifest from "../../data/corpus/suttacentral/sn-manifest-v1.0.0.json";
 import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-v1.1.0.json";
+import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
   parseBilaraCollectionSources,
+  parseBilaraSeriesSources,
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
@@ -19,12 +21,12 @@ import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs
 type CorpusManifestFile = {
   id: string;
   slug: string;
-  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json";
+  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
   localPath?: string;
   sourceParts?: Array<{ localPath: string }>;
 };
 
-type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json";
+type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
 
 const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: CorpusParser }> = Object.fromEntries(
   [
@@ -34,6 +36,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(majjhimaNikayaManifest.files as CorpusManifestFile[]),
     ...(samyuttaNikayaManifest.files as CorpusManifestFile[]),
     ...(anguttaraNikayaManifest.files as CorpusManifestFile[]),
+    ...(khuddakaNikayaManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -260,7 +263,9 @@ const loadEdgeFolio = cache(async (
         segment.id.startsWith(`${canonId}.`) ||
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
         (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id)) ||
-        (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id))
+        (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id)) ||
+        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PE|PS|PV|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
+          /^[a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*:/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
       segment.juan === value.folio.juan &&
@@ -294,6 +299,12 @@ const loadCompleteReading = cache(async (slug: string) => {
       text,
     })));
   }
+  if (asset.parser === "bilara_series_root_json") {
+    return parseBilaraSeriesSources(sourceParts.map((text, index) => ({
+      filename: asset.localPaths[index].split("/").at(-1),
+      text,
+    })));
+  }
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };
 });
@@ -322,6 +333,15 @@ async function readControlledCorpusAsset(localPath: string) {
   const anguttaraPrefix = "suttacentral/root/pli/ms/sutta/an/";
   if (localPath.startsWith(anguttaraPrefix) && /^an\d+\/an\d+\.\d+(?:-\d+)?_root-pli-ms\.json$/.test(localPath.slice(anguttaraPrefix.length))) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "an", localPath.slice(anguttaraPrefix.length)), "utf8");
+  }
+  const khuddakaPrefix = "suttacentral/root/pli/ms/sutta/kn/";
+  const khuddakaRelative = localPath.startsWith(khuddakaPrefix)
+    ? localPath.slice(khuddakaPrefix.length)
+    : "";
+  if (
+    /^((?:tha-ap|thi-ap|bv|cnd|cp|iti|ja|kp|mil|mnd|ne|pe|ps|pv|snp|thag|thig|ud|vv))\/(?:vagga\d+\/)?\1\d+(?:\.\d+)*_root-pli-ms\.json$/.test(khuddakaRelative)
+  ) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "kn", khuddakaRelative), "utf8");
   }
   throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
 }
