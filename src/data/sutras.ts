@@ -24,7 +24,7 @@ export type Sutra = {
   segments: SutraSegment[];
 };
 
-export const sutras: Sutra[] = [
+const curatedSutras: Sutra[] = [
   {
     slug: "xinjing",
     title: "般若波罗蜜多心经",
@@ -139,6 +139,24 @@ export const sutras: Sutra[] = [
   },
 ];
 
+const curatedBySlug = new Map(curatedSutras.map((sutra) => [sutra.slug, sutra]));
+
+export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(file.slug) ?? ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "CBETA Online",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "CBETA 授權條款；古典原文",
+  status: "完整原文 · 行段试行",
+  segments: [],
+}));
+
 export function getSutra(slug: string) {
   return sutras.find((sutra) => sutra.slug === slug);
 }
@@ -149,3 +167,4 @@ export const corpusPrinciples = [
   "机器候选、人工确认与目录确认永不混为一谈。",
   "简繁转换只属于显示层，不修改母版文本。",
 ];
+import catalog from "../../data/corpus/cbeta/catalog-v0.2.0.json";

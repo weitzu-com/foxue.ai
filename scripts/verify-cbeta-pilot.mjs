@@ -5,10 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.1.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v0.2.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.1.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.2.0.json"), "utf8"),
+);
+const catalog = JSON.parse(
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v0.2.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {
@@ -25,16 +28,9 @@ const expectedSnippets = {
   T0235: "應無所住而生其心",
   T0210: "心為法本心尊心使中心念惡",
 };
-const expectedReadingViews = {
-  T0251: { segments: 72, pages: 3, juans: ["001"], anchors: ["T0251.001.0848c06"] },
-  T0235: { segments: 340, pages: 13, juans: ["001"], anchors: ["T0235.001.0749c22"] },
-  T0210: {
-    segments: 1400,
-    pages: 50,
-    juans: ["001", "002"],
-    anchors: ["T0210.001.0562a13", "T0210.002.0567a03"],
-  },
-};
+const expectedReadingViews = Object.fromEntries(
+  catalog.files.map((file) => [file.id, file.verification]),
+);
 const slugs = new Set();
 
 for (const file of manifest.files) {
@@ -58,7 +54,9 @@ for (const file of manifest.files) {
   requireValue(text.includes("財團法人佛教電子佛典基金會 (CBETA)"), `${file.id} 缺少 CBETA 来源署名`);
   requireValue(text.includes("<text><body>"), `${file.id} 缺少完整正文结构`);
   requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${file.id} XML 末尾结构不完整`);
-  requireValue(normalizedText.includes(expectedSnippets[file.id]), `${file.id} 未找到已发布样本的核对短语`);
+  if (expectedSnippets[file.id]) {
+    requireValue(normalizedText.includes(expectedSnippets[file.id]), `${file.id} 未找到已发布样本的核对短语`);
+  }
 
   const readingLines = parseCbetaReadingLines(text, { canonId: file.id });
   const readingView = expectedReadingViews[file.id];
@@ -66,7 +64,7 @@ for (const file of manifest.files) {
   requireValue(!slugs.has(file.slug), `${file.id} 阅读 slug 重复`);
   slugs.add(file.slug);
   requireValue(readingLines.length === readingView.segments, `${file.id} 稳定行段数量漂移`);
-  requireValue(buildPageNavigation(readingLines).length === readingView.pages, `${file.id} 页码导航数量漂移`);
+  requireValue(buildPageNavigation(readingLines).length === readingView.folios, `${file.id} 页码导航数量漂移`);
   requireValue(
     JSON.stringify([...new Set(readingLines.map((line) => line.juan))]) === JSON.stringify(readingView.juans),
     `${file.id} 卷号结构漂移`,
@@ -87,4 +85,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`CBETA 完整原文试点通过：${manifest.files.length} 部，来源提交 ${manifest.source.commit.slice(0, 12)}。`);
+console.log(`CBETA 完整原文批次通过：${manifest.files.length} 部，来源提交 ${manifest.source.commit.slice(0, 12)}。`);

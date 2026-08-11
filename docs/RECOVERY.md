@@ -59,24 +59,24 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums.sha256`。
+1. 核对 `data/gbcr/checksums-v0.2.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA 与 SuttaCentral 候选路径摘要。
-4. 运行 `pnpm verify:cbeta-pilot`，核对首批完整 TEI 文件的哈希、头部、来源声明和代表性短语。
+4. 运行 `pnpm verify:corpus-catalog` 与 `pnpm verify:cbeta-pilot`，核对受控目录、9 部完整 TEI 的哈希、头部、来源声明、结构和稳定锚点。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时才能阅读三部样本与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时才能阅读九部受控原文与覆盖登记册。
 
 Vercel 恢复顺序：
 
 1. 新建 Next.js 项目并连接恢复后的 Git 仓库；
 2. 生产分支设为 `main`，Node 设为 22.x；
 3. 设置 `NEXT_PUBLIC_SITE_URL=https://foxue.ai`；经藏边缘层尚未恢复时不要设置 `CORPUS_ASSET_BASE_URL`，网站会使用仓库内受控原文；
-4. 部署后验证 `/api/health`、`/api/v1/corpus/coverage`、`/fugai` 和三个阅读页；
+4. 部署后验证 `/api/health`、`/api/v1/corpus/coverage`、`/fugai` 和九部经典的代表性阅读页；
 5. 通过后再切换 DNS，失败则保留原站或静态维护页。
 
 ### 5.1 恢复经藏对象存储与只读边缘层

@@ -1,0 +1,101 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/source-snapshots-v0.2",
+  "version": "0.2.0",
+  "capturedAt": "2026-08-11",
+  "status": "candidate_record_inventory",
+  "denominatorReady": false,
+  "warning": "候选来源记录不是去重后的作品数，不得直接用作全球覆盖率分母。",
+  "sources": [
+    {
+      "id": "cbeta_xml_p5",
+      "repository": "cbeta-org/xml-p5",
+      "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 5632,
+      "candidateRecordCount": 5005,
+      "recordUnit": "TEI P5 XML source record",
+      "inclusionRule": "Git tree 中所有以 .xml 结尾的路径",
+      "candidatePathSha256": "bd5c34b0625b1c08a0572d322842ad3c7b92078717ff1f63840c5ba1ad4da5a2",
+      "groups": {
+        "A": 12,
+        "B": 204,
+        "C": 12,
+        "CC": 6,
+        "D": 64,
+        "F": 27,
+        "G": 60,
+        "GA": 58,
+        "GB": 2,
+        "I": 101,
+        "J": 287,
+        "K": 10,
+        "L": 26,
+        "LC": 8,
+        "M": 1,
+        "N": 83,
+        "P": 20,
+        "S": 2,
+        "T": 2471,
+        "TX": 40,
+        "U": 3,
+        "X": 1236,
+        "Y": 44,
+        "YP": 25,
+        "ZS": 1,
+        "ZW": 202
+      },
+      "candidateSubsets": [
+        {
+          "id": "taisho_chinese_sutra_t01_t17",
+          "label": "大正藏 T01–T17 汉译经藏候选文本记录",
+          "candidateRecordCount": 881,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
+          "candidatePathSha256": "69eb2530ae53000a606478824eec70e21fb238b495c0ee6c703e2e44f161cf44",
+          "groups": {
+            "T01": 98,
+            "T02": 57,
+            "T03": 44,
+            "T04": 28,
+            "T05": 1,
+            "T06": 1,
+            "T07": 13,
+            "T08": 42,
+            "T09": 17,
+            "T10": 31,
+            "T11": 12,
+            "T12": 76,
+            "T13": 28,
+            "T14": 166,
+            "T15": 71,
+            "T16": 65,
+            "T17": 131
+          },
+          "denominatorCaveat": "这是可复算的汉译经藏文本记录子集，不是去重作品数，也不是全球佛典分母。"
+        }
+      ],
+      "denominatorCaveat": "异译、别本、续藏与版本见证尚未映射到 Work/Expression/Witness，文件数不是作品数。"
+    },
+    {
+      "id": "suttacentral_bilara",
+      "repository": "suttacentral/bilara-data",
+      "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 45756,
+      "allJsonFiles": 43762,
+      "allRootRecords": 7797,
+      "excludedInterfaceAndNameRecords": 213,
+      "candidateRecordCount": 7584,
+      "recordUnit": "Bilara canonical-language root record",
+      "inclusionRule": "root/{pli,lzh,pra,san}/ 下所有 JSON；排除英文界面和 misc 名称记录",
+      "candidatePathSha256": "e1741097b752db14dd998e92f5ec19416a840e4bd368720b6db0df05794f6bf6",
+      "groups": {
+        "lzh": 272,
+        "pli": 7288,
+        "pra": 22,
+        "san": 2
+      },
+      "denominatorCaveat": "root 记录可能是经、律、论的章节或细分单元；跨语言平行关系与作品级去重尚未裁决。"
+    }
+  ]
+}

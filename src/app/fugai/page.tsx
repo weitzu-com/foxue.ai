@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 
 const statusLabels: Record<string, string> = {
   candidate_snapshot_ready: "候选快照已冻结",
+  candidate_expression_snapshot_ready: "候选文本记录已冻结",
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
   federated_sources_pending: "联邦来源待建",
@@ -69,7 +70,7 @@ export default function CoveragePage() {
           <div><dt>登记作品</dt><dd>{snapshot.localHoldings.registeredWorks}<small>部</small></dd></div>
           <div><dt>稳定样本段落</dt><dd>{snapshot.localHoldings.stableSegments}<small>段</small></dd></div>
           <div><dt>完整原文</dt><dd>{snapshot.localHoldings.fullSourceTextWorks}<small>部</small></dd></div>
-          <div><dt>已核验样本</dt><dd>{snapshot.localHoldings.qualityVerifiedSampleWorks}<small>部</small></dd></div>
+          <div><dt>结构核验</dt><dd>{snapshot.localHoldings.structureVerifiedWorks}<small>部</small></dd></div>
         </dl>
       </section>
 
@@ -88,6 +89,15 @@ export default function CoveragePage() {
               <small>{source.denominatorCaveat}</small>
             </article>
           ))}
+          <article>
+            <span>漢譯經藏階段進度</span>
+            <strong>
+              {snapshot.candidateInventory.chineseSutraRecordSubset.controlled}
+              <small> / {snapshot.candidateInventory.chineseSutraRecordSubset.denominator}</small>
+            </strong>
+            <p>{snapshot.candidateInventory.chineseSutraRecordSubset.percentage}% 候选文本记录进入受控全文库</p>
+            <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
+          </article>
         </div>
       </section>
 
@@ -132,7 +142,11 @@ export default function CoveragePage() {
             <div className="family-table__row" role="row" key={family.id}>
               <strong role="cell">{family.title}</strong>
               <span role="cell">{family.languages.join(" · ")}</span>
-              <span role="cell">—</span>
+              <span role="cell">
+                {"candidateExpressionRecords" in family
+                  ? `${family.candidateExpressionRecords} 条候选记录`
+                  : "—"}
+              </span>
               <em role="cell">{statusLabels[family.denominatorStatus] ?? family.denominatorStatus}</em>
             </div>
           ))}
@@ -190,8 +204,8 @@ export default function CoveragePage() {
       <section className="coverage-next page-shell">
         <div>
           <p className="eyebrow">NEXT AUDIT GATE</p>
-          <h2>下一步：生成首批目录快照。</h2>
-          <p>从 CBETA 与 SuttaCentral 开始，建立可重复导入、去重候选和人工裁决日志，再邀请跨传统专家复核分母。</p>
+          <h2>下一步：扩展 T01–T17 受控原文。</h2>
+          <p>候选目录快照与批量导入契约已经建立。下一阶段按权利、哈希、结构与抽样门逐批纳入 881 条汉译经藏候选记录，同时建立异译、别本与作品级去重裁决日志。</p>
         </div>
         <Link className="button-primary" href="/touming">
           查看完整透明度报告 <ArrowRight aria-hidden="true" size={16} />

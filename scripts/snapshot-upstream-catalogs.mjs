@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const sources = {
@@ -54,6 +54,9 @@ const cbetaPaths = cbetaTree.tree
   .map((item) => item.path)
   .filter((path) => path.endsWith(".xml"))
   .sort();
+const cbetaChineseSutraPaths = cbetaPaths.filter((path) =>
+  /^T\/T(0[1-9]|1[0-7])\/T(0[1-9]|1[0-7])n[0-9A-Za-z_]+\.xml$/.test(path),
+);
 const suttacentralRootPaths = suttacentralTree.tree
   .map((item) => item.path)
   .filter((path) => path.startsWith("root/") && path.endsWith(".json"))
@@ -64,8 +67,8 @@ const suttacentralCandidatePaths = suttacentralRootPaths.filter((path) =>
 );
 
 const snapshot = {
-  schema: "https://foxue.ai/schemas/gbcr/source-snapshots-v0.1",
-  version: "0.1.0",
+  schema: "https://foxue.ai/schemas/gbcr/source-snapshots-v0.2",
+  version: "0.2.0",
   capturedAt: "2026-08-11",
   status: "candidate_record_inventory",
   denominatorReady: false,
@@ -82,6 +85,18 @@ const snapshot = {
       inclusionRule: "Git tree 中所有以 .xml 结尾的路径",
       candidatePathSha256: digestPaths(cbetaPaths),
       groups: countBy(cbetaPaths, (path) => path.split("/")[0]),
+      candidateSubsets: [
+        {
+          id: "taisho_chinese_sutra_t01_t17",
+          label: "大正藏 T01–T17 汉译经藏候选文本记录",
+          candidateRecordCount: cbetaChineseSutraPaths.length,
+          recordUnit: "TEI P5 source record",
+          inclusionRule: "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
+          candidatePathSha256: digestPaths(cbetaChineseSutraPaths),
+          groups: countBy(cbetaChineseSutraPaths, (path) => path.split("/")[1]),
+          denominatorCaveat: "这是可复算的汉译经藏文本记录子集，不是去重作品数，也不是全球佛典分母。",
+        },
+      ],
       denominatorCaveat: "异译、别本、续藏与版本见证尚未映射到 Work/Expression/Witness，文件数不是作品数。",
     },
     {
@@ -105,13 +120,17 @@ const snapshot = {
 
 const serialized = `${JSON.stringify(snapshot, null, 2)}\n`;
 if (process.argv.includes("--verify")) {
-  const checkedPath = resolve(process.cwd(), "data/gbcr/source-snapshots-v0.1.0.json");
+  const checkedPath = resolve(process.cwd(), "data/gbcr/source-snapshots-v0.2.0.json");
   const checked = await readFile(checkedPath, "utf8");
   if (checked !== serialized) {
     console.error("上游目录快照已漂移，或固定提交/提取规则与受控文件不一致。");
     process.exit(1);
   }
   console.log(`上游目录快照验证通过：CBETA ${cbetaPaths.length}，SuttaCentral ${suttacentralCandidatePaths.length} 条候选记录。`);
+} else if (process.argv.includes("--write")) {
+  const outputPath = resolve(process.cwd(), "data/gbcr/source-snapshots-v0.2.0.json");
+  await writeFile(outputPath, serialized, "utf8");
+  console.log(`上游目录快照已写入：CBETA ${cbetaPaths.length}，其中汉译经藏候选 ${cbetaChineseSutraPaths.length} 条。`);
 } else {
   process.stdout.write(serialized);
 }

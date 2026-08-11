@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v0.1.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.1.0.json";
+import registryDocument from "../../data/gbcr/registry-v0.2.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.0.json";
 
 type Expression = (typeof registryDocument.works)[number]["expressions"][number];
 
@@ -11,6 +11,19 @@ export function buildCoverageSnapshot() {
   const verifiedExpressions = expressions.filter(
     (item) => item.qualityStatus === "verified_sample",
   );
+  const structureVerifiedExpressions = expressions.filter(
+    (item) => item.qualityStatus === "verified_sample" ||
+      item.qualityStatus === "verified_structure_and_anchors",
+  );
+  const chineseFamily = corpusRegistry.sourceFamilies.find(
+    (family) => family.id === "cbeta_chinese",
+  );
+  const chineseCandidateRecords = "candidateExpressionRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.candidateExpressionRecords ?? null
+    : null;
+  const chineseControlledRecords = "controlledExpressionRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.controlledExpressionRecords ?? null
+    : null;
 
   return {
     schema: "https://foxue.ai/schemas/gbcr/coverage-snapshot-v0.1",
@@ -39,6 +52,13 @@ export function buildCoverageSnapshot() {
           )?.id,
         ),
       ).size,
+      structureVerifiedWorks: new Set(
+        structureVerifiedExpressions.map((expression) =>
+          corpusRegistry.works.find((work) =>
+            work.expressions.some((candidate) => candidate.id === expression.id),
+          )?.id,
+        ),
+      ).size,
     },
     globalPercentages: {
       catalog: null,
@@ -60,6 +80,15 @@ export function buildCoverageSnapshot() {
         candidatePathSha256: source.candidatePathSha256,
         denominatorCaveat: source.denominatorCaveat,
       })),
+      chineseSutraRecordSubset: {
+        denominator: chineseCandidateRecords,
+        controlled: chineseControlledRecords,
+        percentage: chineseCandidateRecords && chineseControlledRecords !== null
+          ? Number(((chineseControlledRecords / chineseCandidateRecords) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 大正藏 T01–T17 汉译经藏候选文本记录",
+        caveat: "这是固定来源中的文本记录进度，不是去重作品覆盖率或全球佛典覆盖率。",
+      },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({
       id: family.id,

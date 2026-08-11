@@ -3,9 +3,9 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
-const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.1.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums.sha256");
+const registryPath = resolve(root, "data/gbcr/registry-v0.2.0.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.2.0.sha256");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const registry = JSON.parse(raw);
@@ -17,7 +17,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.1.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.2.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -27,7 +27,7 @@ const denominatorValues = [
   registry.globalDenominators?.rightsPublishableWorks,
   registry.globalDenominators?.qualityApprovedWorks,
 ];
-requireValue(denominatorValues.every((value) => value === null), "v0.1 的全球分母必须保持 null");
+requireValue(denominatorValues.every((value) => value === null), "全球作品分母必须保持 null");
 
 const unique = (values, label) => {
   requireValue(new Set(values).size === values.length, `${label} 存在重复标识`);
@@ -69,6 +69,17 @@ for (const snapshot of sourceSnapshots.sources ?? []) {
   requireValue(snapshot.candidateRecordCount > 0, `${snapshot.id} 没有候选记录`);
   requireValue(/^[a-f0-9]{64}$/.test(snapshot.candidatePathSha256), `${snapshot.id} 缺少候选路径摘要`);
 }
+const chineseSubset = sourceSnapshots.sources
+  .find((source) => source.id === "cbeta_xml_p5")
+  ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
+requireValue(chineseSubset?.candidateRecordCount === 881, "汉译经藏候选记录分母漂移");
+requireValue(
+  chineseSubset?.candidatePathSha256 === "69eb2530ae53000a606478824eec70e21fb238b495c0ee6c703e2e44f161cf44",
+  "汉译经藏候选路径摘要漂移",
+);
+const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
+requireValue(chineseFamily?.candidateExpressionRecords === 881, "汉译经藏候选记录未写入来源族");
+requireValue(chineseFamily?.controlledExpressionRecords === 8, "汉译经藏受控记录数不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -76,8 +87,8 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.1.0.json", raw],
-  ["source-snapshots-v0.1.0.json", sourceSnapshotsRaw],
+  ["registry-v0.2.0.json", raw],
+  ["source-snapshots-v0.2.0.json", sourceSnapshotsRaw],
 ];
 for (const [file, content] of controlledFiles) {
   const actualHash = createHash("sha256").update(content).digest("hex");
@@ -92,4 +103,10 @@ if (errors.length > 0) {
 const expressions = registry.works.flatMap((work) => work.expressions);
 const segmentCount = expressions.reduce((sum, item) => sum + item.stableSegments, 0);
 const candidateCount = sourceSnapshots.sources.reduce((sum, source) => sum + source.candidateRecordCount, 0);
+requireValue(registry.works.length === 9, "v0.2 必须登记 9 部受控原文");
+requireValue(segmentCount === 16285, "v0.2 稳定行段总数漂移");
+if (errors.length > 0) {
+  console.error(errors.map((item) => `- ${item}`).join("\n"));
+  process.exit(1);
+}
 console.log(`GBCR ${registry.registry.version} 已通过校验：${registry.works.length} 部登记作品，${segmentCount} 个稳定样本段落，${candidateCount} 条上游候选记录。`);

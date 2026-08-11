@@ -1,0 +1,151 @@
+{
+  "schema": "https://foxue.ai/schemas/corpus-asset-manifest-v0.2",
+  "version": "0.2.0",
+  "source": {
+    "name": "CBETA XML P5",
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "copyrightUrl": "https://cbeta.org/copyright",
+    "formatUrl": "https://archive2.cbeta.org/en/format/xml.php"
+  },
+  "rightsDecision": {
+    "status": "approved_noncommercial_with_attribution_and_header",
+    "category": "Individually reviewed CBETA TEI files in Taishō volumes 4, 8, 9, 12, 16 and 19",
+    "commercialUse": "prohibited_without_additional_permission",
+    "headerMustRemain": true,
+    "reviewedAt": "2026-08-11",
+    "note": "每个文件内的 availability 声明与 CBETA 官方版权页共同构成审核依据；代码许可证不覆盖这些 XML。"
+  },
+  "normalization": {
+    "id": "append-terminal-lf-v1",
+    "description": "仅在上游文件末尾追加一个 LF；TEI 内容、标记与头部不变。"
+  },
+  "files": [
+    {
+      "id": "T0251",
+      "slug": "xinjing",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "localPath": "data/corpus/cbeta/T08n0251.xml",
+      "upstreamPath": "T/T08/T08n0251.xml",
+      "upstreamGitBlobSha1": "c8809532a2c9aaeef8a7523ceec52b2738b9b101",
+      "upstreamBytes": 14489,
+      "upstreamSha256": "27f563e67dfbd155a48e514152432378b3880541ebcb88033c14f96f20de1860",
+      "localBytes": 14490,
+      "localSha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0235",
+      "slug": "jingangjing",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "localPath": "data/corpus/cbeta/T08n0235.xml",
+      "upstreamPath": "T/T08/T08n0235.xml",
+      "upstreamGitBlobSha1": "37f3f5db4f6b52ef1deb2f2ffc94de229ee51095",
+      "upstreamBytes": 60229,
+      "upstreamSha256": "6852f861a314809c935de6e676994226d5a9021f63b88a7e18a6af60768285e9",
+      "localBytes": 60230,
+      "localSha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0210",
+      "slug": "fajujing",
+      "workId": "gbcr:work:dharmapada-t0210",
+      "localPath": "data/corpus/cbeta/T04n0210.xml",
+      "upstreamPath": "T/T04/T04n0210.xml",
+      "upstreamGitBlobSha1": "00228c757416f557fee1c99d54acbb83f79fb97b",
+      "upstreamBytes": 517419,
+      "upstreamSha256": "89586f1b114e01a78ac9b94714d177ee14c255e84e6b0ce6a88f7cdd25caa9dc",
+      "localBytes": 517420,
+      "localSha256": "5f265927bba467f46652c5436e981e52944fd5c8f8609aa55f1027e11c81d035",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0262",
+      "slug": "fahuajing",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "localPath": "data/corpus/cbeta/T09n0262.xml",
+      "upstreamPath": "T/T09/T09n0262.xml",
+      "upstreamGitBlobSha1": "0819424e6a6a6072712dc4f8c57e9d0a4b5abb97",
+      "upstreamBytes": 1123303,
+      "upstreamSha256": "015033c68f37e6da7068c9bf15c8e55bca21e4ca71d387505e2123e16debe716",
+      "localBytes": 1123304,
+      "localSha256": "345b8a2496986e30ed27be77198afe5128ffbda0ea996e12db5e4b2fef9be1aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0360",
+      "slug": "wuliangshoujing",
+      "workId": "gbcr:work:larger-sukhavati-vyuha-t0360",
+      "localPath": "data/corpus/cbeta/T12n0360.xml",
+      "upstreamPath": "T/T12/T12n0360.xml",
+      "upstreamGitBlobSha1": "b94c89ffc30c361f2050d1cea45365cf286b7417",
+      "upstreamBytes": 312136,
+      "upstreamSha256": "45efb370ec9be425157627714a5b43af769f82cf8d8c3fafee7ff269d6412b0a",
+      "localBytes": 312137,
+      "localSha256": "e8f1856f3f725fbd5370ef92135d37ed364bae55130d284071538476201c362b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0365",
+      "slug": "guan-wuliangshoufo-jing",
+      "workId": "gbcr:work:amitayurdhyana-sutra-t0365",
+      "localPath": "data/corpus/cbeta/T12n0365.xml",
+      "upstreamPath": "T/T12/T12n0365.xml",
+      "upstreamGitBlobSha1": "10b611a6f4e29f416db02cab96314c681f1e2716",
+      "upstreamBytes": 169652,
+      "upstreamSha256": "21c167c7dc8b30be0ce740804f6789594964254ebb41646108212dd1df1ec332",
+      "localBytes": 169653,
+      "localSha256": "e6e0c460ccdf80f7fb425cfa64c1b4c1038986c3ff45f9373e43e8ab51998b18",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0366",
+      "slug": "amituojing",
+      "workId": "gbcr:work:smaller-sukhavati-vyuha-t0366",
+      "localPath": "data/corpus/cbeta/T12n0366.xml",
+      "upstreamPath": "T/T12/T12n0366.xml",
+      "upstreamGitBlobSha1": "135f788e706adc83153df8dc02163ee5dc8b08ac",
+      "upstreamBytes": 48194,
+      "upstreamSha256": "d464fd6fcb806e62c47c042b31f41280d2c20f4ae08b19c2ac2036b5401e0d04",
+      "localBytes": 48195,
+      "localSha256": "e994cb83282a603feb7ffc3c9af5b2d6edbc92586bf9b00facfb0fc4b89b1aea",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0670",
+      "slug": "lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "localPath": "data/corpus/cbeta/T16n0670.xml",
+      "upstreamPath": "T/T16/T16n0670.xml",
+      "upstreamGitBlobSha1": "95e5fe0a20911d14da7b0efd43c019741a656255",
+      "upstreamBytes": 520709,
+      "upstreamSha256": "8a9c21aa02b8fc2c1b45fa934628cf27cb919fe9ab945d6d7cde644514bc3704",
+      "localBytes": 520710,
+      "localSha256": "b535498341f2d440a0ea6f22f922c0787a47438ba9b17d706a327b0d9f121444",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    },
+    {
+      "id": "T0945",
+      "slug": "lengyanjing",
+      "workId": "gbcr:work:surangama-t0945",
+      "localPath": "data/corpus/cbeta/T19n0945.xml",
+      "upstreamPath": "T/T19/T19n0945.xml",
+      "upstreamGitBlobSha1": "30e9c2f2a51592dbae7ea04a0b1d6ef9deea7e31",
+      "upstreamBytes": 727586,
+      "upstreamSha256": "892d529546811d1be1d6975aaab1a1f8f9045c19e85fa30f92908b2c4bc72967",
+      "localBytes": 727587,
+      "localSha256": "ab5f41b7b5e662943af05048b6e47012b45a6d2e664864539b255129424ad6c3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file"
+    }
+  ]
+}

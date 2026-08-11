@@ -36,10 +36,19 @@ pnpm verify
 pnpm verify:corpus
 ```
 
-首批 CBETA 完整原文可单独校验：
+当前 CBETA 完整原文批次可单独校验：
 
 ```bash
 pnpm verify:cbeta-pilot
+```
+
+从固定 CBETA 提交重建受控批次及登记册：
+
+```bash
+pnpm import:cbeta --all
+pnpm snapshot:upstream
+pnpm build:corpus-catalog
+pnpm verify:corpus-catalog
 ```
 
 构建并逐对象校验可发布的经藏版本：
@@ -72,7 +81,7 @@ pnpm preserve
 
 经藏发布以内容寻址的版本目录为单一真相来源。`v1/latest.json` 只负责指向当前版本；版本清单、作品索引、原始 TEI 与逐版页 JSON 一经发布即不可变，并由 SHA-256 清单复核。Cloudflare Worker 仅允许白名单内的 `GET`、`HEAD` 与 `OPTIONS`，拒绝写入和路径穿越。
 
-生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 后读取边缘语料。变量未设置、R2 尚未启用或边缘读取失败时，服务端自动回退到仓库内已经核验的三部受控原文，因此经典阅读不依赖单一供应商存活。
+生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 后读取边缘语料。变量未设置、R2 尚未启用或边缘读取失败时，服务端自动回退到仓库内已经核验的九部受控原文，因此经典阅读不依赖单一供应商存活。
 
 已授权的维护者在通过校验后可执行：
 

@@ -2,14 +2,16 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cache } from "react";
+import corpusManifest from "../../data/corpus/cbeta/manifest-v0.2.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 
-const completeAssets: Record<string, { filename: string; canonId: string }> = {
-  xinjing: { filename: "T08n0251.xml", canonId: "T0251" },
-  jingangjing: { filename: "T08n0235.xml", canonId: "T0235" },
-  fajujing: { filename: "T04n0210.xml", canonId: "T0210" },
-};
+const completeAssets: Record<string, { filename: string; canonId: string }> = Object.fromEntries(
+  corpusManifest.files.map((file) => [
+    file.slug,
+    { filename: file.localPath.split("/").at(-1)!, canonId: file.id },
+  ]),
+);
 
 export type ReaderNavigationItem = {
   key: string;

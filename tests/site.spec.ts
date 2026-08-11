@@ -67,9 +67,15 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 3,
-    fullSourceTextWorks: 3,
-    stableSegments: 1812,
+    registeredWorks: 9,
+    fullSourceTextWorks: 9,
+    stableSegments: 16285,
+    structureVerifiedWorks: 9,
+  });
+  expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
+    denominator: 881,
+    controlled: 8,
+    percentage: 0.91,
   });
 });
 
@@ -116,6 +122,14 @@ test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, req
 
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/fajujing/002-0567a");
+  expect(sitemap).toContain("/jingzang/fahuajing/007-0062c");
+});
+
+test("新增法华经完整原文可分页阅读并保留稳定锚点", async ({ page }) => {
+  await page.goto("/jingzang/fahuajing#T0262.007.0062c14");
+  await page.waitForURL(/\/jingzang\/fahuajing\/007-0062c#T0262\.007\.0062c14$/);
+  await expect(page.locator('[id="T0262.007.0062c14"]')).toBeVisible();
+  await expect(page.getByText(/全经 5343 稳定行段/)).toBeVisible();
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

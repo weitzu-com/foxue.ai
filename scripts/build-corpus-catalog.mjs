@@ -1,0 +1,132 @@
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
+
+const root = process.cwd();
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v0.2.0.json");
+const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.0.json");
+const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
+const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
+const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
+const previousRegistry = JSON.parse(await readFile(previousRegistryPath, "utf8"));
+const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
+const requireUnique = (values, label) => {
+  if (new Set(values).size !== values.length) throw new Error(`${label} 存在重复值`);
+};
+
+requireUnique(catalog.files.map((file) => file.id), "经号");
+requireUnique(catalog.files.map((file) => file.slug), "阅读 slug");
+requireUnique(catalog.files.map((file) => file.workId), "作品标识");
+requireUnique(catalog.files.map((file) => file.localPath), "本地路径");
+requireUnique(catalog.files.map((file) => file.upstreamPath), "上游路径");
+const cbetaSnapshotSource = snapshots.sources.find((source) => source.id === "cbeta_xml_p5");
+const registrySnapshotSource = previousRegistry.sourceSnapshots.find((source) => source.id === "cbeta_xml_p5");
+if (
+  catalog.source.commit !== cbetaSnapshotSource?.commit ||
+  catalog.source.commit !== registrySnapshotSource?.snapshot.ref
+) {
+  throw new Error("受控目录、来源快照与登记册的 CBETA 提交不一致");
+}
+
+const files = [];
+const works = [];
+for (const entry of catalog.files) {
+  const bytes = await readFile(resolve(root, entry.localPath));
+  if (bytes.length !== entry.localBytes || sha256(bytes) !== entry.localSha256) {
+    throw new Error(`${entry.id} 本地受控文件与目录哈希不一致`);
+  }
+  const segments = parseCbetaReadingLines(bytes.toString("utf8"), { canonId: entry.id });
+  const navigation = buildPageNavigation(segments);
+  const juans = [...new Set(segments.map((segment) => segment.juan))];
+  if (
+    segments.length !== entry.verification.segments ||
+    navigation.length !== entry.verification.folios ||
+    JSON.stringify(juans) !== JSON.stringify(entry.verification.juans) ||
+    !entry.verification.anchors.every((anchor) => segments.some((segment) => segment.id === anchor))
+  ) {
+    throw new Error(`${entry.id} 结构或稳定锚点与受控目录不一致`);
+  }
+
+  files.push(Object.fromEntries(Object.entries(entry).filter(([key]) => !["presentation", "verification"].includes(key))));
+  works.push({
+    id: entry.workId,
+    canonicalTitle: entry.presentation.title,
+    traditions: [entry.presentation.tradition.split(" · ")[0]],
+    externalIds: { cbeta: entry.id },
+    expressions: [{
+      id: `gbcr:expression:${entry.id}-zh-Hant`,
+      language: "lzh-Hant",
+      title: entry.presentation.title,
+      translator: entry.presentation.translator,
+      sourceSnapshotId: "cbeta_xml_p5",
+      localSlug: entry.slug,
+      cataloged: true,
+      fullSourceText: true,
+      sourceTextAsset: {
+        path: entry.localPath,
+        format: entry.format,
+        sha256: entry.localSha256,
+        rightsStatus: "restricted_noncommercial"
+      },
+      sampled: entry.verification.humanSampleVerified,
+      stableSegments: segments.length,
+      rightsReviewed: true,
+      qualityStatus: entry.verification.humanSampleVerified ? "verified_sample" : "verified_structure_and_anchors"
+    }]
+  });
+}
+
+const manifest = {
+  schema: "https://foxue.ai/schemas/corpus-asset-manifest-v0.2",
+  version: catalog.version,
+  source: catalog.source,
+  rightsDecision: catalog.rightsDecision,
+  normalization: catalog.normalization,
+  files
+};
+
+const cbetaSubset = snapshots.sources
+  .find((source) => source.id === "cbeta_xml_p5")
+  ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
+if (!cbetaSubset) throw new Error("缺少汉译经藏候选子集快照");
+const controlledSubsetRecords = files.filter((file) => /^T\/T(0[1-9]|1[0-7])\//.test(file.upstreamPath)).length;
+const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id === "cbeta_chinese"
+  ? {
+      ...family,
+      denominatorStatus: "candidate_expression_snapshot_ready",
+      candidateSubsetId: cbetaSubset.id,
+      candidateExpressionRecords: cbetaSubset.candidateRecordCount,
+      controlledExpressionRecords: controlledSubsetRecords,
+      denominatorWorks: null,
+      denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。"
+    }
+  : family);
+const registry = {
+  ...previousRegistry,
+  registry: { ...previousRegistry.registry, version: catalog.version, publishedAt: catalog.publishedAt },
+  sourceFamilies,
+  works
+};
+
+const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
+const manifestRaw = serialize(manifest);
+const registryRaw = serialize(registry);
+const snapshotRaw = await readFile(snapshotPath, "utf8");
+const checksumRaw = `${sha256(registryRaw)}  registry-v0.2.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.0.json\n`;
+const outputs = [
+  [resolve(root, "data/corpus/cbeta/manifest-v0.2.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-v0.2.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-v0.2.0.sha256"), checksumRaw],
+];
+if (process.argv.includes("--verify")) {
+  for (const [path, expected] of outputs) {
+    if (await readFile(path, "utf8") !== expected) {
+      throw new Error(`${path} 与受控目录确定性输出不一致`);
+    }
+  }
+  console.log(`语料目录 v${catalog.version} 可复现：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
+} else {
+  for (const [path, content] of outputs) await writeFile(path, content, "utf8");
+  console.log(`语料目录 v${catalog.version} 已生成：${works.length} 部，${works.reduce((sum, work) => sum + work.expressions[0].stableSegments, 0)} 个稳定行段。`);
+}

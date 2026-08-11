@@ -16,6 +16,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { SearchConsole } from "@/components/search-console";
+import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 
 const tasks = [
   {
@@ -56,6 +57,7 @@ const centuries = [
 ];
 
 export default function Home() {
+  const coverage = buildCoverageSnapshot();
   return (
     <>
       <section className="hero-section">
@@ -222,11 +224,11 @@ export default function Home() {
             <div className="corpus-status">
               <div>
                 <span>覆盖登记册</span>
-                <strong>v0.1 公开</strong>
+                <strong>v0.2 公开</strong>
               </div>
               <div>
-                <span>首版校对样本</span>
-                <strong>3 部</strong>
+                <span>受控完整原文</span>
+                <strong>{coverage.localHoldings.fullSourceTextWorks} 部</strong>
               </div>
               <div>
                 <span>目标时间尺度</span>
