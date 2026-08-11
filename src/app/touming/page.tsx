@@ -32,9 +32,9 @@ const sources = [
 export default function TransparencyPage() {
   const coverage = buildCoverageSnapshot();
   const systems = [
-    { name: "经典阅读", status: "可用", detail: `${coverage.localHoldings.fullSourceTextWorks} 部完整原文 · 稳定段落链接`, icon: Check },
+    { name: "经典阅读", status: "可用", detail: `${coverage.localHoldings.fullSourceTextExpressions} 个完整文本 · 稳定段落链接`, icon: Check },
     { name: "引证式问经", status: "原型", detail: "确定性规则 · 未启用 LLM", icon: Clock3 },
-    { name: "覆盖登记册", status: "公开草案", detail: "GBCR v0.2 · 全球分母尚待审计", icon: Check },
+    { name: "覆盖登记册", status: "公开草案", detail: "GBCR v0.3 · 全球分母尚待审计", icon: Check },
     { name: "全局检索", status: "筹建中", detail: "等待语料权利与索引审计", icon: CircleDashed },
     { name: "用户账户", status: "未开放", detail: "先完成隐私与数据导出设计", icon: CircleDashed },
   ];
@@ -53,10 +53,10 @@ export default function TransparencyPage() {
       </header>
 
       <section className="metric-board" aria-label="当前公开数据">
-        <div><span>完整经典</span><strong>{coverage.localHoldings.fullSourceTextWorks}</strong><small>部</small></div>
+        <div><span>完整文本</span><strong>{coverage.localHoldings.fullSourceTextExpressions}</strong><small>个</small></div>
         <div><span>稳定段落</span><strong>{coverage.localHoldings.stableSegments}</strong><small>个</small></div>
         <div><span>生成式回答</span><strong>0</strong><small>尚未启用</small></div>
-        <div><span>99% 分母</span><strong>—</strong><small>GBCR v0.2 · 未知</small></div>
+        <div><span>99% 分母</span><strong>—</strong><small>GBCR v0.3 · 未知</small></div>
       </section>
 
       <section className="transparency-section">
@@ -105,8 +105,8 @@ export default function TransparencyPage() {
         </div>
         <div className="coverage-summary-inline">
           <p>
-            当前登记 {coverage.localHoldings.registeredWorks} 部作品、{coverage.localHoldings.stableSegments} 个稳定样本段落，
-            完整原文为 {coverage.localHoldings.fullSourceTextWorks} 部。全球分母仍未知，因此不会发布总体百分比。
+            当前登记 {coverage.localHoldings.registeredWorks} 部去重作品、{coverage.localHoldings.registeredExpressions} 个文本表达、
+            {coverage.localHoldings.stableSegments} 个稳定行段。全球分母仍未知，因此不会发布总体百分比。
           </p>
           <Link className="button-secondary" href="/fugai">
             打开全球佛典覆盖登记册 <ArrowRight aria-hidden="true" size={16} />
@@ -121,9 +121,9 @@ export default function TransparencyPage() {
           <p className="eyebrow">KNOWN LIMITS</p>
           <h2>当前已知局限</h2>
           <ul>
-            <li>经藏现有 9 部完整原文，仍不能支持广泛的佛学问答。</li>
-            <li>9 部均已通过结构与锚点核验，其中 3 部完成代表性人工样本复核。</li>
-            <li>覆盖登记册已发布 v0.2 草案；汉译候选文本记录可复算，但全球作品分母尚未完成独立审计。</li>
+            <li>经藏现有 12 部去重作品、14 个完整文本，仍不能支持广泛的佛学问答。</li>
+            <li>14 个文本均已通过结构与锚点核验，其中 3 部作品完成代表性人工样本复核。</li>
+            <li>覆盖登记册已发布 v0.3 草案；汉译候选文本记录可复算，但全球作品分母尚未完成独立审计。</li>
             <li>尚未完成法师、学者、译者和不同传统用户的外部评审。</li>
             <li>当前问经回答为代码内人工编写示例，不是实时 AI 生成。</li>
           </ul>

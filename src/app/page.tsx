@@ -224,11 +224,11 @@ export default function Home() {
             <div className="corpus-status">
               <div>
                 <span>覆盖登记册</span>
-                <strong>v0.2 公开</strong>
+                <strong>v0.3 公开</strong>
               </div>
               <div>
                 <span>受控完整原文</span>
-                <strong>{coverage.localHoldings.fullSourceTextWorks} 部</strong>
+                <strong>{coverage.localHoldings.fullSourceTextExpressions} 个文本</strong>
               </div>
               <div>
                 <span>目标时间尺度</span>

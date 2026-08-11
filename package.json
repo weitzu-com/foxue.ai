@@ -12,6 +12,8 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
+    "build:cbeta-catalog": "node scripts/build-cbeta-catalog.mjs",
+    "verify:cbeta-catalog": "node scripts/build-cbeta-catalog.mjs --verify",
     "import:cbeta": "node scripts/import-cbeta-source.mjs",
     "snapshot:upstream": "node scripts/snapshot-upstream-catalogs.mjs --write",
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
@@ -27,7 +29,7 @@
     "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

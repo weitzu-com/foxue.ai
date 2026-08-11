@@ -1,0 +1,691 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/registry-v0.1",
+  "registry": {
+    "id": "gbcr",
+    "title": "全球佛典覆盖登记册",
+    "titleEn": "Global Buddhist Canon Registry",
+    "version": "0.3.0",
+    "publishedAt": "2026-08-11",
+    "status": "public_draft",
+    "maintainer": "foxue.ai",
+    "canonicalUrl": "https://foxue.ai/fugai"
+  },
+  "claimPolicy": {
+    "target": "99%",
+    "publishable": false,
+    "reason": "全球分母尚未完成跨传统、跨语种和独立评审，因此不得发布总体覆盖百分比。",
+    "rule": "目录、完整原文、稳定段落、译文、权利和质量必须分别计算；未知分母不得以零代替，也不得合并成单一营销数字。",
+    "reviewGate": "只有在分母定义公开、来源快照冻结、重复项规则可复算，并经至少两个独立机构或专家组复核后，才可发布全球百分比。"
+  },
+  "dimensions": [
+    {
+      "id": "catalog",
+      "label": "目录覆盖",
+      "definition": "已建立规范作品标识，并记录至少一个可核验的外部目录标识。"
+    },
+    {
+      "id": "full_source_text",
+      "label": "完整原文",
+      "definition": "完整表达版本已合法取得、格式化并通过结构校验；摘录不计入。"
+    },
+    {
+      "id": "stable_segments",
+      "label": "稳定段落",
+      "definition": "可公开访问的文本片段具有持久标识，旧链接可解析。"
+    },
+    {
+      "id": "translation",
+      "label": "译文覆盖",
+      "definition": "按目标语言分别统计完整译文；机器候选与人工确认分开。"
+    },
+    {
+      "id": "rights",
+      "label": "权利可发布",
+      "definition": "已逐对象记录许可、地域、用途、署名与再分发限制。"
+    },
+    {
+      "id": "quality",
+      "label": "质量通过",
+      "definition": "来源、结构、段落和抽样文本通过人工或独立质量门。"
+    }
+  ],
+  "globalDenominators": {
+    "catalogWorks": null,
+    "fullSourceTextWorks": null,
+    "translationWorks": null,
+    "rightsPublishableWorks": null,
+    "qualityApprovedWorks": null,
+    "status": "definition_in_progress",
+    "unknownMeans": "not_yet_measured"
+  },
+  "sourceFamilies": [
+    {
+      "id": "cbeta_chinese",
+      "title": "汉文佛典",
+      "traditions": [
+        "汉传佛教"
+      ],
+      "languages": [
+        "lzh-Hant",
+        "zh-Hant"
+      ],
+      "primarySources": [
+        "cbeta_xml_p5"
+      ],
+      "denominatorStatus": "candidate_expression_snapshot_ready",
+      "denominatorWorks": null,
+      "deduplicationNote": "同一作品的异译、别本与不同藏经见证须分离为 Work、Expression 与 Witness，不能按文件数直接求和。",
+      "candidateSubsetId": "taisho_chinese_sutra_t01_t17",
+      "candidateExpressionRecords": 881,
+      "controlledExpressionRecords": 13,
+      "candidateExpressionBytes": 247280257,
+      "controlledExpressionBytes": 5149387,
+      "denominatorNote": "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。"
+    },
+    {
+      "id": "suttacentral_early_buddhist_texts",
+      "title": "早期佛教经文与巴利经藏",
+      "traditions": [
+        "上座部佛教",
+        "跨传承早期佛教文本"
+      ],
+      "languages": [
+        "pi",
+        "lzh",
+        "sa",
+        "pra",
+        "bo",
+        "multi"
+      ],
+      "primarySources": [
+        "suttacentral_bilara"
+      ],
+      "denominatorStatus": "candidate_snapshot_ready",
+      "denominatorWorks": null,
+      "deduplicationNote": "平行经、经组、分卷和译本不直接等同于独立作品；采用 SuttaCentral 标识并保留平行关系。"
+    },
+    {
+      "id": "tibetan_kangyur_tengyur",
+      "title": "藏文甘珠尔与丹珠尔",
+      "traditions": [
+        "藏传佛教"
+      ],
+      "languages": [
+        "bo",
+        "sa",
+        "en"
+      ],
+      "primarySources": [
+        "bdrc_linked_data",
+        "bdrc_iiif",
+        "84000_progress"
+      ],
+      "denominatorStatus": "edition_alignment_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "德格版等目录、不同版次见证与 84000 译文进度必须分层记录，不能把页数、文本数和作品数混用。"
+    },
+    {
+      "id": "sanskrit_fragments_and_witnesses",
+      "title": "梵文写本、残片与跨语种见证",
+      "traditions": [
+        "跨传统"
+      ],
+      "languages": [
+        "sa",
+        "pra",
+        "multi"
+      ],
+      "primarySources": [
+        "bdrc_linked_data",
+        "bdrc_iiif"
+      ],
+      "denominatorStatus": "federated_sources_pending",
+      "denominatorWorks": null,
+      "deduplicationNote": "残片、写本、校勘本和规范作品须分别建模；一个实物见证不自动等于一部独立佛典。"
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "id": "cbeta_xml_p5",
+      "name": "CBETA XML P5",
+      "role": "汉文佛典 TEI P5 文本与目录候选源",
+      "homepage": "https://cbeta.org/",
+      "dataUrl": "https://github.com/cbeta-org/xml-p5",
+      "licenseUrl": "https://cbeta.org/copyright",
+      "formatUrl": "https://archive2.cbeta.org/en/format/xml.php",
+      "snapshot": {
+        "type": "git",
+        "ref": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "restricted_noncommercial",
+        "summary": "默认许可与例外按 CBETA 官方版权页逐项执行；第三方类别 B 内容不得套用统一许可。"
+      }
+    },
+    {
+      "id": "suttacentral_bilara",
+      "name": "SuttaCentral Bilara Data",
+      "role": "经文、段落标识、译文与平行关系候选源",
+      "homepage": "https://suttacentral.net/",
+      "dataUrl": "https://github.com/suttacentral/bilara-data",
+      "licenseUrl": "https://suttacentral.net/licensing",
+      "formatUrl": "https://github.com/suttacentral/bilara-data",
+      "snapshot": {
+        "type": "git",
+        "ref": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "mixed_item_level",
+        "summary": "SuttaCentral 自有材料、公共领域原文和第三方译文的权利不同，必须读取每个文件或出版物的许可记录。"
+      }
+    },
+    {
+      "id": "bdrc_linked_data",
+      "name": "BDRC BUDA Linked Data",
+      "role": "规范实体、目录关系和跨语种书目候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/lds-pdi",
+      "licenseUrl": "https://github.com/buda-base/lds-pdi/blob/master/LICENSE",
+      "formatUrl": "https://github.com/buda-base/lds-pdi",
+      "snapshot": {
+        "type": "git",
+        "ref": "0cad5793279cca2516af64988a75326112587ea5",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "object_level_review",
+        "summary": "API 代码许可不等于每个文本、元数据或图像对象的许可；对象权利须另行核对。"
+      }
+    },
+    {
+      "id": "bdrc_iiif",
+      "name": "BDRC BUDA IIIF Presentation",
+      "role": "写本与印本图像清单候选源",
+      "homepage": "https://www.bdrc.io/",
+      "dataUrl": "https://github.com/buda-base/buda-iiif-presentation",
+      "licenseUrl": "https://github.com/buda-base/buda-iiif-presentation/blob/master/LICENSE",
+      "formatUrl": "https://iiif.io/api/presentation/",
+      "snapshot": {
+        "type": "git",
+        "ref": "3642a7ce06d66f4da694fe9973763112c850d910",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "object_level_review",
+        "summary": "IIIF 服务代码可开放，不代表清单所指向的每一张图像都可再分发。"
+      }
+    },
+    {
+      "id": "84000_progress",
+      "name": "84000 Translating the Words of the Buddha",
+      "role": "藏文甘珠尔英译进度与公开出版物核对源",
+      "homepage": "https://84000.co/",
+      "dataUrl": "https://84000.co/about/progress-impact",
+      "licenseUrl": "https://84000.co/",
+      "formatUrl": "https://84000.co/",
+      "snapshot": {
+        "type": "web",
+        "ref": "captured-2026-08-11",
+        "capturedAt": "2026-08-11"
+      },
+      "rights": {
+        "status": "item_level_review",
+        "summary": "网站进度可作为外部核对证据；译文出版物的具体许可与禁止改作条件须逐项遵守。"
+      }
+    }
+  ],
+  "works": [
+    {
+      "id": "gbcr:work:prajnaparamita-hrdaya",
+      "canonicalTitle": "般若波羅蜜多心經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0251"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0251-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "般若波羅蜜多心經",
+          "translator": "唐 · 玄奘譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "xinjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0251.xml",
+            "format": "application/tei+xml",
+            "sha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": true,
+          "stableSegments": 72,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:vajracchedika-prajnaparamita",
+      "canonicalTitle": "金剛般若波羅蜜經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0235"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0235-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "金剛般若波羅蜜經",
+          "translator": "後秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "jingangjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T08n0235.xml",
+            "format": "application/tei+xml",
+            "sha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": true,
+          "stableSegments": 340,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:dharmapada-t0210",
+      "canonicalTitle": "法句經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0210"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0210-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "法句經",
+          "translator": "吳 · 維祇難等譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "fajujing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T04n0210.xml",
+            "format": "application/tei+xml",
+            "sha256": "5f265927bba467f46652c5436e981e52944fd5c8f8609aa55f1027e11c81d035",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": true,
+          "stableSegments": 1400,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_sample"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:saddharma-pundarika-t0262",
+      "canonicalTitle": "妙法蓮華經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0262"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0262-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "妙法蓮華經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "fahuajing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T09n0262.xml",
+            "format": "application/tei+xml",
+            "sha256": "345b8a2496986e30ed27be77198afe5128ffbda0ea996e12db5e4b2fef9be1aa",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 5343,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:larger-sukhavati-vyuha-t0360",
+      "canonicalTitle": "佛說無量壽經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0360"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0360-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說無量壽經",
+          "translator": "曹魏 · 康僧鎧譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "wuliangshoujing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0360.xml",
+            "format": "application/tei+xml",
+            "sha256": "e8f1856f3f725fbd5370ef92135d37ed364bae55130d284071538476201c362b",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 1184,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:amitayurdhyana-sutra-t0365",
+      "canonicalTitle": "佛說觀無量壽佛經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0365"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0365-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說觀無量壽佛經",
+          "translator": "劉宋 · 畺良耶舍譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "guan-wuliangshoufo-jing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0365.xml",
+            "format": "application/tei+xml",
+            "sha256": "e6e0c460ccdf80f7fb425cfa64c1b4c1038986c3ff45f9373e43e8ab51998b18",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 510,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:smaller-sukhavati-vyuha-t0366",
+      "canonicalTitle": "佛說阿彌陀經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0366"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0366-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "佛說阿彌陀經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "amituojing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T12n0366.xml",
+            "format": "application/tei+xml",
+            "sha256": "e994cb83282a603feb7ffc3c9af5b2d6edbc92586bf9b00facfb0fc4b89b1aea",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 141,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:lankavatara-t0670",
+      "canonicalTitle": "楞伽經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0670",
+          "T0671",
+          "T0672"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0670-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "楞伽阿跋多羅寶經",
+          "translator": "劉宋 · 求那跋陀羅譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0670.xml",
+            "format": "application/tei+xml",
+            "sha256": "b535498341f2d440a0ea6f22f922c0787a47438ba9b17d706a327b0d9f121444",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 3083,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        },
+        {
+          "id": "gbcr:expression:T0671-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "入楞伽經",
+          "translator": "元魏 · 菩提流支譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "ru-lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0671.xml",
+            "format": "application/tei+xml",
+            "sha256": "94d41e18abd80b270d9aae6499d2679512a19e9157c33c22854a545a6af8d99e",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 6231,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        },
+        {
+          "id": "gbcr:expression:T0672-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大乘入楞伽經",
+          "translator": "唐 · 實叉難陀譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "dasheng-ru-lengqiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T16n0672.xml",
+            "format": "application/tei+xml",
+            "sha256": "5c0996e5b3f50e444e6467052aae97c45ff5ab5b401863667103bd8f25afb955",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 4646,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:surangama-t0945",
+      "canonicalTitle": "大佛頂如來密因修證了義諸菩薩萬行首楞嚴經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0945"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0945-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大佛頂如來密因修證了義諸菩薩萬行首楞嚴經",
+          "translator": "唐 · 般剌蜜帝譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "lengyanjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T19n0945.xml",
+            "format": "application/tei+xml",
+            "sha256": "ab5f41b7b5e662943af05048b6e47012b45a6d2e664864539b255129424ad6c3",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 4212,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:vimalakirti-nirdesa-t0475",
+      "canonicalTitle": "維摩詰所說經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0475"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0475-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "維摩詰所說經",
+          "translator": "姚秦 · 鳩摩羅什譯",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "weimojiejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T14n0475.xml",
+            "format": "application/tei+xml",
+            "sha256": "2e35609f39274f7d994d18c9bb09d34f817243b0e6b2172120dfa1527fd95541",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 1786,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:sutra-of-forty-two-sections-t0784",
+      "canonicalTitle": "四十二章經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0784"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0784-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "四十二章經",
+          "translator": "後漢 · 迦葉摩騰、法蘭譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "sishierzhangjing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T17n0784.xml",
+            "format": "application/tei+xml",
+            "sha256": "cb09f42210a27e43b25baf35d73bb2006b88d6a5f1399bdfb7ace3b1330183ee",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 173,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    },
+    {
+      "id": "gbcr:work:perfect-enlightenment-sutra-t0842",
+      "canonicalTitle": "大方廣圓覺修多羅了義經",
+      "traditions": [
+        "漢傳佛教"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0842"
+        ]
+      },
+      "expressions": [
+        {
+          "id": "gbcr:expression:T0842-zh-Hant",
+          "language": "lzh-Hant",
+          "title": "大方廣圓覺修多羅了義經",
+          "translator": "唐 · 佛陀多羅譯（傳統題記）",
+          "sourceSnapshotId": "cbeta_xml_p5",
+          "localSlug": "yuanjuejing",
+          "cataloged": true,
+          "fullSourceText": true,
+          "sourceTextAsset": {
+            "path": "data/corpus/cbeta/T17n0842.xml",
+            "format": "application/tei+xml",
+            "sha256": "25d3ce021a57daabaf9a2f679e6ddc74d536894b49c1ead9447c2380853191e5",
+            "rightsStatus": "restricted_noncommercial"
+          },
+          "sampled": false,
+          "stableSegments": 784,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors"
+        }
+      ]
+    }
+  ]
+}

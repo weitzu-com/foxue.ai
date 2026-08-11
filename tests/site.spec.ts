@@ -67,18 +67,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 9,
-    fullSourceTextWorks: 9,
-    stableSegments: 16285,
-    structureVerifiedWorks: 9,
+    registeredWorks: 12,
+    registeredExpressions: 14,
+    fullSourceTextWorks: 12,
+    fullSourceTextExpressions: 14,
+    stableSegments: 29905,
+    structureVerifiedWorks: 12,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 8,
-    percentage: 0.91,
+    controlled: 13,
+    percentage: 1.48,
     sourceBytes: 247280257,
-    controlledBytes: 2766131,
-    bytePercentage: 1.12,
+    controlledBytes: 5149387,
+    bytePercentage: 2.08,
   });
 });
 
@@ -133,6 +135,17 @@ test("新增法华经完整原文可分页阅读并保留稳定锚点", async ({
   await page.waitForURL(/\/jingzang\/fahuajing\/007-0062c#T0262\.007\.0062c14$/);
   await expect(page.locator('[id="T0262.007.0062c14"]')).toBeVisible();
   await expect(page.getByText(/全经 5343 稳定行段/)).toBeVisible();
+});
+
+test("新增维摩诘经完整原文可分页阅读并保留末卷锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/weimojiejing#T0475.003.0557b26");
+  await page.waitForURL(/\/jingzang\/weimojiejing\/003-0557b#T0475\.003\.0557b26$/);
+  await expect(page.locator('[id="T0475.003.0557b26"]')).toBeVisible();
+  await expect(page.getByText(/全经 1786 稳定行段/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/weimojiejing/003-0557b");
+  expect(sitemap).toContain("/jingzang/dasheng-ru-lengqiejing/007-0640c");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {

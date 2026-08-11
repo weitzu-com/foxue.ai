@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifest } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.2.1.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.3.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -39,10 +39,11 @@ const releaseManifest = JSON.parse(await readFile(resolve(outputRoot, manifestKe
 const expectedSegments = sourceManifest.files.reduce((sum, sourceFile) => {
   const work = registry.works.find((candidate) => candidate.id === sourceFile.workId);
   requireValue(Boolean(work), `${sourceFile.id} 在 GBCR 中缺少作品记录`);
-  return sum + (work?.expressions.reduce(
-    (expressionSum, expression) => expressionSum + (expression.stableSegments ?? 0),
-    0,
-  ) ?? 0);
+  const expression = work?.expressions.find(
+    (candidate) => candidate.sourceTextAsset?.path === sourceFile.localPath,
+  );
+  requireValue(Boolean(expression), `${sourceFile.id} 在 GBCR 中缺少对应文本表达`);
+  return sum + (expression?.stableSegments ?? 0);
 }, 0);
 requireValue(releaseManifest.releaseId === releaseId, "发布清单 releaseId 不一致");
 requireValue(

@@ -68,8 +68,8 @@ export default function CoveragePage() {
         </div>
         <dl className="coverage-numbers">
           <div><dt>登记作品</dt><dd>{snapshot.localHoldings.registeredWorks}<small>部</small></dd></div>
-          <div><dt>稳定样本段落</dt><dd>{snapshot.localHoldings.stableSegments}<small>段</small></dd></div>
-          <div><dt>完整原文</dt><dd>{snapshot.localHoldings.fullSourceTextWorks}<small>部</small></dd></div>
+          <div><dt>稳定行段</dt><dd>{snapshot.localHoldings.stableSegments}<small>段</small></dd></div>
+          <div><dt>完整文本</dt><dd>{snapshot.localHoldings.fullSourceTextExpressions}<small>个</small></dd></div>
           <div><dt>结构核验</dt><dd>{snapshot.localHoldings.structureVerifiedWorks}<small>部</small></dd></div>
         </dl>
       </section>

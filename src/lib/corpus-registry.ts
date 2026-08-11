@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v0.2.1.json";
+import registryDocument from "../../data/gbcr/registry-v0.3.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = (typeof registryDocument.works)[number]["expressions"][number];
@@ -56,6 +56,7 @@ export function buildCoverageSnapshot() {
       registeredExpressions: expressions.length,
       catalogedWorks: countDistinctWorks((item) => item.cataloged),
       fullSourceTextWorks: countDistinctWorks((item) => item.fullSourceText),
+      fullSourceTextExpressions: expressions.filter((item) => item.fullSourceText).length,
       sampledWorks: countDistinctWorks((item) => item.sampled),
       stableSegments: expressions.reduce((sum, item) => sum + item.stableSegments, 0),
       rightsReviewedWorks: countDistinctWorks((item) => item.rightsReviewed),

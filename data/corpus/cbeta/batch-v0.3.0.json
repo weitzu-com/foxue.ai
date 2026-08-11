@@ -1,0 +1,172 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.1",
+  "version": "0.3.0",
+  "publishedAt": "2026-08-11",
+  "baseCatalog": "data/corpus/cbeta/catalog-v0.2.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 4, 8, 9, 12, 14, 16, 17 and 19",
+  "workOverrides": {
+    "gbcr:work:lankavatara-t0670": {
+      "canonicalTitle": "楞伽經"
+    }
+  },
+  "files": [
+    {
+      "id": "T0475",
+      "slug": "weimojiejing",
+      "workId": "gbcr:work:vimalakirti-nirdesa-t0475",
+      "localPath": "data/corpus/cbeta/T14n0475.xml",
+      "upstreamPath": "T/T14/T14n0475.xml",
+      "upstreamGitBlobSha1": "ae90dbdee3965179f7fb0c72c0102802e12a992d",
+      "upstreamBytes": 310314,
+      "upstreamSha256": "109a11514f52fe43e4832c8b26b75ab7a70c63a32b36a2b1e2d786ae8d0bf5f2",
+      "localBytes": 310315,
+      "localSha256": "2e35609f39274f7d994d18c9bb09d34f817243b0e6b2172120dfa1527fd95541",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "維摩詰所說經",
+        "alternateTitle": "維摩詰經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T14, no. 475",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "以維摩詰示疾、文殊問疾與不二法門等場景，闡明菩薩行、空義與在家修行。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0475_001"
+      },
+      "verification": {
+        "segments": 1786,
+        "folios": 63,
+        "juans": ["001", "002", "003"],
+        "anchors": ["T0475.001.0537a02", "T0475.003.0557b26"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0671",
+      "slug": "ru-lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "workTitle": "楞伽經",
+      "localPath": "data/corpus/cbeta/T16n0671.xml",
+      "upstreamPath": "T/T16/T16n0671.xml",
+      "upstreamGitBlobSha1": "44b597dcddeace49403c372260e383bb37694b51",
+      "upstreamBytes": 1027224,
+      "upstreamSha256": "eccda2a51d3bb0abb05dff6a54177da350bfc218952daf79356a8d91018974eb",
+      "localBytes": 1027225,
+      "localSha256": "94d41e18abd80b270d9aae6499d2679512a19e9157c33c22854a545a6af8d99e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入楞伽經",
+        "alternateTitle": "十卷楞伽經",
+        "tradition": "漢傳佛教 · 如來藏與唯識",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 671",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "《楞伽經》的十卷漢譯本；與四卷、七卷本共同保存自心所現、識與如來藏教說的不同翻譯見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0671_001"
+      },
+      "verification": {
+        "segments": 6231,
+        "folios": 225,
+        "juans": ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010"],
+        "anchors": ["T0671.001.0514c02", "T0671.010.0586b22"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0672",
+      "slug": "dasheng-ru-lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "workTitle": "楞伽經",
+      "localPath": "data/corpus/cbeta/T16n0672.xml",
+      "upstreamPath": "T/T16/T16n0672.xml",
+      "upstreamGitBlobSha1": "3ab4cb7282b305be12ad9ef9ed987f1d65292a48",
+      "upstreamBytes": 859136,
+      "upstreamSha256": "94a5d65cee24e0cd4966d4d440a822f497f6052e3d43492f1feb0458d9dea788",
+      "localBytes": 859137,
+      "localSha256": "5c0996e5b3f50e444e6467052aae97c45ff5ab5b401863667103bd8f25afb955",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘入楞伽經",
+        "alternateTitle": "七卷楞伽經",
+        "tradition": "漢傳佛教 · 如來藏與唯識",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 672",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "《楞伽經》的七卷漢譯本；與求那跋陀羅、菩提流支譯本并列呈現同一作品的多重文本表達。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0672_001"
+      },
+      "verification": {
+        "segments": 4646,
+        "folios": 166,
+        "juans": ["001", "002", "003", "004", "005", "006", "007"],
+        "anchors": ["T0672.001.0587a02", "T0672.007.0640c02"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0784",
+      "slug": "sishierzhangjing",
+      "workId": "gbcr:work:sutra-of-forty-two-sections-t0784",
+      "localPath": "data/corpus/cbeta/T17n0784.xml",
+      "upstreamPath": "T/T17/T17n0784.xml",
+      "upstreamGitBlobSha1": "c33580c509ab254b50b1466f0177b8164e026130",
+      "upstreamBytes": 78465,
+      "upstreamSha256": "d8c0abbd89e2d8f451546519d3ebe0fb07d5fbacbfff15ec4734c9d8b74c4ae4",
+      "localBytes": 78466,
+      "localSha256": "cb09f42210a27e43b25baf35d73bb2006b88d6a5f1399bdfb7ace3b1330183ee",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四十二章經",
+        "alternateTitle": "佛說四十二章經",
+        "tradition": "漢傳佛教 · 傳統藏經見證",
+        "language": "漢文",
+        "canonRef": "大正藏 T17, no. 784",
+        "translator": "後漢 · 迦葉摩騰、法蘭譯（傳統題記）",
+        "summary": "以四十二章匯集出家、持戒、離欲與修心教導；文本形成與譯傳史存在研究爭議，平台按大正藏見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0784_001"
+      },
+      "verification": {
+        "segments": 173,
+        "folios": 7,
+        "juans": ["001"],
+        "anchors": ["T0784.001.0722a10", "T0784.001.0724a18"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0842",
+      "slug": "yuanjuejing",
+      "workId": "gbcr:work:perfect-enlightenment-sutra-t0842",
+      "localPath": "data/corpus/cbeta/T17n0842.xml",
+      "upstreamPath": "T/T17/T17n0842.xml",
+      "upstreamGitBlobSha1": "816072c0f24d7e099be9d4062fecdfaec859e75b",
+      "upstreamBytes": 108117,
+      "upstreamSha256": "fbf31ed1ac3656d0ecf61f26bc6e4bacc7bd8319be677e7a897ecc20896cbb53",
+      "localBytes": 108118,
+      "localSha256": "25d3ce021a57daabaf9a2f679e6ddc74d536894b49c1ead9447c2380853191e5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣圓覺修多羅了義經",
+        "alternateTitle": "圓覺經",
+        "tradition": "漢傳佛教 · 傳統藏經見證",
+        "language": "漢文",
+        "canonRef": "大正藏 T17, no. 842",
+        "translator": "唐 · 佛陀多羅譯（傳統題記）",
+        "summary": "以十二位菩薩問答闡述圓覺、無明與修證；成書和翻譯史存在學術爭議，平台按大正藏文本見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0842_001"
+      },
+      "verification": {
+        "segments": 784,
+        "folios": 28,
+        "juans": ["001"],
+        "anchors": ["T0842.001.0913a23", "T0842.001.0922a24"],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

@@ -3,10 +3,10 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.2.1.json");
+const registryPath = resolve(root, "data/gbcr/registry-v0.3.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v0.2.1.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.3.0.sha256");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -20,7 +20,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.2.1", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.3.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -90,9 +90,9 @@ unique(inventory.records.map((record) => record.sourceRecordId), "汉译经藏�
 unique(inventory.records.map((record) => record.upstreamPath), "汉译经藏上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.candidateExpressionRecords === 881, "汉译经藏候选记录未写入来源族");
-requireValue(chineseFamily?.controlledExpressionRecords === 8, "汉译经藏受控记录数不匹配");
+requireValue(chineseFamily?.controlledExpressionRecords === 13, "汉译经藏受控记录数不匹配");
 requireValue(chineseFamily?.candidateExpressionBytes === 247280257, "汉译经藏候选字节数未写入来源族");
-requireValue(chineseFamily?.controlledExpressionBytes === 2766131, "汉译经藏受控字节数不匹配");
+requireValue(chineseFamily?.controlledExpressionBytes === 5149387, "汉译经藏受控字节数不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -100,7 +100,7 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.2.1.json", raw],
+  ["registry-v0.3.0.json", raw],
   ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
 ];
@@ -117,10 +117,17 @@ if (errors.length > 0) {
 const expressions = registry.works.flatMap((work) => work.expressions);
 const segmentCount = expressions.reduce((sum, item) => sum + item.stableSegments, 0);
 const candidateCount = sourceSnapshots.sources.reduce((sum, source) => sum + source.candidateRecordCount, 0);
-requireValue(registry.works.length === 9, "v0.2 必须登记 9 部受控原文");
-requireValue(segmentCount === 16285, "v0.2 稳定行段总数漂移");
+const lankavatara = registry.works.find((work) => work.id === "gbcr:work:lankavatara-t0670");
+requireValue(registry.works.length === 12, "v0.3 必须登记 12 部去重作品");
+requireValue(expressions.length === 14, "v0.3 必须登记 14 个完整文本表达");
+requireValue(segmentCount === 29905, "v0.3 稳定行段总数漂移");
+requireValue(
+  JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
+  "《楞伽经》三个汉译文本未正确归并",
+);
+requireValue(lankavatara?.expressions?.length === 3, "《楞伽经》必须保留三个独立文本表达");
 if (errors.length > 0) {
   console.error(errors.map((item) => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log(`GBCR ${registry.registry.version} 已通过校验：${registry.works.length} 部登记作品，${segmentCount} 个稳定样本段落，${candidateCount} 条上游候选记录。`);
+console.log(`GBCR ${registry.registry.version} 已通过校验：${registry.works.length} 部作品、${expressions.length} 个完整文本，${segmentCount} 个稳定行段，${candidateCount} 条上游候选记录。`);

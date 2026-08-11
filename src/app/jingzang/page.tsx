@@ -16,7 +16,7 @@ export default function LibraryPage() {
       <header className="subpage-hero">
         <div className="page-shell subpage-hero__grid">
           <div>
-            <p className="eyebrow">开放经藏 · CORPUS 0.1</p>
+            <p className="eyebrow">开放经藏 · CORPUS 0.3</p>
             <h1>经文先于工具，<br />来源先于答案。</h1>
           </div>
           <div className="subpage-hero__aside">
@@ -25,9 +25,10 @@ export default function LibraryPage() {
               也不把机器识别文本冒充校订本。
             </p>
             <div className="subpage-stats">
-              <span><strong>{snapshot.localHoldings.fullSourceTextWorks}</strong> 部完整原文</span>
+              <span><strong>{snapshot.localHoldings.fullSourceTextExpressions}</strong> 个完整文本</span>
               <span><strong>{snapshot.localHoldings.stableSegments}</strong> 个稳定行段</span>
             </div>
+            <p>{snapshot.localHoldings.registeredWorks} 部去重作品；同一经典的不同汉译分别保留。</p>
           </div>
         </div>
       </header>

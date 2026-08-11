@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cache } from "react";
-import corpusManifest from "../../data/corpus/cbeta/manifest-v0.2.1.json";
+import corpusManifest from "../../data/corpus/cbeta/manifest-v0.3.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 

@@ -1,0 +1,568 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-catalog-v0.2",
+  "version": "0.3.0",
+  "publishedAt": "2026-08-11",
+  "source": {
+    "name": "CBETA XML P5",
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "copyrightUrl": "https://cbeta.org/copyright",
+    "formatUrl": "https://archive2.cbeta.org/en/format/xml.php"
+  },
+  "rightsDecision": {
+    "status": "approved_noncommercial_with_attribution_and_header",
+    "category": "Individually reviewed CBETA TEI files in Taishō volumes 4, 8, 9, 12, 14, 16, 17 and 19",
+    "commercialUse": "prohibited_without_additional_permission",
+    "headerMustRemain": true,
+    "reviewedAt": "2026-08-11",
+    "note": "每个文件内的 availability 声明与 CBETA 官方版权页共同构成审核依据；代码许可证不覆盖这些 XML。"
+  },
+  "normalization": {
+    "id": "append-terminal-lf-v1",
+    "description": "仅在上游文件末尾追加一个 LF；TEI 内容、标记与头部不变。"
+  },
+  "files": [
+    {
+      "id": "T0251",
+      "slug": "xinjing",
+      "workId": "gbcr:work:prajnaparamita-hrdaya",
+      "localPath": "data/corpus/cbeta/T08n0251.xml",
+      "upstreamPath": "T/T08/T08n0251.xml",
+      "upstreamGitBlobSha1": "c8809532a2c9aaeef8a7523ceec52b2738b9b101",
+      "upstreamBytes": 14489,
+      "upstreamSha256": "27f563e67dfbd155a48e514152432378b3880541ebcb88033c14f96f20de1860",
+      "localBytes": 14490,
+      "localSha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經",
+        "alternateTitle": "心經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 251",
+        "translator": "唐 · 玄奘譯",
+        "summary": "以極精煉的篇幅呈現般若空義，並以「照見五蘊皆空」說明智慧與離苦的關係。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0251_001"
+      },
+      "verification": {
+        "segments": 72,
+        "folios": 3,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0251.001.0848c06"
+        ],
+        "humanSampleVerified": true
+      }
+    },
+    {
+      "id": "T0235",
+      "slug": "jingangjing",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "localPath": "data/corpus/cbeta/T08n0235.xml",
+      "upstreamPath": "T/T08/T08n0235.xml",
+      "upstreamGitBlobSha1": "37f3f5db4f6b52ef1deb2f2ffc94de229ee51095",
+      "upstreamBytes": 60229,
+      "upstreamSha256": "6852f861a314809c935de6e676994226d5a9021f63b88a7e18a6af60768285e9",
+      "localBytes": 60230,
+      "localSha256": "0fc333f966f88c585d062df6064ded252294f2ccea79dbf5a8bcf8bb7e03cb0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經",
+        "alternateTitle": "金剛經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 235",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "以須菩提與佛陀的問答，破除對自我、功德、教法與一切相的執取。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0235_001"
+      },
+      "verification": {
+        "segments": 340,
+        "folios": 13,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0235.001.0749c22"
+        ],
+        "humanSampleVerified": true
+      }
+    },
+    {
+      "id": "T0210",
+      "slug": "fajujing",
+      "workId": "gbcr:work:dharmapada-t0210",
+      "localPath": "data/corpus/cbeta/T04n0210.xml",
+      "upstreamPath": "T/T04/T04n0210.xml",
+      "upstreamGitBlobSha1": "00228c757416f557fee1c99d54acbb83f79fb97b",
+      "upstreamBytes": 517419,
+      "upstreamSha256": "89586f1b114e01a78ac9b94714d177ee14c255e84e6b0ce6a88f7cdd25caa9dc",
+      "localBytes": 517420,
+      "localSha256": "5f265927bba467f46652c5436e981e52944fd5c8f8609aa55f1027e11c81d035",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法句經",
+        "alternateTitle": "Dharmapada",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "大正藏 T04, no. 210",
+        "translator": "吳 · 維祇難等譯",
+        "summary": "以短偈匯集修心、戒行、覺察與解脫的教導；與巴利《法句》存在相關但不完全相同的傳承。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0210_001"
+      },
+      "verification": {
+        "segments": 1400,
+        "folios": 50,
+        "juans": [
+          "001",
+          "002"
+        ],
+        "anchors": [
+          "T0210.001.0562a13",
+          "T0210.002.0567a03"
+        ],
+        "humanSampleVerified": true
+      }
+    },
+    {
+      "id": "T0262",
+      "slug": "fahuajing",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "localPath": "data/corpus/cbeta/T09n0262.xml",
+      "upstreamPath": "T/T09/T09n0262.xml",
+      "upstreamGitBlobSha1": "0819424e6a6a6072712dc4f8c57e9d0a4b5abb97",
+      "upstreamBytes": 1123303,
+      "upstreamSha256": "015033c68f37e6da7068c9bf15c8e55bca21e4ca71d387505e2123e16debe716",
+      "localBytes": 1123304,
+      "localSha256": "345b8a2496986e30ed27be77198afe5128ffbda0ea996e12db5e4b2fef9be1aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經",
+        "alternateTitle": "法華經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 262",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "以一佛乘、方便與菩薩行為核心，在東亞佛教思想、修持與藝術中影響深遠。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0262_001"
+      },
+      "verification": {
+        "segments": 5343,
+        "folios": 194,
+        "juans": [
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007"
+        ],
+        "anchors": [
+          "T0262.001.0001a02",
+          "T0262.007.0062c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0360",
+      "slug": "wuliangshoujing",
+      "workId": "gbcr:work:larger-sukhavati-vyuha-t0360",
+      "localPath": "data/corpus/cbeta/T12n0360.xml",
+      "upstreamPath": "T/T12/T12n0360.xml",
+      "upstreamGitBlobSha1": "b94c89ffc30c361f2050d1cea45365cf286b7417",
+      "upstreamBytes": 312136,
+      "upstreamSha256": "45efb370ec9be425157627714a5b43af769f82cf8d8c3fafee7ff269d6412b0a",
+      "localBytes": 312137,
+      "localSha256": "e8f1856f3f725fbd5370ef92135d37ed364bae55130d284071538476201c362b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說無量壽經",
+        "alternateTitle": "無量壽經",
+        "tradition": "漢傳佛教 · 淨土經典",
+        "language": "漢文",
+        "canonRef": "大正藏 T12, no. 360",
+        "translator": "曹魏 · 康僧鎧譯",
+        "summary": "敘述阿彌陀佛因地願行、極樂世界與往生之道，是漢傳淨土信仰的重要根本文本。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0360_001"
+      },
+      "verification": {
+        "segments": 1184,
+        "folios": 42,
+        "juans": [
+          "001",
+          "002"
+        ],
+        "anchors": [
+          "T0360.001.0265c02",
+          "T0360.002.0279a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0365",
+      "slug": "guan-wuliangshoufo-jing",
+      "workId": "gbcr:work:amitayurdhyana-sutra-t0365",
+      "localPath": "data/corpus/cbeta/T12n0365.xml",
+      "upstreamPath": "T/T12/T12n0365.xml",
+      "upstreamGitBlobSha1": "10b611a6f4e29f416db02cab96314c681f1e2716",
+      "upstreamBytes": 169652,
+      "upstreamSha256": "21c167c7dc8b30be0ce740804f6789594964254ebb41646108212dd1df1ec332",
+      "localBytes": 169653,
+      "localSha256": "e6e0c460ccdf80f7fb425cfa64c1b4c1038986c3ff45f9373e43e8ab51998b18",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說觀無量壽佛經",
+        "alternateTitle": "觀無量壽佛經",
+        "tradition": "漢傳佛教 · 淨土經典",
+        "language": "漢文",
+        "canonRef": "大正藏 T12, no. 365",
+        "translator": "劉宋 · 畺良耶舍譯",
+        "summary": "以韋提希夫人的因緣展開淨土觀想、三福與往生教說，是淨土三經之一。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0365_001"
+      },
+      "verification": {
+        "segments": 510,
+        "folios": 19,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0365.001.0340b22",
+          "T0365.001.0346b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0366",
+      "slug": "amituojing",
+      "workId": "gbcr:work:smaller-sukhavati-vyuha-t0366",
+      "localPath": "data/corpus/cbeta/T12n0366.xml",
+      "upstreamPath": "T/T12/T12n0366.xml",
+      "upstreamGitBlobSha1": "135f788e706adc83153df8dc02163ee5dc8b08ac",
+      "upstreamBytes": 48194,
+      "upstreamSha256": "d464fd6fcb806e62c47c042b31f41280d2c20f4ae08b19c2ac2036b5401e0d04",
+      "localBytes": 48195,
+      "localSha256": "e994cb83282a603feb7ffc3c9af5b2d6edbc92586bf9b00facfb0fc4b89b1aea",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說阿彌陀經",
+        "alternateTitle": "阿彌陀經",
+        "tradition": "漢傳佛教 · 淨土經典",
+        "language": "漢文",
+        "canonRef": "大正藏 T12, no. 366",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "以簡潔篇幅宣說極樂世界、阿彌陀佛與持名念佛，是漢傳佛教流傳最廣的日常誦本之一。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0366_001"
+      },
+      "verification": {
+        "segments": 141,
+        "folios": 7,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0366.001.0346b24",
+          "T0366.001.0348b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0670",
+      "slug": "lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "localPath": "data/corpus/cbeta/T16n0670.xml",
+      "upstreamPath": "T/T16/T16n0670.xml",
+      "upstreamGitBlobSha1": "95e5fe0a20911d14da7b0efd43c019741a656255",
+      "upstreamBytes": 520709,
+      "upstreamSha256": "8a9c21aa02b8fc2c1b45fa934628cf27cb919fe9ab945d6d7cde644514bc3704",
+      "localBytes": 520710,
+      "localSha256": "b535498341f2d440a0ea6f22f922c0787a47438ba9b17d706a327b0d9f121444",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "楞伽阿跋多羅寶經",
+        "alternateTitle": "四卷楞伽經",
+        "tradition": "漢傳佛教 · 如來藏與唯識",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 670",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "討論自心所現、識、如來藏與離言境界；此四卷本在早期禪宗傳統中尤受重視。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0670_001"
+      },
+      "verification": {
+        "segments": 3083,
+        "folios": 110,
+        "juans": [
+          "001",
+          "002",
+          "003",
+          "004"
+        ],
+        "anchors": [
+          "T0670.001.0479a02",
+          "T0670.004.0514b26"
+        ],
+        "humanSampleVerified": false
+      },
+      "workTitle": "楞伽經"
+    },
+    {
+      "id": "T0945",
+      "slug": "lengyanjing",
+      "workId": "gbcr:work:surangama-t0945",
+      "localPath": "data/corpus/cbeta/T19n0945.xml",
+      "upstreamPath": "T/T19/T19n0945.xml",
+      "upstreamGitBlobSha1": "30e9c2f2a51592dbae7ea04a0b1d6ef9deea7e31",
+      "upstreamBytes": 727586,
+      "upstreamSha256": "892d529546811d1be1d6975aaab1a1f8f9045c19e85fa30f92908b2c4bc72967",
+      "localBytes": 727587,
+      "localSha256": "ab5f41b7b5e662943af05048b6e47012b45a6d2e664864539b255129424ad6c3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大佛頂如來密因修證了義諸菩薩萬行首楞嚴經",
+        "alternateTitle": "楞嚴經",
+        "tradition": "漢傳佛教 · 傳統藏經見證",
+        "language": "漢文",
+        "canonRef": "大正藏 T19, no. 945",
+        "translator": "唐 · 般剌蜜帝譯（傳統題記）",
+        "summary": "在東亞佛教傳統中影響深遠；其成書與翻譯史存在學術爭議，平台按大正藏文本見證收錄，不裁定歷史來源。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0945_001"
+      },
+      "verification": {
+        "segments": 4212,
+        "folios": 158,
+        "juans": [
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010"
+        ],
+        "anchors": [
+          "T0945.001.0105b24",
+          "T0945.010.0155b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0475",
+      "slug": "weimojiejing",
+      "workId": "gbcr:work:vimalakirti-nirdesa-t0475",
+      "localPath": "data/corpus/cbeta/T14n0475.xml",
+      "upstreamPath": "T/T14/T14n0475.xml",
+      "upstreamGitBlobSha1": "ae90dbdee3965179f7fb0c72c0102802e12a992d",
+      "upstreamBytes": 310314,
+      "upstreamSha256": "109a11514f52fe43e4832c8b26b75ab7a70c63a32b36a2b1e2d786ae8d0bf5f2",
+      "localBytes": 310315,
+      "localSha256": "2e35609f39274f7d994d18c9bb09d34f817243b0e6b2172120dfa1527fd95541",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "維摩詰所說經",
+        "alternateTitle": "維摩詰經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T14, no. 475",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "以維摩詰示疾、文殊問疾與不二法門等場景，闡明菩薩行、空義與在家修行。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0475_001"
+      },
+      "verification": {
+        "segments": 1786,
+        "folios": 63,
+        "juans": [
+          "001",
+          "002",
+          "003"
+        ],
+        "anchors": [
+          "T0475.001.0537a02",
+          "T0475.003.0557b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0671",
+      "slug": "ru-lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "workTitle": "楞伽經",
+      "localPath": "data/corpus/cbeta/T16n0671.xml",
+      "upstreamPath": "T/T16/T16n0671.xml",
+      "upstreamGitBlobSha1": "44b597dcddeace49403c372260e383bb37694b51",
+      "upstreamBytes": 1027224,
+      "upstreamSha256": "eccda2a51d3bb0abb05dff6a54177da350bfc218952daf79356a8d91018974eb",
+      "localBytes": 1027225,
+      "localSha256": "94d41e18abd80b270d9aae6499d2679512a19e9157c33c22854a545a6af8d99e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入楞伽經",
+        "alternateTitle": "十卷楞伽經",
+        "tradition": "漢傳佛教 · 如來藏與唯識",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 671",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "《楞伽經》的十卷漢譯本；與四卷、七卷本共同保存自心所現、識與如來藏教說的不同翻譯見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0671_001"
+      },
+      "verification": {
+        "segments": 6231,
+        "folios": 225,
+        "juans": [
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010"
+        ],
+        "anchors": [
+          "T0671.001.0514c02",
+          "T0671.010.0586b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0672",
+      "slug": "dasheng-ru-lengqiejing",
+      "workId": "gbcr:work:lankavatara-t0670",
+      "workTitle": "楞伽經",
+      "localPath": "data/corpus/cbeta/T16n0672.xml",
+      "upstreamPath": "T/T16/T16n0672.xml",
+      "upstreamGitBlobSha1": "3ab4cb7282b305be12ad9ef9ed987f1d65292a48",
+      "upstreamBytes": 859136,
+      "upstreamSha256": "94a5d65cee24e0cd4966d4d440a822f497f6052e3d43492f1feb0458d9dea788",
+      "localBytes": 859137,
+      "localSha256": "5c0996e5b3f50e444e6467052aae97c45ff5ab5b401863667103bd8f25afb955",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘入楞伽經",
+        "alternateTitle": "七卷楞伽經",
+        "tradition": "漢傳佛教 · 如來藏與唯識",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 672",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "《楞伽經》的七卷漢譯本；與求那跋陀羅、菩提流支譯本并列呈現同一作品的多重文本表達。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0672_001"
+      },
+      "verification": {
+        "segments": 4646,
+        "folios": 166,
+        "juans": [
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007"
+        ],
+        "anchors": [
+          "T0672.001.0587a02",
+          "T0672.007.0640c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0784",
+      "slug": "sishierzhangjing",
+      "workId": "gbcr:work:sutra-of-forty-two-sections-t0784",
+      "localPath": "data/corpus/cbeta/T17n0784.xml",
+      "upstreamPath": "T/T17/T17n0784.xml",
+      "upstreamGitBlobSha1": "c33580c509ab254b50b1466f0177b8164e026130",
+      "upstreamBytes": 78465,
+      "upstreamSha256": "d8c0abbd89e2d8f451546519d3ebe0fb07d5fbacbfff15ec4734c9d8b74c4ae4",
+      "localBytes": 78466,
+      "localSha256": "cb09f42210a27e43b25baf35d73bb2006b88d6a5f1399bdfb7ace3b1330183ee",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四十二章經",
+        "alternateTitle": "佛說四十二章經",
+        "tradition": "漢傳佛教 · 傳統藏經見證",
+        "language": "漢文",
+        "canonRef": "大正藏 T17, no. 784",
+        "translator": "後漢 · 迦葉摩騰、法蘭譯（傳統題記）",
+        "summary": "以四十二章匯集出家、持戒、離欲與修心教導；文本形成與譯傳史存在研究爭議，平台按大正藏見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0784_001"
+      },
+      "verification": {
+        "segments": 173,
+        "folios": 7,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0784.001.0722a10",
+          "T0784.001.0724a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0842",
+      "slug": "yuanjuejing",
+      "workId": "gbcr:work:perfect-enlightenment-sutra-t0842",
+      "localPath": "data/corpus/cbeta/T17n0842.xml",
+      "upstreamPath": "T/T17/T17n0842.xml",
+      "upstreamGitBlobSha1": "816072c0f24d7e099be9d4062fecdfaec859e75b",
+      "upstreamBytes": 108117,
+      "upstreamSha256": "fbf31ed1ac3656d0ecf61f26bc6e4bacc7bd8319be677e7a897ecc20896cbb53",
+      "localBytes": 108118,
+      "localSha256": "25d3ce021a57daabaf9a2f679e6ddc74d536894b49c1ead9447c2380853191e5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣圓覺修多羅了義經",
+        "alternateTitle": "圓覺經",
+        "tradition": "漢傳佛教 · 傳統藏經見證",
+        "language": "漢文",
+        "canonRef": "大正藏 T17, no. 842",
+        "translator": "唐 · 佛陀多羅譯（傳統題記）",
+        "summary": "以十二位菩薩問答闡述圓覺、無明與修證；成書和翻譯史存在學術爭議，平台按大正藏文本見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0842_001"
+      },
+      "verification": {
+        "segments": 784,
+        "folios": 28,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "T0842.001.0913a23",
+          "T0842.001.0922a24"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
