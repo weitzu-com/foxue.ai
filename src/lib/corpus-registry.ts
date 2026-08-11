@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v0.6.0.json";
+import registryDocument from "../../data/gbcr/registry-v0.7.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -49,6 +49,19 @@ export function buildCoverageSnapshot() {
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_chinese_sutra_t01_t17",
       ) ?? null
+    : null;
+  const suttacentralFamily = corpusRegistry.sourceFamilies.find(
+    (family) => family.id === "suttacentral_early_buddhist_texts",
+  );
+  const suttacentralSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "suttacentral_bilara",
+  );
+  const paliCandidateRecords = suttacentralSourceInventory?.groups?.pli ?? null;
+  const paliControlledRecords = "controlledRootRecords" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledRootRecords ?? null
+    : null;
+  const paliControlledBytes = "controlledRootBytes" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledRootBytes ?? null
     : null;
 
   return {
@@ -121,6 +134,17 @@ export function buildCoverageSnapshot() {
         inventorySha256: chineseSubsetInventory?.inventorySha256 ?? null,
         unit: "CBETA 大正藏 T01–T17 汉译经藏候选文本记录",
         caveat: "这是固定来源中的文本记录进度，不是去重作品覆盖率或全球佛典覆盖率。",
+      },
+      suttacentralPaliRootPilot: {
+        denominator: paliCandidateRecords,
+        controlled: paliControlledRecords,
+        percentage: paliCandidateRecords && paliControlledRecords !== null
+          ? Number(((paliControlledRecords / paliCandidateRecords) * 100).toFixed(2))
+          : null,
+        controlledBytes: paliControlledBytes,
+        controlledWorks: 1,
+        unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
+        caveat: "26 个物理 JSON 文件共同组成 1 部巴利《法句经》；文件比例不是作品覆盖率。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

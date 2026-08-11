@@ -25,9 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const reading = await getSutraReading(sutra);
   const folio = await getSutraFolio(sutra, reading, folioKey);
   if (!folio) return { title: "版页未找到" };
+  const bilara = sutra.readerMode === "bilara-chapter";
   return {
-    title: `${sutra.alternateTitle} · 大正藏 ${folio.item.label}`,
-    description: `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
+    title: `${sutra.alternateTitle} · ${folio.item.label}`,
+    description: bilara
+      ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
+      : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
     alternates: { canonical: `/jingzang/${sutra.slug}/${folio.item.key}` },
   };
 }
@@ -38,34 +41,37 @@ function FolioPager({
   previous,
   next,
   position,
+  bilara,
 }: {
   slug: string;
   current: ReaderNavigationItem;
   previous?: ReaderNavigationItem;
   next?: ReaderNavigationItem;
   position: "top" | "bottom";
+  bilara: boolean;
 }) {
+  const unit = bilara ? "品" : "版页";
   return (
-    <nav className={`reader-pager reader-pager--${position}`} aria-label="经文版页导航">
+    <nav className={`reader-pager reader-pager--${position}`} aria-label={`经文${unit}导航`}>
       {previous ? (
         <Link href={folioHref(slug, previous.key)} rel="prev">
           <ArrowLeft aria-hidden="true" size={16} />
-          <span>上一版页<small>{previous.label}</small></span>
+          <span>上一{unit}<small>{previous.label}</small></span>
         </Link>
       ) : (
-        <span className="reader-pager__edge">卷首</span>
+        <span className="reader-pager__edge">{bilara ? "品集之首" : "卷首"}</span>
       )}
       <div>
-        <span>当前版页</span>
-        <strong>卷 {Number(current.juan)} · 大正藏 {current.label}</strong>
+        <span>当前{unit}</span>
+        <strong>{bilara ? `第 ${Number(current.juan)} 品 · ${current.label}` : `卷 ${Number(current.juan)} · 大正藏 ${current.label}`}</strong>
       </div>
       {next ? (
         <Link href={folioHref(slug, next.key)} rel="next">
-          <span>下一版页<small>{next.label}</small></span>
+          <span>下一{unit}<small>{next.label}</small></span>
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
       ) : (
-        <span className="reader-pager__edge">卷末</span>
+        <span className="reader-pager__edge">{bilara ? "品集之末" : "卷末"}</span>
       )}
     </nav>
   );
@@ -84,6 +90,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
     : reading.navigation;
   const useCompactJuanSelector = juanNavigation.length > 200;
   const currentJuanGroup = juanNavigation.find((group) => group.juan === folio.item.juan);
+  const bilara = sutra.readerMode === "bilara-chapter";
+  const groupUnit = bilara ? "品" : "卷";
 
   return (
     <>
@@ -95,13 +103,13 @@ export default async function SutraFolioPage({ params }: PageProps) {
 
       <div className="reader-layout">
         <aside className="reader-toc">
-          <p className="eyebrow">版页目录</p>
+          <p className="eyebrow">{bilara ? "品目录" : "版页目录"}</p>
           <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`}>
             <ArrowLeft aria-hidden="true" size={13} /> 返回经本目录
           </Link>
           {juanNavigation.length > 1 && (
             <>
-              <p className="reader-toc__section-label">卷目录 · {juanNavigation.length} 卷</p>
+              <p className="reader-toc__section-label">{groupUnit}目录 · {juanNavigation.length} {groupUnit}</p>
               {useCompactJuanSelector ? (
                 <ReaderJuanSelect
                   slug={sutra.slug}
@@ -121,7 +129,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
                         prefetch={false}
                         aria-current={group.juan === folio.item.juan ? "location" : undefined}
                       >
-                        卷 {Number(group.juan)} <span>{group.pages} 页</span>
+                        {bilara ? `第 ${Number(group.juan)} 品` : `卷 ${Number(group.juan)}`} <span>{group.pages} {bilara ? "项" : "页"}</span>
                       </Link>
                     </li>
                   ))}
@@ -130,7 +138,9 @@ export default async function SutraFolioPage({ params }: PageProps) {
             </>
           )}
           <p className="reader-toc__section-label">
-            {juanNavigation.length > 1 ? `本卷版页 · ${currentJuanNavigation.length} 页` : "版页目录"}
+            {bilara
+              ? `当前品 · ${folio.item.label}`
+              : (juanNavigation.length > 1 ? `本卷版页 · ${currentJuanNavigation.length} 页` : "版页目录")}
           </p>
           <ol className="reader-toc__page-list">
             {currentJuanNavigation.map((item, index) => (
@@ -141,7 +151,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   aria-current={item.key === folio.item.key ? "page" : undefined}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  {juanNavigation.length > 1 ? item.label : `卷 ${Number(item.juan)} · ${item.label}`}
+                  {bilara ? item.label : (juanNavigation.length > 1 ? item.label : `卷 ${Number(item.juan)} · ${item.label}`)}
                 </Link>
               </li>
             ))}
@@ -158,10 +168,16 @@ export default async function SutraFolioPage({ params }: PageProps) {
             previous={folio.previous}
             next={folio.next}
             position="top"
+            bilara={bilara}
           />
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
-            <p><strong>完整原文 · 分页阅读</strong>　当前仅加载大正藏 {folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。</p>
+            <p>
+              <strong>{bilara ? "完整巴利原文 · 分品阅读" : "完整原文 · 分页阅读"}</strong>　
+              {bilara
+                ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
+                : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
+            </p>
           </div>
           {folio.segments.map((segment, index) => (
             <section className="sutra-segment" id={segment.id} key={segment.id}>
@@ -170,7 +186,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
               ))}
               <div className="segment-number">{segment.sourceLine ?? String(index + 1).padStart(2, "0")}</div>
               <div>
-                <p className="segment-text">{segment.text}</p>
+                <p className="segment-text" lang={bilara ? "pi" : "zh-Hant"}>{segment.text}</p>
                 {segment.note && <p className="segment-note"><span>边注</span>{segment.note}</p>}
                 <a className="segment-anchor" href={`#${segment.id}`}>
                   <Link2 aria-hidden="true" size={13} /> {segment.id}
@@ -184,19 +200,25 @@ export default async function SutraFolioPage({ params }: PageProps) {
             previous={folio.previous}
             next={folio.next}
             position="bottom"
+            bilara={bilara}
           />
         </article>
 
         <aside className="reader-meta">
           <p className="eyebrow">版本与权利</p>
           <dl>
-            <div><dt>当前</dt><dd>卷 {Number(folio.item.juan)} · 大正藏 {folio.item.label}</dd></div>
-            <div><dt>经号</dt><dd>{sutra.canonRef}</dd></div>
+            <div><dt>当前</dt><dd>{bilara ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`}</dd></div>
+            <div><dt>{bilara ? "目录" : "经号"}</dt><dd>{sutra.canonRef}</dd></div>
             <div><dt>语言</dt><dd>{sutra.language}</dd></div>
-            <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
+            <div><dt>{bilara ? "版本" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>本页</dt><dd>{folio.segments.length} 行 · 全经 {reading.segmentCount} 稳定行段</dd></div>
+            <div>
+              <dt>{bilara ? "本品" : "本页"}</dt>
+              <dd>{bilara
+                ? `${folio.segments.length} 段 · 全经 ${reading.segmentCount} 稳定段落`
+                : `${folio.segments.length} 行 · 全经 ${reading.segmentCount} 稳定行段`}</dd>
+            </div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

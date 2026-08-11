@@ -18,6 +18,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const juanNavigation = buildJuanNavigation(reading.navigation);
   const multiJuan = juanNavigation.length > 1;
   const useCompactJuanSelector = juanNavigation.length > 200;
+  const bilara = sutra.readerMode === "bilara-chapter";
 
   return (
     <>
@@ -30,14 +31,15 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
           <p className="eyebrow">经本目录 · READING EDITION</p>
-          <h2>按卷与版页，<br />展开一部经。</h2>
+          <h2>{bilara ? <>按品次，<br />展开一部经。</> : <>按卷与版页，<br />展开一部经。</>}</h2>
           <p>
-            每页只加载一个大正藏版页，稳定行号依然可引用。
-            这使长经也能快速阅读，并为未来数千部经典留出空间。
+            {bilara
+              ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
+              : "每页只加载一个大正藏版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。"}
           </p>
           <dl className="reader-index-stats">
-            <div><dt>版页</dt><dd>{reading.navigation.length}</dd></div>
-            <div><dt>稳定行段</dt><dd>{reading.segmentCount}</dd></div>
+            <div><dt>{bilara ? "品" : "版页"}</dt><dd>{bilara ? juanNavigation.length : reading.navigation.length}</dd></div>
+            <div><dt>{bilara ? "稳定段落" : "稳定行段"}</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
           {firstFolio && (
             <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)}>
@@ -49,10 +51,10 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">
             <div>
-              <p className="eyebrow">卷页目录</p>
-              <h2 id="folio-directory-title">{multiJuan ? "先选卷，再读版页" : "大正藏物理版页"}</h2>
+              <p className="eyebrow">{bilara ? "品次目录" : "卷页目录"}</p>
+              <h2 id="folio-directory-title">{bilara ? "二十六品，次第展开" : (multiJuan ? "先选卷，再读版页" : "大正藏物理版页")}</h2>
             </div>
-            <span>{multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`}</span>
+            <span>{bilara ? `${juanNavigation.length} 品 · 423 偈` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
           </div>
           {useCompactJuanSelector ? (
             <ReaderJuanSelect
@@ -72,9 +74,11 @@ export default async function SutraIndexPage({ params }: PageProps) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="reader-folio-card__label">
-                      <strong>{multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`}</strong>
+                      <strong>{bilara ? `第 ${Number(group.first.juan)} 品` : (multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`)}</strong>
                       <small>
-                        {multiJuan
+                        {bilara
+                          ? group.first.label
+                          : multiJuan
                           ? `${group.pages} 个版页 · 从大正藏 ${group.first.label} 开始`
                           : `单卷 · ${group.first.id.split(".").at(-1)}`}
                       </small>
@@ -90,12 +94,12 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <aside className="reader-meta reader-index-meta">
           <p className="eyebrow">版本与权利</p>
           <dl>
-            <div><dt>经号</dt><dd>{sutra.canonRef}</dd></div>
+            <div><dt>{bilara ? "目录" : "经号"}</dt><dd>{sutra.canonRef}</dd></div>
             <div><dt>语言</dt><dd>{sutra.language}</dd></div>
-            <div><dt>译者</dt><dd>{sutra.translator}</dd></div>
+            <div><dt>{bilara ? "版本" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定行段 · 完整 TEI</dd></div>
+            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? "完整 Bilara JSON" : "完整 TEI"}</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

@@ -4,15 +4,20 @@ import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 
 export async function loadCorpusReleaseContext(root) {
-  const sourceManifestPath = resolve(root, "data/corpus/cbeta/manifest-v0.6.0.json");
-  const sourceManifestBytes = await readFile(sourceManifestPath);
-  const sourceManifest = JSON.parse(sourceManifestBytes.toString("utf8"));
-  const sourceCommit = sourceManifest.source.commit;
+  const manifestInputs = [
+    ["cbeta_xml_p5", "data/corpus/cbeta/manifest-v0.6.0.json"],
+    ["suttacentral_bilara", "data/corpus/suttacentral/manifest-v0.7.0.json"],
+  ];
+  const sourceManifests = await Promise.all(manifestInputs.map(async ([id, relativePath]) => {
+    const bytes = await readFile(resolve(root, relativePath));
+    return { id, relativePath, bytes, manifest: JSON.parse(bytes.toString("utf8")) };
+  }));
   const contractInputs = [
-    ["source-manifest", sourceManifestBytes],
+    ...sourceManifests.map((source) => [`source-manifest:${source.id}`, source.bytes]),
     ["release-context", await readFile(fileURLToPath(import.meta.url))],
     ["release-builder", await readFile(resolve(root, "scripts/build-corpus-release.mjs"))],
     ["tei-parser", await readFile(resolve(root, "src/lib/cbeta-tei.mjs"))],
+    ["bilara-parser", await readFile(resolve(root, "src/lib/bilara-reading.mjs"))],
   ];
   const fingerprint = createHash("sha256");
 
@@ -23,17 +28,16 @@ export async function loadCorpusReleaseContext(root) {
 
   const releaseFingerprint = fingerprint.digest("hex").slice(0, 12);
   const releaseId = [
-    "cbeta",
-    sourceManifest.version,
-    sourceCommit.slice(0, 12),
+    "gbcr",
+    "0.7.0",
+    sourceManifests[0].manifest.source.commit.slice(0, 12),
+    sourceManifests[1].manifest.source.commit.slice(0, 12),
     releaseFingerprint,
   ].join("-");
 
   return {
     releaseId,
     releaseFingerprint,
-    sourceCommit,
-    sourceManifest,
-    sourceManifestBytes,
+    sourceManifests,
   };
 }

@@ -4,9 +4,9 @@ import { resolve } from "node:path";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
 const root = process.cwd();
-const { releaseFingerprint, releaseId, sourceManifest } = await loadCorpusReleaseContext(root);
+const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v0.6.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v0.7.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -21,6 +21,8 @@ const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const sourceUnits = (file) => file.sourceParts ?? [file];
 const expressionSourcePaths = (expression) => expression?.sourceTextAssets?.map((asset) => asset.path) ??
   [expression?.sourceTextAsset?.path].filter(Boolean);
+const controlledFiles = sourceManifests.flatMap((source) =>
+  source.manifest.files.map((file) => ({ file, source })));
 
 requireValue(uploadPlan.releaseId === releaseId, "上传计划 releaseId 不一致");
 requireValue(workerConfig.vars?.RELEASE_ID === releaseId, "Worker RELEASE_ID 与发布包不一致");
@@ -39,7 +41,7 @@ for (const entry of uploadPlan.entries) {
 
 const manifestKey = `v1/releases/${releaseId}/manifest.json`;
 const releaseManifest = JSON.parse(await readFile(resolve(outputRoot, manifestKey), "utf8"));
-const expectedSegments = sourceManifest.files.reduce((sum, sourceFile) => {
+const expectedSegments = controlledFiles.reduce((sum, { file: sourceFile }) => {
   const work = registry.works.find((candidate) => candidate.id === sourceFile.workId);
   requireValue(Boolean(work), `${sourceFile.id} 在 GBCR 中缺少作品记录`);
   const expression = work?.expressions.find(
@@ -50,11 +52,14 @@ const expectedSegments = sourceManifest.files.reduce((sum, sourceFile) => {
   return sum + (expression?.stableSegments ?? 0);
 }, 0);
 requireValue(releaseManifest.releaseId === releaseId, "发布清单 releaseId 不一致");
-requireValue(
-  releaseManifest.sourceSnapshot.releaseFingerprint === releaseFingerprint,
-  "发布清单构建指纹不一致",
-);
-requireValue(releaseManifest.totals.works === sourceManifest.files.length, "发布作品数不一致");
+requireValue(releaseManifest.releaseFingerprint === releaseFingerprint, "发布清单构建指纹不一致");
+requireValue(releaseManifest.sourceSnapshots?.length === sourceManifests.length, "发布来源快照数量不一致");
+for (const source of sourceManifests) {
+  const recorded = releaseManifest.sourceSnapshots?.find((item) => item.id === source.id);
+  requireValue(recorded?.commit === source.manifest.source.commit, `${source.id} 发布来源提交不一致`);
+  requireValue(recorded?.manifestSha256 === sha256(source.bytes), `${source.id} 发布来源清单哈希不一致`);
+}
+requireValue(releaseManifest.totals.expressions === controlledFiles.length, "发布文本表达数不一致");
 requireValue(releaseManifest.totals.segments === expectedSegments, "发布行段数与 GBCR 不一致");
 requireValue(releaseManifest.objects.length === releaseManifest.totals.immutableObjects, "不可变对象计数不一致");
 
@@ -62,8 +67,9 @@ const stableIds = new Set();
 let verifiedSegments = 0;
 let verifiedFolios = 0;
 
-for (const work of releaseManifest.works) {
-  const sourceFile = sourceManifest.files.find((file) => file.id === work.canonId);
+for (const work of releaseManifest.expressions) {
+  const controlled = controlledFiles.find(({ file }) => file.id === work.canonId);
+  const sourceFile = controlled?.file;
   requireValue(Boolean(sourceFile), `发布作品没有受控来源：${work.canonId}`);
   if (!sourceFile) continue;
   requireValue(work.slug === sourceFile.slug, `${work.canonId} slug 不一致`);
@@ -74,11 +80,13 @@ for (const work of releaseManifest.works) {
     `${work.canonId} 索引哈希不一致`,
   );
   requireValue(index.releaseId === releaseId, `${work.canonId} 索引版本不一致`);
+  requireValue(index.sourceSnapshotId === controlled?.source.id, `${work.canonId} 来源快照标识不一致`);
+  requireValue(index.parser === (sourceFile.parser ?? "cbeta_tei"), `${work.canonId} 解析器标识不一致`);
   requireValue(index.navigation.length === index.totals.folios, `${work.canonId} 版页数不一致`);
   requireValue(index.totals.segments === work.segments, `${work.canonId} 行段数不一致`);
 
   const expectedSources = sourceUnits(sourceFile);
-  requireValue(index.sources?.length === expectedSources.length, `${work.canonId} TEI 来源资产数量不一致`);
+  requireValue(index.sources?.length === expectedSources.length, `${work.canonId} 来源资产数量不一致`);
   for (const [position, expectedSource] of expectedSources.entries()) {
     const source = index.sources?.[position];
     requireValue(source?.part === (expectedSource.part ?? position + 1), `${expectedSource.id} 来源分片顺序不一致`);
@@ -87,8 +95,18 @@ for (const work of releaseManifest.works) {
     const sourceBytes = source?.objectKey
       ? await readFile(resolve(outputRoot, source.objectKey))
       : Buffer.alloc(0);
-    requireValue(sha256(sourceBytes) === expectedSource.localSha256, `${expectedSource.id} TEI 来源哈希不一致`);
-    requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${expectedSource.id} TEI 头部缺失`);
+    requireValue(sha256(sourceBytes) === expectedSource.localSha256, `${expectedSource.id} 来源哈希不一致`);
+    if ((sourceFile.parser ?? "cbeta_tei") === "cbeta_tei") {
+      requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${expectedSource.id} TEI 头部缺失`);
+    } else {
+      try {
+        const value = JSON.parse(sourceBytes.toString("utf8"));
+        requireValue(Boolean(value[expectedSource.firstSegmentId]), `${expectedSource.id} JSON 首段缺失`);
+        requireValue(Boolean(value[expectedSource.lastSegmentId]), `${expectedSource.id} JSON 末段缺失`);
+      } catch {
+        requireValue(false, `${expectedSource.id} 不是有效 JSON`);
+      }
+    }
   }
 
   let workSegments = 0;
@@ -105,8 +123,12 @@ for (const work of releaseManifest.works) {
       requireValue(!stableIds.has(segment.id), `稳定行号重复：${segment.id}`);
       stableIds.add(segment.id);
       requireValue(segment.juan === navigation.juan, `${segment.id} 卷号与版页不一致`);
-      requireValue(segment.page === navigation.label, `${segment.id} 页码与版页不一致`);
-      requireValue(segment.id === `${work.canonId}.${segment.juan}.${segment.sourceLine}`, `${segment.id} 行号结构不一致`);
+      requireValue(segment.page === (navigation.sourcePage ?? navigation.label), `${segment.id} 页码与导航不一致`);
+      if ((sourceFile.parser ?? "cbeta_tei") === "bilara_root_json") {
+        requireValue(/^dhp\d+:\d+(?:\.\d+)?$/.test(segment.id), `${segment.id} Bilara 原生标识无效`);
+      } else {
+        requireValue(segment.id === `${work.canonId}.${segment.juan}.${segment.sourceLine}`, `${segment.id} 行号结构不一致`);
+      }
     }
     workSegments += folio.segments.length;
     verifiedFolios += 1;
@@ -134,5 +156,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `佛典发布包校验通过：${releaseManifest.totals.works} 部、${verifiedFolios} 版页、${verifiedSegments} 稳定行段、${uploadPlan.entries.length} 个待发布对象。`,
+  `佛典发布包校验通过：${releaseManifest.totals.expressions} 个文本表达、${verifiedFolios} 阅读单元、${verifiedSegments} 稳定行段、${uploadPlan.entries.length} 个待发布对象。`,
 );

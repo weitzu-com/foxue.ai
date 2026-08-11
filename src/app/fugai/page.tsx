@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 const statusLabels: Record<string, string> = {
   candidate_snapshot_ready: "候选快照已冻结",
   candidate_expression_snapshot_ready: "候选文本记录已冻结",
+  candidate_snapshot_with_controlled_pilot: "候选快照与受控试点已完成",
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
   federated_sources_pending: "联邦来源待建",
@@ -108,6 +109,21 @@ export default function CoveragePage() {
             >
               查看 881 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
+          </article>
+          <article>
+            <span>巴利 ROOT 试点</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralPaliRootPilot.controlled}
+              <small> / {snapshot.candidateInventory.suttacentralPaliRootPilot.denominator}</small>
+            </strong>
+            <p>
+              {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
+              26 个文件合成 1 部《法句经》
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
+            <Link className="text-link" href="/jingzang/dhammapada-pali">
+              阅读巴利原文 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
           </article>
         </div>
       </section>
@@ -215,8 +231,8 @@ export default function CoveragePage() {
       <section className="coverage-next page-shell">
         <div>
           <p className="eyebrow">NEXT AUDIT GATE</p>
-          <h2>下一步：扩展 T01–T17 受控原文。</h2>
-          <p>候选目录快照与批量导入契约已经建立。下一阶段按权利、哈希、结构与抽样门逐批纳入 881 条汉译经藏候选记录，同时建立异译、别本与作品级去重裁决日志。</p>
+          <h2>下一步：扩展汉译与巴利受控原文。</h2>
+          <p>候选目录快照与跨语种导入契约已经建立。下一阶段继续纳入汉译经藏候选记录，并在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
         </div>
         <Link className="button-primary" href="/touming">
           查看完整透明度报告 <ArrowRight aria-hidden="true" size={16} />

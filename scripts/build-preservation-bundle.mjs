@@ -60,6 +60,12 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
   .toString("utf8")
   .split("\0")
   .filter(Boolean);
+const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
+  path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
+);
+if (suttacentralDhammapadaSources.length !== 26) {
+  throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
+}
 const requiredPaths = [
   "README.md",
   "LICENSE",
@@ -69,15 +75,21 @@ const requiredPaths = [
   "docs/ANALYTICS.md",
   "docs/foxue.ai_建站方案_v1.0_20260811.md",
   "data/gbcr/registry-v0.6.0.json",
+  "data/gbcr/registry-v0.7.0.json",
   "data/gbcr/source-snapshots-v0.2.1.json",
   "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   "data/gbcr/checksums-v0.6.0.sha256",
+  "data/gbcr/checksums-v0.7.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
   "data/corpus/cbeta/batch-v0.6.0.json",
   "data/corpus/cbeta/catalog-v0.6.0.json",
   "data/corpus/cbeta/manifest-v0.6.0.json",
+  "data/corpus/suttacentral/NOTICE.md",
+  "data/corpus/suttacentral/batch-v0.7.0.json",
+  "data/corpus/suttacentral/manifest-v0.7.0.json",
+  ...suttacentralDhammapadaSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
   "data/corpus/cbeta/T02n0099.xml",
@@ -119,10 +131,17 @@ const requiredPaths = [
   "data/corpus/cbeta/T19n0945.xml",
   "scripts/build-cbeta-catalog.mjs",
   "scripts/build-corpus-catalog.mjs",
+  "scripts/build-suttacentral-catalog.mjs",
+  "scripts/import-suttacentral-source.mjs",
+  "scripts/build-federated-corpus.mjs",
   "scripts/build-corpus-release.mjs",
   "scripts/corpus-release-context.mjs",
   "scripts/publish-corpus-release.mjs",
   "scripts/verify-corpus-release.mjs",
+  "src/lib/bilara-reading.mjs",
+  "src/lib/bilara-reading.d.mts",
+  "src/lib/corpus-reading.ts",
+  "src/lib/reader-routes.ts",
   "infra/corpus-edge/src/index.ts",
   "infra/corpus-edge/wrangler.jsonc",
   "infra/corpus-edge/worker-configuration.d.ts",

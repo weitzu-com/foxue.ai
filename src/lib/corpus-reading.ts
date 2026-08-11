@@ -3,23 +3,34 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v0.6.0.json";
+import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
+import { parseBilaraDhammapadaSources } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 
 type CorpusManifestFile = {
   id: string;
   slug: string;
+  parser?: "cbeta_tei" | "bilara_root_json";
   localPath?: string;
   sourceParts?: Array<{ localPath: string }>;
 };
 
-const completeAssets: Record<string, { filenames: string[]; canonId: string }> = Object.fromEntries(
-  (corpusManifest.files as CorpusManifestFile[]).map((file) => [
+const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: "cbeta_tei" | "bilara_root_json" }> = Object.fromEntries(
+  [
+    ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
+    ...(suttacentralManifest.files as CorpusManifestFile[]),
+  ].map((file) => [
     file.slug,
     {
-      filenames: (file.sourceParts ?? [{ localPath: file.localPath! }])
-        .map((source) => source.localPath.split("/").at(-1)!),
+      localPaths: (file.sourceParts ?? [{ localPath: file.localPath! }]).map((source) => {
+        if (!source.localPath.startsWith("data/corpus/")) {
+          throw new Error(`语料路径越界：${source.localPath}`);
+        }
+        return source.localPath.slice("data/corpus/".length);
+      }),
       canonId: file.id,
+      parser: file.parser ?? "cbeta_tei",
     },
   ]),
 );
@@ -29,6 +40,7 @@ export type ReaderNavigationItem = {
   id: string;
   label: string;
   juan?: string;
+  sourcePage?: string;
 };
 
 export type ReaderJuanNavigationItem = {
@@ -72,7 +84,12 @@ type CorpusReleasePointer = {
 
 type CorpusReleaseManifest = {
   releaseId: string;
-  works: Array<{
+  expressions?: Array<{
+    canonId: string;
+    indexObjectKey: string;
+    indexSha256: string;
+  }>;
+  works?: Array<{
     canonId: string;
     indexObjectKey: string;
     indexSha256: string;
@@ -93,6 +110,7 @@ type CorpusFolioDocument = {
     key: string;
     juan?: string;
     label: string;
+    sourcePage?: string;
     firstSegmentId: string;
   };
   segments: SutraSegment[];
@@ -137,9 +155,9 @@ function isNavigationItem(value: unknown): value is ReaderNavigationItem {
   if (!value || typeof value !== "object") return false;
   const item = value as Record<string, unknown>;
   return (
-    typeof item.key === "string" && /^\d{3}-\d{4}[a-c]$/.test(item.key) &&
+    typeof item.key === "string" && /^[a-z0-9][a-z0-9.-]{0,95}$/.test(item.key) &&
     typeof item.id === "string" &&
-    typeof item.label === "string" && /^\d{4}[a-c]$/.test(item.label) &&
+    typeof item.label === "string" && item.label.length > 0 &&
     typeof item.juan === "string" && /^\d{3}$/.test(item.juan)
   );
 }
@@ -171,7 +189,8 @@ const loadEdgeIndex = cache(async (canonId: string): Promise<CorpusWorkIndex | n
       86400,
       pointer.manifestSha256,
     ) as CorpusReleaseManifest | null;
-    const work = manifest?.works?.find((candidate) => candidate.canonId === canonId);
+    const work = [...(manifest?.expressions ?? []), ...(manifest?.works ?? [])]
+      .find((candidate) => candidate.canonId === canonId);
     if (
       !manifest || manifest.releaseId !== pointer.releaseId || !work ||
       work.indexObjectKey !==
@@ -223,9 +242,12 @@ const loadEdgeFolio = cache(async (
       return null;
     }
     const valid = value.segments.every((segment) => (
-      typeof segment.id === "string" && segment.id.startsWith(`${canonId}.`) &&
+      typeof segment.id === "string" && (
+        segment.id.startsWith(`${canonId}.`) || (canonId === "DHP" && /^dhp\d+:/.test(segment.id))
+      ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
-      segment.juan === value.folio.juan && segment.page === value.folio.label
+      segment.juan === value.folio.juan &&
+      segment.page === (value.folio.sourcePage ?? value.folio.label)
     ));
     return valid ? value : null;
   } catch {
@@ -233,14 +255,21 @@ const loadEdgeFolio = cache(async (
   }
 });
 
-const loadCompleteLines = cache(async (slug: string) => {
+const loadCompleteReading = cache(async (slug: string) => {
   const asset = completeAssets[slug];
   if (!asset) return null;
-  const xmlParts = await Promise.all(asset.filenames.map((filename) => readFile(
-    join(process.cwd(), "data", "corpus", "cbeta", filename),
+  const sourceParts = await Promise.all(asset.localPaths.map((localPath) => readFile(
+    join(process.cwd(), "data", "corpus", localPath),
     "utf8",
   )));
-  return xmlParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
+  if (asset.parser === "bilara_root_json") {
+    return parseBilaraDhammapadaSources(sourceParts.map((text, index) => ({
+      filename: asset.localPaths[index].split("/").at(-1),
+      text,
+    })));
+  }
+  const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
+  return { segments, navigation: buildPageNavigation(segments) };
 });
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
@@ -272,10 +301,10 @@ export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
     };
   }
 
-  const lines = await loadCompleteLines(sutra.slug);
-  if (!lines) throw new Error(`${sutra.slug} 缺少完整原文读取配置`);
+  const completeReading = await loadCompleteReading(sutra.slug);
+  if (!completeReading) throw new Error(`${sutra.slug} 缺少完整原文读取配置`);
   const sampleMetadata = new Map(sutra.segments.map((segment) => [segment.id, segment]));
-  const segments = lines.map((line) => {
+  const segments = completeReading.segments.map((line) => {
     const sample = sampleMetadata.get(line.id);
     return {
       ...line,
@@ -290,7 +319,7 @@ export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
     canonId: asset.canonId,
     segmentCount: segments.length,
     segments,
-    navigation: buildPageNavigation(segments),
+    navigation: completeReading.navigation,
   };
 }
 
@@ -318,8 +347,8 @@ export async function getSutraFolio(
       item as CorpusNavigationItem,
     );
     const sampleMetadata = new Map(sutra.segments.map((segment) => [segment.id, segment]));
-    const sourceSegments = remote?.segments ?? (await loadCompleteLines(sutra.slug))?.filter(
-      (segment) => `${segment.juan}-${segment.page}` === item.key,
+    const sourceSegments = remote?.segments ?? (await loadCompleteReading(sutra.slug))?.segments.filter(
+      (segment) => segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label),
     );
     if (!sourceSegments?.length) return undefined;
     segments = sourceSegments.map((segment) => ({
@@ -328,9 +357,8 @@ export async function getSutraFolio(
       legacyIds: sampleMetadata.get(segment.id)?.legacyIds,
     }));
   } else if (reading.complete) {
-    segments = reading.segments.filter(
-      (segment) => `${segment.juan}-${segment.page}` === item.key,
-    );
+    segments = reading.segments.filter((segment) =>
+      segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label));
   } else {
     segments = [reading.segments[index]].filter(
       (segment): segment is SutraSegment => Boolean(segment),

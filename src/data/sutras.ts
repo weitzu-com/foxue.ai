@@ -1,3 +1,6 @@
+import catalog from "../../data/corpus/cbeta/catalog-v0.6.0.json";
+import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
+
 export type SutraSegment = {
   id: string;
   text: string;
@@ -20,7 +23,8 @@ export type Sutra = {
   sourceName: string;
   sourceUrl: string;
   sourceLicense: string;
-  status: "完整原文 · 行段试行" | "目录样本";
+  status: "完整原文 · 行段试行" | "完整原文 · 原生段落" | "目录样本";
+  readerMode?: "cbeta-folio" | "bilara-chapter";
   segments: SutraSegment[];
 };
 
@@ -153,9 +157,24 @@ export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(fil
   sourceName: "CBETA Online",
   sourceUrl: file.presentation.sourceUrl,
   sourceLicense: "CBETA 授權條款；古典原文",
-  status: "完整原文 · 行段试行",
+  status: "完整原文 · 行段试行" as const,
   segments: [],
-}));
+})).concat(suttacentralManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "巴利原文属公有领域；请求保留 SuttaCentral 来源署名",
+  status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-chapter" as const,
+  segments: [],
+})));
 
 export function getSutra(slug: string) {
   return sutras.find((sutra) => sutra.slug === slug);
@@ -167,4 +186,3 @@ export const corpusPrinciples = [
   "机器候选、人工确认与目录确认永不混为一谈。",
   "简繁转换只属于显示层，不修改母版文本。",
 ];
-import catalog from "../../data/corpus/cbeta/catalog-v0.6.0.json";

@@ -31,7 +31,7 @@ export function SiteFooter() {
       </div>
       <div className="page-shell footer-bottom">
         <span>代码 Apache-2.0 · 佛典与译文遵循各自来源许可</span>
-        <span>当前版本：可信原型 0.2 · GBCR 0.1</span>
+        <span>当前版本：可信原型 0.7 · GBCR 0.7</span>
       </div>
     </footer>
   );

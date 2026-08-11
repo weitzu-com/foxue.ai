@@ -1,0 +1,566 @@
+{
+  "schema": "https://foxue.ai/schemas/suttacentral-batch-v0.1",
+  "version": "0.7.0",
+  "publishedAt": "2026-08-11",
+  "source": {
+    "id": "suttacentral_bilara",
+    "name": "SuttaCentral Bilara Data",
+    "repository": "suttacentral/bilara-data",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "branchSemantics": "published",
+    "homepage": "https://suttacentral.net/",
+    "licenseUrl": "https://suttacentral.net/licensing"
+  },
+  "work": {
+    "id": "gbcr:work:dhammapada-pali",
+    "textFamilyId": "gbcr:text-family:dhammapada",
+    "canonId": "DHP",
+    "localSlug": "dhammapada-pali",
+    "canonicalTitle": "Dhammapada",
+    "titleZh": "法句（巴利本）",
+    "language": "pi-Latn",
+    "tradition": "上座部佛教 · 小部",
+    "edition": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500",
+    "externalIds": {
+      "suttacentral": [
+        "dhp"
+      ]
+    },
+    "sourceUrl": "https://suttacentral.net/dhp/pli/ms"
+  },
+  "rightsDecision": {
+    "status": "public_domain",
+    "sourceTexts": "public_domain",
+    "referenceData": "public_domain",
+    "attributionRequested": true,
+    "trainingUse": "prohibited_by_foxue_policy",
+    "summary": "巴利原文依 SuttaCentral 官方许可页属于公有领域；foxue.ai 保留来源署名，仅用于阅读、研究与有来源检索，不用于训练生成式模型。"
+  },
+  "normalization": {
+    "operation": "append_single_lf",
+    "contentChange": "none",
+    "segmentIds": "preserved_verbatim"
+  },
+  "files": [
+    {
+      "part": 1,
+      "id": "dhp1-20",
+      "chapter": 1,
+      "chapterTitle": "Yamakavagga",
+      "verseRange": [
+        1,
+        20
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp1-20_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp1-20_root-pli-ms.json",
+      "upstreamGitBlobSha1": "4815d2ccc074f62495382f75beed6a12bf0f0e7d",
+      "upstreamBytes": 4616,
+      "upstreamSha256": "a7147ce1275b5de1b877956586b55de71e0764112919941a4a6215c9d8aa2cea",
+      "localBytes": 4617,
+      "localSha256": "ca61ef7fd91d39a1adffd3cb0cc807b3a4e03c152f6b2492bffe906511f6072d",
+      "firstSegmentId": "dhp1:0.1",
+      "lastSegmentId": "dhp20:7",
+      "segments": 108
+    },
+    {
+      "part": 2,
+      "id": "dhp21-32",
+      "chapter": 2,
+      "chapterTitle": "Appamādavagga",
+      "verseRange": [
+        21,
+        32
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp21-32_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp21-32_root-pli-ms.json",
+      "upstreamGitBlobSha1": "c979bb0cc0e88a09857656e875e19751aa82677d",
+      "upstreamBytes": 2684,
+      "upstreamSha256": "371ac8e7d2b948a76d7a78cf7397ebee7d22af4d04fb4885c27ac4efb8119f1a",
+      "localBytes": 2685,
+      "localSha256": "85389c37251e787c58bd956f3a0a4cc0b4f20258b6fde4dc2f94ef91e97b4f7d",
+      "firstSegmentId": "dhp21:0.1",
+      "lastSegmentId": "dhp32:5",
+      "segments": 63
+    },
+    {
+      "part": 3,
+      "id": "dhp33-43",
+      "chapter": 3,
+      "chapterTitle": "Cittavagga",
+      "verseRange": [
+        33,
+        43
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp33-43_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp33-43_root-pli-ms.json",
+      "upstreamGitBlobSha1": "f527b5042387f820fcaebe5f4715483bd460fa42",
+      "upstreamBytes": 2470,
+      "upstreamSha256": "ebfb761edc23a0b6b0da9830e940d588f0391f944eb1ed4d58f3ee18ec5a48e4",
+      "localBytes": 2471,
+      "localSha256": "7019adc7a876ba0a8f0298f23be9cc4382c96848d07e1dab89163f7f09c744b2",
+      "firstSegmentId": "dhp33:0.1",
+      "lastSegmentId": "dhp43:5",
+      "segments": 57
+    },
+    {
+      "part": 4,
+      "id": "dhp44-59",
+      "chapter": 4,
+      "chapterTitle": "Pupphavagga",
+      "verseRange": [
+        44,
+        59
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp44-59_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp44-59_root-pli-ms.json",
+      "upstreamGitBlobSha1": "b42a072eb1a79a2dce40a4e1c19306aec9e4d3f1",
+      "upstreamBytes": 3563,
+      "upstreamSha256": "e9d21d24286230ab68b9c66e12a046ab4d20ab489ecafe86a510959b34c45de7",
+      "localBytes": 3564,
+      "localSha256": "145b67de7954b5794f6adc20b4916b28ef2443e3154c55f56cac658701e1879b",
+      "firstSegmentId": "dhp44:0.1",
+      "lastSegmentId": "dhp59:5",
+      "segments": 80
+    },
+    {
+      "part": 5,
+      "id": "dhp60-75",
+      "chapter": 5,
+      "chapterTitle": "Bālavagga",
+      "verseRange": [
+        60,
+        75
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp60-75_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp60-75_root-pli-ms.json",
+      "upstreamGitBlobSha1": "5829eb4768dd764896baf4c8e80c03c29d6dda19",
+      "upstreamBytes": 3744,
+      "upstreamSha256": "d223aa95d15c076b57efe9d20e391b2a12098bd2051774c791cffa3a198606ef",
+      "localBytes": 3745,
+      "localSha256": "d6567afa7fdbb095e0d36fe07097056adc7bd24aa053e353e4d69fbb57e99ce2",
+      "firstSegmentId": "dhp60:0.1",
+      "lastSegmentId": "dhp75:7",
+      "segments": 87
+    },
+    {
+      "part": 6,
+      "id": "dhp76-89",
+      "chapter": 6,
+      "chapterTitle": "Paṇḍitavagga",
+      "verseRange": [
+        76,
+        89
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp76-89_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp76-89_root-pli-ms.json",
+      "upstreamGitBlobSha1": "3dd59c77b32d09f61dcd2d060b22ee6b6131e7ae",
+      "upstreamBytes": 3268,
+      "upstreamSha256": "b242e5eefbc3e8d34e40e35ee2d5b759f1f66378aa4f592d7d14cf4dd081556b",
+      "localBytes": 3269,
+      "localSha256": "250f1abdeb17ef4e9af2b01dc4ce655075cfaff2d5aa00de99ee89c745dcc388",
+      "firstSegmentId": "dhp76:0.1",
+      "lastSegmentId": "dhp89:7",
+      "segments": 75
+    },
+    {
+      "part": 7,
+      "id": "dhp90-99",
+      "chapter": 7,
+      "chapterTitle": "Arahantavagga",
+      "verseRange": [
+        90,
+        99
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp90-99_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp90-99_root-pli-ms.json",
+      "upstreamGitBlobSha1": "facb4872e88d485c52050cd9d076103b7e24c91d",
+      "upstreamBytes": 2462,
+      "upstreamSha256": "4c14683ece1e58442e54e55528b01192658a63cd079449b715f1e9a388043592",
+      "localBytes": 2463,
+      "localSha256": "eb6d06a3abdd8169080b1eb6fcfbc1826a237634f059b2becd2f75f448d416b9",
+      "firstSegmentId": "dhp90:0.1",
+      "lastSegmentId": "dhp99:5",
+      "segments": 58
+    },
+    {
+      "part": 8,
+      "id": "dhp100-115",
+      "chapter": 8,
+      "chapterTitle": "Sahassavagga",
+      "verseRange": [
+        100,
+        115
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp100-115_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp100-115_root-pli-ms.json",
+      "upstreamGitBlobSha1": "f94571ed379d94f9a0f8dd2780ccf5513dd22bd7",
+      "upstreamBytes": 3872,
+      "upstreamSha256": "3758c891e228c698b6d18cb29df5dd67fb5aef61e7601befee6fd4fd032fe5ed",
+      "localBytes": 3873,
+      "localSha256": "6b8376d026834cf2d705bcaec7bdcf6f270995215bd6b28e65c0cd9b73aadd0c",
+      "firstSegmentId": "dhp100:0.1",
+      "lastSegmentId": "dhp115:5",
+      "segments": 86
+    },
+    {
+      "part": 9,
+      "id": "dhp116-128",
+      "chapter": 9,
+      "chapterTitle": "Pāpavagga",
+      "verseRange": [
+        116,
+        128
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp116-128_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp116-128_root-pli-ms.json",
+      "upstreamGitBlobSha1": "3f271822120154b69f35b01d9771610f6865b343",
+      "upstreamBytes": 3268,
+      "upstreamSha256": "3fe7f712292d9663310c8b4ac5912401c3c7a6d183d9acbd6702d0c1ba82746c",
+      "localBytes": 3269,
+      "localSha256": "39a41a906ebcb8f7fe63efefb095134b0da4d0171d8f87f0cb0d7860cbb791fa",
+      "firstSegmentId": "dhp116:0.1",
+      "lastSegmentId": "dhp128:5",
+      "segments": 72
+    },
+    {
+      "part": 10,
+      "id": "dhp129-145",
+      "chapter": 10,
+      "chapterTitle": "Daṇḍavagga",
+      "verseRange": [
+        129,
+        145
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp129-145_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp129-145_root-pli-ms.json",
+      "upstreamGitBlobSha1": "1d1d8878afaecf8c3e852d48caf5bdf6aa63e044",
+      "upstreamBytes": 3899,
+      "upstreamSha256": "8990c7bbf6b78287e8d68f7dc3df5bbdb23f661679bc3800b59b64cfbf0c883d",
+      "localBytes": 3900,
+      "localSha256": "51fc61087993d3647a18368ae54b62294b27bbb918a67eda1eb6baeec548927d",
+      "firstSegmentId": "dhp129:0.1",
+      "lastSegmentId": "dhp145:5",
+      "segments": 85
+    },
+    {
+      "part": 11,
+      "id": "dhp146-156",
+      "chapter": 11,
+      "chapterTitle": "Jarāvagga",
+      "verseRange": [
+        146,
+        156
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp146-156_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp146-156_root-pli-ms.json",
+      "upstreamGitBlobSha1": "52d7e8fcafa3d79785419a6f53c2703e32700253",
+      "upstreamBytes": 2635,
+      "upstreamSha256": "a8f7c411772a9806bccf8935d47ca1479d23e2681c66c3322c14168b15066570",
+      "localBytes": 2636,
+      "localSha256": "67aa6fcf49a7e673e5b735ebd3ecf335a134837fbf114e4412cfa002a2a037e9",
+      "firstSegmentId": "dhp146:0.1",
+      "lastSegmentId": "dhp156:5",
+      "segments": 59
+    },
+    {
+      "part": 12,
+      "id": "dhp157-166",
+      "chapter": 12,
+      "chapterTitle": "Attavagga",
+      "verseRange": [
+        157,
+        166
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp157-166_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp157-166_root-pli-ms.json",
+      "upstreamGitBlobSha1": "1dd9a48220910246a9d658adadf841dfbe4aa782",
+      "upstreamBytes": 2535,
+      "upstreamSha256": "c8dd7bc1c2d4710cb820694950575c9f7bcffbe19833de9e0270e65fed21dbe9",
+      "localBytes": 2536,
+      "localSha256": "7c177e4c52be29feeb8b4769154124a6e47885041f9b06030b5adbe0f7d60c3d",
+      "firstSegmentId": "dhp157:0.1",
+      "lastSegmentId": "dhp166:5",
+      "segments": 58
+    },
+    {
+      "part": 13,
+      "id": "dhp167-178",
+      "chapter": 13,
+      "chapterTitle": "Lokavagga",
+      "verseRange": [
+        167,
+        178
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp167-178_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp167-178_root-pli-ms.json",
+      "upstreamGitBlobSha1": "94cc647df03fe0467b5d1e70a149200e7ba67bbd",
+      "upstreamBytes": 2773,
+      "upstreamSha256": "4520313e18ee77239531a09e0f3d4278cbaafa37ac2cf4afde44583ba03d8883",
+      "localBytes": 2774,
+      "localSha256": "bf65bf70ca8e84c26420d11d9dc06b1525a085392a3e89a6d929259ea21b6f47",
+      "firstSegmentId": "dhp167:0.1",
+      "lastSegmentId": "dhp178:5",
+      "segments": 63
+    },
+    {
+      "part": 14,
+      "id": "dhp179-196",
+      "chapter": 14,
+      "chapterTitle": "Buddhavagga",
+      "verseRange": [
+        179,
+        196
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp179-196_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp179-196_root-pli-ms.json",
+      "upstreamGitBlobSha1": "dfb1c0028f6cf1d804ee66857314804827706e18",
+      "upstreamBytes": 3942,
+      "upstreamSha256": "bd4b478b1b65d97165b24532ab64223ce2de3824dbbf1cddc65935757b645cc0",
+      "localBytes": 3943,
+      "localSha256": "500457d5e856389de07b8ef754a8fe50500d73f9dc34ff7153312653e13fa465",
+      "firstSegmentId": "dhp179:0.1",
+      "lastSegmentId": "dhp196:6",
+      "segments": 88
+    },
+    {
+      "part": 15,
+      "id": "dhp197-208",
+      "chapter": 15,
+      "chapterTitle": "Sukhavagga",
+      "verseRange": [
+        197,
+        208
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp197-208_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp197-208_root-pli-ms.json",
+      "upstreamGitBlobSha1": "ecd493d0125cee86a7fc1175f1e447e29c30b97d",
+      "upstreamBytes": 2691,
+      "upstreamSha256": "669db9779c8435e115fbd4b2bb349428dac7d990ce4c8e8e1cc9d5ca1e3ca35c",
+      "localBytes": 2692,
+      "localSha256": "ce72f3d4770edeee1757193618680ddeb025e211c1e6033db9bfb8b9ba4bc730",
+      "firstSegmentId": "dhp197:0.1",
+      "lastSegmentId": "dhp208:6",
+      "segments": 63
+    },
+    {
+      "part": 16,
+      "id": "dhp209-220",
+      "chapter": 16,
+      "chapterTitle": "Piyavagga",
+      "verseRange": [
+        209,
+        220
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp209-220_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp209-220_root-pli-ms.json",
+      "upstreamGitBlobSha1": "4c2ae40fcae7e7e638838b414034d1291b38b1c3",
+      "upstreamBytes": 2625,
+      "upstreamSha256": "54ef8f0f569167631cf1d78f8332792f9bc408d8f655bd0fb7c945046f450bf6",
+      "localBytes": 2626,
+      "localSha256": "7f3d5862e364be7bbeb6115c22108e36e13740f17f3ad93fe82e41ef8de4f56e",
+      "firstSegmentId": "dhp209:0.1",
+      "lastSegmentId": "dhp220:5",
+      "segments": 61
+    },
+    {
+      "part": 17,
+      "id": "dhp221-234",
+      "chapter": 17,
+      "chapterTitle": "Kodhavagga",
+      "verseRange": [
+        221,
+        234
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp221-234_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp221-234_root-pli-ms.json",
+      "upstreamGitBlobSha1": "ddfa20da049095f9c55ca957e942257a9a0de181",
+      "upstreamBytes": 3080,
+      "upstreamSha256": "374807ca82b92ef9a1eb4f4641580c4fb6c8de10de9e8ae0744014ece1e4cc01",
+      "localBytes": 3081,
+      "localSha256": "28ca8e23803c981a5b8faacec9cdb76588dea828ca2edb15a41b6ad80f97acaf",
+      "firstSegmentId": "dhp221:0.1",
+      "lastSegmentId": "dhp234:5",
+      "segments": 70
+    },
+    {
+      "part": 18,
+      "id": "dhp235-255",
+      "chapter": 18,
+      "chapterTitle": "Malavagga",
+      "verseRange": [
+        235,
+        255
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp235-255_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp235-255_root-pli-ms.json",
+      "upstreamGitBlobSha1": "56337f701df70c7b3b59457127e072804e82bb7d",
+      "upstreamBytes": 4614,
+      "upstreamSha256": "c01788ebf7926c90be65cfa15aed02667d98b44e92946fe09398d01fa7f3476c",
+      "localBytes": 4615,
+      "localSha256": "e0a57977dc812daeb6bced321aac1db9c08dbba6b04811c507f09b2bd08affd3",
+      "firstSegmentId": "dhp235:0.1",
+      "lastSegmentId": "dhp255:5",
+      "segments": 104
+    },
+    {
+      "part": 19,
+      "id": "dhp256-272",
+      "chapter": 19,
+      "chapterTitle": "Dhammaṭṭhavagga",
+      "verseRange": [
+        256,
+        272
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp256-272_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp256-272_root-pli-ms.json",
+      "upstreamGitBlobSha1": "62d1d9715cea4f5a4a265886ac866184cfe7debc",
+      "upstreamBytes": 3655,
+      "upstreamSha256": "abdfd6d2be8a14fde434ed3172a3883eb15222d34c01bed02387fee216f016e2",
+      "localBytes": 3656,
+      "localSha256": "e4c771ae325234f9ac12171186db2061f4c9c14ae931e0ee2108ed544467aaf1",
+      "firstSegmentId": "dhp256:0.1",
+      "lastSegmentId": "dhp272:5",
+      "segments": 84
+    },
+    {
+      "part": 20,
+      "id": "dhp273-289",
+      "chapter": 20,
+      "chapterTitle": "Maggavagga",
+      "verseRange": [
+        273,
+        289
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp273-289_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp273-289_root-pli-ms.json",
+      "upstreamGitBlobSha1": "c502d649864f921a0319640fbb8571ab510acfce",
+      "upstreamBytes": 3872,
+      "upstreamSha256": "e70fc70e9e239aefb4bd90b9c2032c5a2914f3471e939fb75d3d630d30355a0b",
+      "localBytes": 3873,
+      "localSha256": "44af68bb70cfa8718ad5736f8e4b11292b1c77d0381e5ffb6c6b2d6729021370",
+      "firstSegmentId": "dhp273:0.1",
+      "lastSegmentId": "dhp289:5",
+      "segments": 86
+    },
+    {
+      "part": 21,
+      "id": "dhp290-305",
+      "chapter": 21,
+      "chapterTitle": "Pakiṇṇakavagga",
+      "verseRange": [
+        290,
+        305
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp290-305_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp290-305_root-pli-ms.json",
+      "upstreamGitBlobSha1": "36099b9346c79b2cc38fec7894483bdab9387514",
+      "upstreamBytes": 3572,
+      "upstreamSha256": "34bc8e2d7565e2c25da3ad88847ef367c479d49b0bb2368337355330bec9fbdc",
+      "localBytes": 3573,
+      "localSha256": "234a1d8f336e0ee3676dce30d9e33f233745a56c247b44b0731582cb2b74edba",
+      "firstSegmentId": "dhp290:0.1",
+      "lastSegmentId": "dhp305:5",
+      "segments": 81
+    },
+    {
+      "part": 22,
+      "id": "dhp306-319",
+      "chapter": 22,
+      "chapterTitle": "Nirayavagga",
+      "verseRange": [
+        306,
+        319
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp306-319_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp306-319_root-pli-ms.json",
+      "upstreamGitBlobSha1": "006adca213f0cc1fdfac60ffaf184d7a760433d0",
+      "upstreamBytes": 3244,
+      "upstreamSha256": "2b0e1e63b5f020835fcbfdb094e4b2f071e32b725a676c832da980a7b1292eee",
+      "localBytes": 3245,
+      "localSha256": "d3d010d7e8383987d11eb866db5433099c8807aae57c5d28675d03f4db25426d",
+      "firstSegmentId": "dhp306:0.1",
+      "lastSegmentId": "dhp319:5",
+      "segments": 71
+    },
+    {
+      "part": 23,
+      "id": "dhp320-333",
+      "chapter": 23,
+      "chapterTitle": "Nāgavagga",
+      "verseRange": [
+        320,
+        333
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp320-333_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp320-333_root-pli-ms.json",
+      "upstreamGitBlobSha1": "0da184106fb5b77a6164329e85c7e03e471c3afb",
+      "upstreamBytes": 3211,
+      "upstreamSha256": "fef02ac6b3b86e504d4fc720485638f5d3a9b5e72c706116efad107715b7c9b7",
+      "localBytes": 3212,
+      "localSha256": "7d42bd0ffb42a09f2d7be1a9fe3a12cfd88e36e61c883074cd6c32fb04885225",
+      "firstSegmentId": "dhp320:0.1",
+      "lastSegmentId": "dhp333:5",
+      "segments": 68
+    },
+    {
+      "part": 24,
+      "id": "dhp334-359",
+      "chapter": 24,
+      "chapterTitle": "Taṇhāvagga",
+      "verseRange": [
+        334,
+        359
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp334-359_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp334-359_root-pli-ms.json",
+      "upstreamGitBlobSha1": "a61b06cd30215d01037ded7b8480574be58a5ab4",
+      "upstreamBytes": 5758,
+      "upstreamSha256": "86f1d979fd7fed3a1b42fdde8b96b64edf9a6397d07a6ded01f8692f851a940b",
+      "localBytes": 5759,
+      "localSha256": "5054dcc1fb90ac5b7bf2cf7bd73e4b725fc0c89c4dcc69d5811211ebbdc187c5",
+      "firstSegmentId": "dhp334:0.1",
+      "lastSegmentId": "dhp359:5",
+      "segments": 124
+    },
+    {
+      "part": 25,
+      "id": "dhp360-382",
+      "chapter": 25,
+      "chapterTitle": "Bhikkhuvagga",
+      "verseRange": [
+        360,
+        382
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp360-382_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp360-382_root-pli-ms.json",
+      "upstreamGitBlobSha1": "4b746ac35bc03431f59af5658bf415ee8415d7a5",
+      "upstreamBytes": 5028,
+      "upstreamSha256": "3a65f5a59610e3d225a201228a00420c2c04c0e55586b734f08b339b1315bf69",
+      "localBytes": 5029,
+      "localSha256": "5cf64a9de6dfc4a89073a142c3e928c614b7f925f90533378913706fecda5126",
+      "firstSegmentId": "dhp360:0.1",
+      "lastSegmentId": "dhp382:5",
+      "segments": 113
+    },
+    {
+      "part": 26,
+      "id": "dhp383-423",
+      "chapter": 26,
+      "chapterTitle": "Brāhmaṇavagga",
+      "verseRange": [
+        383,
+        423
+      ],
+      "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/dhp383-423_root-pli-ms.json",
+      "upstreamPath": "root/pli/ms/sutta/kn/dhp/dhp383-423_root-pli-ms.json",
+      "upstreamGitBlobSha1": "cf17072e5741e92d3e2c19c1ca1edcfa48435d42",
+      "upstreamBytes": 12869,
+      "upstreamSha256": "df2220b447e24e565523a6800470922229e0d495a5153fd24ca0f9dc4556c23e",
+      "localBytes": 12870,
+      "localSha256": "13444a396a5c5fbbbc8b128c15fef9b914f2cce0052eca9f2716f70107630460",
+      "firstSegmentId": "dhp383:0.1",
+      "lastSegmentId": "dhp423:57",
+      "segments": 270
+    }
+  ]
+}

@@ -7,6 +7,8 @@ const criticalRoutes = [
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
+  "/jingzang/dhammapada-pali",
+  "/jingzang/dhammapada-pali/001-dhp1-20",
   "/fugai",
   "/touming",
 ];
@@ -67,12 +69,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 21,
-    registeredExpressions: 25,
-    fullSourceTextWorks: 21,
-    fullSourceTextExpressions: 25,
-    stableSegments: 603032,
-    structureVerifiedWorks: 21,
+    registeredWorks: 22,
+    registeredExpressions: 26,
+    fullSourceTextWorks: 22,
+    fullSourceTextExpressions: 26,
+    stableSegments: 605266,
+    structureVerifiedWorks: 22,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
@@ -81,6 +83,13 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     sourceBytes: 247280257,
     controlledBytes: 87649399,
     bytePercentage: 35.45,
+  });
+  expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
+    denominator: 7288,
+    controlled: 26,
+    percentage: 0.36,
+    controlledBytes: 99950,
+    controlledWorks: 1,
   });
 });
 
@@ -196,6 +205,26 @@ test("六百卷大般若经作为一个文本表达跨十五个来源资产完�
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");
+});
+
+test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
+  await page.goto("/jingzang/dhammapada-pali#dhp1:1");
+  await page.waitForURL(/\/jingzang\/dhammapada-pali\/001-dhp1-20#dhp1:1$/);
+  await expect(page.locator('[id="dhp1:1"]')).toContainText("Manopubbaṅgamā dhammā");
+  await expect(page.getByText(/全经 2234 稳定段落/)).toBeVisible();
+
+  await page.goto("/jingzang/dhammapada-pali#dhp423:57");
+  await page.waitForURL(/\/jingzang\/dhammapada-pali\/026-dhp410-423#dhp423:57$/);
+  await expect(page.locator('[id="dhp423:57"]')).toContainText("Dhammapadapāḷi samattā");
+
+  const directory = await request.get("/jingzang/dhammapada-pali");
+  const chapter = await request.get("/jingzang/dhammapada-pali/026-dhp410-423");
+  expect(directory.ok()).toBeTruthy();
+  expect(chapter.ok()).toBeTruthy();
+  expect((await directory.body()).byteLength).toBeLessThan(300_000);
+  expect((await chapter.body()).byteLength).toBeLessThan(300_000);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/dhammapada-pali/026-dhp410-423");
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {
