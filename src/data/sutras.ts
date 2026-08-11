@@ -167,4 +167,4 @@ export const corpusPrinciples = [
   "机器候选、人工确认与目录确认永不混为一谈。",
   "简繁转换只属于显示层，不修改母版文本。",
 ];
-import catalog from "../../data/corpus/cbeta/catalog-v0.4.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v0.5.0.json";

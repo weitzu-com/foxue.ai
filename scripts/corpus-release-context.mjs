@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 
 export async function loadCorpusReleaseContext(root) {
-  const sourceManifestPath = resolve(root, "data/corpus/cbeta/manifest-v0.4.0.json");
+  const sourceManifestPath = resolve(root, "data/corpus/cbeta/manifest-v0.5.0.json");
   const sourceManifestBytes = await readFile(sourceManifestPath);
   const sourceManifest = JSON.parse(sourceManifestBytes.toString("utf8"));
   const sourceCommit = sourceManifest.source.commit;

@@ -4,8 +4,8 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
-const outputVersion = "0.4.0";
-const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v0.4.0.json");
+const outputVersion = "0.5.0";
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v0.5.0.json");
 const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
@@ -148,11 +148,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-v0.4.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-v0.5.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v0.4.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-v0.4.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-v0.4.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v0.5.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-v0.5.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-v0.5.0.sha256"), checksumRaw],
 ];
 const expressionCount = works.reduce((sum, work) => sum + work.expressions.length, 0);
 const segmentCount = works.flatMap((work) => work.expressions).reduce((sum, expression) => sum + expression.stableSegments, 0);

@@ -3,10 +3,10 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v0.4.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v0.5.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v0.4.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v0.5.0.sha256");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -20,7 +20,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "0.4.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "0.5.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -90,9 +90,9 @@ unique(inventory.records.map((record) => record.sourceRecordId), "汉译经藏�
 unique(inventory.records.map((record) => record.upstreamPath), "汉译经藏上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.candidateExpressionRecords === 881, "汉译经藏候选记录未写入来源族");
-requireValue(chineseFamily?.controlledExpressionRecords === 17, "汉译经藏受控记录数不匹配");
+requireValue(chineseFamily?.controlledExpressionRecords === 23, "汉译经藏受控记录数不匹配");
 requireValue(chineseFamily?.candidateExpressionBytes === 247280257, "汉译经藏候选字节数未写入来源族");
-requireValue(chineseFamily?.controlledExpressionBytes === 28950694, "汉译经藏受控字节数不匹配");
+requireValue(chineseFamily?.controlledExpressionBytes === 58444300, "汉译经藏受控字节数不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -100,7 +100,7 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v0.4.0.json", raw],
+  ["registry-v0.5.0.json", raw],
   ["source-snapshots-v0.2.1.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
 ];
@@ -118,14 +118,26 @@ const expressions = registry.works.flatMap((work) => work.expressions);
 const segmentCount = expressions.reduce((sum, item) => sum + item.stableSegments, 0);
 const candidateCount = sourceSnapshots.sources.reduce((sum, source) => sum + source.candidateRecordCount, 0);
 const lankavatara = registry.works.find((work) => work.id === "gbcr:work:lankavatara-t0670");
-requireValue(registry.works.length === 16, "v0.4 必须登记 16 部去重作品");
-requireValue(expressions.length === 18, "v0.4 必须登记 18 个完整文本表达");
-requireValue(segmentCount === 132547, "v0.4 稳定行段总数漂移");
+const avatamsaka = registry.works.find((work) => work.id === "gbcr:work:avatamsaka-t0278");
+const mahaparinirvana = registry.works.find((work) => work.id === "gbcr:work:mahaparinirvana-t0374");
+requireValue(registry.works.length === 20, "v0.5 必须登记 20 部去重作品");
+requireValue(expressions.length === 24, "v0.5 必须登记 24 个完整文本表达");
+requireValue(segmentCount === 323555, "v0.5 稳定行段总数漂移");
 requireValue(
   JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
   "《楞伽经》三个汉译文本未正确归并",
 );
 requireValue(lankavatara?.expressions?.length === 3, "《楞伽经》必须保留三个独立文本表达");
+requireValue(
+  JSON.stringify(avatamsaka?.externalIds?.cbeta) === JSON.stringify(["T0278", "T0279"]),
+  "《华严经》六十卷本与八十卷本未正确归并",
+);
+requireValue(avatamsaka?.expressions?.length === 2, "《华严经》必须保留两个独立文本表达");
+requireValue(
+  JSON.stringify(mahaparinirvana?.externalIds?.cbeta) === JSON.stringify(["T0374", "T0375"]),
+  "《大般涅槃经》北本与南本未正确归并",
+);
+requireValue(mahaparinirvana?.expressions?.length === 2, "《大般涅槃经》必须保留两个独立文本表达");
 if (errors.length > 0) {
   console.error(errors.map((item) => `- ${item}`).join("\n"));
   process.exit(1);

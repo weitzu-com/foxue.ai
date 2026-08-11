@@ -1,0 +1,201 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.1",
+  "version": "0.5.0",
+  "publishedAt": "2026-08-11",
+  "baseCatalog": "data/corpus/cbeta/catalog-v0.4.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1, 2, 4, 8, 9, 10, 11, 12, 14, 16, 17 and 19",
+  "workOverrides": {},
+  "files": [
+    {
+      "id": "T0223",
+      "slug": "moheboreboluomijing",
+      "workId": "gbcr:work:maha-prajnaparamita-t0223",
+      "localPath": "data/corpus/cbeta/T08n0223.xml",
+      "upstreamPath": "T/T08/T08n0223.xml",
+      "upstreamGitBlobSha1": "766308d5ade33eb2203e83e3a43220c18e373106",
+      "upstreamBytes": 4238983,
+      "upstreamSha256": "76ad5a76261064888ac9c18828ff66bdb2ec8f7d968de318d76b3b44552241e9",
+      "localBytes": 4238984,
+      "localSha256": "523014dbe8b835f994de69ddd902cb6931ff91b0ee157046ff16b094626beb0a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶般若波羅蜜經",
+        "alternateTitle": "大品般若經",
+        "tradition": "漢傳佛教 · 般若部",
+        "language": "漢文",
+        "canonRef": "大正藏 T08, no. 223",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "二十七卷，系統展開般若、菩薩行與諸法空義；平台按本鳩摩羅什漢譯文本見證收錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0223_001"
+      },
+      "verification": {
+        "segments": 17877,
+        "folios": 642,
+        "juanRange": [1, 27],
+        "anchors": ["T0223.001.0217a02", "T0223.027.0424a14"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0278",
+      "slug": "liushi-huayanjing",
+      "workId": "gbcr:work:avatamsaka-t0278",
+      "workTitle": "大方廣佛華嚴經",
+      "localPath": "data/corpus/cbeta/T09n0278.xml",
+      "upstreamPath": "T/T09/T09n0278.xml",
+      "upstreamGitBlobSha1": "6b60b673a6df3a0984828d97cea0191d98a7b2c0",
+      "upstreamBytes": 4921321,
+      "upstreamSha256": "25eb91ecff80164392fba511f87e046233f36004a27f05fcec4005c870729fdd",
+      "localBytes": 4921322,
+      "localSha256": "1c388f449db5a9f4402c05bd2e7ad077a18e3115f06e0d84852410960f58acba",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經",
+        "alternateTitle": "六十華嚴",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 278",
+        "translator": "東晉 · 佛馱跋陀羅譯",
+        "summary": "《華嚴經》的六十卷漢譯本，以佛境界、菩薩行與法界緣起展開宏大的成佛道路。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0278_001"
+      },
+      "verification": {
+        "segments": 33914,
+        "folios": 1212,
+        "juanRange": [1, 60],
+        "anchors": ["T0278.001.0395a02", "T0278.060.0788b09"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0279",
+      "slug": "bashi-huayanjing",
+      "workId": "gbcr:work:avatamsaka-t0278",
+      "workTitle": "大方廣佛華嚴經",
+      "localPath": "data/corpus/cbeta/T10n0279.xml",
+      "upstreamPath": "T/T10/T10n0279.xml",
+      "upstreamGitBlobSha1": "3facd644dfa5810c4dfb741e06801f1b7ae3b855",
+      "upstreamBytes": 4577647,
+      "upstreamSha256": "8f22a07a0e8b340b448f6082d9ddae8b5cce17a4a1465a2c50a4e0276d3d177e",
+      "localBytes": 4577648,
+      "localSha256": "caba9d3ff16b2b6dad5ec813b529087356001a5c981bd0a5c3443047b2789fa0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經",
+        "alternateTitle": "八十華嚴",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 279",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "《華嚴經》的八十卷漢譯本；與六十卷本並列保存同一作品傳統的不同翻譯與編排見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0279_001"
+      },
+      "verification": {
+        "segments": 38257,
+        "folios": 1384,
+        "juanRange": [1, 80],
+        "anchors": ["T0279.001.0001a02", "T0279.080.0444c30"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0310",
+      "slug": "dabaojijing",
+      "workId": "gbcr:work:maharatnakuta-t0310",
+      "localPath": "data/corpus/cbeta/T11n0310.xml",
+      "upstreamPath": "T/T11/T11n0310.xml",
+      "upstreamGitBlobSha1": "8fbe75516d6f92aab0cd082ec1f86cb462f8899f",
+      "upstreamBytes": 7930824,
+      "upstreamSha256": "7dd3f0d884daca61777cb4c476396cf410b965bbfecc552db0ee675d65f7db00",
+      "localBytes": 7930825,
+      "localSha256": "03db65d7fb5388bf01a65a76ebf4f7c6fdef96aafdbb388c12931b699a628996",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大寶積經",
+        "alternateTitle": "寶積經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 310",
+        "translator": "唐 · 菩提流志譯",
+        "summary": "一百二十卷、四十九會的大乘經集，廣泛保存菩薩行、淨土、空義、戒律與授記等教說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0310_001"
+      },
+      "verification": {
+        "segments": 58977,
+        "folios": 2139,
+        "juanRange": [1, 120],
+        "anchors": ["T0310.001.0001a02", "T0310.120.0685a25"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0374",
+      "slug": "beiben-dabanniepanjing",
+      "workId": "gbcr:work:mahaparinirvana-t0374",
+      "workTitle": "大般涅槃經",
+      "localPath": "data/corpus/cbeta/T12n0374.xml",
+      "upstreamPath": "T/T12/T12n0374.xml",
+      "upstreamGitBlobSha1": "ef1277c20cb5271fa28956e19cd0bfa1639ca919",
+      "upstreamBytes": 3804644,
+      "upstreamSha256": "5fb13272d6e9f1447a5fda356b450cdf2123efb6f13d5054d9fcb1bebfc3644f",
+      "localBytes": 3804645,
+      "localSha256": "77b846ff977334a0db6c94124f4c9ab1eed02f4c89e6dd7728ec1ba5e9fbf290",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大般涅槃經",
+        "alternateTitle": "北本涅槃經",
+        "tradition": "漢傳佛教 · 涅槃部",
+        "language": "漢文",
+        "canonRef": "大正藏 T12, no. 374",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "四十卷北本，闡述佛性、如來常住、涅槃與菩薩戒行；與南本分別保存文本傳承。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0374_001"
+      },
+      "verification": {
+        "segments": 20621,
+        "folios": 747,
+        "juanRange": [1, 40],
+        "anchors": ["T0374.001.0365a01", "T0374.040.0604a31"],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0375",
+      "slug": "nanben-dabanniepanjing",
+      "workId": "gbcr:work:mahaparinirvana-t0374",
+      "workTitle": "大般涅槃經",
+      "localPath": "data/corpus/cbeta/T12n0375.xml",
+      "upstreamPath": "T/T12/T12n0375.xml",
+      "upstreamGitBlobSha1": "56292803a24dc09fb39a51c460c0c8cb5f49e24f",
+      "upstreamBytes": 4020187,
+      "upstreamSha256": "946e4d26d277df606e1d56c6f0d2654c28ada98c6c89d0bbdcd82a02cc219edc",
+      "localBytes": 4020188,
+      "localSha256": "88fc4edb2a5789dca43cc4242db4cbc1fb7db0def7f1722e508b6bee870e9f2e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大般涅槃經",
+        "alternateTitle": "南本涅槃經",
+        "tradition": "漢傳佛教 · 涅槃部",
+        "language": "漢文",
+        "canonRef": "大正藏 T12, no. 375",
+        "translator": "宋 · 慧嚴等依《泥洹經》加治",
+        "summary": "三十六卷南本，依北本與《泥洹經》重治編定；平台將其作為同一作品傳統的獨立文本見證保存。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0375_001"
+      },
+      "verification": {
+        "segments": 21362,
+        "folios": 769,
+        "juanRange": [1, 36],
+        "anchors": ["T0375.001.0605a02", "T0375.036.0852b04"],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

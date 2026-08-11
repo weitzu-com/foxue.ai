@@ -2,8 +2,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const batchPath = resolve(root, "data/corpus/cbeta/batch-v0.4.0.json");
-const outputPath = resolve(root, "data/corpus/cbeta/catalog-v0.4.0.json");
+const batchPath = resolve(root, "data/corpus/cbeta/batch-v0.5.0.json");
+const outputPath = resolve(root, "data/corpus/cbeta/catalog-v0.5.0.json");
 const batch = JSON.parse(await readFile(batchPath, "utf8"));
 const base = JSON.parse(await readFile(resolve(root, batch.baseCatalog), "utf8"));
 const inventory = JSON.parse(await readFile(resolve(root, batch.inventory), "utf8"));
@@ -26,12 +26,33 @@ for (const file of batch.files) {
   }
 }
 
+const additions = batch.files.map((file) => {
+  const { juanRange, ...verification } = file.verification;
+  if (!juanRange) return file;
+  const [first, last] = juanRange;
+  if (!Number.isInteger(first) || !Number.isInteger(last) || first < 1 || last < first) {
+    throw new Error(`${file.id} 卷次范围无效`);
+  }
+  const juans = Array.from({ length: last - first + 1 }, (_, index) =>
+    String(first + index).padStart(3, "0"));
+  return {
+    ...file,
+    verification: {
+      segments: verification.segments,
+      folios: verification.folios,
+      juans,
+      anchors: verification.anchors,
+      humanSampleVerified: verification.humanSampleVerified,
+    },
+  };
+});
+
 const files = [
   ...base.files.map((file) => {
     const override = batch.workOverrides[file.workId];
     return override ? { ...file, workTitle: override.canonicalTitle } : file;
   }),
-  ...batch.files,
+  ...additions,
 ];
 requireUnique(files.map((file) => file.id), "经号");
 requireUnique(files.map((file) => file.slug), "阅读 slug");
@@ -48,7 +69,7 @@ const catalog = {
 const serialized = `${JSON.stringify(catalog, null, 2)}\n`;
 if (process.argv.includes("--verify")) {
   if (await readFile(outputPath, "utf8") !== serialized) {
-    throw new Error("catalog-v0.4.0.json 与基础目录和批次定义不一致");
+    throw new Error("catalog-v0.5.0.json 与基础目录和批次定义不一致");
   }
   console.log(`CBETA 受控目录 v${batch.version} 可复现：${files.length} 个完整文本表达。`);
 } else {
