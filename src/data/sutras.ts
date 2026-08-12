@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.1.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.2.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";

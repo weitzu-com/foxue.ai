@@ -1,0 +1,3247 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.8",
+  "version": "2.2.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v2.1.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T15 source-record closure",
+  "collection": {
+    "id": "CBETA-TAISHO-T15",
+    "title": "大正藏 T15 经集部固定来源记录",
+    "sourceRecordDenominator": 71,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 71,
+    "controlledSourceRecords": 71,
+    "newSourceBytes": 16533763,
+    "newStableSegments": 69072,
+    "newFolios": 2527,
+    "verifiedSameWorkExpressions": 21,
+    "verifiedPartialWorkWitnesses": 2,
+    "provisionalRecords": 48,
+    "fullSourceTexts": 69,
+    "partialSourceWitnesses": 2,
+    "relationAnnotatedRecords": 27,
+    "attributionBoundaryRecords": 9,
+    "workCountingDecision": "T15 共 71 条固定来源记录，新增 57 个作品实体：9 组经权威目录与文本范围支持的同作品汉译或局部译出、48 条暂定书目记录。T0629 与 T0640 只计部分翻译见证；T0606–T0608 和 T0641 仅保留文本家族或同题同署关系，不在范围未经逐章校勘前强行合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_translation_groups_partial_witnesses_authorship_and_scope_boundaries_recorded",
+    "verifiedSameWorkGroups": [
+      "brahma-visesa-cinti-pariprccha-chinese",
+      "svayam-pratijna-samadhi-chinese",
+      "druma-kinnara-raja-pariprccha-chinese",
+      "ajatasatru-kaukrtya-vinodana-chinese",
+      "tathagata-jnana-mudra-samadhi-chinese",
+      "ananta-ratna-samadhi-chinese",
+      "samadhi-raja-t0639-t0640",
+      "niyata-aniyata-avatara-mudra-chinese",
+      "sarva-dharma-apravrtti-chinese"
+    ],
+    "partialTranslationWitnesses": [
+      "T0629",
+      "T0640"
+    ],
+    "attributionCaveats": [
+      "T0596",
+      "T0609",
+      "T0610",
+      "T0629",
+      "T0633",
+      "T0644"
+    ],
+    "authoredOrCompiledTexts": [
+      "T0606",
+      "T0607",
+      "T0619"
+    ],
+    "scopeBoundaries": [
+      "T0606",
+      "T0607",
+      "T0608",
+      "T0641"
+    ],
+    "authoritySource": "https://authority.dila.edu.tw/catalog/",
+    "caveat": "T15 含三昧经、禅观撰述、短经、异译与单品独立译出；平台仅在 DILA 经录互列且文本范围明确时合并，卷数或起讫范围未定者保持独立暂定书目实体。"
+  },
+  "files": [
+    {
+      "id": "T0585",
+      "slug": "taisho-t0585",
+      "workId": "gbcr:work:brahma-visesa-cinti-pariprccha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "brahma-visesa-cinti-pariprccha-chinese",
+          "label": "Viśeṣacintibrahmaparipṛcchā／《思益梵天所问经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0585",
+              "T0586",
+              "T0587"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0585.xml",
+      "upstreamPath": "T/T15/T15n0585.xml",
+      "upstreamGitBlobSha1": "d9b37d09ccdefcadee2bdccb4aa5471b832516c6",
+      "upstreamBytes": 802476,
+      "upstreamSha256": "ad01d152dcacbf0f87bd65c32c3090dbf91c16f1b9484605c99f365cf9fd1382",
+      "localBytes": 802477,
+      "localSha256": "e817dd5d2d4dccf3247b441381f6395a8d87d4cb4cd4f83111682c326d21a3ab",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "持心梵天所問經",
+        "alternateTitle": "持心梵天所問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 585",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0585 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0585_001"
+      },
+      "verification": {
+        "segments": 2776,
+        "folios": 97,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0585.001.0001a02",
+          "T0585.004.0033a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0586",
+      "slug": "taisho-t0586",
+      "workId": "gbcr:work:brahma-visesa-cinti-pariprccha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "brahma-visesa-cinti-pariprccha-chinese",
+          "label": "Viśeṣacintibrahmaparipṛcchā／《思益梵天所问经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0585",
+              "T0586",
+              "T0587"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0586.xml",
+      "upstreamPath": "T/T15/T15n0586.xml",
+      "upstreamGitBlobSha1": "ec81178ebf02f1cc711ca77fea05d3690fc5bbd8",
+      "upstreamBytes": 701162,
+      "upstreamSha256": "3d7b4028428212a9849e1e10a76d8c2830225e264431e4eaee5bce7b98958439",
+      "localBytes": 701163,
+      "localSha256": "7afef20ae1f079a4f1d0868d9066fcb80ac742df2528bfa08a07743ca3b1b3ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "思益梵天所問經",
+        "alternateTitle": "思益梵天所問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 586",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "4卷。本站完整保存 T0586 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0586_001"
+      },
+      "verification": {
+        "segments": 2493,
+        "folios": 91,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0586.001.0033a21",
+          "T0586.004.0062a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0587",
+      "slug": "taisho-t0587",
+      "workId": "gbcr:work:brahma-visesa-cinti-pariprccha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "brahma-visesa-cinti-pariprccha-chinese",
+          "label": "Viśeṣacintibrahmaparipṛcchā／《思益梵天所问经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0585",
+              "T0586",
+              "T0587"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0587.xml",
+      "upstreamPath": "T/T15/T15n0587.xml",
+      "upstreamGitBlobSha1": "222be6406278108223e64bd331ae9d69d23a4458",
+      "upstreamBytes": 406899,
+      "upstreamSha256": "01d1e1b81f9e41f87e9b95f01c4dee4b540138f14274fa08c7f6cd35e7f1b333",
+      "localBytes": 406900,
+      "localSha256": "0c79a90501b774f83b06e319e2da355c06fea4de90fb768bc2a25d8d5c65b5ea",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝思惟梵天所問經",
+        "alternateTitle": "勝思惟梵天所問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 587",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "6卷。本站完整保存 T0587 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0587_001"
+      },
+      "verification": {
+        "segments": 2963,
+        "folios": 108,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0587.001.0062a25",
+          "T0587.006.0096b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0588",
+      "slug": "taisho-t0588",
+      "workId": "gbcr:work:taisho-t0588",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0588.xml",
+      "upstreamPath": "T/T15/T15n0588.xml",
+      "upstreamGitBlobSha1": "51af0977943d9fce5fdd0a25b1d96d9a9df4b9d2",
+      "upstreamBytes": 386939,
+      "upstreamSha256": "b7c19f713610b6925368db34b477d87a87085c9147483000b25752f599a3261b",
+      "localBytes": 386940,
+      "localSha256": "0d52958f530ae3c51d29e96c2a18302cd1a7d97daa37b5ef3c7ef9e4579880da",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說須真天子經",
+        "alternateTitle": "佛說須真天子經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 588",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0588 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0588_001"
+      },
+      "verification": {
+        "segments": 1334,
+        "folios": 49,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0588.001.0096c02",
+          "T0588.004.0112a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0589",
+      "slug": "taisho-t0589",
+      "workId": "gbcr:work:taisho-t0589",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0589.xml",
+      "upstreamPath": "T/T15/T15n0589.xml",
+      "upstreamGitBlobSha1": "f13c729e65b438a00d6605fff1915b2b6e11d9cb",
+      "upstreamBytes": 107557,
+      "upstreamSha256": "cc942c23dbd678a04dbfc3024faff8105a91382735ec2005b1e27f5c5d329959",
+      "localBytes": 107558,
+      "localSha256": "197539b0064f6ae7aa04f7e71e1ccadc02cb9f9033ae5e62b0c4b32ee23dcc32",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說魔逆經",
+        "alternateTitle": "佛說魔逆經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 589",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0589 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0589_001"
+      },
+      "verification": {
+        "segments": 517,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0589.001.0112a21",
+          "T0589.001.0118a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0590",
+      "slug": "taisho-t0590",
+      "workId": "gbcr:work:taisho-t0590",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0590.xml",
+      "upstreamPath": "T/T15/T15n0590.xml",
+      "upstreamGitBlobSha1": "1d99a53e0c27ac70c4667ec744bd3f1cc5063743",
+      "upstreamBytes": 27540,
+      "upstreamSha256": "d9a3d22d59fc0612600c85623c815656311f1a4316c4a516c92811a7bf4e0521",
+      "localBytes": 27541,
+      "localSha256": "5f99581ea8bd448b92dfff395a108a87270259a60170edd935a80d8c14ea5e6b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說四天王經",
+        "alternateTitle": "佛說四天王經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 590",
+        "translator": "劉宋 · 智嚴共寶雲譯",
+        "summary": "1卷。本站完整保存 T0590 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0590_001"
+      },
+      "verification": {
+        "segments": 64,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0590.001.0118a20",
+          "T0590.001.0118c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0591",
+      "slug": "taisho-t0591",
+      "workId": "gbcr:work:taisho-t0591",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0591.xml",
+      "upstreamPath": "T/T15/T15n0591.xml",
+      "upstreamGitBlobSha1": "14f61a756a987bf33138f2ba25ae68bcd3804728",
+      "upstreamBytes": 68108,
+      "upstreamSha256": "3946ae2f6983639bfa1d5e84c31fa8a1af53b7206c9065306405f02f40dd4650",
+      "localBytes": 68109,
+      "localSha256": "e108a3f36dc6352340a59e088561be67a8787758e801d5345c1cfb2298725adf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "商主天子所問經",
+        "alternateTitle": "商主天子所問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 591",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "1卷。本站完整保存 T0591 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0591_001"
+      },
+      "verification": {
+        "segments": 470,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0591.001.0119a02",
+          "T0591.001.0124b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0592",
+      "slug": "taisho-t0592",
+      "workId": "gbcr:work:taisho-t0592",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0592.xml",
+      "upstreamPath": "T/T15/T15n0592.xml",
+      "upstreamGitBlobSha1": "2800665315fd6cc607c747901332dc5c4780e811",
+      "upstreamBytes": 14180,
+      "upstreamSha256": "1153b7325f2aab491e4492aeead516284fbbc1ec3ba7111b344dde2a020904e2",
+      "localBytes": 14181,
+      "localSha256": "24f63b23f317c537caca94d4061b11550c6ebbc462b7e93e69880578e0994773",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天請問經",
+        "alternateTitle": "天請問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 592",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0592 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0592_001"
+      },
+      "verification": {
+        "segments": 54,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0592.001.0124b11",
+          "T0592.001.0125a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0593",
+      "slug": "taisho-t0593",
+      "workId": "gbcr:work:taisho-t0593",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0593.xml",
+      "upstreamPath": "T/T15/T15n0593.xml",
+      "upstreamGitBlobSha1": "4c8ed8bdcdcf3323e2a1fb5390d0a9355babc055",
+      "upstreamBytes": 34308,
+      "upstreamSha256": "1eead2ee3ad2b8f26e27fa1dcd05b1316293c7da024b66ee3bdd9aca1f7d658c",
+      "localBytes": 34309,
+      "localSha256": "092825defb83fe4ec25556b58d68871b52ccb6f121afc30227128a65bf15388e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛為勝光天子說王法經",
+        "alternateTitle": "佛為勝光天子說王法經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 593",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0593 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0593_001"
+      },
+      "verification": {
+        "segments": 169,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0593.001.0125a11",
+          "T0593.001.0127a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0594",
+      "slug": "taisho-t0594",
+      "workId": "gbcr:work:taisho-t0594",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0594.xml",
+      "upstreamPath": "T/T15/T15n0594.xml",
+      "upstreamGitBlobSha1": "c87613a62a65241ee77d02ee36ddfc62006c4875",
+      "upstreamBytes": 35483,
+      "upstreamSha256": "9970b16a6558e77aa656856c838fb134397b7317938e1b851b1b9c6f2f19996d",
+      "localBytes": 35484,
+      "localSha256": "4e86e582b205ae73a33559256922d0688ab06e54da19c9e03a35813dbbd5f7dc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大自在天子因地經",
+        "alternateTitle": "佛說大自在天子因地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 594",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0594 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0594_001"
+      },
+      "verification": {
+        "segments": 199,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0594.001.0127a09",
+          "T0594.001.0129b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0595",
+      "slug": "taisho-t0595",
+      "workId": "gbcr:work:taisho-t0595",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0595.xml",
+      "upstreamPath": "T/T15/T15n0595.xml",
+      "upstreamGitBlobSha1": "babb46a8a613874af7638f1106d0a8c8f518ec41",
+      "upstreamBytes": 19584,
+      "upstreamSha256": "d91875cb1403335dfaced12b6358bbaae135c2bab86f3800a2b3671c163c21d1",
+      "localBytes": 19585,
+      "localSha256": "4c9702813431707329ca944325d848c289187f283a3d1a1decb338aed2bf23c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說嗟韈曩法天子受三歸依獲免惡道經",
+        "alternateTitle": "佛說嗟韈曩法天子受三歸依獲免惡道經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 595",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。本站完整保存 T0595 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0595_001"
+      },
+      "verification": {
+        "segments": 97,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0595.001.0129b08",
+          "T0595.001.0130b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0596",
+      "slug": "taisho-t0596",
+      "workId": "gbcr:work:taisho-t0596",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T15n0596.xml",
+      "upstreamPath": "T/T15/T15n0596.xml",
+      "upstreamGitBlobSha1": "82efd6d5c3bad341a224c7474da2cdca781f82e9",
+      "upstreamBytes": 14516,
+      "upstreamSha256": "de7a5c615dc82a807a7d3f919fd93eb12a2a76a2ef562ecb61e98658e6b2318f",
+      "localBytes": 14517,
+      "localSha256": "5d1a2c30a889870c7fb03274d4510aea985684fb09ec76b5ad828642a5523aeb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說天王太子辟羅經",
+        "alternateTitle": "佛說天王太子辟羅經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 596",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0596 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0596_001"
+      },
+      "verification": {
+        "segments": 43,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0596.001.0130b21",
+          "T0596.001.0131a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0597",
+      "slug": "taisho-t0597",
+      "workId": "gbcr:work:taisho-t0597",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0597.xml",
+      "upstreamPath": "T/T15/T15n0597.xml",
+      "upstreamGitBlobSha1": "dd5aab4e99ee6fe076a1f08a2f65aaa71dfee544",
+      "upstreamBytes": 20086,
+      "upstreamSha256": "041e01ec2db41f1c08d9903d83fa9e5c9f1916a62a18b08ee9788b163221dd91",
+      "localBytes": 20087,
+      "localSha256": "172e8c14cb5777486e991b297654d89d2f4ee71251935367e712feea7b7c51bf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍王兄弟經",
+        "alternateTitle": "龍王兄弟經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 597",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0597 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0597_001"
+      },
+      "verification": {
+        "segments": 53,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0597.001.0131a09",
+          "T0597.001.0131c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0598",
+      "slug": "taisho-t0598",
+      "workId": "gbcr:work:taisho-t0598",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0598.xml",
+      "upstreamPath": "T/T15/T15n0598.xml",
+      "upstreamGitBlobSha1": "c7f6865d7bb90fff110251354db5862eaa873e79",
+      "upstreamBytes": 836197,
+      "upstreamSha256": "df37a763a183d3d96ed6d01d1223dac4ec438e72d2fd5eb6d46b4901f805e63c",
+      "localBytes": 836198,
+      "localSha256": "61899161276755792d6bd8e730f364189b6deb8f1e23b0a1f9c8313697b0af28",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說海龍王經",
+        "alternateTitle": "佛說海龍王經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 598",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0598 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0598_001"
+      },
+      "verification": {
+        "segments": 2180,
+        "folios": 79,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0598.001.0131c07",
+          "T0598.004.0157b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0599",
+      "slug": "taisho-t0599",
+      "workId": "gbcr:work:taisho-t0599",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0599.xml",
+      "upstreamPath": "T/T15/T15n0599.xml",
+      "upstreamGitBlobSha1": "3086a38afc8dd2def6c6fe4ad0acdf35b2d9855e",
+      "upstreamBytes": 7157,
+      "upstreamSha256": "c00c293f928f1cba7ff3891e4877aae9764808848704c565afb8dfdd073f49e4",
+      "localBytes": 7158,
+      "localSha256": "16d81eb7155c3cb19a8a76652ba6ac67c59b09f5c8f491bd0a5512cfdc87d8f4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛為海龍王說法印經",
+        "alternateTitle": "佛為海龍王說法印經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 599",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0599 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0599_001"
+      },
+      "verification": {
+        "segments": 17,
+        "folios": 1,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0599.001.0157b06",
+          "T0599.001.0157b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0600",
+      "slug": "taisho-t0600",
+      "workId": "gbcr:work:taisho-t0600",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0600.xml",
+      "upstreamPath": "T/T15/T15n0600.xml",
+      "upstreamGitBlobSha1": "e349ad52c4f27c619cb7a4182304620ca7ac747c",
+      "upstreamBytes": 29055,
+      "upstreamSha256": "e27449e455eacf4d6d3f71b2be71dd339612f0323a216c22825f7caf4b4286ed",
+      "localBytes": 29056,
+      "localSha256": "7c6e7dc45f57f3d931b968c2c1499b9e538eed6bc71422f3c9b6d3815c1cb704",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十善業道經",
+        "alternateTitle": "十善業道經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 600",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "1卷。本站完整保存 T0600 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0600_001"
+      },
+      "verification": {
+        "segments": 146,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0600.001.0157c02",
+          "T0600.001.0159b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0601",
+      "slug": "taisho-t0601",
+      "workId": "gbcr:work:taisho-t0601",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0601.xml",
+      "upstreamPath": "T/T15/T15n0601.xml",
+      "upstreamGitBlobSha1": "d3354ea544db79a277d100eab0c9e83bf506d03a",
+      "upstreamBytes": 33943,
+      "upstreamSha256": "7f41edd27b89f0abf81906a11301eaadfc066d2474850df5ce1ba6a4d472dd11",
+      "localBytes": 33944,
+      "localSha256": "4f9625e5237554b67407ee08adf3001c40890c8a8036ff3d2c2718b89aa08cd7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛為娑伽羅龍王所說大乘經",
+        "alternateTitle": "佛為娑伽羅龍王所說大乘經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 601",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0601 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0601_001"
+      },
+      "verification": {
+        "segments": 243,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0601.001.0159b06",
+          "T0601.001.0162a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0602",
+      "slug": "taisho-t0602",
+      "workId": "gbcr:work:taisho-t0602",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0602.xml",
+      "upstreamPath": "T/T15/T15n0602.xml",
+      "upstreamGitBlobSha1": "952366c90e3210b87ecff95958e4be649ab742a1",
+      "upstreamBytes": 226522,
+      "upstreamSha256": "2776d93abf3e20c5ebda5c0cd2be5fac279063de0c8e82b069b3f018127af90e",
+      "localBytes": 226523,
+      "localSha256": "502afea49614987faa2786941c8c0ace350a2ce28104c62bf432573e0ea0e395",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大安般守意經",
+        "alternateTitle": "佛說大安般守意經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 602",
+        "translator": "後漢 · 安世高譯",
+        "summary": "2卷。本站完整保存 T0602 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0602_001"
+      },
+      "verification": {
+        "segments": 889,
+        "folios": 32,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0602.001.0163a02",
+          "T0602.002.0173a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0603",
+      "slug": "taisho-t0603",
+      "workId": "gbcr:work:taisho-t0603",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0603.xml",
+      "upstreamPath": "T/T15/T15n0603.xml",
+      "upstreamGitBlobSha1": "5d359e0b61d34915504e122c268cd3f6bb293acd",
+      "upstreamBytes": 277519,
+      "upstreamSha256": "fd7c509369994cbe53a7c8c317002725aa64811e4d6ee045566f371407ac8233",
+      "localBytes": 277520,
+      "localSha256": "6aa7a5920a99b5a1106d60a0fae221a3cf373867778c7f1eaf5611dd3478dfad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "陰持入經",
+        "alternateTitle": "陰持入經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 603",
+        "translator": "後漢 · 安世高譯",
+        "summary": "2卷。本站完整保存 T0603 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0603_001"
+      },
+      "verification": {
+        "segments": 584,
+        "folios": 24,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0603.001.0173b01",
+          "T0603.002.0180c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0604",
+      "slug": "taisho-t0604",
+      "workId": "gbcr:work:taisho-t0604",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0604.xml",
+      "upstreamPath": "T/T15/T15n0604.xml",
+      "upstreamGitBlobSha1": "2bbfdf3d09982b13e67f51bde3903f55cfd0492e",
+      "upstreamBytes": 18770,
+      "upstreamSha256": "55b2e4b244fee3bf3d0b0d8fdcb9922b0c61fb24ba4c04c2cba852730cd07eaa",
+      "localBytes": 18771,
+      "localSha256": "09a36fcda82c5ead067f31989dcbdb4406391039b275b6ffa04c76ce557b8b68",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說禪行三十七品經",
+        "alternateTitle": "佛說禪行三十七品經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 604",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0604 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0604_001"
+      },
+      "verification": {
+        "segments": 61,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0604.001.0180c06",
+          "T0604.001.0181b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0605",
+      "slug": "taisho-t0605",
+      "workId": "gbcr:work:taisho-t0605",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0605.xml",
+      "upstreamPath": "T/T15/T15n0605.xml",
+      "upstreamGitBlobSha1": "0d29f369cf65b1da0a25b495b42dba3f71e64570",
+      "upstreamBytes": 7634,
+      "upstreamSha256": "8145d60e5a610d99809afdae4b115692313094b6fc5d8b3e6425a57379b52e1a",
+      "localBytes": 7635,
+      "localSha256": "dd537182fa9acce33d0e82c4793e53877fda98461c202922b83aeb29818ad858",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "禪行法想經",
+        "alternateTitle": "禪行法想經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 605",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0605 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0605_001"
+      },
+      "verification": {
+        "segments": 21,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0605.001.0181b16",
+          "T0605.001.0181c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0606",
+      "slug": "taisho-t0606",
+      "workId": "gbcr:work:taisho-t0606",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "bibliographicRelations": [
+        {
+          "type": "related_text_family_scope_not_merged",
+          "groupId": "yogacara-bhumi-of-practice-t0606-t0608",
+          "label": "《修行道地》相关文本家族",
+          "evidence": "DILA 经录把 T0606、T0607、T0608 互列，T0606 序与 T0607 题记并指僧伽罗刹撰造；但七卷、一卷与短本的具体包含关系尚未经逐章校勘。平台记录文本家族关系，不把三条记录强并为同一完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0606",
+              "T0607",
+              "T0608"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0606.xml",
+      "upstreamPath": "T/T15/T15n0606.xml",
+      "upstreamGitBlobSha1": "a25d1df3e676762d6081bf261da3fa68a683e8fc",
+      "upstreamBytes": 1445122,
+      "upstreamSha256": "58858b055f5c96ffda3921dfe642e94267ceaa22c54435e5e5dc55b78eceee92",
+      "localBytes": 1445123,
+      "localSha256": "de7ef4cdf4fcae332901b53c92bd0d7596a93fd28602b42e165f9b9d5e2fae53",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "修行道地經",
+        "alternateTitle": "修行道地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 606",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "7卷。本站完整保存 T0606 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记或正文序文指向撰造或编纂文本，平台不把作者角色改写成佛说译经；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0606_001"
+      },
+      "verification": {
+        "segments": 4191,
+        "folios": 152,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0606.001.0181c11",
+          "T0606.007.0230c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0607",
+      "slug": "taisho-t0607",
+      "workId": "gbcr:work:taisho-t0607",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "bibliographicRelations": [
+        {
+          "type": "related_text_family_scope_not_merged",
+          "groupId": "yogacara-bhumi-of-practice-t0606-t0608",
+          "label": "《修行道地》相关文本家族",
+          "evidence": "DILA 经录把 T0606、T0607、T0608 互列，T0606 序与 T0607 题记并指僧伽罗刹撰造；但七卷、一卷与短本的具体包含关系尚未经逐章校勘。平台记录文本家族关系，不把三条记录强并为同一完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0606",
+              "T0607",
+              "T0608"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0607.xml",
+      "upstreamPath": "T/T15/T15n0607.xml",
+      "upstreamGitBlobSha1": "4f84a8a19ae576ac00b6945e1d2a07be9e5886ba",
+      "upstreamBytes": 202893,
+      "upstreamSha256": "59481f19adce614356a58de5ebc24f64b8b85f08e44a88c17ba371316687e3a4",
+      "localBytes": 202894,
+      "localSha256": "4e68c8c4f37e95a083e02f67b0d857b55cc5a30c2503d74e40c8a41d05ffa067",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "道地經",
+        "alternateTitle": "道地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 607",
+        "translator": "僧伽羅剎造 · 後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0607 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记或正文序文指向撰造或编纂文本，平台不把作者角色改写成佛说译经；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0607_001"
+      },
+      "verification": {
+        "segments": 508,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0607.001.0230c06",
+          "T0607.001.0236b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0608",
+      "slug": "taisho-t0608",
+      "workId": "gbcr:work:taisho-t0608",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "related_text_family_scope_not_merged",
+          "groupId": "yogacara-bhumi-of-practice-t0606-t0608",
+          "label": "《修行道地》相关文本家族",
+          "evidence": "DILA 经录把 T0606、T0607、T0608 互列，T0606 序与 T0607 题记并指僧伽罗刹撰造；但七卷、一卷与短本的具体包含关系尚未经逐章校勘。平台记录文本家族关系，不把三条记录强并为同一完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0606",
+              "T0607",
+              "T0608"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0608.xml",
+      "upstreamPath": "T/T15/T15n0608.xml",
+      "upstreamGitBlobSha1": "5b5b01e7c3072c81059ab38487832678a109805d",
+      "upstreamBytes": 24324,
+      "upstreamSha256": "ef10adf488c288c1acedd275e3724381c3b5cd4aae83fc55a7fe08a69ef761a5",
+      "localBytes": 24325,
+      "localSha256": "a43077347d83fde21af76fa0575da906cd76f783ea24969f9a7f5118a60b3f7d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "小道地經",
+        "alternateTitle": "小道地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 608",
+        "translator": "後漢 · 支曜譯",
+        "summary": "1卷。本站完整保存 T0608 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已记录相关文本范围，证据不足时不强行合并；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0608_001"
+      },
+      "verification": {
+        "segments": 98,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0608.001.0236c02",
+          "T0608.001.0237c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0609",
+      "slug": "taisho-t0609",
+      "workId": "gbcr:work:taisho-t0609",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T15n0609.xml",
+      "upstreamPath": "T/T15/T15n0609.xml",
+      "upstreamGitBlobSha1": "6fed59483b73ed76702d829387bb651f3be64260",
+      "upstreamBytes": 30109,
+      "upstreamSha256": "56eddddc122d4b0e3c2e5ea4f7da99a890ef8cb6c8f163fc062470ade6efdd67",
+      "localBytes": 30110,
+      "localSha256": "57cda250509b103d4a2109315bfc89faea2532c69aa729b4efc13d6211535199",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "禪要經",
+        "alternateTitle": "禪要經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 609",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0609 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0609_001"
+      },
+      "verification": {
+        "segments": 115,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0609.001.0237c16",
+          "T0609.001.0239a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0610",
+      "slug": "taisho-t0610",
+      "workId": "gbcr:work:taisho-t0610",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T15n0610.xml",
+      "upstreamPath": "T/T15/T15n0610.xml",
+      "upstreamGitBlobSha1": "d71674f0e7ce73aa30b626e0eb2354e353417ac8",
+      "upstreamBytes": 41815,
+      "upstreamSha256": "2aa6d2841928d071f841eaba6084d13922c61bf28d1244a7742bef252e6594db",
+      "localBytes": 41816,
+      "localSha256": "986815265375671c61667181b7160ad07508ffaa451c34a0869dac510dab305e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說內身觀章句經",
+        "alternateTitle": "佛說內身觀章句經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 610",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0610 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0610_001"
+      },
+      "verification": {
+        "segments": 120,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0610.001.0239a18",
+          "T0610.001.0240b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0611",
+      "slug": "taisho-t0611",
+      "workId": "gbcr:work:taisho-t0611",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0611.xml",
+      "upstreamPath": "T/T15/T15n0611.xml",
+      "upstreamGitBlobSha1": "491904cdb50dd375fdf68bab4a23bfb2017a9eb1",
+      "upstreamBytes": 38005,
+      "upstreamSha256": "194dc44fc00086c68cabd1018c9573592139dc124102b21438c0240460336afc",
+      "localBytes": 38006,
+      "localSha256": "e9de2f693f5b50039570f7610a63c8697db84663897d6a6aff404114a3932cdf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法觀經",
+        "alternateTitle": "法觀經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 611",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0611 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0611_001"
+      },
+      "verification": {
+        "segments": 142,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0611.001.0240b24",
+          "T0611.001.0242a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0612",
+      "slug": "taisho-t0612",
+      "workId": "gbcr:work:taisho-t0612",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0612.xml",
+      "upstreamPath": "T/T15/T15n0612.xml",
+      "upstreamGitBlobSha1": "013cd80bb6ca03d36b45ef26a104856d04237337",
+      "upstreamBytes": 24978,
+      "upstreamSha256": "cce20368c11de6d132dfec9d4ff1ff14f0974c57b1b0cf5b4d8f4deedb0253ad",
+      "localBytes": 24979,
+      "localSha256": "f00dae5cb0b15132dfe49584579be0cf5a054a158dba538e815c1bab275a9db8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "身觀經",
+        "alternateTitle": "身觀經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 612",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0612 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0612_001"
+      },
+      "verification": {
+        "segments": 52,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0612.001.0242a24",
+          "T0612.001.0242c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0613",
+      "slug": "taisho-t0613",
+      "workId": "gbcr:work:taisho-t0613",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0613.xml",
+      "upstreamPath": "T/T15/T15n0613.xml",
+      "upstreamGitBlobSha1": "1584e9438c0c8f89f403efca2dc33f3ea277469c",
+      "upstreamBytes": 536516,
+      "upstreamSha256": "3a49fed6982c88477b22f139b7cd42e30e836db758316f9ed438e83f193a8942",
+      "localBytes": 536517,
+      "localSha256": "b14c3ba25b96c995fe82effb6bb135b99732f022e536b2e92cdfcd8e2f25c305",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "禪祕要法經",
+        "alternateTitle": "禪祕要法經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 613",
+        "translator": "姚秦 · 鳩摩羅什等譯",
+        "summary": "3卷。本站完整保存 T0613 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0613_001"
+      },
+      "verification": {
+        "segments": 2341,
+        "folios": 82,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0613.001.0242c21",
+          "T0613.003.0269c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0614",
+      "slug": "taisho-t0614",
+      "workId": "gbcr:work:taisho-t0614",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0614.xml",
+      "upstreamPath": "T/T15/T15n0614.xml",
+      "upstreamGitBlobSha1": "36405b888c09e7917000bffa8f8ab163a7643e28",
+      "upstreamBytes": 379317,
+      "upstreamSha256": "30931d846379c2246e969cf399162e211c71bbef058451ebc7883e0160551993",
+      "localBytes": 379318,
+      "localSha256": "9e0be1620517e977f63fefada77261f09072174e6e24217f2787ce31adcbf081",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "坐禪三昧經",
+        "alternateTitle": "坐禪三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 614",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0614 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0614_001"
+      },
+      "verification": {
+        "segments": 1385,
+        "folios": 51,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0614.001.0269c25",
+          "T0614.002.0286a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0615",
+      "slug": "taisho-t0615",
+      "workId": "gbcr:work:taisho-t0615",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0615.xml",
+      "upstreamPath": "T/T15/T15n0615.xml",
+      "upstreamGitBlobSha1": "6b89ad2d7a61e1e10feb252dc1448f1e8c0fef72",
+      "upstreamBytes": 11600,
+      "upstreamSha256": "0868856effbd8e2bbc10dd6f512a7d9b5a0a363da220de2afd34fe6703b6464a",
+      "localBytes": 11601,
+      "localSha256": "07f7b53a30bcff5c48881a82dcb029eb6b8b33ab5debdf77d97daa05ff54320b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩訶色欲法經",
+        "alternateTitle": "菩薩訶色欲法經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 615",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T0615 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0615_001"
+      },
+      "verification": {
+        "segments": 23,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0615.001.0286a15",
+          "T0615.001.0286b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0616",
+      "slug": "taisho-t0616",
+      "workId": "gbcr:work:taisho-t0616",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0616.xml",
+      "upstreamPath": "T/T15/T15n0616.xml",
+      "upstreamGitBlobSha1": "dfbac0fb6a264fcb690bdd159668b6ed9eb7e9c0",
+      "upstreamBytes": 299265,
+      "upstreamSha256": "6dfd866780a17d56241306db541dd7863bcdf42ee293a07d69b4059990b58e37",
+      "localBytes": 299266,
+      "localSha256": "fac0d92bedd5d12ef48af15971665826167d0e66f05b738de14ca23339cbed9e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "禪法要解",
+        "alternateTitle": "禪法要解",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 616",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0616 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0616_001"
+      },
+      "verification": {
+        "segments": 985,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0616.001.0286b12",
+          "T0616.002.0297c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0617",
+      "slug": "taisho-t0617",
+      "workId": "gbcr:work:taisho-t0617",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0617.xml",
+      "upstreamPath": "T/T15/T15n0617.xml",
+      "upstreamGitBlobSha1": "f96400d3cad3a47801625417b62802bdb8893d03",
+      "upstreamBytes": 62334,
+      "upstreamSha256": "9b072d7d0431b6b41c819127dfd931a9b0fb45ae2ea5378a7b493069891b9deb",
+      "localBytes": 62335,
+      "localSha256": "19d5fe2f422e8f8b75ce04eafddc8ae9ea7f60acbcece39fabbf546aeff472e7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "思惟略要法",
+        "alternateTitle": "思惟略要法",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 617",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T0617 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0617_001"
+      },
+      "verification": {
+        "segments": 259,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0617.001.0297c16",
+          "T0617.001.0300c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0618",
+      "slug": "taisho-t0618",
+      "workId": "gbcr:work:taisho-t0618",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0618.xml",
+      "upstreamPath": "T/T15/T15n0618.xml",
+      "upstreamGitBlobSha1": "c4d8a2de3cfda8536cf7b0b7e317b9bf82f5018d",
+      "upstreamBytes": 457882,
+      "upstreamSha256": "3ef366160832247e30a5712ddbab64ca899ae6c9ec786765ff9651de7dc34218",
+      "localBytes": 457883,
+      "localSha256": "9092761d904c20a12501cf9021379411cfaeebca79b62b6c2a6e83dc87ca92e8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "達摩多羅禪經",
+        "alternateTitle": "達摩多羅禪經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 618",
+        "translator": "東晉 · 佛陀跋陀羅譯",
+        "summary": "2卷。本站完整保存 T0618 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0618_001"
+      },
+      "verification": {
+        "segments": 2150,
+        "folios": 77,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0618.001.0300c17",
+          "T0618.002.0325c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0619",
+      "slug": "taisho-t0619",
+      "workId": "gbcr:work:taisho-t0619",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_or_compiled_text",
+      "localPath": "data/corpus/cbeta/T15n0619.xml",
+      "upstreamPath": "T/T15/T15n0619.xml",
+      "upstreamGitBlobSha1": "a598d2219ee87b20bd71cbb1d9e207c24d346d7c",
+      "upstreamBytes": 143504,
+      "upstreamSha256": "3d38c08c0979735dc1db436ac1f297bb7182ddf3e21841340c87421d31894a61",
+      "localBytes": 143505,
+      "localSha256": "7c139a90c336bb51dddf5673fae7bd86c534a2c7760392031ecfd127b0f04f6e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "五門禪經要用法",
+        "alternateTitle": "五門禪經要用法",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 619",
+        "translator": "佛陀蜜多撰 · 劉宋 · 曇摩蜜多譯",
+        "summary": "1卷。本站完整保存 T0619 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记或正文序文指向撰造或编纂文本，平台不把作者角色改写成佛说译经；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0619_001"
+      },
+      "verification": {
+        "segments": 635,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0619.001.0325c06",
+          "T0619.001.0333a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0620",
+      "slug": "taisho-t0620",
+      "workId": "gbcr:work:taisho-t0620",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0620.xml",
+      "upstreamPath": "T/T15/T15n0620.xml",
+      "upstreamGitBlobSha1": "0c60191427a307d548abb1f7c425e182a6c53fe7",
+      "upstreamBytes": 187874,
+      "upstreamSha256": "585cd7aa498716b7a9e61341e50b60215ca419d3fed58aae3d5c1e96b8261398",
+      "localBytes": 187875,
+      "localSha256": "7eecc4e9cecd06ad58817a37d8008083dc93f3cbf3df4fcaf0836944bd28a2b9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "治禪病祕要法",
+        "alternateTitle": "治禪病祕要法",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 620",
+        "translator": "劉宋 · 沮渠京聲譯",
+        "summary": "2卷。本站完整保存 T0620 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0620_001"
+      },
+      "verification": {
+        "segments": 813,
+        "folios": 30,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0620.001.0333a06",
+          "T0620.002.0342b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0621",
+      "slug": "taisho-t0621",
+      "workId": "gbcr:work:taisho-t0621",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0621.xml",
+      "upstreamPath": "T/T15/T15n0621.xml",
+      "upstreamGitBlobSha1": "23051f20eefc04a8027ddd9b25d19e4ded901319",
+      "upstreamBytes": 23028,
+      "upstreamSha256": "ab2b30d0c4428105e25438ecce7de953616876e2bbe4480f1fe19fbe84b8e7e0",
+      "localBytes": 23029,
+      "localSha256": "385f7c4fac1a16fcd8462a5c02ada519532d7b99d9e5c729db761a840819c5ec",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說佛印三昧經",
+        "alternateTitle": "佛說佛印三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 621",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0621 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0621_001"
+      },
+      "verification": {
+        "segments": 73,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0621.001.0343a02",
+          "T0621.001.0343c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0622",
+      "slug": "taisho-t0622",
+      "workId": "gbcr:work:svayam-pratijna-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "svayam-pratijna-samadhi-chinese",
+          "label": "《自誓三昧经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0622",
+              "T0623"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0622.xml",
+      "upstreamPath": "T/T15/T15n0622.xml",
+      "upstreamGitBlobSha1": "e1f8db5995e9ca49fa63243b30c21031ca8c7cc6",
+      "upstreamBytes": 52027,
+      "upstreamSha256": "9bbcebf529a8a63bf5a180c4408b9066cc27255cb0516d314b71a220792a94dc",
+      "localBytes": 52028,
+      "localSha256": "630239cf2b1db0bb06c548723a87ef84aab569a481df6e49d7f81a09eecfce4f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說自誓三昧經",
+        "alternateTitle": "佛說自誓三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 622",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0622 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0622_001"
+      },
+      "verification": {
+        "segments": 212,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0622.001.0343c21",
+          "T0622.001.0346b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0623",
+      "slug": "taisho-t0623",
+      "workId": "gbcr:work:svayam-pratijna-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "svayam-pratijna-samadhi-chinese",
+          "label": "《自誓三昧经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0622",
+              "T0623"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0623.xml",
+      "upstreamPath": "T/T15/T15n0623.xml",
+      "upstreamGitBlobSha1": "836d92a8d32cf9dfae4e3049b310d1fe2a9b94b3",
+      "upstreamBytes": 45207,
+      "upstreamSha256": "b3c85fbb12a1258f13ebed3a86769cce1ce9418527cd1e9642f0943da54321cc",
+      "localBytes": 45208,
+      "localSha256": "1c381b505bfa2698f03ef742e29b5f15714f9c326a91d789680f7a1feb40018e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說如來獨證自誓三昧經",
+        "alternateTitle": "佛說如來獨證自誓三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 623",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0623 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0623_001"
+      },
+      "verification": {
+        "segments": 189,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0623.001.0346b04",
+          "T0623.001.0348b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0624",
+      "slug": "taisho-t0624",
+      "workId": "gbcr:work:druma-kinnara-raja-pariprccha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "druma-kinnara-raja-pariprccha-chinese",
+          "label": "Drumakinnararājaparipṛcchā／《大树紧那罗王所问经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0624",
+              "T0625"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0624.xml",
+      "upstreamPath": "T/T15/T15n0624.xml",
+      "upstreamGitBlobSha1": "d2d32064153704a7c6e4f1a9f0555ea3bee4d1d6",
+      "upstreamBytes": 553228,
+      "upstreamSha256": "020c18cfd9151c3ea0fd62edc109f9a148d70b1082ce478083b301667ee225cd",
+      "localBytes": 553229,
+      "localSha256": "2d4bd0b8c97ba0082c99d5225bc78bdbd8ed2251cf01c24b83f8598271aad2fe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說伅真陀羅所問如來三昧經",
+        "alternateTitle": "佛說伅真陀羅所問如來三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 624",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "3卷。本站完整保存 T0624 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0624_001"
+      },
+      "verification": {
+        "segments": 1631,
+        "folios": 60,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0624.001.0348b22",
+          "T0624.003.0367b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0625",
+      "slug": "taisho-t0625",
+      "workId": "gbcr:work:druma-kinnara-raja-pariprccha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "druma-kinnara-raja-pariprccha-chinese",
+          "label": "Drumakinnararājaparipṛcchā／《大树紧那罗王所问经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0624",
+              "T0625"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0625.xml",
+      "upstreamPath": "T/T15/T15n0625.xml",
+      "upstreamGitBlobSha1": "a131b9b1aec1ae185a2e3499efa0c4e5af4ef54f",
+      "upstreamBytes": 458914,
+      "upstreamSha256": "4a8c3d3b4ac33d4343cf4d16f319a6a294cdd70f514be186f00a084213f8df53",
+      "localBytes": 458915,
+      "localSha256": "7c45c113b8721865b7ed57cbf30d4b833e6f0b6d44cb2b7864085432a5730dc6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大樹緊那羅王所問經",
+        "alternateTitle": "大樹緊那羅王所問經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 625",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "4卷。本站完整保存 T0625 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0625_001"
+      },
+      "verification": {
+        "segments": 1861,
+        "folios": 69,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0625.001.0367b16",
+          "T0625.004.0389a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0626",
+      "slug": "taisho-t0626",
+      "workId": "gbcr:work:ajatasatru-kaukrtya-vinodana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ajatasatru-kaukrtya-vinodana-chinese",
+          "label": "Ajātaśatrukaukṛtyavinodanā／《阿阇世王经》汉译与别品译出组",
+          "evidence": "DILA 经录将 T0626–T0629 互列；T0629 校注明确为《普超经》第二品别译。平台令前三条完整译本与 T0629 部分翻译见证共享规范作品，不把别品译出重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0626",
+              "T0627",
+              "T0628",
+              "T0629"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0626.xml",
+      "upstreamPath": "T/T15/T15n0626.xml",
+      "upstreamGitBlobSha1": "13c6c342d68506ac73b6bbd78a52aa127b5141ae",
+      "upstreamBytes": 365897,
+      "upstreamSha256": "af7a4a42bd4cc57b2bc4fd95eefd2724d37101fcb7c8dbef6b01086b30f1b694",
+      "localBytes": 365898,
+      "localSha256": "39e533f079388546a5568063b104f81d9f5a3b8ed59816783882a00e69ba1988",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說阿闍世王經",
+        "alternateTitle": "佛說阿闍世王經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 626",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "2卷。本站完整保存 T0626 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0626_001"
+      },
+      "verification": {
+        "segments": 1507,
+        "folios": 54,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0626.001.0389a06",
+          "T0626.002.0406b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0627",
+      "slug": "taisho-t0627",
+      "workId": "gbcr:work:ajatasatru-kaukrtya-vinodana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ajatasatru-kaukrtya-vinodana-chinese",
+          "label": "Ajātaśatrukaukṛtyavinodanā／《阿阇世王经》汉译与别品译出组",
+          "evidence": "DILA 经录将 T0626–T0629 互列；T0629 校注明确为《普超经》第二品别译。平台令前三条完整译本与 T0629 部分翻译见证共享规范作品，不把别品译出重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0626",
+              "T0627",
+              "T0628",
+              "T0629"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0627.xml",
+      "upstreamPath": "T/T15/T15n0627.xml",
+      "upstreamGitBlobSha1": "c4711faf4bf6960343068b34a4cc6efe6fce1dad",
+      "upstreamBytes": 604715,
+      "upstreamSha256": "dc668edbad32238171e616bf6d85b996a87bb21d02b0530fe89ff5df7c048196",
+      "localBytes": 604716,
+      "localSha256": "aaf80b56d8f9ab4944bd5982ee91680918b0960bc55db159b0a76dfa3185b8b8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊支利普超三昧經",
+        "alternateTitle": "文殊支利普超三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 627",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "3卷。本站完整保存 T0627 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0627_001"
+      },
+      "verification": {
+        "segments": 1887,
+        "folios": 67,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0627.001.0406b14",
+          "T0627.003.0428a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0628",
+      "slug": "taisho-t0628",
+      "workId": "gbcr:work:ajatasatru-kaukrtya-vinodana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ajatasatru-kaukrtya-vinodana-chinese",
+          "label": "Ajātaśatrukaukṛtyavinodanā／《阿阇世王经》汉译与别品译出组",
+          "evidence": "DILA 经录将 T0626–T0629 互列；T0629 校注明确为《普超经》第二品别译。平台令前三条完整译本与 T0629 部分翻译见证共享规范作品，不把别品译出重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0626",
+              "T0627",
+              "T0628",
+              "T0629"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0628.xml",
+      "upstreamPath": "T/T15/T15n0628.xml",
+      "upstreamGitBlobSha1": "4316502091d5069e5333b5e2b264621bbf3dc227",
+      "upstreamBytes": 212796,
+      "upstreamSha256": "aaea78fead94a5a195fb581d2f806d228b9e1923b7fd28a1cf08cc83fd21a1c6",
+      "localBytes": 212797,
+      "localSha256": "978c53e86d0b344748aeed0fc193ae8cc268aaad5b304522b86faa0fdc710314",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說未曾有正法經",
+        "alternateTitle": "佛說未曾有正法經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 628",
+        "translator": "宋 · 法天譯",
+        "summary": "6卷。本站完整保存 T0628 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0628_001"
+      },
+      "verification": {
+        "segments": 1802,
+        "folios": 68,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0628.001.0428b01",
+          "T0628.006.0449a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0629",
+      "slug": "taisho-t0629",
+      "workId": "gbcr:work:ajatasatru-kaukrtya-vinodana",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ajatasatru-kaukrtya-vinodana-chinese",
+          "label": "Ajātaśatrukaukṛtyavinodanā／《阿阇世王经》汉译与别品译出组",
+          "evidence": "DILA 经录将 T0626–T0629 互列；T0629 校注明确为《普超经》第二品别译。平台令前三条完整译本与 T0629 部分翻译见证共享规范作品，不把别品译出重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0626",
+              "T0627",
+              "T0628",
+              "T0629"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0629.xml",
+      "upstreamPath": "T/T15/T15n0629.xml",
+      "upstreamGitBlobSha1": "35a22d00562335e2fd528c55c4c9c02bc5517d97",
+      "upstreamBytes": 40318,
+      "upstreamSha256": "928d87c49871640844c8cdcef8a5f941299a33ea527e3a1ee28ec618f80ee830",
+      "localBytes": 40319,
+      "localSha256": "1e421f20d8db6c93056e255968dce7ea6c7f3f95ca11aa62d139c0032557f076",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說放鉢經",
+        "alternateTitle": "佛說放鉢經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 629",
+        "translator": "闕譯",
+        "summary": "1卷。本站完整保存 T0629 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存规范作品一部分的独立译出，只作部分翻译见证；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0629_001"
+      },
+      "verification": {
+        "segments": 179,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0629.001.0449a23",
+          "T0629.001.0451a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0630",
+      "slug": "taisho-t0630",
+      "workId": "gbcr:work:taisho-t0630",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0630.xml",
+      "upstreamPath": "T/T15/T15n0630.xml",
+      "upstreamGitBlobSha1": "72163589295f7c4aa74acd0cc87c1f840c6c5a1f",
+      "upstreamBytes": 197296,
+      "upstreamSha256": "2ab692f49bf23f9c341725a435c7a1953cf35b649424d0a2b97d663d9bfe4d2b",
+      "localBytes": 197297,
+      "localSha256": "0c6d72f4f79d94e9f3ba6debbc54cf068264e11f81071e8ce7ad9a273d7a140d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說成具光明定意經",
+        "alternateTitle": "佛說成具光明定意經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 630",
+        "translator": "後漢 · 支曜譯",
+        "summary": "1卷。本站完整保存 T0630 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0630_001"
+      },
+      "verification": {
+        "segments": 619,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0630.001.0451b02",
+          "T0630.001.0458b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0631",
+      "slug": "taisho-t0631",
+      "workId": "gbcr:work:taisho-t0631",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0631.xml",
+      "upstreamPath": "T/T15/T15n0631.xml",
+      "upstreamGitBlobSha1": "2f7c97839f3049d9feb34d06c4261fe7cef868ee",
+      "upstreamBytes": 72412,
+      "upstreamSha256": "85c395262fdb6cb1ab115001dda1f8393e8f3ea6f1a00d45157c62bcbe84642d",
+      "localBytes": 72413,
+      "localSha256": "ba2eb9eac8c2d963c6d5ecb476660d935cf255005c95e1ceb843ee649d831800",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說法律三昧經",
+        "alternateTitle": "佛說法律三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 631",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0631 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0631_001"
+      },
+      "verification": {
+        "segments": 192,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0631.001.0458b14",
+          "T0631.001.0460c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0632",
+      "slug": "taisho-t0632",
+      "workId": "gbcr:work:tathagata-jnana-mudra-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-jnana-mudra-samadhi-chinese",
+          "label": "《慧印／如来智印／大乘智印经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0632",
+              "T0633",
+              "T0634"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0632.xml",
+      "upstreamPath": "T/T15/T15n0632.xml",
+      "upstreamGitBlobSha1": "098df89d11b22ff5e40ff810e628b9cbd218a6a9",
+      "upstreamBytes": 177935,
+      "upstreamSha256": "07031d22d1e1f7963048db7249c33673a593847bb56b71872917661f465f3e36",
+      "localBytes": 177936,
+      "localSha256": "ec9beb898e366ffdea5251f0c3c0e70881fcbf5d8c857dede2939128687264f5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說慧印三昧經",
+        "alternateTitle": "佛說慧印三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 632",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0632 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0632_001"
+      },
+      "verification": {
+        "segments": 656,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0632.001.0460c06",
+          "T0632.001.0468a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0633",
+      "slug": "taisho-t0633",
+      "workId": "gbcr:work:tathagata-jnana-mudra-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-jnana-mudra-samadhi-chinese",
+          "label": "《慧印／如来智印／大乘智印经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0632",
+              "T0633",
+              "T0634"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0633.xml",
+      "upstreamPath": "T/T15/T15n0633.xml",
+      "upstreamGitBlobSha1": "d915f50b03b77ce68fda731b52605fc9820c8de3",
+      "upstreamBytes": 104376,
+      "upstreamSha256": "80462d19ad42a27d9c0ee76c992f9d1826e153497db0ac56ceffc2b0834a28d8",
+      "localBytes": 104377,
+      "localSha256": "182c2a095bc06c35a01b260d4bc7119252e9808dfe8dd140e1fda3e57373c5c7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說如來智印經",
+        "alternateTitle": "佛說如來智印經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 633",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0633 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0633_001"
+      },
+      "verification": {
+        "segments": 558,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0633.001.0468b02",
+          "T0633.001.0474c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0634",
+      "slug": "taisho-t0634",
+      "workId": "gbcr:work:tathagata-jnana-mudra-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-jnana-mudra-samadhi-chinese",
+          "label": "《慧印／如来智印／大乘智印经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0632",
+              "T0633",
+              "T0634"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0634.xml",
+      "upstreamPath": "T/T15/T15n0634.xml",
+      "upstreamGitBlobSha1": "b39c5eca66e924931b24694af0bc43ec1934cd0d",
+      "upstreamBytes": 110947,
+      "upstreamSha256": "f7e35e548ac7a939e903e5fa2c70fd07eea1f058460757f7b45da2a06de44d61",
+      "localBytes": 110948,
+      "localSha256": "075c83a812315d43bf6fe6cdc5a9a5bbd4b50977d3d0673eaf83c7cfa3590ec0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘智印經",
+        "alternateTitle": "佛說大乘智印經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 634",
+        "translator": "宋 · 智吉祥等譯",
+        "summary": "5卷。本站完整保存 T0634 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0634_001"
+      },
+      "verification": {
+        "segments": 1170,
+        "folios": 44,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0634.001.0474c12",
+          "T0634.005.0488b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0635",
+      "slug": "taisho-t0635",
+      "workId": "gbcr:work:taisho-t0635",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0635.xml",
+      "upstreamPath": "T/T15/T15n0635.xml",
+      "upstreamGitBlobSha1": "36279b5b8a8c9d3453c38ff86c830d21cbf2f70a",
+      "upstreamBytes": 442639,
+      "upstreamSha256": "d150d341de809aaeb13ee0ad84dc56c4b94607af9a3c9475d936fd1851b0e2e4",
+      "localBytes": 442640,
+      "localSha256": "b6fc37d1f4f3be22bd518e0cc0f596f4aac163b06f6ae30901ed45aebd59882a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說弘道廣顯三昧經",
+        "alternateTitle": "佛說弘道廣顯三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 635",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0635 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0635_001"
+      },
+      "verification": {
+        "segments": 1614,
+        "folios": 58,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0635.001.0488b14",
+          "T0635.004.0507a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0636",
+      "slug": "taisho-t0636",
+      "workId": "gbcr:work:ananta-ratna-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ananta-ratna-samadhi-chinese",
+          "label": "《无极宝／宝如来三昧经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0636",
+              "T0637"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0636.xml",
+      "upstreamPath": "T/T15/T15n0636.xml",
+      "upstreamGitBlobSha1": "be51515bb52e38d7335388cbb28519670b31b18d",
+      "upstreamBytes": 199118,
+      "upstreamSha256": "161e68f250e2a4f408e3c3997d4bf8ae882e7ec4c4462131158b809af395a5e0",
+      "localBytes": 199119,
+      "localSha256": "c4f5c80ec92df3e2fbd28ef01650afb4d22cde110a4f58143db9f64b258afcf8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無極寶三昧經",
+        "alternateTitle": "無極寶三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 636",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "2卷。本站完整保存 T0636 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0636_001"
+      },
+      "verification": {
+        "segments": 952,
+        "folios": 34,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0636.001.0507b02",
+          "T0636.002.0518a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0637",
+      "slug": "taisho-t0637",
+      "workId": "gbcr:work:ananta-ratna-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ananta-ratna-samadhi-chinese",
+          "label": "《无极宝／宝如来三昧经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0636",
+              "T0637"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0637.xml",
+      "upstreamPath": "T/T15/T15n0637.xml",
+      "upstreamGitBlobSha1": "dddf45f7ccd8259e641afa455f50495c5d8557b6",
+      "upstreamBytes": 218633,
+      "upstreamSha256": "f8ec87421bf3ac49db90e7c0a2d760eb37c29a80239961da1069930b8fff9380",
+      "localBytes": 218634,
+      "localSha256": "867884a87f930d0379a64415553db98028ee7ea6045eaeeb53a7c752ef1a2d03",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說寶如來三昧經",
+        "alternateTitle": "佛說寶如來三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 637",
+        "translator": "東晉 · 祇多蜜譯",
+        "summary": "2卷。本站完整保存 T0637 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0637_001"
+      },
+      "verification": {
+        "segments": 1143,
+        "folios": 40,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0637.001.0518b02",
+          "T0637.002.0531b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0638",
+      "slug": "taisho-t0638",
+      "workId": "gbcr:work:taisho-t0638",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0638.xml",
+      "upstreamPath": "T/T15/T15n0638.xml",
+      "upstreamGitBlobSha1": "fa00974ace3560eaa9b74b154cea962ed82f2eb9",
+      "upstreamBytes": 568276,
+      "upstreamSha256": "96bdca185f2daeef4dd8e593e1124839e5ad2451ca0f3cca5ce2cbcbb314e571",
+      "localBytes": 568277,
+      "localSha256": "652e047d0773180c4efb2427636a735495a115a77ebbb131722756c3ed2ea08d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說超日明三昧經",
+        "alternateTitle": "佛說超日明三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 638",
+        "translator": "西晉 · 聶承遠譯",
+        "summary": "2卷。本站完整保存 T0638 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0638_001"
+      },
+      "verification": {
+        "segments": 1418,
+        "folios": 52,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0638.001.0531b24",
+          "T0638.002.0548a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0639",
+      "slug": "taisho-t0639",
+      "workId": "gbcr:work:samadhi-raja",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "samadhi-raja-t0639-t0640",
+          "label": "Samādhirāja／《月灯三昧经》与独立译出见证",
+          "evidence": "DILA 经录将 T0639、T0640 互列，T0640 版本校注明载与 T0639 第八卷同本。平台将 T0640 标作部分翻译见证；T0641 虽同题同译者，但目录未互列且文本范围未定，暂不并入。",
+          "externalIds": {
+            "cbeta": [
+              "T0639",
+              "T0640"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0639.xml",
+      "upstreamPath": "T/T15/T15n0639.xml",
+      "upstreamGitBlobSha1": "faa92961cf3a0c2b19e62eec2a05d5ae45073e16",
+      "upstreamBytes": 1048964,
+      "upstreamSha256": "4500de550e7732418fd810ed925754e842909c27294c967b4ed2ab84a45a31f5",
+      "localBytes": 1048965,
+      "localSha256": "a0aa586c3e48423864c89bc2a99e572d074648fbcb785f3b05dff76824ce7053",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "月燈三昧經",
+        "alternateTitle": "月燈三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 639",
+        "translator": "高齊 · 那連提耶舍譯",
+        "summary": "10卷。本站完整保存 T0639 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0639_001"
+      },
+      "verification": {
+        "segments": 6145,
+        "folios": 222,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0639.001.0549a02",
+          "T0639.010.0620a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0640",
+      "slug": "taisho-t0640",
+      "workId": "gbcr:work:samadhi-raja",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "samadhi-raja-t0639-t0640",
+          "label": "Samādhirāja／《月灯三昧经》与独立译出见证",
+          "evidence": "DILA 经录将 T0639、T0640 互列，T0640 版本校注明载与 T0639 第八卷同本。平台将 T0640 标作部分翻译见证；T0641 虽同题同译者，但目录未互列且文本范围未定，暂不并入。",
+          "externalIds": {
+            "cbeta": [
+              "T0639",
+              "T0640"
+            ]
+          }
+        },
+        {
+          "type": "related_text_shared_title_attribution_not_merged",
+          "groupId": "moon-lamp-t0640-t0641-boundary",
+          "label": "T0640/T0641 同题同译者范围待定组",
+          "evidence": "T0641 与 T0640 同题且同署先公译，但 DILA 经录未将 T0641 与 T0639/T0640 互列，T0641 正文又从段落中部起。未取得范围证据前，平台只记录同题同署候选关系，不把 T0641 计作已验证同作品表达或版本。",
+          "externalIds": {
+            "cbeta": [
+              "T0640",
+              "T0641"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0640.xml",
+      "upstreamPath": "T/T15/T15n0640.xml",
+      "upstreamGitBlobSha1": "1629b73f768cec1eb91a56b9dd2a342b6f55a935",
+      "upstreamBytes": 61381,
+      "upstreamSha256": "a55831d910f35ce83df6d4f593c52eb671217bb86d26cdc592a0ee271e99ffab",
+      "localBytes": 61382,
+      "localSha256": "a5d1392150677f1c927f629267a3d4d17f5449d06199d3abeb48d3689066db17",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說月燈三昧經",
+        "alternateTitle": "佛說月燈三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 640",
+        "translator": "劉宋 · 先公譯",
+        "summary": "1卷。本站完整保存 T0640 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存规范作品一部分的独立译出，只作部分翻译见证；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0640_001"
+      },
+      "verification": {
+        "segments": 287,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0640.001.0620a05",
+          "T0640.001.0623b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0641",
+      "slug": "taisho-t0641",
+      "workId": "gbcr:work:taisho-t0641",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "related_text_shared_title_attribution_not_merged",
+          "groupId": "moon-lamp-t0640-t0641-boundary",
+          "label": "T0640/T0641 同题同译者范围待定组",
+          "evidence": "T0641 与 T0640 同题且同署先公译，但 DILA 经录未将 T0641 与 T0639/T0640 互列，T0641 正文又从段落中部起。未取得范围证据前，平台只记录同题同署候选关系，不把 T0641 计作已验证同作品表达或版本。",
+          "externalIds": {
+            "cbeta": [
+              "T0640",
+              "T0641"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0641.xml",
+      "upstreamPath": "T/T15/T15n0641.xml",
+      "upstreamGitBlobSha1": "16b0426d84fcb7f040cb92053347156cbca73e1a",
+      "upstreamBytes": 50771,
+      "upstreamSha256": "46e2ff6d2ff6ba9266da6cfc5e1affd47cdf6069020ef3925a7f43338f8b74e4",
+      "localBytes": 50772,
+      "localSha256": "4869208db2084e886108590c7ac2e791a886957fb09431eae1d9b4078163d229",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說月燈三昧經",
+        "alternateTitle": "佛說月燈三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 641",
+        "translator": "劉宋 · 先公譯",
+        "summary": "1卷。本站完整保存 T0641 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已记录相关文本范围，证据不足时不强行合并；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0641_001"
+      },
+      "verification": {
+        "segments": 522,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0641.001.0623b06",
+          "T0641.001.0629b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0642",
+      "slug": "taisho-t0642",
+      "workId": "gbcr:work:taisho-t0642",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0642.xml",
+      "upstreamPath": "T/T15/T15n0642.xml",
+      "upstreamGitBlobSha1": "241ea4b431d4604bfba18ed02f6896f15d42e8cf",
+      "upstreamBytes": 208796,
+      "upstreamSha256": "c25c5a08eb96cc0fa4d7961af3e8261170329c5c5c1b7743f62b12564588205b",
+      "localBytes": 208797,
+      "localSha256": "8a2a6a380bc60a4c2c3ed03098c10168bb255b32463fe03b2732e09cd33425b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說首楞嚴三昧經",
+        "alternateTitle": "佛說首楞嚴三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 642",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0642 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0642_001"
+      },
+      "verification": {
+        "segments": 1399,
+        "folios": 49,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0642.001.0629b10",
+          "T0642.002.0645b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0643",
+      "slug": "taisho-t0643",
+      "workId": "gbcr:work:taisho-t0643",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0643.xml",
+      "upstreamPath": "T/T15/T15n0643.xml",
+      "upstreamGitBlobSha1": "4818ce0d58968976e8522168ead0b7646db79847",
+      "upstreamBytes": 1080720,
+      "upstreamSha256": "7cb6635eec64f3d0911c29cfa5978424d0c454a5d1a08e9ee37539fc4509ea67",
+      "localBytes": 1080721,
+      "localSha256": "bedcb58f5b668abe9a49e2e3a7b7e6769a71d052431942389e165ffed8a68c32",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說觀佛三昧海經",
+        "alternateTitle": "佛說觀佛三昧海經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 643",
+        "translator": "東晉 · 佛陀跋陀羅譯",
+        "summary": "10卷。本站完整保存 T0643 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0643_001"
+      },
+      "verification": {
+        "segments": 4431,
+        "folios": 160,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0643.001.0645c02",
+          "T0643.010.0697a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0644",
+      "slug": "taisho-t0644",
+      "workId": "gbcr:work:taisho-t0644",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T15n0644.xml",
+      "upstreamPath": "T/T15/T15n0644.xml",
+      "upstreamGitBlobSha1": "82c71f1c9fa6c2de4fe2353862be8e67f34a2f6c",
+      "upstreamBytes": 34568,
+      "upstreamSha256": "fd4f4fc8894b19c62b008d39989c57511fe106f13041401423daec73d96f03a6",
+      "localBytes": 34569,
+      "localSha256": "784589655a2e96f46c6c7ccd39e1ae1ba886c07945adf11581859f40cbf53520",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說金剛三昧本性清淨不壞不滅經",
+        "alternateTitle": "佛說金剛三昧本性清淨不壞不滅經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 644",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0644 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0644_001"
+      },
+      "verification": {
+        "segments": 196,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0644.001.0697a13",
+          "T0644.001.0699b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0645",
+      "slug": "taisho-t0645",
+      "workId": "gbcr:work:niyata-aniyata-avatara-mudra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "niyata-aniyata-avatara-mudra-chinese",
+          "label": "《定不定印经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0645",
+              "T0646"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0645.xml",
+      "upstreamPath": "T/T15/T15n0645.xml",
+      "upstreamGitBlobSha1": "bff474186ab319931fcd3d093aa309fcb4c91366",
+      "upstreamBytes": 75986,
+      "upstreamSha256": "d3b4b4f1b7c85aa3d2f723829dc0924268aaffee909a87c60aaef412845b26b4",
+      "localBytes": 75987,
+      "localSha256": "3bd76f6e7dc66217d61680d786d253e01ad7c9d1ef61454afa9f51d04caa0ff1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "不必定入定入印經",
+        "alternateTitle": "不必定入定入印經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 645",
+        "translator": "元魏 · 瞿曇般若流支譯",
+        "summary": "1卷。本站完整保存 T0645 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0645_001"
+      },
+      "verification": {
+        "segments": 563,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0645.001.0699b08",
+          "T0645.001.0705c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0646",
+      "slug": "taisho-t0646",
+      "workId": "gbcr:work:niyata-aniyata-avatara-mudra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "niyata-aniyata-avatara-mudra-chinese",
+          "label": "《定不定印经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0645",
+              "T0646"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0646.xml",
+      "upstreamPath": "T/T15/T15n0646.xml",
+      "upstreamGitBlobSha1": "c78d084f13df5fafa98a6aa75e122c11ad162c5e",
+      "upstreamBytes": 61285,
+      "upstreamSha256": "ca6abdb5498bf1994ba5b220ee300135c0358e35640bdee2b0decf1a80e9f40c",
+      "localBytes": 61286,
+      "localSha256": "a559f3c848ab1a88659a3cf27a71abd8265af6871d504b729c33c6c555513160",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入定不定印經",
+        "alternateTitle": "入定不定印經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 646",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0646 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0646_001"
+      },
+      "verification": {
+        "segments": 448,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0646.001.0706a02",
+          "T0646.001.0711a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0647",
+      "slug": "taisho-t0647",
+      "workId": "gbcr:work:taisho-t0647",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0647.xml",
+      "upstreamPath": "T/T15/T15n0647.xml",
+      "upstreamGitBlobSha1": "0b566ca3868f5430ed673a48f125784d8990f874",
+      "upstreamBytes": 131501,
+      "upstreamSha256": "3b6f02840c686adf0fa3d1218f60f3864fcf374f66e343145e1d022a1a090ffa",
+      "localBytes": 131502,
+      "localSha256": "9cf0528ee3896edb9111b10386679d3c04071b98813f33e7e3d851ee268a6c5f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "力莊嚴三昧經",
+        "alternateTitle": "力莊嚴三昧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 647",
+        "translator": "隋 · 那連提耶舍譯",
+        "summary": "3卷。本站完整保存 T0647 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0647_001"
+      },
+      "verification": {
+        "segments": 1032,
+        "folios": 38,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0647.001.0711a20",
+          "T0647.003.0723a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0648",
+      "slug": "taisho-t0648",
+      "workId": "gbcr:work:taisho-t0648",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0648.xml",
+      "upstreamPath": "T/T15/T15n0648.xml",
+      "upstreamGitBlobSha1": "5f24d394c7ce1cb95c443acd6dee0770eae5e549",
+      "upstreamBytes": 48825,
+      "upstreamSha256": "87a99da959a79ea158b241211b8e144ea9c4b8dcd73aa67b0d4727363d0bb70f",
+      "localBytes": 48826,
+      "localSha256": "23d32e0d7dc2981590a75eb19d599a5fae7077e2c2e062744f2c1b0eb0b8fca2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寂照神變三摩地經",
+        "alternateTitle": "寂照神變三摩地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 648",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0648 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0648_001"
+      },
+      "verification": {
+        "segments": 363,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0648.001.0723a18",
+          "T0648.001.0727b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0649",
+      "slug": "taisho-t0649",
+      "workId": "gbcr:work:taisho-t0649",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0649.xml",
+      "upstreamPath": "T/T15/T15n0649.xml",
+      "upstreamGitBlobSha1": "ab8012c5f62ac056e4f83ac0a22c83c8abf1e095",
+      "upstreamBytes": 317646,
+      "upstreamSha256": "c82d6c87b12a57be59da0d2b96996b7cbb31207ab30cb651656ada26821d5e0e",
+      "localBytes": 317647,
+      "localSha256": "8820d1e25aa2bf6457b843e1e993918e41efdd21b77f150ad483aa7b4640cd25",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀察諸法行經",
+        "alternateTitle": "觀察諸法行經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 649",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "4卷。本站完整保存 T0649 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0649_001"
+      },
+      "verification": {
+        "segments": 1899,
+        "folios": 70,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0649.001.0727b07",
+          "T0649.004.0749b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0650",
+      "slug": "taisho-t0650",
+      "workId": "gbcr:work:sarva-dharma-apravrtti",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sarva-dharma-apravrtti-chinese",
+          "label": "《诸法无行／本无／随转宣说诸法经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0650",
+              "T0651",
+              "T0652"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0650.xml",
+      "upstreamPath": "T/T15/T15n0650.xml",
+      "upstreamGitBlobSha1": "39c28307dbfa1ef4e85ba647a7512939f9f4bb9c",
+      "upstreamBytes": 325858,
+      "upstreamSha256": "b7eafb2eb869c2662a76bf3c4e8b658ecd6a2ef4d20113c38e9edc975d201717",
+      "localBytes": 325859,
+      "localSha256": "01b5431e405805e59aba6516deb7319037161e5ffce59bf42ba0a232d278f7b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸法無行經",
+        "alternateTitle": "諸法無行經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 650",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0650 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0650_001"
+      },
+      "verification": {
+        "segments": 996,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0650.001.0750a02",
+          "T0650.002.0761b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0651",
+      "slug": "taisho-t0651",
+      "workId": "gbcr:work:sarva-dharma-apravrtti",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sarva-dharma-apravrtti-chinese",
+          "label": "《诸法无行／本无／随转宣说诸法经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0650",
+              "T0651",
+              "T0652"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0651.xml",
+      "upstreamPath": "T/T15/T15n0651.xml",
+      "upstreamGitBlobSha1": "bb0a80f7d8e363326378b0876811257e76856d59",
+      "upstreamBytes": 163523,
+      "upstreamSha256": "1a74ae9e10f63f97ae2080bb9c8bc53fa41c2a7b4b5b991154a4ca024d9de849",
+      "localBytes": 163524,
+      "localSha256": "2f7d3602950daba0e2678383fc82281168d0d7d666cfb3e0dec2d329df82e71e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說諸法本無經",
+        "alternateTitle": "佛說諸法本無經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 651",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "3卷。本站完整保存 T0651 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0651_001"
+      },
+      "verification": {
+        "segments": 1073,
+        "folios": 40,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0651.001.0761b25",
+          "T0651.003.0774a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0652",
+      "slug": "taisho-t0652",
+      "workId": "gbcr:work:sarva-dharma-apravrtti",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sarva-dharma-apravrtti-chinese",
+          "label": "《诸法无行／本无／随转宣说诸法经》汉译组",
+          "evidence": "DILA 佛经目录规范资料库将这些经号互列为相关经典；平台结合题名、译者、目录互列和文本范围，登记为同一规范作品的汉文表达，并保留各自正文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0650",
+              "T0651",
+              "T0652"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T15n0652.xml",
+      "upstreamPath": "T/T15/T15n0652.xml",
+      "upstreamGitBlobSha1": "301b247141dbd9f7ac2bea4fa5c9bd78d4e22733",
+      "upstreamBytes": 77321,
+      "upstreamSha256": "5c81dc681a654b4346e0338f3b52bc676ac3ec8dd468f8bf54dea197476b251d",
+      "localBytes": 77322,
+      "localSha256": "155b2efd8261c9fcd56adf9f61c5ab4817c67ce2861f47a1cd18ed63d685c919",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘隨轉宣說諸法經",
+        "alternateTitle": "佛說大乘隨轉宣說諸法經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 652",
+        "translator": "宋 · 紹德等譯",
+        "summary": "3卷。本站完整保存 T0652 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录与明确文本范围确认多译本关系；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0652_001"
+      },
+      "verification": {
+        "segments": 751,
+        "folios": 29,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0652.001.0774a09",
+          "T0652.003.0782c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0653",
+      "slug": "taisho-t0653",
+      "workId": "gbcr:work:taisho-t0653",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0653.xml",
+      "upstreamPath": "T/T15/T15n0653.xml",
+      "upstreamGitBlobSha1": "02c8bb5684d1f9b794847d46c6fb8bfc5c2a9a0b",
+      "upstreamBytes": 409317,
+      "upstreamSha256": "4229a6b4f7c2b5d65d17c7da0db049ab6c08a0ca2e7b39649bcb13403bee789b",
+      "localBytes": 409318,
+      "localSha256": "d574fcdb5d88e4647e1cdfa2ce30d801832ed8de3f85560919127626c5acfcbb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛藏經",
+        "alternateTitle": "佛藏經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 653",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "3卷。本站完整保存 T0653 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0653_001"
+      },
+      "verification": {
+        "segments": 1964,
+        "folios": 71,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0653.001.0782c14",
+          "T0653.003.0805b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0654",
+      "slug": "taisho-t0654",
+      "workId": "gbcr:work:taisho-t0654",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0654.xml",
+      "upstreamPath": "T/T15/T15n0654.xml",
+      "upstreamGitBlobSha1": "599115181a7899605a0fa1f0cd6e7c0f32fdeedb",
+      "upstreamBytes": 22576,
+      "upstreamSha256": "4163b461b2c8f325c0cb5ba72118c7655cbbf8e81466331dc2bd016222f08f3b",
+      "localBytes": 22577,
+      "localSha256": "a6f6db3a50dd0742b38125b121a43fd05c8d601273e4291f29080b676dc3806e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說入無分別法門經",
+        "alternateTitle": "佛說入無分別法門經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 654",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0654 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0654_001"
+      },
+      "verification": {
+        "segments": 123,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0654.001.0805b13",
+          "T0654.001.0806c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0655",
+      "slug": "taisho-t0655",
+      "workId": "gbcr:work:taisho-t0655",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T15n0655.xml",
+      "upstreamPath": "T/T15/T15n0655.xml",
+      "upstreamGitBlobSha1": "14726eaf51f1236364fa643826b6dd038abd662b",
+      "upstreamBytes": 5790,
+      "upstreamSha256": "4b328fb8656885f923557540c9ff568c5d6143ee248155b0caba135221ea4f1f",
+      "localBytes": 5791,
+      "localSha256": "113e91da6ec0809c7fe7330d089bd2199747a56c750162b3db7f361e6651a6e4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說勝義空經",
+        "alternateTitle": "佛說勝義空經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T15, no. 655",
+        "translator": "宋 · 施護等譯",
+        "summary": "1卷。本站完整保存 T0655 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0655_001"
+      },
+      "verification": {
+        "segments": 27,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0655.001.0806c22",
+          "T0655.001.0807a20"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

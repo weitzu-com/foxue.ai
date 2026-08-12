@@ -87,20 +87,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 773,
-    registeredExpressions: 879,
-    fullSourceTextWorks: 772,
-    fullSourceTextExpressions: 871,
-    stableSegments: 1474354,
-    structureVerifiedWorks: 773,
+    registeredWorks: 830,
+    registeredExpressions: 950,
+    fullSourceTextWorks: 829,
+    fullSourceTextExpressions: 940,
+    stableSegments: 1543426,
+    structureVerifiedWorks: 830,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 619,
-    percentage: 70.26,
+    controlled: 690,
+    percentage: 78.32,
     sourceBytes: 247280257,
-    controlledBytes: 204656695,
-    bytePercentage: 82.76,
+    controlledBytes: 221190458,
+    bytePercentage: 89.45,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -145,6 +145,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseT14SourceRecords).toMatchObject({
     denominator: 166,
     controlled: 166,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseT15SourceRecords).toMatchObject({
+    denominator: 71,
+    controlled: 71,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -496,6 +501,32 @@ test("汉译 T14 经集部完整受控并区分异译、版本、部分译出与
   expect(sitemap).toContain("/jingzang/taisho-t0446b/001-0371a");
   expect(sitemap).toContain("/jingzang/taisho-t0469/001-0510a");
   expect(sitemap).toContain("/jingzang/taisho-t0476/006-0588a");
+});
+
+test("汉译 T15 经集部完整受控并区分异译、局部译出、撰述与范围候选", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0586/001-0033a");
+  await expect(page.getByText(/《思益梵天所问经》汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0606/001-0181c");
+  await expect(page.getByText(/不将其标作佛陀亲说/)).toBeVisible();
+  await expect(page.getByText(/《修行道地》相关文本家族/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0629/001-0449a");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/《阿阇世王经》汉译与别品译出组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0640/001-0620a");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/《月灯三昧经》与独立译出见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0641/001-0623b");
+  await expect(page.getByText(/同题同译者范围待定组/)).toBeVisible();
+  await expect(page.getByText(/不把 T0641 计作已验证同作品表达或版本/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0586/004-0062a");
+  expect(sitemap).toContain("/jingzang/taisho-t0639/010-0620a");
+  expect(sitemap).toContain("/jingzang/taisho-t0652/003-0782c");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
