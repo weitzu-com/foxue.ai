@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.5.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.6.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -59,6 +59,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chinesePrajnaparamitaControlled = "prajnaparamitaControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.prajnaparamitaControlledSourceRecords ?? null
+    : null;
+  const chineseLotusDenominator = "lotusSourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.lotusSourceRecordDenominator ?? null
+    : null;
+  const chineseLotusControlled = "lotusControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.lotusControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -188,6 +194,15 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T05–T08 般若部来源记录",
         caveat: "57/57 表示固定来源记录完整性；《金刚经》《心经》已按同作品多表达登记，其余经会、文本家族和跨语种候选不据相似题名贸然合并。",
+      },
+      chineseLotusSourceRecords: {
+        denominator: chineseLotusDenominator,
+        controlled: chineseLotusControlled,
+        percentage: chineseLotusDenominator && chineseLotusControlled !== null
+          ? Number(((chineseLotusControlled / chineseLotusDenominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T09 法华部来源记录",
+        caveat: "17/17 表示固定来源记录完整性；T0265 完整保存来源文件但只作为《法华经》节译见证，T0273 保留东亚本土成书候选边界。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

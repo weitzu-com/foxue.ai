@@ -1,0 +1,868 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.5",
+  "version": "1.6.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.5.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T09 source-record closure",
+  "workOverrides": {
+    "gbcr:work:saddharma-pundarika-t0262": {
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "saddharmapundarika-chinese",
+          "label": "Saddharmapuṇḍarīka／《法华经》汉译组",
+          "evidence": "84000 的《白莲正法》导言明确列出 T0262、T0263、T0264 为《法华经》的现存汉译或修订本；平台据此共享一个规范作品实体，同时完整保留三种译文及其章节差异。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0263",
+              "T0264"
+            ],
+            "toh": [
+              "toh113"
+            ]
+          }
+        },
+        {
+          "type": "partial_translation_witness_verified",
+          "groupId": "saddharmapundarika-partial-chinese",
+          "label": "《薩曇分陀利经》法华经节译见证",
+          "evidence": "DILA 经录把 T0265 明确对应到 T0262 第十一、十二品及 T0263、T0264 的第十一品，并登记同一梵名 Saddharmapuṇḍarīkasūtra；平台归入《法华经》作品，但不把一卷节译计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262(11-12)",
+              "T0263(11)",
+              "T0264(11)",
+              "T0265"
+            ],
+            "toh": [
+              "toh113"
+            ]
+          }
+        },
+        {
+          "type": "liturgical_text_family_verified",
+          "groupId": "threefold-lotus-sutra",
+          "label": "三部法华经仪轨组合",
+          "evidence": "BDK America 将 T0276 说明为《法华经》的开经、T0277 说明为结经，并与 T0262 合称 Threefold Lotus Sutra；这是东亚读诵与教义组合，不是同一作品或同一译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0276",
+              "T0277"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "collection": {
+    "id": "CBETA-TAISHO-T09",
+    "title": "大正藏 T09 法华部固定来源记录",
+    "sourceRecordDenominator": 17,
+    "previouslyControlledSourceRecords": 2,
+    "newSourceRecords": 15,
+    "controlledSourceRecords": 17,
+    "newSourceBytes": 6342363,
+    "newStableSegments": 28512,
+    "newFolios": 1034,
+    "verifiedSameWorkExpressions": 7,
+    "verifiedPartialWorkWitnesses": 1,
+    "provisionalRecords": 7,
+    "relationAnnotatedRecords": 11,
+    "attributionBoundaryRecords": 2,
+    "workCountingDecision": "15 个新增来源记录全部保持独立可寻址表达或见证。T0263、T0264 与既有 T0262 归入《法华经》作品，T0265 归入同作品但明确为节译见证；T0266–T0268 与 T0274–T0275 分别建立多译本作品。T0276、T0277 只建立三部法华经仪轨组合，T0273 保留本土成书候选边界。"
+  },
+  "boundaryAudit": {
+    "status": "verified_translation_groups_partial_witness_and_liturgical_family_recorded",
+    "verifiedSameWorkGroups": [
+      "saddharmapundarika-chinese",
+      "avaivartikacakra-chinese",
+      "sarvavaidalyasamgraha-chinese"
+    ],
+    "partialWitnesses": [
+      "T0265"
+    ],
+    "liturgicalFamilies": [
+      "threefold-lotus-sutra"
+    ],
+    "attributionCaveats": [
+      "T0273"
+    ],
+    "caveat": "完整译本、节译见证、仪轨组合和本土成书候选分层记录；只有权威经录给出共同梵名与对应关系的文本共享规范作品。"
+  },
+  "files": [
+    {
+      "id": "T0263",
+      "slug": "taisho-t0263",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "saddharmapundarika-chinese",
+          "label": "Saddharmapuṇḍarīka／《法华经》汉译组",
+          "evidence": "84000 的《白莲正法》导言明确列出 T0262、T0263、T0264 为《法华经》的现存汉译或修订本；平台据此共享一个规范作品实体，同时完整保留三种译文及其章节差异。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0263",
+              "T0264"
+            ],
+            "toh": [
+              "toh113"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0263.xml",
+      "upstreamPath": "T/T09/T09n0263.xml",
+      "upstreamGitBlobSha1": "52509540981dc60fcdcf369c0b708e1abe23c0ad",
+      "upstreamBytes": 1975404,
+      "upstreamSha256": "1a4ab44319b9458c32bcb0cc20845b6c8cc7b01694239177e674ce0ceab4208a",
+      "localBytes": 1975405,
+      "localSha256": "ff65fd6c85642774537b39868160eeaf1b067cf58b9ffeb3b7d7b9d66d11b544",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "正法華經",
+        "alternateTitle": "正法華經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 263",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "10卷。本站完整保存 T0263 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0263_001"
+      },
+      "verification": {
+        "segments": 6186,
+        "folios": 223,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0263.001.0063a02",
+          "T0263.010.0134b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0264",
+      "slug": "taisho-t0264",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "saddharmapundarika-chinese",
+          "label": "Saddharmapuṇḍarīka／《法华经》汉译组",
+          "evidence": "84000 的《白莲正法》导言明确列出 T0262、T0263、T0264 为《法华经》的现存汉译或修订本；平台据此共享一个规范作品实体，同时完整保留三种译文及其章节差异。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0263",
+              "T0264"
+            ],
+            "toh": [
+              "toh113"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0264.xml",
+      "upstreamPath": "T/T09/T09n0264.xml",
+      "upstreamGitBlobSha1": "3ad406f8919e54bf2ffa54e198aefb0094bdf6b2",
+      "upstreamBytes": 783907,
+      "upstreamSha256": "20b97067dc458da6c8e03c83efa5860276720ac68dd08415192fac86d5360e00",
+      "localBytes": 783908,
+      "localSha256": "c4e53d77fdda6f0e45cb4a7f6e15869893a0919d89b3816e7c9e50706a53165c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "添品妙法蓮華經",
+        "alternateTitle": "添品妙法蓮華經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 264",
+        "translator": "隋 · 闍那崛多共笈多譯",
+        "summary": "7卷。本站完整保存 T0264 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0264_001"
+      },
+      "verification": {
+        "segments": 5335,
+        "folios": 191,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0264.001.0134b23",
+          "T0264.007.0196a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0265",
+      "slug": "taisho-t0265",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "partial_translation_witness_verified",
+          "groupId": "saddharmapundarika-partial-chinese",
+          "label": "《薩曇分陀利经》法华经节译见证",
+          "evidence": "DILA 经录把 T0265 明确对应到 T0262 第十一、十二品及 T0263、T0264 的第十一品，并登记同一梵名 Saddharmapuṇḍarīkasūtra；平台归入《法华经》作品，但不把一卷节译计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262(11-12)",
+              "T0263(11)",
+              "T0264(11)",
+              "T0265"
+            ],
+            "toh": [
+              "toh113"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0265.xml",
+      "upstreamPath": "T/T09/T09n0265.xml",
+      "upstreamGitBlobSha1": "6137884eb8c3f1388a60b428cb3d5dd67e130f9b",
+      "upstreamBytes": 24306,
+      "upstreamSha256": "ced1ef9ff5af82b64a02917c1d2a7759ba181688a5f313960e4e9c01751ed50c",
+      "localBytes": 24307,
+      "localSha256": "4aca472b2603ded9b0b7129c132acf298a520290e8a8a6b92c2da4365458528b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "薩曇分陀利經",
+        "alternateTitle": "薩曇分陀利經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 265",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0265 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是规范作品的节译见证，不冒充完整译本；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0265_001"
+      },
+      "verification": {
+        "segments": 94,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0265.001.0197a02",
+          "T0265.001.0198a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0266",
+      "slug": "taisho-t0266",
+      "workId": "gbcr:work:avaivartika-cakra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "avaivartikacakra-chinese",
+          "label": "Avaivartikacakra／不退转法轮汉译组",
+          "evidence": "DILA 经录为 T0266、T0267、T0268 互列相关经典，并给出共同梵名 Avaivartikacakrasūtra、共同藏译目录号 Toh 240；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0266",
+              "T0267",
+              "T0268"
+            ],
+            "toh": [
+              "toh240"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0266.xml",
+      "upstreamPath": "T/T09/T09n0266.xml",
+      "upstreamGitBlobSha1": "7fba8ec5ce30a63f2cda187a2609c8d32c1bf113",
+      "upstreamBytes": 592752,
+      "upstreamSha256": "6e9edd9a4001d2ef6273e557481071f80da8161778cfaae0ca461e6b1e3bdbda",
+      "localBytes": 592753,
+      "localSha256": "6374d79759c1bb9e2a138d33a860076b7b39ae19501c7d77761cb5ded6a0a230",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說阿惟越致遮經",
+        "alternateTitle": "佛說阿惟越致遮經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 266",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "3卷。本站完整保存 T0266 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0266_001"
+      },
+      "verification": {
+        "segments": 2406,
+        "folios": 85,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0266.001.0198b13",
+          "T0266.003.0226a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0267",
+      "slug": "taisho-t0267",
+      "workId": "gbcr:work:avaivartika-cakra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "avaivartikacakra-chinese",
+          "label": "Avaivartikacakra／不退转法轮汉译组",
+          "evidence": "DILA 经录为 T0266、T0267、T0268 互列相关经典，并给出共同梵名 Avaivartikacakrasūtra、共同藏译目录号 Toh 240；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0266",
+              "T0267",
+              "T0268"
+            ],
+            "toh": [
+              "toh240"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0267.xml",
+      "upstreamPath": "T/T09/T09n0267.xml",
+      "upstreamGitBlobSha1": "f0cceb9e0aa9b9e7c7e16e1c830e459b7a16a2e4",
+      "upstreamBytes": 419663,
+      "upstreamSha256": "913a69137fe24f7cafd158c8ab6c56c689631e46cab90530f869d626da37b777",
+      "localBytes": 419664,
+      "localSha256": "d72273ab30b929335e823635e11b2849552c8573ca45945a69cee2a135d895b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "不退轉法輪經",
+        "alternateTitle": "不退轉法輪經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 267",
+        "translator": "失譯",
+        "summary": "4卷。本站完整保存 T0267 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0267_001"
+      },
+      "verification": {
+        "segments": 2445,
+        "folios": 89,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0267.001.0226a24",
+          "T0267.004.0254b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0268",
+      "slug": "taisho-t0268",
+      "workId": "gbcr:work:avaivartika-cakra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "avaivartikacakra-chinese",
+          "label": "Avaivartikacakra／不退转法轮汉译组",
+          "evidence": "DILA 经录为 T0266、T0267、T0268 互列相关经典，并给出共同梵名 Avaivartikacakrasūtra、共同藏译目录号 Toh 240；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0266",
+              "T0267",
+              "T0268"
+            ],
+            "toh": [
+              "toh240"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0268.xml",
+      "upstreamPath": "T/T09/T09n0268.xml",
+      "upstreamGitBlobSha1": "8075985655b32cc579b8035c9d92e244a4685423",
+      "upstreamBytes": 584011,
+      "upstreamSha256": "edee575fd97b32edf4439d03d5373805e05bebcd7bb1ceb977faf70af1679343",
+      "localBytes": 584012,
+      "localSha256": "6eb0620f610fe837d84cef39c0c6865c49fb2336e768ec8ff0011d87d5e99790",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說廣博嚴淨不退轉輪經",
+        "alternateTitle": "佛說廣博嚴淨不退轉輪經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 268",
+        "translator": "宋 · 智嚴譯",
+        "summary": "6卷。本站完整保存 T0268 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0268_001"
+      },
+      "verification": {
+        "segments": 2712,
+        "folios": 100,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0268.001.0254b16",
+          "T0268.006.0285c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0269",
+      "slug": "taisho-t0269",
+      "workId": "gbcr:work:taisho-t0269",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T09n0269.xml",
+      "upstreamPath": "T/T09/T09n0269.xml",
+      "upstreamGitBlobSha1": "daeda4090bdb4f987388e545c617d36dd11e77f1",
+      "upstreamBytes": 83685,
+      "upstreamSha256": "c07fb20164b961da277b05f657ce1cd531a3c7ae1a21442ca0d29c0ebdde4ecc",
+      "localBytes": 83686,
+      "localSha256": "89a64b42a4f93f865ef20b0e9e360b1b343f785a6b320a78aba28065d5800f42",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說法華三昧經",
+        "alternateTitle": "佛說法華三昧經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 269",
+        "translator": "宋 · 智嚴譯",
+        "summary": "1卷。本站完整保存 T0269 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0269_001"
+      },
+      "verification": {
+        "segments": 390,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0269.001.0285c24",
+          "T0269.001.0290b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0270",
+      "slug": "taisho-t0270",
+      "workId": "gbcr:work:taisho-t0270",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T09n0270.xml",
+      "upstreamPath": "T/T09/T09n0270.xml",
+      "upstreamGitBlobSha1": "3c1b2bd7ca961215e7736bab704fce80abc03140",
+      "upstreamBytes": 173669,
+      "upstreamSha256": "07b092d40e0908a037b6571563136b577ba50f174edf5e9bf7dd1c3e68cd2386",
+      "localBytes": 173670,
+      "localSha256": "7b90e43e1321c73dfc84aeb3585800818130668d36d04b2373e3a5ab4f2bbb5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大法鼓經",
+        "alternateTitle": "大法鼓經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 270",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "2卷。本站完整保存 T0270 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0270_001"
+      },
+      "verification": {
+        "segments": 857,
+        "folios": 31,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0270.001.0290b11",
+          "T0270.002.0300b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0271",
+      "slug": "taisho-t0271",
+      "workId": "gbcr:work:taisho-t0271",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T09n0271.xml",
+      "upstreamPath": "T/T09/T09n0271.xml",
+      "upstreamGitBlobSha1": "ed0c997789e72d0c9b6eb47ea4b0278ca5d88698",
+      "upstreamBytes": 301751,
+      "upstreamSha256": "75610b556290f4583de7099de9b628825f08f25e684f65af8e65c06a4997767b",
+      "localBytes": 301752,
+      "localSha256": "5a7fa7783cb3c1c82e972eb83fc811ddd62de0ca4b2f31d96c056b786fd8c630",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說菩薩行方便境界神通變化經",
+        "alternateTitle": "佛說菩薩行方便境界神通變化經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 271",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "3卷。本站完整保存 T0271 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0271_001"
+      },
+      "verification": {
+        "segments": 1394,
+        "folios": 50,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0271.001.0300b09",
+          "T0271.003.0316b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0272",
+      "slug": "taisho-t0272",
+      "workId": "gbcr:work:taisho-t0272",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T09n0272.xml",
+      "upstreamPath": "T/T09/T09n0272.xml",
+      "upstreamGitBlobSha1": "22cbc87dbf301af5d9183c00fc1050adabe0de6a",
+      "upstreamBytes": 823605,
+      "upstreamSha256": "712f8b0a4497cf63ecdc496e7466369a030cc5ff3a0b88a8d6376422c0f21dab",
+      "localBytes": 823606,
+      "localSha256": "93a81c95b4307de22631e512cd82231aac0d5bc17d01633da42a947c19acdaf8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大薩遮尼乾子所說經",
+        "alternateTitle": "大薩遮尼乾子所說經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 272",
+        "translator": "元魏 · 菩提留支譯",
+        "summary": "10卷。本站完整保存 T0272 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0272_001"
+      },
+      "verification": {
+        "segments": 4225,
+        "folios": 156,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0272.001.0317a02",
+          "T0272.010.0365c20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0273",
+      "slug": "taisho-t0273",
+      "workId": "gbcr:work:taisho-t0273",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "indigenous_composition_candidate",
+      "bibliographicRelations": [
+        {
+          "type": "authorship_origin_disputed",
+          "groupId": "vajrasamadhi-origin",
+          "label": "《金刚三昧经》成书地与翻译身份争议",
+          "evidence": "传统目录保存 T0273 为失译经；现代专门研究则把它视为东亚本土形成的佛教疑伪经。平台保留经藏位置与传统题记，但不把“失译”当作已经证明的印度译本身份。",
+          "externalIds": {
+            "cbeta": [
+              "T0273"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0273.xml",
+      "upstreamPath": "T/T09/T09n0273.xml",
+      "upstreamGitBlobSha1": "c8261cc557ba876395672de8deb99645e6f6becf",
+      "upstreamBytes": 170528,
+      "upstreamSha256": "a5d99fc4e825d0e35851c5caf77a6518d5d7b5e19d9ceeb12469173e971b57f4",
+      "localBytes": 170529,
+      "localSha256": "3facda06f0a9618d079d309365ac8410d00f28f5d582c14ab5f18a28c0ef0201",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛三昧經",
+        "alternateTitle": "金剛三昧經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 273",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0273 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0273_001"
+      },
+      "verification": {
+        "segments": 759,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0273.001.0365c23",
+          "T0273.001.0374b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0274",
+      "slug": "taisho-t0274",
+      "workId": "gbcr:work:sarvavaidalyasamgraha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sarvavaidalyasamgraha-chinese",
+          "label": "Sarvavaidalyasaṃgraha 汉译组",
+          "evidence": "DILA 经录为 T0274、T0275 互列相关经典，二者同具梵名 Sarvavaidalyasaṃgrahasūtra、藏译目录号 Toh 227；平台登记为同一作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0274",
+              "T0275"
+            ],
+            "toh": [
+              "toh227"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0274.xml",
+      "upstreamPath": "T/T09/T09n0274.xml",
+      "upstreamGitBlobSha1": "8d660c18a82e43f0c8ea14bca978d7505dbfdc3a",
+      "upstreamBytes": 92808,
+      "upstreamSha256": "a2c2b5210ce639b5faa2dcabb4a5a7aa7425873fd6c2130f922c58403ea37afe",
+      "localBytes": 92809,
+      "localSha256": "8b558958f39d46b8b85a0bef0b40c413debc33d2ac304a51bbb768e836dfbcdb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說濟諸方等學經",
+        "alternateTitle": "佛說濟諸方等學經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 274",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0274 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0274_001"
+      },
+      "verification": {
+        "segments": 388,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0274.001.0374c02",
+          "T0274.001.0379a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0275",
+      "slug": "taisho-t0275",
+      "workId": "gbcr:work:sarvavaidalyasamgraha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sarvavaidalyasamgraha-chinese",
+          "label": "Sarvavaidalyasaṃgraha 汉译组",
+          "evidence": "DILA 经录为 T0274、T0275 互列相关经典，二者同具梵名 Sarvavaidalyasaṃgrahasūtra、藏译目录号 Toh 227；平台登记为同一作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0274",
+              "T0275"
+            ],
+            "toh": [
+              "toh227"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0275.xml",
+      "upstreamPath": "T/T09/T09n0275.xml",
+      "upstreamGitBlobSha1": "c49891fb9153e115f1d57db4443e7165e5fb4593",
+      "upstreamBytes": 51392,
+      "upstreamSha256": "7f3c64a620e334097066928eac52eca68abf7d5417fc645652b579441f649837",
+      "localBytes": 51393,
+      "localSha256": "8811647cdfd8b47501f77065ba42f3bcc26503c779ae61eb9bc9e47dcab14892",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘方廣總持經",
+        "alternateTitle": "大乘方廣總持經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 275",
+        "translator": "隋 · 毘尼多流支譯",
+        "summary": "1卷。本站完整保存 T0275 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0275_001"
+      },
+      "verification": {
+        "segments": 371,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0275.001.0379a16",
+          "T0275.001.0383b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0276",
+      "slug": "taisho-t0276",
+      "workId": "gbcr:work:taisho-t0276",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "liturgical_text_family_verified",
+          "groupId": "threefold-lotus-sutra",
+          "label": "三部法华经仪轨组合",
+          "evidence": "BDK America 将 T0276 说明为《法华经》的开经、T0277 说明为结经，并与 T0262 合称 Threefold Lotus Sutra；这是东亚读诵与教义组合，不是同一作品或同一译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0276",
+              "T0277"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0276.xml",
+      "upstreamPath": "T/T09/T09n0276.xml",
+      "upstreamGitBlobSha1": "56d46a493e5eda8a2928356b8c45fad312089524",
+      "upstreamBytes": 157042,
+      "upstreamSha256": "4082643983c55998963aae2857f097c3434fc0c8444dfbe21207d2e1f95138a6",
+      "localBytes": 157043,
+      "localSha256": "3e8e41cc4775a00b77790d1faeee6201d954be3be89d1e9b92de45162b3dd396",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量義經",
+        "alternateTitle": "無量義經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 276",
+        "translator": "蕭齊 · 曇摩伽陀耶舍譯",
+        "summary": "1卷。本站完整保存 T0276 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0276_001"
+      },
+      "verification": {
+        "segments": 528,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0276.001.0383b13",
+          "T0276.001.0389b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0277",
+      "slug": "taisho-t0277",
+      "workId": "gbcr:work:taisho-t0277",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "liturgical_text_family_verified",
+          "groupId": "threefold-lotus-sutra",
+          "label": "三部法华经仪轨组合",
+          "evidence": "BDK America 将 T0276 说明为《法华经》的开经、T0277 说明为结经，并与 T0262 合称 Threefold Lotus Sutra；这是东亚读诵与教义组合，不是同一作品或同一译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0276",
+              "T0277"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T09n0277.xml",
+      "upstreamPath": "T/T09/T09n0277.xml",
+      "upstreamGitBlobSha1": "02a748074a26f93474f69292ff0cbc92e3beb5a0",
+      "upstreamBytes": 107840,
+      "upstreamSha256": "e9d59ab4b54af1a6dac063a998ec27ae88dab80f3a2b2861c23c52ceb091b3e5",
+      "localBytes": 107841,
+      "localSha256": "81b6980ec2190324d8a751acb85e16f528627d591ab429ee7b9112ba71046b4c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說觀普賢菩薩行法經",
+        "alternateTitle": "佛說觀普賢菩薩行法經",
+        "tradition": "漢傳佛教 · 法華部",
+        "language": "漢文",
+        "canonRef": "大正藏 T09, no. 277",
+        "translator": "劉宋 · 曇無蜜多譯",
+        "summary": "1卷。本站完整保存 T0277 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0277_001"
+      },
+      "verification": {
+        "segments": 422,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0277.001.0389b24",
+          "T0277.001.0394b11"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

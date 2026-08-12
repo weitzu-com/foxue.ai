@@ -20,6 +20,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const useCompactJuanSelector = juanNavigation.length > 200;
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
+  const partialWitness = sutra.status === "节译见证 · 完整来源记录";
 
   return (
     <>
@@ -104,7 +105,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             <div><dt>{bilara ? "版本" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? "完整 Bilara JSON" : "完整 TEI"}</dd></div>
+            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? "完整 Bilara JSON" : partialWitness ? "完整来源 TEI · 节译见证" : "完整 TEI"}</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

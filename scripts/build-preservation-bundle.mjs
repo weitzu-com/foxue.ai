@@ -63,8 +63,8 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
 const cbetaSources = archivedPaths.filter((path) =>
   /^data\/corpus\/cbeta\/T[0-9A-Za-z]+\.xml$/.test(path),
 );
-if (cbetaSources.length !== 300) {
-  throw new Error(`保存包应包含 300 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
+if (cbetaSources.length !== 315) {
+  throw new Error(`保存包应包含 315 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
 }
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
@@ -125,6 +125,8 @@ const requiredPaths = [
   "data/gbcr/registry-cbeta-v1.4.0.json",
   "data/gbcr/registry-v1.5.0.json",
   "data/gbcr/registry-cbeta-v1.5.0.json",
+  "data/gbcr/registry-v1.6.0.json",
+  "data/gbcr/registry-cbeta-v1.6.0.json",
   "data/gbcr/source-snapshots-v0.2.1.json",
   "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   "data/gbcr/checksums-v0.6.0.sha256",
@@ -140,6 +142,8 @@ const requiredPaths = [
   "data/gbcr/checksums-cbeta-v1.4.0.sha256",
   "data/gbcr/checksums-v1.5.0.sha256",
   "data/gbcr/checksums-cbeta-v1.5.0.sha256",
+  "data/gbcr/checksums-v1.6.0.sha256",
+  "data/gbcr/checksums-cbeta-v1.6.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -155,6 +159,9 @@ const requiredPaths = [
   "data/corpus/cbeta/batch-v1.5.0.json",
   "data/corpus/cbeta/catalog-v1.5.0.json",
   "data/corpus/cbeta/manifest-v1.5.0.json",
+  "data/corpus/cbeta/batch-v1.6.0.json",
+  "data/corpus/cbeta/catalog-v1.6.0.json",
+  "data/corpus/cbeta/manifest-v1.6.0.json",
   "data/corpus/suttacentral/NOTICE.md",
   "data/corpus/suttacentral/batch-v0.7.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",
@@ -218,6 +225,7 @@ const requiredPaths = [
   "scripts/audit-cbeta-agama.mjs",
   "scripts/audit-cbeta-benyuan.mjs",
   "scripts/audit-cbeta-prajnaparamita.mjs",
+  "scripts/audit-cbeta-lotus.mjs",
   "scripts/build-corpus-catalog.mjs",
   "scripts/build-suttacentral-catalog.mjs",
   "scripts/build-suttacentral-dn-catalog.mjs",

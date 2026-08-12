@@ -4,11 +4,12 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
-const outputVersion = "1.5.0";
-const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v1.5.0.json");
+const outputVersion = "1.6.0";
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v1.6.0.json");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
+const lotusBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.6.0.json");
 const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
@@ -16,6 +17,7 @@ const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const agamaBatch = JSON.parse(await readFile(agamaBatchPath, "utf8"));
 const benyuanBatch = JSON.parse(await readFile(benyuanBatchPath, "utf8"));
 const prajnaparamitaBatch = JSON.parse(await readFile(prajnaparamitaBatchPath, "utf8"));
+const lotusBatch = JSON.parse(await readFile(lotusBatchPath, "utf8"));
 const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
 const inventoryRaw = await readFile(inventoryPath, "utf8");
 const inventory = JSON.parse(inventoryRaw);
@@ -115,7 +117,8 @@ for (const entry of catalog.files) {
       sourceSnapshotId: "cbeta_xml_p5",
       localSlug: entry.slug,
       cataloged: true,
-      fullSourceText: true,
+      fullSourceText: entry.completeness !== "complete_source_file_partial_work_witness",
+      completeSourceRecord: true,
       sampled: entry.verification.humanSampleVerified,
       stableSegments: segments.length,
       rightsReviewed: true,
@@ -180,8 +183,11 @@ const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id
       prajnaparamitaSourceRecordDenominator: prajnaparamitaBatch.collection.sourceRecordDenominator,
       prajnaparamitaControlledSourceRecords: prajnaparamitaBatch.collection.controlledSourceRecords,
       prajnaparamitaSourceRecordPercentage: 100,
+      lotusSourceRecordDenominator: lotusBatch.collection.sourceRecordDenominator,
+      lotusControlledSourceRecords: lotusBatch.collection.controlledSourceRecords,
+      lotusSourceRecordPercentage: 100,
       denominatorWorks: null,
-      denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。T01–T02 阿含部已完成 155/155，T03–T04 本缘部已完成 72/72，T05–T08 般若部已完成 57/57；《金刚经》《心经》异译按同一作品的多个文本表达登记，其余关系候选仍保留可复核边界。"
+      denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。T01–T02 阿含部已完成 155/155，T03–T04 本缘部已完成 72/72，T05–T08 般若部已完成 57/57，T09 法华部已完成 17/17；T0265 完整保存来源文件但只作为《法华经》节译见证，不计作完整译本。"
     }
   : family);
 const registry = {
@@ -195,11 +201,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v1.5.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v1.6.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v1.5.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-cbeta-v1.5.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-cbeta-v1.5.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v1.6.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-cbeta-v1.6.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-cbeta-v1.6.0.sha256"), checksumRaw],
 ];
 const expressionCount = works.reduce((sum, work) => sum + work.expressions.length, 0);
 const segmentCount = works.flatMap((work) => work.expressions).reduce((sum, expression) => sum + expression.stableSegments, 0);
@@ -209,8 +215,8 @@ if (process.argv.includes("--verify")) {
       throw new Error(`${path} 与受控目录确定性输出不一致`);
     }
   }
-  console.log(`语料目录 v${outputVersion} 可复现：${works.length} 个作品实体、${expressionCount} 个完整文本，${segmentCount} 个稳定行段。`);
+  console.log(`语料目录 v${outputVersion} 可复现：${works.length} 个作品实体、${expressionCount} 个表达或见证，${segmentCount} 个稳定行段。`);
 } else {
   for (const [path, content] of outputs) await writeFile(path, content, "utf8");
-  console.log(`语料目录 v${outputVersion} 已生成：${works.length} 个作品实体、${expressionCount} 个完整文本，${segmentCount} 个稳定行段。`);
+  console.log(`语料目录 v${outputVersion} 已生成：${works.length} 个作品实体、${expressionCount} 个表达或见证，${segmentCount} 个稳定行段。`);
 }

@@ -5,13 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v1.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v1.6.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v1.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v1.6.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v1.5.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v1.6.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {
@@ -100,4 +100,4 @@ if (errors.length > 0) {
 }
 
 const sourceAssetCount = manifest.files.flatMap(sourceUnits).length;
-console.log(`CBETA 完整原文批次通过：${manifest.files.length} 个文本表达、${sourceAssetCount} 个来源资产，来源提交 ${manifest.source.commit.slice(0, 12)}。`);
+console.log(`CBETA 受控来源批次通过：${manifest.files.length} 个表达或见证、${sourceAssetCount} 个来源资产，来源提交 ${manifest.source.commit.slice(0, 12)}。`);

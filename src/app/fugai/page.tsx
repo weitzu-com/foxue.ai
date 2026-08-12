@@ -105,7 +105,10 @@ export default function CoveragePage() {
               T03–T04 本缘部固定来源已完成 {snapshot.candidateInventory.chineseBenyuanSourceRecords.controlled}
               /{snapshot.candidateInventory.chineseBenyuanSourceRecords.denominator}（{snapshot.candidateInventory.chineseBenyuanSourceRecords.percentage}%），
               T05–T08 般若部固定来源已完成 {snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.controlled}
-              /{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.denominator}（{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.percentage}%）
+              /{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.denominator}（{snapshot.candidateInventory.chinesePrajnaparamitaSourceRecords.percentage}%），
+              T09 法华部固定来源已完成 {snapshot.candidateInventory.chineseLotusSourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseLotusSourceRecords.denominator}（{snapshot.candidateInventory.chineseLotusSourceRecords.percentage}%）；
+              其中一条是完整保存的节译见证，不冒充完整译本
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

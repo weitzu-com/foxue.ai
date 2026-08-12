@@ -13,6 +13,8 @@ const criticalRoutes = [
   "/jingzang/taisho-t0152/001-0001a",
   "/jingzang/taisho-t0221",
   "/jingzang/taisho-t0221/001-0001a",
+  "/jingzang/taisho-t0265/001-0197a",
+  "/jingzang/taisho-t0273/001-0365c",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -85,20 +87,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 544,
-    registeredExpressions: 559,
-    fullSourceTextWorks: 544,
-    fullSourceTextExpressions: 559,
-    stableSegments: 1150898,
-    structureVerifiedWorks: 544,
+    registeredWorks: 553,
+    registeredExpressions: 574,
+    fullSourceTextWorks: 553,
+    fullSourceTextExpressions: 573,
+    stableSegments: 1179410,
+    structureVerifiedWorks: 553,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 299,
-    percentage: 33.94,
+    controlled: 314,
+    percentage: 35.64,
     sourceBytes: 247280257,
-    controlledBytes: 142623438,
-    bytePercentage: 57.68,
+    controlledBytes: 148965801,
+    bytePercentage: 60.24,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -113,6 +115,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chinesePrajnaparamitaSourceRecords).toMatchObject({
     denominator: 57,
     controlled: 57,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseLotusSourceRecords).toMatchObject({
+    denominator: 17,
+    controlled: 17,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -314,6 +321,28 @@ test("汉译般若部 T05–T08 完整受控并保留作品、署名与读诵见
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/taisho-t0221/020-0146c");
   expect(sitemap).toContain("/jingzang/taisho-t0256/001-0851a");
+});
+
+test("汉译法华部 T09 完整受控并区分全译、节译、仪轨组合与成书争议", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0263#T0263.010.0134b20");
+  await page.waitForURL(/\/jingzang\/taisho-t0263\/010-0134b#T0263\.010\.0134b20$/);
+  await expect(page.locator('[id="T0263.010.0134b20"]')).toBeVisible();
+  await expect(page.getByText(/法华经.*汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0265/001-0197a");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/只对应规范作品的部分章节/).first()).toBeVisible();
+  await expect(page.getByText(/薩曇分陀利经.*节译见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0273/001-0365c");
+  await expect(page.getByText(/现代研究提出东亚本土成书可能/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0276/001-0383b");
+  await expect(page.getByText(/三部法华经仪轨组合/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0265/001-0197a");
+  expect(sitemap).toContain("/jingzang/taisho-t0277/001-0389b");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

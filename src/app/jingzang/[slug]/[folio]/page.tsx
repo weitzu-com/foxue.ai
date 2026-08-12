@@ -97,6 +97,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const currentJuanGroup = juanNavigation.find((group) => group.juan === folio.item.juan);
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
+  const partialWitness = sutra.status === "节译见证 · 完整来源记录";
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : "卷";
 
   return (
@@ -182,12 +183,14 @@ export default async function SutraFolioPage({ params }: PageProps) {
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
             <p>
-              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? "完整巴利原文 · 稳定分页" : "完整原文 · 分页阅读"}</strong>　
+              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? "完整巴利原文 · 稳定分页" : partialWitness ? "节译见证 · 完整来源分页" : "完整原文 · 分页阅读"}</strong>　
               {chaptered
                 ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
                 : bilara
                   ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
-                : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
+                : partialWitness
+                  ? `当前仅加载大正藏 ${folio.item.label} 版页；来源文件完整保存，但正文只对应规范作品的部分章节。`
+                  : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
             </p>
           </div>
           {folio.segments.map((segment, index) => (

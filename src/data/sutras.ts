@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.5.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.6.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -30,7 +30,7 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "完整原文 · 原生段落" | "目录样本";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
@@ -168,6 +168,12 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "liturgical_transliteration_witness") {
     return "本记录保存梵汉对音与读诵见证，不作为另一部独立汉译或佛陀亲说作品计数。";
   }
+  if (file.sourceRole === "partial_translation_witness") {
+    return "本记录完整保存一份古代节译见证，只对应规范作品的部分章节，不作为完整译本计数。";
+  }
+  if (file.sourceRole === "indigenous_composition_candidate") {
+    return "传统目录题记为失译；现代研究提出东亚本土成书可能，平台保留争议，不将其径直当作印度译经或佛陀亲说。";
+  }
   return undefined;
 };
 
@@ -187,7 +193,9 @@ export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(fil
     ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
     : undefined,
   attributionNote: cbetaAttributionNote(file),
-  status: "完整原文 · 行段试行" as const,
+  status: file.completeness === "complete_source_file_partial_work_witness"
+    ? "节译见证 · 完整来源记录" as const
+    : "完整原文 · 行段试行" as const,
   segments: [],
 })).concat(suttacentralManifest.files.map((file) => ({
   slug: file.slug,
