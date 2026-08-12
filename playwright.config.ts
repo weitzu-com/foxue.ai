@@ -10,7 +10,8 @@ export default defineConfig({
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
-  workers: 3,
+  // 经藏集成测试会现场解析超长 TEI；串行运行可避免多个浏览器同时耗尽服务端内存。
+  workers: 1,
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: "http://127.0.0.1:3100",

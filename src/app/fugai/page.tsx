@@ -111,7 +111,10 @@ export default function CoveragePage() {
               其中一条是完整保存的节译见证，不冒充完整译本；
               T10 华严部固定来源已完成 {snapshot.candidateInventory.chineseAvatamsakaSourceRecords.controlled}
               /{snapshot.candidateInventory.chineseAvatamsakaSourceRecords.denominator}（{snapshot.candidateInventory.chineseAvatamsakaSourceRecords.percentage}%），
-              全经、单品与节译见证分层计数
+              全经、单品与节译见证分层计数；
+              T11 宝积部固定来源已完成 {snapshot.candidateInventory.chineseRatnakutaSourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseRatnakutaSourceRecords.denominator}（{snapshot.candidateInventory.chineseRatnakutaSourceRecords.percentage}%），
+              合集、单会译本与版本见证分层计数
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

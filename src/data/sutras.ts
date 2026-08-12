@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.7.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.8.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -170,6 +170,9 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "partial_translation_witness") {
     return "本记录完整保存一份古代节译见证，只对应规范作品的部分章节，不作为完整译本计数。";
+  }
+  if (file.sourceRole === "edition_witness") {
+    return "本记录与同经号另一版本共享规范作品；平台保留各自文本、字数和稳定锚点，不把版本见证重复计作独立作品。";
   }
   if (file.sourceRole === "indigenous_composition_candidate") {
     return "传统目录题记为失译；现代研究提出东亚本土成书可能，平台保留争议，不将其径直当作印度译经或佛陀亲说。";

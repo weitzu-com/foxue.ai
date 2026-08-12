@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.7.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.8.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -71,6 +71,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseAvatamsakaControlled = "avatamsakaControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.avatamsakaControlledSourceRecords ?? null
+    : null;
+  const chineseRatnakutaDenominator = "ratnakutaSourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.ratnakutaSourceRecordDenominator ?? null
+    : null;
+  const chineseRatnakutaControlled = "ratnakutaControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.ratnakutaControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -218,6 +224,15 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T10 华严部来源记录",
         caveat: "31/31 表示固定来源记录完整性；全经、单品组件、完整译本与节译见证分层计数，T0300/T0301 只保留相关候选而不强行合并。",
+      },
+      chineseRatnakutaSourceRecords: {
+        denominator: chineseRatnakutaDenominator,
+        controlled: chineseRatnakutaControlled,
+        percentage: chineseRatnakutaDenominator && chineseRatnakutaControlled !== null
+          ? Number(((chineseRatnakutaControlled / chineseRatnakutaDenominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T11 宝积部来源记录",
+        caveat: "12/12 表示固定来源记录完整性；合集、单会独立译本、同作品译本与同译本版本见证分层计数，不把组件冒充整部《大宝积经》的重复译本。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

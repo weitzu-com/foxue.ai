@@ -20,6 +20,7 @@
     "audit:cbeta:prajnaparamita": "node scripts/audit-cbeta-prajnaparamita.mjs",
     "audit:cbeta:lotus": "node scripts/audit-cbeta-lotus.mjs",
     "audit:cbeta:avatamsaka": "node scripts/audit-cbeta-avatamsaka.mjs",
+    "audit:cbeta:ratnakuta": "node scripts/audit-cbeta-ratnakuta.mjs",
     "build:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs",
     "verify:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs --verify",
     "import:suttacentral": "node scripts/import-suttacentral-source.mjs",

@@ -4,13 +4,14 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
-const outputVersion = "1.7.0";
-const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v1.7.0.json");
+const outputVersion = "1.8.0";
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v1.8.0.json");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
 const lotusBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.6.0.json");
 const avatamsakaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.7.0.json");
+const ratnakutaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.8.0.json");
 const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v0.2.1.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
@@ -20,6 +21,7 @@ const benyuanBatch = JSON.parse(await readFile(benyuanBatchPath, "utf8"));
 const prajnaparamitaBatch = JSON.parse(await readFile(prajnaparamitaBatchPath, "utf8"));
 const lotusBatch = JSON.parse(await readFile(lotusBatchPath, "utf8"));
 const avatamsakaBatch = JSON.parse(await readFile(avatamsakaBatchPath, "utf8"));
+const ratnakutaBatch = JSON.parse(await readFile(ratnakutaBatchPath, "utf8"));
 const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
 const inventoryRaw = await readFile(inventoryPath, "utf8");
 const inventory = JSON.parse(inventoryRaw);
@@ -191,8 +193,11 @@ const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id
       avatamsakaSourceRecordDenominator: avatamsakaBatch.collection.sourceRecordDenominator,
       avatamsakaControlledSourceRecords: avatamsakaBatch.collection.controlledSourceRecords,
       avatamsakaSourceRecordPercentage: 100,
+      ratnakutaSourceRecordDenominator: ratnakutaBatch.collection.sourceRecordDenominator,
+      ratnakutaControlledSourceRecords: ratnakutaBatch.collection.controlledSourceRecords,
+      ratnakutaSourceRecordPercentage: 100,
       denominatorWorks: null,
-      denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。T01–T02 阿含部已完成 155/155，T03–T04 本缘部已完成 72/72，T05–T08 般若部已完成 57/57，T09 法华部已完成 17/17，T10 华严部已完成 31/31；全经、单品组件与节译见证分别计数。"
+      denominatorNote: "881 是大正藏 T01–T17 汉译经藏候选文本记录，不是去重后的全球作品数。T01–T02 阿含部已完成 155/155，T03–T04 本缘部已完成 72/72，T05–T08 般若部已完成 57/57，T09 法华部已完成 17/17，T10 华严部已完成 31/31，T11 宝积部已完成 12/12；合集、单品组件、文本表达与版本见证分别计数。"
     }
   : family);
 const registry = {
@@ -206,11 +211,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v1.7.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v1.8.0.json\n${sha256(snapshotRaw)}  source-snapshots-v0.2.1.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v1.7.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-cbeta-v1.7.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-cbeta-v1.7.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v1.8.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-cbeta-v1.8.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-cbeta-v1.8.0.sha256"), checksumRaw],
 ];
 const expressionCount = works.reduce((sum, work) => sum + work.expressions.length, 0);
 const segmentCount = works.flatMap((work) => work.expressions).reduce((sum, expression) => sum + expression.stableSegments, 0);

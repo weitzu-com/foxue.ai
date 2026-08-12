@@ -1,0 +1,712 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.6",
+  "version": "1.8.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.7.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T11 source-record closure",
+  "workOverrides": {
+    "gbcr:work:maharatnakuta-t0310": {
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "manjushri-buddha-field-chinese",
+          "label": "Mañjuśrībuddhakṣetraguṇavyūha／文殊师利佛土庄严汉译组",
+          "evidence": "DILA 经录把 T0318、T0319 互列，并共同对应 T0310 第十五文殊师利授记会；平台登记为同一作品的两个汉译表达，同时保留各自译者、题名、全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0318",
+              "T0319",
+              "T0310(15)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "collection": {
+    "id": "CBETA-TAISHO-T11",
+    "title": "大正藏 T11 宝积部固定来源记录",
+    "sourceRecordDenominator": 12,
+    "previouslyControlledSourceRecords": 1,
+    "newSourceRecords": 11,
+    "controlledSourceRecords": 12,
+    "newSourceBytes": 3417170,
+    "newStableSegments": 24936,
+    "newFolios": 942,
+    "verifiedSameWorkExpressions": 2,
+    "verifiedSameWorkWitnesses": 2,
+    "provisionalRecords": 7,
+    "relationAnnotatedRecords": 11,
+    "attributionBoundaryRecords": 2,
+    "workCountingDecision": "11 个新增来源记录保持独立可寻址。T0318/T0319 按同作品多译本登记，T0315a/T0315b 按同作品多版本见证登记；其余独立流通译本与 T0310 的具体会建立合集组件关系，但不冒充整部《大宝积经》的另一完整表达。"
+  },
+  "boundaryAudit": {
+    "status": "verified_collection_components_translation_group_and_edition_witnesses_recorded",
+    "verifiedSameWorkGroups": [
+      "samantamukha-parivarta-chinese-witnesses",
+      "manjushri-buddha-field-chinese"
+    ],
+    "collectionComponentFamilies": [
+      "maharatnakuta-component-translations-t11"
+    ],
+    "editionWitnesses": [
+      "T0315a",
+      "T0315b"
+    ],
+    "caveat": "《大宝积经》是合集；单会独立流通译本、同作品汉译与同译本版本见证分层记录。合集组件关系不自动构成整部合集的多译本关系。"
+  },
+  "files": [
+    {
+      "id": "T0311",
+      "slug": "taisho-t0311",
+      "workId": "gbcr:work:taisho-t0311",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0311.xml",
+      "upstreamPath": "T/T11/T11n0311.xml",
+      "upstreamGitBlobSha1": "d7cef5a280a48481a0026ebac3ac76246b5481d9",
+      "upstreamBytes": 282484,
+      "upstreamSha256": "0b9f90eb4b25eed7b6fffdcc3accba5a96aeb4d82f3dfcb73a7e761a414af52b",
+      "localBytes": 282485,
+      "localSha256": "4e32b39f90c981c85a4c083a838dbffde8803bd717c71b06c2652d2aa23c6ff0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣三戒經",
+        "alternateTitle": "大方廣三戒經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 311",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "3卷。本站完整保存 T0311 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0311_001"
+      },
+      "verification": {
+        "segments": 1509,
+        "folios": 54,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0311.001.0687a02",
+          "T0311.003.0704b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0312",
+      "slug": "taisho-t0312",
+      "workId": "gbcr:work:taisho-t0312",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0312.xml",
+      "upstreamPath": "T/T11/T11n0312.xml",
+      "upstreamGitBlobSha1": "62a1e9c925b42195ab41a02de1867f4a6d4c35fa",
+      "upstreamBytes": 528448,
+      "upstreamSha256": "c5bd32c76639132d48e7b9c6a50e60895131aad21c4fe1ddcdd1601ac59790d6",
+      "localBytes": 528449,
+      "localSha256": "42940c78e98feea19b4bf896f1cbc6b2968dff57a2571adda6ef2f0a33e77296",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說如來不思議祕密大乘經",
+        "alternateTitle": "佛說如來不思議祕密大乘經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 312",
+        "translator": "宋 · 法護．惟淨譯",
+        "summary": "20卷。本站完整保存 T0312 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0312_001"
+      },
+      "verification": {
+        "segments": 4030,
+        "folios": 157,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T0312.001.0704b12",
+          "T0312.020.0751b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0313",
+      "slug": "taisho-t0313",
+      "workId": "gbcr:work:taisho-t0313",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0313.xml",
+      "upstreamPath": "T/T11/T11n0313.xml",
+      "upstreamGitBlobSha1": "5dabfc1310915785d780d799d4e3c374d462ed1b",
+      "upstreamBytes": 242183,
+      "upstreamSha256": "eefed92e87009d10d3b789f2752f83441de19fa9c2f90c8478cb3cda7848c44a",
+      "localBytes": 242184,
+      "localSha256": "79cbe4ddfd0037791fac1ed7ff83831c4a29b54e345fe6157fad790be3aaebd6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿閦佛國經",
+        "alternateTitle": "阿閦佛國經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 313",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "2卷。本站完整保存 T0313 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0313_001"
+      },
+      "verification": {
+        "segments": 1088,
+        "folios": 40,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0313.001.0751b22",
+          "T0313.002.0764a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0314",
+      "slug": "taisho-t0314",
+      "workId": "gbcr:work:taisho-t0314",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0314.xml",
+      "upstreamPath": "T/T11/T11n0314.xml",
+      "upstreamGitBlobSha1": "ff23c3e87d40e16e6848e0603864c916fdd5c462",
+      "upstreamBytes": 106239,
+      "upstreamSha256": "b9b2e7622be44cf365386fa9034d1669cae689a94c03c1061fecf23305c35ad8",
+      "localBytes": 106240,
+      "localSha256": "dd1bb932efeda6afae0a865298a3eb4c89531793f33262ffeb65f563dbbdc634",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘十法經",
+        "alternateTitle": "佛說大乘十法經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 314",
+        "translator": "梁 · 僧伽婆羅譯",
+        "summary": "1卷。本站完整保存 T0314 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0314_001"
+      },
+      "verification": {
+        "segments": 563,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0314.001.0764a14",
+          "T0314.001.0770b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0315a",
+      "slug": "taisho-t0315a",
+      "workId": "gbcr:work:samantamukha-parivarta",
+      "workIdentityStatus": "verified_same_work_witness",
+      "sourceRole": "edition_witness",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_witnesses_verified",
+          "groupId": "samantamukha-parivarta-chinese-witnesses",
+          "label": "Samantamukhaparivarta／《普门品经》版本见证组",
+          "evidence": "DILA 经录为 T0315a、T0315b 登记同题、同译者、同梵名 Samantamukhaparivarta，并分别保留不同字数和版本信息；平台按同一作品的两个完整版本见证登记，不把小写 a/b 误作两部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0315a",
+              "T0315b"
+            ],
+            "toh": [
+              "toh54"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0315a.xml",
+      "upstreamPath": "T/T11/T11n0315a.xml",
+      "upstreamGitBlobSha1": "72b9954769841d9df1e5a542b921d603773a4cd5",
+      "upstreamBytes": 63969,
+      "upstreamSha256": "df31e9142842768f37e0fd5765e6608716dda6fdc0656dbbfcb61d10f60a2153",
+      "localBytes": 63970,
+      "localSha256": "2bdae741f99096c604a9e9958d7b57c8d999e8d74cc292e63aec27432a449f54",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說普門品經",
+        "alternateTitle": "佛說普門品經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 315a",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0315a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是同一《普门品经》作品的独立版本见证；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0315a_001"
+      },
+      "verification": {
+        "segments": 587,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0315a.001.0770c02",
+          "T0315a.001.0777b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0315b",
+      "slug": "taisho-t0315b",
+      "workId": "gbcr:work:samantamukha-parivarta",
+      "workIdentityStatus": "verified_same_work_witness",
+      "sourceRole": "edition_witness",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_witnesses_verified",
+          "groupId": "samantamukha-parivarta-chinese-witnesses",
+          "label": "Samantamukhaparivarta／《普门品经》版本见证组",
+          "evidence": "DILA 经录为 T0315a、T0315b 登记同题、同译者、同梵名 Samantamukhaparivarta，并分别保留不同字数和版本信息；平台按同一作品的两个完整版本见证登记，不把小写 a/b 误作两部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0315a",
+              "T0315b"
+            ],
+            "toh": [
+              "toh54"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0315b.xml",
+      "upstreamPath": "T/T11/T11n0315b.xml",
+      "upstreamGitBlobSha1": "9d679d7b2b0a9b1d4ce4bd1dc085fb36461b8d32",
+      "upstreamBytes": 43380,
+      "upstreamSha256": "e0bd1a7f43ada83da56fae2a5d42dbfeb0203b9703f487207a0b29d96c1f1676",
+      "localBytes": 43381,
+      "localSha256": "257e20b3f75050583436ac984aa8b4f1a30024ddfd00434165af7527d8dc49a5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說普門品經",
+        "alternateTitle": "佛說普門品經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 315b",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0315b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是同一《普门品经》作品的独立版本见证；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0315b_001"
+      },
+      "verification": {
+        "segments": 309,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0315b.001.0777b11",
+          "T0315b.001.0780c30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0316",
+      "slug": "taisho-t0316",
+      "workId": "gbcr:work:taisho-t0316",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0316.xml",
+      "upstreamPath": "T/T11/T11n0316.xml",
+      "upstreamGitBlobSha1": "f1fb2ee3d12434c2b9bd756b59e7f39dd630d16f",
+      "upstreamBytes": 1079598,
+      "upstreamSha256": "40e80655944412ac7b7e936aa1298c5f364fea2751a52d96176f49ed6ed8ca79",
+      "localBytes": 1079599,
+      "localSha256": "1ea506543a436fb381efc7aa7f4aa809ae0c5e5c51996ecf28c8605321a8a7d0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘菩薩藏正法經",
+        "alternateTitle": "佛說大乘菩薩藏正法經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 316",
+        "translator": "宋 · 法護等譯",
+        "summary": "40卷。本站完整保存 T0316 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0316_001"
+      },
+      "verification": {
+        "segments": 8987,
+        "folios": 342,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T0316.001.0781a02",
+          "T0316.040.0885c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0317",
+      "slug": "taisho-t0317",
+      "workId": "gbcr:work:taisho-t0317",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0317.xml",
+      "upstreamPath": "T/T11/T11n0317.xml",
+      "upstreamGitBlobSha1": "d9a40fc171852a6239153d2c79be5ef7bbd869b4",
+      "upstreamBytes": 113552,
+      "upstreamSha256": "77c89fe396a3983951831d73b627746bfa35f5d4f7131bd989de4365a1b01c6b",
+      "localBytes": 113553,
+      "localSha256": "701556a6ce91822891a7e11777352401282eb67ecbff48e1bf2e786d674c1735",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說胞胎經",
+        "alternateTitle": "佛說胞胎經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 317",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0317 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0317_001"
+      },
+      "verification": {
+        "segments": 405,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0317.001.0886a02",
+          "T0317.001.0890c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0318",
+      "slug": "taisho-t0318",
+      "workId": "gbcr:work:manjushri-buddha-field",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "manjushri-buddha-field-chinese",
+          "label": "Mañjuśrībuddhakṣetraguṇavyūha／文殊师利佛土庄严汉译组",
+          "evidence": "DILA 经录把 T0318、T0319 互列，并共同对应 T0310 第十五文殊师利授记会；平台登记为同一作品的两个汉译表达，同时保留各自译者、题名、全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0318",
+              "T0319",
+              "T0310(15)"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0318.xml",
+      "upstreamPath": "T/T11/T11n0318.xml",
+      "upstreamGitBlobSha1": "5fc1a5e4a62519240a163187e6b25a8a70ffafca",
+      "upstreamBytes": 280876,
+      "upstreamSha256": "825dc56115e87ea890a19c194733cb5a13799f8ca2f3a04ebe391a46fb314d1e",
+      "localBytes": 280877,
+      "localSha256": "a4a6e72f370189193c68edac31abfef0b58dabadfc14aff8964859e493544b1f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊師利佛土嚴淨經",
+        "alternateTitle": "文殊師利佛土嚴淨經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 318",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "2卷。本站完整保存 T0318 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0318_001"
+      },
+      "verification": {
+        "segments": 1007,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0318.001.0890c04",
+          "T0318.002.0902a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0319",
+      "slug": "taisho-t0319",
+      "workId": "gbcr:work:manjushri-buddha-field",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "manjushri-buddha-field-chinese",
+          "label": "Mañjuśrībuddhakṣetraguṇavyūha／文殊师利佛土庄严汉译组",
+          "evidence": "DILA 经录把 T0318、T0319 互列，并共同对应 T0310 第十五文殊师利授记会；平台登记为同一作品的两个汉译表达，同时保留各自译者、题名、全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0318",
+              "T0319",
+              "T0310(15)"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0319.xml",
+      "upstreamPath": "T/T11/T11n0319.xml",
+      "upstreamGitBlobSha1": "f967c2334e7afe1ce13c78c554790e5286961e7b",
+      "upstreamBytes": 161197,
+      "upstreamSha256": "33752bec11c4f7cf804d0949991d90b8359940fd4d53b7ef312ef8ff3bc3d1f6",
+      "localBytes": 161198,
+      "localSha256": "4fb62021b33cf85e394f548a29865ac2c81773c6e1c821b330a8b68316c9ca0c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大聖文殊師利菩薩佛剎功德莊嚴經",
+        "alternateTitle": "大聖文殊師利菩薩佛剎功德莊嚴經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 319",
+        "translator": "唐 · 不空譯",
+        "summary": "3卷。本站完整保存 T0319 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0319_001"
+      },
+      "verification": {
+        "segments": 1440,
+        "folios": 52,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0319.001.0902b02",
+          "T0319.003.0918c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0320",
+      "slug": "taisho-t0320",
+      "workId": "gbcr:work:taisho-t0320",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "maharatnakuta-component-translations-t11",
+          "label": "Mahāratnakūṭa／《大宝积经》合集会与独立流通译本",
+          "evidence": "DILA 经录逐条把 T0311–T0320 对应到 T0310《大宝积经》的具体会；84000 也将 Ratnakūṭa 描述为多部经典的合集。平台记录合集组件关系，不把单会独立译本冒充整部一百二十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0310",
+              "T0311-T0320"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T11n0320.xml",
+      "upstreamPath": "T/T11/T11n0320.xml",
+      "upstreamGitBlobSha1": "72af9716ba27f0c4dc1c937feb68db49959c53bb",
+      "upstreamBytes": 515244,
+      "upstreamSha256": "b7b6ab999c44cf32a06fd05526cd63730fb6057f975928ec317fba5e85783e5d",
+      "localBytes": 515245,
+      "localSha256": "19befd611bbca8c665ad6eaaf24059f43ea3b64434fe88fa35bb3d59a57acc1e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "父子合集經",
+        "alternateTitle": "父子合集經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "漢文",
+        "canonRef": "大正藏 T11, no. 320",
+        "translator": "宋 · 日稱等譯",
+        "summary": "20卷。本站完整保存 T0320 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与《大宝积经》具体会的组件关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0320_001"
+      },
+      "verification": {
+        "segments": 5011,
+        "folios": 194,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T0320.001.0919a02",
+          "T0320.020.0977a24"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
