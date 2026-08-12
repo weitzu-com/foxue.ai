@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.8.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.9.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -77,6 +77,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseRatnakutaControlled = "ratnakutaControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.ratnakutaControlledSourceRecords ?? null
+    : null;
+  const chineseT12Denominator = "t12SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t12SourceRecordDenominator ?? null
+    : null;
+  const chineseT12Controlled = "t12ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t12ControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -233,6 +239,15 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T11 宝积部来源记录",
         caveat: "12/12 表示固定来源记录完整性；合集、单会独立译本、同作品译本与同译本版本见证分层计数，不把组件冒充整部《大宝积经》的重复译本。",
+      },
+      chineseT12SourceRecords: {
+        denominator: chineseT12Denominator,
+        controlled: chineseT12Controlled,
+        percentage: chineseT12Denominator && chineseT12Controlled !== null
+          ? Number(((chineseT12Controlled / chineseT12Denominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T12 宝积部末与涅槃部来源记录",
+        caveat: "76/76 表示固定来源记录完整性；同经异译、后世校辑本、节译、后分与残篇候选分层计数，《大云经》家族证据不足时不强行合并。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

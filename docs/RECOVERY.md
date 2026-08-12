@@ -59,10 +59,10 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v1.8.0.sha256`。
+1. 核对 `data/gbcr/checksums-v1.9.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 881 条汉译经藏逐文件路径、Git 对象哈希和字节数。
-4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:corpus-catalog` 与 `pnpm verify:cbeta-pilot`，核对受控批次、615 个文本表达或见证（其中 612 个完整全文记录）、356 个 CBETA TEI 来源资产和 5,764 个 SuttaCentral JSON 经藏来源资产的哈希、权利声明、结构和稳定锚点。
+4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:corpus-catalog` 与 `pnpm verify:cbeta-pilot`，核对受控批次、686 个文本表达或见证（其中 680 个完整全文记录）、427 个 CBETA TEI 来源资产和 5,764 个 SuttaCentral JSON 经藏来源资产的哈希、权利声明、结构和稳定锚点。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。

@@ -19,6 +19,10 @@ const criticalRoutes = [
   "/jingzang/taisho-t0302/001-0912a",
   "/jingzang/taisho-t0315a/001-0770c",
   "/jingzang/taisho-t0318/002-0902a",
+  "/jingzang/taisho-t0326/001-0042c",
+  "/jingzang/taisho-t0364/001-0326c",
+  "/jingzang/taisho-t0377/001-0900a",
+  "/jingzang/taisho-t0388/001-1107b",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -91,20 +95,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 583,
-    registeredExpressions: 615,
-    fullSourceTextWorks: 583,
-    fullSourceTextExpressions: 612,
-    stableSegments: 1256064,
-    structureVerifiedWorks: 583,
+    registeredWorks: 628,
+    registeredExpressions: 686,
+    fullSourceTextWorks: 627,
+    fullSourceTextExpressions: 680,
+    stableSegments: 1308276,
+    structureVerifiedWorks: 628,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 355,
-    percentage: 40.3,
+    controlled: 426,
+    percentage: 48.35,
     sourceBytes: 247280257,
-    controlledBytes: 161714389,
-    bytePercentage: 65.4,
+    controlledBytes: 172825907,
+    bytePercentage: 69.89,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -134,6 +138,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseRatnakutaSourceRecords).toMatchObject({
     denominator: 12,
     controlled: 12,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseT12SourceRecords).toMatchObject({
+    denominator: 76,
+    controlled: 76,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -407,6 +416,35 @@ test("汉译宝积部 T11 完整受控并区分合集组件、同作品译本与
   expect(sitemap).toContain("/jingzang/taisho-t0320/020-0977a");
 });
 
+test("汉译 T12 完整受控并区分异译、校辑本、后分与残篇候选", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0326/001-0042c");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/优波离所问汉译与礼忏节译见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0364/001-0326c");
+  await expect(page.getByText(/后世据多种旧译校辑的合成本/)).toBeVisible();
+  await expect(page.getByText(/《无量寿经》汉译与校辑见证组/)).toBeVisible();
+
+  await page.goto("/jingzang/nanben-dabanniepanjing/001-0605a");
+  await expect(page.getByText(/依据既有译本加治编定的版本见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0377/001-0900a");
+  await expect(page.getByText("后分见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/规范作品的后分或续接见证/)).toBeVisible();
+  await expect(page.getByText(/大乘《大般涅槃经》汉译、校订本与后分见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0388/001-1107b");
+  await expect(page.getByText("残篇候选 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/只存一卷或一章/)).toBeVisible();
+  await expect(page.getByText(/《大云经》汉文文本家族待考/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0326/001-0042c");
+  expect(sitemap).toContain("/jingzang/taisho-t0364/002-0340b");
+  expect(sitemap).toContain("/jingzang/taisho-t0377/002-0912a");
+  expect(sitemap).toContain("/jingzang/taisho-t0388/001-1110c");
+});
+
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
   await page.goto("/jingzang/dhammapada-pali#dhp1:1");
   await page.waitForURL(/\/jingzang\/dhammapada-pali\/001-dhp1-20#dhp1:1$/);
@@ -533,7 +571,8 @@ test("巴利小部二十书的固定经藏目录完整受控并区分书级作�
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {
-  test.setTimeout(90_000);
+  // 两个桌面主题逐页扫描全部关键路由；语料增长后给完整 WCAG 扫描留出确定性时间窗口。
+  test.setTimeout(240_000);
   test.skip(testInfo.project.name === "mobile", "自动无障碍扫描在桌面主题项目执行");
 
   for (const route of criticalRoutes) {

@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.8.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.9.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -30,7 +30,7 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "完整原文 · 原生段落" | "目录样本";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
@@ -171,8 +171,20 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "partial_translation_witness") {
     return "本记录完整保存一份古代节译见证，只对应规范作品的部分章节，不作为完整译本计数。";
   }
+  if (file.sourceRole === "partial_continuation_witness") {
+    return "本记录完整保存规范作品的后分或续接见证，不作为另一部完整译本计数。";
+  }
   if (file.sourceRole === "edition_witness") {
     return "本记录与同经号另一版本共享规范作品；平台保留各自文本、字数和稳定锚点，不把版本见证重复计作独立作品。";
+  }
+  if (file.sourceRole === "edited_compilation_witness") {
+    return "本记录为后世据多种旧译校辑的合成本；平台保留传统版本见证，不将其冒充新的古代译本。";
+  }
+  if (file.sourceRole === "edited_recension_witness") {
+    return "本记录为依据既有译本加治编定的版本见证；平台保留全文与编辑责任，不将其冒充独立古译。";
+  }
+  if (file.sourceRole === "partial_text_family_witness_candidate") {
+    return "本记录题名显示只存一卷或一章；与相关文本的确切归属仍待研究，平台保存残篇并公开关系候选，不冒充完整译本。";
   }
   if (file.sourceRole === "indigenous_composition_candidate") {
     return "传统目录题记为失译；现代研究提出东亚本土成书可能，平台保留争议，不将其径直当作印度译经或佛陀亲说。";
@@ -183,27 +195,41 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   return undefined;
 };
 
-export const sutras: Sutra[] = catalog.files.map((file) => curatedBySlug.get(file.slug) ?? ({
-  slug: file.slug,
-  title: file.presentation.title,
-  alternateTitle: file.presentation.alternateTitle,
-  tradition: file.presentation.tradition,
-  language: file.presentation.language,
-  canonRef: file.presentation.canonRef,
-  translator: file.presentation.translator,
-  summary: file.presentation.summary,
-  sourceName: "CBETA Online",
-  sourceUrl: file.presentation.sourceUrl,
-  sourceLicense: "CBETA 授權條款；古典原文",
-  bibliographicNote: cbetaRelations(file).length
-    ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
-    : undefined,
-  attributionNote: cbetaAttributionNote(file),
-  status: file.completeness === "complete_source_file_partial_work_witness"
-    ? "节译见证 · 完整来源记录" as const
-    : "完整原文 · 行段试行" as const,
-  segments: [],
-})).concat(suttacentralManifest.files.map((file) => ({
+export const sutras: Sutra[] = catalog.files.map((file) => {
+  const generated: Sutra = {
+    slug: file.slug,
+    title: file.presentation.title,
+    alternateTitle: file.presentation.alternateTitle,
+    tradition: file.presentation.tradition,
+    language: file.presentation.language,
+    canonRef: file.presentation.canonRef,
+    translator: file.presentation.translator,
+    summary: file.presentation.summary,
+    sourceName: "CBETA Online",
+    sourceUrl: file.presentation.sourceUrl,
+    sourceLicense: "CBETA 授權條款；古典原文",
+    bibliographicNote: cbetaRelations(file).length
+      ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
+      : undefined,
+    attributionNote: cbetaAttributionNote(file),
+    status: file.completeness === "complete_source_file_partial_work_witness"
+      ? file.sourceRole === "partial_text_family_witness_candidate"
+        ? "残篇候选 · 完整来源记录"
+        : file.sourceRole === "partial_continuation_witness"
+          ? "后分见证 · 完整来源记录"
+          : "节译见证 · 完整来源记录"
+      : "完整原文 · 行段试行",
+    segments: [],
+  };
+  const curated = curatedBySlug.get(file.slug);
+  return curated ? {
+    ...generated,
+    ...curated,
+    bibliographicNote: generated.bibliographicNote ?? curated.bibliographicNote,
+    attributionNote: generated.attributionNote ?? curated.attributionNote,
+    status: generated.status,
+  } : generated;
+}).concat(suttacentralManifest.files.map((file) => ({
   slug: file.slug,
   title: file.presentation.title,
   alternateTitle: file.presentation.alternateTitle,
