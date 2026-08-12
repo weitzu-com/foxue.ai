@@ -24,7 +24,7 @@ export default function AskPage() {
         </div>
         <div className="prototype-note">
           <Info aria-hidden="true" size={17} />
-          <p>当前问经原型仅检索三部已完成人工样本复核的经典；完整经藏阅读已有九部，尚未启用生成式模型。</p>
+          <p>当前问经原型仅检索三部已完成人工样本复核的经典；完整经藏阅读规模请以覆盖登记册为准，尚未启用生成式模型。</p>
         </div>
       </header>
 

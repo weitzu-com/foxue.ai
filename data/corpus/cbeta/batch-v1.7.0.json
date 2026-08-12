@@ -1,0 +1,1859 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.6",
+  "version": "1.7.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.6.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T10 source-record closure",
+  "workOverrides": {
+    "gbcr:work:avatamsaka-t0278": {
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_with_partial_witnesses_verified",
+          "groupId": "gandavyuha-chinese",
+          "label": "Gaṇḍavyūha／《入法界品》汉译与节译见证",
+          "evidence": "DILA 为 T0293、T0295 登记共同梵名 Gaṇḍavyūhasūtra，并把 T0294、T0295 标为对应 T0278、T0279 入法界品及 T0293 的部分文本；84000 亦说明 Gaṇḍavyūha 是《华严经》最长的末章且曾独立流通。",
+          "externalIds": {
+            "cbeta": [
+              "T0293",
+              "T0294",
+              "T0295"
+            ],
+            "toh": [
+              "toh44-45"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "bhadracarya-pranidhana-chinese",
+          "label": "Bhadracaryāpraṇidhāna／普贤行愿汉译组",
+          "evidence": "DILA 为 T0296 登记梵名 Bhadracaryapraṇidhāna，并与 T0297、T0293 第四十卷互列；84000 同列 T0296、T0297 为该愿文的汉文来源。平台登记为同一愿文作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0296",
+              "T0297"
+            ],
+            "toh": [
+              "toh1095"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "collection": {
+    "id": "CBETA-TAISHO-T10",
+    "title": "大正藏 T10 华严部固定来源记录",
+    "sourceRecordDenominator": 31,
+    "previouslyControlledSourceRecords": 1,
+    "newSourceRecords": 30,
+    "controlledSourceRecords": 31,
+    "newSourceBytes": 9331418,
+    "newStableSegments": 51718,
+    "newFolios": 1881,
+    "verifiedSameWorkExpressions": 13,
+    "verifiedPartialWorkWitnesses": 2,
+    "provisionalRecords": 15,
+    "relationAnnotatedRecords": 24,
+    "attributionBoundaryRecords": 3,
+    "workCountingDecision": "30 个新增来源记录保持独立可寻址。证据充分的十住、十地、佛刹功德、入法界、普贤行愿与如来德智组按同一作品多表达或节译见证登记；全经、单品组件、相关候选与独立经典不因同属华严部而自动合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_translation_groups_partial_component_witnesses_and_candidates_recorded",
+    "verifiedSameWorkGroups": [
+      "avatamsaka-ten-abodes-chinese",
+      "dasabhumi-chinese",
+      "buddha-field-qualities-chinese",
+      "gandavyuha-chinese",
+      "bhadracarya-pranidhana-chinese",
+      "tathagata-qualities-wisdom-realm-chinese"
+    ],
+    "partialWitnesses": [
+      "T0294",
+      "T0295"
+    ],
+    "componentFamilies": [
+      "avatamsaka-component-translations-t10"
+    ],
+    "unmergedCandidates": [
+      "inconceivable-buddha-realm-candidate"
+    ],
+    "attributionCaveats": [
+      "T0302"
+    ],
+    "caveat": "《华严经》全经、曾独立流通的组件经典、单品别译、节译见证与相关候选分层记录；只有权威经录给出共同梵名和明确互见证据的文本共享规范作品。"
+  },
+  "files": [
+    {
+      "id": "T0280",
+      "slug": "taisho-t0280",
+      "workId": "gbcr:work:taisho-t0280",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0280.xml",
+      "upstreamPath": "T/T10/T10n0280.xml",
+      "upstreamGitBlobSha1": "a424032abbdfc992768afd70a360c4571f09dc8c",
+      "upstreamBytes": 41842,
+      "upstreamSha256": "ea16364ee87574795ac7ecbb8bf9bd73d9b910e057b395ee27532587c43bf85d",
+      "localBytes": 41843,
+      "localSha256": "5aadc086536e2cf54bdc8dd440ed9ff898f6e9a02264bd9ad4e5bdedcb1be4b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說兜沙經",
+        "alternateTitle": "佛說兜沙經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 280",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "1卷。本站完整保存 T0280 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0280_001"
+      },
+      "verification": {
+        "segments": 141,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0280.001.0445a01",
+          "T0280.001.0446b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0281",
+      "slug": "taisho-t0281",
+      "workId": "gbcr:work:taisho-t0281",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0281.xml",
+      "upstreamPath": "T/T10/T10n0281.xml",
+      "upstreamGitBlobSha1": "49715706a80429136c8672a0b87acae249895b36",
+      "upstreamBytes": 148760,
+      "upstreamSha256": "7719970f0dddbb7c94596ff4b2087d4ff2d704ce776d1fce1c574f531a179998",
+      "localBytes": 148761,
+      "localSha256": "4877c4afec5d9257d4e0d38a0b0580d27cb1a0760daade5760c2644560c0e1af",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說菩薩本業經",
+        "alternateTitle": "佛說菩薩本業經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 281",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0281 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0281_001"
+      },
+      "verification": {
+        "segments": 388,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0281.001.0446b25",
+          "T0281.001.0450c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0282",
+      "slug": "taisho-t0282",
+      "workId": "gbcr:work:taisho-t0282",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0282.xml",
+      "upstreamPath": "T/T10/T10n0282.xml",
+      "upstreamGitBlobSha1": "d3642e16b5879695edf44e582cd0092aae26de81",
+      "upstreamBytes": 82941,
+      "upstreamSha256": "3831ecbd00e20b1c5b33057c93791e1d2c399b772208e46bc55f395a97b9d709",
+      "localBytes": 82942,
+      "localSha256": "2427ec02a7dbd924e7f6e167f03ce12ebb1d23bea65698283d77f368465ed9ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸菩薩求佛本業經",
+        "alternateTitle": "諸菩薩求佛本業經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 282",
+        "translator": "西晉 · 聶道真譯",
+        "summary": "1卷。本站完整保存 T0282 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0282_001"
+      },
+      "verification": {
+        "segments": 286,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0282.001.0451a02",
+          "T0282.001.0454a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0283",
+      "slug": "taisho-t0283",
+      "workId": "gbcr:work:avatamsaka-ten-abodes",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "avatamsaka-ten-abodes-chinese",
+          "label": "《华严经·十住品》汉译组",
+          "evidence": "DILA 经录把 T0283、T0284 互列，并共同对应 T0278 第十一品、T0279 第十五品；二者作为同一十住组件作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0283",
+              "T0284"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0283.xml",
+      "upstreamPath": "T/T10/T10n0283.xml",
+      "upstreamGitBlobSha1": "dab5f839aeeda9a04633cefdc24668ab7edce73b",
+      "upstreamBytes": 59941,
+      "upstreamSha256": "43840353722691af7a6b73b9c5d28271e2d12a597d31e6b415183c443d5a0035",
+      "localBytes": 59942,
+      "localSha256": "ce1bc94abe6be526a8601fefb49cef54b7fa173136e69592775a87fc7864c148",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩十住行道品",
+        "alternateTitle": "菩薩十住行道品",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 283",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0283 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0283_001"
+      },
+      "verification": {
+        "segments": 206,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0283.001.0454b02",
+          "T0283.001.0456c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0284",
+      "slug": "taisho-t0284",
+      "workId": "gbcr:work:avatamsaka-ten-abodes",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "avatamsaka-ten-abodes-chinese",
+          "label": "《华严经·十住品》汉译组",
+          "evidence": "DILA 经录把 T0283、T0284 互列，并共同对应 T0278 第十一品、T0279 第十五品；二者作为同一十住组件作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0283",
+              "T0284"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0284.xml",
+      "upstreamPath": "T/T10/T10n0284.xml",
+      "upstreamGitBlobSha1": "eb43920ad860ea1c38fa114a14a6328de37b0780",
+      "upstreamBytes": 37064,
+      "upstreamSha256": "8e368bfd6f4abc2251f3295ccb89404e766282c748940cfad9b9826528277f90",
+      "localBytes": 37065,
+      "localSha256": "3b6023d8b2699149ff4ea66ad81b3a082781a0c9b66377da06bc16f5a31d52f2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說菩薩十住經",
+        "alternateTitle": "佛說菩薩十住經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 284",
+        "translator": "東晉 · 祇多蜜譯",
+        "summary": "1卷。本站完整保存 T0284 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0284_001"
+      },
+      "verification": {
+        "segments": 120,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0284.001.0456c08",
+          "T0284.001.0458a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0285",
+      "slug": "taisho-t0285",
+      "workId": "gbcr:work:dasabhumi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "dasabhumi-chinese",
+          "label": "Daśabhūmika／《十地经》汉译组",
+          "evidence": "DILA 为 T0285、T0286、T0287 登记共同《华严经·十地品》关系，并为 T0286 明列梵名 Daśabhūmikasūtra；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0285",
+              "T0286",
+              "T0287"
+            ],
+            "toh": [
+              "toh44-31"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0285.xml",
+      "upstreamPath": "T/T10/T10n0285.xml",
+      "upstreamGitBlobSha1": "e38fc2e523a2e6cd63d7c21535a4c6b66296548b",
+      "upstreamBytes": 979886,
+      "upstreamSha256": "6ecdf288192d5c39be28202981084f093064af5f4bcb0f56cf83e2eda3a1c07a",
+      "localBytes": 979887,
+      "localSha256": "1962a79885eaa64c5c18ef920e59b2180c85e4426cc2fee83a4b1a17bc220992",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "漸備一切智德經",
+        "alternateTitle": "漸備一切智德經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 285",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "5卷。本站完整保存 T0285 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0285_001"
+      },
+      "verification": {
+        "segments": 3418,
+        "folios": 122,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0285.001.0458a15",
+          "T0285.005.0497b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0286",
+      "slug": "taisho-t0286",
+      "workId": "gbcr:work:dasabhumi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "dasabhumi-chinese",
+          "label": "Daśabhūmika／《十地经》汉译组",
+          "evidence": "DILA 为 T0285、T0286、T0287 登记共同《华严经·十地品》关系，并为 T0286 明列梵名 Daśabhūmikasūtra；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0285",
+              "T0286",
+              "T0287"
+            ],
+            "toh": [
+              "toh44-31"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0286.xml",
+      "upstreamPath": "T/T10/T10n0286.xml",
+      "upstreamGitBlobSha1": "f787e0e2ccf90f29006758e7716a89ea98cbcad6",
+      "upstreamBytes": 560066,
+      "upstreamSha256": "7b85805e9f821b4d8535b36501ae709a91e6dba4adef7c20ed67b2029f1436fb",
+      "localBytes": 560067,
+      "localSha256": "449afe98276753cee0ab941b8093a3f5f659a729a02d11e2cc7d3fa31c2e52af",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十住經",
+        "alternateTitle": "十住經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 286",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "4卷。本站完整保存 T0286 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0286_001"
+      },
+      "verification": {
+        "segments": 3256,
+        "folios": 115,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0286.001.0497c02",
+          "T0286.004.0535a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0287",
+      "slug": "taisho-t0287",
+      "workId": "gbcr:work:dasabhumi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "dasabhumi-chinese",
+          "label": "Daśabhūmika／《十地经》汉译组",
+          "evidence": "DILA 为 T0285、T0286、T0287 登记共同《华严经·十地品》关系，并为 T0286 明列梵名 Daśabhūmikasūtra；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0285",
+              "T0286",
+              "T0287"
+            ],
+            "toh": [
+              "toh44-31"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0287.xml",
+      "upstreamPath": "T/T10/T10n0287.xml",
+      "upstreamGitBlobSha1": "563dc1c9b349fe6f5623c50978d8d70578ebced3",
+      "upstreamBytes": 394099,
+      "upstreamSha256": "322d52a818f5600ab5a0eebd0417720cd0e1707e7f32c2a1094b8de016ee1556",
+      "localBytes": 394100,
+      "localSha256": "90f522fa649103a6aa1de069b086ae652b6b0fd940189ce574042cc1a1195a4f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說十地經",
+        "alternateTitle": "佛說十地經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 287",
+        "translator": "唐 · 尸羅達摩譯",
+        "summary": "9卷。本站完整保存 T0287 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0287_001"
+      },
+      "verification": {
+        "segments": 3418,
+        "folios": 124,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T0287.001.0535a22",
+          "T0287.009.0574c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0288",
+      "slug": "taisho-t0288",
+      "workId": "gbcr:work:taisho-t0288",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0288.xml",
+      "upstreamPath": "T/T10/T10n0288.xml",
+      "upstreamGitBlobSha1": "e7348c8defd08962a2a5118fedcb566b1d7885e0",
+      "upstreamBytes": 320239,
+      "upstreamSha256": "c772f30cfa718917b47f3177f940f8f0c5f0863c70694bbecc124770b04d1a43",
+      "localBytes": 320240,
+      "localSha256": "29ea4455db9114d655d012f03dab846dbd3d120051dcd0ed4e42075aaf9983cb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "等目菩薩所問三昧經",
+        "alternateTitle": "等目菩薩所問三昧經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 288",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "3卷。本站完整保存 T0288 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0288_001"
+      },
+      "verification": {
+        "segments": 1459,
+        "folios": 54,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0288.001.0574c18",
+          "T0288.003.0591c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0289",
+      "slug": "taisho-t0289",
+      "workId": "gbcr:work:buddha-field-qualities",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "buddha-field-qualities-chinese",
+          "label": "Tathāgatānāṃ buddhakṣetraguṇokta／佛刹功德汉译组",
+          "evidence": "DILA 将 T0289、T0290 共同对应 T0278 寿命品、T0279 寿量品，T0290 并登记梵名 Tathāgatānāṃbuddhakṣetraguṇoktadharmaparyāya；平台登记为同一组件作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0289",
+              "T0290"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0289.xml",
+      "upstreamPath": "T/T10/T10n0289.xml",
+      "upstreamGitBlobSha1": "e8310b3c116a65d71f9efa65c3429afe86beef8f",
+      "upstreamBytes": 10115,
+      "upstreamSha256": "5c189899770492bbab2b2425995b0df5df33004975f60d56929dbcec804474f8",
+      "localBytes": 10116,
+      "localSha256": "c4698ccd9cc530a9b90d94bbf9543ece60bfa2d2312328eb5e36fb71f6b24096",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "顯無邊佛土功德經",
+        "alternateTitle": "顯無邊佛土功德經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 289",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0289 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0289_001"
+      },
+      "verification": {
+        "segments": 39,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0289.001.0591c08",
+          "T0289.001.0592a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0290",
+      "slug": "taisho-t0290",
+      "workId": "gbcr:work:buddha-field-qualities",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "buddha-field-qualities-chinese",
+          "label": "Tathāgatānāṃ buddhakṣetraguṇokta／佛刹功德汉译组",
+          "evidence": "DILA 将 T0289、T0290 共同对应 T0278 寿命品、T0279 寿量品，T0290 并登记梵名 Tathāgatānāṃbuddhakṣetraguṇoktadharmaparyāya；平台登记为同一组件作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0289",
+              "T0290"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0290.xml",
+      "upstreamPath": "T/T10/T10n0290.xml",
+      "upstreamGitBlobSha1": "33cf192119a8acf9a5af9cd4b6053513ebc55887",
+      "upstreamBytes": 9913,
+      "upstreamSha256": "9096401d42b1bc55f35c782f6582761508eeb28de9d3ff0185350349c7e02452",
+      "localBytes": 9914,
+      "localSha256": "b7f79394b77cf790fdd1b14ff9c8fb508f61ada6caf02c2dee080343dc7c3b15",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說較量一切佛剎功德經",
+        "alternateTitle": "佛說較量一切佛剎功德經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 290",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。本站完整保存 T0290 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0290_001"
+      },
+      "verification": {
+        "segments": 37,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0290.001.0592a21",
+          "T0290.001.0592b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0291",
+      "slug": "taisho-t0291",
+      "workId": "gbcr:work:taisho-t0291",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0291.xml",
+      "upstreamPath": "T/T10/T10n0291.xml",
+      "upstreamGitBlobSha1": "8e7500e8c28eca9475a93c23b83313d6f39b6553",
+      "upstreamBytes": 575106,
+      "upstreamSha256": "5f801ae920a3c09c743a8a49334dacc274dc09962858decbf11c2c4916db54f4",
+      "localBytes": 575107,
+      "localSha256": "85f3cdc88e42bd2b7e6d87af0bb907ee2835baf07ae762e58b9cf37c1e9e00aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說如來興顯經",
+        "alternateTitle": "佛說如來興顯經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 291",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0291 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0291_001"
+      },
+      "verification": {
+        "segments": 2144,
+        "folios": 78,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0291.001.0592c02",
+          "T0291.004.0617b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0292",
+      "slug": "taisho-t0292",
+      "workId": "gbcr:work:taisho-t0292",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0292.xml",
+      "upstreamPath": "T/T10/T10n0292.xml",
+      "upstreamGitBlobSha1": "ccfe0c0c282b1dd67cbe1cc8cbea82a52507ad5d",
+      "upstreamBytes": 758876,
+      "upstreamSha256": "d98b3334b7aa33c55260de599eb46ba37a69ee13095268d6d5a0b3ec16d65f9d",
+      "localBytes": 758877,
+      "localSha256": "fd945b2a4375277e1efc071dfc451ebfcabbe491967198305ab8e220cb712892",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "度世品經",
+        "alternateTitle": "度世品經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 292",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "6卷。本站完整保存 T0292 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0292_001"
+      },
+      "verification": {
+        "segments": 3664,
+        "folios": 133,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0292.001.0617b11",
+          "T0292.006.0659c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0293",
+      "slug": "taisho-t0293",
+      "workId": "gbcr:work:gandavyuha",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_with_partial_witnesses_verified",
+          "groupId": "gandavyuha-chinese",
+          "label": "Gaṇḍavyūha／《入法界品》汉译与节译见证",
+          "evidence": "DILA 为 T0293、T0295 登记共同梵名 Gaṇḍavyūhasūtra，并把 T0294、T0295 标为对应 T0278、T0279 入法界品及 T0293 的部分文本；84000 亦说明 Gaṇḍavyūha 是《华严经》最长的末章且曾独立流通。",
+          "externalIds": {
+            "cbeta": [
+              "T0293",
+              "T0294",
+              "T0295"
+            ],
+            "toh": [
+              "toh44-45"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0293.xml",
+      "upstreamPath": "T/T10/T10n0293.xml",
+      "upstreamGitBlobSha1": "77b3d6a0b1408644e1bf8cb2b389aabdf99853ff",
+      "upstreamBytes": 2498279,
+      "upstreamSha256": "1c7aa0b32c313e79c51f22915a8f37b37bf4ad0b80796e7f326a12b3c8a47aae",
+      "localBytes": 2498280,
+      "localSha256": "e8c676345a96bc04017c27ca079b4810bbb49bd6cc8745746a106ebdc229d0c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經",
+        "alternateTitle": "大方廣佛華嚴經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 293",
+        "translator": "唐 · 般若譯",
+        "summary": "40卷。本站完整保存 T0293 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0293_001"
+      },
+      "verification": {
+        "segments": 16401,
+        "folios": 603,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T0293.001.0661a01",
+          "T0293.040.0851c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0294",
+      "slug": "taisho-t0294",
+      "workId": "gbcr:work:gandavyuha",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_with_partial_witnesses_verified",
+          "groupId": "gandavyuha-chinese",
+          "label": "Gaṇḍavyūha／《入法界品》汉译与节译见证",
+          "evidence": "DILA 为 T0293、T0295 登记共同梵名 Gaṇḍavyūhasūtra，并把 T0294、T0295 标为对应 T0278、T0279 入法界品及 T0293 的部分文本；84000 亦说明 Gaṇḍavyūha 是《华严经》最长的末章且曾独立流通。",
+          "externalIds": {
+            "cbeta": [
+              "T0293",
+              "T0294",
+              "T0295"
+            ],
+            "toh": [
+              "toh44-45"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0294.xml",
+      "upstreamPath": "T/T10/T10n0294.xml",
+      "upstreamGitBlobSha1": "91fd6c58b931ea1c0990da868146e27543489937",
+      "upstreamBytes": 359081,
+      "upstreamSha256": "92c8c3715ed43f4c70bda0c0460fe7f9bc1ff015536c2f69b26647284d6d70ba",
+      "localBytes": 359082,
+      "localSha256": "d24691fbcc9957c24a937804f749b37c06bcc5a9d77f8bbf29c97ec5bd30c976",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說羅摩伽經",
+        "alternateTitle": "佛說羅摩伽經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 294",
+        "translator": "西秦 · 聖堅譯",
+        "summary": "3卷。本站完整保存 T0294 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是《入法界品》规范作品的节译见证，不冒充完整译本；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0294_001"
+      },
+      "verification": {
+        "segments": 2123,
+        "folios": 76,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0294.001.0851c15",
+          "T0294.003.0876a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0295",
+      "slug": "taisho-t0295",
+      "workId": "gbcr:work:gandavyuha",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        },
+        {
+          "type": "same_work_with_partial_witnesses_verified",
+          "groupId": "gandavyuha-chinese",
+          "label": "Gaṇḍavyūha／《入法界品》汉译与节译见证",
+          "evidence": "DILA 为 T0293、T0295 登记共同梵名 Gaṇḍavyūhasūtra，并把 T0294、T0295 标为对应 T0278、T0279 入法界品及 T0293 的部分文本；84000 亦说明 Gaṇḍavyūha 是《华严经》最长的末章且曾独立流通。",
+          "externalIds": {
+            "cbeta": [
+              "T0293",
+              "T0294",
+              "T0295"
+            ],
+            "toh": [
+              "toh44-45"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0295.xml",
+      "upstreamPath": "T/T10/T10n0295.xml",
+      "upstreamGitBlobSha1": "48114e7da5f7359f6b1588ef88f61532452e238e",
+      "upstreamBytes": 37444,
+      "upstreamSha256": "58ba0b18daccee1325cee07563668038f4d222abe1ffdf4bc028aac3786f524d",
+      "localBytes": 37445,
+      "localSha256": "a1fa63a5d6c622dc6c6ed83e395d041195da698f20a11c54e8951f3e2410bca0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "大方廣佛華嚴經入法界品",
+        "alternateTitle": "大方廣佛華嚴經入法界品",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 295",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "1卷。本站完整保存 T0295 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是《入法界品》规范作品的节译见证，不冒充完整译本；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0295_001"
+      },
+      "verification": {
+        "segments": 219,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0295.001.0876b02",
+          "T0295.001.0878c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0296",
+      "slug": "taisho-t0296",
+      "workId": "gbcr:work:bhadracarya-pranidhana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "bhadracarya-pranidhana-chinese",
+          "label": "Bhadracaryāpraṇidhāna／普贤行愿汉译组",
+          "evidence": "DILA 为 T0296 登记梵名 Bhadracaryapraṇidhāna，并与 T0297、T0293 第四十卷互列；84000 同列 T0296、T0297 为该愿文的汉文来源。平台登记为同一愿文作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0296",
+              "T0297"
+            ],
+            "toh": [
+              "toh1095"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0296.xml",
+      "upstreamPath": "T/T10/T10n0296.xml",
+      "upstreamGitBlobSha1": "7cb9611d555f234cab34312593ad43433ed5c8dc",
+      "upstreamBytes": 16290,
+      "upstreamSha256": "461f5ac1ff68876c82f40ff48bf0a13f12c7327f064cbcb8fa717e774e3b4704",
+      "localBytes": 16291,
+      "localSha256": "455f2efc964be49d6846a62d54fda20f43ce4f9e72a940e05af32d250083ad60",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊師利發願經",
+        "alternateTitle": "文殊師利發願經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 296",
+        "translator": "東晉 · 佛陀跋陀羅譯",
+        "summary": "1卷。本站完整保存 T0296 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0296_001"
+      },
+      "verification": {
+        "segments": 92,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0296.001.0878c21",
+          "T0296.001.0879c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0297",
+      "slug": "taisho-t0297",
+      "workId": "gbcr:work:bhadracarya-pranidhana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "bhadracarya-pranidhana-chinese",
+          "label": "Bhadracaryāpraṇidhāna／普贤行愿汉译组",
+          "evidence": "DILA 为 T0296 登记梵名 Bhadracaryapraṇidhāna，并与 T0297、T0293 第四十卷互列；84000 同列 T0296、T0297 为该愿文的汉文来源。平台登记为同一愿文作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0296",
+              "T0297"
+            ],
+            "toh": [
+              "toh1095"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0297.xml",
+      "upstreamPath": "T/T10/T10n0297.xml",
+      "upstreamGitBlobSha1": "8a206e2c8b50496fbd062a9c7d1fd45070854344",
+      "upstreamBytes": 36884,
+      "upstreamSha256": "2a5e5fe60ace1c878744132c19a98e2bb0ae06c5211126bb43852760565675ec",
+      "localBytes": 36885,
+      "localSha256": "9b22d9372137f9ad17563e5843b4ebe94678f7c0b97bfd8c545d3e49a1a15851",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "普賢菩薩行願讚",
+        "alternateTitle": "普賢菩薩行願讚",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 297",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0297 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0297_001"
+      },
+      "verification": {
+        "segments": 159,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0297.001.0880a02",
+          "T0297.001.0881c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0298",
+      "slug": "taisho-t0298",
+      "workId": "gbcr:work:taisho-t0298",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0298.xml",
+      "upstreamPath": "T/T10/T10n0298.xml",
+      "upstreamGitBlobSha1": "197c0934e476531a9f825aa1600a1e736daa1753",
+      "upstreamBytes": 18608,
+      "upstreamSha256": "cfdf9a82e263f01fd95d82fa9ac2b1d6c9608e6376af86010c977190ff036e96",
+      "localBytes": 18609,
+      "localSha256": "2b7b86ab2aa40a04e0f180687dd93f1d5fb743cf86601f4a4677b207a3e404d4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣普賢所說經",
+        "alternateTitle": "大方廣普賢所說經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 298",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "1卷。本站完整保存 T0298 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0298_001"
+      },
+      "verification": {
+        "segments": 110,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0298.001.0883a02",
+          "T0298.001.0884a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0299",
+      "slug": "taisho-t0299",
+      "workId": "gbcr:work:taisho-t0299",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0299.xml",
+      "upstreamPath": "T/T10/T10n0299.xml",
+      "upstreamGitBlobSha1": "8a4cd45fb9cfb81c2c5c141a870054bd537f5cb9",
+      "upstreamBytes": 241532,
+      "upstreamSha256": "d0b75ee90cfe027fa571659a72a59585761a081c1b26ee8d986d32db36b9308c",
+      "localBytes": 241533,
+      "localSha256": "6ac905f1ba693159a248e6fa27a472402562e4f7be0e29113f496779a3642331",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣總持寶光明經",
+        "alternateTitle": "大方廣總持寶光明經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 299",
+        "translator": "宋 · 法天譯",
+        "summary": "5卷。本站完整保存 T0299 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0299_001"
+      },
+      "verification": {
+        "segments": 1798,
+        "folios": 65,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0299.001.0884b02",
+          "T0299.005.0905a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0300",
+      "slug": "taisho-t0300",
+      "workId": "gbcr:work:taisho-t0300",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate_unmerged",
+          "groupId": "inconceivable-buddha-realm-candidate",
+          "label": "不思议佛境界相关译本候选",
+          "evidence": "DILA 为 T0300、T0301 互列相关经典，但当前证据未提供足以排除节译、改译或文本层次差异的共同作品裁决；平台先保留候选关系，不自动合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0300",
+              "T0301"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0300.xml",
+      "upstreamPath": "T/T10/T10n0300.xml",
+      "upstreamGitBlobSha1": "21d9dc1ca9898d88ac33ea903cdf99650091ed8c",
+      "upstreamBytes": 63818,
+      "upstreamSha256": "9f8cc3b706932af7557f4e107b45fd3ecd3519770daad8007c054259bb96a435",
+      "localBytes": 63819,
+      "localSha256": "79d6cf9a147b22d8aafcf3c059fd8b9954392ee028d52ad51cadc773402b4623",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經不思議佛境界分",
+        "alternateTitle": "大方廣佛華嚴經不思議佛境界分",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 300",
+        "translator": "唐 · 提雲般若譯",
+        "summary": "1卷。本站完整保存 T0300 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0300_001"
+      },
+      "verification": {
+        "segments": 321,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0300.001.0905a23",
+          "T0300.001.0908c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0301",
+      "slug": "taisho-t0301",
+      "workId": "gbcr:work:taisho-t0301",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate_unmerged",
+          "groupId": "inconceivable-buddha-realm-candidate",
+          "label": "不思议佛境界相关译本候选",
+          "evidence": "DILA 为 T0300、T0301 互列相关经典，但当前证据未提供足以排除节译、改译或文本层次差异的共同作品裁决；平台先保留候选关系，不自动合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0300",
+              "T0301"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0301.xml",
+      "upstreamPath": "T/T10/T10n0301.xml",
+      "upstreamGitBlobSha1": "3f66edd246dad2ad1e882bad9d2280c7fe0c6184",
+      "upstreamBytes": 42429,
+      "upstreamSha256": "21e67754b8eeb76831b98add77f77a5282050b48ae881f3cdd8e116c04faccb9",
+      "localBytes": 42430,
+      "localSha256": "844b26ded9ead26eec96b6d0d2000572c112c114f15cb8d56209e08577c00647",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣如來不思議境界經",
+        "alternateTitle": "大方廣如來不思議境界經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 301",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "1卷。本站完整保存 T0301 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0301_001"
+      },
+      "verification": {
+        "segments": 279,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0301.001.0909a02",
+          "T0301.001.0912a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0302",
+      "slug": "taisho-t0302",
+      "workId": "gbcr:work:tathagata-qualities-wisdom-realm",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-qualities-wisdom-realm-chinese",
+          "label": "Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组",
+          "evidence": "DILA 为 T0302、T0303、T0304 互列相关经典，并为 T0303、T0304 登记共同梵名 Tathāgataguṇajñānācintyaviṣayāvatāranirdeśasūtra 与共同藏译目录号；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0302",
+              "T0303",
+              "T0304"
+            ],
+            "toh": [
+              "toh185"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0302.xml",
+      "upstreamPath": "T/T10/T10n0302.xml",
+      "upstreamGitBlobSha1": "f43db63055538e75bca9c71ee07a3cf53d099fc8",
+      "upstreamBytes": 86163,
+      "upstreamSha256": "93acb8ca2f76da5fa35dbd9ffa2226aa8a08147147f5bc9f64e4dde6c7e0036a",
+      "localBytes": 86164,
+      "localSha256": "e56b08e4af45d22dc320775a07293903848bb31156e73f6e8f1a1d2c376e5923",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "度諸佛境界智光嚴經",
+        "alternateTitle": "度諸佛境界智光嚴經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 302",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0302 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0302_001"
+      },
+      "verification": {
+        "segments": 459,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0302.001.0912a23",
+          "T0302.001.0917b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0303",
+      "slug": "taisho-t0303",
+      "workId": "gbcr:work:tathagata-qualities-wisdom-realm",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-qualities-wisdom-realm-chinese",
+          "label": "Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组",
+          "evidence": "DILA 为 T0302、T0303、T0304 互列相关经典，并为 T0303、T0304 登记共同梵名 Tathāgataguṇajñānācintyaviṣayāvatāranirdeśasūtra 与共同藏译目录号；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0302",
+              "T0303",
+              "T0304"
+            ],
+            "toh": [
+              "toh185"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0303.xml",
+      "upstreamPath": "T/T10/T10n0303.xml",
+      "upstreamGitBlobSha1": "78492d18b8f1ff2cc76986dc60c7efab66d7e6a2",
+      "upstreamBytes": 114590,
+      "upstreamSha256": "ceaab1aa37c430390421bb00ce9e210c4046228758862e35690ff39c7a2779c5",
+      "localBytes": 114591,
+      "localSha256": "5aed95bda0d7a494829c60ef2a759e0896d7f3ce8080b6b22562afa534cebf8c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛華嚴入如來德智不思議境界經",
+        "alternateTitle": "佛華嚴入如來德智不思議境界經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 303",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "2卷。本站完整保存 T0303 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0303_001"
+      },
+      "verification": {
+        "segments": 583,
+        "folios": 22,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0303.001.0917b21",
+          "T0303.002.0924b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0304",
+      "slug": "taisho-t0304",
+      "workId": "gbcr:work:tathagata-qualities-wisdom-realm",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagata-qualities-wisdom-realm-chinese",
+          "label": "Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组",
+          "evidence": "DILA 为 T0302、T0303、T0304 互列相关经典，并为 T0303、T0304 登记共同梵名 Tathāgataguṇajñānācintyaviṣayāvatāranirdeśasūtra 与共同藏译目录号；平台登记为同一作品的三个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0302",
+              "T0303",
+              "T0304"
+            ],
+            "toh": [
+              "toh185"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0304.xml",
+      "upstreamPath": "T/T10/T10n0304.xml",
+      "upstreamGitBlobSha1": "731f0bfb7d6c63f4000de928abed40dd310a95fe",
+      "upstreamBytes": 55932,
+      "upstreamSha256": "8060c60ff1b624416242a380ea305e218e5e0af6be9582f10f76d559620f40d6",
+      "localBytes": 55933,
+      "localSha256": "bc6eec3094989a3c66d30cd59a589e4fb985ab2d46de01012a503ea31a1ca541",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣入如來智德不思議經",
+        "alternateTitle": "大方廣入如來智德不思議經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 304",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "1卷。本站完整保存 T0304 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0304_001"
+      },
+      "verification": {
+        "segments": 368,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0304.001.0924b05",
+          "T0304.001.0928b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0305",
+      "slug": "taisho-t0305",
+      "workId": "gbcr:work:taisho-t0305",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0305.xml",
+      "upstreamPath": "T/T10/T10n0305.xml",
+      "upstreamGitBlobSha1": "82024ce1935455b5cb94932b9aee3dd6452956ab",
+      "upstreamBytes": 381483,
+      "upstreamSha256": "7596712eed7c25b9788d766abf51d0c4f859f8f650ff5f88276edddea8152829",
+      "localBytes": 381484,
+      "localSha256": "5c373330f13d28748f62a80409ca68e0ed834155c5283f340bb5066407df065c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "信力入印法門經",
+        "alternateTitle": "信力入印法門經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 305",
+        "translator": "元魏 · 曇摩流支譯",
+        "summary": "5卷。本站完整保存 T0305 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0305_001"
+      },
+      "verification": {
+        "segments": 2629,
+        "folios": 96,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0305.001.0928c02",
+          "T0305.005.0959a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0306",
+      "slug": "taisho-t0306",
+      "workId": "gbcr:work:taisho-t0306",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "component_text_family_verified",
+          "groupId": "avatamsaka-component-translations-t10",
+          "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+          "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T0279",
+              "T0280-T0292",
+              "T0306"
+            ],
+            "toh": [
+              "toh44"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T10n0306.xml",
+      "upstreamPath": "T/T10/T10n0306.xml",
+      "upstreamGitBlobSha1": "f38dd3556ef93636e255dc00a5f7c72599ca1140",
+      "upstreamBytes": 30437,
+      "upstreamSha256": "841b3a70ee34b3415473ca93437705c5357049857c34070bd24b1b59384931b1",
+      "localBytes": 30438,
+      "localSha256": "103e4dd00989d4bfb0fb5555c467873b274768e5eda553e61755d7ee99f9e734",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛花嚴經修慈分",
+        "alternateTitle": "大方廣佛花嚴經修慈分",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 306",
+        "translator": "唐 · 提雲般若等譯",
+        "summary": "1卷。本站完整保存 T0306 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0306_001"
+      },
+      "verification": {
+        "segments": 191,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0306.001.0959a09",
+          "T0306.001.0961a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0307",
+      "slug": "taisho-t0307",
+      "workId": "gbcr:work:taisho-t0307",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0307.xml",
+      "upstreamPath": "T/T10/T10n0307.xml",
+      "upstreamGitBlobSha1": "0a64a63eb321ec73917fc600806c79381048cab0",
+      "upstreamBytes": 32904,
+      "upstreamSha256": "3b129be34e5de46b246a56ff1fcd24a503e2254a97d6c503b66038777fef4371",
+      "localBytes": 32905,
+      "localSha256": "579cb15eb3fcdd56b3fb9c3f49fe9788f7025093e232c769ebdbc7404aef9365",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說莊嚴菩提心經",
+        "alternateTitle": "佛說莊嚴菩提心經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 307",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T0307 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0307_001"
+      },
+      "verification": {
+        "segments": 175,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0307.001.0961b02",
+          "T0307.001.0963b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0308",
+      "slug": "taisho-t0308",
+      "workId": "gbcr:work:taisho-t0308",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0308.xml",
+      "upstreamPath": "T/T10/T10n0308.xml",
+      "upstreamGitBlobSha1": "5bc039c3db6c7c6956aab4d5416a1524b2bb236a",
+      "upstreamBytes": 36694,
+      "upstreamSha256": "b4267bc6a6e4775db3ed4a6224e5dabdc13c631bf6de9c29aa7034efeea5c7f0",
+      "localBytes": 36695,
+      "localSha256": "b0aad7f907797903e5dd997d273861f8dff11c25bba5e78412fb8232dc8dd83c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大方廣菩薩十地經",
+        "alternateTitle": "佛說大方廣菩薩十地經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 308",
+        "translator": "元魏 · 吉迦夜譯",
+        "summary": "1卷。本站完整保存 T0308 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0308_001"
+      },
+      "verification": {
+        "segments": 195,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0308.001.0963b06",
+          "T0308.001.0965b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0309",
+      "slug": "taisho-t0309",
+      "workId": "gbcr:work:taisho-t0309",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T10n0309.xml",
+      "upstreamPath": "T/T10/T10n0309.xml",
+      "upstreamGitBlobSha1": "65ca2060a92ac350f70750b2c0f683c97fe633e1",
+      "upstreamBytes": 1300002,
+      "upstreamSha256": "2712eb733e98550781942adc9edc2c66c4bcb6c99138b65c79546c6b074b79d5",
+      "localBytes": 1300003,
+      "localSha256": "affd2be8f2d5513b185fd36b5159fe9b1f43bd6ec13ae708fd2d77fe441f4ebc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "最勝問菩薩十住除垢斷結經",
+        "alternateTitle": "最勝問菩薩十住除垢斷結經",
+        "tradition": "漢傳佛教 · 華嚴部",
+        "language": "漢文",
+        "canonRef": "大正藏 T10, no. 309",
+        "translator": "姚秦 · 竺佛念譯",
+        "summary": "10卷。本站完整保存 T0309 的固定 CBETA TEI 来源记录与可校验页栏行锚点；华严全经、单品组件与独立作品分层登记；物理记录、完整译本与全球去重作品分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0309_001"
+      },
+      "verification": {
+        "segments": 7040,
+        "folios": 252,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0309.001.0966a03",
+          "T0309.010.1047b13"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

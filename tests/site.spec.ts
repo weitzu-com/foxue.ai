@@ -15,6 +15,8 @@ const criticalRoutes = [
   "/jingzang/taisho-t0221/001-0001a",
   "/jingzang/taisho-t0265/001-0197a",
   "/jingzang/taisho-t0273/001-0365c",
+  "/jingzang/taisho-t0294/001-0851c",
+  "/jingzang/taisho-t0302/001-0912a",
   "/jingzang/dhammapada-pali",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1",
@@ -87,20 +89,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 553,
-    registeredExpressions: 574,
-    fullSourceTextWorks: 553,
-    fullSourceTextExpressions: 573,
-    stableSegments: 1179410,
-    structureVerifiedWorks: 553,
+    registeredWorks: 574,
+    registeredExpressions: 604,
+    fullSourceTextWorks: 574,
+    fullSourceTextExpressions: 601,
+    stableSegments: 1231128,
+    structureVerifiedWorks: 574,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 314,
-    percentage: 35.64,
+    controlled: 344,
+    percentage: 39.05,
     sourceBytes: 247280257,
-    controlledBytes: 148965801,
-    bytePercentage: 60.24,
+    controlledBytes: 158297219,
+    bytePercentage: 64.02,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -120,6 +122,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseLotusSourceRecords).toMatchObject({
     denominator: 17,
     controlled: 17,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseAvatamsakaSourceRecords).toMatchObject({
+    denominator: 31,
+    controlled: 31,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -343,6 +350,33 @@ test("汉译法华部 T09 完整受控并区分全译、节译、仪轨组合与
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/taisho-t0265/001-0197a");
   expect(sitemap).toContain("/jingzang/taisho-t0277/001-0389b");
+});
+
+test("汉译华严部 T10 完整受控并区分全经、单品、同作品译本与节译见证", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0285#T0285.005.0497b29");
+  await page.waitForURL(/\/jingzang\/taisho-t0285\/005-0497b#T0285\.005\.0497b29$/);
+  await expect(page.locator('[id="T0285.005.0497b29"]')).toBeVisible();
+  await expect(page.getByText(/Daśabhūmika.*《十地经》汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0294/001-0851c");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/只对应规范作品的部分章节/).first()).toBeVisible();
+  await expect(page.getByText(/Gaṇḍavyūha.*《入法界品》汉译与节译见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0296/001-0878c");
+  await expect(page.getByText(/Bhadracaryāpraṇidhāna.*普贤行愿汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0300/001-0905a");
+  await expect(page.getByText(/不思议佛境界相关译本候选/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0302/001-0912a");
+  await expect(page.getByText(/来源目录题记为失译/)).toBeVisible();
+  await expect(page.getByText(/Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0285/005-0497b");
+  expect(sitemap).toContain("/jingzang/taisho-t0295/001-0876b");
+  expect(sitemap).toContain("/jingzang/taisho-t0304/001-0924b");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

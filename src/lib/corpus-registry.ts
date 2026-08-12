@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v1.6.0.json";
+import registryDocument from "../../data/gbcr/registry-v1.7.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -65,6 +65,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseLotusControlled = "lotusControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.lotusControlledSourceRecords ?? null
+    : null;
+  const chineseAvatamsakaDenominator = "avatamsakaSourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.avatamsakaSourceRecordDenominator ?? null
+    : null;
+  const chineseAvatamsakaControlled = "avatamsakaControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.avatamsakaControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -203,6 +209,15 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T09 法华部来源记录",
         caveat: "17/17 表示固定来源记录完整性；T0265 完整保存来源文件但只作为《法华经》节译见证，T0273 保留东亚本土成书候选边界。",
+      },
+      chineseAvatamsakaSourceRecords: {
+        denominator: chineseAvatamsakaDenominator,
+        controlled: chineseAvatamsakaControlled,
+        percentage: chineseAvatamsakaDenominator && chineseAvatamsakaControlled !== null
+          ? Number(((chineseAvatamsakaControlled / chineseAvatamsakaDenominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T10 华严部来源记录",
+        caveat: "31/31 表示固定来源记录完整性；全经、单品组件、完整译本与节译见证分层计数，T0300/T0301 只保留相关候选而不强行合并。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

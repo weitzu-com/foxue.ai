@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v1.6.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v1.7.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -173,6 +173,9 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "indigenous_composition_candidate") {
     return "传统目录题记为失译；现代研究提出东亚本土成书可能，平台保留争议，不将其径直当作印度译经或佛陀亲说。";
+  }
+  if (file.sourceRole === "translation_attribution_unknown") {
+    return "来源目录题记为失译，平台保留译者未知状态，不补造作者、译者或佛陀亲说归属。";
   }
   return undefined;
 };
