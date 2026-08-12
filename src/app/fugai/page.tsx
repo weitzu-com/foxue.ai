@@ -129,7 +129,10 @@ export default function CoveragePage() {
               同经异译、别品译出、禅观撰述与同题范围候选分层计数；
               T16 经集部固定来源已完成 {snapshot.candidateInventory.chineseT16SourceRecords.controlled}
               /{snapshot.candidateInventory.chineseT16SourceRecords.denominator}（{snapshot.candidateInventory.chineseT16SourceRecords.percentage}%），
-              同经异译、再译、合部编纂、单品译出与短本见证分层计数
+              同经异译、再译、合部编纂、单品译出与短本见证分层计数；
+              T17 经集部固定来源已完成 {snapshot.candidateInventory.chineseT17SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT17SourceRecords.denominator}（{snapshot.candidateInventory.chineseT17SourceRecords.percentage}%），
+              异译、a/b 版本、失译、撰集、节抄与疑似中国撰述分层计数；至此这份固定的 881 条汉文来源记录清单已逐文件受控
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.3.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.4.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -187,7 +187,7 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
     return "本记录题名显示只存一卷或一章；与相关文本的确切归属仍待研究，平台保存残篇并公开关系候选，不冒充完整译本。";
   }
   if (file.sourceRole === "indigenous_composition_candidate") {
-    return "传统目录题记为失译；现代研究提出东亚本土成书可能，平台保留争议，不将其径直当作印度译经或佛陀亲说。";
+    return "平台保留传统目录题记；现代研究提出东亚本土成书可能，平台公开争议，不将其径直当作印度译经或佛陀亲说。";
   }
   if (file.sourceRole === "translation_attribution_unknown") {
     return "来源目录题记为失译，平台保留译者未知状态，不补造作者、译者或佛陀亲说归属。";

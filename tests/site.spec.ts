@@ -89,20 +89,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 869,
-    registeredExpressions: 1012,
-    fullSourceTextWorks: 868,
-    fullSourceTextExpressions: 998,
-    stableSegments: 1602710,
-    structureVerifiedWorks: 869,
+    registeredWorks: 978,
+    registeredExpressions: 1141,
+    fullSourceTextWorks: 977,
+    fullSourceTextExpressions: 1127,
+    stableSegments: 1683984,
+    structureVerifiedWorks: 978,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 752,
-    percentage: 85.36,
+    controlled: 881,
+    percentage: 100,
     sourceBytes: 247280257,
-    controlledBytes: 232554009,
-    bytePercentage: 94.04,
+    controlledBytes: 247280257,
+    bytePercentage: 100,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -157,6 +157,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseT16SourceRecords).toMatchObject({
     denominator: 65,
     controlled: 65,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseT17SourceRecords).toMatchObject({
+    denominator: 131,
+    controlled: 131,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -557,6 +562,27 @@ test("汉译 T16 经集部完整受控并区分异译、合部、单品译出与
   expect(sitemap).toContain("/jingzang/taisho-t0664/008-0402a");
   expect(sitemap).toContain("/jingzang/taisho-t0677/001-0714c");
   expect(sitemap).toContain("/jingzang/taisho-t0712/001-0826a");
+});
+
+test("汉译 T17 经集部完整受控并区分版本、候选关系与来源归属", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0751a/001-0573a");
+  await expect(page.getByText(/《五无反复经》版本与经号见证组/)).toBeVisible();
+  await expect(page.getByText(/同一作品的独立版本见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0821/001-0837b");
+  await expect(page.getByText(/Tathāgatagarbha 相关文本候选/)).toBeVisible();
+  await expect(page.getByText(/保持独立暂定作品/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0839/001-0901c");
+  await expect(page.getByText(/东亚本土成书可能/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0847/001-0935a");
+  await expect(page.getByText(/造、撰、集或论类文本/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0721/070-0417c");
+  expect(sitemap).toContain("/jingzang/taisho-t0839/002-0910c");
+  expect(sitemap).toContain("/jingzang/taisho-t0847/003-0963a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

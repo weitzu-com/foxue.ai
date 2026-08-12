@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v2.3.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v2.4.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
