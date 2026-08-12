@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v2.0.0.json";
+import registryDocument from "../../data/gbcr/registry-v2.1.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
 
 type Expression = {
@@ -89,6 +89,12 @@ export function buildCoverageSnapshot() {
     : null;
   const chineseT13Controlled = "t13ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t13ControlledSourceRecords ?? null
+    : null;
+  const chineseT14Denominator = "t14SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t14SourceRecordDenominator ?? null
+    : null;
+  const chineseT14Controlled = "t14ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t14ControlledSourceRecords ?? null
     : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
@@ -263,6 +269,15 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T13 大集部来源记录",
         caveat: "28/28 表示固定来源记录完整性；《大集经》合集、单品译本、同经异译、后出节本及传统译者争议分层登记，不把来源文件数冒充作品数。",
+      },
+      chineseT14SourceRecords: {
+        denominator: chineseT14Denominator,
+        controlled: chineseT14Controlled,
+        percentage: chineseT14Denominator && chineseT14Controlled !== null
+          ? Number(((chineseT14Controlled / chineseT14Denominator) * 100).toFixed(2))
+          : null,
+        unit: "CBETA 固定提交大正藏 T14 经集部来源记录",
+        caveat: "166/166 表示固定来源记录完整性；同题异译、同经号 a/b 版本、部分独立译出与范围相关文本分层登记，只在权威经录证据支持时合并作品。",
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

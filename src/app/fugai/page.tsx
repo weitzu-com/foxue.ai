@@ -120,7 +120,10 @@ export default function CoveragePage() {
               异译、校辑本、后分与残篇见证分层计数；
               T13 大集部固定来源已完成 {snapshot.candidateInventory.chineseT13SourceRecords.controlled}
               /{snapshot.candidateInventory.chineseT13SourceRecords.denominator}（{snapshot.candidateInventory.chineseT13SourceRecords.percentage}%），
-              合集、单品译本、同经异译与后出节本分层计数
+              合集、单品译本、同经异译与后出节本分层计数；
+              T14 经集部固定来源已完成 {snapshot.candidateInventory.chineseT14SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT14SourceRecords.denominator}（{snapshot.candidateInventory.chineseT14SourceRecords.percentage}%），
+              同题异译、a/b 版本与部分独立译出分层计数
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

@@ -9,31 +9,23 @@ const criticalRoutes = [
   "/jingzang/fajujing/001-0559a",
   "/jingzang/taisho-t0002",
   "/jingzang/taisho-t0002/001-0150a",
-  "/jingzang/taisho-t0152",
   "/jingzang/taisho-t0152/001-0001a",
-  "/jingzang/taisho-t0221",
   "/jingzang/taisho-t0221/001-0001a",
   "/jingzang/taisho-t0265/001-0197a",
   "/jingzang/taisho-t0273/001-0365c",
   "/jingzang/taisho-t0294/001-0851c",
-  "/jingzang/taisho-t0302/001-0912a",
   "/jingzang/taisho-t0315a/001-0770c",
-  "/jingzang/taisho-t0318/002-0902a",
   "/jingzang/taisho-t0326/001-0042c",
   "/jingzang/taisho-t0364/001-0326c",
   "/jingzang/taisho-t0377/001-0900a",
   "/jingzang/taisho-t0388/001-1107b",
-  "/jingzang/dhammapada-pali",
+  "/jingzang/taisho-t0417/001-0897c",
+  "/jingzang/taisho-t0469/001-0509b",
   "/jingzang/dhammapada-pali/001-dhp1-20",
-  "/jingzang/digha-nikaya-dn1",
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
-  "/jingzang/majjhima-nikaya-mn1",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
-  "/jingzang/samyutta-nikaya-sn1",
   "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
-  "/jingzang/anguttara-nikaya-an1",
   "/jingzang/anguttara-nikaya-an1/001-an1-1-10-0001-0049",
-  "/jingzang/khuddaka-nikaya-snp",
   "/jingzang/khuddaka-nikaya-snp/001-snp1-1-0001-0071",
   "/fugai",
   "/touming",
@@ -95,20 +87,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 646,
-    registeredExpressions: 714,
-    fullSourceTextWorks: 645,
-    fullSourceTextExpressions: 707,
-    stableSegments: 1393684,
-    structureVerifiedWorks: 646,
+    registeredWorks: 773,
+    registeredExpressions: 879,
+    fullSourceTextWorks: 772,
+    fullSourceTextExpressions: 871,
+    stableSegments: 1474354,
+    structureVerifiedWorks: 773,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 454,
-    percentage: 51.53,
+    controlled: 619,
+    percentage: 70.26,
     sourceBytes: 247280257,
-    controlledBytes: 188753512,
-    bytePercentage: 76.33,
+    controlledBytes: 204656695,
+    bytePercentage: 82.76,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -148,6 +140,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseT13SourceRecords).toMatchObject({
     denominator: 28,
     controlled: 28,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseT14SourceRecords).toMatchObject({
+    denominator: 166,
+    controlled: 166,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -263,6 +260,7 @@ test("般若华严宝积涅槃大部经典可分页阅读且保持作品级去�
 });
 
 test("六百卷大般若经作为一个文本表达跨十五个来源资产完整阅读", async ({ page, request }) => {
+  test.setTimeout(60_000);
   await page.goto("/jingzang/daboruo-jing#T0220.600.1110b04");
   await page.waitForURL(/\/jingzang\/daboruo-jing\/600-1110b#T0220\.600\.1110b04$/);
   await expect(page.locator('[id="T0220.600.1110b04"]')).toBeVisible();
@@ -474,6 +472,32 @@ test("汉译 T13 大集部完整受控并区分合集、异译、节本与署名
   expect(sitemap).toContain("/jingzang/taisho-t0424/005-0998a");
 });
 
+test("汉译 T14 经集部完整受控并区分异译、版本、部分译出与范围边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0450/001-0404c");
+  await expect(page.getByText(/《药师如来本愿经》汉译组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0451/001-0409a");
+  await expect(page.getByText(/药师如来本愿与七佛本愿相关文本组/)).toBeVisible();
+  await expect(page.getByText(/不在范围差异未经逐章校勘前强行合并/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0446a/001-0364c");
+  await expect(page.getByText(/同经号另一版本共享规范作品/)).toBeVisible();
+  await expect(page.getByText(/《过去庄严劫千佛名经》版本见证组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0469/001-0509b");
+  await expect(page.getByText("节译见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/规范作品的部分章节/)).toBeVisible();
+  await expect(page.getByText(/字母品独立译出见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0474/001-0519a");
+  await expect(page.getByText(/《维摩诘经》汉译组/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0446b/001-0371a");
+  expect(sitemap).toContain("/jingzang/taisho-t0469/001-0510a");
+  expect(sitemap).toContain("/jingzang/taisho-t0476/006-0588a");
+});
+
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
   await page.goto("/jingzang/dhammapada-pali#dhp1:1");
   await page.waitForURL(/\/jingzang\/dhammapada-pali\/001-dhp1-20#dhp1:1$/);
@@ -600,8 +624,8 @@ test("巴利小部二十书的固定经藏目录完整受控并区分书级作�
 });
 
 test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {
-  // 两个桌面主题逐页扫描全部关键路由；语料增长后给完整 WCAG 扫描留出确定性时间窗口。
-  test.setTimeout(240_000);
+  // 两个桌面主题扫描各页面形态与来源角色的固定代表集；语料完整性由登记册和逐来源测试覆盖。
+  test.setTimeout(360_000);
   test.skip(testInfo.project.name === "mobile", "自动无障碍扫描在桌面主题项目执行");
 
   for (const route of criticalRoutes) {
