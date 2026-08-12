@@ -1,0 +1,1563 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.8",
+  "version": "2.0.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v1.9.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T13 source-record closure",
+  "collection": {
+    "id": "CBETA-TAISHO-T13",
+    "title": "大正藏 T13 大集部固定来源记录",
+    "sourceRecordDenominator": 28,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 28,
+    "controlledSourceRecords": 28,
+    "newSourceBytes": 15927605,
+    "newStableSegments": 85408,
+    "newFolios": 3108,
+    "verifiedCollectionExpressions": 1,
+    "verifiedSameWorkExpressions": 15,
+    "verifiedPartialWorkWitnesses": 1,
+    "provisionalRecords": 11,
+    "fullSourceTexts": 27,
+    "partialSourceWitnesses": 1,
+    "relationAnnotatedRecords": 25,
+    "attributionBoundaryRecords": 7,
+    "workCountingDecision": "28 个来源记录全部独立可寻址，归入 18 个作品实体。T0397 按多译者合集见证登记；T0398–T0404 只建立合集组件关系。T0417 按 T0418 的后出节本见证登记；T0412 保留传统署名与疑似汉地成书争议。合集、独立流通译本、同经异译、节本与来源记录不混计。"
+  },
+  "boundaryAudit": {
+    "status": "verified_collection_components_translation_groups_abridgement_and_attribution_disputes_recorded",
+    "verifiedSameWorkGroups": [
+      "akashagarbha-sutra-chinese",
+      "ksitigarbha-dasacakra-chinese",
+      "bodhisattva-buddhanusmrti-samadhi-chinese",
+      "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+      "ishvararaja-bodhisattva-chinese",
+      "sanghata-sutra-chinese"
+    ],
+    "collectionComponentFamilies": [
+      "mahasannipata-component-translations-t13"
+    ],
+    "collectionWitnesses": [
+      "T0397"
+    ],
+    "abridgedWitnesses": [
+      "T0417"
+    ],
+    "attributionCaveats": [
+      "T0406",
+      "T0407",
+      "T0412",
+      "T0418",
+      "T0419"
+    ],
+    "caveat": "《大集经》合集、单品译本、同作品汉译、后出节本和译者归属争议分层登记；目录互列只在有题名、梵名、内容或现代研究支持时用于作品合并。"
+  },
+  "files": [
+    {
+      "id": "T0397",
+      "slug": "taisho-t0397",
+      "workId": "gbcr:work:mahasannipata-t0397",
+      "workIdentityStatus": "verified_collection_expression",
+      "sourceRole": "multi_translation_collection_witness",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0397.xml",
+      "upstreamPath": "T/T13/T13n0397.xml",
+      "upstreamGitBlobSha1": "6d572375202a13d27bce6b62350f8120c2e9e373",
+      "upstreamBytes": 6963300,
+      "upstreamSha256": "dc8f27b090baf5162658fbc418c4d2945eb72ea172eca61fa2cf4129e7382cd2",
+      "localBytes": 6963301,
+      "localSha256": "02c61b92ef7a73f9a322779293ec75fba950a108821da8e1d9f471f2bde86c9d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方等大集經",
+        "alternateTitle": "大方等大集經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 397",
+        "translator": "多译者合集 · 曇无讖、智严、宝云、那连提耶舍等",
+        "summary": "60卷。本站完整保存 T0397 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是多译者、多组件汇编合集，合集与各独立流通文本分层计数；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0397_001"
+      },
+      "verification": {
+        "segments": 34884,
+        "folios": 1256,
+        "juanRange": [
+          1,
+          60
+        ],
+        "anchors": [
+          "T0397.001.0001a02",
+          "T0397.060.0407a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0398",
+      "slug": "taisho-t0398",
+      "workId": "gbcr:work:taisho-t0398",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0398.xml",
+      "upstreamPath": "T/T13/T13n0398.xml",
+      "upstreamGitBlobSha1": "b202668ee0b0170e2d3ab81f3edf039372e52f4b",
+      "upstreamBytes": 921199,
+      "upstreamSha256": "9fe9552a08a19aafe4f7721d6a49b0b372e710391a1f31788773060b20225340",
+      "localBytes": 921200,
+      "localSha256": "0106becbd1659909c2042a736baf0a1e28e711fa6cadee7ce7330eebe9bc489b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大哀經",
+        "alternateTitle": "大哀經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 398",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "8卷。本站完整保存 T0398 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0398_001"
+      },
+      "verification": {
+        "segments": 3732,
+        "folios": 136,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0398.001.0409a02",
+          "T0398.008.0452a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0399",
+      "slug": "taisho-t0399",
+      "workId": "gbcr:work:taisho-t0399",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0399.xml",
+      "upstreamPath": "T/T13/T13n0399.xml",
+      "upstreamGitBlobSha1": "b92ae8ed5844a9da1ee1d60641a866e6501fe8ed",
+      "upstreamBytes": 451410,
+      "upstreamSha256": "64e8eb5bde3ead86162d4d943da30768187a58f3419470bcf5b78f350ee40912",
+      "localBytes": 451411,
+      "localSha256": "30df7298d6808c7c2c216a066ef4a353c1368bf43757646a0d9382a610e263a3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶女所問經",
+        "alternateTitle": "寶女所問經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 399",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "4卷。本站完整保存 T0399 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0399_001"
+      },
+      "verification": {
+        "segments": 1850,
+        "folios": 67,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0399.001.0452a20",
+          "T0399.004.0473b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0400",
+      "slug": "taisho-t0400",
+      "workId": "gbcr:work:taisho-t0400",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0400.xml",
+      "upstreamPath": "T/T13/T13n0400.xml",
+      "upstreamGitBlobSha1": "6b456281d45dd351975ea08e314f282820a52c4b",
+      "upstreamBytes": 533448,
+      "upstreamSha256": "2f5c29153c910aec368144712135a5df5505f3bd8301e4d0936732d62745ca4a",
+      "localBytes": 533449,
+      "localSha256": "5b55303a70987c0247185c0e68c11438f9be9ee42d3ca7c776d2ea139bbb0e1b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說海意菩薩所問淨印法門經",
+        "alternateTitle": "佛說海意菩薩所問淨印法門經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 400",
+        "translator": "宋 · 惟淨等譯",
+        "summary": "18卷。本站完整保存 T0400 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0400_001"
+      },
+      "verification": {
+        "segments": 4221,
+        "folios": 162,
+        "juanRange": [
+          1,
+          18
+        ],
+        "anchors": [
+          "T0400.001.0473c03",
+          "T0400.018.0522c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0401",
+      "slug": "taisho-t0401",
+      "workId": "gbcr:work:taisho-t0401",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0401.xml",
+      "upstreamPath": "T/T13/T13n0401.xml",
+      "upstreamGitBlobSha1": "4f2b81ec1c0da4832d1ad9ff031e624b35472195",
+      "upstreamBytes": 253261,
+      "upstreamSha256": "88fea758089b6c2a492920320d2106ea9aa5d525cf9dff3bb76928868a431aed",
+      "localBytes": 253262,
+      "localSha256": "52907aafde6c269b219c8c4b67688c43892b41e5c64e2999bfaca9646de7369e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說無言童子經",
+        "alternateTitle": "佛說無言童子經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 401",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "2卷。本站完整保存 T0401 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0401_001"
+      },
+      "verification": {
+        "segments": 1178,
+        "folios": 43,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0401.001.0522c16",
+          "T0401.002.0536b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0402",
+      "slug": "taisho-t0402",
+      "workId": "gbcr:work:taisho-t0402",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0402.xml",
+      "upstreamPath": "T/T13/T13n0402.xml",
+      "upstreamGitBlobSha1": "9c15eed71284398f2d865e20ae72bb815d3e1141",
+      "upstreamBytes": 833827,
+      "upstreamSha256": "b686c36c8b615739c7cc0a81b334674a9a59e2fcd928ba8cb1a6b1d83f9ff55f",
+      "localBytes": 833828,
+      "localSha256": "1d8d742c98d4651f9448195f7039fb14e6c31254b620edfe6009bb3230985320",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶星陀羅尼經",
+        "alternateTitle": "寶星陀羅尼經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 402",
+        "translator": "唐 · 波羅頗蜜多羅譯",
+        "summary": "10卷。本站完整保存 T0402 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0402_001"
+      },
+      "verification": {
+        "segments": 3952,
+        "folios": 144,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0402.001.0536c03",
+          "T0402.010.0582c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0403",
+      "slug": "taisho-t0403",
+      "workId": "gbcr:work:taisho-t0403",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0403.xml",
+      "upstreamPath": "T/T13/T13n0403.xml",
+      "upstreamGitBlobSha1": "e3d449eac0adf4ead205766fbdfb9a98e164c0b7",
+      "upstreamBytes": 657113,
+      "upstreamSha256": "1fa730432760bfebd31f8cf44b69a712aea0e00b30212490da0cb3a67c18f005",
+      "localBytes": 657114,
+      "localSha256": "6df9d4b090f7a9485e94bd3a17ab442bd7f77b3520b9445d36de04b25fdf54e0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿差末菩薩經",
+        "alternateTitle": "阿差末菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 403",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "7卷。本站完整保存 T0403 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0403_001"
+      },
+      "verification": {
+        "segments": 2530,
+        "folios": 93,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0403.001.0583a02",
+          "T0403.007.0612b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0404",
+      "slug": "taisho-t0404",
+      "workId": "gbcr:work:taisho-t0404",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "collection_component_translation_verified",
+          "groupId": "mahasannipata-component-translations-t13",
+          "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+          "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0397",
+              "T0398-T0404"
+            ],
+            "toh": [
+              "toh138"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0404.xml",
+      "upstreamPath": "T/T13/T13n0404.xml",
+      "upstreamGitBlobSha1": "f606e17992dff11cce2e7725b4a6c0b817634d74",
+      "upstreamBytes": 325289,
+      "upstreamSha256": "05b7c6b2fed8055ea2a41dd034c1a89e814859b566848c5b3a5fa013d68b234d",
+      "localBytes": 325290,
+      "localSha256": "dfa111680f9672b8e26e681a151167e08c21cc688b91754f3cef1a3fe230e91b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大集大虛空藏菩薩所問經",
+        "alternateTitle": "大集大虛空藏菩薩所問經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 404",
+        "translator": "唐 · 不空譯",
+        "summary": "8卷。本站完整保存 T0404 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本经与合集具体组件的关系已记录，但不冒充整部合集的另一译本；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0404_001"
+      },
+      "verification": {
+        "segments": 2994,
+        "folios": 110,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0404.001.0613a02",
+          "T0404.008.0647c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0405",
+      "slug": "taisho-t0405",
+      "workId": "gbcr:work:akashagarbha-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "akashagarbha-sutra-chinese",
+          "label": "Ākāśagarbhasūtra／《虚空藏菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0405–T0408 互列，且共同登记梵名 Ākāśagarbhasūtra、Toh 260 与 O.926。平台登记为同一作品的四种汉文表达，同时保留 T0406 的失译状态与 T0407 的现代译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0405",
+              "T0406",
+              "T0407",
+              "T0408"
+            ],
+            "toh": [
+              "toh260"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0405.xml",
+      "upstreamPath": "T/T13/T13n0405.xml",
+      "upstreamGitBlobSha1": "bd762c79ac7637c177f1a1bec5ba1649e39afd1e",
+      "upstreamBytes": 108499,
+      "upstreamSha256": "89367fb04df9184981edb1868b12d90fe91c532b9acc1a9a2f94d08ac294612b",
+      "localBytes": 108500,
+      "localSha256": "6247247826ce7d5e390c91e5e2be51d2ce2415724b270c34d6bccbb191365f06",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "虛空藏菩薩經",
+        "alternateTitle": "虛空藏菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 405",
+        "translator": "姚秦 · 佛陀耶舍譯",
+        "summary": "1卷。本站完整保存 T0405 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0405_001"
+      },
+      "verification": {
+        "segments": 755,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0405.001.0647c12",
+          "T0405.001.0656b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0406",
+      "slug": "taisho-t0406",
+      "workId": "gbcr:work:akashagarbha-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "akashagarbha-sutra-chinese",
+          "label": "Ākāśagarbhasūtra／《虚空藏菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0405–T0408 互列，且共同登记梵名 Ākāśagarbhasūtra、Toh 260 与 O.926。平台登记为同一作品的四种汉文表达，同时保留 T0406 的失译状态与 T0407 的现代译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0405",
+              "T0406",
+              "T0407",
+              "T0408"
+            ],
+            "toh": [
+              "toh260"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0406.xml",
+      "upstreamPath": "T/T13/T13n0406.xml",
+      "upstreamGitBlobSha1": "647d489fff3527fa96efba9cffd01c9f8d147215",
+      "upstreamBytes": 59680,
+      "upstreamSha256": "ff282c3b498296ec2cf08788effeb981a59a3c417137d31290a8f0f1a1ebed54",
+      "localBytes": 59681,
+      "localSha256": "44f61201cda4c4e4246f921fce28a57c54f960f6921faf7f9e577f18fe7cd7e7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "虛空藏菩薩神呪經",
+        "alternateTitle": "虛空藏菩薩神呪經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 406",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0406 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0406_001"
+      },
+      "verification": {
+        "segments": 491,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0406.001.0656b18",
+          "T0406.001.0662a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0407",
+      "slug": "taisho-t0407",
+      "workId": "gbcr:work:akashagarbha-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "traditional_translation_attribution_disputed",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "akashagarbha-sutra-chinese",
+          "label": "Ākāśagarbhasūtra／《虚空藏菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0405–T0408 互列，且共同登记梵名 Ākāśagarbhasūtra、Toh 260 与 O.926。平台登记为同一作品的四种汉文表达，同时保留 T0406 的失译状态与 T0407 的现代译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0405",
+              "T0406",
+              "T0407",
+              "T0408"
+            ],
+            "toh": [
+              "toh260"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0407.xml",
+      "upstreamPath": "T/T13/T13n0407.xml",
+      "upstreamGitBlobSha1": "b7b9bb7508a7f1a50370dfed7334873c0711d74f",
+      "upstreamBytes": 87871,
+      "upstreamSha256": "2905e7028d43d9213956edf8346ef3cadbc364df37c93e8f0def8b8b53fe4c38",
+      "localBytes": 87872,
+      "localSha256": "fbbebd06ca0b82b202c002d97fe98125b90480f5e0d5a09412a8cec5a21dcac7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "虛空藏菩薩神呪經",
+        "alternateTitle": "虛空藏菩薩神呪經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 407",
+        "translator": "宋 · 曇摩蜜多譯",
+        "summary": "1卷。本站完整保存 T0407 的固定 CBETA TEI 来源记录与可校验页栏行锚点；现代研究对传统译者署名或成书路径存在争议，平台不把题记当作已裁决事实；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0407_001"
+      },
+      "verification": {
+        "segments": 469,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0407.001.0662a19",
+          "T0407.001.0667b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0408",
+      "slug": "taisho-t0408",
+      "workId": "gbcr:work:akashagarbha-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "akashagarbha-sutra-chinese",
+          "label": "Ākāśagarbhasūtra／《虚空藏菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0405–T0408 互列，且共同登记梵名 Ākāśagarbhasūtra、Toh 260 与 O.926。平台登记为同一作品的四种汉文表达，同时保留 T0406 的失译状态与 T0407 的现代译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0405",
+              "T0406",
+              "T0407",
+              "T0408"
+            ],
+            "toh": [
+              "toh260"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0408.xml",
+      "upstreamPath": "T/T13/T13n0408.xml",
+      "upstreamGitBlobSha1": "c293f0b4bd54644ce407c60f83103ad347b644c0",
+      "upstreamBytes": 121512,
+      "upstreamSha256": "f2236c6d1a0c750c0a2f539ccfde7dc21e947e74c9fd453cbd884f8a26fb45a2",
+      "localBytes": 121513,
+      "localSha256": "f7fafa85a61e0d17d656402d46c0b61161d745200bb558c461a31d04e48d7b27",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "虛空孕菩薩經",
+        "alternateTitle": "虛空孕菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 408",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "2卷。本站完整保存 T0408 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0408_001"
+      },
+      "verification": {
+        "segments": 834,
+        "folios": 30,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0408.001.0667c02",
+          "T0408.002.0677a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0409",
+      "slug": "taisho-t0409",
+      "workId": "gbcr:work:taisho-t0409",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T13n0409.xml",
+      "upstreamPath": "T/T13/T13n0409.xml",
+      "upstreamGitBlobSha1": "7ba099e45fc8ad9f2ee554eaf60b593dc72a93bb",
+      "upstreamBytes": 60986,
+      "upstreamSha256": "5b8237000c33b4fd9a04de902e08ddba9e4070eaab1b3c575c0ababb368aab07",
+      "localBytes": 60987,
+      "localSha256": "22110a29446ce5566dcf1ace6e4f52646fa7bf41cd6bc18ca8c0687bf5832a8f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀虛空藏菩薩經",
+        "alternateTitle": "觀虛空藏菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 409",
+        "translator": "劉宋 · 曇摩蜜多譯",
+        "summary": "1卷。本站完整保存 T0409 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0409_001"
+      },
+      "verification": {
+        "segments": 294,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0409.001.0677b02",
+          "T0409.001.0680c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0410",
+      "slug": "taisho-t0410",
+      "workId": "gbcr:work:ksitigarbha-dasacakra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ksitigarbha-dasacakra-chinese",
+          "label": "Daśacakrakṣitigarbha／《十轮经》汉译组",
+          "evidence": "DILA 经录把 T0410、T0411 互列为相关经典；两部题名、内容范围与目录记录共同支持其为同一十轮作品的不同汉译。平台共享规范作品并完整保留两个译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0410",
+              "T0411"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0410.xml",
+      "upstreamPath": "T/T13/T13n0410.xml",
+      "upstreamGitBlobSha1": "719a336bef023d113b440e3df46d181a7438a496",
+      "upstreamBytes": 662177,
+      "upstreamSha256": "94b557231ddb1cf924a634938ce00ec0b0ea33833d5b7a94f3382a3179d6f67f",
+      "localBytes": 662178,
+      "localSha256": "038f47dc74035c99df427b9768a990e7c40c29b00bf4e3658b3a93c465ed701a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣十輪經",
+        "alternateTitle": "大方廣十輪經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 410",
+        "translator": "失譯",
+        "summary": "8卷。本站完整保存 T0410 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0410_001"
+      },
+      "verification": {
+        "segments": 3368,
+        "folios": 122,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0410.001.0681a02",
+          "T0410.008.0720a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0411",
+      "slug": "taisho-t0411",
+      "workId": "gbcr:work:ksitigarbha-dasacakra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ksitigarbha-dasacakra-chinese",
+          "label": "Daśacakrakṣitigarbha／《十轮经》汉译组",
+          "evidence": "DILA 经录把 T0410、T0411 互列为相关经典；两部题名、内容范围与目录记录共同支持其为同一十轮作品的不同汉译。平台共享规范作品并完整保留两个译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0410",
+              "T0411"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0411.xml",
+      "upstreamPath": "T/T13/T13n0411.xml",
+      "upstreamGitBlobSha1": "7d5b3327aa0be2cdef6c01bb998f9f95a23c72d2",
+      "upstreamBytes": 680542,
+      "upstreamSha256": "bd309669256e7a4056d824b8ff727b14ef4da3b8341891c24fd55922206a315f",
+      "localBytes": 680543,
+      "localSha256": "275129aef2d2fd448c4e74d1f2b76334ffc272ba4a7a8dcb698222fae6dc5f83",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘大集地藏十輪經",
+        "alternateTitle": "大乘大集地藏十輪經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 411",
+        "translator": "唐 · 玄奘譯",
+        "summary": "10卷。本站完整保存 T0411 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0411_001"
+      },
+      "verification": {
+        "segments": 4884,
+        "folios": 178,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0411.001.0721a03",
+          "T0411.010.0777c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0412",
+      "slug": "taisho-t0412",
+      "workId": "gbcr:work:taisho-t0412",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "indigenous_composition_candidate",
+      "bibliographicRelations": [
+        {
+          "type": "attribution_and_origin_dispute_documented",
+          "groupId": "ksitigarbha-purvapranidhana-origin-dispute",
+          "label": "《地藏菩萨本愿经》译者与成书地争议",
+          "evidence": "传统目录把 T0412 署为实叉难陀译；CBC@ 汇录的现代研究则提出其可能在于阗或汉地形成，且至少有汉地增补。平台保留传统署名与完整正文，但不把译者和印度来源当作已裁决事实。",
+          "externalIds": {
+            "cbeta": [
+              "T0412"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0412.xml",
+      "upstreamPath": "T/T13/T13n0412.xml",
+      "upstreamGitBlobSha1": "047e2a4486357fdc27f64a57954ea6679a5e1ceb",
+      "upstreamBytes": 113078,
+      "upstreamSha256": "6819f7506e1c3b4a7ff7b74399dcebfffb4eb3561195cf2c065cc41098502792",
+      "localBytes": 113079,
+      "localSha256": "317a11c08369e8e1c885982cb2d7a6899120fee51bbea4f719056787ef4c3726",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "地藏菩薩本願經",
+        "alternateTitle": "地藏菩薩本願經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 412",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "2卷。本站完整保存 T0412 的固定 CBETA TEI 来源记录与可校验页栏行锚点；传统译者署名与成书地均有现代学术争议，平台保留争议而不提前裁决；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0412_001"
+      },
+      "verification": {
+        "segments": 1064,
+        "folios": 39,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0412.001.0777c07",
+          "T0412.002.0790a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0413",
+      "slug": "taisho-t0413",
+      "workId": "gbcr:work:taisho-t0413",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T13n0413.xml",
+      "upstreamPath": "T/T13/T13n0413.xml",
+      "upstreamGitBlobSha1": "58a91bfb4124ccdf74e7e7f40594ed5fc8900bc6",
+      "upstreamBytes": 46362,
+      "upstreamSha256": "9680e17060edc02e96b7479b5ee2952401a1a3a63eb87acdfbed637ba2f09c63",
+      "localBytes": 46363,
+      "localSha256": "4de21c8c1d2461666e66952ade40912a6f0b4d3fd1bdf5580bce88aaf923f652",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "百千頌大集經地藏菩薩請問法身讚",
+        "alternateTitle": "百千頌大集經地藏菩薩請問法身讚",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 413",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0413 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0413_001"
+      },
+      "verification": {
+        "segments": 258,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0413.001.0790a05",
+          "T0413.001.0792c30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0414",
+      "slug": "taisho-t0414",
+      "workId": "gbcr:work:bodhisattva-buddhanusmrti-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "bodhisattva-buddhanusmrti-samadhi-chinese",
+          "label": "Bodhisattvabuddhānusmṛtisamādhi／《菩萨念佛三昧经》汉译组",
+          "evidence": "DILA 经录把 T0414、T0415 互列，并为 T0414 登记梵名 Bodhisattvabuddhānusmṛtisamādhisūtra。平台登记为同一作品的两个完整汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0414",
+              "T0415"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0414.xml",
+      "upstreamPath": "T/T13/T13n0414.xml",
+      "upstreamGitBlobSha1": "eedf4b9f0c8a1c4a7185e5d013d123b93d97890c",
+      "upstreamBytes": 563044,
+      "upstreamSha256": "f3173274f8e1a9dcef85d28e05c929fa67f905fbf5f2265dd1379e794ed4e539",
+      "localBytes": 563045,
+      "localSha256": "c326dec49de4734396ce37fd8f2be318eb4f78e3fcecb9eba71a059c3fea0e84",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩念佛三昧經",
+        "alternateTitle": "菩薩念佛三昧經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 414",
+        "translator": "劉宋 · 功德直譯",
+        "summary": "5卷。本站完整保存 T0414 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0414_001"
+      },
+      "verification": {
+        "segments": 3218,
+        "folios": 114,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0414.001.0793a02",
+          "T0414.005.0829c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0415",
+      "slug": "taisho-t0415",
+      "workId": "gbcr:work:bodhisattva-buddhanusmrti-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "bodhisattva-buddhanusmrti-samadhi-chinese",
+          "label": "Bodhisattvabuddhānusmṛtisamādhi／《菩萨念佛三昧经》汉译组",
+          "evidence": "DILA 经录把 T0414、T0415 互列，并为 T0414 登记梵名 Bodhisattvabuddhānusmṛtisamādhisūtra。平台登记为同一作品的两个完整汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0414",
+              "T0415"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0415.xml",
+      "upstreamPath": "T/T13/T13n0415.xml",
+      "upstreamGitBlobSha1": "1ad634ee6c5ffde5e02d83d7bc3559ade94967e1",
+      "upstreamBytes": 537148,
+      "upstreamSha256": "3dd4fcf0508579ebde4b6753380185d2c971865a68d874c21b5a9a3b175b69f2",
+      "localBytes": 537149,
+      "localSha256": "9c143229104f5137d36f859eb84e04e857f2e4461db3f66cbb99ef136b6f42e5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方等大集經菩薩念佛三昧分",
+        "alternateTitle": "大方等大集經菩薩念佛三昧分",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 415",
+        "translator": "隋 · 達磨笈多譯",
+        "summary": "10卷。本站完整保存 T0415 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0415_001"
+      },
+      "verification": {
+        "segments": 3605,
+        "folios": 133,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0415.001.0830a02",
+          "T0415.010.0871c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0416",
+      "slug": "taisho-t0416",
+      "workId": "gbcr:work:pratyutpanna-buddha-sammukhavasthita-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_abridged_witness_group_verified",
+          "groupId": "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+          "label": "Pratyutpannabuddhasaṃmukhāvasthitasamādhi／《般舟三昧经》汉译与节本见证组",
+          "evidence": "DILA 经录把 T0416–T0419 互列为同一文本组。CBC@ 汇录的 Harrison、Zürcher 等研究进一步判定一卷本 T0417 是三卷本 T0418 的后出节本，而非独立译本；T0419 是古短本。平台把 T0416、T0418、T0419 作为同作品表达，把 T0417 作为节本见证，并公开译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0416",
+              "T0417",
+              "T0418",
+              "T0419"
+            ],
+            "toh": [
+              "toh133"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0416.xml",
+      "upstreamPath": "T/T13/T13n0416.xml",
+      "upstreamGitBlobSha1": "48cb92a94ca87a520aea3a0445cb30bbb79dca99",
+      "upstreamBytes": 369733,
+      "upstreamSha256": "6ca42e6db60c7831d78c5f9052189ce037cc9be8bcd73f373502510370fbaa12",
+      "localBytes": 369734,
+      "localSha256": "4d2e1ba5c7a5e09b4d4d0f2571a3017e731d9babe801d95dc13d6ce8641cd090",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方等大集經賢護分",
+        "alternateTitle": "大方等大集經賢護分",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 416",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "5卷。本站完整保存 T0416 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0416_001"
+      },
+      "verification": {
+        "segments": 2230,
+        "folios": 81,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0416.001.0872a01",
+          "T0416.005.0897c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0417",
+      "slug": "taisho-t0417",
+      "workId": "gbcr:work:pratyutpanna-buddha-sammukhavasthita-samadhi",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "abridged_recension_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_abridged_witness_group_verified",
+          "groupId": "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+          "label": "Pratyutpannabuddhasaṃmukhāvasthitasamādhi／《般舟三昧经》汉译与节本见证组",
+          "evidence": "DILA 经录把 T0416–T0419 互列为同一文本组。CBC@ 汇录的 Harrison、Zürcher 等研究进一步判定一卷本 T0417 是三卷本 T0418 的后出节本，而非独立译本；T0419 是古短本。平台把 T0416、T0418、T0419 作为同作品表达，把 T0417 作为节本见证，并公开译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0416",
+              "T0417",
+              "T0418",
+              "T0419"
+            ],
+            "toh": [
+              "toh133"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0417.xml",
+      "upstreamPath": "T/T13/T13n0417.xml",
+      "upstreamGitBlobSha1": "e720c5092c20fdd1b97193a2044b2e64306854a1",
+      "upstreamBytes": 47905,
+      "upstreamSha256": "d6ce9effa7eb620651150fe38126377b13cef14b711086949dead4800fe0c3a9",
+      "localBytes": 47906,
+      "localSha256": "33cfe38a432335d98ef223e167d73bce456d212e688d6010722b88033c0235ff",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說般舟三昧經",
+        "alternateTitle": "佛說般舟三昧經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 417",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "1卷。本站完整保存 T0417 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录是规范作品的后出节本见证，不作为另一部完整译本计数；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0417_001"
+      },
+      "verification": {
+        "segments": 430,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0417.001.0897c24",
+          "T0417.001.0902c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0418",
+      "slug": "taisho-t0418",
+      "workId": "gbcr:work:pratyutpanna-buddha-sammukhavasthita-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "traditional_translation_attribution_disputed",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_abridged_witness_group_verified",
+          "groupId": "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+          "label": "Pratyutpannabuddhasaṃmukhāvasthitasamādhi／《般舟三昧经》汉译与节本见证组",
+          "evidence": "DILA 经录把 T0416–T0419 互列为同一文本组。CBC@ 汇录的 Harrison、Zürcher 等研究进一步判定一卷本 T0417 是三卷本 T0418 的后出节本，而非独立译本；T0419 是古短本。平台把 T0416、T0418、T0419 作为同作品表达，把 T0417 作为节本见证，并公开译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0416",
+              "T0417",
+              "T0418",
+              "T0419"
+            ],
+            "toh": [
+              "toh133"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0418.xml",
+      "upstreamPath": "T/T13/T13n0418.xml",
+      "upstreamGitBlobSha1": "ab9edff62566d7cbf04f45defe8ae4f4de6eacec",
+      "upstreamBytes": 455409,
+      "upstreamSha256": "b6e449fe0d06e4b82ab40084436e99699e5b00784f2607ded46eab7a29bfde8d",
+      "localBytes": 455410,
+      "localSha256": "874dbc43f56ffafb0a8254e1c88254dde64310c15f7240ede3f2e7a5febaa99a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般舟三昧經",
+        "alternateTitle": "般舟三昧經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 418",
+        "translator": "後漢 · 支婁迦讖譯",
+        "summary": "3卷。本站完整保存 T0418 的固定 CBETA TEI 来源记录与可校验页栏行锚点；现代研究对传统译者署名或成书路径存在争议，平台不把题记当作已裁决事实；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0418_001"
+      },
+      "verification": {
+        "segments": 1431,
+        "folios": 54,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0418.001.0902c22",
+          "T0418.003.0919c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0419",
+      "slug": "taisho-t0419",
+      "workId": "gbcr:work:pratyutpanna-buddha-sammukhavasthita-samadhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_abridged_witness_group_verified",
+          "groupId": "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+          "label": "Pratyutpannabuddhasaṃmukhāvasthitasamādhi／《般舟三昧经》汉译与节本见证组",
+          "evidence": "DILA 经录把 T0416–T0419 互列为同一文本组。CBC@ 汇录的 Harrison、Zürcher 等研究进一步判定一卷本 T0417 是三卷本 T0418 的后出节本，而非独立译本；T0419 是古短本。平台把 T0416、T0418、T0419 作为同作品表达，把 T0417 作为节本见证，并公开译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0416",
+              "T0417",
+              "T0418",
+              "T0419"
+            ],
+            "toh": [
+              "toh133"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0419.xml",
+      "upstreamPath": "T/T13/T13n0419.xml",
+      "upstreamGitBlobSha1": "1a7e5c8203de3fced05b30b1df44a146684c4b52",
+      "upstreamBytes": 110802,
+      "upstreamSha256": "4e4c56fff8e4373d56f71862580aec7d5d089e1a26e7999ff7a70756dd1abaae",
+      "localBytes": 110803,
+      "localSha256": "3196c376ea399229448dd4fa73d926b7338adc5f428dbd495a5cd7195581c837",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "拔陂菩薩經",
+        "alternateTitle": "拔陂菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 419",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0419 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0419_001"
+      },
+      "verification": {
+        "segments": 392,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0419.001.0920a02",
+          "T0419.001.0924b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0420",
+      "slug": "taisho-t0420",
+      "workId": "gbcr:work:ishvararaja-bodhisattva",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ishvararaja-bodhisattva-chinese",
+          "label": "Īśvararājabodhisattva／《自在王菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0420、T0421 互列为相关经典；平台据此登记为同一作品的两个汉译表达，同时保留各自译者与全文。",
+          "externalIds": {
+            "cbeta": [
+              "T0420",
+              "T0421"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0420.xml",
+      "upstreamPath": "T/T13/T13n0420.xml",
+      "upstreamGitBlobSha1": "9f52407baaf29b53b8ebfa200dee2865c7a933d4",
+      "upstreamBytes": 174758,
+      "upstreamSha256": "8e3fc5b09acca820019bd896e5ed817a40c70d93f0cb32498736a563c0891a46",
+      "localBytes": 174759,
+      "localSha256": "466bf93ec5e0b8c7b527571d14f62c99f80a5648cdba1398c4a2b9ca0975e6a9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "自在王菩薩經",
+        "alternateTitle": "自在王菩薩經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 420",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T0420 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0420_001"
+      },
+      "verification": {
+        "segments": 941,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0420.001.0924b20",
+          "T0420.002.0935b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0421",
+      "slug": "taisho-t0421",
+      "workId": "gbcr:work:ishvararaja-bodhisattva",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ishvararaja-bodhisattva-chinese",
+          "label": "Īśvararājabodhisattva／《自在王菩萨经》汉译组",
+          "evidence": "DILA 经录把 T0420、T0421 互列为相关经典；平台据此登记为同一作品的两个汉译表达，同时保留各自译者与全文。",
+          "externalIds": {
+            "cbeta": [
+              "T0420",
+              "T0421"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0421.xml",
+      "upstreamPath": "T/T13/T13n0421.xml",
+      "upstreamGitBlobSha1": "6bc13146e85b63fb6e5077f34a36185428968f85",
+      "upstreamBytes": 184976,
+      "upstreamSha256": "d62e3cffa7112d6367b11db32c1b33ea022a640ea13d5f11cf4d6f95bc973722",
+      "localBytes": 184977,
+      "localSha256": "1a455329df611711ecf11509d9bc940c0a03d95c6f8a7d40c35860ef9a9219f2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "奮迅王問經",
+        "alternateTitle": "奮迅王問經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 421",
+        "translator": "元魏 · 瞿曇般若流支譯",
+        "summary": "2卷。本站完整保存 T0421 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0421_001"
+      },
+      "verification": {
+        "segments": 1143,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0421.001.0935b09",
+          "T0421.002.0948b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0422",
+      "slug": "taisho-t0422",
+      "workId": "gbcr:work:taisho-t0422",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T13n0422.xml",
+      "upstreamPath": "T/T13/T13n0422.xml",
+      "upstreamGitBlobSha1": "10bb32811975fcbe5295ecd0765a4800bd470547",
+      "upstreamBytes": 126375,
+      "upstreamSha256": "a43af1d17e697419411a8aba429fe754ee34e6877a8ec7ba106e1716e7fd9a2d",
+      "localBytes": 126376,
+      "localSha256": "e17ef6338635c1f148c2119535edfcd1ebf76761cf691e9540902691e62be9b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大集譬喻王經",
+        "alternateTitle": "大集譬喻王經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 422",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "2卷。本站完整保存 T0422 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0422_001"
+      },
+      "verification": {
+        "segments": 936,
+        "folios": 34,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0422.001.0948c02",
+          "T0422.002.0959b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0423",
+      "slug": "taisho-t0423",
+      "workId": "gbcr:work:sanghata-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sanghata-sutra-chinese",
+          "label": "Saṅghāṭasūtra／《僧伽吒经》汉译组",
+          "evidence": "DILA 经录把 T0423、T0424 互列，并为 T0424 登记梵名 Saṅghāṭīsūtradharmaparyāya。平台登记为同一作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0423",
+              "T0424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0423.xml",
+      "upstreamPath": "T/T13/T13n0423.xml",
+      "upstreamGitBlobSha1": "8c79903373c668c87a352a1f7186c940e2d05525",
+      "upstreamBytes": 265746,
+      "upstreamSha256": "15650739ee23b23ad04eb8f59e7c71e453bbf3dfe74fc7a060a80fee931e65dc",
+      "localBytes": 265747,
+      "localSha256": "815d3aa0713e091aa106415273a7f7c3e4084a491f09d63df071fea83260b8ad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "僧伽吒經",
+        "alternateTitle": "僧伽吒經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 423",
+        "translator": "元魏 · 月婆首那譯",
+        "summary": "4卷。本站完整保存 T0423 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0423_001"
+      },
+      "verification": {
+        "segments": 1487,
+        "folios": 56,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0423.001.0959b16",
+          "T0423.004.0976c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0424",
+      "slug": "taisho-t0424",
+      "workId": "gbcr:work:sanghata-sutra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sanghata-sutra-chinese",
+          "label": "Saṅghāṭasūtra／《僧伽吒经》汉译组",
+          "evidence": "DILA 经录把 T0423、T0424 互列，并为 T0424 登记梵名 Saṅghāṭīsūtradharmaparyāya。平台登记为同一作品的两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0423",
+              "T0424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T13n0424.xml",
+      "upstreamPath": "T/T13/T13n0424.xml",
+      "upstreamGitBlobSha1": "5680afc0063580b2912e01f57fa2d3e623568a2b",
+      "upstreamBytes": 212155,
+      "upstreamSha256": "02b836048c8ea51ba994e2bbf535c48b8cafabc08d3b70cecc8278bb1c569a38",
+      "localBytes": 212156,
+      "localSha256": "52da0260b693e761953258dfac97682b67637ae792d10e22fd60f23af84d5016",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大集會正法經",
+        "alternateTitle": "大集會正法經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T13, no. 424",
+        "translator": "宋 · 施護譯",
+        "summary": "5卷。本站完整保存 T0424 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录确认与规范作品的多译本关系；物理记录、合集、作品、表达与版本见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0424_001"
+      },
+      "verification": {
+        "segments": 1837,
+        "folios": 68,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0424.001.0976c09",
+          "T0424.005.0998a05"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
