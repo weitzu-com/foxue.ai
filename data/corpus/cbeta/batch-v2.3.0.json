@@ -1,0 +1,3088 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v0.9",
+  "version": "2.3.0",
+  "publishedAt": "2026-08-12",
+  "baseCatalog": "data/corpus/cbeta/catalog-v2.2.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes 1–17 and 19; T16 source-record closure",
+  "workOverrides": {
+    "gbcr:work:lankavatara-t0670": {
+      "canonicalTitle": "楞伽經",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "lankavatara-t0670-t0672",
+          "label": "Laṅkāvatārasūtra／《楞伽经》汉译组",
+          "evidence": "冻结版 CBETA TEI 与 DILA 将 T0670、T0671、T0672 互列；三条既有受控完整译本已共享同一规范作品，本批补齐目录关系与来源角色证据。",
+          "externalIds": {
+            "cbeta": [
+              "T0670",
+              "T0671",
+              "T0672"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "collection": {
+    "id": "CBETA-TAISHO-T16",
+    "title": "大正藏 T16 经集部固定来源记录",
+    "sourceRecordDenominator": 65,
+    "previouslyControlledSourceRecords": 3,
+    "newSourceRecords": 62,
+    "controlledSourceRecords": 65,
+    "newSourceBytes": 11363551,
+    "newStableSegments": 59284,
+    "newFolios": 2171,
+    "verifiedSameWorkExpressions": 33,
+    "verifiedCompiledVersionWitnesses": 1,
+    "verifiedPartialWorkWitnesses": 4,
+    "provisionalRecords": 24,
+    "fullSourceTexts": 58,
+    "partialSourceWitnesses": 4,
+    "relationAnnotatedRecords": 38,
+    "previouslyControlledRelationRecords": 3,
+    "attributionBoundaryRecords": 10,
+    "newWorks": 39,
+    "workCountingDecision": "T16 共 65 条固定来源记录，其中 T0670–T0672 已受控，本批新增 62 条表达或见证与 39 个作品实体：15 组同作品汉译、合部或局部见证，24 条暂定书目记录。T0677–T0679 与 T0686 只计局部或短本见证，T0664 只计合部编纂见证；既有楞伽三译补齐关系证据但不重复新增。"
+  },
+  "boundaryAudit": {
+    "status": "verified_translation_groups_partial_and_compiled_witnesses_attribution_boundaries_recorded",
+    "verifiedSameWorkGroups": [
+      "ratnamegha-t0658-t0659",
+      "hundred-merits-t0661-t0662",
+      "suvarnaprabhasa-t0663-t0665",
+      "tathagatagarbha-t0666-t0667",
+      "mahayana-abhisamaya-t0673-t0674",
+      "samdhinirmocana-t0675-t0679",
+      "ghanavyuha-t0681-t0682",
+      "ullambana-t0685-t0686",
+      "adbhuta-t0688-t0689",
+      "image-installation-t0692-t0693",
+      "image-washing-t0695-t0696",
+      "buddha-bathing-t0697-t0698",
+      "salistamba-t0708-t0712",
+      "nidana-t0713-t0715",
+      "dependent-origination-analysis-t0716-t0717",
+      "lankavatara-t0670-t0672"
+    ],
+    "partialTranslationWitnesses": [
+      "T0677",
+      "T0678",
+      "T0679",
+      "T0686"
+    ],
+    "compiledVersionWitnesses": [
+      "T0664"
+    ],
+    "attributionCaveats": [
+      "T0686",
+      "T0687",
+      "T0688",
+      "T0692",
+      "T0693",
+      "T0707",
+      "T0709",
+      "T0712",
+      "T0720"
+    ],
+    "existingControlledTranslationGroup": [
+      "T0670",
+      "T0671",
+      "T0672"
+    ],
+    "authoritySource": "https://authority.dila.edu.tw/catalog/",
+    "embeddedAuthorityEvidence": "冻结 CBETA TEI 的 cb:docNumber 目录互见号",
+    "caveat": "T16 含异译、同译者再译、合部编纂、单品独立译出与短本；目录互见只作为候选关系，平台再结合题记和文本范围决定表达、编纂见证或部分见证，不把相关经典机械强并。"
+  },
+  "files": [
+    {
+      "id": "T0656",
+      "slug": "taisho-t0656",
+      "workId": "gbcr:work:taisho-t0656",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0656.xml",
+      "upstreamPath": "T/T16/T16n0656.xml",
+      "upstreamGitBlobSha1": "7364b06fc56986307466a5df41164fd3cdf47987",
+      "upstreamBytes": 2013342,
+      "upstreamSha256": "ee47ed75680672a9fead05ff86b50ae79d9a417790d62ca709df64da931079ea",
+      "localBytes": 2013343,
+      "localSha256": "f167926804c4a9e5bc8d2305748318eccc3d5be415752a748d73fefe482ec4c3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩瓔珞經",
+        "alternateTitle": "菩薩瓔珞經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 656",
+        "translator": "姚秦 · 竺佛念譯",
+        "summary": "14卷。本站完整保存 T0656 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0656_001"
+      },
+      "verification": {
+        "segments": 10913,
+        "folios": 387,
+        "juanRange": [
+          1,
+          14
+        ],
+        "anchors": [
+          "T0656.001.0001a02",
+          "T0656.014.0126c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0657",
+      "slug": "taisho-t0657",
+      "workId": "gbcr:work:taisho-t0657",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0657.xml",
+      "upstreamPath": "T/T16/T16n0657.xml",
+      "upstreamGitBlobSha1": "c8294f8e0ac1945983a59a92e51914bb8aea3ba9",
+      "upstreamBytes": 1742528,
+      "upstreamSha256": "8ac0a5ac7ced139c75f7784eac6f64c3f98025edcbbc10412c48fc9efe616cb1",
+      "localBytes": 1742529,
+      "localSha256": "bca5c08cd2d034955aca28896c6a4ba92cedfa28953b2db877282de3b1811acc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說華手經",
+        "alternateTitle": "佛說華手經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 657",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "10卷。本站完整保存 T0657 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0657_001"
+      },
+      "verification": {
+        "segments": 7079,
+        "folios": 254,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0657.001.0127a02",
+          "T0657.010.0208c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0658",
+      "slug": "taisho-t0658",
+      "workId": "gbcr:work:ratnamegha-t0658",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ratnamegha-t0658-t0659",
+          "label": "Ratnameghasūtra／《宝云经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0658",
+              "T0659"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0658.xml",
+      "upstreamPath": "T/T16/T16n0658.xml",
+      "upstreamGitBlobSha1": "0639ace495964b29d433d7d7f7c9329d790accd5",
+      "upstreamBytes": 542303,
+      "upstreamSha256": "cfec02cf4ef4bc3c273bb2a9201e5a4f8a561acb82273ee9dc09a19e63b72dcc",
+      "localBytes": 542304,
+      "localSha256": "4f8fe70396b143e98a31501b468b4f8cd388455cfc70f58d44e6a40c6cf26314",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶雲經",
+        "alternateTitle": "寶雲經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 658",
+        "translator": "梁 · 曼陀羅仙譯",
+        "summary": "7卷。本站完整保存 T0658 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0658_001"
+      },
+      "verification": {
+        "segments": 2757,
+        "folios": 101,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0658.001.0209a02",
+          "T0658.007.0240c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0659",
+      "slug": "taisho-t0659",
+      "workId": "gbcr:work:ratnamegha-t0658",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ratnamegha-t0658-t0659",
+          "label": "Ratnameghasūtra／《宝云经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0658",
+              "T0659"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0659.xml",
+      "upstreamPath": "T/T16/T16n0659.xml",
+      "upstreamGitBlobSha1": "e6594d5508063327dfd367e70f2d730093430e40",
+      "upstreamBytes": 455812,
+      "upstreamSha256": "39dd8b693a6d6cb59c8995e78bfb8cacb40fe8d562747fd651f5a9834ee26584",
+      "localBytes": 455813,
+      "localSha256": "e755f86ac3c325cf5b066e394108ddfbc2c08d3c689fca866b659948ee4804b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘寶雲經",
+        "alternateTitle": "大乘寶雲經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 659",
+        "translator": "梁 · 曼陀羅仙共僧伽婆羅譯",
+        "summary": "7卷。本站完整保存 T0659 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0659_001"
+      },
+      "verification": {
+        "segments": 3677,
+        "folios": 132,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0659.001.0241a02",
+          "T0659.007.0283b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0660",
+      "slug": "taisho-t0660",
+      "workId": "gbcr:work:taisho-t0660",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0660.xml",
+      "upstreamPath": "T/T16/T16n0660.xml",
+      "upstreamGitBlobSha1": "b6dc3d51d8dd3fe05d2bf3c47169fdab498d9f0f",
+      "upstreamBytes": 563121,
+      "upstreamSha256": "9cf978940f74c77acd33f7559399fce9e95bdec8ed71d1cef596ec8cff923544",
+      "localBytes": 563122,
+      "localSha256": "8529424cd2229aefb608531d34ae312a571425b390f4df2b47d5e5a316bf2224",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說寶雨經",
+        "alternateTitle": "佛說寶雨經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 660",
+        "translator": "唐 · 達摩流支譯",
+        "summary": "10卷。本站完整保存 T0660 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0660_001"
+      },
+      "verification": {
+        "segments": 3856,
+        "folios": 141,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0660.001.0283b20",
+          "T0660.010.0328c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0661",
+      "slug": "taisho-t0661",
+      "workId": "gbcr:work:manjusri-pariprccha-hundred-merits",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "hundred-merits-t0661-t0662",
+          "label": "Mañjuśrīparipṛcchā／《百福相经》两译组",
+          "evidence": "CBETA 与 DILA 均把 T0661、T0662 互列并登记同一 Mañjuśrīparipṛcchā；两篇题记分别署地婆诃罗“译”与“再译”，平台登记为同一作品的两次汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0661",
+              "T0662"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0661.xml",
+      "upstreamPath": "T/T16/T16n0661.xml",
+      "upstreamGitBlobSha1": "a71325ec917904bb46314b36003cad17de253660",
+      "upstreamBytes": 31157,
+      "upstreamSha256": "a530b6f27d88421985d5b672da34549cb6e3f7899cf1afee778cee2dd8f5e3e5",
+      "localBytes": 31158,
+      "localSha256": "00db4cfd94d66a8e9fa6d884e4052de78765afbe6ba7fc1559a1b9a3636b2f2a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘百福相經",
+        "alternateTitle": "大乘百福相經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 661",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "1卷。本站完整保存 T0661 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0661_001"
+      },
+      "verification": {
+        "segments": 181,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0661.001.0328c10",
+          "T0661.001.0330c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0662",
+      "slug": "taisho-t0662",
+      "workId": "gbcr:work:manjusri-pariprccha-hundred-merits",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "hundred-merits-t0661-t0662",
+          "label": "Mañjuśrīparipṛcchā／《百福相经》两译组",
+          "evidence": "CBETA 与 DILA 均把 T0661、T0662 互列并登记同一 Mañjuśrīparipṛcchā；两篇题记分别署地婆诃罗“译”与“再译”，平台登记为同一作品的两次汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0661",
+              "T0662"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0662.xml",
+      "upstreamPath": "T/T16/T16n0662.xml",
+      "upstreamGitBlobSha1": "726e61f96203c95ffa464160df881c74721a4706",
+      "upstreamBytes": 36546,
+      "upstreamSha256": "9e937d62dda4abf0492233cb74699f471cfaf28db3bc3a5f823c4c5996d308b5",
+      "localBytes": 36547,
+      "localSha256": "dd4fbba0cb7cc8d9fb52453e23729fba1b762b78546556bc905f4e2ae5b5e192",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘百福莊嚴相經",
+        "alternateTitle": "大乘百福莊嚴相經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 662",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "1卷。本站完整保存 T0662 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0662_001"
+      },
+      "verification": {
+        "segments": 226,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0662.001.0330c19",
+          "T0662.001.0333b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0663",
+      "slug": "taisho-t0663",
+      "workId": "gbcr:work:suvarnaprabhasa-t0663",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_compiled_version_verified",
+          "groupId": "suvarnaprabhasa-t0663-t0665",
+          "label": "Suvarṇaprabhāsa／《金光明经》译本与合部见证组",
+          "evidence": "DILA 将三经互列并登记同一 Suvarṇaprabhāsa；T0663、T0665 是译本，T0664 题记和目录明载隋宝贵“合／Compilation”。平台共享规范作品，但把 T0664 保留为合部编纂见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T0664",
+              "T0665"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0663.xml",
+      "upstreamPath": "T/T16/T16n0663.xml",
+      "upstreamGitBlobSha1": "717aaaf4eee24a3296c2f19d3f4a0d8a1f59903c",
+      "upstreamBytes": 422850,
+      "upstreamSha256": "2e00e95569218b02374870375e6ab69303d74595bcf21be56e8d1c55ffa0b571",
+      "localBytes": 422851,
+      "localSha256": "7adb5c9fb722e15ec8bd07a4ca023bd046ce02cd07b3d89bce7290118762ff4b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經",
+        "alternateTitle": "金光明經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 663",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "4卷。本站完整保存 T0663 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0663_001"
+      },
+      "verification": {
+        "segments": 2103,
+        "folios": 77,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0663.001.0335a02",
+          "T0663.004.0359b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0664",
+      "slug": "taisho-t0664",
+      "workId": "gbcr:work:suvarnaprabhasa-t0663",
+      "workIdentityStatus": "verified_compiled_version_witness",
+      "sourceRole": "compiled_canonical_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_compiled_version_verified",
+          "groupId": "suvarnaprabhasa-t0663-t0665",
+          "label": "Suvarṇaprabhāsa／《金光明经》译本与合部见证组",
+          "evidence": "DILA 将三经互列并登记同一 Suvarṇaprabhāsa；T0663、T0665 是译本，T0664 题记和目录明载隋宝贵“合／Compilation”。平台共享规范作品，但把 T0664 保留为合部编纂见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T0664",
+              "T0665"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0664.xml",
+      "upstreamPath": "T/T16/T16n0664.xml",
+      "upstreamGitBlobSha1": "d3ea6f61a903815120342ff860926628e5cfcd59",
+      "upstreamBytes": 820501,
+      "upstreamSha256": "c8b6712afa2e8ecc60a39af048fa0acffbb793fb60cbe1e94c3b6ce181012769",
+      "localBytes": 820502,
+      "localSha256": "405fdf50dd5c64b2bddc0ea80e1a025e888290dc06b0d6e8f8f5cfdda75d1433",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "合部金光明經",
+        "alternateTitle": "合部金光明經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 664",
+        "translator": "隋 · 寶貴合",
+        "summary": "8卷。本站完整保存 T0664 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记与权威目录明确为合部编纂，平台保留编纂见证角色；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0664_001"
+      },
+      "verification": {
+        "segments": 3680,
+        "folios": 134,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T0664.001.0359b04",
+          "T0664.008.0402a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0665",
+      "slug": "taisho-t0665",
+      "workId": "gbcr:work:suvarnaprabhasa-t0663",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_compiled_version_verified",
+          "groupId": "suvarnaprabhasa-t0663-t0665",
+          "label": "Suvarṇaprabhāsa／《金光明经》译本与合部见证组",
+          "evidence": "DILA 将三经互列并登记同一 Suvarṇaprabhāsa；T0663、T0665 是译本，T0664 题记和目录明载隋宝贵“合／Compilation”。平台共享规范作品，但把 T0664 保留为合部编纂见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T0664",
+              "T0665"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0665.xml",
+      "upstreamPath": "T/T16/T16n0665.xml",
+      "upstreamGitBlobSha1": "639dc85d9fb16999779f167b52b8f7d563f6642f",
+      "upstreamBytes": 954465,
+      "upstreamSha256": "136585734c4cfc07769006e2a37cb575bda00c27bb08f8aa30f2c801b8c72def",
+      "localBytes": 954466,
+      "localSha256": "c1a12f1ee6323b7863241730a7e1641cdc5a391716feeb969190edb7e0926e18",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明最勝王經",
+        "alternateTitle": "金光明最勝王經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 665",
+        "translator": "唐 · 義淨譯",
+        "summary": "10卷。本站完整保存 T0665 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0665_001"
+      },
+      "verification": {
+        "segments": 4574,
+        "folios": 170,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T0665.001.0403a02",
+          "T0665.010.0456c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0666",
+      "slug": "taisho-t0666",
+      "workId": "gbcr:work:tathagatagarbha-sutra-t0666",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagatagarbha-t0666-t0667",
+          "label": "Tathāgatagarbhasūtra／《如来藏经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0666",
+              "T0667"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0666.xml",
+      "upstreamPath": "T/T16/T16n0666.xml",
+      "upstreamGitBlobSha1": "f1b86e0c90f5c75a4b89d1ae2a95b33c59bdf902",
+      "upstreamBytes": 60381,
+      "upstreamSha256": "641bc8e85a1ae43ff120fe9d3dcc1eeab5030f599f568f63b02b301f0d28c908",
+      "localBytes": 60382,
+      "localSha256": "d853374897f1a7b2b1834d0db7064d4855aae7bc5a2c457cf9f7b2e87eb060e8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方等如來藏經",
+        "alternateTitle": "大方等如來藏經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 666",
+        "translator": "東晉 · 佛陀跋陀羅譯",
+        "summary": "1卷。本站完整保存 T0666 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0666_001"
+      },
+      "verification": {
+        "segments": 309,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0666.001.0457a02",
+          "T0666.001.0460b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0667",
+      "slug": "taisho-t0667",
+      "workId": "gbcr:work:tathagatagarbha-sutra-t0666",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tathagatagarbha-t0666-t0667",
+          "label": "Tathāgatagarbhasūtra／《如来藏经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0666",
+              "T0667"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0667.xml",
+      "upstreamPath": "T/T16/T16n0667.xml",
+      "upstreamGitBlobSha1": "d0aa658ca041635787ded24b05d009da14061dfe",
+      "upstreamBytes": 55876,
+      "upstreamSha256": "1cbd2c82fe889ba69952513d5a367bc6dfece835e0b87b3f230e9b2dcb9c6352",
+      "localBytes": 55877,
+      "localSha256": "3bb44aef89f4e36dc99de915fef6a197f27312d7682f4527d2848b3da9dafd52",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣如來藏經",
+        "alternateTitle": "大方廣如來藏經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 667",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0667 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0667_001"
+      },
+      "verification": {
+        "segments": 476,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0667.001.0460b23",
+          "T0667.001.0466a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0668",
+      "slug": "taisho-t0668",
+      "workId": "gbcr:work:taisho-t0668",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0668.xml",
+      "upstreamPath": "T/T16/T16n0668.xml",
+      "upstreamGitBlobSha1": "c74b22ce8203fd3a3ab8e7696d377d37d6b69034",
+      "upstreamBytes": 35979,
+      "upstreamSha256": "daee85769ec30558795bfa02cf25ffabd120cf9d0f982877d1f67ff2176c473b",
+      "localBytes": 35980,
+      "localSha256": "dba21d4d5577a1f23c44d441fe975b63ac555ea8423b0caf9b7f1550e2044810",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說不增不減經",
+        "alternateTitle": "佛說不增不減經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 668",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "1卷。本站完整保存 T0668 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0668_001"
+      },
+      "verification": {
+        "segments": 167,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0668.001.0466a09",
+          "T0668.001.0468a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0669",
+      "slug": "taisho-t0669",
+      "workId": "gbcr:work:taisho-t0669",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0669.xml",
+      "upstreamPath": "T/T16/T16n0669.xml",
+      "upstreamGitBlobSha1": "3b4e6917f7ad657a20f024797e43b95f6aef3e26",
+      "upstreamBytes": 147590,
+      "upstreamSha256": "e710e41b469bc78fecb18a19d1b9064fb0459abb392f802dd6fb691fcde2d0a9",
+      "localBytes": 147591,
+      "localSha256": "7e3817cdca6d49efe88a84dee7f78d402f53a88266518abff4a9af835a70ec16",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說無上依經",
+        "alternateTitle": "佛說無上依經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 669",
+        "translator": "梁 · 真諦譯",
+        "summary": "2卷。本站完整保存 T0669 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0669_001"
+      },
+      "verification": {
+        "segments": 848,
+        "folios": 31,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0669.001.0468a05",
+          "T0669.002.0477c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0673",
+      "slug": "taisho-t0673",
+      "workId": "gbcr:work:mahayana-abhisamaya-t0673",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "mahayana-abhisamaya-t0673-t0674",
+          "label": "Mahāyānābhisamaya／《大乘同性经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0673",
+              "T0674"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0673.xml",
+      "upstreamPath": "T/T16/T16n0673.xml",
+      "upstreamGitBlobSha1": "c27afc19ef729f14657e794ff4258f5f47926a90",
+      "upstreamBytes": 180393,
+      "upstreamSha256": "14f7108c529b23f497343a5395779c78673fc3e800fe47acdc5751529c78c60f",
+      "localBytes": 180394,
+      "localSha256": "1021075117ca4255742b63862f038f74dd14307bf2d0c4746713d67acb23253f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘同性經",
+        "alternateTitle": "大乘同性經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 673",
+        "translator": "宇文周 · 闍那耶舍譯",
+        "summary": "2卷。本站完整保存 T0673 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0673_001"
+      },
+      "verification": {
+        "segments": 1063,
+        "folios": 38,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0673.001.0640c05",
+          "T0673.002.0652c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0674",
+      "slug": "taisho-t0674",
+      "workId": "gbcr:work:mahayana-abhisamaya-t0673",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "mahayana-abhisamaya-t0673-t0674",
+          "label": "Mahāyānābhisamaya／《大乘同性经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0673",
+              "T0674"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0674.xml",
+      "upstreamPath": "T/T16/T16n0674.xml",
+      "upstreamGitBlobSha1": "200328ebf6ffa9d85acef6aafb77f1ae553d171f",
+      "upstreamBytes": 146981,
+      "upstreamSha256": "a2e1447113670e1848843a2e5d69499a6f77e9b6737914df0f0111595c47e3d2",
+      "localBytes": 146982,
+      "localSha256": "6ca326c83169eeb1fffc7df80684702242c779e98b63cd80c8f56686651cd8a7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "證契大乘經",
+        "alternateTitle": "證契大乘經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 674",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "2卷。本站完整保存 T0674 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0674_001"
+      },
+      "verification": {
+        "segments": 938,
+        "folios": 33,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0674.001.0653a02",
+          "T0674.002.0663c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0675",
+      "slug": "taisho-t0675",
+      "workId": "gbcr:work:samdhinirmocana-t0675",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_with_partial_witnesses_verified",
+          "groupId": "samdhinirmocana-t0675-t0679",
+          "label": "Sandhīnirmocanasūtra／《解深密经》全译与单品译出组",
+          "evidence": "CBETA 目录头与 DILA 将 T0675–T0679 归于 Sandhīnirmocanasūtra；T0675、T0676 是五卷完整译本，T0677 对应 T0675 第2–5品／T0676 第2品，T0678 对应第10品／第7品，T0679 对应第11品／第8品。后三条只计单品翻译见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0675",
+              "T0676",
+              "T0677",
+              "T0678",
+              "T0679"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0675.xml",
+      "upstreamPath": "T/T16/T16n0675.xml",
+      "upstreamGitBlobSha1": "675b2f1f74c0abb26c906ce67adc481cb0bb2161",
+      "upstreamBytes": 453230,
+      "upstreamSha256": "6822bb96c1fc6b6c3727e10bd4fb6222b3c5918e4b61ff9337e9bff96aaef2b3",
+      "localBytes": 453231,
+      "localSha256": "f880ffed27fcf9b612644a9697d86eec32f2d1c971e59e2845fbf04384528bfb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "深密解脫經",
+        "alternateTitle": "深密解脫經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 675",
+        "translator": "元魏 · 菩提流支譯",
+        "summary": "5卷。本站完整保存 T0675 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0675_001"
+      },
+      "verification": {
+        "segments": 2012,
+        "folios": 72,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0675.001.0665a02",
+          "T0675.005.0688a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0676",
+      "slug": "taisho-t0676",
+      "workId": "gbcr:work:samdhinirmocana-t0675",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_with_partial_witnesses_verified",
+          "groupId": "samdhinirmocana-t0675-t0679",
+          "label": "Sandhīnirmocanasūtra／《解深密经》全译与单品译出组",
+          "evidence": "CBETA 目录头与 DILA 将 T0675–T0679 归于 Sandhīnirmocanasūtra；T0675、T0676 是五卷完整译本，T0677 对应 T0675 第2–5品／T0676 第2品，T0678 对应第10品／第7品，T0679 对应第11品／第8品。后三条只计单品翻译见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0675",
+              "T0676",
+              "T0677",
+              "T0678",
+              "T0679"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0676.xml",
+      "upstreamPath": "T/T16/T16n0676.xml",
+      "upstreamGitBlobSha1": "6b1586d4c3e3e35662eb3415e006f9ee830cc42f",
+      "upstreamBytes": 294993,
+      "upstreamSha256": "dd08f77ad3965a59986ab6bce86041d7153cecbf5811ed972610beb12f91cd6d",
+      "localBytes": 294994,
+      "localSha256": "f163ec23fc2307d0cc833f56c14f3bf36fcaa386f997caf58ae176721c30f243",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "解深密經",
+        "alternateTitle": "解深密經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 676",
+        "translator": "唐 · 玄奘譯",
+        "summary": "5卷。本站完整保存 T0676 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0676_001"
+      },
+      "verification": {
+        "segments": 2005,
+        "folios": 73,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0676.001.0688b02",
+          "T0676.005.0711b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0677",
+      "slug": "taisho-t0677",
+      "workId": "gbcr:work:samdhinirmocana-t0675",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_with_partial_witnesses_verified",
+          "groupId": "samdhinirmocana-t0675-t0679",
+          "label": "Sandhīnirmocanasūtra／《解深密经》全译与单品译出组",
+          "evidence": "CBETA 目录头与 DILA 将 T0675–T0679 归于 Sandhīnirmocanasūtra；T0675、T0676 是五卷完整译本，T0677 对应 T0675 第2–5品／T0676 第2品，T0678 对应第10品／第7品，T0679 对应第11品／第8品。后三条只计单品翻译见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0675",
+              "T0676",
+              "T0677",
+              "T0678",
+              "T0679"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0677.xml",
+      "upstreamPath": "T/T16/T16n0677.xml",
+      "upstreamGitBlobSha1": "0a1ac7283c978d9a7752e1403da74e9e8d722fc6",
+      "upstreamBytes": 51801,
+      "upstreamSha256": "b2a0c5a3aeb6faddda2e03836f3f2e2a38d04aa337575d8558376ea9c9da1e8f",
+      "localBytes": 51802,
+      "localSha256": "b4823474f39ed6983b39c64c87f7e6144fd35e93b0fbce62d1dcdd5360670d08",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說解節經",
+        "alternateTitle": "佛說解節經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 677",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。本站完整保存 T0677 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存单品独立译出，只作部分翻译见证；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0677_001"
+      },
+      "verification": {
+        "segments": 277,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0677.001.0711b24",
+          "T0677.001.0714c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0678",
+      "slug": "taisho-t0678",
+      "workId": "gbcr:work:samdhinirmocana-t0675",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_with_partial_witnesses_verified",
+          "groupId": "samdhinirmocana-t0675-t0679",
+          "label": "Sandhīnirmocanasūtra／《解深密经》全译与单品译出组",
+          "evidence": "CBETA 目录头与 DILA 将 T0675–T0679 归于 Sandhīnirmocanasūtra；T0675、T0676 是五卷完整译本，T0677 对应 T0675 第2–5品／T0676 第2品，T0678 对应第10品／第7品，T0679 对应第11品／第8品。后三条只计单品翻译见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0675",
+              "T0676",
+              "T0677",
+              "T0678",
+              "T0679"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0678.xml",
+      "upstreamPath": "T/T16/T16n0678.xml",
+      "upstreamGitBlobSha1": "013edc05018bd695a65353b9e39bfcec0e43dd92",
+      "upstreamBytes": 46809,
+      "upstreamSha256": "384807f204098c1bc70625a999564e3d9b667f09c4571f890857bac8c71272ab",
+      "localBytes": 46810,
+      "localSha256": "73781fb0c48b8bee66db8436e451387c05b55ea1fc47671b3a568590c5171ce0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "相續解脫地波羅蜜了義經",
+        "alternateTitle": "相續解脫地波羅蜜了義經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 678",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "1卷。本站完整保存 T0678 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存单品独立译出，只作部分翻译见证；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0678_001"
+      },
+      "verification": {
+        "segments": 296,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0678.001.0714c14",
+          "T0678.001.0718a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0679",
+      "slug": "taisho-t0679",
+      "workId": "gbcr:work:samdhinirmocana-t0675",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "partial_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_with_partial_witnesses_verified",
+          "groupId": "samdhinirmocana-t0675-t0679",
+          "label": "Sandhīnirmocanasūtra／《解深密经》全译与单品译出组",
+          "evidence": "CBETA 目录头与 DILA 将 T0675–T0679 归于 Sandhīnirmocanasūtra；T0675、T0676 是五卷完整译本，T0677 对应 T0675 第2–5品／T0676 第2品，T0678 对应第10品／第7品，T0679 对应第11品／第8品。后三条只计单品翻译见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0675",
+              "T0676",
+              "T0677",
+              "T0678",
+              "T0679"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0679.xml",
+      "upstreamPath": "T/T16/T16n0679.xml",
+      "upstreamGitBlobSha1": "892511653f53d87197b0cb3922b56e35e3594524",
+      "upstreamBytes": 36282,
+      "upstreamSha256": "0e03af53e548978a2a112ab1f8b3b2489eacdb121e41dbc7f87d6afa7db4e119",
+      "localBytes": 36283,
+      "localSha256": "98cc970f2ea9f5d9e9ce4b898542eefcd17aeb9ca454b98915903001799a1e20",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "相續解脫如來所作隨順處了義經",
+        "alternateTitle": "相續解脫如來所作隨順處了義經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 679",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "1卷。本站完整保存 T0679 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存单品独立译出，只作部分翻译见证；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0679_001"
+      },
+      "verification": {
+        "segments": 198,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0679.001.0718a23",
+          "T0679.001.0720b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0680",
+      "slug": "taisho-t0680",
+      "workId": "gbcr:work:taisho-t0680",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0680.xml",
+      "upstreamPath": "T/T16/T16n0680.xml",
+      "upstreamGitBlobSha1": "39c44ff43b837bbfd418aae1c6068db172924677",
+      "upstreamBytes": 42716,
+      "upstreamSha256": "c8802895906fccdba9188c10c0194b4cd37f3ef61c16758c7b4b9a989ed39729",
+      "localBytes": 42717,
+      "localSha256": "11a297a8aa7facc71cf96fde2d7c07ada04bd58dade887daefcec517f843d1aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說佛地經",
+        "alternateTitle": "佛說佛地經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 680",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0680 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0680_001"
+      },
+      "verification": {
+        "segments": 253,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0680.001.0720b22",
+          "T0680.001.0723b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0681",
+      "slug": "taisho-t0681",
+      "workId": "gbcr:work:ghanavyuha-t0681",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ghanavyuha-t0681-t0682",
+          "label": "Ghanavyūhasūtra／《大乘密严经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0681",
+              "T0682"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0681.xml",
+      "upstreamPath": "T/T16/T16n0681.xml",
+      "upstreamGitBlobSha1": "e1024b7c6dcfb565f2a5efabb2291d77de729858",
+      "upstreamBytes": 281585,
+      "upstreamSha256": "8b1073a22b8db7b0136a96e5fdd6c4141bf377ed465dcdf7a690e7d287be959d",
+      "localBytes": 281586,
+      "localSha256": "df0578f0536610f6ab08afaf1feb0a3032c0e2b108a9a84d49b87269c183fd64",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘密嚴經",
+        "alternateTitle": "大乘密嚴經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 681",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "3卷。本站完整保存 T0681 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0681_001"
+      },
+      "verification": {
+        "segments": 2080,
+        "folios": 75,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0681.001.0723b17",
+          "T0681.003.0747b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0682",
+      "slug": "taisho-t0682",
+      "workId": "gbcr:work:ghanavyuha-t0681",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "ghanavyuha-t0681-t0682",
+          "label": "Ghanavyūhasūtra／《大乘密严经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0681",
+              "T0682"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0682.xml",
+      "upstreamPath": "T/T16/T16n0682.xml",
+      "upstreamGitBlobSha1": "91928d8fa4ec0cf2b50385204991ad0a56c6b7a8",
+      "upstreamBytes": 438756,
+      "upstreamSha256": "1c0e5b03ff23080aa0603cd212645907b65f9c2864d3e7bdfe56a2aa17884595",
+      "localBytes": 438757,
+      "localSha256": "8866a10c9ef3af19d874104aa0528b51d98c842ec86cf64baca7a0760c81fe9c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘密嚴經",
+        "alternateTitle": "大乘密嚴經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 682",
+        "translator": "唐 · 不空譯",
+        "summary": "3卷。本站完整保存 T0682 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0682_001"
+      },
+      "verification": {
+        "segments": 2498,
+        "folios": 89,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0682.001.0747b18",
+          "T0682.003.0776b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0683",
+      "slug": "taisho-t0683",
+      "workId": "gbcr:work:taisho-t0683",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0683.xml",
+      "upstreamPath": "T/T16/T16n0683.xml",
+      "upstreamGitBlobSha1": "160baf07c170832cf270c35b4f4a01a9794f993a",
+      "upstreamBytes": 68017,
+      "upstreamSha256": "0ee9bbdcb0c3535f8614d6c160adb9ac9bd412644e4f6f37d5c6852362c02514",
+      "localBytes": 68018,
+      "localSha256": "6c2565610121753bee30c57e672c6e9a2de678d819892098622dbdc0f24c56ed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說諸德福田經",
+        "alternateTitle": "佛說諸德福田經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 683",
+        "translator": "西晉 · 法立法炬共譯",
+        "summary": "1卷。本站完整保存 T0683 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0683_001"
+      },
+      "verification": {
+        "segments": 164,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0683.001.0777a02",
+          "T0683.001.0778c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0684",
+      "slug": "taisho-t0684",
+      "workId": "gbcr:work:taisho-t0684",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0684.xml",
+      "upstreamPath": "T/T16/T16n0684.xml",
+      "upstreamGitBlobSha1": "04446f950a4055a2f52bf7c904a3695de578b20a",
+      "upstreamBytes": 9289,
+      "upstreamSha256": "89435d1ec267a0ee69bfc5432cb4f71bab88a3b287ee40a68e11ac0b7bc91adf",
+      "localBytes": 9290,
+      "localSha256": "8414f764a154b9f0fbbbe929d247bdb9a7ddc8cfdf014da1db234e0ffa0e238e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說父母恩難報經",
+        "alternateTitle": "佛說父母恩難報經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 684",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0684 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0684_001"
+      },
+      "verification": {
+        "segments": 26,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0684.001.0778c24",
+          "T0684.001.0779a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0685",
+      "slug": "taisho-t0685",
+      "workId": "gbcr:work:ullambana-t0685",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_with_abridged_witness_verified",
+          "groupId": "ullambana-t0685-t0686",
+          "label": "《盂兰盆经》完整文本与短本见证组",
+          "evidence": "CBETA 目录将 T0685、T0686 互列；正文复核显示 T0686 仅 359 个规范汉字段内容，压缩保留目连救母与设盆供僧主干，明显短于 T0685 的完整叙事与问答。平台将 T0686 作为短本见证，不重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0685",
+              "T0686"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0685.xml",
+      "upstreamPath": "T/T16/T16n0685.xml",
+      "upstreamGitBlobSha1": "f21363acb9393605bb45ca1f59e805bc7c1ca595",
+      "upstreamBytes": 41113,
+      "upstreamSha256": "e20337039ef4043374c90d7f424110b0d8f57aabaf0b18e205e67e91b79d00a4",
+      "localBytes": 41114,
+      "localSha256": "25e1ddeed898091b0419c5eeed6c225d8b9f1dac8837830ad1e9cec94029020e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說盂蘭盆經",
+        "alternateTitle": "佛說盂蘭盆經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 685",
+        "translator": "西晉 · 竺法護譯",
+        "summary": "1卷。本站完整保存 T0685 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0685_001"
+      },
+      "verification": {
+        "segments": 57,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0685.001.0779a24",
+          "T0685.001.0779c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0686",
+      "slug": "taisho-t0686",
+      "workId": "gbcr:work:ullambana-t0685",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "sourceRole": "abridged_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_with_abridged_witness_verified",
+          "groupId": "ullambana-t0685-t0686",
+          "label": "《盂兰盆经》完整文本与短本见证组",
+          "evidence": "CBETA 目录将 T0685、T0686 互列；正文复核显示 T0686 仅 359 个规范汉字段内容，压缩保留目连救母与设盆供僧主干，明显短于 T0685 的完整叙事与问答。平台将 T0686 作为短本见证，不重复计作完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0685",
+              "T0686"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0686.xml",
+      "upstreamPath": "T/T16/T16n0686.xml",
+      "upstreamGitBlobSha1": "a58f1ab6dd0dd9d2be03f694f70c520b6f6d26e2",
+      "upstreamBytes": 12333,
+      "upstreamSha256": "7dc042ad5cb3d478de6ccef1bf1fe8fac50ddd6d398a0419ac3c3310fe6f24d1",
+      "localBytes": 12334,
+      "localSha256": "8832fcbf95a560ec8201640bbaa5a1bb6b324262eae42b6f3534e918e7bd96c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說報恩奉盆經",
+        "alternateTitle": "佛說報恩奉盆經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 686",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0686 的固定 CBETA TEI 来源记录与可校验页栏行锚点；本记录完整保存短本来源文件，但只作同作品的节本见证；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0686_001"
+      },
+      "verification": {
+        "segments": 25,
+        "folios": 1,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0686.001.0780a02",
+          "T0686.001.0780a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0687",
+      "slug": "taisho-t0687",
+      "workId": "gbcr:work:taisho-t0687",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T16n0687.xml",
+      "upstreamPath": "T/T16/T16n0687.xml",
+      "upstreamGitBlobSha1": "bd1d544f16389bf89decf6da6001482f0e6ab1c5",
+      "upstreamBytes": 49889,
+      "upstreamSha256": "cbf9e8c4d34d52e1a973cb6a5f5f213e86ec2f6e6d442356f1664d4c1a84744e",
+      "localBytes": 49890,
+      "localSha256": "dd6affc2b490fccb7dbf2679f5a388c424588e16ecafadede092072e3ad5a53b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說孝子經",
+        "alternateTitle": "佛說孝子經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 687",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0687 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0687_001"
+      },
+      "verification": {
+        "segments": 52,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0687.001.0780b02",
+          "T0687.001.0781a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0688",
+      "slug": "taisho-t0688",
+      "workId": "gbcr:work:adbhuta-t0688",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "adbhuta-t0688-t0689",
+          "label": "《未曾有／甚希有经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0688",
+              "T0689"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0688.xml",
+      "upstreamPath": "T/T16/T16n0688.xml",
+      "upstreamGitBlobSha1": "2aca1c59b4028885d23fe8a562e20e8c2c6b7c93",
+      "upstreamBytes": 23264,
+      "upstreamSha256": "24435c04f86d3db95e3be106fb24d8e0901a1e79ed74a0c40d56727e799b3bda",
+      "localBytes": 23265,
+      "localSha256": "0ae3e5d739fb9fe9247afcf92203037946dfd5984d1c457e0e19ededb174ede2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說未曾有經",
+        "alternateTitle": "佛說未曾有經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 688",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0688 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0688_001"
+      },
+      "verification": {
+        "segments": 81,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0688.001.0781a09",
+          "T0688.001.0782a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0689",
+      "slug": "taisho-t0689",
+      "workId": "gbcr:work:adbhuta-t0688",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "adbhuta-t0688-t0689",
+          "label": "《未曾有／甚希有经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0688",
+              "T0689"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0689.xml",
+      "upstreamPath": "T/T16/T16n0689.xml",
+      "upstreamGitBlobSha1": "94ebc6c2af1c758d1c7cd533315a1c9a1d76cdc8",
+      "upstreamBytes": 32701,
+      "upstreamSha256": "71f5042d86958733a0137aecdebb13f774b7fcf4c4a76c25a55a2f601ecb423d",
+      "localBytes": 32702,
+      "localSha256": "7a2db898a7dddd59a40cef93eaa89f2b3eb213b9bbf82e2a8a3566078a3377d5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "甚希有經",
+        "alternateTitle": "甚希有經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 689",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0689 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0689_001"
+      },
+      "verification": {
+        "segments": 134,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0689.001.0782a06",
+          "T0689.001.0783b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0690",
+      "slug": "taisho-t0690",
+      "workId": "gbcr:work:taisho-t0690",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0690.xml",
+      "upstreamPath": "T/T16/T16n0690.xml",
+      "upstreamGitBlobSha1": "5480a1c0608d13ac3a590a6e1f56a050f71e966c",
+      "upstreamBytes": 30356,
+      "upstreamSha256": "33ba5d78d973fe73b2908aca486dbc649e2ec28b44ae4ad741531e5645e02078",
+      "localBytes": 30357,
+      "localSha256": "f4294cb3c45b68613da0431927b4509c26206a143ba96f375b6d34aaaaf20e6d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說希有挍量功德經",
+        "alternateTitle": "佛說希有挍量功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 690",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "1卷。本站完整保存 T0690 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0690_001"
+      },
+      "verification": {
+        "segments": 151,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0690.001.0783c02",
+          "T0690.001.0785b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0691",
+      "slug": "taisho-t0691",
+      "workId": "gbcr:work:taisho-t0691",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0691.xml",
+      "upstreamPath": "T/T16/T16n0691.xml",
+      "upstreamGitBlobSha1": "9a5fe92969c32dfd5b582b8263d51be1cbc9806d",
+      "upstreamBytes": 39612,
+      "upstreamSha256": "d4bf0f9140870bec9a48159ed2ecd961d1586d93b7f384e678982766cf6eb109",
+      "localBytes": 39613,
+      "localSha256": "10806774a1307968f76cc0028f04c65585807e6f1cab61796b69865bc6bba886",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "最無比經",
+        "alternateTitle": "最無比經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 691",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0691 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0691_001"
+      },
+      "verification": {
+        "segments": 231,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0691.001.0785b11",
+          "T0691.001.0788a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0692",
+      "slug": "taisho-t0692",
+      "workId": "gbcr:work:tathagata-image-installation-t0692",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "image-installation-t0692-t0693",
+          "label": "Tathāgatapratibimbapratiṣṭhānuśaṃsā／造佛形像经汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0692",
+              "T0693"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0692.xml",
+      "upstreamPath": "T/T16/T16n0692.xml",
+      "upstreamGitBlobSha1": "073dc7203509990f76c200696d223595cb4e2ff2",
+      "upstreamBytes": 19805,
+      "upstreamSha256": "aa866b0aa6d8546f3afbd7b972f205b91d7723a70f2e3c00eb55e27d492ca099",
+      "localBytes": 19806,
+      "localSha256": "fc42e799fa25a5c1da68975440e69ea5e2b3e2a7921d9eb882ec912e8984da94",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說作佛形像經",
+        "alternateTitle": "佛說作佛形像經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 692",
+        "translator": "闕譯",
+        "summary": "1卷。本站完整保存 T0692 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0692_001"
+      },
+      "verification": {
+        "segments": 63,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0692.001.0788a13",
+          "T0692.001.0788c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0693",
+      "slug": "taisho-t0693",
+      "workId": "gbcr:work:tathagata-image-installation-t0692",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "image-installation-t0692-t0693",
+          "label": "Tathāgatapratibimbapratiṣṭhānuśaṃsā／造佛形像经汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0692",
+              "T0693"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0693.xml",
+      "upstreamPath": "T/T16/T16n0693.xml",
+      "upstreamGitBlobSha1": "8f2c54dd5de15f11f26ad1eee166d01ad837235c",
+      "upstreamBytes": 26457,
+      "upstreamSha256": "f8f5ab8d45bd726bc8e5a194ba011e2f438445319c1f971aa559f6dd975c5941",
+      "localBytes": 26458,
+      "localSha256": "a6a06057a30fa7e3d457ede9b32ce90daa91bf1dff511993c802210164896ba9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說造立形像福報經",
+        "alternateTitle": "佛說造立形像福報經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 693",
+        "translator": "闕譯",
+        "summary": "1卷。本站完整保存 T0693 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0693_001"
+      },
+      "verification": {
+        "segments": 103,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0693.001.0788c21",
+          "T0693.001.0790a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0694",
+      "slug": "taisho-t0694",
+      "workId": "gbcr:work:taisho-t0694",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0694.xml",
+      "upstreamPath": "T/T16/T16n0694.xml",
+      "upstreamGitBlobSha1": "abe9d2cd2adfdbea8f48846ca51d7149629ee778",
+      "upstreamBytes": 101021,
+      "upstreamSha256": "46507651a87eb39b27c2745de515a7a30c774d11c81489f3ae6089dff8b7da1e",
+      "localBytes": 101022,
+      "localSha256": "fb75c9f44d3db71d38fe4d6a5e0edf2a05537f3f56587b2b9d53d6242d8585bd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘造像功德經",
+        "alternateTitle": "佛說大乘造像功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 694",
+        "translator": "唐 · 提雲般若譯",
+        "summary": "2卷。本站完整保存 T0694 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0694_001"
+      },
+      "verification": {
+        "segments": 563,
+        "folios": 21,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0694.001.0790a11",
+          "T0694.002.0796b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0695",
+      "slug": "taisho-t0695",
+      "workId": "gbcr:work:buddha-image-washing-t0695",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "image-washing-t0695-t0696",
+          "label": "《灌洗佛形像经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0695",
+              "T0696"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0695.xml",
+      "upstreamPath": "T/T16/T16n0695.xml",
+      "upstreamGitBlobSha1": "185f00803cd87b9faa9e8845f7706c29ce1a6103",
+      "upstreamBytes": 20429,
+      "upstreamSha256": "b036153588db5c850e2976a884b2f578377bb77d3288a91d096d6886e976375a",
+      "localBytes": 20430,
+      "localSha256": "c8d686d855098eb51719622dfaaeca611604627befcaa44361a71c18358ff8ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說灌洗佛形像經",
+        "alternateTitle": "佛說灌洗佛形像經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 695",
+        "translator": "西晉 · 法炬譯",
+        "summary": "1卷。本站完整保存 T0695 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0695_001"
+      },
+      "verification": {
+        "segments": 79,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0695.001.0796c02",
+          "T0695.001.0797b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0696",
+      "slug": "taisho-t0696",
+      "workId": "gbcr:work:buddha-image-washing-t0695",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "image-washing-t0695-t0696",
+          "label": "《灌洗佛形像经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0695",
+              "T0696"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0696.xml",
+      "upstreamPath": "T/T16/T16n0696.xml",
+      "upstreamGitBlobSha1": "4fe766896c808a07e8a72c30df2fcc963409b3f3",
+      "upstreamBytes": 32662,
+      "upstreamSha256": "ae72b1b36e9c2179827d188fa34fe405ec48920556f035775007de6157c38f7d",
+      "localBytes": 32663,
+      "localSha256": "b9dff0c0a727cfab2362451348444287f8494323203db18baf29376fd4f007c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說摩訶剎頭經",
+        "alternateTitle": "佛說摩訶剎頭經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 696",
+        "translator": "西秦 · 聖堅譯",
+        "summary": "1卷。本站完整保存 T0696 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0696_001"
+      },
+      "verification": {
+        "segments": 84,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0696.001.0797c02",
+          "T0696.001.0798b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0697",
+      "slug": "taisho-t0697",
+      "workId": "gbcr:work:buddha-bathing-merit-t0697",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "buddha-bathing-t0697-t0698",
+          "label": "《浴像功德经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0697",
+              "T0698"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0697.xml",
+      "upstreamPath": "T/T16/T16n0697.xml",
+      "upstreamGitBlobSha1": "872e962eda19408501fe4e0722e46b69a0611a9e",
+      "upstreamBytes": 19307,
+      "upstreamSha256": "427a22467a3b849b7a33d87bb9383edc16cffbe363bf2217c3d4b9729abb613d",
+      "localBytes": 19308,
+      "localSha256": "0af0748c0adc31f562d825a1f07b47f80225fb13dfd9808b70c89e48cf5f92b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說浴像功德經",
+        "alternateTitle": "佛說浴像功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 697",
+        "translator": "唐 · 寶思惟譯",
+        "summary": "1卷。本站完整保存 T0697 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0697_001"
+      },
+      "verification": {
+        "segments": 77,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0697.001.0798c05",
+          "T0697.001.0799b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0698",
+      "slug": "taisho-t0698",
+      "workId": "gbcr:work:buddha-bathing-merit-t0697",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "buddha-bathing-t0697-t0698",
+          "label": "《浴像功德经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0697",
+              "T0698"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0698.xml",
+      "upstreamPath": "T/T16/T16n0698.xml",
+      "upstreamGitBlobSha1": "8c555295b36c14f1c0d2b04c3417d41a8957954d",
+      "upstreamBytes": 18380,
+      "upstreamSha256": "ccb653bc98cafc0e5a9f1de157cfec023872433a811338a3209b43f6cbcb3d7e",
+      "localBytes": 18381,
+      "localSha256": "4c14416961db002e9591a2bbdbfa64fd9958447c8624a14913b76525d0ee6dbb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "浴佛功德經",
+        "alternateTitle": "浴佛功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 698",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T0698 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0698_001"
+      },
+      "verification": {
+        "segments": 100,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0698.001.0799c02",
+          "T0698.001.0800c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0699",
+      "slug": "taisho-t0699",
+      "workId": "gbcr:work:taisho-t0699",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0699.xml",
+      "upstreamPath": "T/T16/T16n0699.xml",
+      "upstreamGitBlobSha1": "0575be444cb9ff049cf1decb6cf0db3d19d6a593",
+      "upstreamBytes": 16277,
+      "upstreamSha256": "636bdbc1bd80187fbdda633f27ab49ae0c607c76b7dacb7a9f89c43a896b1270",
+      "localBytes": 16278,
+      "localSha256": "a43e37975502028a32ebe5e42d14d2cd80ca4b64411514e81417b6f1b88bd5d9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說造塔功德經",
+        "alternateTitle": "佛說造塔功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 699",
+        "translator": "唐 · 地婆訶羅譯",
+        "summary": "1卷。本站完整保存 T0699 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0699_001"
+      },
+      "verification": {
+        "segments": 55,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0699.001.0800c18",
+          "T0699.001.0801b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0700",
+      "slug": "taisho-t0700",
+      "workId": "gbcr:work:taisho-t0700",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0700.xml",
+      "upstreamPath": "T/T16/T16n0700.xml",
+      "upstreamGitBlobSha1": "498ef40ba22cc873d68460f6f2b79d5b43d29d3f",
+      "upstreamBytes": 20537,
+      "upstreamSha256": "c225d21db8a4d4ef547140df7ba182b245c1ad15da25b2d6d14ce1d95f4ba479",
+      "localBytes": 20538,
+      "localSha256": "d9a3f053ad1e1fdfc043ef8630642cabd8e9b7839b4f1b8cf7c3e64207de33fc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "右繞佛塔功德經",
+        "alternateTitle": "右繞佛塔功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 700",
+        "translator": "唐 · 實叉難陀譯",
+        "summary": "1卷。本站完整保存 T0700 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0700_001"
+      },
+      "verification": {
+        "segments": 96,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0700.001.0801b21",
+          "T0700.001.0802c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0701",
+      "slug": "taisho-t0701",
+      "workId": "gbcr:work:taisho-t0701",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0701.xml",
+      "upstreamPath": "T/T16/T16n0701.xml",
+      "upstreamGitBlobSha1": "54b2c053e2170f72f26cd92adace7b2bb986b57a",
+      "upstreamBytes": 32364,
+      "upstreamSha256": "22c20304ec6d44c698d4becae8a621e08620305c07de6c1229f1039314a1b509",
+      "localBytes": 32365,
+      "localSha256": "dc07453382745924b309e2c7edfeb6b5d0abdd1e03a1e5f2275d07475c1e0fd4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說溫室洗浴眾僧經",
+        "alternateTitle": "佛說溫室洗浴眾僧經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 701",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T0701 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0701_001"
+      },
+      "verification": {
+        "segments": 98,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0701.001.0802c04",
+          "T0701.001.0803c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0702",
+      "slug": "taisho-t0702",
+      "workId": "gbcr:work:taisho-t0702",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0702.xml",
+      "upstreamPath": "T/T16/T16n0702.xml",
+      "upstreamGitBlobSha1": "538947ff67b623bbaaba3396c5389ffdc3199842",
+      "upstreamBytes": 77316,
+      "upstreamSha256": "ddcd11f7cc56e019408c1ca79605e2327eb2785679fc44519da4f8707180cd2a",
+      "localBytes": 77317,
+      "localSha256": "4f3b09dd21b418e1a5909c8c079f7be01c20d37e43a2eaeddbc39116c90f5110",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說施燈功德經",
+        "alternateTitle": "佛說施燈功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 702",
+        "translator": "高齊 · 那連提耶舍譯",
+        "summary": "1卷。本站完整保存 T0702 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0702_001"
+      },
+      "verification": {
+        "segments": 403,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0702.001.0803c18",
+          "T0702.001.0808b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0703",
+      "slug": "taisho-t0703",
+      "workId": "gbcr:work:taisho-t0703",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0703.xml",
+      "upstreamPath": "T/T16/T16n0703.xml",
+      "upstreamGitBlobSha1": "ccc51bb5ac46b007e5163ff843e44d5e27c8c5fd",
+      "upstreamBytes": 80742,
+      "upstreamSha256": "6fae056cc43a340fb5f3a38365ab1b38f397044b8d7ac2f6d6b9170973664ea9",
+      "localBytes": 80743,
+      "localSha256": "cf7b2a8b45905ba5a9b1be2b65283e56f28ebdf3a7dbeca2d37cad52109f043b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "燈指因緣經",
+        "alternateTitle": "燈指因緣經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 703",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T0703 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0703_001"
+      },
+      "verification": {
+        "segments": 251,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0703.001.0808b18",
+          "T0703.001.0811b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0704",
+      "slug": "taisho-t0704",
+      "workId": "gbcr:work:taisho-t0704",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0704.xml",
+      "upstreamPath": "T/T16/T16n0704.xml",
+      "upstreamGitBlobSha1": "fd34dd7bd4d56126f185453d109ada62db57e017",
+      "upstreamBytes": 24856,
+      "upstreamSha256": "a485d20f93ea5b2aeb64db82c02aee5bc8e77d3411e71cccfb0d3d4dc8691689",
+      "localBytes": 24857,
+      "localSha256": "43b5a8627cbfb4b4fccaf7900d41f55e778501dbabf668eef77f786d16bb130b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說樓閣正法甘露鼓經",
+        "alternateTitle": "佛說樓閣正法甘露鼓經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 704",
+        "translator": "宋 · 天息災譯",
+        "summary": "1卷。本站完整保存 T0704 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0704_001"
+      },
+      "verification": {
+        "segments": 111,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0704.001.0811b10",
+          "T0704.001.0812c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0705",
+      "slug": "taisho-t0705",
+      "workId": "gbcr:work:taisho-t0705",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0705.xml",
+      "upstreamPath": "T/T16/T16n0705.xml",
+      "upstreamGitBlobSha1": "1cd69043131eb9b130d137b755b4a656e37c31ae",
+      "upstreamBytes": 16091,
+      "upstreamSha256": "2a2f776b8674c07cc3a704610d07240955762a626c09e2c853c7a84f3bcecb14",
+      "localBytes": 16092,
+      "localSha256": "cdaa730144dd4cb766fe2bfbbda3af4003894be12902f2e022721831c5e910db",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說布施經",
+        "alternateTitle": "佛說布施經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 705",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。本站完整保存 T0705 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0705_001"
+      },
+      "verification": {
+        "segments": 62,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0705.001.0812c08",
+          "T0705.001.0813b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0706",
+      "slug": "taisho-t0706",
+      "workId": "gbcr:work:taisho-t0706",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0706.xml",
+      "upstreamPath": "T/T16/T16n0706.xml",
+      "upstreamGitBlobSha1": "e80b37e0cdcf684251bdeed68e3f2d222a3798df",
+      "upstreamBytes": 6810,
+      "upstreamSha256": "5b82f285fc1a214c7fc4ab93b54f24727e9909cb22ba69e41aa38dfddb4b7341",
+      "localBytes": 6811,
+      "localSha256": "5307ddbbfe113cf980fa96003eff09d4774d765c1bc4b5fdafa8c8c5799cf36a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說五大施經",
+        "alternateTitle": "佛說五大施經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 706",
+        "translator": "宋 · 施護等譯",
+        "summary": "1卷。本站完整保存 T0706 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0706_001"
+      },
+      "verification": {
+        "segments": 17,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0706.001.0813b15",
+          "T0706.001.0813c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0707",
+      "slug": "taisho-t0707",
+      "workId": "gbcr:work:taisho-t0707",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T16n0707.xml",
+      "upstreamPath": "T/T16/T16n0707.xml",
+      "upstreamGitBlobSha1": "2b0700b975e371b8a36386799e8b1d0a6d6f95dc",
+      "upstreamBytes": 26705,
+      "upstreamSha256": "40fcb9154d29227b2f7c85822f94ddcc322b9a9889356faaf7c48d152928252f",
+      "localBytes": 26706,
+      "localSha256": "3b1bd53c2e36341c8c6609d4cc8996cf3f4fcbb75dc26b8aa488a88bd31d3f8d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說出家功德經",
+        "alternateTitle": "佛說出家功德經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 707",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0707 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0707_001"
+      },
+      "verification": {
+        "segments": 136,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0707.001.0813c07",
+          "T0707.001.0815a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0708",
+      "slug": "taisho-t0708",
+      "workId": "gbcr:work:salistamba-t0708",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "salistamba-t0708-t0712",
+          "label": "Śālistambasūtra／《稻芉经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0708",
+              "T0709",
+              "T0710",
+              "T0711",
+              "T0712"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0708.xml",
+      "upstreamPath": "T/T16/T16n0708.xml",
+      "upstreamGitBlobSha1": "28dec488faf97fdbe7c014c7793304a7512ef83c",
+      "upstreamBytes": 32412,
+      "upstreamSha256": "ed7c1c29a6d32f4a36275a1a3df0a0f9bef0612a7c69962aca9845fb785fc5db",
+      "localBytes": 32413,
+      "localSha256": "5e25cd49893f4f65d1e5189fb5891a206e24e1504d9db0dca50df5855cbd2662",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "了本生死經",
+        "alternateTitle": "了本生死經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 708",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0708 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0708_001"
+      },
+      "verification": {
+        "segments": 126,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0708.001.0815b02",
+          "T0708.001.0816c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0709",
+      "slug": "taisho-t0709",
+      "workId": "gbcr:work:salistamba-t0708",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "salistamba-t0708-t0712",
+          "label": "Śālistambasūtra／《稻芉经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0708",
+              "T0709",
+              "T0710",
+              "T0711",
+              "T0712"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0709.xml",
+      "upstreamPath": "T/T16/T16n0709.xml",
+      "upstreamGitBlobSha1": "1229e1288dc34416d74e9a427b15ea5f3d809ef6",
+      "upstreamBytes": 40408,
+      "upstreamSha256": "f8eb2ab77c6866046711295f78c91b48a36a73c9e374c74ed83b876719627228",
+      "localBytes": 40409,
+      "localSha256": "45b67c7b1c528a9283a535434d58fb2ada01ac18185f259adf73ae959c122a02",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說稻芉經",
+        "alternateTitle": "佛說稻芉經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 709",
+        "translator": "闕譯",
+        "summary": "1卷。本站完整保存 T0709 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0709_001"
+      },
+      "verification": {
+        "segments": 179,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0709.001.0816c15",
+          "T0709.001.0818c20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0710",
+      "slug": "taisho-t0710",
+      "workId": "gbcr:work:salistamba-t0708",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "salistamba-t0708-t0712",
+          "label": "Śālistambasūtra／《稻芉经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0708",
+              "T0709",
+              "T0710",
+              "T0711",
+              "T0712"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0710.xml",
+      "upstreamPath": "T/T16/T16n0710.xml",
+      "upstreamGitBlobSha1": "ee6638f5a26d11c3125633261968d82e9ace095d",
+      "upstreamBytes": 40723,
+      "upstreamSha256": "3bbd1a4686165f520d5a37151aca205fb918d7e2f3992873b54dd0a5ca3d5245",
+      "localBytes": 40724,
+      "localSha256": "ea154c2e6cea6860c83f583de7e2f63c4f67f7e643c1c1d3382e298db4c3e9b8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "慈氏菩薩所說大乘緣生稻𦼮喻經",
+        "alternateTitle": "慈氏菩薩所說大乘緣生稻𦼮喻經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 710",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0710 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0710_001"
+      },
+      "verification": {
+        "segments": 205,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0710.001.0819a02",
+          "T0710.001.0821b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0711",
+      "slug": "taisho-t0711",
+      "workId": "gbcr:work:salistamba-t0708",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "salistamba-t0708-t0712",
+          "label": "Śālistambasūtra／《稻芉经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0708",
+              "T0709",
+              "T0710",
+              "T0711",
+              "T0712"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0711.xml",
+      "upstreamPath": "T/T16/T16n0711.xml",
+      "upstreamGitBlobSha1": "aaf13ce3ae88999a503b2a0c80eb17ac2eb95a05",
+      "upstreamBytes": 28481,
+      "upstreamSha256": "981e6d8397459dc80eb3671b6e71001053cc8bac304e77bd316c29220f0476e1",
+      "localBytes": 28482,
+      "localSha256": "a1e23a31bcf64f54f7587672a80ccbd98ada8aa43e4c2524d9c04d06e3e0ed65",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘舍黎娑擔摩經",
+        "alternateTitle": "大乘舍黎娑擔摩經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 711",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0711 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0711_001"
+      },
+      "verification": {
+        "segments": 183,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0711.001.0821b08",
+          "T0711.001.0823b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0712",
+      "slug": "taisho-t0712",
+      "workId": "gbcr:work:salistamba-t0708",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translation_attribution_unknown",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "salistamba-t0708-t0712",
+          "label": "Śālistambasūtra／《稻芉经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0708",
+              "T0709",
+              "T0710",
+              "T0711",
+              "T0712"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0712.xml",
+      "upstreamPath": "T/T16/T16n0712.xml",
+      "upstreamGitBlobSha1": "3ce70c7194491c8d7e97fe4fd642dffafee642a9",
+      "upstreamBytes": 25835,
+      "upstreamSha256": "ac47973df0b3daa9620f4fba546ee044b378842e52a2018c057c4494165a900e",
+      "localBytes": 25836,
+      "localSha256": "4f1f354f9136b107ce61c13644c1088c51af75f9814d93f5d85a3d2c4bf8dd45",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘稻芉經",
+        "alternateTitle": "佛說大乘稻芉經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 712",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0712 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0712_001"
+      },
+      "verification": {
+        "segments": 241,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0712.001.0823b19",
+          "T0712.001.0826a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0713",
+      "slug": "taisho-t0713",
+      "workId": "gbcr:work:nidana-sutra-t0713",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "nidana-t0713-t0715",
+          "label": "Nidānasūtra／《缘起圣道经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0713",
+              "T0714",
+              "T0715"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0713.xml",
+      "upstreamPath": "T/T16/T16n0713.xml",
+      "upstreamGitBlobSha1": "0a7f90ed4c5e9b3a8b4541391ad37b79dcc159a9",
+      "upstreamBytes": 22960,
+      "upstreamSha256": "e490dcb541aa87e6b1031e8ddc13102805551ea32d9fac444c294440fd6f4c91",
+      "localBytes": 22961,
+      "localSha256": "68a7acc90447112a0e5e87196cda2528e67bd001c390ba60390801fd4b07fa9f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "貝多樹下思惟十二因緣經",
+        "alternateTitle": "貝多樹下思惟十二因緣經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 713",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T0713 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0713_001"
+      },
+      "verification": {
+        "segments": 103,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0713.001.0826b03",
+          "T0713.001.0827b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0714",
+      "slug": "taisho-t0714",
+      "workId": "gbcr:work:nidana-sutra-t0713",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "nidana-t0713-t0715",
+          "label": "Nidānasūtra／《缘起圣道经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0713",
+              "T0714",
+              "T0715"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0714.xml",
+      "upstreamPath": "T/T16/T16n0714.xml",
+      "upstreamGitBlobSha1": "13a9a46a34be1f0e6cf1808665b54c4ec6d83855",
+      "upstreamBytes": 20755,
+      "upstreamSha256": "ee898d92d9dcf65448b16c102d19994abfcf9d9da3be0830a4f4b84bf9bf5048",
+      "localBytes": 20756,
+      "localSha256": "063e46576125f2ce12100656e206176ac73b871677e4fc55781ee97e01c2ca73",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "緣起聖道經",
+        "alternateTitle": "緣起聖道經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 714",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T0714 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0714_001"
+      },
+      "verification": {
+        "segments": 120,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0714.001.0827b23",
+          "T0714.001.0828c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0715",
+      "slug": "taisho-t0715",
+      "workId": "gbcr:work:nidana-sutra-t0713",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "nidana-t0713-t0715",
+          "label": "Nidānasūtra／《缘起圣道经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0713",
+              "T0714",
+              "T0715"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0715.xml",
+      "upstreamPath": "T/T16/T16n0715.xml",
+      "upstreamGitBlobSha1": "9cab82af4498d83b02a7de3951c9e85c3774eed8",
+      "upstreamBytes": 20598,
+      "upstreamSha256": "8e4676e7cd1eb4e3fb7994d1b66b807d203f8a7c07d8af07d8f013265331c4ac",
+      "localBytes": 20599,
+      "localSha256": "ed65cea52ba3ca87cbc6a3900cbb2033889972de3925aba0788588f4e3944a78",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說舊城喻經",
+        "alternateTitle": "佛說舊城喻經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 715",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。本站完整保存 T0715 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0715_001"
+      },
+      "verification": {
+        "segments": 125,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0715.001.0829a03",
+          "T0715.001.0830b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0716",
+      "slug": "taisho-t0716",
+      "workId": "gbcr:work:pratitya-samutpada-adi-vibhanga-t0716",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "dependent-origination-analysis-t0716-t0717",
+          "label": "《缘生初胜分法本经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0716",
+              "T0717"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0716.xml",
+      "upstreamPath": "T/T16/T16n0716.xml",
+      "upstreamGitBlobSha1": "5e1d3efb3ca306133a6070404a5ce5012b772ccf",
+      "upstreamBytes": 81937,
+      "upstreamSha256": "c5d5a1d6c8cb4f39bb2a18b9a0a94bde103ad928c0db9e89e1c43d734857960b",
+      "localBytes": 81938,
+      "localSha256": "07b3655c0df0bac4ff69a826c2bd35dab7d86cb2698dc07142eb44b31906ded9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "緣生初勝分法本經",
+        "alternateTitle": "緣生初勝分法本經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 716",
+        "translator": "隋 · 達摩笈多譯",
+        "summary": "2卷。本站完整保存 T0716 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0716_001"
+      },
+      "verification": {
+        "segments": 603,
+        "folios": 23,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0716.001.0830b15",
+          "T0716.002.0837b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0717",
+      "slug": "taisho-t0717",
+      "workId": "gbcr:work:pratitya-samutpada-adi-vibhanga-t0716",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "dependent-origination-analysis-t0716-t0717",
+          "label": "《缘生初胜分法本经》汉译组",
+          "evidence": "冻结版 CBETA TEI 的 cb:docNumber 与 DILA 佛经目录规范资料库互列这些经号；平台结合规范题名、译者题记、目录互见和文本范围，登记同一作品的汉文表达或见证，同时保留各自全文与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0716",
+              "T0717"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T16n0717.xml",
+      "upstreamPath": "T/T16/T16n0717.xml",
+      "upstreamGitBlobSha1": "a3ccdc4c62755f740f13d70615b758bcf494a52e",
+      "upstreamBytes": 85328,
+      "upstreamSha256": "cfd53833a3d6b76cdd9b5f35f50b7487ea537645a07897a1a5998b6b34fd2f24",
+      "localBytes": 85329,
+      "localSha256": "fa035bf10cc3868644f01ddb9c8afeb170c80900ebadad350988acea646d5c7d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "分別緣起初勝法門經",
+        "alternateTitle": "分別緣起初勝法門經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 717",
+        "translator": "唐 · 玄奘譯",
+        "summary": "2卷。本站完整保存 T0717 的固定 CBETA TEI 来源记录与可校验页栏行锚点；已由权威目录、规范题名与明确文本范围确认同作品关系；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0717_001"
+      },
+      "verification": {
+        "segments": 577,
+        "folios": 22,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0717.001.0837b20",
+          "T0717.002.0844a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0718",
+      "slug": "taisho-t0718",
+      "workId": "gbcr:work:taisho-t0718",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0718.xml",
+      "upstreamPath": "T/T16/T16n0718.xml",
+      "upstreamGitBlobSha1": "7bb3928e9b26b554aeae216db482ade67045572c",
+      "upstreamBytes": 10689,
+      "upstreamSha256": "706c667bf6ad15266e6a6ad6df8da674e35f101a2e64413f528262714b8555be",
+      "localBytes": 10690,
+      "localSha256": "a43b4f123491ec55af4225ae399dadc67ae1a00e070bd5526d7b0fcdf125362b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說分別緣生經",
+        "alternateTitle": "佛說分別緣生經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 718",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。本站完整保存 T0718 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0718_001"
+      },
+      "verification": {
+        "segments": 58,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0718.001.0844a23",
+          "T0718.001.0844c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0719",
+      "slug": "taisho-t0719",
+      "workId": "gbcr:work:taisho-t0719",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_canonical_record",
+      "localPath": "data/corpus/cbeta/T16n0719.xml",
+      "upstreamPath": "T/T16/T16n0719.xml",
+      "upstreamGitBlobSha1": "456a6723d4d4d5efec7069dea7c9ebdb9f5a08f7",
+      "upstreamBytes": 64001,
+      "upstreamSha256": "89dad961e9dcf8a55e195965c4fa19e4c921fddf8b4619e599c8e57f62fdaa98",
+      "localBytes": 64002,
+      "localSha256": "cbb04d68009b8a8564f30ba27021c3919898b71628034fe5fb30653d7c2a6cd6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十二緣生祥瑞經",
+        "alternateTitle": "十二緣生祥瑞經",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 719",
+        "translator": "宋 · 施護譯",
+        "summary": "2卷。本站完整保存 T0719 的固定 CBETA TEI 来源记录与可校验页栏行锚点；作品同一性与跨语种平行仍按逐条证据管理；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0719_001"
+      },
+      "verification": {
+        "segments": 419,
+        "folios": 16,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0719.001.0845a02",
+          "T0719.002.0850a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0720",
+      "slug": "taisho-t0720",
+      "workId": "gbcr:work:taisho-t0720",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T16n0720.xml",
+      "upstreamPath": "T/T16/T16n0720.xml",
+      "upstreamGitBlobSha1": "f865662b86d107f054b78352d0c930253975d7e8",
+      "upstreamBytes": 187094,
+      "upstreamSha256": "5a8e5e025c3a32b3a041f3f55746921ad57b40a903cd6b3137091cb1df92d0cc",
+      "localBytes": 187095,
+      "localSha256": "5640ca8a35acec948f75d96b2c7716c74b53070ede190b3ad2da831fb4d107ac",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無明羅剎集",
+        "alternateTitle": "無明羅剎集",
+        "tradition": "漢傳佛教 · 經集部",
+        "language": "漢文",
+        "canonRef": "大正藏 T16, no. 720",
+        "translator": "失譯",
+        "summary": "3卷。本站完整保存 T0720 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译或阙译，平台不补造译者归属；物理记录、作品、表达、编纂本与局部见证分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0720_001"
+      },
+      "verification": {
+        "segments": 660,
+        "folios": 25,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0720.001.0850a18",
+          "T0720.003.0857c21"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

@@ -21,6 +21,8 @@ const criticalRoutes = [
   "/jingzang/taisho-t0388/001-1107b",
   "/jingzang/taisho-t0417/001-0897c",
   "/jingzang/taisho-t0469/001-0509b",
+  "/jingzang/taisho-t0677/001-0711b",
+  "/jingzang/taisho-t0686/001-0780a",
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
@@ -87,20 +89,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 12589,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 830,
-    registeredExpressions: 950,
-    fullSourceTextWorks: 829,
-    fullSourceTextExpressions: 940,
-    stableSegments: 1543426,
-    structureVerifiedWorks: 830,
+    registeredWorks: 869,
+    registeredExpressions: 1012,
+    fullSourceTextWorks: 868,
+    fullSourceTextExpressions: 998,
+    stableSegments: 1602710,
+    structureVerifiedWorks: 869,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
-    controlled: 690,
-    percentage: 78.32,
+    controlled: 752,
+    percentage: 85.36,
     sourceBytes: 247280257,
-    controlledBytes: 221190458,
-    bytePercentage: 89.45,
+    controlledBytes: 232554009,
+    bytePercentage: 94.04,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -150,6 +152,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.chineseT15SourceRecords).toMatchObject({
     denominator: 71,
     controlled: 71,
+    percentage: 100,
+  });
+  expect(coverage.candidateInventory.chineseT16SourceRecords).toMatchObject({
+    denominator: 65,
+    controlled: 65,
     percentage: 100,
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
@@ -527,6 +534,29 @@ test("汉译 T15 经集部完整受控并区分异译、局部译出、撰述与
   expect(sitemap).toContain("/jingzang/taisho-t0586/004-0062a");
   expect(sitemap).toContain("/jingzang/taisho-t0639/010-0620a");
   expect(sitemap).toContain("/jingzang/taisho-t0652/003-0782c");
+});
+
+test("汉译 T16 经集部完整受控并区分异译、合部、单品译出与短本", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0664/001-0359b");
+  await expect(page.getByText("合部见证 · 完整原文")).toBeVisible();
+  await expect(page.getByText(/《金光明经》译本与合部见证组/)).toBeVisible();
+  await expect(page.getByText(/不将其冒充单一古代译本/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0677/001-0711b");
+  await expect(page.getByText("节译见证 · 完整来源记录")).toBeVisible();
+  await expect(page.getByText(/《解深密经》全译与单品译出组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0686/001-0780a");
+  await expect(page.getByText("短本见证 · 完整来源记录")).toBeVisible();
+  await expect(page.getByText(/《盂兰盆经》完整文本与短本见证组/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0710/001-0819a");
+  await expect(page.getByText(/Śālistambasūtra.*《稻芉经》汉译组/)).toBeVisible();
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/taisho-t0664/008-0402a");
+  expect(sitemap).toContain("/jingzang/taisho-t0677/001-0714c");
+  expect(sitemap).toContain("/jingzang/taisho-t0712/001-0826a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

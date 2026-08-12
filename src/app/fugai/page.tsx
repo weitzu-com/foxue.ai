@@ -126,7 +126,10 @@ export default function CoveragePage() {
               同题异译、a/b 版本与部分独立译出分层计数；
               T15 经集部固定来源已完成 {snapshot.candidateInventory.chineseT15SourceRecords.controlled}
               /{snapshot.candidateInventory.chineseT15SourceRecords.denominator}（{snapshot.candidateInventory.chineseT15SourceRecords.percentage}%），
-              同经异译、别品译出、禅观撰述与同题范围候选分层计数
+              同经异译、别品译出、禅观撰述与同题范围候选分层计数；
+              T16 经集部固定来源已完成 {snapshot.candidateInventory.chineseT16SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT16SourceRecords.denominator}（{snapshot.candidateInventory.chineseT16SourceRecords.percentage}%），
+              同经异译、再译、合部编纂、单品译出与短本见证分层计数
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a

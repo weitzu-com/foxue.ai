@@ -25,6 +25,7 @@
     "audit:cbeta:t13": "node scripts/audit-cbeta-t13.mjs",
     "audit:cbeta:t14": "node scripts/audit-cbeta-t14.mjs",
     "audit:cbeta:t15": "node scripts/audit-cbeta-t15.mjs",
+    "audit:cbeta:t16": "node scripts/audit-cbeta-t16.mjs",
     "build:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs",
     "verify:suttacentral-catalog": "node scripts/build-suttacentral-catalog.mjs --verify",
     "import:suttacentral": "node scripts/import-suttacentral-source.mjs",

@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.2.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.3.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -30,7 +30,7 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "完整原文 · 原生段落" | "目录样本";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
@@ -198,6 +198,12 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "abridged_recension_witness") {
     return "本记录是同作品完整传本的后出节本见证；平台完整保存其来源文本，但不把它重复计作独立完整译本。";
   }
+  if (file.sourceRole === "abridged_translation_witness") {
+    return "本记录完整保存同作品的古代短本见证；文本范围短于完整传本，不把它重复计作独立完整译本。";
+  }
+  if (file.sourceRole === "compiled_canonical_witness") {
+    return "来源题记与权威目录明确本记录为合部编纂见证；平台保留全文和编纂责任，不将其冒充单一古代译本。";
+  }
   return undefined;
 };
 
@@ -225,8 +231,12 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
           ? "后分见证 · 完整来源记录"
           : file.sourceRole === "abridged_recension_witness"
             ? "节本见证 · 完整来源记录"
+            : file.sourceRole === "abridged_translation_witness"
+              ? "短本见证 · 完整来源记录"
           : "节译见证 · 完整来源记录"
-      : "完整原文 · 行段试行",
+      : file.sourceRole === "compiled_canonical_witness"
+        ? "合部见证 · 完整原文"
+        : "完整原文 · 行段试行",
     segments: [],
   };
   const curated = curatedBySlug.get(file.slug);
