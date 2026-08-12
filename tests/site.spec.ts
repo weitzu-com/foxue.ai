@@ -567,7 +567,7 @@ test("汉译 T16 经集部完整受控并区分异译、合部、单品译出与
 test("汉译 T17 经集部完整受控并区分版本、候选关系与来源归属", async ({ page, request }) => {
   await page.goto("/jingzang/taisho-t0751a/001-0573a");
   await expect(page.getByText(/《五无反复经》版本与经号见证组/)).toBeVisible();
-  await expect(page.getByText(/同一作品的独立版本见证/)).toBeVisible();
+  await expect(page.getByText(/与同经号另一版本共享规范作品/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t0821/001-0837b");
   await expect(page.getByText(/Tathāgatagarbha 相关文本候选/)).toBeVisible();
