@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v3.3.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.4.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -600,6 +600,24 @@ export function buildCoverageSnapshot() {
         sha256: corpusRegistry.crossCatalogAlignmentAudit.sha256,
         unit: "已有人工证据的 GBCR 关系组、84000 Toh 引用与固定德格表达式",
         caveat: corpusRegistry.crossCatalogAlignmentAudit.warning,
+      },
+      suttacentralChineseParallelEvidence: {
+        upstreamRows: corpusRegistry.suttacentralChineseParallelAudit.sourceRows,
+        relevantDirectedRows: corpusRegistry.suttacentralChineseParallelAudit.relevantDirectedRows,
+        deduplicatedParallelEdges: corpusRegistry.suttacentralChineseParallelAudit.deduplicatedParallelEdges,
+        duplicateDirectionsRemoved: corpusRegistry.suttacentralChineseParallelAudit.duplicateDirectionsRemoved,
+        decisionClasses: corpusRegistry.suttacentralChineseParallelAudit.decisionClasses,
+        upstreamTypes: corpusRegistry.suttacentralChineseParallelAudit.upstreamTypes,
+        resemblingEdges: corpusRegistry.suttacentralChineseParallelAudit.resemblingEdges,
+        edgesWithRemarks: corpusRegistry.suttacentralChineseParallelAudit.edgesWithRemarks,
+        paliWorksReferenced: corpusRegistry.suttacentralChineseParallelAudit.paliWorksReferenced,
+        chineseWorksReferenced: corpusRegistry.suttacentralChineseParallelAudit.chineseWorksReferenced,
+        directTaishoWorksReferenced: corpusRegistry.suttacentralChineseParallelAudit.directTaishoWorksReferenced,
+        agamaContainerWorksReferenced: corpusRegistry.suttacentralChineseParallelAudit.agamaContainerWorksReferenced,
+        denominatorImpact: corpusRegistry.suttacentralChineseParallelAudit.denominatorImpact,
+        sha256: corpusRegistry.suttacentralChineseParallelAudit.sha256,
+        unit: "SuttaCentral 固定关系表中与站内巴利及汉译作品可定位的去重证据边",
+        caveat: corpusRegistry.suttacentralChineseParallelAudit.warning,
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

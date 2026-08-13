@@ -37,7 +37,7 @@ export async function loadCorpusReleaseContext(root) {
   const releaseFingerprint = fingerprint.digest("hex").slice(0, 12);
   const releaseId = [
     "gbcr",
-    "3.3.0",
+    "3.4.0",
     sourceManifests[0].manifest.source.commit.slice(0, 12),
     sourceManifests[1].manifest.source.commit.slice(0, 12),
     releaseFingerprint,

@@ -349,6 +349,30 @@ export default function CoveragePage() {
             </a>
           </article>
           <article>
+            <span>SuttaCentral 汉—巴平行证据</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralChineseParallelEvidence.deduplicatedParallelEdges.toLocaleString("zh-CN")}
+              <small> 条去重证据边</small>
+            </strong>
+            <p>
+              固定关系表共 {snapshot.candidateInventory.suttacentralChineseParallelEvidence.upstreamRows.toLocaleString("zh-CN")} 行；
+              其中 {snapshot.candidateInventory.suttacentralChineseParallelEvidence.relevantDirectedRows.toLocaleString("zh-CN")} 条有向记录
+              可连接站内 {snapshot.candidateInventory.suttacentralChineseParallelEvidence.paliWorksReferenced} 个巴利作品与
+              {snapshot.candidateInventory.suttacentralChineseParallelEvidence.chineseWorksReferenced} 个汉译作品。
+              去重后只有 {snapshot.candidateInventory.suttacentralChineseParallelEvidence.decisionClasses.full_parallel_without_automatic_work_merge} 条列作整经级平行，
+              其余分别保留为合集组件、近似/部分平行或引用/提及
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralChineseParallelEvidence.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-chinese-parallels-v0.7.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 5,161 条固定证据与裁决边界 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
             <span>rKTs 核心编号候选连接</span>
             <strong>
               {snapshot.candidateInventory.rktsKernelAlignment.exactKernelIds.toLocaleString("zh-CN")}

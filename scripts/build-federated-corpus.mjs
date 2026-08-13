@@ -15,6 +15,7 @@ const inputs = {
   suttacentralIndicRightsAudit: "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
   suttacentralVinayaRightsAudit: "data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
   suttacentralAbhidhammaRightsAudit: "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
+  suttacentralChineseParallels: "data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
@@ -62,6 +63,7 @@ const gretilFileRightsAudit = JSON.parse(rawById.gretilFileRightsAudit);
 const suttacentralIndicRightsAudit = JSON.parse(rawById.suttacentralIndicRightsAudit);
 const suttacentralVinayaRightsAudit = JSON.parse(rawById.suttacentralVinayaRightsAudit);
 const suttacentralAbhidhammaRightsAudit = JSON.parse(rawById.suttacentralAbhidhammaRightsAudit);
+const suttacentralChineseParallels = JSON.parse(rawById.suttacentralChineseParallels);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
@@ -85,8 +87,8 @@ const vinayaBatch = JSON.parse(rawById.vinayaBatch);
 const vinayaManifest = JSON.parse(rawById.vinayaManifest);
 const abhidhammaBatch = JSON.parse(rawById.abhidhammaBatch);
 const abhidhammaManifest = JSON.parse(rawById.abhidhammaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v3.3.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v3.3.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v3.4.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.4.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -207,6 +209,21 @@ if (
   suttacentralAbhidhammaRightsAudit.summary?.stableSegments !== 88414 ||
   suttacentralAbhidhammaRightsAudit.integrity?.translationBodiesPublished !== false
 ) throw new Error("SuttaCentral 巴利论藏 root 权利批次、清单或结构统计不一致");
+if (
+  suttacentralChineseParallels.version !== "0.7.0" ||
+  suttacentralChineseParallels.source?.commit !== "80b2a63d8442517c1f8be90c4b597088eb855852" ||
+  suttacentralChineseParallels.source?.sha256 !== "8481c812e38d2318a0bf70e9d7ea2320f2fe003e47d121f639966ac107736c80" ||
+  suttacentralChineseParallels.summary?.upstreamRows !== 421159 ||
+  suttacentralChineseParallels.summary?.relevantDirectedRows !== 10596 ||
+  suttacentralChineseParallels.summary?.deduplicatedParallelEdges !== 5161 ||
+  suttacentralChineseParallels.summary?.decisionClasses?.full_parallel_without_automatic_work_merge !== 60 ||
+  suttacentralChineseParallels.summary?.decisionClasses?.component_parallel_within_registered_work !== 3345 ||
+  suttacentralChineseParallels.summary?.decisionClasses?.resembling_or_partial_parallel !== 1130 ||
+  suttacentralChineseParallels.summary?.decisionClasses?.citation_or_mention_only !== 626 ||
+  suttacentralChineseParallels.summary?.denominatorImpact !== "none" ||
+  suttacentralChineseParallels.policy?.automaticWorkMerge !== false ||
+  suttacentralChineseParallels.policy?.segmentEquivalenceAsserted !== false
+) throw new Error("SuttaCentral 汉巴平行证据账本或作品边界不一致");
 if (
   cbetaBatch.version !== "2.4.0" || cbetaBatch.files.length !== 129 ||
   cbetaBatch.collection.sourceRecordDenominator !== 131 ||
@@ -432,7 +449,14 @@ const abhidhammaWorks = abhidhammaManifest.files.map((file) => {
   };
 });
 const sourceFamilies = base.sourceFamilies.map((family) => {
-  if (family.id === "cbeta_chinese") return cbetaFamily;
+  if (family.id === "cbeta_chinese") return {
+    ...cbetaFamily,
+    suttacentralParallelEdges: suttacentralChineseParallels.summary.deduplicatedParallelEdges,
+    suttacentralParallelChineseWorksReferenced: suttacentralChineseParallels.summary.chineseWorksReferenced,
+    suttacentralParallelEvidenceFile: inputs.suttacentralChineseParallels,
+    suttacentralParallelEvidenceSha256: sha256(rawById.suttacentralChineseParallels),
+    denominatorNote: `${cbetaFamily.denominatorNote} SuttaCentral 官方关系表新增 5,161 条汉—巴证据边，但整经、合集组件、近似与提及已分层，关系边不自动合并作品或改变全球分母。`,
+  };
   if (family.id === "tibetan_kangyur_tengyur") {
     return {
       ...family,
@@ -479,6 +503,7 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "suttacentral_early_buddhist_texts") {
     return {
       ...family,
+      primarySources: [...new Set([...(family.primarySources ?? []), "suttacentral_relationship_edges"])],
       denominatorStatus: "candidate_snapshot_with_all_pali_roots_and_controlled_indic_roots",
       controlledWorks: 286,
       controlledExpressions: 286,
@@ -510,9 +535,13 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       controlledNonPaliIndicRootBytes: indicBatch.collection.sourceBytes,
       controlledNonPaliIndicStableSegments: indicBatch.collection.stableSegments,
       controlledNonPaliIndicOmittedPlaceholders: indicBatch.collection.omittedEmptyEditorialPlaceholderSegments,
+      chineseParallelEdges: suttacentralChineseParallels.summary.deduplicatedParallelEdges,
+      chineseParallelPaliWorksReferenced: suttacentralChineseParallels.summary.paliWorksReferenced,
+      chineseParallelEvidenceFile: inputs.suttacentralChineseParallels,
+      chineseParallelEvidenceSha256: sha256(rawById.suttacentralChineseParallels),
       indicRightsAuditFile: inputs.suttacentralIndicRightsAudit,
       indicRightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
-      denominatorNote: "固定提交的 7,288 条巴利 root 已全部逐文件受控：经藏 5,764 份、律藏 422 份、论藏 1,102 份；分别按经级或书级边界登记为 286 个表达。另受控 2 份梵文与 22 份俗语 root，按 sf36、sf276、pdhp 登记为 3 个表达。物理文件不冒充作品，固定来源内 100% 不能外推为全球佛典覆盖率。",
+      denominatorNote: "固定提交的 7,288 条巴利 root 已全部逐文件受控：经藏 5,764 份、律藏 422 份、论藏 1,102 份；分别按经级或书级边界登记为 286 个表达。另受控 2 份梵文与 22 份俗语 root，按 sf36、sf276、pdhp 登记为 3 个表达。SuttaCentral 官方关系表的 5,161 条汉—巴证据边已分成整经、合集组件、近似与提及，不自动归并作品。物理文件或关系边不冒充作品，固定来源内 100% 不能外推为全球佛典覆盖率。",
     };
   }
   if (family.id === "sanskrit_fragments_and_witnesses") {
@@ -701,11 +730,36 @@ const sourceSnapshots = [
       summary: "rKTs 数据 README 声明 CC0，并请求引用项目与仓库。foxue.ai 当前只发布固定版本级汇总、路径和 Git blob 指纹；不把跨版本 item 相加为作品分母。",
     },
   },
+  {
+    id: "suttacentral_relationship_edges",
+    name: "SuttaCentral 汉—巴平行关系证据",
+    role: "固定提交中的巴利—汉译平行、组件、近似与提及关系候选源",
+    homepage: "https://github.com/suttacentral/relationship_edges",
+    dataUrl: suttacentralChineseParallels.source.sourceUrl,
+    licenseUrl: `https://github.com/suttacentral/relationship_edges/blob/${suttacentralChineseParallels.source.commit}/LICENSE`,
+    snapshot: {
+      type: "git_commit_file_sha256",
+      ref: suttacentralChineseParallels.source.commit,
+      capturedAt: suttacentralChineseParallels.capturedAt,
+      relatedRefs: { tree: suttacentralChineseParallels.source.tree },
+    },
+    inventory: {
+      file: inputs.suttacentralChineseParallels,
+      sha256: sha256(rawById.suttacentralChineseParallels),
+      upstreamRows: suttacentralChineseParallels.summary.upstreamRows,
+      relevantDirectedRows: suttacentralChineseParallels.summary.relevantDirectedRows,
+      deduplicatedParallelEdges: suttacentralChineseParallels.summary.deduplicatedParallelEdges,
+    },
+    rights: {
+      status: "mit_parallel_metadata_with_no_automatic_work_merge",
+      summary: "上游关系数据按 MIT 许可固定；foxue.ai 发布证据摘要与关系账本，并保持整经、组件、近似和提及边界。",
+    },
+  },
 ];
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "3.3.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "3.4.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -763,25 +817,35 @@ const registry = {
     ...suttacentralAbhidhammaRightsAudit.summary,
     warning: suttacentralAbhidhammaRightsAudit.warning,
   },
+  suttacentralChineseParallelAudit: {
+    version: suttacentralChineseParallels.version,
+    status: suttacentralChineseParallels.status,
+    file: inputs.suttacentralChineseParallels,
+    sha256: sha256(rawById.suttacentralChineseParallels),
+    sourceCommit: suttacentralChineseParallels.source.commit,
+    sourceRows: suttacentralChineseParallels.source.rows,
+    ...suttacentralChineseParallels.summary,
+    warning: suttacentralChineseParallels.warning,
+  },
   works: [...nonCbetaWorks, ...indicWorks, ...vinayaWorks, ...abhidhammaWorks, ...cbetaWorks],
 };
 if (
   registry.works.length !== 994 ||
   registry.works.flatMap((work) => work.expressions).length !== 1157 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v3.3.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v3.4.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v3.3.0.json`,
+  `${sha256(registryRaw)}  registry-v3.4.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.3.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.3.0.sha256 不可复现");
-  console.log("跨语种登记册 v3.3.0 可复现：SuttaCentral 1,102 份巴利论藏 root 合并为 7 个受控表达；全球作品分母保持未知。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.4.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.4.0.sha256 不可复现");
+  console.log("跨语种登记册 v3.4.0 可复现：5,161 条 SuttaCentral 汉巴证据边已分层固定；全球作品分母保持未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v3.3.0 已生成：新增 7 个公共领域巴利论藏原文表达，不复制第三方译文。");
+  console.log("跨语种登记册 v3.4.0 已生成：新增 5,161 条汉巴平行证据边，不自动合并作品或译文。");
 }

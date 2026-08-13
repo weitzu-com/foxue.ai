@@ -98,6 +98,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("藏文多版本目录")).toBeVisible();
   await expect(page.getByText("rKTs 核心编号候选连接")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
+  await expect(page.getByText("SuttaCentral 汉—巴平行证据")).toBeVisible();
   await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
   await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
@@ -299,6 +300,23 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     matchedDergeExpressions: 29,
     matchedBdrcAbstractWorkIds: 29,
     unmatchedTohBaseIdentifiers: 0,
+    denominatorImpact: "none",
+  });
+  expect(coverage.candidateInventory.suttacentralChineseParallelEvidence).toMatchObject({
+    upstreamRows: 421159,
+    relevantDirectedRows: 10596,
+    deduplicatedParallelEdges: 5161,
+    duplicateDirectionsRemoved: 5435,
+    decisionClasses: {
+      full_parallel_without_automatic_work_merge: 60,
+      component_parallel_within_registered_work: 3345,
+      resembling_or_partial_parallel: 1130,
+      citation_or_mention_only: 626,
+    },
+    paliWorksReferenced: 246,
+    chineseWorksReferenced: 147,
+    directTaishoWorksReferenced: 141,
+    agamaContainerWorksReferenced: 6,
     denominatorImpact: "none",
   });
 });
