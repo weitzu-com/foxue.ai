@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v2.9.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.0.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -467,6 +467,14 @@ export function buildCoverageSnapshot() {
         dsbcSastrapitakaRecords,
         gretilPhysicalFiles,
         gretilBytes,
+        gretilRightsAuditedFiles: corpusRegistry.gretilFileRightsAudit.filesAudited,
+        gretilFilesMarkedReferenceOnly: corpusRegistry.gretilFileRightsAudit.filesMarkedReferenceOnly,
+        gretilFilesWithDsbcPermissionStatement: corpusRegistry.gretilFileRightsAudit.filesWithDsbcPermissionStatement,
+        gretilFilesWithExplicitCopyrightNotice: corpusRegistry.gretilFileRightsAudit.filesWithExplicitCopyrightNotice,
+        gretilFilesWithExplicitOpenLicense: corpusRegistry.gretilFileRightsAudit.filesWithExplicitOpenLicense,
+        gretilFilesApprovedForRepublication: corpusRegistry.gretilFileRightsAudit.filesApprovedForRepublication,
+        gretilFilesRestrictedToMetadataAndExternalLink: corpusRegistry.gretilFileRightsAudit.filesRestrictedToMetadataAndExternalLink,
+        gretilRightsAuditSha256: corpusRegistry.gretilFileRightsAudit.sha256,
         dsbcInventorySha256: dsbcSourceInventory && "inventorySha256" in dsbcSourceInventory
           ? dsbcSourceInventory.inventorySha256
           : null,
@@ -474,7 +482,7 @@ export function buildCoverageSnapshot() {
           ? gretilSourceInventory.inventorySha256
           : null,
         unit: "DSBC 梵文目录记录与 GRETIL 固定 Git 物理文件",
-        caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。权利与作品对齐完成前不导入正文、不相加为作品分母。",
+        caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 已逐文件审计，但 0 份获得 foxue.ai 正文再发布授权；只发布元数据、哈希与固定外链，不相加为作品分母。",
       },
       crossCatalogAlignment: {
         curatedRelationGroups: corpusRegistry.crossCatalogAlignmentAudit.curatedRelationGroups,

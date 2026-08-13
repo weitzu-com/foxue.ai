@@ -2016,6 +2016,25 @@ foxue.ai 不追求：
 
 ---
 
+## 实施进展：GBCR v3.0 与 GRETIL 梵文逐文件权利账本
+
+截至 2026-08-14，第三十个可审计语料里程碑把梵文来源从“仓库级许可未知”推进到“固定提交内逐文件权利信号已识别”。这里最重要的结果是没有把审计完成率偷换成正文收录率：
+
+- 审计对象固定为 [INDOLOGY/GRETIL-mirror](https://github.com/INDOLOGY/GRETIL-mirror) 提交 `0baf718d8e450821eb0403c03aacc9a4a82316d7`、根 tree `b3f67ca1d814b5b20a33fd5a0d686ad1768703ee`，范围与 v2.6 相同：梵文佛教文献 261 份、佛教哲学 156 份，共 417 个 HTML、62,432,484 字节；
+- 每份记录都重新验证 Git blob SHA-1、文件字节数与 SHA-256，并发布题名、固定提交外链、前言摘要指纹、权利信号和保守决定；账本不保存来源正文，`rawSourceBodiesPublished=false`；
+- 417/417 文件都含“仅供参考”的 GRETIL 标记，并把版权与使用条件回指到来源文件。回指不是开放许可，公开 Git 镜像也不自动产生再发布权；
+- 179 份文件说明 Digital Sanskrit Buddhist Canon Project 曾许可 GRETIL 展示。这是特定主体之间的展示许可证据，不能推导出 DSBC 已许可 foxue.ai 复制；DSBC 自身的[使用政策](https://dsbcproject.org/pages/usage-policy)仍禁止未经许可复制内容；
+- 26 份文件另含可机器识别的具名版权声明；其余 212 份虽未检测到同型明示版权行，仍然受“仅供参考、条款依来源”的总边界约束；
+- 417 份中没有检测到 Creative Commons、CC0、Public Domain、GNU 或 Open Data Commons 等可直接据以再发布的开放许可，故 `filesWithExplicitOpenLicense=0`、`filesApprovedForRepublication=0`；
+- 三类决定分别为 `dsbc_permission_reference_only` 179 份、`explicit_copyright_reference_only` 26 份、`source_terms_unspecified_reference_only` 212 份。三类全部执行 `metadata_hash_and_external_link_only`；
+- `gretil-sanskrit-file-rights-audit-v0.7.0.json` 保存 417 条可复算记录与全集摘要 `d622310b61eb550864e81ec33e14b2f4ef767c22a08e97b77875114b8bffc7b4`；生成器可从固定 Git 工作树重建，日常校验完全离线；
+- GBCR v3.0、覆盖 API、中文透明页、测试与百年保存包都引用同一权利账本。候选来源仍为 29,675 条，站内持有量仍为 978 个作品实体、1,141 个表达或见证、1,127 个完整全文与 1,683,984 个稳定段落；全球分母仍为 `null`；
+- 下一步不应绕过权利边界抓取正文，而应并行推进两条合法路径：向 DSBC、GRETIL 贡献者或具体编辑权利人取得可存档的书面授权；同时优先接入明确采用 CC、公共领域标记或开放数据协议的机构级梵文目录与图像/转写来源。每项授权都必须绑定对象范围、版本、用途、署名、商业性、衍生许可、撤回流程与长期保存责任。
+
+这个里程碑使“0 份获准镜像”成为积极而重要的工程事实：可证明的不收录，比不可证明的海量收录更接近一个能够运行百年的公共知识基础设施。
+
+---
+
 ## 结语
 
 foxue.ai 真正有机会做到的，不是制造一个“看起来像答案”的 AI，而是让答案重新拥有出处，让不同传统重新看见彼此，让经典以开放、尊重和可恢复的方式跨越技术世代。

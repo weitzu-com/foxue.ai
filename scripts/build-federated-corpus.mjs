@@ -11,6 +11,7 @@ const inputs = {
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
   sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
+  gretilFileRightsAudit: "data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
@@ -48,6 +49,7 @@ const dergeInventory = JSON.parse(rawById.dergeInventory);
 const rights84000 = JSON.parse(rawById.rights84000);
 const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
 const sanskritRights = JSON.parse(rawById.sanskritRights);
+const gretilFileRightsAudit = JSON.parse(rawById.gretilFileRightsAudit);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
@@ -65,8 +67,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v2.9.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.9.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v3.0.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.0.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -191,7 +193,20 @@ if (
   sanskritEvidence.gretil?.candidatePhysicalFiles !== 417 ||
   sanskritEvidence.gretil?.candidateBytes !== 62432484 ||
   sanskritRights.dsbc?.observedPolicy?.reproductionWithoutPermissionProhibited !== true ||
-  sanskritRights.gretil?.repositoryLicenseDetected !== false
+  sanskritRights.gretil?.repositoryLicenseDetected !== false ||
+  gretilFileRightsAudit.version !== "0.7.0" ||
+  gretilFileRightsAudit.source?.commit !== sanskritEvidence.gretil?.commit ||
+  gretilFileRightsAudit.source?.tree !== sanskritEvidence.gretil?.tree ||
+  gretilFileRightsAudit.summary?.filesAudited !== 417 ||
+  gretilFileRightsAudit.summary?.sourceBytes !== 62432484 ||
+  gretilFileRightsAudit.summary?.filesMarkedReferenceOnly !== 417 ||
+  gretilFileRightsAudit.summary?.filesDeferringTermsToSource !== 417 ||
+  gretilFileRightsAudit.summary?.filesWithDsbcPermissionStatement !== 179 ||
+  gretilFileRightsAudit.summary?.filesWithExplicitCopyrightNotice !== 26 ||
+  gretilFileRightsAudit.summary?.filesWithExplicitOpenLicense !== 0 ||
+  gretilFileRightsAudit.summary?.filesApprovedForRepublication !== 0 ||
+  gretilFileRightsAudit.summary?.filesRestrictedToMetadataAndExternalLink !== 417 ||
+  gretilFileRightsAudit.integrity?.rawSourceBodiesPublished !== false
 ) throw new Error("DSBC 或 GRETIL 梵文来源快照与权利边界不一致");
 if (
   crossCatalogAlignments.version !== "0.5.0" ||
@@ -270,7 +285,7 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
     return {
       ...family,
       primarySources: ["dsbc_sanskrit_catalog", "gretil_sanskrit_buddhist_files"],
-      denominatorStatus: "catalog_and_file_snapshots_ready_rights_and_alignment_pending",
+      denominatorStatus: "catalog_and_file_snapshots_ready_file_rights_audited_alignment_pending",
       denominatorWorks: null,
       candidateDsbcCatalogRecords: sanskritEvidence.dsbc.candidateCatalogRecords,
       candidateDsbcSutrapitakaRecords: sanskritEvidence.dsbc.groups.sutrapitaka,
@@ -278,9 +293,18 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       candidateDsbcSastrapitakaRecords: sanskritEvidence.dsbc.groups.sastrapitaka,
       candidateGretilPhysicalFiles: sanskritEvidence.gretil.candidatePhysicalFiles,
       candidateGretilBytes: sanskritEvidence.gretil.candidateBytes,
+      gretilRightsAuditedFiles: gretilFileRightsAudit.summary.filesAudited,
+      gretilFilesMarkedReferenceOnly: gretilFileRightsAudit.summary.filesMarkedReferenceOnly,
+      gretilFilesWithDsbcPermissionStatement: gretilFileRightsAudit.summary.filesWithDsbcPermissionStatement,
+      gretilFilesWithExplicitCopyrightNotice: gretilFileRightsAudit.summary.filesWithExplicitCopyrightNotice,
+      gretilFilesWithExplicitOpenLicense: gretilFileRightsAudit.summary.filesWithExplicitOpenLicense,
+      gretilFilesApprovedForRepublication: gretilFileRightsAudit.summary.filesApprovedForRepublication,
+      gretilFilesRestrictedToMetadataAndExternalLink: gretilFileRightsAudit.summary.filesRestrictedToMetadataAndExternalLink,
+      gretilRightsAuditFile: inputs.gretilFileRightsAudit,
+      gretilRightsAuditSha256: sha256(rawById.gretilFileRightsAudit),
       candidateInventoryFile: dsbcSource.inventoryFile,
       candidateInventorySha256: dsbcSource.inventorySha256,
-      denominatorNote: "DSBC 的 486 条目录记录和 GRETIL 的 417 个物理文件已冻结，但两者会互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。DSBC 禁止未经许可复制内容，GRETIL 镜像没有仓库级许可证；因此不导入正文，不合并为作品分母。",
+      denominatorNote: "DSBC 的 486 条目录记录和 GRETIL 的 417 个物理文件已冻结，但两者会互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 417/417 已完成逐文件权利识别：全部仅供参考并回指来源条款，179 份带 DSBC 展示许可说明、26 份含明示版权，0 份检测到可据以再发布的开放许可。因此只发布元数据、哈希与固定外链，不导入正文，也不合并为作品分母。",
     };
   }
   return family;
@@ -368,10 +392,14 @@ const sourceSnapshots = [
       sha256: gretilSource.inventorySha256,
       candidatePhysicalFiles: gretilSource.candidateRecordCount,
       candidateBytes: gretilSource.candidateBytes,
+      rightsAuditFile: inputs.gretilFileRightsAudit,
+      rightsAuditSha256: sha256(rawById.gretilFileRightsAudit),
+      rightsAuditedFiles: gretilFileRightsAudit.summary.filesAudited,
+      filesApprovedForRepublication: gretilFileRightsAudit.summary.filesApprovedForRepublication,
     },
     rights: {
-      status: "repository_license_unspecified_metadata_only",
-      summary: "GRETIL 镜像没有仓库级许可证；foxue.ai 只登记固定路径、blob 和字节汇总，逐文件权利核验完成前不镜像正文。",
+      status: "file_level_audited_metadata_and_external_link_only",
+      summary: "GRETIL 镜像没有仓库级许可证；417/417 文件已逐一核对权利措辞，全部仅供参考并回指来源条款，0 份获得 foxue.ai 正文再发布授权。当前只发布路径、题名、Git 指纹、哈希、分类和固定外链。",
     },
   },
   {
@@ -411,7 +439,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "2.9.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "3.0.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -433,25 +461,34 @@ const registry = {
     ...rktsKernelAlignments.summary,
     warning: rktsKernelAlignments.warning,
   },
+  gretilFileRightsAudit: {
+    version: gretilFileRightsAudit.version,
+    status: gretilFileRightsAudit.status,
+    file: inputs.gretilFileRightsAudit,
+    sha256: sha256(rawById.gretilFileRightsAudit),
+    inventorySha256: gretilFileRightsAudit.integrity.inventorySha256,
+    ...gretilFileRightsAudit.summary,
+    warning: gretilFileRightsAudit.warning,
+  },
   works: [...nonCbetaWorks, ...cbetaWorks],
 };
 if (
   registry.works.length !== 978 ||
   registry.works.flatMap((work) => work.expressions).length !== 1141 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v2.9.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v3.0.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v2.9.0.json`,
+  `${sha256(registryRaw)}  registry-v3.0.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.9.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.9.0.sha256 不可复现");
-  console.log("跨语种登记册 v2.9.0 可复现：1,143 个 rKTs kernel 候选连接、8 个组件未决；978 个受控作品与全球分母均未改变。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.0.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.0.0.sha256 不可复现");
+  console.log("跨语种登记册 v3.0.0 可复现：417 份 GRETIL 文件逐项权利审计、0 份获准镜像；978 个受控作品与全球分母均未改变。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v2.9.0 已生成：rKTs kernel 跨版本候选连接已冻结，不自动合并作品。");
+  console.log("跨语种登记册 v3.0.0 已生成：GRETIL 417/417 逐文件权利边界已冻结，不复制未授权正文。");
 }

@@ -84,6 +84,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("藏文多版本目录")).toBeVisible();
   await expect(page.getByText("rKTs 核心编号候选连接")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
+  await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -219,6 +220,13 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     dsbcSastrapitakaRecords: 360,
     gretilPhysicalFiles: 417,
     gretilBytes: 62432484,
+    gretilRightsAuditedFiles: 417,
+    gretilFilesMarkedReferenceOnly: 417,
+    gretilFilesWithDsbcPermissionStatement: 179,
+    gretilFilesWithExplicitCopyrightNotice: 26,
+    gretilFilesWithExplicitOpenLicense: 0,
+    gretilFilesApprovedForRepublication: 0,
+    gretilFilesRestrictedToMetadataAndExternalLink: 417,
   });
   expect(coverage.candidateInventory.crossCatalogAlignment).toMatchObject({
     curatedRelationGroups: 29,

@@ -30,6 +30,7 @@ const statusLabels: Record<string, string> = {
   edition_alignment_pending: "版本对齐中",
   fixed_edition_expression_snapshot_ready: "固定版本表达式快照已冻结",
   multi_edition_catalog_snapshots_ready_alignment_pending: "多版本目录已冻结，作品对齐中",
+  catalog_and_file_snapshots_ready_file_rights_audited_alignment_pending: "逐文件权利已审计，作品对齐中",
   federated_sources_pending: "联邦来源待建",
 };
 
@@ -218,6 +219,30 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看汇总证据与权利边界 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
+            <span>梵文逐文件权利审计</span>
+            <strong>
+              {snapshot.candidateInventory.sanskritCatalogs.gretilRightsAuditedFiles}
+              <small> / {snapshot.candidateInventory.sanskritCatalogs.gretilPhysicalFiles}</small>
+            </strong>
+            <p>
+              GRETIL 固定提交的 {snapshot.candidateInventory.sanskritCatalogs.gretilPhysicalFiles} 份梵文佛教文件已逐一核对：
+              {snapshot.candidateInventory.sanskritCatalogs.gretilFilesMarkedReferenceOnly} 份均标为仅供参考并回指来源条款；
+              {snapshot.candidateInventory.sanskritCatalogs.gretilFilesWithDsbcPermissionStatement} 份带 DSBC 对 GRETIL 的展示许可说明，
+              {snapshot.candidateInventory.sanskritCatalogs.gretilFilesWithExplicitCopyrightNotice} 份含明示版权，
+              检测到开放许可 {snapshot.candidateInventory.sanskritCatalogs.gretilFilesWithExplicitOpenLicense} 份，
+              获准由 foxue.ai 镜像正文 {snapshot.candidateInventory.sanskritCatalogs.gretilFilesApprovedForRepublication} 份
+            </p>
+            <small>完成审计不等于取得许可；417 份当前全部只发布题名、路径、Git 指纹、哈希和固定外链，不复制正文。</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 417 份逐文件权利账本 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
