@@ -1,0 +1,161 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/source-snapshots-v0.3",
+  "version": "0.3.0",
+  "capturedAt": "2026-08-13",
+  "status": "multi_tradition_candidate_record_inventory",
+  "denominatorReady": false,
+  "warning": "候选来源记录、固定版本表达式与链接作品标识均不是跨传统去重后的作品数，不得直接用作全球覆盖率分母。",
+  "sources": [
+    {
+      "id": "cbeta_xml_p5",
+      "repository": "cbeta-org/xml-p5",
+      "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 5632,
+      "candidateRecordCount": 5005,
+      "recordUnit": "TEI P5 XML source record",
+      "inclusionRule": "Git tree 中所有以 .xml 结尾的路径",
+      "candidatePathSha256": "bd5c34b0625b1c08a0572d322842ad3c7b92078717ff1f63840c5ba1ad4da5a2",
+      "groups": {
+        "A": 12,
+        "B": 204,
+        "C": 12,
+        "CC": 6,
+        "D": 64,
+        "F": 27,
+        "G": 60,
+        "GA": 58,
+        "GB": 2,
+        "I": 101,
+        "J": 287,
+        "K": 10,
+        "L": 26,
+        "LC": 8,
+        "M": 1,
+        "N": 83,
+        "P": 20,
+        "S": 2,
+        "T": 2471,
+        "TX": 40,
+        "U": 3,
+        "X": 1236,
+        "Y": 44,
+        "YP": 25,
+        "ZS": 1,
+        "ZW": 202
+      },
+      "candidateSubsets": [
+        {
+          "id": "taisho_chinese_sutra_t01_t17",
+          "label": "大正藏 T01–T17 汉译经藏候选文本记录",
+          "candidateRecordCount": 881,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
+          "candidatePathSha256": "69eb2530ae53000a606478824eec70e21fb238b495c0ee6c703e2e44f161cf44",
+          "candidateBytes": 247280257,
+          "inventoryFile": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+          "inventorySha256": "d96cb57adf185c6311cf458d268ae0ffe333feaddc29eb6f66f5321f9014eeb4",
+          "groups": {
+            "T01": 98,
+            "T02": 57,
+            "T03": 44,
+            "T04": 28,
+            "T05": 1,
+            "T06": 1,
+            "T07": 13,
+            "T08": 42,
+            "T09": 17,
+            "T10": 31,
+            "T11": 12,
+            "T12": 76,
+            "T13": 28,
+            "T14": 166,
+            "T15": 71,
+            "T16": 65,
+            "T17": 131
+          },
+          "denominatorCaveat": "这是可复算的汉译经藏文本记录子集，不是去重作品数，也不是全球佛典分母。"
+        }
+      ],
+      "denominatorCaveat": "异译、别本、续藏与版本见证尚未映射到 Work/Expression/Witness，文件数不是作品数。"
+    },
+    {
+      "id": "suttacentral_bilara",
+      "repository": "suttacentral/bilara-data",
+      "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 45756,
+      "allJsonFiles": 43762,
+      "allRootRecords": 7797,
+      "excludedInterfaceAndNameRecords": 213,
+      "candidateRecordCount": 7584,
+      "recordUnit": "Bilara canonical-language root record",
+      "inclusionRule": "root/{pli,lzh,pra,san}/ 下所有 JSON；排除英文界面和 misc 名称记录",
+      "candidatePathSha256": "e1741097b752db14dd998e92f5ec19416a840e4bd368720b6db0df05794f6bf6",
+      "groups": {
+        "lzh": 272,
+        "pli": 7288,
+        "pra": 22,
+        "san": 2
+      },
+      "denominatorCaveat": "root 记录可能是经、律、论的章节或细分单元；跨语言平行关系与作品级去重尚未裁决。"
+    },
+    {
+      "id": "bdrc_derge_kangyur",
+      "provider": "Buddhist Digital Resource Center",
+      "repository": "buda-base linked-data and IIIF public interfaces",
+      "instanceRevision": "f0b7bee5198d5ddf50dd6853765a8e966821a078",
+      "outlineRevision": "7925566c564577bfa97631ebfea355f0b7e11e25",
+      "candidateRecordCount": 1114,
+      "recordUnit": "fixed-edition top-level Tibetan text expression",
+      "inclusionRule": "BDRC O22084 已发布纲要中，bdo:partOf 指向 MW22084_S0001–S0014、具有初印本卷页位置且未标注 not in parphud 的 bdo:Instance",
+      "candidatePathSha256": "c4dd64c4e72474cc1a8447d9035f3d885fc6715929eaee6f0df99d798b02fd6c",
+      "recordSetSha256": "1909e2f5a16f5e6571761861f9b7b9a0ed51b25a783401aaf233c2c01c01ff4a",
+      "inventoryFile": "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
+      "inventorySha256": "04d7add0b86ad0cd63ca9ef7e8b96e21a6f0901aafcf8280454ea6699277a967",
+      "groups": {
+        "S0001": 8,
+        "S0002": 1,
+        "S0003": 1,
+        "S0004": 1,
+        "S0005": 1,
+        "S0006": 1,
+        "S0007": 31,
+        "S0008": 1,
+        "S0009": 49,
+        "S0010": 266,
+        "S0011": 470,
+        "S0012": 18,
+        "S0013": 265,
+        "S0014": 1
+      },
+      "metrics": {
+        "rootAndPartInstanceNodes": 1208,
+        "partInstanceNodes": 1207,
+        "sectionNodes": 14,
+        "topLevelCatalogRecords": 1122,
+        "topLevelExpressionRecords": 1114,
+        "excludedCatalogOnlyRecords": 8,
+        "nestedTextPartRecords": 71,
+        "dergeIdentifierRecords": 1193,
+        "uniqueDergeIdentifiers": 1193,
+        "linkedAbstractWorkIds": 844,
+        "volumeManifests": 103
+      },
+      "rights": {
+        "iiifCollectionLicense": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "accessPolicyUrl": "https://www.bdrc.io/access-policies/",
+        "status": "public_domain_collection_metadata_only",
+        "decision": "本快照只保存事实性目录元数据与外部导航，不镜像图像；任何全文或图像入库仍须逐对象核对 BDRC 访问政策和清单权利标记。"
+      },
+      "denominatorCaveat": "1114 是单一固定版本中可定位的顶层文本表达式，不是跨版本去重作品数；BDRC 当前链接的抽象作品标识数量也尚未通过跨目录独立复核。"
+    }
+  ],
+  "rightsEvidence": [
+    {
+      "id": "84000_rights_policy",
+      "file": "data/gbcr/84000-rights-policy-v0.3.0.json",
+      "sha256": "cc61ce577bf7330c42d12168f8b79ec25a5abce290cbab83e783355c963ffbfa"
+    }
+  ]
+}

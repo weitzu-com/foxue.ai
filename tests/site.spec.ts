@@ -77,6 +77,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("“—” 表示尚未测量，不表示 0。")).toBeVisible();
   await expect(page.getByText("5,005")).toBeVisible();
   await expect(page.getByText("7,584")).toBeVisible();
+  await expect(page.getByText("1,114").first()).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -86,7 +87,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.globalPercentages.catalog).toBeNull();
   expect(coverage.candidateInventory).toMatchObject({
     denominatorReady: false,
-    totalSourceRecords: 12589,
+    totalSourceRecords: 13703,
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 978,
@@ -175,6 +176,15 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     denominator: 5764,
     controlled: 5764,
     percentage: 100,
+  });
+  expect(coverage.candidateInventory.dergeKangyurEdition).toMatchObject({
+    catalogRecords: 1122,
+    candidateExpressions: 1114,
+    excludedCatalogOnlyRecords: 8,
+    nestedTextParts: 71,
+    dergeIdentifiers: 1193,
+    linkedAbstractWorkIds: 844,
+    volumeManifests: 103,
   });
 });
 

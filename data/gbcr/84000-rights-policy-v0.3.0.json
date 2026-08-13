@@ -1,0 +1,36 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/source-rights-policy-v0.3",
+  "version": "0.3.0",
+  "capturedAt": "2026-08-13",
+  "source": {
+    "provider": "84000: Translating the Words of the Buddha",
+    "url": "https://84000.co/documents/terms-of-use",
+    "documentDate": "2026-05-15",
+    "responseBytes": 30263,
+    "responseSha256": "5802366cad64d731fda8436f1292e60a8c4a99bb256543a9d6e5172afe213643"
+  },
+  "policy": {
+    "publishedTranslations": {
+      "license": "CC BY-NC-ND 4.0",
+      "commercialUse": false,
+      "derivatives": false,
+      "attributionRequired": true
+    },
+    "translationMetadata": {
+      "license": "CC BY 4.0",
+      "commercialUse": true,
+      "derivatives": true,
+      "attributionRequired": true
+    },
+    "api": {
+      "open": false,
+      "writtenAgreementRequired": true
+    }
+  },
+  "foxueDecision": {
+    "metadataIngestion": "allowed_with_attribution_when_a_public_or_partner_feed_is_available",
+    "translationIngestion": "disabled_pending_item_level_scope_and_noncommercial_product_review",
+    "apiHarvesting": "disabled_without_written_agreement",
+    "publicDeepLinks": true
+  }
+}

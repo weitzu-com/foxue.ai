@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v2.4.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.2.1.json";
+import registryDocument from "../../data/gbcr/registry-v2.5.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.3.0.json";
 
 type Expression = {
   id: string;
@@ -143,6 +143,33 @@ export function buildCoverageSnapshot() {
     : null;
   const paliControlledSuttaRootRecords = "controlledSuttaRootRecords" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.controlledSuttaRootRecords ?? null
+    : null;
+  const tibetanFamily = corpusRegistry.sourceFamilies.find(
+    (family) => family.id === "tibetan_kangyur_tengyur",
+  );
+  const dergeSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "bdrc_derge_kangyur",
+  );
+  const dergeCatalogRecords = "candidateTopLevelCatalogRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.candidateTopLevelCatalogRecords ?? null
+    : null;
+  const dergeExpressionRecords = "candidateExpressionRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.candidateExpressionRecords ?? null
+    : null;
+  const dergeExcludedRecords = "excludedCatalogOnlyRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.excludedCatalogOnlyRecords ?? null
+    : null;
+  const dergeNestedTextParts = "nestedTextPartRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.nestedTextPartRecords ?? null
+    : null;
+  const dergeIdentifiers = "dergeIdentifierRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.dergeIdentifierRecords ?? null
+    : null;
+  const dergeLinkedWorks = "candidateLinkedAbstractWorkIds" in (tibetanFamily ?? {})
+    ? tibetanFamily?.candidateLinkedAbstractWorkIds ?? null
+    : null;
+  const dergeVolumes = "volumeManifests" in (tibetanFamily ?? {})
+    ? tibetanFamily?.volumeManifests ?? null
     : null;
 
   return {
@@ -343,6 +370,20 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "SuttaCentral 固定提交 root/pli/ms/sutta 目录物理记录",
         caveat: "这是一个固定来源版本的经藏目录完整性，不是全球佛经作品覆盖率，也不把律藏、论藏或不同传统佛典算入分母。",
+      },
+      dergeKangyurEdition: {
+        catalogRecords: dergeCatalogRecords,
+        candidateExpressions: dergeExpressionRecords,
+        excludedCatalogOnlyRecords: dergeExcludedRecords,
+        nestedTextParts: dergeNestedTextParts,
+        dergeIdentifiers,
+        linkedAbstractWorkIds: dergeLinkedWorks,
+        volumeManifests: dergeVolumes,
+        inventorySha256: dergeSourceInventory && "inventorySha256" in dergeSourceInventory
+          ? dergeSourceInventory.inventorySha256
+          : null,
+        unit: "BDRC 德格甘珠尔初印本固定版本顶层文本表达式",
+        caveat: "1,114 是可定位到德格初印本卷页的顶层表达式；8 个目录补充项、71 个嵌套子文本、1,193 个德格编号和 844 个链接抽象作品分别计数。它不是跨版本去重后的藏文作品分母，更不是全球佛典覆盖率。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

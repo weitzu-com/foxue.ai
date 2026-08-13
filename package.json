@@ -49,6 +49,8 @@
     "import:suttacentral:kn": "node scripts/import-suttacentral-kn-source.mjs",
     "snapshot:upstream": "node scripts/snapshot-upstream-catalogs.mjs --write",
     "verify:upstream-snapshots": "node scripts/snapshot-upstream-catalogs.mjs --verify",
+    "snapshot:bdrc-derge": "node scripts/snapshot-bdrc-derge-kangyur.mjs --write",
+    "verify:bdrc-derge": "node scripts/snapshot-bdrc-derge-kangyur.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
     "verify:cbeta-pilot": "node scripts/verify-cbeta-pilot.mjs",
     "build:corpus-catalog": "node scripts/build-corpus-catalog.mjs && node scripts/build-suttacentral-catalog.mjs && node scripts/build-suttacentral-dn-catalog.mjs && node scripts/build-suttacentral-mn-catalog.mjs && node scripts/build-suttacentral-sn-catalog.mjs && node scripts/build-suttacentral-an-catalog.mjs && node scripts/build-suttacentral-kn-catalog.mjs && node scripts/build-federated-corpus.mjs",
@@ -61,7 +63,7 @@
     "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

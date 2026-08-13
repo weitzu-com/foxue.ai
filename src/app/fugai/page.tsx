@@ -28,7 +28,14 @@ const statusLabels: Record<string, string> = {
   candidate_snapshot_with_controlled_collections: "候选快照与受控经集已完成",
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
+  fixed_edition_expression_snapshot_ready: "固定版本表达式快照已冻结",
   federated_sources_pending: "联邦来源待建",
+};
+
+const sourceLabels: Record<string, string> = {
+  cbeta_xml_p5: "CBETA",
+  suttacentral_bilara: "SUTTACENTRAL",
+  bdrc_derge_kangyur: "BDRC · 德格甘珠尔",
 };
 
 const dimensionNotes: Record<string, string> = {
@@ -85,7 +92,7 @@ export default function CoveragePage() {
         <div className="candidate-cards">
           {sourceSnapshotInventory.sources.map((source) => (
             <article key={source.id}>
-              <span>{source.id === "cbeta_xml_p5" ? "CBETA" : "SUTTACENTRAL"}</span>
+              <span>{sourceLabels[source.id] ?? source.id}</span>
               <strong>{source.candidateRecordCount.toLocaleString("zh-CN")}</strong>
               <p>条候选来源记录</p>
               <small>{source.denominatorCaveat}</small>
@@ -160,6 +167,30 @@ export default function CoveragePage() {
             <Link className="text-link" href="/jingzang/khuddaka-nikaya-snp">
               阅读巴利《小部·经集》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
+          </article>
+          <article>
+            <span>藏文固定版本目录</span>
+            <strong>
+              {snapshot.candidateInventory.dergeKangyurEdition.candidateExpressions}
+              <small> / {snapshot.candidateInventory.dergeKangyurEdition.catalogRecords}</small>
+            </strong>
+            <p>
+              条顶层目录项中，{snapshot.candidateInventory.dergeKangyurEdition.candidateExpressions} 条可定位到
+              {snapshot.candidateInventory.dergeKangyurEdition.volumeManifests} 卷德格甘珠尔初印本；
+              {snapshot.candidateInventory.dergeKangyurEdition.excludedCatalogOnlyRecords} 条无法定位的目录补充项另列，
+              {snapshot.candidateInventory.dergeKangyurEdition.nestedTextParts} 条嵌套子文本、
+              {snapshot.candidateInventory.dergeKangyurEdition.dergeIdentifiers} 个德格编号和
+              {snapshot.candidateInventory.dergeKangyurEdition.linkedAbstractWorkIds} 个 BDRC 链接抽象作品分别计数
+            </p>
+            <small>{snapshot.candidateInventory.dergeKangyurEdition.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 1,114 条机器清单与 8 条排除证据 <ExternalLink aria-hidden="true" size={13} />
+            </a>
           </article>
         </div>
       </section>
