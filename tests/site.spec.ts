@@ -82,6 +82,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("417").first()).toBeVisible();
   await expect(page.getByText("15,069").first()).toBeVisible();
   await expect(page.getByText("藏文多版本目录")).toBeVisible();
+  await expect(page.getByText("rKTs 核心编号候选连接")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
@@ -198,6 +199,18 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     itemRecords: 15069,
     sourceBytes: 15544576,
     license: "CC0-1.0",
+  });
+  expect(coverage.candidateInventory.rktsKernelAlignment).toMatchObject({
+    kernelItemRecords: 1570,
+    kernelUniqueIds: 1562,
+    duplicateKernelIdGroups: 1,
+    exactKernelIds: 1143,
+    exactKernelIdsInOneCatalog: 172,
+    exactKernelIdsInTwoOrMoreCatalogs: 971,
+    exactKernelIdsInEightOrMoreCatalogs: 819,
+    unlinkedKernelIds: 419,
+    unresolvedNormalizedIds: 8,
+    denominatorImpact: "none",
   });
   expect(coverage.candidateInventory.sanskritCatalogs).toMatchObject({
     dsbcCatalogRecords: 486,

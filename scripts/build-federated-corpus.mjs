@@ -13,6 +13,7 @@ const inputs = {
   sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
+  rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
   cbetaT12Batch: "data/corpus/cbeta/batch-v1.9.0.json",
   cbetaT13Batch: "data/corpus/cbeta/batch-v2.0.0.json",
   cbetaT14Batch: "data/corpus/cbeta/batch-v2.1.0.json",
@@ -49,6 +50,7 @@ const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
 const sanskritRights = JSON.parse(rawById.sanskritRights);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
+const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
 const cbetaBatch = JSON.parse(rawById.cbetaBatch);
 const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
 const cbetaManifest = JSON.parse(rawById.cbetaManifest);
@@ -63,8 +65,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v2.8.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.8.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v2.9.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.9.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -168,6 +170,16 @@ if (
   rktsEvidence.integrity?.itemInventoryPublished !== false ||
   rktsSource?.candidateRecordCount !== 15069
 ) throw new Error("rKTs 多版本甘珠尔目录快照或权利边界不一致");
+if (
+  rktsKernelAlignments.version !== "0.6.0" ||
+  rktsKernelAlignments.policy?.automaticWorkMerge !== false ||
+  rktsKernelAlignments.policy?.denominatorImpact !== "none" ||
+  rktsKernelAlignments.kernel?.itemRecords !== 1570 ||
+  rktsKernelAlignments.kernel?.uniqueIds !== 1562 ||
+  rktsKernelAlignments.summary?.exactKernelIds !== 1143 ||
+  rktsKernelAlignments.summary?.exactKernelIdsInTwoOrMoreCatalogs !== 971 ||
+  rktsKernelAlignments.summary?.unresolvedNormalizedIds !== 8
+) throw new Error("rKTs kernel 跨版本候选对齐账本不一致");
 const dsbcSource = snapshots.sources.find((source) => source.id === "dsbc_sanskrit_catalog");
 const gretilSource = snapshots.sources.find((source) => source.id === "gretil_sanskrit_buddhist_files");
 if (
@@ -238,10 +250,20 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       rktsCandidateBytes: rktsEvidence.totals.sourceBytes,
       rktsCatalogSnapshotFile: inputs.rktsEvidence,
       rktsCatalogSnapshotSha256: sha256(rawById.rktsEvidence),
+      rktsKernelItemRecords: rktsKernelAlignments.kernel.itemRecords,
+      rktsKernelUniqueIds: rktsKernelAlignments.kernel.uniqueIds,
+      rktsKernelDuplicateIdGroups: rktsKernelAlignments.kernel.duplicateIds.length,
+      rktsExactKernelIds: rktsKernelAlignments.summary.exactKernelIds,
+      rktsExactKernelIdsInTwoOrMoreCatalogs: rktsKernelAlignments.summary.exactKernelIdsInTwoOrMoreCatalogs,
+      rktsExactKernelIdsInEightOrMoreCatalogs: rktsKernelAlignments.summary.exactKernelIdsInEightOrMoreCatalogs,
+      rktsUnlinkedKernelIds: rktsKernelAlignments.summary.unlinkedKernelIds,
+      rktsUnresolvedNormalizedIds: rktsKernelAlignments.summary.unresolvedNormalizedIds,
+      rktsKernelAlignmentFile: inputs.rktsKernelAlignments,
+      rktsKernelAlignmentSha256: sha256(rawById.rktsKernelAlignments),
       volumeManifests: dergeInventory.totals.volumeManifests,
       inventoryFile: dergeSource.inventoryFile,
       inventorySha256: dergeSource.inventorySha256,
-      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。rKTs 固定迁移配置的 20 个版本、合集或残片目录中有 19 个 XML 可校验，共 15,069 条 item；Charang/Cx 配置路径缺失并单列。现有汉译证据中 29 个 Toh 基础编号已连接到 29 个固定德格表达式，但所有跨版本 item 仍待按 rKTs kernel、范围和版本关系去重，因此作品分母继续保持未知。",
+      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项。rKTs 的 19 个可用目录共有 15,069 条 item；按上游迁移规则规范前缀后，1,143 个 kernel 编号有精确连接，971 个见于至少两个目录。kernel 自身却有 1,570 条记录、1,562 个唯一编号，835 重复九次，且 835-1 至 835-8 保持未决。编号只生成候选边，不足以裁决作品同一性，因此作品分母继续保持未知。",
     };
   }
   if (family.id === "sanskrit_fragments_and_witnesses") {
@@ -389,7 +411,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "2.8.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "2.9.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -400,25 +422,36 @@ const registry = {
     ...crossCatalogAlignments.summary,
     warning: crossCatalogAlignments.warning,
   },
+  rktsKernelAlignmentAudit: {
+    version: rktsKernelAlignments.version,
+    status: rktsKernelAlignments.status,
+    file: inputs.rktsKernelAlignments,
+    sha256: sha256(rawById.rktsKernelAlignments),
+    kernelItemRecords: rktsKernelAlignments.kernel.itemRecords,
+    kernelUniqueIds: rktsKernelAlignments.kernel.uniqueIds,
+    duplicateKernelIdGroups: rktsKernelAlignments.kernel.duplicateIds.length,
+    ...rktsKernelAlignments.summary,
+    warning: rktsKernelAlignments.warning,
+  },
   works: [...nonCbetaWorks, ...cbetaWorks],
 };
 if (
   registry.works.length !== 978 ||
   registry.works.flatMap((work) => work.expressions).length !== 1141 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v2.8.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v2.9.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v2.8.0.json`,
+  `${sha256(registryRaw)}  registry-v2.9.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.8.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.8.0.sha256 不可复现");
-  console.log("跨语种登记册 v2.8.0 可复现：rKTs 19 个可用目录、15,069 条 item 已冻结；978 个受控作品与全球分母均未改变。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.9.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.9.0.sha256 不可复现");
+  console.log("跨语种登记册 v2.9.0 可复现：1,143 个 rKTs kernel 候选连接、8 个组件未决；978 个受控作品与全球分母均未改变。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v2.8.0 已生成：rKTs 多版本目录证据已冻结，不自动合并跨版本作品。");
+  console.log("跨语种登记册 v2.9.0 已生成：rKTs kernel 跨版本候选连接已冻结，不自动合并作品。");
 }

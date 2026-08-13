@@ -10,7 +10,7 @@ export function GET() {
         reading: "available",
         citedAnswers: "prototype",
         generativeAI: "disabled",
-        corpusRegistry: "v2.8.0-public-draft",
+        corpusRegistry: "v2.9.0-public-draft",
         corpusBackend: process.env.CORPUS_ASSET_BASE_URL
           ? "edge_with_local_fallback"
           : "local_controlled_assets",

@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v2.8.0.json";
+import registryDocument from "../../data/gbcr/registry-v2.9.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -444,6 +444,21 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "rKTs 固定迁移配置中的甘珠尔版本、合集与残片目录 item",
         caveat: "19 个可用目录的 15,069 条 item 会大量跨版本重复，并混合完整版本、合集和残片；Charang/Cx 配置路径在固定提交中缺失。它们不能与 BDRC 德格表达式或其他目录相加为作品分母。",
+      },
+      rktsKernelAlignment: {
+        kernelItemRecords: corpusRegistry.rktsKernelAlignmentAudit.kernelItemRecords,
+        kernelUniqueIds: corpusRegistry.rktsKernelAlignmentAudit.kernelUniqueIds,
+        duplicateKernelIdGroups: corpusRegistry.rktsKernelAlignmentAudit.duplicateKernelIdGroups,
+        exactKernelIds: corpusRegistry.rktsKernelAlignmentAudit.exactKernelIds,
+        exactKernelIdsInOneCatalog: corpusRegistry.rktsKernelAlignmentAudit.exactKernelIdsInOneCatalog,
+        exactKernelIdsInTwoOrMoreCatalogs: corpusRegistry.rktsKernelAlignmentAudit.exactKernelIdsInTwoOrMoreCatalogs,
+        exactKernelIdsInEightOrMoreCatalogs: corpusRegistry.rktsKernelAlignmentAudit.exactKernelIdsInEightOrMoreCatalogs,
+        unlinkedKernelIds: corpusRegistry.rktsKernelAlignmentAudit.unlinkedKernelIds,
+        unresolvedNormalizedIds: corpusRegistry.rktsKernelAlignmentAudit.unresolvedNormalizedIds,
+        denominatorImpact: corpusRegistry.rktsKernelAlignmentAudit.denominatorImpact,
+        sha256: corpusRegistry.rktsKernelAlignmentAudit.sha256,
+        unit: "固定 rKTs kernel 编号与 19 个可用目录之间的候选标识连接",
+        caveat: corpusRegistry.rktsKernelAlignmentAudit.warning,
       },
       sanskritCatalogs: {
         dsbcCatalogRecords,

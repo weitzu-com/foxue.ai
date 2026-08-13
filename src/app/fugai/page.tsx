@@ -266,6 +266,29 @@ export default function CoveragePage() {
               查看 29 组可审计连接与裁决边界 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
+          <article>
+            <span>rKTs 核心编号候选连接</span>
+            <strong>
+              {snapshot.candidateInventory.rktsKernelAlignment.exactKernelIds.toLocaleString("zh-CN")}
+              <small> / {snapshot.candidateInventory.rktsKernelAlignment.kernelUniqueIds.toLocaleString("zh-CN")}</small>
+            </strong>
+            <p>
+              固定 kernel 有 {snapshot.candidateInventory.rktsKernelAlignment.kernelItemRecords.toLocaleString("zh-CN")} 条记录、
+              {snapshot.candidateInventory.rktsKernelAlignment.kernelUniqueIds.toLocaleString("zh-CN")} 个唯一编号；
+              {snapshot.candidateInventory.rktsKernelAlignment.exactKernelIds.toLocaleString("zh-CN")} 个编号与目录精确连接，
+              其中 {snapshot.candidateInventory.rktsKernelAlignment.exactKernelIdsInTwoOrMoreCatalogs.toLocaleString("zh-CN")} 个
+              见于至少两个目录。编号 835 在 kernel 重复九次，835-1 至 835-8 继续保持未决
+            </p>
+            <small>{snapshot.candidateInventory.rktsKernelAlignment.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 1,143 个候选连接与 8 个反例 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
         </div>
       </section>
 
