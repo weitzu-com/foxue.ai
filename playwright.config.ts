@@ -7,6 +7,8 @@ const localChrome =
 
 export default defineConfig({
   testDir: "./tests",
+  // 长时间无障碍扫描后，低内存主机创建下一页上下文可能短暂变慢；功能测试正文通常在数秒内完成。
+  timeout: 60_000,
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,

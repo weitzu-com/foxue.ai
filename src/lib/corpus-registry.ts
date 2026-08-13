@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v2.7.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.4.0.json";
+import registryDocument from "../../data/gbcr/registry-v2.8.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
   id: string;
@@ -170,6 +170,24 @@ export function buildCoverageSnapshot() {
     : null;
   const dergeVolumes = "volumeManifests" in (tibetanFamily ?? {})
     ? tibetanFamily?.volumeManifests ?? null
+    : null;
+  const rktsSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "rkts_kangyur_catalogs",
+  );
+  const rktsConfiguredCatalogs = "rktsConfiguredCatalogs" in (tibetanFamily ?? {})
+    ? tibetanFamily?.rktsConfiguredCatalogs ?? null
+    : null;
+  const rktsAvailableCatalogs = "rktsAvailableCatalogs" in (tibetanFamily ?? {})
+    ? tibetanFamily?.rktsAvailableCatalogs ?? null
+    : null;
+  const rktsMissingConfiguredCatalogs = "rktsMissingConfiguredCatalogs" in (tibetanFamily ?? {})
+    ? tibetanFamily?.rktsMissingConfiguredCatalogs ?? null
+    : null;
+  const rktsCandidateItemRecords = "rktsCandidateItemRecords" in (tibetanFamily ?? {})
+    ? tibetanFamily?.rktsCandidateItemRecords ?? null
+    : null;
+  const rktsCandidateBytes = "rktsCandidateBytes" in (tibetanFamily ?? {})
+    ? tibetanFamily?.rktsCandidateBytes ?? null
     : null;
   const sanskritFamily = corpusRegistry.sourceFamilies.find(
     (family) => family.id === "sanskrit_fragments_and_witnesses",
@@ -411,6 +429,21 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "BDRC 德格甘珠尔初印本固定版本顶层文本表达式",
         caveat: "1,114 是可定位到德格初印本卷页的顶层表达式；8 个目录补充项、71 个嵌套子文本、1,193 个德格编号和 844 个链接抽象作品分别计数。它不是跨版本去重后的藏文作品分母，更不是全球佛典覆盖率。",
+      },
+      multiEditionTibetanCatalogs: {
+        configuredCatalogs: rktsConfiguredCatalogs,
+        availableCatalogs: rktsAvailableCatalogs,
+        missingConfiguredCatalogs: rktsMissingConfiguredCatalogs,
+        itemRecords: rktsCandidateItemRecords,
+        sourceBytes: rktsCandidateBytes,
+        inventorySha256: rktsSourceInventory && "inventorySha256" in rktsSourceInventory
+          ? rktsSourceInventory.inventorySha256
+          : null,
+        license: rktsSourceInventory && "rights" in rktsSourceInventory && rktsSourceInventory.rights && "license" in rktsSourceInventory.rights
+          ? rktsSourceInventory.rights.license
+          : null,
+        unit: "rKTs 固定迁移配置中的甘珠尔版本、合集与残片目录 item",
+        caveat: "19 个可用目录的 15,069 条 item 会大量跨版本重复，并混合完整版本、合集和残片；Charang/Cx 配置路径在固定提交中缺失。它们不能与 BDRC 德格表达式或其他目录相加为作品分母。",
       },
       sanskritCatalogs: {
         dsbcCatalogRecords,

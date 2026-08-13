@@ -5,13 +5,14 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const inputs = {
   base: "data/gbcr/registry-v2.1.0.json",
-  snapshots: "data/gbcr/source-snapshots-v0.4.0.json",
+  snapshots: "data/gbcr/source-snapshots-v0.5.0.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   dergeInventory: "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
   sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
+  rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   cbetaT12Batch: "data/corpus/cbeta/batch-v1.9.0.json",
   cbetaT13Batch: "data/corpus/cbeta/batch-v2.0.0.json",
   cbetaT14Batch: "data/corpus/cbeta/batch-v2.1.0.json",
@@ -47,6 +48,7 @@ const rights84000 = JSON.parse(rawById.rights84000);
 const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
 const sanskritRights = JSON.parse(rawById.sanskritRights);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
+const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const cbetaBatch = JSON.parse(rawById.cbetaBatch);
 const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
 const cbetaManifest = JSON.parse(rawById.cbetaManifest);
@@ -61,8 +63,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v2.7.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.7.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v2.8.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.8.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -139,8 +141,9 @@ if (
   cbetaFamily?.controlledExpressionBytes !== 247280257
 ) throw new Error("CBETA 汉译经藏受控来源记录统计不一致");
 const dergeSource = snapshots.sources.find((source) => source.id === "bdrc_derge_kangyur");
+const rktsSource = snapshots.sources.find((source) => source.id === "rkts_kangyur_catalogs");
 if (
-  snapshots.version !== "0.4.0" || snapshots.denominatorReady !== false ||
+  snapshots.version !== "0.5.0" || snapshots.denominatorReady !== false ||
   dergeSource?.candidateRecordCount !== 1114 ||
   dergeInventory.totals?.topLevelCatalogRecords !== 1122 ||
   dergeInventory.totals?.topLevelExpressionRecords !== 1114 ||
@@ -153,6 +156,18 @@ if (
   rights84000.policy?.translationMetadata?.license !== "CC BY 4.0" ||
   rights84000.policy?.api?.open !== false
 ) throw new Error("BDRC 德格甘珠尔快照或 84000 权利边界不一致");
+if (
+  rktsEvidence.version !== "0.5.0" ||
+  rktsEvidence.upstream?.submoduleVerified !== true ||
+  rktsEvidence.totals?.configuredCatalogs !== 20 ||
+  rktsEvidence.totals?.availableCatalogs !== 19 ||
+  rktsEvidence.totals?.missingConfiguredCatalogs !== 1 ||
+  rktsEvidence.totals?.itemRecords !== 15069 ||
+  rktsEvidence.totals?.sourceBytes !== 15544576 ||
+  rktsEvidence.rights?.sourceDataLicense !== "CC0-1.0" ||
+  rktsEvidence.integrity?.itemInventoryPublished !== false ||
+  rktsSource?.candidateRecordCount !== 15069
+) throw new Error("rKTs 多版本甘珠尔目录快照或权利边界不一致");
 const dsbcSource = snapshots.sources.find((source) => source.id === "dsbc_sanskrit_catalog");
 const gretilSource = snapshots.sources.find((source) => source.id === "gretil_sanskrit_buddhist_files");
 if (
@@ -199,8 +214,8 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "tibetan_kangyur_tengyur") {
     return {
       ...family,
-      primarySources: ["bdrc_derge_kangyur", "bdrc_linked_data", "bdrc_iiif", "84000_progress"],
-      denominatorStatus: "fixed_edition_expression_snapshot_ready",
+      primarySources: ["bdrc_derge_kangyur", "rkts_kangyur_catalogs", "bdrc_linked_data", "bdrc_iiif", "84000_progress"],
+      denominatorStatus: "multi_edition_catalog_snapshots_ready_alignment_pending",
       denominatorWorks: null,
       candidateEditionId: dergeInventory.source.instanceId,
       candidateEditionTitle: dergeInventory.source.titleZh,
@@ -216,10 +231,17 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       matchedDergeExpressions: crossCatalogAlignments.summary.matchedDergeExpressions,
       crossCatalogAlignmentFile: inputs.crossCatalogAlignments,
       crossCatalogAlignmentSha256: sha256(rawById.crossCatalogAlignments),
+      rktsConfiguredCatalogs: rktsEvidence.totals.configuredCatalogs,
+      rktsAvailableCatalogs: rktsEvidence.totals.availableCatalogs,
+      rktsMissingConfiguredCatalogs: rktsEvidence.totals.missingConfiguredCatalogs,
+      rktsCandidateItemRecords: rktsEvidence.totals.itemRecords,
+      rktsCandidateBytes: rktsEvidence.totals.sourceBytes,
+      rktsCatalogSnapshotFile: inputs.rktsEvidence,
+      rktsCatalogSnapshotSha256: sha256(rawById.rktsEvidence),
       volumeManifests: dergeInventory.totals.volumeManifests,
       inventoryFile: dergeSource.inventoryFile,
       inventorySha256: dergeSource.inventorySha256,
-      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。现有汉译证据中 29 个 Toh 基础编号已连接到 29 个固定德格表达式，但这只覆盖人工整理关系组；BDRC 当前关联的 844 个抽象作品标识仍未完成跨版本、跨目录和跨语言独立复核，因此作品分母继续保持未知。",
+      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。rKTs 固定迁移配置的 20 个版本、合集或残片目录中有 19 个 XML 可校验，共 15,069 条 item；Charang/Cx 配置路径缺失并单列。现有汉译证据中 29 个 Toh 基础编号已连接到 29 个固定德格表达式，但所有跨版本 item 仍待按 rKTs kernel、范围和版本关系去重，因此作品分母继续保持未知。",
     };
   }
   if (family.id === "sanskrit_fragments_and_witnesses") {
@@ -330,11 +352,44 @@ const sourceSnapshots = [
       summary: "GRETIL 镜像没有仓库级许可证；foxue.ai 只登记固定路径、blob 和字节汇总，逐文件权利核验完成前不镜像正文。",
     },
   },
+  {
+    id: "rkts_kangyur_catalogs",
+    name: "rKTs 多版本甘珠尔目录",
+    role: "固定迁移配置中的甘珠尔版本、合集与残片目录 item、rKTs kernel 链接及 BDRC 实例标识候选源",
+    homepage: "https://www.istb.univie.ac.at/kanjur/rktsneu/sub/index.php",
+    dataUrl: `https://github.com/${rktsEvidence.upstream.sourceRepository}/tree/${rktsEvidence.upstream.sourceCommit}`,
+    licenseUrl: rktsEvidence.rights.sourceLicenseEvidenceUrl,
+    formatUrl: `https://github.com/${rktsEvidence.upstream.sourceRepository}/blob/${rktsEvidence.upstream.sourceCommit}/README.md`,
+    snapshot: {
+      type: "git",
+      ref: rktsEvidence.upstream.sourceCommit,
+      capturedAt: rktsEvidence.capturedAt,
+      relatedRefs: {
+        tree: rktsEvidence.upstream.sourceTree,
+        migrationCommit: rktsEvidence.upstream.migrationCommit,
+        migrationTree: rktsEvidence.upstream.migrationTree,
+      },
+    },
+    inventory: {
+      file: rktsSource.inventoryFile,
+      sha256: rktsSource.inventorySha256,
+      configuredCatalogs: rktsEvidence.totals.configuredCatalogs,
+      availableCatalogs: rktsEvidence.totals.availableCatalogs,
+      missingConfiguredCatalogs: rktsEvidence.totals.missingConfiguredCatalogs,
+      candidateItemRecords: rktsEvidence.totals.itemRecords,
+      candidateBytes: rktsEvidence.totals.sourceBytes,
+      itemInventoryPublished: false,
+    },
+    rights: {
+      status: "cc0_catalog_metadata_aggregate_only",
+      summary: "rKTs 数据 README 声明 CC0，并请求引用项目与仓库。foxue.ai 当前只发布固定版本级汇总、路径和 Git blob 指纹；不把跨版本 item 相加为作品分母。",
+    },
+  },
 ];
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "2.7.0", publishedAt: "2026-08-13" },
+  registry: { ...base.registry, version: "2.8.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -351,19 +406,19 @@ if (
   registry.works.length !== 978 ||
   registry.works.flatMap((work) => work.expressions).length !== 1141 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v2.7.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v2.8.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v2.7.0.json`,
+  `${sha256(registryRaw)}  registry-v2.8.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.7.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.7.0.sha256 不可复现");
-  console.log("跨语种登记册 v2.7.0 可复现：29 个 Toh 基础编号连接 29 个固定德格表达式；978 个受控作品与全球分母均未改变。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.8.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.8.0.sha256 不可复现");
+  console.log("跨语种登记册 v2.8.0 可复现：rKTs 19 个可用目录、15,069 条 item 已冻结；978 个受控作品与全球分母均未改变。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v2.7.0 已生成：Toh—德格—CBETA 对齐证据已冻结，不自动合并作品。");
+  console.log("跨语种登记册 v2.8.0 已生成：rKTs 多版本目录证据已冻结，不自动合并跨版本作品。");
 }

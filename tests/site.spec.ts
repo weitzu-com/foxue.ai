@@ -80,6 +80,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("1,114").first()).toBeVisible();
   await expect(page.getByText("486").first()).toBeVisible();
   await expect(page.getByText("417").first()).toBeVisible();
+  await expect(page.getByText("15,069").first()).toBeVisible();
+  await expect(page.getByText("藏文多版本目录")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
@@ -90,7 +92,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.globalPercentages.catalog).toBeNull();
   expect(coverage.candidateInventory).toMatchObject({
     denominatorReady: false,
-    totalSourceRecords: 14606,
+    totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 978,
@@ -188,6 +190,14 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     dergeIdentifiers: 1193,
     linkedAbstractWorkIds: 844,
     volumeManifests: 103,
+  });
+  expect(coverage.candidateInventory.multiEditionTibetanCatalogs).toMatchObject({
+    configuredCatalogs: 20,
+    availableCatalogs: 19,
+    missingConfiguredCatalogs: 1,
+    itemRecords: 15069,
+    sourceBytes: 15544576,
+    license: "CC0-1.0",
   });
   expect(coverage.candidateInventory.sanskritCatalogs).toMatchObject({
     dsbcCatalogRecords: 486,

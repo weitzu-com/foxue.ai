@@ -53,6 +53,8 @@
     "verify:bdrc-derge": "node scripts/snapshot-bdrc-derge-kangyur.mjs --verify",
     "snapshot:sanskrit": "node scripts/snapshot-sanskrit-catalogs.mjs --write",
     "verify:sanskrit": "node scripts/snapshot-sanskrit-catalogs.mjs --verify",
+    "snapshot:rkts": "node scripts/snapshot-rkts-kangyur-catalogs.mjs --write",
+    "verify:rkts": "node scripts/snapshot-rkts-kangyur-catalogs.mjs --verify",
     "build:cross-catalog": "node scripts/build-cross-catalog-alignments.mjs",
     "verify:cross-catalog": "node scripts/build-cross-catalog-alignments.mjs --verify",
     "verify:corpus": "node scripts/verify-corpus-registry.mjs",
@@ -67,7 +69,7 @@
     "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:bdrc-derge && pnpm verify:sanskrit && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:sanskrit && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:corpus && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

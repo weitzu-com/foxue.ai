@@ -29,6 +29,7 @@ const statusLabels: Record<string, string> = {
   catalog_snapshot_pending: "目录快照待建",
   edition_alignment_pending: "版本对齐中",
   fixed_edition_expression_snapshot_ready: "固定版本表达式快照已冻结",
+  multi_edition_catalog_snapshots_ready_alignment_pending: "多版本目录已冻结，作品对齐中",
   federated_sources_pending: "联邦来源待建",
 };
 
@@ -38,6 +39,7 @@ const sourceLabels: Record<string, string> = {
   bdrc_derge_kangyur: "BDRC · 德格甘珠尔",
   dsbc_sanskrit_catalog: "DSBC · 梵文目录",
   gretil_sanskrit_buddhist_files: "GRETIL · 梵文文件",
+  rkts_kangyur_catalogs: "rKTs · 多版本甘珠尔",
 };
 
 const dimensionNotes: Record<string, string> = {
@@ -216,6 +218,28 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看汇总证据与权利边界 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
+            <span>藏文多版本目录</span>
+            <strong>
+              {snapshot.candidateInventory.multiEditionTibetanCatalogs.itemRecords?.toLocaleString("zh-CN")}
+              <small> / {snapshot.candidateInventory.multiEditionTibetanCatalogs.availableCatalogs} 个可用目录</small>
+            </strong>
+            <p>
+              rKTs 固定迁移清单配置了 {snapshot.candidateInventory.multiEditionTibetanCatalogs.configuredCatalogs} 个
+              甘珠尔版本、合集或残片目录；其中 {snapshot.candidateInventory.multiEditionTibetanCatalogs.availableCatalogs} 个
+              XML 通过 Git blob 校验，合计 {(snapshot.candidateInventory.multiEditionTibetanCatalogs.sourceBytes! / 1_000_000).toFixed(2)} MB。
+              {snapshot.candidateInventory.multiEditionTibetanCatalogs.missingConfiguredCatalogs} 个缺失配置单列，不猜测补齐
+            </p>
+            <small>{snapshot.candidateInventory.multiEditionTibetanCatalogs.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 20 个版本配置、19 个固定 blob 与 CC0 证据 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

@@ -1983,6 +1983,23 @@ foxue.ai 不追求：
 
 ---
 
+## 实施进展：GBCR v2.8 与 rKTs 多版本甘珠尔目录快照
+
+截至 2026-08-14，第二十八个可审计语料里程碑把藏文候选面从单一德格版本扩展到多版本目录，同时继续拒绝把“跨版本目录项总数”冒充“独立作品数”：
+
+- 目录选择规则固定到 [buda-base/rKTs-migration](https://github.com/buda-base/rKTs-migration) 提交 `7c2885721f9c5af6cfbd9e9436f223597649605d`、tree `831801488e2626077c27f876f153d61240f0337a`。`migrate.php` 明确选择 20 个甘珠尔版本、合集或残片目录；`rkts.yaml` 提供各目录的 XML 路径、版号、BDRC 实例标识与印刷类型；
+- 数据子模块固定到 [brunogml/rKTs](https://github.com/brunogml/rKTs) 提交 `f6a87b6965641111b566ce2db14f7641a7469e6f`、tree `d31e7bf96b111120f48c33f4441f54b03d503618`。快照强制验证 migration 仓库中的 submodule 提交恰好等于这个 source 提交，避免配置与数据版本错配；
+- 20 个配置路径中有 19 个 XML 在固定 source tree 中存在并通过 Git blob SHA-1 复算；共 15,069 条 `<item>`、15,139 个 `<ref>` 字段、15,025 个目录内唯一引用、15,116 个 rKTs kernel 链接与 15,544,576 字节。Charang/Cx 的配置路径不存在，作为 `configured_path_missing_at_frozen_source_commit` 具名保留，不从 `zzz in progress` 路径猜测替换；
+- rKTs 数据 README 明确声明 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) 并请求引用仓库与项目；迁移程序采用 Apache-2.0。快照保存许可证证据的 Git blob 与 SHA-256。尽管许可允许复用，本阶段仍只发布版本级汇总、路径、blob、BDRC 实例标识与完整性摘要，不镜像约 15 MB XML，也不发布未经作品裁决的逐条 item；
+- 19 个可用目录混合完整甘珠尔版本、合集和残片，同一作品会跨版本反复出现；单一目录内部还可能有组件、异体编号或多重引用。因此 15,069 只进入候选来源审计，不能与 BDRC 德格 1,114 条可定位表达式直接相加为藏文作品数；
+- `source-snapshots-v0.5.0.json` 现在含 CBETA 5,005、SuttaCentral 7,584、BDRC 德格 1,114、DSBC 486、GRETIL 417 和 rKTs 15,069 条候选记录，机械聚合为 29,675。六种记录单位不同且互有重叠，所以 `denominatorReady=false`，目录作品、完整全文、翻译、权利与质量五个全球分母继续为 `null`；
+- 站内持有量仍为 978 个作品实体、1,141 个表达或见证、1,127 个完整全文与 1,683,984 个稳定段落。新增目录证据不会制造站内全文，也不会改变 99% 声明仍不可发布的状态；
+- 新增 `snapshot-rkts-kangyur-catalogs.mjs`、`rkts-kangyur-catalog-snapshot-v0.5.0.json`、GBCR v2.8、确定性校验、覆盖 API、中文透明页面、端到端断言与离线保存清单。离线验证不依赖上游在线；显式刷新才访问固定 Git 对象，并要求人工审阅差异。
+
+下一步以 rKTs kernel 标识为候选桥梁，对 19 个目录执行表达式层归并：先区分完整版本、合集与残片，再核对文本范围、卷页、题名、开头结尾、BDRC 作品标识及 Toh/D 关系。机器可以生成候选边，但 Work/Expression/Witness 合并必须保留可引用证据、反例和双人复核；否则多版本数据越多，虚假的“覆盖率”只会越精致。
+
+---
+
 ## 结语
 
 foxue.ai 真正有机会做到的，不是制造一个“看起来像答案”的 AI，而是让答案重新拥有出处，让不同传统重新看见彼此，让经典以开放、尊重和可恢复的方式跨越技术世代。

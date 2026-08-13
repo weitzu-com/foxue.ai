@@ -1,0 +1,416 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/rkts-kangyur-catalog-snapshot-v0.5",
+  "version": "0.5.0",
+  "capturedAt": "2026-08-13",
+  "status": "fixed_multi_edition_catalog_aggregate_with_one_missing_configured_path",
+  "scope": "rKTs migration-selected Kanjur editions, collections and fragment catalogs",
+  "warning": "15,069 是 19 个可用版本、合集或残片目录中的 item 物理记录总和；同一作品会跨版本重复，单一目录也可能含组件或异体编号。它不是去重作品数、全文数或全球佛典分母。",
+  "upstream": {
+    "migrationRepository": "buda-base/rKTs-migration",
+    "migrationCommit": "7c2885721f9c5af6cfbd9e9436f223597649605d",
+    "migrationTree": "831801488e2626077c27f876f153d61240f0337a",
+    "sourceRepository": "brunogml/rKTs",
+    "sourceCommit": "f6a87b6965641111b566ce2db14f7641a7469e6f",
+    "sourceTree": "d31e7bf96b111120f48c33f4441f54b03d503618",
+    "migrationTreeEntries": 6103,
+    "sourceTreeEntries": 26340,
+    "submoduleVerified": true
+  },
+  "selection": {
+    "source": "migrate.php $filesList at the fixed migration commit",
+    "configuredIds": [
+      "derge",
+      "chemdo",
+      "goldenmustang",
+      "egoo",
+      "shey",
+      "stog",
+      "narthang",
+      "peking",
+      "lhasa",
+      "urga",
+      "cone",
+      "lithang",
+      "phugdrak",
+      "ragya",
+      "hemishi",
+      "tashiyangtse",
+      "go",
+      "ng",
+      "bd",
+      "l"
+    ],
+    "configuredIdsSha256": "bbb77f9ceaab0d79b324866b095ac6bfa70caec532c7e233eca5e4f22a3c046e",
+    "configuredYamlPathSha256": "9d2c3614e079dddb1a16655820545a5f87c41ba5ed93634304e3fcdfdc1a2a9a"
+  },
+  "totals": {
+    "configuredCatalogs": 20,
+    "availableCatalogs": 19,
+    "missingConfiguredCatalogs": 1,
+    "sourceBytes": 15544576,
+    "itemRecords": 15069,
+    "referenceFields": 15139,
+    "uniqueReferencesWithinCatalogs": 15025,
+    "rktsLinks": 15116
+  },
+  "integrity": {
+    "availablePathSha256": "f531424302c77d921c71afc1a2bc59f3e2d8c567ef71622b4f0bc55516bec007",
+    "catalogRecordSetSha256": "439117912d4c60ada8507396e8da0559b9d5a0fea9dbae926dcf964e902e53c7",
+    "itemInventoryPublished": false,
+    "reason": "CC0 允许复用，但本阶段只发布版本级汇总、路径和 blob 指纹；逐条作品归并必须另行版本学裁决。"
+  },
+  "rights": {
+    "sourceDataLicense": "CC0-1.0",
+    "sourceLicenseEvidenceUrl": "https://github.com/brunogml/rKTs/blob/f6a87b6965641111b566ce2db14f7641a7469e6f/README.md#license",
+    "sourceReadmeBlobSha": "544c574cbee9de9e6729113b171f26a48b7ba0f0",
+    "sourceReadmeSha256": "a4a2ce7a4a256ff1c30e6946715714443fb2c47ba49fdcba2980bcfd60d8f91d",
+    "migrationCodeLicense": "Apache-2.0",
+    "migrationLicenseBlobSha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "migrationLicenseSha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "attributionRequested": true,
+    "foxueDecision": "发布事实性版本级目录统计、固定路径、Git blob 与 BDRC 实例标识；本阶段不镜像 15 MB XML，也不把跨版本 item 相加为作品分母。"
+  },
+  "catalogs": [
+    {
+      "id": "derge",
+      "label": "Derge Kanjur",
+      "eid": "D",
+      "bdrcInstanceIds": [
+        "MW22084",
+        "MW4CZ5369",
+        "MW3CN20612",
+        "MW30532"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/D Derge Kanjur/D.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "ccd683ba666a38367ea5fefb00dcaad8267674bf",
+      "bytes": 4177524,
+      "itemRecords": 1122,
+      "referenceFields": 1193,
+      "uniqueReferences": 1193,
+      "rktsLinks": 1193
+    },
+    {
+      "id": "chemdo",
+      "label": "dPe bsdur ma Kanjur",
+      "eid": "A",
+      "bdrcInstanceIds": [
+        "MW1PD96682"
+      ],
+      "printType": "PrintMethod_Offset",
+      "configuredPath": "Collections/A dPe bsdur ma Kanjur/A.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "0f7b49c016e0da5c1e2a11c86c016233f9274e97",
+      "bytes": 1780844,
+      "itemRecords": 1250,
+      "referenceFields": 1250,
+      "uniqueReferences": 1137,
+      "rktsLinks": 1250
+    },
+    {
+      "id": "goldenmustang",
+      "label": "Charang Kanjur",
+      "eid": "Cx",
+      "bdrcInstanceIds": [
+        "MW3CN1302"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "Collections/Cx Charang Kanjur/Cx.xml",
+      "sourcePathAvailable": false,
+      "exclusionReason": "configured_path_missing_at_frozen_source_commit"
+    },
+    {
+      "id": "egoo",
+      "label": "Egoo Collection",
+      "eid": "EG",
+      "bdrcInstanceIds": [
+        "MW1KG12671"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "Collections/Eg Egoo Collection/Eg.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "e53d477dca0627f9933e1ae5cad36b1cf403a5ed",
+      "bytes": 83417,
+      "itemRecords": 172,
+      "referenceFields": 172,
+      "uniqueReferences": 172,
+      "rktsLinks": 172
+    },
+    {
+      "id": "shey",
+      "label": "Shey Kanjur",
+      "eid": "Z",
+      "bdrcInstanceIds": [
+        "MW1PD127393"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "Collections/Z Shey Kanjur/Z.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "e394f4c8d653203bc136cf0313d1c6a53d022122",
+      "bytes": 1408331,
+      "itemRecords": 780,
+      "referenceFields": 780,
+      "uniqueReferences": 780,
+      "rktsLinks": 780
+    },
+    {
+      "id": "stog",
+      "label": "Stog Kanjur",
+      "eid": "S",
+      "bdrcInstanceIds": [
+        "MW22083"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/S Stog Kanjur/S.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "3ed2974bcb1a880fbef377b7080405d42b33e93b",
+      "bytes": 1385021,
+      "itemRecords": 817,
+      "referenceFields": 817,
+      "uniqueReferences": 817,
+      "rktsLinks": 817
+    },
+    {
+      "id": "narthang",
+      "label": "Narthang Kanjur",
+      "eid": "N",
+      "bdrcInstanceIds": [
+        "MW22703",
+        "MW2KG5014"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/N Narthang Kanjur/N.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "d9c99cfc6534ebf1ba271915985eeaa66c793cec",
+      "bytes": 438359,
+      "itemRecords": 789,
+      "referenceFields": 789,
+      "uniqueReferences": 789,
+      "rktsLinks": 789
+    },
+    {
+      "id": "peking",
+      "label": "Peking 1737 Kanjur",
+      "eid": "Q",
+      "bdrcInstanceIds": [
+        "MW1PD96684",
+        "MW3CN1094"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/Q Peking 1737 Kanjur/Q.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "cd2aa6bd6ed1a25c42206c77212b406dd0015106",
+      "bytes": 1366581,
+      "itemRecords": 1108,
+      "referenceFields": 1108,
+      "uniqueReferences": 1108,
+      "rktsLinks": 1108
+    },
+    {
+      "id": "lhasa",
+      "label": "Lhasa Kanjur",
+      "eid": "H",
+      "bdrcInstanceIds": [
+        "MW26071"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/H Lhasa Kanjur/H.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "a1c0d10b762f5375a34440463635ca3d3a7e5d5b",
+      "bytes": 817754,
+      "itemRecords": 812,
+      "referenceFields": 812,
+      "uniqueReferences": 812,
+      "rktsLinks": 810
+    },
+    {
+      "id": "urga",
+      "label": "Urga Kanjur",
+      "eid": "U",
+      "bdrcInstanceIds": [
+        "MW29468",
+        "MW1BL4"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/U Urga Kanjur/U.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "09f74883e4054f5c194c5b31041b11ab47a064f8",
+      "bytes": 521436,
+      "itemRecords": 1109,
+      "referenceFields": 1109,
+      "uniqueReferences": 1108,
+      "rktsLinks": 1109
+    },
+    {
+      "id": "cone",
+      "label": "Cone Kanjur",
+      "eid": "C",
+      "bdrcInstanceIds": [
+        "MW1PD96685"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/C Cone Kanjur/C.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "2d3d2a2917d0d389e1817e82dd7fe5b4e322f99f",
+      "bytes": 353969,
+      "itemRecords": 1104,
+      "referenceFields": 1104,
+      "uniqueReferences": 1104,
+      "rktsLinks": 1101
+    },
+    {
+      "id": "lithang",
+      "label": "Lithang Kanjur",
+      "eid": "J",
+      "bdrcInstanceIds": [
+        "MW4CZ7445"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "Collections/J Lithang Kanjur/J.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "3553a21d0b157973f65bc307ce76e795d5563cd1",
+      "bytes": 671486,
+      "itemRecords": 1121,
+      "referenceFields": 1120,
+      "uniqueReferences": 1120,
+      "rktsLinks": 1121
+    },
+    {
+      "id": "phugdrak",
+      "label": "Phugbrag Kanjur",
+      "eid": "F",
+      "bdrcInstanceIds": [
+        "MW1KG13607"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "Collections/F Phugbrag Kanjur/F.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "3224fffab5a35449dbac17021e5a89b48a289141",
+      "bytes": 416258,
+      "itemRecords": 778,
+      "referenceFields": 778,
+      "uniqueReferences": 778,
+      "rktsLinks": 778
+    },
+    {
+      "id": "ragya",
+      "label": "Ragya Kanjur",
+      "eid": "R",
+      "bdrcInstanceIds": [
+        "MW2PD17098"
+      ],
+      "printType": "PrintMethod_Relief_WoodBlock",
+      "configuredPath": "sql_export/R.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "d28c606d66fe98b8e8c0b2b92d9dbb00cbec6d27",
+      "bytes": 563176,
+      "itemRecords": 1111,
+      "referenceFields": 1111,
+      "uniqueReferences": 1111,
+      "rktsLinks": 1111
+    },
+    {
+      "id": "hemishi",
+      "label": "Hemis II Kanjur",
+      "eid": "Hi",
+      "bdrcInstanceIds": [
+        "MW4CZ45314"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/Hi.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "644c693d7f55cd60930e5e7c91a62a3e9d8878a1",
+      "bytes": 81487,
+      "itemRecords": 159,
+      "referenceFields": 159,
+      "uniqueReferences": 159,
+      "rktsLinks": 157
+    },
+    {
+      "id": "tashiyangtse",
+      "label": "Tashiyangtse Kanjur",
+      "eid": "Ty",
+      "bdrcInstanceIds": [
+        "MW2KG209840"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/Ty.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "a379ebf5a4167a4b9585cdd67b7670b5695daed4",
+      "bytes": 513574,
+      "itemRecords": 812,
+      "referenceFields": 812,
+      "uniqueReferences": 812,
+      "rktsLinks": 805
+    },
+    {
+      "id": "go",
+      "label": "Gondhla Collection",
+      "eid": "Go",
+      "bdrcInstanceIds": [
+        "MW2KG5016"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/Go.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "2177719e88e9aa1350d680cd44d21ba970bd308a",
+      "bytes": 199324,
+      "itemRecords": 418,
+      "referenceFields": 418,
+      "uniqueReferences": 418,
+      "rktsLinks": 418
+    },
+    {
+      "id": "ng",
+      "label": "Namgyal Collection",
+      "eid": "Ng",
+      "bdrcInstanceIds": [
+        "MW2KG229028"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/Ng.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "bed1ada65a8f0050dc6f850547dd7c471bc09828",
+      "bytes": 356042,
+      "itemRecords": 638,
+      "referenceFields": 638,
+      "uniqueReferences": 638,
+      "rktsLinks": 635
+    },
+    {
+      "id": "bd",
+      "label": "Bardan Collection",
+      "eid": "Bd",
+      "bdrcInstanceIds": [
+        "MW8LS15931"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/Bd.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "d545da3ad6bacfd9003e6545467b3ebeeaac8264",
+      "bytes": 115423,
+      "itemRecords": 218,
+      "referenceFields": 218,
+      "uniqueReferences": 218,
+      "rktsLinks": 211
+    },
+    {
+      "id": "l",
+      "label": "London Kanjur",
+      "eid": "L",
+      "bdrcInstanceIds": [
+        "MW3CN981"
+      ],
+      "printType": "PrintMethod_Manuscript",
+      "configuredPath": "sql_export/L.xml",
+      "sourcePathAvailable": true,
+      "blobSha": "fe72a2012686867c2d92ca95b72826953e4e65f4",
+      "bytes": 294570,
+      "itemRecords": 751,
+      "referenceFields": 751,
+      "uniqueReferences": 751,
+      "rktsLinks": 751
+    }
+  ]
+}
