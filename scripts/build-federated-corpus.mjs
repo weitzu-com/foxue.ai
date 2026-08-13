@@ -12,6 +12,7 @@ const inputs = {
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
   sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
   gretilFileRightsAudit: "data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json",
+  suttacentralIndicRightsAudit: "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
@@ -36,6 +37,8 @@ const inputs = {
   anguttaraManifest: "data/corpus/suttacentral/an-manifest-v1.1.0.json",
   khuddakaBatch: "data/corpus/suttacentral/kn-batch-v1.2.0.json",
   khuddakaManifest: "data/corpus/suttacentral/kn-manifest-v1.2.0.json",
+  indicBatch: "data/corpus/suttacentral/indic-batch-v1.3.0.json",
+  indicManifest: "data/corpus/suttacentral/indic-manifest-v1.3.0.json",
 };
 const entries = await Promise.all(Object.entries(inputs).map(async ([id, relativePath]) => [
   id,
@@ -50,6 +53,7 @@ const rights84000 = JSON.parse(rawById.rights84000);
 const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
 const sanskritRights = JSON.parse(rawById.sanskritRights);
 const gretilFileRightsAudit = JSON.parse(rawById.gretilFileRightsAudit);
+const suttacentralIndicRightsAudit = JSON.parse(rawById.suttacentralIndicRightsAudit);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
@@ -67,8 +71,10 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v3.0.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v3.0.0.sha256");
+const indicBatch = JSON.parse(rawById.indicBatch);
+const indicManifest = JSON.parse(rawById.indicManifest);
+const outputPath = resolve(root, "data/gbcr/registry-v3.1.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.1.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -127,6 +133,28 @@ if (
 ) {
   throw new Error("SuttaCentral 《小部》固定批次、清单或结构统计不一致");
 }
+if (
+  indicManifest.source.commit !== indicBatch.source.commit ||
+  indicManifest.source.commit !== khuddakaManifest.source.commit ||
+  indicBatch.version !== "1.3.0" || indicManifest.version !== "1.3.0" ||
+  indicManifest.files.length !== 3 || indicBatch.files.length !== 24 ||
+  indicBatch.collection.workCount !== 3 ||
+  indicBatch.collection.sourceRecordCount !== 24 ||
+  indicBatch.collection.sourceBytes !== 216385 ||
+  indicBatch.collection.sourceSegments !== 1910 ||
+  indicBatch.collection.stableSegments !== 1909 ||
+  indicBatch.collection.omittedEmptyEditorialPlaceholderSegments !== 1 ||
+  suttacentralIndicRightsAudit.version !== "0.8.0" ||
+  suttacentralIndicRightsAudit.source?.commit !== indicBatch.source.commit ||
+  suttacentralIndicRightsAudit.summary?.filesAudited !== 24 ||
+  suttacentralIndicRightsAudit.summary?.filesApprovedForReadingAndRetrieval !== 24 ||
+  suttacentralIndicRightsAudit.summary?.filesApprovedForModelTraining !== 0 ||
+  suttacentralIndicRightsAudit.summary?.sanskritRootFiles !== 2 ||
+  suttacentralIndicRightsAudit.summary?.prakritRootFiles !== 22 ||
+  suttacentralIndicRightsAudit.summary?.representedWorks !== 3 ||
+  suttacentralIndicRightsAudit.summary?.stableSegments !== 1909 ||
+  suttacentralIndicRightsAudit.integrity?.translationBodiesPublished !== false
+) throw new Error("SuttaCentral 梵文与俗语 root 权利批次、清单或结构统计不一致");
 if (
   cbetaBatch.version !== "2.4.0" || cbetaBatch.files.length !== 129 ||
   cbetaBatch.collection.sourceRecordDenominator !== 131 ||
@@ -236,6 +264,48 @@ const cbetaWorks = cbetaRegistry.works.map((work) => {
     expressions: work.expressions,
   } : work;
 });
+const indicWorks = indicManifest.files.map((file) => {
+  const sourceAssets = file.sourceParts.map((source) => ({
+    part: source.part,
+    id: source.id,
+    path: source.localPath,
+    format: source.format,
+    sha256: source.localSha256,
+    rightsStatus: source.rightsStatus,
+  }));
+  return {
+    id: file.workId,
+    ...(file.textFamilyId ? { textFamilyId: file.textFamilyId } : {}),
+    workType: file.id === "PDHP" ? "distinct_recension" : "provisional_cross_language_witness",
+    canonicalTitle: file.presentation.alternateTitle,
+    canonicalTitleZh: file.presentation.title,
+    traditions: [file.presentation.tradition.split(" · ")[0]],
+    externalIds: { suttacentral: [file.id.toLowerCase()] },
+    relationDecision: file.relationDecision,
+    expressions: [{
+      id: `gbcr:expression:${file.id}-${file.language}-sc`,
+      language: file.language,
+      title: file.presentation.alternateTitle,
+      edition: file.presentation.translator,
+      sourceSnapshotId: "suttacentral_bilara",
+      localSlug: file.slug,
+      cataloged: true,
+      fullSourceText: true,
+      sampled: false,
+      stableSegments: file.verification.segments,
+      omittedEmptyEditorialPlaceholderSegments: file.sourceParts.reduce(
+        (sum, source) => sum + (source.emptyEditorialPlaceholderSegments ?? 0),
+        0,
+      ),
+      rightsReviewed: true,
+      trainingUse: "prohibited_by_foxue_policy",
+      qualityStatus: "verified_structure_rights_and_anchors",
+      ...(sourceAssets.length === 1
+        ? { sourceTextAsset: sourceAssets[0] }
+        : { sourceTextAssets: sourceAssets }),
+    }],
+  };
+});
 const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "cbeta_chinese") return cbetaFamily;
   if (family.id === "tibetan_kangyur_tengyur") {
@@ -281,12 +351,44 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项。rKTs 的 19 个可用目录共有 15,069 条 item；按上游迁移规则规范前缀后，1,143 个 kernel 编号有精确连接，971 个见于至少两个目录。kernel 自身却有 1,570 条记录、1,562 个唯一编号，835 重复九次，且 835-1 至 835-8 保持未决。编号只生成候选边，不足以裁决作品同一性，因此作品分母继续保持未知。",
     };
   }
+  if (family.id === "suttacentral_early_buddhist_texts") {
+    return {
+      ...family,
+      denominatorStatus: "candidate_snapshot_with_controlled_pali_and_indic_roots",
+      controlledWorks: 273,
+      controlledExpressions: 273,
+      controlledRootRecords: 5764,
+      controlledRootBytes: 22786236,
+      controlledAllLanguageWorks: 276,
+      controlledAllLanguageExpressions: 276,
+      controlledAllLanguageRootRecords: 5788,
+      controlledAllLanguageRootBytes: 23002621,
+      controlledNonPaliIndicWorks: indicBatch.collection.workCount,
+      controlledNonPaliIndicExpressions: indicBatch.collection.expressionCount,
+      controlledNonPaliIndicRootRecords: indicBatch.collection.sourceRecordCount,
+      controlledNonPaliIndicRootBytes: indicBatch.collection.sourceBytes,
+      controlledNonPaliIndicStableSegments: indicBatch.collection.stableSegments,
+      controlledNonPaliIndicOmittedPlaceholders: indicBatch.collection.omittedEmptyEditorialPlaceholderSegments,
+      indicRightsAuditFile: inputs.suttacentralIndicRightsAudit,
+      indicRightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
+      denominatorNote: "固定提交的 5,764 条巴利经藏 root 已全部受控；本版另受控 2 份梵文与 22 份俗语 root，按 sf36、sf276、pdhp 登记为 3 个文本表达。pdhp 的 22 个物理分片不重复计为作品；跨语种平行关系仍待人工校勘。巴利经藏完成率继续只使用 5,764 条巴利分母，非巴利新增不改变该分母。",
+    };
+  }
   if (family.id === "sanskrit_fragments_and_witnesses") {
     return {
       ...family,
-      primarySources: ["dsbc_sanskrit_catalog", "gretil_sanskrit_buddhist_files"],
-      denominatorStatus: "catalog_and_file_snapshots_ready_file_rights_audited_alignment_pending",
+      primarySources: ["dsbc_sanskrit_catalog", "gretil_sanskrit_buddhist_files", "suttacentral_bilara"],
+      denominatorStatus: "catalog_and_file_snapshots_ready_three_public_domain_indic_expressions_controlled_alignment_pending",
       denominatorWorks: null,
+      controlledSuttacentralIndicWorks: indicBatch.collection.workCount,
+      controlledSuttacentralIndicExpressions: indicBatch.collection.expressionCount,
+      controlledSuttacentralIndicRootFiles: indicBatch.collection.sourceRecordCount,
+      controlledSuttacentralIndicRootBytes: indicBatch.collection.sourceBytes,
+      controlledSuttacentralIndicStableSegments: indicBatch.collection.stableSegments,
+      controlledSuttacentralSanskritRootFiles: suttacentralIndicRightsAudit.summary.sanskritRootFiles,
+      controlledSuttacentralPrakritRootFiles: suttacentralIndicRightsAudit.summary.prakritRootFiles,
+      suttacentralIndicRightsAuditFile: inputs.suttacentralIndicRightsAudit,
+      suttacentralIndicRightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
       candidateDsbcCatalogRecords: sanskritEvidence.dsbc.candidateCatalogRecords,
       candidateDsbcSutrapitakaRecords: sanskritEvidence.dsbc.groups.sutrapitaka,
       candidateDsbcVinayapitakaRecords: sanskritEvidence.dsbc.groups.vinayapitaka,
@@ -304,13 +406,27 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       gretilRightsAuditSha256: sha256(rawById.gretilFileRightsAudit),
       candidateInventoryFile: dsbcSource.inventoryFile,
       candidateInventorySha256: dsbcSource.inventorySha256,
-      denominatorNote: "DSBC 的 486 条目录记录和 GRETIL 的 417 个物理文件已冻结，但两者会互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 417/417 已完成逐文件权利识别：全部仅供参考并回指来源条款，179 份带 DSBC 展示许可说明、26 份含明示版权，0 份检测到可据以再发布的开放许可。因此只发布元数据、哈希与固定外链，不导入正文，也不合并为作品分母。",
+      denominatorNote: "DSBC 的 486 条目录记录和 GRETIL 的 417 个物理文件已冻结，但两者会互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 417/417 仍只发布元数据、哈希与固定外链。SuttaCentral 固定提交中的 2 份梵文和 22 份俗语原文已通过官方公共领域政策与逐出版记录复核，作为 3 个表达进入受控阅读；这三个表达不据物理文件数或题名推导全球作品分母。",
     };
   }
   return family;
 });
 const sourceSnapshots = [
-  ...base.sourceSnapshots.map((source) => source.id === "84000_progress" ? {
+  ...base.sourceSnapshots.map((source) => source.id === "suttacentral_bilara" ? {
+    ...source,
+    inventory: {
+      candidateRootRecords: snapshots.sources.find((candidate) => candidate.id === "suttacentral_bilara")?.candidateRecordCount,
+      controlledRootRecords: 5788,
+      controlledNonPaliIndicRootRecords: indicBatch.collection.sourceRecordCount,
+      controlledNonPaliIndicRootBytes: indicBatch.collection.sourceBytes,
+      rightsAuditFile: inputs.suttacentralIndicRightsAudit,
+      rightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
+    },
+    rights: {
+      status: "mixed_item_level_with_audited_public_domain_roots",
+      summary: "SuttaCentral 材料权利逐项处理。本版新增的 2 份梵文和 22 份俗语 root 由官方许可政策列为公共领域，第三方译文未导入；保留来源署名，禁止用于模型训练。",
+    },
+  } : source.id === "84000_progress" ? {
     ...source,
     dataUrl: "https://scholar.84000.co/",
     licenseUrl: rights84000.source.url,
@@ -439,7 +555,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "3.0.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "3.1.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -470,25 +586,34 @@ const registry = {
     ...gretilFileRightsAudit.summary,
     warning: gretilFileRightsAudit.warning,
   },
-  works: [...nonCbetaWorks, ...cbetaWorks],
+  suttacentralIndicRootRightsAudit: {
+    version: suttacentralIndicRightsAudit.version,
+    status: suttacentralIndicRightsAudit.status,
+    file: inputs.suttacentralIndicRightsAudit,
+    sha256: sha256(rawById.suttacentralIndicRightsAudit),
+    inventorySha256: suttacentralIndicRightsAudit.integrity.inventorySha256,
+    ...suttacentralIndicRightsAudit.summary,
+    warning: suttacentralIndicRightsAudit.warning,
+  },
+  works: [...nonCbetaWorks, ...indicWorks, ...cbetaWorks],
 };
 if (
-  registry.works.length !== 978 ||
-  registry.works.flatMap((work) => work.expressions).length !== 1141 ||
+  registry.works.length !== 981 ||
+  registry.works.flatMap((work) => work.expressions).length !== 1144 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v3.0.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v3.1.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v3.0.0.json`,
+  `${sha256(registryRaw)}  registry-v3.1.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.0.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.0.0.sha256 不可复现");
-  console.log("跨语种登记册 v3.0.0 可复现：417 份 GRETIL 文件逐项权利审计、0 份获准镜像；978 个受控作品与全球分母均未改变。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.1.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.1.0.sha256 不可复现");
+  console.log("跨语种登记册 v3.1.0 可复现：SuttaCentral 24 份梵文/俗语 root 合并为 3 个受控表达；全球作品分母保持未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v3.0.0 已生成：GRETIL 417/417 逐文件权利边界已冻结，不复制未授权正文。");
+  console.log("跨语种登记册 v3.1.0 已生成：新增 3 个公共领域印度语原文表达，不复制第三方译文。");
 }

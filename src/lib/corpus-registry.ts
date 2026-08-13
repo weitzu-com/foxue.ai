@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v3.0.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.1.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -25,7 +25,8 @@ export function buildCoverageSnapshot() {
   );
   const structureVerifiedExpressions = expressions.filter(
     (item) => item.qualityStatus === "verified_sample" ||
-      item.qualityStatus === "verified_structure_and_anchors",
+      item.qualityStatus === "verified_structure_and_anchors" ||
+      item.qualityStatus === "verified_structure_rights_and_anchors",
   );
   const chineseFamily = corpusRegistry.sourceFamilies.find(
     (family) => family.id === "cbeta_chinese",
@@ -137,6 +138,21 @@ export function buildCoverageSnapshot() {
     : null;
   const paliControlledWorks = "controlledWorks" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.controlledWorks ?? null
+    : null;
+  const indicControlledWorks = "controlledNonPaliIndicWorks" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledNonPaliIndicWorks ?? null
+    : null;
+  const indicControlledExpressions = "controlledNonPaliIndicExpressions" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledNonPaliIndicExpressions ?? null
+    : null;
+  const indicControlledRootRecords = "controlledNonPaliIndicRootRecords" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledNonPaliIndicRootRecords ?? null
+    : null;
+  const indicControlledRootBytes = "controlledNonPaliIndicRootBytes" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledNonPaliIndicRootBytes ?? null
+    : null;
+  const indicControlledStableSegments = "controlledNonPaliIndicStableSegments" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledNonPaliIndicStableSegments ?? null
     : null;
   const paliSuttaRootDenominator = "suttaRootRecordDenominator" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.suttaRootRecordDenominator ?? null
@@ -407,6 +423,21 @@ export function buildCoverageSnapshot() {
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
         caveat: "5,764 个物理 JSON 文件覆盖固定提交的巴利经藏目录；其中《小部》按书级文本集合登记，并明确区分经、偈颂、义释、论辩和方法论文本。物理文件比例不是作品覆盖率。",
       },
+      suttacentralIndicRoots: {
+        controlledWorks: indicControlledWorks,
+        controlledExpressions: indicControlledExpressions,
+        controlledRootRecords: indicControlledRootRecords,
+        controlledRootBytes: indicControlledRootBytes,
+        stableSegments: indicControlledStableSegments,
+        filesApprovedForReadingAndRetrieval: corpusRegistry.suttacentralIndicRootRightsAudit.filesApprovedForReadingAndRetrieval,
+        filesApprovedForModelTraining: corpusRegistry.suttacentralIndicRootRightsAudit.filesApprovedForModelTraining,
+        sanskritRootFiles: corpusRegistry.suttacentralIndicRootRightsAudit.sanskritRootFiles,
+        prakritRootFiles: corpusRegistry.suttacentralIndicRootRightsAudit.prakritRootFiles,
+        omittedEmptyEditorialPlaceholderSegments: corpusRegistry.suttacentralIndicRootRightsAudit.omittedEmptyEditorialPlaceholderSegments,
+        rightsAuditSha256: corpusRegistry.suttacentralIndicRootRightsAudit.sha256,
+        unit: "SuttaCentral 固定提交中的梵文与俗语 root 原文",
+        caveat: "2 份梵文与 22 份俗语物理文件合并为 3 个文本表达。官方许可政策将佛教原语文本列为公共领域；第三方译文未导入，正文不得用于模型训练。物理文件数和题名相似不能替代作品级校勘。",
+      },
       suttacentralPaliSuttaRoot: {
         denominator: paliSuttaRootDenominator,
         controlled: paliControlledSuttaRootRecords,
@@ -474,6 +505,12 @@ export function buildCoverageSnapshot() {
         gretilFilesWithExplicitOpenLicense: corpusRegistry.gretilFileRightsAudit.filesWithExplicitOpenLicense,
         gretilFilesApprovedForRepublication: corpusRegistry.gretilFileRightsAudit.filesApprovedForRepublication,
         gretilFilesRestrictedToMetadataAndExternalLink: corpusRegistry.gretilFileRightsAudit.filesRestrictedToMetadataAndExternalLink,
+        controlledSuttacentralIndicWorks: indicControlledWorks,
+        controlledSuttacentralIndicExpressions: indicControlledExpressions,
+        controlledSuttacentralIndicRootFiles: indicControlledRootRecords,
+        controlledSuttacentralIndicRootBytes: indicControlledRootBytes,
+        controlledSuttacentralIndicStableSegments: indicControlledStableSegments,
+        suttacentralIndicRightsAuditSha256: corpusRegistry.suttacentralIndicRootRightsAudit.sha256,
         gretilRightsAuditSha256: corpusRegistry.gretilFileRightsAudit.sha256,
         dsbcInventorySha256: dsbcSourceInventory && "inventorySha256" in dsbcSourceInventory
           ? dsbcSourceInventory.inventorySha256
@@ -481,8 +518,8 @@ export function buildCoverageSnapshot() {
         gretilInventorySha256: gretilSourceInventory && "inventorySha256" in gretilSourceInventory
           ? gretilSourceInventory.inventorySha256
           : null,
-        unit: "DSBC 梵文目录记录与 GRETIL 固定 Git 物理文件",
-        caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 已逐文件审计，但 0 份获得 foxue.ai 正文再发布授权；只发布元数据、哈希与固定外链，不相加为作品分母。",
+        unit: "DSBC、GRETIL 梵文候选与 SuttaCentral 受控印度语原文",
+        caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。GRETIL 0 份获准镜像；SuttaCentral 的 24 份公有领域 root 已作为 3 个表达受控。它们都不相加为全球作品分母。",
       },
       crossCatalogAlignment: {
         curatedRelationGroups: corpusRegistry.crossCatalogAlignmentAudit.curatedRelationGroups,

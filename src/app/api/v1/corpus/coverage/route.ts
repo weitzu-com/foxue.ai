@@ -8,7 +8,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: "https://foxue.ai/fugai",
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v3.0.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v3.1.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
         sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v0.5.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",

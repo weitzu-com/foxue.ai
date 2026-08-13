@@ -29,6 +29,9 @@ const criticalRoutes = [
   "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
   "/jingzang/anguttara-nikaya-an1/001-an1-1-10-0001-0049",
   "/jingzang/khuddaka-nikaya-snp/001-snp1-1-0001-0071",
+  "/jingzang/sanskrit-mahavadanasutra/001-sf36-0001-0120",
+  "/jingzang/sanskrit-candrasutra/001-sf276-0001-0025",
+  "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034",
   "/fugai",
   "/touming",
 ];
@@ -85,6 +88,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("rKTs 核心编号候选连接")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
   await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
+  await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -97,12 +101,24 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 978,
-    registeredExpressions: 1141,
-    fullSourceTextWorks: 977,
-    fullSourceTextExpressions: 1127,
-    stableSegments: 1683984,
-    structureVerifiedWorks: 978,
+    registeredWorks: 981,
+    registeredExpressions: 1144,
+    fullSourceTextWorks: 980,
+    fullSourceTextExpressions: 1130,
+    stableSegments: 1685893,
+    structureVerifiedWorks: 981,
+  });
+  expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
+    controlledWorks: 3,
+    controlledExpressions: 3,
+    controlledRootRecords: 24,
+    controlledRootBytes: 216385,
+    stableSegments: 1909,
+    filesApprovedForReadingAndRetrieval: 24,
+    filesApprovedForModelTraining: 0,
+    sanskritRootFiles: 2,
+    prakritRootFiles: 22,
+    omittedEmptyEditorialPlaceholderSegments: 1,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
@@ -773,6 +789,35 @@ test("巴利小部二十书的固定经藏目录完整受控并区分书级作�
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/jingzang/khuddaka-nikaya-snp");
   expect(sitemap).toContain("/jingzang/khuddaka-nikaya-thig");
+});
+
+test("梵文与俗语原典保留稳定锚点并安全显示编辑标记", async ({ page, request }) => {
+  await page.goto("/jingzang/sanskrit-mahavadanasutra/001-sf36-0001-0120#sf36:1.1");
+  await expect(page.locator('[id="sf36:1.1"]')).toContainText("evaṃ mayā [ś]r[utam]");
+  await expect(page.getByRole("link", { name: "Mahāvadānasūtra", exact: true })).toBeVisible();
+
+  await page.goto("/jingzang/sanskrit-candrasutra/001-sf276-0001-0025#sf276:1.2");
+  await expect(page.locator('[id="sf276:1.2"]')).toContainText("ekasama[yaṃ bhagavāñ]");
+
+  await page.goto("/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034#pdhp1:1");
+  await expect(page.locator('[id="pdhp1:1"]')).toContainText("manopūrvvaṁgamā dhammā");
+  await expect(page.getByRole("article").getByText(
+    "第 1 阅读页 · PDHP1-13 · 1. Jama",
+    { exact: true },
+  ).first()).toBeVisible();
+
+  await page.goto("/jingzang/patna-dharmapada/022-pdhp398-414-0001-0040#pdhp398:1");
+  await expect(page.locator('[id="pdhp398:1"]')).toContainText("yo nā ’jjhagamī bhavesu sāraṁ");
+  await expect(page.getByRole("article").getByText(
+    "第 22 阅读页 · PDHP398-414 · 22. ⟨Uraga?⟩",
+    { exact: true },
+  ).first()).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("<unclear>");
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/jingzang/sanskrit-mahavadanasutra/008-sf36-0842-0943");
+  expect(sitemap).toContain("/jingzang/sanskrit-candrasutra/001-sf276-0001-0025");
+  expect(sitemap).toContain("/jingzang/patna-dharmapada/022-pdhp398-414-0001-0040");
 });
 
 test.describe("桌面无障碍扫描", () => {

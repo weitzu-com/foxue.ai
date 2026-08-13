@@ -9,6 +9,7 @@ import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v
 import samyuttaNikayaManifest from "../../data/corpus/suttacentral/sn-manifest-v1.0.0.json";
 import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-v1.1.0.json";
 import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
+import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
@@ -37,6 +38,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(samyuttaNikayaManifest.files as CorpusManifestFile[]),
     ...(anguttaraNikayaManifest.files as CorpusManifestFile[]),
     ...(khuddakaNikayaManifest.files as CorpusManifestFile[]),
+    ...(indicRootManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -264,7 +266,7 @@ const loadEdgeFolio = cache(async (
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
         (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id)) ||
         (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id)) ||
-        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PE|PS|PV|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
+        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PDHP|PE|PS|PV|SF36|SF276|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
           /^[a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*:/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
@@ -342,6 +344,14 @@ async function readControlledCorpusAsset(localPath: string) {
     /^((?:tha-ap|thi-ap|bv|cnd|cp|iti|ja|kp|mil|mnd|ne|pe|ps|pv|snp|thag|thig|ud|vv))\/(?:vagga\d+\/)?\1\d+(?:\.\d+)*_root-pli-ms\.json$/.test(khuddakaRelative)
   ) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "kn", khuddakaRelative), "utf8");
+  }
+  const sanskritPrefix = "suttacentral/root/san/sutta/sf/";
+  if (localPath.startsWith(sanskritPrefix) && /^sf(?:36|276)_root-san\.json$/.test(localPath.slice(sanskritPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "san", "sutta", "sf", localPath.slice(sanskritPrefix.length)), "utf8");
+  }
+  const prakritPrefix = "suttacentral/root/pra/pts/sutta/pdhp/";
+  if (localPath.startsWith(prakritPrefix) && /^pdhp\d+-\d+_root-pra-pts\.json$/.test(localPath.slice(prakritPrefix.length))) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pra", "pts", "sutta", "pdhp", localPath.slice(prakritPrefix.length)), "utf8");
   }
   throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
 }

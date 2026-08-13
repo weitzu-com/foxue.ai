@@ -246,6 +246,28 @@ export default function CoveragePage() {
             </a>
           </article>
           <article>
+            <span>梵文与俗语受控原文</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralIndicRoots.controlledExpressions}
+              <small> 个表达 / {snapshot.candidateInventory.suttacentralIndicRoots.controlledRootRecords} 份 root</small>
+            </strong>
+            <p>
+              SuttaCentral 固定提交中的 {snapshot.candidateInventory.suttacentralIndicRoots.sanskritRootFiles} 份梵文与
+              {snapshot.candidateInventory.suttacentralIndicRoots.prakritRootFiles} 份俗语文件，按 SF 36、SF 276 与
+              巴特那《法句经》合并为 {snapshot.candidateInventory.suttacentralIndicRoots.controlledExpressions} 个可读表达，
+              共 {snapshot.candidateInventory.suttacentralIndicRoots.stableSegments?.toLocaleString("zh-CN")} 个稳定段落。
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralIndicRoots.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 24 份原文权利账本 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
             <span>藏文多版本目录</span>
             <strong>
               {snapshot.candidateInventory.multiEditionTibetanCatalogs.itemRecords?.toLocaleString("zh-CN")}

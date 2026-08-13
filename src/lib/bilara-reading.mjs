@@ -6,7 +6,21 @@ const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
 };
-const SERIES_FILE = /^([a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*)_root-pli-ms\.json$/;
+const SERIES_FILE = /^([a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*(?:-\d+)?)_root-(?:pli-ms|san|pra-pts)\.json$/;
+
+function renderEditorialMarkup(text, filename) {
+  if (filename.endsWith("_root-pli-ms.json")) return text.trim();
+  const rendered = text
+    .replace(/<reference>.*?<\/reference>\s*<root>(.*?)<\/root>/gs, "$1")
+    .replace(/<supplied>(.*?)<\/supplied>/gs, "[$1]")
+    .replace(/<unclear>(.*?)<\/unclear>/gs, "⟨$1?⟩")
+    .replace(/<i\b[^>]*>(.*?)<\/i>/gs, "$1")
+    .trim();
+  if (/<\/?[a-z][^>]*>/i.test(rendered)) {
+    throw new Error(`${filename} 含未处理的编辑标记`);
+  }
+  return rendered;
+}
 
 export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
@@ -292,6 +306,7 @@ export function parseBilaraSeriesSources(sources, options = {}) {
   const navigation = [];
   const stableIds = new Set();
   const sourceIds = new Set();
+  const omittedEmptySegmentIds = [];
   let collectionPrefix;
   let readingPosition = 0;
 
@@ -314,21 +329,46 @@ export function parseBilaraSeriesSources(sources, options = {}) {
     const entries = Object.entries(value);
     if (entries.length === 0) throw new Error(`${filename} 没有段落`);
     const escapedSourceId = sourceId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const segmentPattern = new RegExp(`^${escapedSourceId}:(\\d+(?:[.-]\\d+)*)$`);
-    const title = ["0.4", "0.3", "0.2", "0.1"]
-      .map((suffix) => value[`${sourceId}:${suffix}`]?.trim())
+    const range = sourceId.match(/^([a-z]+(?:-[a-z]+)?)(\d+)-(\d+)$/);
+    const rangePrefix = range?.[1];
+    const rangeStart = range ? Number(range[2]) : null;
+    const rangeEnd = range ? Number(range[3]) : null;
+    const segmentPattern = range
+      ? new RegExp(`^${rangePrefix}(\\d+):(\\d+(?:[.-]\\d+)*)$`)
+      : new RegExp(`^${escapedSourceId}:(\\d+(?:[.-]\\d+)*)$`);
+    const titleSourceId = range ? `${rangePrefix}${rangeStart}` : sourceId;
+    const titleSuffixes = range
+      ? ["0.1", "0.2", "0.3", "0.4", "0.0"]
+      : ["0.4", "0.3", "0.2", "0.1", "0.0"];
+    const rawTitle = titleSuffixes
+      .map((suffix) => value[`${titleSourceId}:${suffix}`]?.trim())
       .find((candidate) => candidate && candidate !== "~");
-    if (!title) throw new Error(`${filename} 缺少可读标题段落`);
+    if (!rawTitle) throw new Error(`${filename} 缺少可读标题段落`);
+    const title = renderEditorialMarkup(rawTitle, filename);
+    if (!title) throw new Error(`${filename} 的标题段落渲染后为空`);
 
-    const parsed = entries.map(([id, rawText], index) => {
+    const parsed = entries.flatMap(([id, rawText], index) => {
       const match = id.match(segmentPattern);
       if (!match) throw new Error(`${filename} 含无效原生段落标识 ${id}`);
+      if (range && (Number(match[1]) < rangeStart || Number(match[1]) > rangeEnd)) {
+        throw new Error(`${id} 超出 ${filename} 的文本范围`);
+      }
       if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
       if (typeof rawText !== "string" || rawText.trim().length === 0) {
         throw new Error(`${id} 缺少文本`);
       }
       stableIds.add(id);
-      return { id, text: rawText.trim(), sourceLine: match[1], ordinal: index + 1 };
+      const text = renderEditorialMarkup(rawText, filename);
+      if (!text) {
+        omittedEmptySegmentIds.push(id);
+        return [];
+      }
+      return [{
+        id,
+        text,
+        sourceLine: range ? match[2] : match[1],
+        ordinal: index + 1,
+      }];
     });
 
     const recordUnits = Math.ceil(parsed.length / maxSegments);
@@ -366,5 +406,6 @@ export function parseBilaraSeriesSources(sources, options = {}) {
     title: options.collectionTitle ?? collectionPrefix.toUpperCase(),
     collectionPrefix,
     sourceRecords: sourceIds.size,
+    omittedEmptySegmentIds,
   };
 }

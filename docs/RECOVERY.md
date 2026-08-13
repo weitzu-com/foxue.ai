@@ -59,7 +59,7 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v3.0.0.sha256`。
+1. 核对 `data/gbcr/checksums-v3.1.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；运行 `pnpm verify:bdrc-derge` 核对本地冻结的 1,114 条德格甘珠尔版本表达式、8 条排除证据与 84000 权利快照；运行 `pnpm verify:sanskrit` 核对 DSBC 的 486 条目录聚合摘要、GRETIL 的 417 个固定 Git 物理文件聚合摘要与保守权利决定；运行 `pnpm verify:gretil-rights` 离线核对 417 份 GRETIL 逐文件权利分类、固定 blob、哈希、0 份再发布授权与“只保留元数据/外链”边界；运行 `pnpm verify:rkts` 核对 20 个迁移配置、19 个可用目录、15,069 条 item、固定 Git blob 与 CC0 证据；运行 `pnpm verify:rkts-kernel-alignments` 核对 1,143 个精确 kernel 候选连接、835 重号与 8 个未决组件；运行 `pnpm verify:cross-catalog` 重建 29 组 Toh—德格—CBETA 标识连接。两类连接都不得自动合并作品或改变全球分母。
 4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:corpus-catalog` 与 `pnpm verify:cbeta-pilot`，核对受控批次、1,141 个文本表达或见证（其中 1,127 个完整全文记录）、882 个 CBETA TEI 来源资产和 5,764 个 SuttaCentral JSON 经藏来源资产的哈希、权利声明、结构和稳定锚点。

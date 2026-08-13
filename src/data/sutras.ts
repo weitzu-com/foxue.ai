@@ -5,6 +5,7 @@ import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v
 import samyuttaNikayaManifest from "../../data/corpus/suttacentral/sn-manifest-v1.0.0.json";
 import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-v1.1.0.json";
 import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
+import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 
 export type SutraSegment = {
   id: string;
@@ -334,6 +335,22 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
   sourceName: "SuttaCentral",
   sourceUrl: file.presentation.sourceUrl,
   sourceLicense: "巴利原文属公有领域；请求保留 SuttaCentral 来源署名",
+  status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-sutta" as const,
+  segments: [],
+}))).concat(indicRootManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "原语佛典依 SuttaCentral 官方政策属公有领域；保留来源署名；不用于模型训练",
+  bibliographicNote: file.relationDecision,
   status: "完整原文 · 原生段落" as const,
   readerMode: "bilara-sutta" as const,
   segments: [],

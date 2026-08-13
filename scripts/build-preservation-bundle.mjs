@@ -86,6 +86,11 @@ const suttacentralKhuddakaAdditionalSources = archivedPaths.filter((path) =>
   !path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") &&
   path.endsWith(".json"),
 );
+const suttacentralIndicSources = archivedPaths.filter((path) =>
+  (path.startsWith("data/corpus/suttacentral/root/san/sutta/sf/") ||
+    path.startsWith("data/corpus/suttacentral/root/pra/pts/sutta/pdhp/")) &&
+  path.endsWith(".json"),
+);
 if (suttacentralDhammapadaSources.length !== 26) {
   throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
 }
@@ -103,6 +108,9 @@ if (suttacentralAnguttaraSources.length !== 1408) {
 }
 if (suttacentralKhuddakaAdditionalSources.length !== 2325) {
   throw new Error(`保存包应新增 2,325 个巴利《小部》来源文件，实际为 ${suttacentralKhuddakaAdditionalSources.length}`);
+}
+if (suttacentralIndicSources.length !== 24) {
+  throw new Error(`保存包应包含 24 个梵文与俗语 root 来源文件，实际为 ${suttacentralIndicSources.length}`);
 }
 const requiredPaths = [
   "README.md",
@@ -162,6 +170,8 @@ const requiredPaths = [
   "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
   "data/gbcr/registry-v3.0.0.json",
   "data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json",
+  "data/gbcr/registry-v3.1.0.json",
+  "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -199,6 +209,7 @@ const requiredPaths = [
   "data/gbcr/checksums-v2.8.0.sha256",
   "data/gbcr/checksums-v2.9.0.sha256",
   "data/gbcr/checksums-v3.0.0.sha256",
+  "data/gbcr/checksums-v3.1.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -254,12 +265,15 @@ const requiredPaths = [
   "data/corpus/suttacentral/an-manifest-v1.1.0.json",
   "data/corpus/suttacentral/kn-batch-v1.2.0.json",
   "data/corpus/suttacentral/kn-manifest-v1.2.0.json",
+  "data/corpus/suttacentral/indic-batch-v1.3.0.json",
+  "data/corpus/suttacentral/indic-manifest-v1.3.0.json",
   ...suttacentralDhammapadaSources,
   ...suttacentralDighaSources,
   ...suttacentralMajjhimaSources,
   ...suttacentralSamyuttaSources,
   ...suttacentralAnguttaraSources,
   ...suttacentralKhuddakaAdditionalSources,
+  ...suttacentralIndicSources,
   ...cbetaSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
@@ -333,6 +347,8 @@ const requiredPaths = [
   "scripts/snapshot-rkts-kangyur-catalogs.mjs",
   "scripts/build-rkts-kernel-alignments.mjs",
   "scripts/audit-gretil-sanskrit-rights.mjs",
+  "scripts/audit-suttacentral-indic-roots.mjs",
+  "scripts/build-suttacentral-indic-catalog.mjs",
   "scripts/build-federated-corpus.mjs",
   "scripts/verify-corpus-registry.mjs",
   "scripts/build-corpus-release.mjs",
