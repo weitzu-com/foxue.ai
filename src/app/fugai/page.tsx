@@ -218,6 +218,30 @@ export default function CoveragePage() {
               查看汇总证据与权利边界 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
+          <article>
+            <span>跨目录标识对齐</span>
+            <strong>
+              {snapshot.candidateInventory.crossCatalogAlignment.matchedDergeExpressions}
+              <small> / {snapshot.candidateInventory.crossCatalogAlignment.uniqueTohBaseIdentifiers}</small>
+            </strong>
+            <p>
+              {snapshot.candidateInventory.crossCatalogAlignment.curatedRelationGroups} 个已有证据关系组涉及
+              {snapshot.candidateInventory.crossCatalogAlignment.gbcrWorksReferenced} 个站内作品、
+              {snapshot.candidateInventory.crossCatalogAlignment.cbetaCitationIdentifiers} 个汉译引用和
+              {snapshot.candidateInventory.crossCatalogAlignment.tohCitationIdentifiers} 个 Toh 引用；
+              基础编号连接到 {snapshot.candidateInventory.crossCatalogAlignment.matchedDergeExpressions} 个固定德格表达式。
+              其中 {snapshot.candidateInventory.crossCatalogAlignment.relationGroupsRequiringManualReview} 组仍待人工复核
+            </p>
+            <small>{snapshot.candidateInventory.crossCatalogAlignment.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cross-catalog-alignments-v0.5.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 29 组可审计连接与裁决边界 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
         </div>
       </section>
 

@@ -1,0 +1,1208 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cross-catalog-alignments-v0.5",
+  "version": "0.5.0",
+  "generatedAt": "2026-08-13",
+  "status": "curated_identifier_links_without_automatic_work_merge",
+  "warning": "本账本只覆盖登记册中已有 Toh 证据的关系组。29/29 匹配率不能外推为藏文、汉文或全球佛典覆盖率。",
+  "policy": {
+    "workExpressionWitnessSeparated": true,
+    "automaticWorkMerge": false,
+    "segmentEquivalenceAsserted": false,
+    "componentSuffixPreserved": true,
+    "mappingRule": "解析 toh{N} 或 toh{N}-{component}；只把基础编号 N 连接到固定德格清单的 D{N}，组件后缀不冒充独立德格作品。",
+    "reviewRule": "候选或未决关系必须人工复核；已整理关系也只发布标识连接，不据此重算全球作品分母。"
+  },
+  "sources": [
+    {
+      "id": "cbetaRegistry",
+      "file": "data/gbcr/registry-cbeta-v2.4.0.json",
+      "sha256": "13f87367a49319c36c65a2f3b3d9133652705daac3b8ea57e0f85902ee3c6e8b"
+    },
+    {
+      "id": "dergeInventory",
+      "file": "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
+      "sha256": "04d7add0b86ad0cd63ca9ef7e8b96e21a6f0901aafcf8280454ea6699277a967"
+    },
+    {
+      "id": "rights84000",
+      "file": "data/gbcr/84000-rights-policy-v0.3.0.json",
+      "sha256": "cc61ce577bf7330c42d12168f8b79ec25a5abce290cbab83e783355c963ffbfa"
+    }
+  ],
+  "summary": {
+    "curatedRelationGroups": 29,
+    "curatedRelationGroupsWithIdentifierJoin": 23,
+    "relationGroupsRequiringManualReview": 6,
+    "gbcrWorksReferenced": 57,
+    "cbetaCitationIdentifiers": 92,
+    "tohCitationIdentifiers": 31,
+    "uniqueTohBaseIdentifiers": 29,
+    "matchedDergeExpressions": 29,
+    "matchedBdrcAbstractWorkIds": 29,
+    "unmatchedTohBaseIdentifiers": 0,
+    "denominatorImpact": "none"
+  },
+  "integrity": {
+    "alignmentSetSha256": "98cb5760b9feae85cf7e1c0da52318905fbbe71c52e98ed59ff521a9d2723e6f"
+  },
+  "alignments": [
+    {
+      "id": "gbcr:alignment:akashagarbha-sutra-chinese",
+      "groupId": "akashagarbha-sutra-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Ākāśagarbhasūtra／《虚空藏菩萨经》汉译组",
+      "evidence": "DILA 经录把 T0405–T0408 互列，且共同登记梵名 Ākāśagarbhasūtra、Toh 260 与 O.926。平台登记为同一作品的四种汉文表达，同时保留 T0406 的失译状态与 T0407 的现代译者归属争议。",
+      "gbcrWorkIds": [
+        "gbcr:work:akashagarbha-sutra"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0405",
+          "T0406",
+          "T0407",
+          "T0408"
+        ],
+        "toh": [
+          "toh260"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh260",
+          "baseTohId": "toh260",
+          "baseNumber": 260,
+          "componentNumber": null,
+          "dergeCatalogId": "D260",
+          "dergeExpressionId": "MW22084_0260",
+          "linkedAbstractWorkId": "WA0RK0260",
+          "titleEwts": "'phags pa nam mkha'i snying po zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0260",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0260::bdr:I0951/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:avaivartikacakra-chinese",
+      "groupId": "avaivartikacakra-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Avaivartikacakra／不退转法轮汉译组",
+      "evidence": "DILA 经录为 T0266、T0267、T0268 互列相关经典，并给出共同梵名 Avaivartikacakrasūtra、共同藏译目录号 Toh 240；平台登记为同一作品的三个汉译表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:avaivartika-cakra"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0266",
+          "T0267",
+          "T0268"
+        ],
+        "toh": [
+          "toh240"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh240",
+          "baseTohId": "toh240",
+          "baseNumber": 240,
+          "componentNumber": null,
+          "dergeCatalogId": "D240",
+          "dergeExpressionId": "MW22084_0240",
+          "linkedAbstractWorkId": "WA0RK0240",
+          "titleEwts": "'phags pa phyir mi ldog pa'i 'khor lo zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0240",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0240::bdr:I0950/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:avatamsaka-component-translations-t10",
+      "groupId": "avatamsaka-component-translations-t10",
+      "status": "curated_relation_identifier_join",
+      "relationType": "component_text_family_verified",
+      "label": "Buddhāvataṃsaka／《华严经》单品与组件译本",
+      "evidence": "DILA 经录逐条把 T0280–T0292 等早期译本对应到 T0278、T0279 的具体品次；84000 说明《华严经》由多个曾独立流通的经典或章节汇成。平台记录组件关系，不把单品别译冒充六十卷或八十卷全经。",
+      "gbcrWorkIds": [
+        "gbcr:work:avatamsaka-t0278",
+        "gbcr:work:avatamsaka-ten-abodes",
+        "gbcr:work:buddha-field-qualities",
+        "gbcr:work:dasabhumi",
+        "gbcr:work:gandavyuha",
+        "gbcr:work:taisho-t0280",
+        "gbcr:work:taisho-t0281",
+        "gbcr:work:taisho-t0282",
+        "gbcr:work:taisho-t0288",
+        "gbcr:work:taisho-t0291",
+        "gbcr:work:taisho-t0292",
+        "gbcr:work:taisho-t0306"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0278",
+          "T0279",
+          "T0280-T0292",
+          "T0306"
+        ],
+        "toh": [
+          "toh44"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh44",
+          "baseTohId": "toh44",
+          "baseNumber": 44,
+          "componentNumber": null,
+          "dergeCatalogId": "D44",
+          "dergeExpressionId": "MW22084_0044",
+          "linkedAbstractWorkId": "WA0RK0044",
+          "titleEwts": "sangs rgyas phal po che zhes bya ba shin tu rgyas pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0044",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0044::bdr:I0920/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:bhadracarya-pranidhana-chinese",
+      "groupId": "bhadracarya-pranidhana-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Bhadracaryāpraṇidhāna／普贤行愿汉译组",
+      "evidence": "DILA 为 T0296 登记梵名 Bhadracaryapraṇidhāna，并与 T0297、T0293 第四十卷互列；84000 同列 T0296、T0297 为该愿文的汉文来源。平台登记为同一愿文作品的两个汉译表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:avatamsaka-t0278",
+        "gbcr:work:bhadracarya-pranidhana"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0296",
+          "T0297"
+        ],
+        "toh": [
+          "toh1095"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh1095",
+          "baseTohId": "toh1095",
+          "baseNumber": 1095,
+          "componentNumber": null,
+          "dergeCatalogId": "D1095",
+          "dergeExpressionId": "MW22084_1095",
+          "linkedAbstractWorkId": "WA0RT3711",
+          "titleEwts": "'phags pa bzang po spyod pa'i smon lam gyi rgyal po/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_1095",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_1095::bdr:I0986/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:dasabhumi-chinese",
+      "groupId": "dasabhumi-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Daśabhūmika／《十地经》汉译组",
+      "evidence": "DILA 为 T0285、T0286、T0287 登记共同《华严经·十地品》关系，并为 T0286 明列梵名 Daśabhūmikasūtra；平台登记为同一作品的三个汉译表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:dasabhumi"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0285",
+          "T0286",
+          "T0287"
+        ],
+        "toh": [
+          "toh44-31"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh44-31",
+          "baseTohId": "toh44",
+          "baseNumber": 44,
+          "componentNumber": 31,
+          "dergeCatalogId": "D44",
+          "dergeExpressionId": "MW22084_0044",
+          "linkedAbstractWorkId": "WA0RK0044",
+          "titleEwts": "sangs rgyas phal po che zhes bya ba shin tu rgyas pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0044",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0044::bdr:I0920/manifest",
+          "mappingBasis": "Toh 章节后缀保留为组件范围，基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:eight-thousand-prajnaparamita-chinese",
+      "groupId": "eight-thousand-prajnaparamita-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "recension_family_verified",
+      "label": "八千颂般若汉译与《大般若经》第四、第五会",
+      "evidence": "84000 的《八千颂般若》导言和 IRIAB 校勘研究把 T0224–T0228 及 T0220 第四、第五会列为同一文本家族的不同译本或经会；版本差异未完成逐章裁决前不合并作品。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:taisho-t0224",
+        "gbcr:work:taisho-t0225",
+        "gbcr:work:taisho-t0226",
+        "gbcr:work:taisho-t0227",
+        "gbcr:work:taisho-t0228"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(4)",
+          "T0220(5)",
+          "T0224",
+          "T0225",
+          "T0226",
+          "T0227",
+          "T0228"
+        ],
+        "toh": [
+          "toh12"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh12",
+          "baseTohId": "toh12",
+          "baseNumber": 12,
+          "componentNumber": null,
+          "dergeCatalogId": "D12",
+          "dergeExpressionId": "MW22084_0012",
+          "linkedAbstractWorkId": "WA0RK0012",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa brgyad stong pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0012",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0012::bdr:I0918/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:gandavyuha-chinese",
+      "groupId": "gandavyuha-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_with_partial_witnesses_verified",
+      "label": "Gaṇḍavyūha／《入法界品》汉译与节译见证",
+      "evidence": "DILA 为 T0293、T0295 登记共同梵名 Gaṇḍavyūhasūtra，并把 T0294、T0295 标为对应 T0278、T0279 入法界品及 T0293 的部分文本；84000 亦说明 Gaṇḍavyūha 是《华严经》最长的末章且曾独立流通。",
+      "gbcrWorkIds": [
+        "gbcr:work:avatamsaka-t0278",
+        "gbcr:work:gandavyuha"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0293",
+          "T0294",
+          "T0295"
+        ],
+        "toh": [
+          "toh44-45"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh44-45",
+          "baseTohId": "toh44",
+          "baseNumber": 44,
+          "componentNumber": 45,
+          "dergeCatalogId": "D44",
+          "dergeExpressionId": "MW22084_0044",
+          "linkedAbstractWorkId": "WA0RK0044",
+          "titleEwts": "sangs rgyas phal po che zhes bya ba shin tu rgyas pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0044",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0044::bdr:I0920/manifest",
+          "mappingBasis": "Toh 章节后缀保留为组件范围，基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:kausika-prajnaparamita",
+      "groupId": "kausika-prajnaparamita",
+      "status": "candidate_requires_manual_review",
+      "relationType": "cross_language_parallel_candidate",
+      "label": "帝释／Kauśika 般若跨语种候选",
+      "evidence": "T0249 以帝释为题，84000 的 Kauśika 般若明确讨论对应汉译；现登记跨语种候选，等待逐句对齐后确认作品边界。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0249"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0249"
+        ],
+        "toh": [
+          "toh19"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh19",
+          "baseTohId": "toh19",
+          "baseNumber": 19,
+          "componentNumber": null,
+          "dergeCatalogId": "D19",
+          "dergeExpressionId": "MW22084_0019",
+          "linkedAbstractWorkId": "WA0RK0019",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa kau shi ka zhes bya ba/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0019",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0019::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:large-prajnaparamita-chinese",
+      "groupId": "large-prajnaparamita-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "recension_family_verified",
+      "label": "二万五千颂般若汉译与《大般若经》第二会",
+      "evidence": "DILA 经录与 84000 的《二万五千颂般若》导言共同关联 T0221、T0222、T0223 和 T0220 第二会，并提醒不同底本之间存在复杂亲疏关系；因此确认为文本家族，不直接合并为同一表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:maha-prajnaparamita-t0223",
+        "gbcr:work:taisho-t0221",
+        "gbcr:work:taisho-t0222"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(2)",
+          "T0221",
+          "T0222",
+          "T0223"
+        ],
+        "toh": [
+          "toh9"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh9",
+          "baseTohId": "toh9",
+          "baseNumber": 9,
+          "componentNumber": null,
+          "dergeCatalogId": "D9",
+          "dergeExpressionId": "MW22084_0009",
+          "linkedAbstractWorkId": "WA0RK0009",
+          "titleEwts": "shes rab kyi pha rol tu phyin pa stong phrag nyi shu lnga pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0009",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0009::bdr:I0911/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:mahamegha-chinese-text-family",
+      "groupId": "mahamegha-chinese-text-family",
+      "status": "candidate_requires_manual_review",
+      "relationType": "text_family_relation_unresolved",
+      "label": "Mahāmegha／《大云经》汉文文本家族待考",
+      "evidence": "84000《大云经》导言明确指出 T0387、T0388 等相关文本的归属、年代与共享历史仍需进一步研究。平台保存 T0388 的完整来源文件，但按题名将其标为单卷残篇候选，不在证据不足时强行并入 T0387。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0387",
+        "gbcr:work:taisho-t0388"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0387",
+          "T0388"
+        ],
+        "toh": [
+          "toh232",
+          "toh233"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh232",
+          "baseTohId": "toh232",
+          "baseNumber": 232,
+          "componentNumber": null,
+          "dergeCatalogId": "D232",
+          "dergeExpressionId": "MW22084_0232",
+          "linkedAbstractWorkId": "WA0RK0232",
+          "titleEwts": "'phags pa sprin chen po zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0232",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0232::bdr:I0949/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        },
+        {
+          "tohId": "toh233",
+          "baseTohId": "toh233",
+          "baseNumber": 233,
+          "componentNumber": null,
+          "dergeCatalogId": "D233",
+          "dergeExpressionId": "MW22084_0233",
+          "linkedAbstractWorkId": "WA0RK0233",
+          "titleEwts": "'phags pa sprin chen po'i mdo las phyogs bcu'i byang chub sems dpa' rgya mtsho 'dus pa'i dga' ston chen po la rtse ba zhes bya ba'i le'u/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0233",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0233::bdr:I0949/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:mahaparinirvana-mahayana-chinese",
+      "groupId": "mahaparinirvana-mahayana-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_recension_and_partial_witness_group_verified",
+      "label": "Mahāparinirvāṇasūtra／大乘《大般涅槃经》汉译、校订本与后分见证",
+      "evidence": "DILA 经录为 T0374–T0377 登记 Mahāparinirvāṇasūtra 题名，并把法显六卷本 T0376 对应到 T0374、T0375 的相关章节；T0375 题记为慧严等依旧译加治，T0377 题名明确为后分。平台分列完整译本、编辑校订本与后分见证。",
+      "gbcrWorkIds": [
+        "gbcr:work:mahaparinirvana-t0374"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0374",
+          "T0375",
+          "T0376",
+          "T0377"
+        ],
+        "toh": [
+          "toh119",
+          "toh120",
+          "toh121"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh119",
+          "baseTohId": "toh119",
+          "baseNumber": 119,
+          "componentNumber": null,
+          "dergeCatalogId": "D119",
+          "dergeExpressionId": "MW22084_0119",
+          "linkedAbstractWorkId": "WA0RK0119",
+          "titleEwts": "'phags pa yongs su mya ngan las 'das pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0119",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0119::bdr:I0937/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        },
+        {
+          "tohId": "toh120",
+          "baseTohId": "toh120",
+          "baseNumber": 120,
+          "componentNumber": null,
+          "dergeCatalogId": "D120",
+          "dergeExpressionId": "MW22084_0120",
+          "linkedAbstractWorkId": "WA0RK0120",
+          "titleEwts": "'phags pa yongs su mya ngan las 'das pa chen po theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0120",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0120::bdr:I0939/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        },
+        {
+          "tohId": "toh121",
+          "baseTohId": "toh121",
+          "baseNumber": 121,
+          "componentNumber": null,
+          "dergeCatalogId": "D121",
+          "dergeExpressionId": "MW22084_0121",
+          "linkedAbstractWorkId": "WA0RK0121",
+          "titleEwts": "'phags pa yongs su mya ngan las 'das pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0121",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0121::bdr:I0939/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:mahasannipata-component-translations-t13",
+      "groupId": "mahasannipata-component-translations-t13",
+      "status": "curated_relation_identifier_join",
+      "relationType": "collection_component_translation_verified",
+      "label": "Mahāsannipāta／《大方等大集经》合集与独立流通译本",
+      "evidence": "DILA 经录把 T0398–T0404 分别对应到 T0397 的第一至第九分中的具体品或分；T0397 正文又逐卷保留曇无讖、智严与宝云、那连提耶舍等不同译者题记。平台把 T0397 登记为多译者合集见证，并保留独立流通译本的组件关系，不把单品译本冒充整部六十卷合集的另一完整译本。",
+      "gbcrWorkIds": [
+        "gbcr:work:mahasannipata-t0397",
+        "gbcr:work:taisho-t0398",
+        "gbcr:work:taisho-t0399",
+        "gbcr:work:taisho-t0400",
+        "gbcr:work:taisho-t0401",
+        "gbcr:work:taisho-t0402",
+        "gbcr:work:taisho-t0403",
+        "gbcr:work:taisho-t0404"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0397",
+          "T0398-T0404"
+        ],
+        "toh": [
+          "toh138"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh138",
+          "baseTohId": "toh138",
+          "baseNumber": 138,
+          "componentNumber": null,
+          "dergeCatalogId": "D138",
+          "dergeExpressionId": "MW22084_0138",
+          "linkedAbstractWorkId": "WA0RK0138",
+          "titleEwts": "'phags pa 'dus pa chen po rin po che tog gi gzungs zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0138",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0138::bdr:I0941/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:manjusri-prajnaparamita-chinese",
+      "groupId": "manjusri-prajnaparamita-chinese",
+      "status": "candidate_requires_manual_review",
+      "relationType": "same_work_and_assembly_candidate",
+      "label": "文殊般若汉译与《大般若经》第七会",
+      "evidence": "DILA 经录把 T0232、T0233 与 T0220 第七会列为相关经典；卷数和文本形态不同，须完成逐段对齐后再决定是否合并作品。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:taisho-t0232",
+        "gbcr:work:taisho-t0233"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(7)",
+          "T0232",
+          "T0233"
+        ],
+        "toh": [
+          "toh24"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh24",
+          "baseTohId": "toh24",
+          "baseNumber": 24,
+          "componentNumber": null,
+          "dergeCatalogId": "D24",
+          "dergeExpressionId": "MW22084_0024",
+          "linkedAbstractWorkId": "WA0RK0024",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa bdun brgya pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0024",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0024::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-few-syllables",
+      "groupId": "prajnaparamita-few-syllables",
+      "status": "candidate_requires_manual_review",
+      "relationType": "cross_language_title_candidate",
+      "label": "小字／少字般若跨语种候选",
+      "evidence": "T0258 的“小字般若”题名与 84000 所列少字般若体裁相合；现仅登记题名级候选，等待梵藏汉内容对齐。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0258"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0258"
+        ],
+        "toh": [
+          "toh22"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh22",
+          "baseTohId": "toh22",
+          "baseNumber": 22,
+          "componentNumber": null,
+          "dergeCatalogId": "D22",
+          "dergeExpressionId": "MW22084_0022",
+          "linkedAbstractWorkId": "WA0RK0022",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa yi ge nyung ngu zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0022",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0022::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-fifty-lines",
+      "groupId": "prajnaparamita-fifty-lines",
+      "status": "candidate_requires_manual_review",
+      "relationType": "cross_language_title_candidate",
+      "label": "五十颂般若跨语种候选",
+      "evidence": "T0248 的题名与 84000 般若部目录所列《五十颂般若》相合；尚未逐偈对齐，先登记题名级候选。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0248"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0248"
+        ],
+        "toh": [
+          "toh18"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh18",
+          "baseTohId": "toh18",
+          "baseNumber": 18,
+          "componentNumber": null,
+          "dergeCatalogId": "D18",
+          "dergeExpressionId": "MW22084_0018",
+          "linkedAbstractWorkId": "WA0RK0018",
+          "titleEwts": "'phags pa bcom ldan 'das ma shes rab kyi pha rol tu phyin pa lnga bcu pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0018",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0018::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-hrdaya-chinese",
+      "groupId": "prajnaparamita-hrdaya-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_recension_group_verified",
+      "label": "Hṛdaya／《般若心经》汉译与长短本组",
+      "evidence": "84000《心经》导言把 T0250、T0251 归入短本见证，把 T0252–T0255、T0257 归入长本见证，并指出传统译者署名与成书史仍有争议；平台共享一个规范作品实体，同时保留长短本和每项署名。",
+      "gbcrWorkIds": [
+        "gbcr:work:prajnaparamita-hrdaya"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0250",
+          "T0251",
+          "T0252",
+          "T0253",
+          "T0254",
+          "T0255",
+          "T0257"
+        ],
+        "toh": [
+          "toh21"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh21",
+          "baseTohId": "toh21",
+          "baseNumber": 21,
+          "componentNumber": null,
+          "dergeCatalogId": "D21",
+          "dergeExpressionId": "MW22084_0021",
+          "linkedAbstractWorkId": "WA0RK0529",
+          "titleEwts": "bcom ldan 'das ma shes rab kyi pha rol tu phyin pa'i snying po/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0021",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0021::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-naya-chinese",
+      "groupId": "prajnaparamita-naya-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "text_family_verified",
+      "label": "般若理趣汉译与扩展文本家族",
+      "evidence": "DILA 经录把 T0240–T0244 与 T0220 第十会列为相关经典；其中短译、密教化表达和七卷扩展本层次不同，故只建立文本家族，不合并为单一作品。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:taisho-t0240",
+        "gbcr:work:taisho-t0241",
+        "gbcr:work:taisho-t0242",
+        "gbcr:work:taisho-t0243",
+        "gbcr:work:taisho-t0244"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(10)",
+          "T0240",
+          "T0241",
+          "T0242",
+          "T0243",
+          "T0244"
+        ],
+        "toh": [
+          "toh17"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh17",
+          "baseTohId": "toh17",
+          "baseNumber": 17,
+          "componentNumber": null,
+          "dergeCatalogId": "D17",
+          "dergeExpressionId": "MW22084_0017",
+          "linkedAbstractWorkId": "WA0RK0017",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa'i tshul brgya lnga bcu pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0017",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0017::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-one-hundred-eight-names",
+      "groupId": "prajnaparamita-one-hundred-eight-names",
+      "status": "candidate_requires_manual_review",
+      "relationType": "cross_language_title_candidate",
+      "label": "般若波罗蜜多一百八名文本",
+      "evidence": "T0230 的题名明确为般若波罗蜜多一百八名陀罗尼；84000 藏经目录另列同名的一百八名体裁作品 Toh 25。现只登记跨语种题名候选，等待内容级对齐。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0230"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0230"
+        ],
+        "toh": [
+          "toh25"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh25",
+          "baseTohId": "toh25",
+          "baseNumber": 25,
+          "componentNumber": null,
+          "dergeCatalogId": "D25",
+          "dergeExpressionId": "MW22084_0025",
+          "linkedAbstractWorkId": "WA0RK0025",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa'i mtshan brgya rtsa brgyad pa zhes bya ba/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0025",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0025::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:prajnaparamita-verse-summary",
+      "groupId": "prajnaparamita-verse-summary",
+      "status": "curated_relation_identifier_join",
+      "relationType": "related_distinct_work_verified",
+      "label": "般若摄颂／宝德藏偈文本",
+      "evidence": "T0229 题名与目录对应 Prajñāpāramitā-ratnaguṇasaṃcayagāthā；84000 将其作为概括般若义的独立偈颂作品列于八千颂之后，因此只建立相关作品关系。",
+      "gbcrWorkIds": [
+        "gbcr:work:taisho-t0229"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0229"
+        ],
+        "toh": [
+          "toh13"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh13",
+          "baseTohId": "toh13",
+          "baseNumber": 13,
+          "componentNumber": null,
+          "dergeCatalogId": "D13",
+          "dergeExpressionId": "MW22084_0013",
+          "linkedAbstractWorkId": "WA0RK0013",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa sdud pa tshigs su bcad pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0013",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0013::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+      "groupId": "pratyutpanna-buddha-sammukhavasthita-samadhi-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_and_abridged_witness_group_verified",
+      "label": "Pratyutpannabuddhasaṃmukhāvasthitasamādhi／《般舟三昧经》汉译与节本见证组",
+      "evidence": "DILA 经录把 T0416–T0419 互列为同一文本组。CBC@ 汇录的 Harrison、Zürcher 等研究进一步判定一卷本 T0417 是三卷本 T0418 的后出节本，而非独立译本；T0419 是古短本。平台把 T0416、T0418、T0419 作为同作品表达，把 T0417 作为节本见证，并公开译者归属争议。",
+      "gbcrWorkIds": [
+        "gbcr:work:pratyutpanna-buddha-sammukhavasthita-samadhi"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0416",
+          "T0417",
+          "T0418",
+          "T0419"
+        ],
+        "toh": [
+          "toh133"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh133",
+          "baseTohId": "toh133",
+          "baseNumber": 133,
+          "componentNumber": null,
+          "dergeCatalogId": "D133",
+          "dergeExpressionId": "MW22084_0133",
+          "linkedAbstractWorkId": "WA0RK0133",
+          "titleEwts": "'phags pa da ltar gyi sangs rgyas mngon sum du bzhugs pa'i ting nge 'dzin ces bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0133",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0133::bdr:I0941/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:saddharmapundarika-chinese",
+      "groupId": "saddharmapundarika-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Saddharmapuṇḍarīka／《法华经》汉译组",
+      "evidence": "84000 的《白莲正法》导言明确列出 T0262、T0263、T0264 为《法华经》的现存汉译或修订本；平台据此共享一个规范作品实体，同时完整保留三种译文及其章节差异。",
+      "gbcrWorkIds": [
+        "gbcr:work:saddharma-pundarika-t0262"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0262",
+          "T0263",
+          "T0264"
+        ],
+        "toh": [
+          "toh113"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh113",
+          "baseTohId": "toh113",
+          "baseNumber": 113,
+          "componentNumber": null,
+          "dergeCatalogId": "D113",
+          "dergeExpressionId": "MW22084_0113",
+          "linkedAbstractWorkId": "WA0RK0113",
+          "titleEwts": "dam pa'i chos pad ma dkar po zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0113",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0113::bdr:I0936/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:saddharmapundarika-partial-chinese",
+      "groupId": "saddharmapundarika-partial-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "partial_translation_witness_verified",
+      "label": "《薩曇分陀利经》法华经节译见证",
+      "evidence": "DILA 经录把 T0265 明确对应到 T0262 第十一、十二品及 T0263、T0264 的第十一品，并登记同一梵名 Saddharmapuṇḍarīkasūtra；平台归入《法华经》作品，但不把一卷节译计作完整译本。",
+      "gbcrWorkIds": [
+        "gbcr:work:saddharma-pundarika-t0262"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0262(11-12)",
+          "T0263(11)",
+          "T0264(11)",
+          "T0265"
+        ],
+        "toh": [
+          "toh113"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh113",
+          "baseTohId": "toh113",
+          "baseNumber": 113,
+          "componentNumber": null,
+          "dergeCatalogId": "D113",
+          "dergeExpressionId": "MW22084_0113",
+          "linkedAbstractWorkId": "WA0RK0113",
+          "titleEwts": "dam pa'i chos pad ma dkar po zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0113",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0113::bdr:I0936/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:samantamukha-parivarta-chinese-witnesses",
+      "groupId": "samantamukha-parivarta-chinese-witnesses",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_edition_witnesses_verified",
+      "label": "Samantamukhaparivarta／《普门品经》版本见证组",
+      "evidence": "DILA 经录为 T0315a、T0315b 登记同题、同译者、同梵名 Samantamukhaparivarta，并分别保留不同字数和版本信息；平台按同一作品的两个完整版本见证登记，不把小写 a/b 误作两部独立作品。",
+      "gbcrWorkIds": [
+        "gbcr:work:samantamukha-parivarta"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0315a",
+          "T0315b"
+        ],
+        "toh": [
+          "toh54"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh54",
+          "baseTohId": "toh54",
+          "baseNumber": 54,
+          "componentNumber": null,
+          "dergeCatalogId": "D54",
+          "dergeExpressionId": "MW22084_0054",
+          "linkedAbstractWorkId": "WA0RK0054",
+          "titleEwts": "'phags pa kun nas sgo'i le'u zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0054",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0054::bdr:I0925/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:sarvavaidalyasamgraha-chinese",
+      "groupId": "sarvavaidalyasamgraha-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Sarvavaidalyasaṃgraha 汉译组",
+      "evidence": "DILA 经录为 T0274、T0275 互列相关经典，二者同具梵名 Sarvavaidalyasaṃgrahasūtra、藏译目录号 Toh 227；平台登记为同一作品的两个汉译表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:sarvavaidalyasamgraha"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0274",
+          "T0275"
+        ],
+        "toh": [
+          "toh227"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh227",
+          "baseTohId": "toh227",
+          "baseNumber": 227,
+          "componentNumber": null,
+          "dergeCatalogId": "D227",
+          "dergeExpressionId": "MW22084_0227",
+          "linkedAbstractWorkId": "WA0RK0227",
+          "titleEwts": "'phags pa rnam par 'thag pa thams cad bsdus pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0227",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0227::bdr:I0948/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:suvikrantavikramin-chinese",
+      "groupId": "suvikrantavikramin-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "assembly_parallel_verified",
+      "label": "《胜天王般若》与《大般若经》第六会",
+      "evidence": "DILA 经录把 T0231 明确关联到 T0220 第六会；在《大般若经》分会组件模型完成前，两者保留为独立可寻址表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:taisho-t0231"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(6)",
+          "T0231"
+        ],
+        "toh": [
+          "toh14"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh14",
+          "baseTohId": "toh14",
+          "baseNumber": 14,
+          "componentNumber": null,
+          "dergeCatalogId": "D14",
+          "dergeExpressionId": "MW22084_0014",
+          "linkedAbstractWorkId": "WA0RK0014",
+          "titleEwts": "'phags pa rab kyi rtsal gyis rnam par gnon pas zhus pa shes rab kyi pha rol tu phyin pa bstan pa/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0014",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0014::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:tathagata-qualities-wisdom-realm-chinese",
+      "groupId": "tathagata-qualities-wisdom-realm-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组",
+      "evidence": "DILA 为 T0302、T0303、T0304 互列相关经典，并为 T0303、T0304 登记共同梵名 Tathāgataguṇajñānācintyaviṣayāvatāranirdeśasūtra 与共同藏译目录号；平台登记为同一作品的三个汉译表达。",
+      "gbcrWorkIds": [
+        "gbcr:work:tathagata-qualities-wisdom-realm"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0302",
+          "T0303",
+          "T0304"
+        ],
+        "toh": [
+          "toh185"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh185",
+          "baseTohId": "toh185",
+          "baseNumber": 185,
+          "componentNumber": null,
+          "dergeCatalogId": "D185",
+          "dergeExpressionId": "MW22084_0185",
+          "linkedAbstractWorkId": "WA0RK0185",
+          "titleEwts": "'phags pa de bzhin gshegs pa'i yon tan dang ye shes bsam gyis mi khyab pa'i yul la 'jug pa bstan pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0185",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0185::bdr:I0946/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:ugra-pariprccha-chinese",
+      "groupId": "ugra-pariprccha-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Ugraparipṛcchā／郁伽长者所问汉译组",
+      "evidence": "DILA 经录为 T0322、T0323 登记共同梵名 Ugra(datta)paripṛcchā，并互列且共同对应 T0310 第十九会。",
+      "gbcrWorkIds": [
+        "gbcr:work:ugra-pariprccha"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0310(19)",
+          "T0322",
+          "T0323"
+        ],
+        "toh": [
+          "toh63"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh63",
+          "baseTohId": "toh63",
+          "baseNumber": 63,
+          "componentNumber": null,
+          "dergeCatalogId": "D63",
+          "dergeExpressionId": "MW22084_0063",
+          "linkedAbstractWorkId": "WA0RK0063",
+          "titleEwts": "'phags pa khyim bdag drag shul can gyis zhus pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0063",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0063::bdr:I0927/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:upali-pariprccha-chinese",
+      "groupId": "upali-pariprccha-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_and_partial_witness_group_verified",
+      "label": "Upāliparipṛcchā／优波离所问汉译与礼忏节译见证",
+      "evidence": "DILA 经录把 T0325、T0326 共同对应 T0310 第二十四会；84000《律决定·优波离所问》导言进一步说明 T0326 只保存该作品的一部分。平台把 T0325 记为完整译本、T0326 记为节译见证。",
+      "gbcrWorkIds": [
+        "gbcr:work:upali-pariprccha"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0310(24)",
+          "T0325",
+          "T0326"
+        ],
+        "toh": [
+          "toh68"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh68",
+          "baseTohId": "toh68",
+          "baseNumber": 68,
+          "componentNumber": null,
+          "dergeCatalogId": "D68",
+          "dergeExpressionId": "MW22084_0068",
+          "linkedAbstractWorkId": "WA0RK0068",
+          "titleEwts": "'phags pa 'dul ba rnam par gtan la dbab pa nye bar 'khor gyis zhus pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0068",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0068::bdr:I0928/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    },
+    {
+      "id": "gbcr:alignment:vajracchedika-chinese",
+      "groupId": "vajracchedika-chinese",
+      "status": "curated_relation_identifier_join",
+      "relationType": "same_work_translation_group_verified",
+      "label": "Vajracchedikā／《金刚般若经》汉译组",
+      "evidence": "DILA 经录和 84000 均把 T0235–T0239 与 T0220 第九会识别为 Vajracchedikā 的汉译或经会表达；平台据此共享一个规范作品实体，但完整保留各译本。T0236a/b 的署名与见证差异仍单独记录。",
+      "gbcrWorkIds": [
+        "gbcr:work:maha-prajnaparamita-t0220",
+        "gbcr:work:vajracchedika-prajnaparamita"
+      ],
+      "externalIds": {
+        "cbeta": [
+          "T0220(9)",
+          "T0235",
+          "T0236a",
+          "T0236b",
+          "T0237",
+          "T0238",
+          "T0239"
+        ],
+        "toh": [
+          "toh16"
+        ]
+      },
+      "dergeMatches": [
+        {
+          "tohId": "toh16",
+          "baseTohId": "toh16",
+          "baseNumber": 16,
+          "componentNumber": null,
+          "dergeCatalogId": "D16",
+          "dergeExpressionId": "MW22084_0016",
+          "linkedAbstractWorkId": "WA0RK0016",
+          "titleEwts": "'phags pa shes rab kyi pha rol tu phyin pa rdo rje gcod pa zhes bya ba theg pa chen po'i mdo/",
+          "resourceUrl": "http://purl.bdrc.io/resource/MW22084_0016",
+          "iiifManifestUrl": "https://iiifpres.bdrc.io/wvo:bdr:MW22084_0016::bdr:I0919/manifest",
+          "mappingBasis": "Toh 基础编号与德格目录 D 编号相同"
+        }
+      ],
+      "decisionBoundary": "连接既有人工整理关系组、84000 Toh 引用与固定德格表达式；不自动合并 Work，不生成章节或段落等同关系。"
+    }
+  ]
+}

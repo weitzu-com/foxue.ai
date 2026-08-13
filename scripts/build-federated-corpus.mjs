@@ -11,6 +11,7 @@ const inputs = {
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
   sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
+  crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   cbetaT12Batch: "data/corpus/cbeta/batch-v1.9.0.json",
   cbetaT13Batch: "data/corpus/cbeta/batch-v2.0.0.json",
   cbetaT14Batch: "data/corpus/cbeta/batch-v2.1.0.json",
@@ -45,6 +46,7 @@ const dergeInventory = JSON.parse(rawById.dergeInventory);
 const rights84000 = JSON.parse(rawById.rights84000);
 const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
 const sanskritRights = JSON.parse(rawById.sanskritRights);
+const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const cbetaBatch = JSON.parse(rawById.cbetaBatch);
 const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
 const cbetaManifest = JSON.parse(rawById.cbetaManifest);
@@ -59,8 +61,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v2.6.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.6.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v2.7.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.7.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -164,6 +166,15 @@ if (
   sanskritRights.dsbc?.observedPolicy?.reproductionWithoutPermissionProhibited !== true ||
   sanskritRights.gretil?.repositoryLicenseDetected !== false
 ) throw new Error("DSBC 或 GRETIL 梵文来源快照与权利边界不一致");
+if (
+  crossCatalogAlignments.version !== "0.5.0" ||
+  crossCatalogAlignments.policy?.automaticWorkMerge !== false ||
+  crossCatalogAlignments.summary?.curatedRelationGroups !== 29 ||
+  crossCatalogAlignments.summary?.gbcrWorksReferenced !== 57 ||
+  crossCatalogAlignments.summary?.matchedDergeExpressions !== 29 ||
+  crossCatalogAlignments.summary?.unmatchedTohBaseIdentifiers !== 0 ||
+  crossCatalogAlignments.summary?.denominatorImpact !== "none"
+) throw new Error("Toh—德格—CBETA 跨目录对齐账本不一致");
 const nonCbetaWorks = base.works.filter((work) =>
   !(work.expressions ?? []).some((expression) => expression.sourceSnapshotId === "cbeta_xml_p5"),
 );
@@ -199,10 +210,16 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       nestedTextPartRecords: dergeInventory.totals.nestedTextPartRecords,
       dergeIdentifierRecords: dergeInventory.totals.dergeIdentifierRecords,
       candidateLinkedAbstractWorkIds: dergeInventory.totals.linkedAbstractWorkIds,
+      curatedCrossCatalogRelationGroups: crossCatalogAlignments.summary.curatedRelationGroups,
+      curatedCrossCatalogGbcrWorks: crossCatalogAlignments.summary.gbcrWorksReferenced,
+      curatedTohBaseIdentifiers: crossCatalogAlignments.summary.uniqueTohBaseIdentifiers,
+      matchedDergeExpressions: crossCatalogAlignments.summary.matchedDergeExpressions,
+      crossCatalogAlignmentFile: inputs.crossCatalogAlignments,
+      crossCatalogAlignmentSha256: sha256(rawById.crossCatalogAlignments),
       volumeManifests: dergeInventory.totals.volumeManifests,
       inventoryFile: dergeSource.inventoryFile,
       inventorySha256: dergeSource.inventorySha256,
-      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。BDRC 当前关联出 844 个抽象作品标识，但尚未完成跨版本、跨目录和跨语言独立复核，因此作品分母继续保持未知。",
+      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。现有汉译证据中 29 个 Toh 基础编号已连接到 29 个固定德格表达式，但这只覆盖人工整理关系组；BDRC 当前关联的 844 个抽象作品标识仍未完成跨版本、跨目录和跨语言独立复核，因此作品分母继续保持未知。",
     };
   }
   if (family.id === "sanskrit_fragments_and_witnesses") {
@@ -317,28 +334,36 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "2.6.0", publishedAt: "2026-08-13" },
+  registry: { ...base.registry, version: "2.7.0", publishedAt: "2026-08-13" },
   sourceFamilies,
   sourceSnapshots,
+  crossCatalogAlignmentAudit: {
+    version: crossCatalogAlignments.version,
+    status: crossCatalogAlignments.status,
+    file: inputs.crossCatalogAlignments,
+    sha256: sha256(rawById.crossCatalogAlignments),
+    ...crossCatalogAlignments.summary,
+    warning: crossCatalogAlignments.warning,
+  },
   works: [...nonCbetaWorks, ...cbetaWorks],
 };
 if (
   registry.works.length !== 978 ||
   registry.works.flatMap((work) => work.expressions).length !== 1141 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v2.6.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v2.7.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v2.6.0.json`,
+  `${sha256(registryRaw)}  registry-v2.7.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.6.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.6.0.sha256 不可复现");
-  console.log("跨语种登记册 v2.6.0 可复现：978 个受控作品；新增 DSBC 486 条与 GRETIL 417 条梵文候选记录，全球分母仍未知。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.7.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.7.0.sha256 不可复现");
+  console.log("跨语种登记册 v2.7.0 可复现：29 个 Toh 基础编号连接 29 个固定德格表达式；978 个受控作品与全球分母均未改变。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v2.6.0 已生成：梵文目录与物理文件候选快照进入全球分母账本，未导入受限正文。");
+  console.log("跨语种登记册 v2.7.0 已生成：Toh—德格—CBETA 对齐证据已冻结，不自动合并作品。");
 }

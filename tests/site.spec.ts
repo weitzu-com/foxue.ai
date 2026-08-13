@@ -80,6 +80,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("1,114").first()).toBeVisible();
   await expect(page.getByText("486").first()).toBeVisible();
   await expect(page.getByText("417").first()).toBeVisible();
+  await expect(page.getByText("跨目录标识对齐")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -195,6 +196,19 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     dsbcSastrapitakaRecords: 360,
     gretilPhysicalFiles: 417,
     gretilBytes: 62432484,
+  });
+  expect(coverage.candidateInventory.crossCatalogAlignment).toMatchObject({
+    curatedRelationGroups: 29,
+    curatedRelationGroupsWithIdentifierJoin: 23,
+    relationGroupsRequiringManualReview: 6,
+    gbcrWorksReferenced: 57,
+    cbetaCitationIdentifiers: 92,
+    tohCitationIdentifiers: 31,
+    uniqueTohBaseIdentifiers: 29,
+    matchedDergeExpressions: 29,
+    matchedBdrcAbstractWorkIds: 29,
+    unmatchedTohBaseIdentifiers: 0,
+    denominatorImpact: "none",
   });
 });
 
@@ -730,20 +744,24 @@ test("巴利小部二十书的固定经藏目录完整受控并区分书级作�
   expect(sitemap).toContain("/jingzang/khuddaka-nikaya-thig");
 });
 
-test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }, testInfo) => {
-  // 两个桌面主题扫描各页面形态与来源角色的固定代表集；语料完整性由登记册和逐来源测试覆盖。
-  test.setTimeout(360_000);
-  test.skip(testInfo.project.name === "mobile", "自动无障碍扫描在桌面主题项目执行");
+test.describe("桌面无障碍扫描", () => {
+  // 在创建页面上下文前排除移动端项目，避免无意义地启动第三个浏览器上下文。
+  test.skip(({ isMobile }) => isMobile, "自动无障碍扫描在桌面主题项目执行");
 
-  for (const route of criticalRoutes) {
-    await page.goto(route);
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-      .analyze();
+  test("关键页面没有 serious 或 critical 级无障碍问题", async ({ page }) => {
+    // 两个桌面主题扫描各页面形态与来源角色的固定代表集；语料完整性由登记册和逐来源测试覆盖。
+    test.setTimeout(360_000);
 
-    const severe = results.violations.filter((item) =>
-      item.impact === "serious" || item.impact === "critical",
-    );
-    expect(severe, `${route} 存在高严重度无障碍问题`).toEqual([]);
-  }
+    for (const route of criticalRoutes) {
+      await page.goto(route);
+      const results = await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+        .analyze();
+
+      const severe = results.violations.filter((item) =>
+        item.impact === "serious" || item.impact === "critical",
+      );
+      expect(severe, `${route} 存在高严重度无障碍问题`).toEqual([]);
+    }
+  });
 });

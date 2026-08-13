@@ -3,14 +3,15 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v2.6.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v2.7.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.4.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const dergeInventoryPath = resolve(root, "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json");
 const rights84000Path = resolve(root, "data/gbcr/84000-rights-policy-v0.3.0.json");
 const sanskritEvidencePath = resolve(root, "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json");
 const sanskritRightsPath = resolve(root, "data/gbcr/sanskrit-rights-policy-v0.4.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.6.0.sha256");
+const crossCatalogAlignmentsPath = resolve(root, "data/gbcr/cross-catalog-alignments-v0.5.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.7.0.sha256");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -45,6 +46,7 @@ const dergeInventoryRaw = await readFile(dergeInventoryPath, "utf8");
 const rights84000Raw = await readFile(rights84000Path, "utf8");
 const sanskritEvidenceRaw = await readFile(sanskritEvidencePath, "utf8");
 const sanskritRightsRaw = await readFile(sanskritRightsPath, "utf8");
+const crossCatalogAlignmentsRaw = await readFile(crossCatalogAlignmentsPath, "utf8");
 const agamaBatchRaw = await readFile(agamaBatchPath, "utf8");
 const benyuanBatchRaw = await readFile(benyuanBatchPath, "utf8");
 const prajnaparamitaBatchRaw = await readFile(prajnaparamitaBatchPath, "utf8");
@@ -79,6 +81,7 @@ const dergeInventory = JSON.parse(dergeInventoryRaw);
 const rights84000 = JSON.parse(rights84000Raw);
 const sanskritEvidence = JSON.parse(sanskritEvidenceRaw);
 const sanskritRights = JSON.parse(sanskritRightsRaw);
+const crossCatalogAlignments = JSON.parse(crossCatalogAlignmentsRaw);
 const agamaBatch = JSON.parse(agamaBatchRaw);
 const benyuanBatch = JSON.parse(benyuanBatchRaw);
 const prajnaparamitaBatch = JSON.parse(prajnaparamitaBatchRaw);
@@ -113,7 +116,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "2.6.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "2.7.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -196,6 +199,37 @@ unique(dergeInventory.records.map((record) => record.dergeCatalogId), "德格甘
 requireValue(tibetanFamily?.denominatorStatus === "fixed_edition_expression_snapshot_ready", "藏文来源族状态未升级");
 requireValue(tibetanFamily?.candidateExpressionRecords === 1114, "藏文来源族候选表达式数量不匹配");
 requireValue(tibetanFamily?.denominatorWorks === null, "藏文跨版本作品分母不得提前填写");
+const alignmentAudit = registry.crossCatalogAlignmentAudit;
+requireValue(crossCatalogAlignments?.version === "0.5.0", "跨目录对齐账本版本漂移");
+requireValue(crossCatalogAlignments?.policy?.automaticWorkMerge === false, "跨目录对齐不得自动合并作品");
+requireValue(crossCatalogAlignments?.policy?.segmentEquivalenceAsserted === false, "跨目录对齐不得自动发布段落等同关系");
+requireValue(crossCatalogAlignments?.summary?.curatedRelationGroups === 29, "跨目录关系组计数漂移");
+requireValue(crossCatalogAlignments?.summary?.curatedRelationGroupsWithIdentifierJoin === 23, "已整理跨目录关系组计数漂移");
+requireValue(crossCatalogAlignments?.summary?.relationGroupsRequiringManualReview === 6, "待人工复核跨目录关系组计数漂移");
+requireValue(crossCatalogAlignments?.summary?.gbcrWorksReferenced === 57, "跨目录引用站内作品计数漂移");
+requireValue(crossCatalogAlignments?.summary?.cbetaCitationIdentifiers === 92, "跨目录 CBETA 引用计数漂移");
+requireValue(crossCatalogAlignments?.summary?.tohCitationIdentifiers === 31, "跨目录 Toh 引用计数漂移");
+requireValue(crossCatalogAlignments?.summary?.uniqueTohBaseIdentifiers === 29, "跨目录 Toh 基础编号计数漂移");
+requireValue(crossCatalogAlignments?.summary?.matchedDergeExpressions === 29, "跨目录德格表达式匹配计数漂移");
+requireValue(crossCatalogAlignments?.summary?.unmatchedTohBaseIdentifiers === 0, "跨目录存在未匹配的 Toh 基础编号");
+requireValue(crossCatalogAlignments?.summary?.denominatorImpact === "none", "跨目录候选连接不得改变全球分母");
+requireValue(crossCatalogAlignments?.alignments?.length === 29, "跨目录逐组账本不完整");
+unique(crossCatalogAlignments.alignments.map((item) => item.id), "跨目录对齐标识");
+const workIds = new Set(registry.works.map((work) => work.id));
+const dergeByCatalogId = new Map(dergeInventory.records.map((record) => [record.dergeCatalogId, record]));
+for (const alignment of crossCatalogAlignments.alignments ?? []) {
+  requireValue(alignment.gbcrWorkIds.every((id) => workIds.has(id)), `${alignment.id} 引用了未知站内作品`);
+  for (const match of alignment.dergeMatches ?? []) {
+    const record = dergeByCatalogId.get(match.dergeCatalogId);
+    requireValue(record?.expressionId === match.dergeExpressionId, `${alignment.id} 的德格表达式不匹配`);
+    requireValue(record?.linkedAbstractWorkId === match.linkedAbstractWorkId, `${alignment.id} 的 BDRC 作品标识不匹配`);
+    requireValue(match.dergeCatalogId === `D${match.baseNumber}`, `${alignment.id} 的 Toh—D 基础编号不一致`);
+  }
+}
+const alignmentSha256 = createHash("sha256").update(crossCatalogAlignmentsRaw).digest("hex");
+requireValue(alignmentAudit?.sha256 === alignmentSha256, "登记册跨目录对齐摘要不匹配");
+requireValue(alignmentAudit?.matchedDergeExpressions === 29 && alignmentAudit?.denominatorImpact === "none", "登记册跨目录对齐摘要统计不匹配");
+requireValue(tibetanFamily?.crossCatalogAlignmentSha256 === alignmentSha256, "藏文来源族跨目录对齐摘要不匹配");
 requireValue(rights84000?.policy?.publishedTranslations?.license === "CC BY-NC-ND 4.0", "84000 译文许可边界漂移");
 requireValue(rights84000?.policy?.translationMetadata?.license === "CC BY 4.0", "84000 元数据许可边界漂移");
 requireValue(rights84000?.policy?.api?.open === false && rights84000?.policy?.api?.writtenAgreementRequired === true, "84000 API 边界漂移");
@@ -510,13 +544,14 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v2.6.0.json", raw],
+  ["registry-v2.7.0.json", raw],
   ["source-snapshots-v0.4.0.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["bdrc-derge-kangyur-inventory-v0.3.0.json", dergeInventoryRaw],
   ["84000-rights-policy-v0.3.0.json", rights84000Raw],
   ["dsbc-gretil-source-snapshot-v0.4.0.json", sanskritEvidenceRaw],
   ["sanskrit-rights-policy-v0.4.0.json", sanskritRightsRaw],
+  ["cross-catalog-alignments-v0.5.0.json", crossCatalogAlignmentsRaw],
   ["batch-v1.9.0.json", t12BatchRaw],
   ["batch-v2.0.0.json", t13BatchRaw],
   ["batch-v2.1.0.json", t14BatchRaw],

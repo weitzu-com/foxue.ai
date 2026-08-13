@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v2.6.0.json";
+import registryDocument from "../../data/gbcr/registry-v2.7.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.4.0.json";
 
 type Expression = {
@@ -427,6 +427,22 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "DSBC 梵文目录记录与 GRETIL 固定 Git 物理文件",
         caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。权利与作品对齐完成前不导入正文、不相加为作品分母。",
+      },
+      crossCatalogAlignment: {
+        curatedRelationGroups: corpusRegistry.crossCatalogAlignmentAudit.curatedRelationGroups,
+        curatedRelationGroupsWithIdentifierJoin: corpusRegistry.crossCatalogAlignmentAudit.curatedRelationGroupsWithIdentifierJoin,
+        relationGroupsRequiringManualReview: corpusRegistry.crossCatalogAlignmentAudit.relationGroupsRequiringManualReview,
+        gbcrWorksReferenced: corpusRegistry.crossCatalogAlignmentAudit.gbcrWorksReferenced,
+        cbetaCitationIdentifiers: corpusRegistry.crossCatalogAlignmentAudit.cbetaCitationIdentifiers,
+        tohCitationIdentifiers: corpusRegistry.crossCatalogAlignmentAudit.tohCitationIdentifiers,
+        uniqueTohBaseIdentifiers: corpusRegistry.crossCatalogAlignmentAudit.uniqueTohBaseIdentifiers,
+        matchedDergeExpressions: corpusRegistry.crossCatalogAlignmentAudit.matchedDergeExpressions,
+        matchedBdrcAbstractWorkIds: corpusRegistry.crossCatalogAlignmentAudit.matchedBdrcAbstractWorkIds,
+        unmatchedTohBaseIdentifiers: corpusRegistry.crossCatalogAlignmentAudit.unmatchedTohBaseIdentifiers,
+        denominatorImpact: corpusRegistry.crossCatalogAlignmentAudit.denominatorImpact,
+        sha256: corpusRegistry.crossCatalogAlignmentAudit.sha256,
+        unit: "已有人工证据的 GBCR 关系组、84000 Toh 引用与固定德格表达式",
+        caveat: corpusRegistry.crossCatalogAlignmentAudit.warning,
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({
