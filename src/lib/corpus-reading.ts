@@ -10,6 +10,7 @@ import samyuttaNikayaManifest from "../../data/corpus/suttacentral/sn-manifest-v
 import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-v1.1.0.json";
 import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
+import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
@@ -25,11 +26,19 @@ type CorpusManifestFile = {
   parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
   localPath?: string;
   sourceParts?: Array<{ localPath: string }>;
+  parserOptions?: BilaraSeriesParserOptions;
 };
 
 type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
+type BilaraSeriesParserOptions = {
+  maxSegments?: number;
+  collectionTitle?: string;
+  collectionPrefix?: string;
+  titleSuffixes?: string[];
+  omitEmptySegments?: boolean;
+};
 
-const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: CorpusParser }> = Object.fromEntries(
+const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: CorpusParser; parserOptions?: BilaraSeriesParserOptions }> = Object.fromEntries(
   [
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
@@ -39,6 +48,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(anguttaraNikayaManifest.files as CorpusManifestFile[]),
     ...(khuddakaNikayaManifest.files as CorpusManifestFile[]),
     ...(indicRootManifest.files as CorpusManifestFile[]),
+    ...(vinayaRootManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -50,6 +60,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
       }),
       canonId: file.id,
       parser: file.parser ?? "cbeta_tei",
+      parserOptions: file.parserOptions,
     },
   ]),
 );
@@ -266,8 +277,8 @@ const loadEdgeFolio = cache(async (
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
         (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id)) ||
         (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id)) ||
-        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PDHP|PE|PS|PV|SF36|SF276|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
-          /^[a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*:/.test(segment.id))
+        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PDHP|PE|PLI-TV-(?:BU|BI)-(?:PM|VB)|PLI-TV-(?:KD|PVR)|PS|PV|SF36|SF276|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
+          /^[a-z][a-z0-9.-]*:\d+(?:[.-]\d+)*$/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
       segment.juan === value.folio.juan &&
@@ -305,7 +316,7 @@ const loadCompleteReading = cache(async (slug: string) => {
     return parseBilaraSeriesSources(sourceParts.map((text, index) => ({
       filename: asset.localPaths[index].split("/").at(-1),
       text,
-    })));
+    })), asset.parserOptions);
   }
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };
@@ -352,6 +363,15 @@ async function readControlledCorpusAsset(localPath: string) {
   const prakritPrefix = "suttacentral/root/pra/pts/sutta/pdhp/";
   if (localPath.startsWith(prakritPrefix) && /^pdhp\d+-\d+_root-pra-pts\.json$/.test(localPath.slice(prakritPrefix.length))) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pra", "pts", "sutta", "pdhp", localPath.slice(prakritPrefix.length)), "utf8");
+  }
+  const vinayaPrefix = "suttacentral/root/pli/ms/vinaya/";
+  const vinayaRelative = localPath.startsWith(vinayaPrefix)
+    ? localPath.slice(vinayaPrefix.length)
+    : "";
+  if (
+    /^(?:pli-tv-(?:bu|bi)-pm_root-pli-ms\.json|pli-tv-(?:bu|bi)-vb\/(?:pli-tv-(?:bu|bi)-vb-[a-z]+\/)?pli-tv-(?:bu|bi)-vb-[a-z]+\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json|pli-tv-(?:kd|pvr)\/pli-tv-(?:kd|pvr)\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json)$/.test(vinayaRelative)
+  ) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "vinaya", vinayaRelative), "utf8");
   }
   throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
 }

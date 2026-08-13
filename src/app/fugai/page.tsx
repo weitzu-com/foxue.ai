@@ -166,11 +166,29 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.suttacentralPaliRootPilot.percentage}% 物理记录进入受控全文库；
               其中固定提交的巴利经藏目录已完成 {snapshot.candidateInventory.suttacentralPaliSuttaRoot.controlled}
               /{snapshot.candidateInventory.suttacentralPaliSuttaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliSuttaRoot.percentage}%）逐文件受控；
-              律藏与论藏仍保持独立统计
+              律藏已完成 {snapshot.candidateInventory.suttacentralPaliVinayaRoot.controlled}
+              /{snapshot.candidateInventory.suttacentralPaliVinayaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliVinayaRoot.percentage}%）逐文件受控；
+              论藏仍保持独立统计
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
             <Link className="text-link" href="/jingzang/khuddaka-nikaya-snp">
               阅读巴利《小部·经集》 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
+          </article>
+          <article>
+            <span>巴利律藏受控原文</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralPaliVinayaRoot.controlledExpressions}
+              <small> 个表达 / {snapshot.candidateInventory.suttacentralPaliVinayaRoot.controlled} 份 root</small>
+            </strong>
+            <p>
+              固定提交的巴利律藏目录已 100% 逐文件受控，按六个书级集合登记，
+              共 {snapshot.candidateInventory.suttacentralPaliVinayaRoot.stableSegments?.toLocaleString("zh-CN")} 个可读稳定段落；
+              {snapshot.candidateInventory.suttacentralPaliVinayaRoot.omittedEmptySegments} 个上游空值保留在来源与审计账本中，不伪装成正文。
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralPaliVinayaRoot.caveat}</small>
+            <Link className="text-link" href="/jingzang/pali-vinaya-khandhaka">
+              阅读上座部律藏犍度 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
           <article>
@@ -442,8 +460,8 @@ export default function CoveragePage() {
       <section className="coverage-next page-shell">
         <div>
           <p className="eyebrow">NEXT AUDIT GATE</p>
-          <h2>下一步：扩展汉译，并复核跨语种作品关系。</h2>
-          <p>固定提交中的巴利经藏目录已逐条受控。下一阶段继续纳入汉译经藏候选记录，并在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
+          <h2>下一步：接入巴利论藏，并复核跨语种作品关系。</h2>
+          <p>固定提交中的巴利经藏与律藏目录已逐条受控。下一阶段审计 1,102 份巴利论藏 root，同时在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
         </div>
         <Link className="button-primary" href="/touming">
           查看完整透明度报告 <ArrowRight aria-hidden="true" size={16} />

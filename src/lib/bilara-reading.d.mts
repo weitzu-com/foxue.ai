@@ -40,11 +40,18 @@ export function parseBilaraAnguttaraSources(
 
 export function parseBilaraSeriesSources(
   sources: Array<{ filename?: string; localPath?: string; text: string }>,
-  options?: { maxSegments?: number; collectionTitle?: string },
+  options?: {
+    maxSegments?: number;
+    collectionTitle?: string;
+    collectionPrefix?: string;
+    titleSuffixes?: string[];
+    omitEmptySegments?: boolean;
+  },
 ): {
   segments: SutraSegment[];
   navigation: ReaderNavigationItem[];
   title: string;
   collectionPrefix: string;
   sourceRecords: number;
+  omittedEmptySegmentIds: string[];
 };

@@ -22,6 +22,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
+  const bilaraCorpusUnit = sutra.tradition.includes("律藏") ? "全书" : "全经";
 
   return (
     <>
@@ -35,8 +36,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
       <div className="reader-index-layout">
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
-          <p className="eyebrow">经本目录 · READING EDITION</p>
-          <h2>{chaptered ? <>按品次，<br />展开一部经。</> : bilara ? <>按阅读单元，<br />展开一部经。</> : <>按卷与版页，<br />展开一部经。</>}</h2>
+          <p className="eyebrow">文本目录 · READING EDITION</p>
+          <h2>{chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
           <p>
             {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
@@ -106,7 +107,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             <div><dt>{bilara ? "版本" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? "完整 Bilara JSON" : partialWitness ? `完整来源 TEI · ${sourceRecordLabel}` : "完整 TEI"}</dd></div>
+            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? `${bilaraCorpusUnit}完整 Bilara JSON` : partialWitness ? `完整来源 TEI · ${sourceRecordLabel}` : "完整 TEI"}</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

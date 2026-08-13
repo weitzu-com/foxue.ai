@@ -17,7 +17,7 @@ const sources = [
   },
   {
     name: "SuttaCentral",
-    use: "巴利五部尼柯耶固定经藏目录原文、原生段落标识、书级体裁边界与跨传本关系",
+    use: "巴利经藏、律藏及梵文与俗语固定原文，原生段落标识、书级体裁边界与跨传本关系",
     href: "https://suttacentral.net/",
     rights: "本批巴利原文属公有领域；保留来源署名，不用于模型训练",
   },
@@ -43,11 +43,11 @@ export default function TransparencyPage() {
     <div className="transparency-page page-shell">
       <header className="transparency-header">
         <div>
-          <p className="eyebrow">透明度报告 · 2026-08-12</p>
+          <p className="eyebrow">透明度报告 · 2026-08-14</p>
           <h1>公开我们知道什么，<br />也公开还不知道什么。</h1>
         </div>
         <p>
-          这是随代码发布的首份机器可核对状态快照。当前数字只描述已进入仓库的样本，
+          这是随代码发布的机器可核对状态快照。当前数字只描述已进入受控库的文本，
           不代表全球佛典总体覆盖。
         </p>
       </header>

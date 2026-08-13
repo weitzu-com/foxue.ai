@@ -1,5 +1,14 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test, type APIRequestContext } from "@playwright/test";
+
+async function readSitemaps(request: APIRequestContext) {
+  const responses = await Promise.all([
+    request.get("/sitemap/0.xml"),
+    request.get("/sitemap/1.xml"),
+  ]);
+  expect(responses.every((response) => response.ok())).toBeTruthy();
+  return (await Promise.all(responses.map((response) => response.text()))).join("\n");
+}
 
 const criticalRoutes = [
   "/",
@@ -32,6 +41,7 @@ const criticalRoutes = [
   "/jingzang/sanskrit-mahavadanasutra/001-sf36-0001-0120",
   "/jingzang/sanskrit-candrasutra/001-sf276-0001-0025",
   "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034",
+  "/jingzang/pali-bhikkhu-patimokkha/001-pli-tv-bu-pm-0001-0120",
   "/fugai",
   "/touming",
 ];
@@ -89,6 +99,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
   await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
+  await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -101,12 +112,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 981,
-    registeredExpressions: 1144,
-    fullSourceTextWorks: 980,
-    fullSourceTextExpressions: 1130,
-    stableSegments: 1685893,
-    structureVerifiedWorks: 981,
+    registeredWorks: 987,
+    registeredExpressions: 1150,
+    fullSourceTextWorks: 986,
+    fullSourceTextExpressions: 1136,
+    stableSegments: 1757450,
+    structureVerifiedWorks: 987,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -190,15 +201,27 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
-    controlled: 5764,
-    percentage: 79.09,
-    controlledBytes: 22786236,
-    controlledWorks: 273,
+    controlled: 6186,
+    percentage: 84.88,
+    controlledBytes: 29496680,
+    controlledWorks: 279,
   });
   expect(coverage.candidateInventory.suttacentralPaliSuttaRoot).toMatchObject({
     denominator: 5764,
     controlled: 5764,
     percentage: 100,
+  });
+  expect(coverage.candidateInventory.suttacentralPaliVinayaRoot).toMatchObject({
+    denominator: 422,
+    controlled: 422,
+    percentage: 100,
+    controlledBytes: 6710444,
+    controlledWorks: 6,
+    controlledExpressions: 6,
+    stableSegments: 71557,
+    omittedEmptySegments: 8,
+    filesApprovedForReadingAndRetrieval: 422,
+    filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.dergeKangyurEdition).toMatchObject({
     catalogRecords: 1122,
@@ -300,7 +323,7 @@ test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, req
   const missing = await request.get("/jingzang/fajujing/999-9999z");
   expect(missing.status()).toBe(404);
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/fajujing/002-0567a");
   expect(sitemap).toContain("/jingzang/fahuajing/007-0062c");
 });
@@ -318,7 +341,7 @@ test("新增维摩诘经完整原文可分页阅读并保留末卷锚点", async
   await expect(page.locator('[id="T0475.003.0557b26"]')).toBeVisible();
   await expect(page.getByText(/全经 1786 稳定行段/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/weimojiejing/003-0557b");
   expect(sitemap).toContain("/jingzang/dasheng-ru-lengqiejing/007-0640c");
 });
@@ -335,7 +358,7 @@ test("四部阿含全本可分页阅读并保持超长经稳定锚点", async ({
   const directory = await request.get("/jingzang/zaahanjing");
   expect(directory.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/changahanjing/022-0149c");
   expect(sitemap).toContain("/jingzang/zengyiahanjing/051-0830b");
 });
@@ -352,7 +375,7 @@ test("般若华严宝积涅槃大部经典可分页阅读且保持作品级去�
   const directory = await request.get("/jingzang/bashi-huayanjing");
   expect(directory.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/liushi-huayanjing/060-0788b");
   expect(sitemap).toContain("/jingzang/nanben-dabanniepanjing/036-0852b");
 });
@@ -370,7 +393,7 @@ test("六百卷大般若经作为一个文本表达跨十五个来源资产完�
   expect(folio.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(400_000);
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");
 });
 
@@ -391,7 +414,7 @@ test("汉译阿含部 T01–T02 固定来源记录完整并保留页栏行锚点
   expect(finalFolio.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(400_000);
   expect((await finalFolio.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0002/001-0150a");
   expect(sitemap).toContain("/jingzang/taisho-t0151/001-0884b");
 });
@@ -419,7 +442,7 @@ test("汉译本缘部 T03–T04 固定来源完整并公开关系边界", async 
   expect(finalFolio.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(400_000);
   expect((await finalFolio.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0152/001-0001a");
   expect(sitemap).toContain("/jingzang/taisho-t0213/004-0799c");
 });
@@ -442,7 +465,7 @@ test("汉译般若部 T05–T08 完整受控并保留作品、署名与读诵见
   await page.goto("/jingzang/taisho-t0256/001-0851a");
   await expect(page.getByText(/梵汉对音与读诵见证/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0221/020-0146c");
   expect(sitemap).toContain("/jingzang/taisho-t0256/001-0851a");
 });
@@ -464,7 +487,7 @@ test("汉译法华部 T09 完整受控并区分全译、节译、仪轨组合与
   await page.goto("/jingzang/taisho-t0276/001-0383b");
   await expect(page.getByText(/三部法华经仪轨组合/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0265/001-0197a");
   expect(sitemap).toContain("/jingzang/taisho-t0277/001-0389b");
 });
@@ -490,7 +513,7 @@ test("汉译华严部 T10 完整受控并区分全经、单品、同作品译本
   await expect(page.getByText(/来源目录题记为失译/)).toBeVisible();
   await expect(page.getByText(/Tathāgataguṇajñānācintyaviṣayāvatāra 汉译组/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0285/005-0497b");
   expect(sitemap).toContain("/jingzang/taisho-t0295/001-0876b");
   expect(sitemap).toContain("/jingzang/taisho-t0304/001-0924b");
@@ -511,7 +534,7 @@ test("汉译宝积部 T11 完整受控并区分合集组件、同作品译本与
   await expect(page.locator('[id="T0318.002.0902a28"]')).toBeVisible();
   await expect(page.getByText(/Mañjuśrībuddhakṣetraguṇavyūha.*文殊师利佛土庄严汉译组/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0315b/001-0777b");
   expect(sitemap).toContain("/jingzang/taisho-t0319/003-0918c");
   expect(sitemap).toContain("/jingzang/taisho-t0320/020-0977a");
@@ -539,7 +562,7 @@ test("汉译 T12 完整受控并区分异译、校辑本、后分与残篇候选
   await expect(page.getByText(/只存一卷或一章/)).toBeVisible();
   await expect(page.getByText(/《大云经》汉文文本家族待考/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0326/001-0042c");
   expect(sitemap).toContain("/jingzang/taisho-t0364/002-0340b");
   expect(sitemap).toContain("/jingzang/taisho-t0377/002-0912a");
@@ -564,7 +587,7 @@ test("汉译 T13 大集部完整受控并区分合集、异译、节本与署名
   await expect(page.getByText(/同作品完整传本的后出节本见证/)).toBeVisible();
   await expect(page.getByText(/《般舟三昧经》汉译与节本见证组/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0397/060-0407a");
   expect(sitemap).toContain("/jingzang/taisho-t0417/001-0902c");
   expect(sitemap).toContain("/jingzang/taisho-t0424/005-0998a");
@@ -590,7 +613,7 @@ test("汉译 T14 经集部完整受控并区分异译、版本、部分译出与
   await page.goto("/jingzang/taisho-t0474/001-0519a");
   await expect(page.getByText(/《维摩诘经》汉译组/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0446b/001-0371a");
   expect(sitemap).toContain("/jingzang/taisho-t0469/001-0510a");
   expect(sitemap).toContain("/jingzang/taisho-t0476/006-0588a");
@@ -616,7 +639,7 @@ test("汉译 T15 经集部完整受控并区分异译、局部译出、撰述与
   await expect(page.getByText(/同题同译者范围待定组/)).toBeVisible();
   await expect(page.getByText(/不把 T0641 计作已验证同作品表达或版本/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0586/004-0062a");
   expect(sitemap).toContain("/jingzang/taisho-t0639/010-0620a");
   expect(sitemap).toContain("/jingzang/taisho-t0652/003-0782c");
@@ -639,7 +662,7 @@ test("汉译 T16 经集部完整受控并区分异译、合部、单品译出与
   await page.goto("/jingzang/taisho-t0710/001-0819a");
   await expect(page.getByText(/Śālistambasūtra.*《稻芉经》汉译组/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0664/008-0402a");
   expect(sitemap).toContain("/jingzang/taisho-t0677/001-0714c");
   expect(sitemap).toContain("/jingzang/taisho-t0712/001-0826a");
@@ -660,7 +683,7 @@ test("汉译 T17 经集部完整受控并区分版本、候选关系与来源归
   await page.goto("/jingzang/taisho-t0847/001-0935a");
   await expect(page.getByText(/造、撰、集或论类文本/)).toBeVisible();
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/taisho-t0721/070-0417c");
   expect(sitemap).toContain("/jingzang/taisho-t0839/002-0910c");
   expect(sitemap).toContain("/jingzang/taisho-t0847/003-0963a");
@@ -682,7 +705,7 @@ test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ 
   expect(chapter.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(300_000);
   expect((await chapter.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/dhammapada-pali/026-dhp410-423");
 });
 
@@ -702,7 +725,7 @@ test("巴利长部三十四经保留 Bilara 原生锚点并受控分页", async 
   expect(finalUnit.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(300_000);
   expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/digha-nikaya-dn34");
 });
 
@@ -722,7 +745,7 @@ test("巴利中部一百五十二经保留 Bilara 原生锚点并受控分页", 
   expect(finalUnit.ok()).toBeTruthy();
   expect((await directory.body()).byteLength).toBeLessThan(300_000);
   expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/majjhima-nikaya-mn152");
 });
 
@@ -742,7 +765,7 @@ test("巴利相应部五十六个相应保留原生锚点、范围记录与受�
   expect(finalUnit.ok()).toBeTruthy();
   expect((await largeDirectory.body()).byteLength).toBeLessThan(300_000);
   expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/samyutta-nikaya-sn56");
 });
 
@@ -762,7 +785,7 @@ test("巴利增支部十一集保留逐经与范围锚点并受控分页", async
   expect(finalUnit.ok()).toBeTruthy();
   expect((await largeDirectory.body()).byteLength).toBeLessThan(300_000);
   expect((await finalUnit.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/anguttara-nikaya-an11");
 });
 
@@ -786,7 +809,7 @@ test("巴利小部二十书的固定经藏目录完整受控并区分书级作�
   expect(laterText.ok()).toBeTruthy();
   expect((await largeDirectory.body()).byteLength).toBeLessThan(400_000);
   expect((await laterText.body()).byteLength).toBeLessThan(300_000);
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/khuddaka-nikaya-snp");
   expect(sitemap).toContain("/jingzang/khuddaka-nikaya-thig");
 });
@@ -814,10 +837,31 @@ test("梵文与俗语原典保留稳定锚点并安全显示编辑标记", async
   ).first()).toBeVisible();
   await expect(page.locator("body")).not.toContainText("<unclear>");
 
-  const sitemap = await (await request.get("/sitemap.xml")).text();
+  const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/sanskrit-mahavadanasutra/008-sf36-0842-0943");
   expect(sitemap).toContain("/jingzang/sanskrit-candrasutra/001-sf276-0001-0025");
   expect(sitemap).toContain("/jingzang/patna-dharmapada/022-pdhp398-414-0001-0040");
+});
+
+test("巴利律藏六个书级表达按正典次序阅读并保留原生锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/pali-bhikkhu-patimokkha#pli-tv-bu-pm:0.1");
+  await page.waitForURL(/\/jingzang\/pali-bhikkhu-patimokkha\/001-pli-tv-bu-pm-0001-0120#pli-tv-bu-pm:0\.1$/);
+  await expect(page.locator('[id="pli-tv-bu-pm:0.1"]')).toContainText("Dvemātikāpāḷi");
+  await expect(page.getByText(/全书 754 稳定段落/)).toBeVisible();
+
+  await page.goto("/jingzang/pali-vinaya-khandhaka#pli-tv-kd1:0.1");
+  await page.waitForURL(/\/jingzang\/pali-vinaya-khandhaka\/001-pli-tv-kd1-0001-0120#pli-tv-kd1:0\.1$/);
+  await expect(page.locator('[id="pli-tv-kd1:0.1"]')).toContainText("Theravāda Vinayapiṭaka");
+  await expect(page.getByText(/全书 29212 稳定段落/)).toBeVisible();
+
+  await page.goto("/jingzang/pali-vinaya-parivara#pli-tv-pvr21:87.6");
+  await page.waitForURL(/\/jingzang\/pali-vinaya-parivara\/138-pli-tv-pvr21-0241-0352#pli-tv-pvr21:87\.6$/);
+  await expect(page.locator('[id="pli-tv-pvr21:87.6"]')).toContainText("parivārena sobhatīti");
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/pali-bhikkhu-patimokkha");
+  expect(sitemap).toContain("/jingzang/pali-vinaya-khandhaka");
+  expect(sitemap).toContain("/jingzang/pali-vinaya-parivara");
 });
 
 test.describe("桌面无障碍扫描", () => {

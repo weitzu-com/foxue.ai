@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v3.1.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.2.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -153,6 +153,21 @@ export function buildCoverageSnapshot() {
     : null;
   const indicControlledStableSegments = "controlledNonPaliIndicStableSegments" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.controlledNonPaliIndicStableSegments ?? null
+    : null;
+  const vinayaControlledWorks = "controlledVinayaWorks" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledVinayaWorks ?? null
+    : null;
+  const vinayaControlledExpressions = "controlledVinayaExpressions" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledVinayaExpressions ?? null
+    : null;
+  const vinayaControlledRootRecords = "controlledVinayaRootRecords" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledVinayaRootRecords ?? null
+    : null;
+  const vinayaControlledRootBytes = "controlledVinayaRootBytes" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledVinayaRootBytes ?? null
+    : null;
+  const vinayaControlledStableSegments = "controlledVinayaStableSegments" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledVinayaStableSegments ?? null
     : null;
   const paliSuttaRootDenominator = "suttaRootRecordDenominator" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.suttaRootRecordDenominator ?? null
@@ -421,7 +436,24 @@ export function buildCoverageSnapshot() {
         controlledBytes: paliControlledBytes,
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
-        caveat: "5,764 个物理 JSON 文件覆盖固定提交的巴利经藏目录；其中《小部》按书级文本集合登记，并明确区分经、偈颂、义释、论辩和方法论文本。物理文件比例不是作品覆盖率。",
+        caveat: "6,186 个物理 JSON 文件覆盖固定提交的巴利经藏与律藏目录；经藏 5,764 份、律藏 422 份分别统计，论藏尚未受控。物理文件比例不是作品覆盖率。",
+      },
+      suttacentralPaliVinayaRoot: {
+        denominator: corpusRegistry.suttacentralVinayaRootRightsAudit.filesAudited,
+        controlled: vinayaControlledRootRecords,
+        percentage: corpusRegistry.suttacentralVinayaRootRightsAudit.filesAudited && vinayaControlledRootRecords !== null
+          ? Number(((vinayaControlledRootRecords / corpusRegistry.suttacentralVinayaRootRightsAudit.filesAudited) * 100).toFixed(2))
+          : null,
+        controlledBytes: vinayaControlledRootBytes,
+        controlledWorks: vinayaControlledWorks,
+        controlledExpressions: vinayaControlledExpressions,
+        stableSegments: vinayaControlledStableSegments,
+        omittedEmptySegments: corpusRegistry.suttacentralVinayaRootRightsAudit.omittedEmptySegments,
+        filesApprovedForReadingAndRetrieval: corpusRegistry.suttacentralVinayaRootRightsAudit.filesApprovedForReadingAndRetrieval,
+        filesApprovedForModelTraining: corpusRegistry.suttacentralVinayaRootRightsAudit.filesApprovedForModelTraining,
+        rightsAuditSha256: corpusRegistry.suttacentralVinayaRootRightsAudit.sha256,
+        unit: "SuttaCentral 固定提交 root/pli/ms/vinaya 目录物理记录",
+        caveat: "422 份物理 root 已逐文件受控，并按戒本、经分别、犍度、附随六个书级集合登记为六个表达；文件数不等于作品数，且不包含任何第三方译文或训练授权。",
       },
       suttacentralIndicRoots: {
         controlledWorks: indicControlledWorks,

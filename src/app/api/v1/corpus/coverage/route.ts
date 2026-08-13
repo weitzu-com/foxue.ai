@@ -8,7 +8,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: "https://foxue.ai/fugai",
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v3.1.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v3.2.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
         sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v0.5.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
@@ -17,6 +17,8 @@ export function GET() {
         sanskritSourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
         sanskritRights: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/sanskrit-rights-policy-v0.4.0.json",
         gretilFileRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json",
+        suttacentralIndicRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
+        suttacentralVinayaRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
         crossCatalogAlignments: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cross-catalog-alignments-v0.5.0.json",
         rktsKangyurCatalogs: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
         rktsKernelAlignments: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",

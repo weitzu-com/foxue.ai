@@ -6,7 +6,8 @@ const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
 };
-const SERIES_FILE = /^([a-z]+(?:-[a-z]+)?\d+(?:\.\d+)*(?:-\d+)?)_root-(?:pli-ms|san|pra-pts)\.json$/;
+const SERIES_FILE = /^([a-z][a-z0-9.-]*)_root-(?:pli-ms|san|pra-pts)\.json$/;
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function renderEditorialMarkup(text, filename) {
   if (filename.endsWith("_root-pli-ms.json")) return text.trim();
@@ -301,13 +302,27 @@ export function parseBilaraSeriesSources(sources, options = {}) {
   if (!Array.isArray(sources) || sources.length === 0) {
     throw new Error("Bilara 多文件文本来源不能为空");
   }
+  const configuredPrefix = options.collectionPrefix;
+  if (configuredPrefix !== undefined && !/^[a-z]+(?:-[a-z]+)*$/.test(configuredPrefix)) {
+    throw new Error("Bilara 多文件文本集合前缀无效");
+  }
+  const configuredTitleSuffixes = options.titleSuffixes;
+  if (
+    configuredTitleSuffixes !== undefined &&
+    (!Array.isArray(configuredTitleSuffixes) || configuredTitleSuffixes.length === 0 ||
+      new Set(configuredTitleSuffixes).size !== configuredTitleSuffixes.length ||
+      !configuredTitleSuffixes.every((suffix) => /^0\.\d+$/.test(suffix)))
+  ) {
+    throw new Error("Bilara 多文件文本标题层级无效");
+  }
+  const omitEmptySegments = options.omitEmptySegments === true;
 
   const segments = [];
   const navigation = [];
   const stableIds = new Set();
   const sourceIds = new Set();
   const omittedEmptySegmentIds = [];
-  let collectionPrefix;
+  let collectionPrefix = configuredPrefix;
   let readingPosition = 0;
 
   for (const source of sources) {
@@ -315,10 +330,12 @@ export function parseBilaraSeriesSources(sources, options = {}) {
     const fileMatch = filename?.match(SERIES_FILE);
     if (!fileMatch) throw new Error(`无法识别 Bilara 多文件文本来源：${filename}`);
     const sourceId = fileMatch[1];
-    const prefix = sourceId.match(/^[a-z]+(?:-[a-z]+)?/)?.[0];
+    const prefix = configuredPrefix ?? sourceId.match(/^[a-z]+(?:-[a-z]+)?/)?.[0];
     if (!prefix) throw new Error(`${filename} 缺少文本集合前缀`);
     if (collectionPrefix === undefined) collectionPrefix = prefix;
-    if (prefix !== collectionPrefix) throw new Error(`${filename} 混入其他文本集合`);
+    if (prefix !== collectionPrefix || !sourceId.startsWith(collectionPrefix)) {
+      throw new Error(`${filename} 混入其他文本集合`);
+    }
     if (sourceIds.has(sourceId)) throw new Error(`Bilara 来源记录重复：${sourceId}`);
     sourceIds.add(sourceId);
 
@@ -328,20 +345,17 @@ export function parseBilaraSeriesSources(sources, options = {}) {
     }
     const entries = Object.entries(value);
     if (entries.length === 0) throw new Error(`${filename} 没有段落`);
-    const escapedSourceId = sourceId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const range = sourceId.match(/^([a-z]+(?:-[a-z]+)?)(\d+)-(\d+)$/);
+    const range = sourceId.match(/^([a-z][a-z0-9.-]*?)(\d+)-(\d+)$/);
     const rangePrefix = range?.[1];
     const rangeStart = range ? Number(range[2]) : null;
     const rangeEnd = range ? Number(range[3]) : null;
-    const segmentPattern = range
-      ? new RegExp(`^${rangePrefix}(\\d+):(\\d+(?:[.-]\\d+)*)$`)
-      : new RegExp(`^${escapedSourceId}:(\\d+(?:[.-]\\d+)*)$`);
-    const titleSourceId = range ? `${rangePrefix}${rangeStart}` : sourceId;
-    const titleSuffixes = range
+    const segmentPattern = /^([a-z][a-z0-9.-]*):(\d+(?:[.-]\d+)*)$/;
+    const titleSourceIds = range ? [sourceId, `${rangePrefix}${rangeStart}`] : [sourceId];
+    const titleSuffixes = configuredTitleSuffixes ?? (range
       ? ["0.1", "0.2", "0.3", "0.4", "0.0"]
-      : ["0.4", "0.3", "0.2", "0.1", "0.0"];
-    const rawTitle = titleSuffixes
-      .map((suffix) => value[`${titleSourceId}:${suffix}`]?.trim())
+      : ["0.4", "0.3", "0.2", "0.1", "0.0"]);
+    const rawTitle = titleSourceIds.flatMap((titleSourceId) => titleSuffixes
+      .map((suffix) => value[`${titleSourceId}:${suffix}`]?.trim()))
       .find((candidate) => candidate && candidate !== "~");
     if (!rawTitle) throw new Error(`${filename} 缺少可读标题段落`);
     const title = renderEditorialMarkup(rawTitle, filename);
@@ -350,14 +364,25 @@ export function parseBilaraSeriesSources(sources, options = {}) {
     const parsed = entries.flatMap(([id, rawText], index) => {
       const match = id.match(segmentPattern);
       if (!match) throw new Error(`${filename} 含无效原生段落标识 ${id}`);
-      if (range && (Number(match[1]) < rangeStart || Number(match[1]) > rangeEnd)) {
-        throw new Error(`${id} 超出 ${filename} 的文本范围`);
+      if (range) {
+        const represented = match[1].match(new RegExp(`^${escapeRegExp(rangePrefix)}(\\d+)$`));
+        if (
+          match[1] !== sourceId &&
+          (!represented || Number(represented[1]) < rangeStart || Number(represented[1]) > rangeEnd)
+        ) {
+          throw new Error(`${id} 超出 ${filename} 的文本范围`);
+        }
+      } else if (match[1] !== sourceId) {
+        throw new Error(`${id} 不属于 ${filename}`);
       }
       if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
-      if (typeof rawText !== "string" || rawText.trim().length === 0) {
-        throw new Error(`${id} 缺少文本`);
-      }
+      if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
       stableIds.add(id);
+      if (!rawText.trim()) {
+        if (!omitEmptySegments) throw new Error(`${id} 缺少文本`);
+        omittedEmptySegmentIds.push(id);
+        return [];
+      }
       const text = renderEditorialMarkup(rawText, filename);
       if (!text) {
         omittedEmptySegmentIds.push(id);
@@ -366,7 +391,7 @@ export function parseBilaraSeriesSources(sources, options = {}) {
       return [{
         id,
         text,
-        sourceLine: range ? match[2] : match[1],
+        sourceLine: match[2],
         ordinal: index + 1,
       }];
     });

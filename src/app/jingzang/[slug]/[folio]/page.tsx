@@ -27,12 +27,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!folio) return { title: "版页未找到" };
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
+  const originalLanguageLabel = sutra.language.startsWith("梵")
+    ? "梵文原文"
+    : sutra.language.includes("俗语")
+      ? "俗语原文"
+      : "巴利原文";
   return {
     title: `${sutra.alternateTitle} · ${folio.item.label}`,
     description: chaptered
       ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
       : bilara
-        ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} 巴利原文。`
+        ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${originalLanguageLabel}。`
       : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
     alternates: { canonical: `/jingzang/${sutra.slug}/${folio.item.key}` },
   };
@@ -100,6 +105,19 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : "卷";
+  const originalLanguageLabel = sutra.language.startsWith("梵")
+    ? "梵文原文"
+    : sutra.language.includes("俗语")
+      ? "俗语原文"
+      : "巴利原文";
+  const textLanguage = sutra.language.startsWith("梵")
+    ? "sa-Latn"
+    : sutra.language.includes("俗语")
+      ? "pra-Latn"
+      : bilara
+        ? "pi-Latn"
+        : "zh-Hant";
+  const bilaraCorpusUnit = sutra.tradition.includes("律藏") ? "全书" : "全经";
 
   return (
     <>
@@ -113,7 +131,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
         <aside className="reader-toc">
           <p className="eyebrow">{chaptered ? "品目录" : bilara ? "阅读目录" : "版页目录"}</p>
           <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`}>
-            <ArrowLeft aria-hidden="true" size={13} /> 返回经本目录
+            <ArrowLeft aria-hidden="true" size={13} /> 返回文本目录
           </Link>
           {juanNavigation.length > 1 && (
             <>
@@ -184,7 +202,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
             <p>
-              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? "完整巴利原文 · 稳定分页" : partialWitness ? partialHeading : "完整原文 · 分页阅读"}</strong>　
+              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? `完整${originalLanguageLabel} · 稳定分页` : partialWitness ? partialHeading : "完整原文 · 分页阅读"}</strong>　
               {chaptered
                 ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
                 : bilara
@@ -201,7 +219,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
               ))}
               <div className="segment-number">{segment.sourceLine ?? String(index + 1).padStart(2, "0")}</div>
               <div>
-                <p className="segment-text" lang={bilara ? "pi" : "zh-Hant"}>{segment.text}</p>
+                <p className="segment-text" lang={textLanguage}>{segment.text}</p>
                 {segment.note && <p className="segment-note"><span>边注</span>{segment.note}</p>}
                 <a className="segment-anchor" href={`#${segment.id}`}>
                   <Link2 aria-hidden="true" size={13} /> {segment.id}
@@ -232,7 +250,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             <div>
               <dt>{chaptered ? "本品" : "本页"}</dt>
               <dd>{bilara
-                ? `${folio.segments.length} 段 · 全经 ${reading.segmentCount} 稳定段落`
+                ? `${folio.segments.length} 段 · ${bilaraCorpusUnit} ${reading.segmentCount} 稳定段落`
                 : `${folio.segments.length} 行 · 全经 ${reading.segmentCount} 稳定行段`}</dd>
             </div>
           </dl>

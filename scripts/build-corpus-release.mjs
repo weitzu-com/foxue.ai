@@ -93,7 +93,7 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
   } else if (sourceFile.parser === "bilara_collection_root_json") {
     ({ segments, navigation } = parseBilaraCollectionSources(sourceContents));
   } else if (sourceFile.parser === "bilara_series_root_json") {
-    ({ segments, navigation } = parseBilaraSeriesSources(sourceContents));
+    ({ segments, navigation } = parseBilaraSeriesSources(sourceContents, sourceFile.parserOptions));
   } else {
     navigation = buildPageNavigation(segments);
   }

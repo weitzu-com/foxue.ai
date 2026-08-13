@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v3.1.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v3.2.0.json");
 const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.5.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const dergeInventoryPath = resolve(root, "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json");
@@ -12,10 +12,11 @@ const sanskritEvidencePath = resolve(root, "data/gbcr/dsbc-gretil-source-snapsho
 const sanskritRightsPath = resolve(root, "data/gbcr/sanskrit-rights-policy-v0.4.0.json");
 const gretilFileRightsAuditPath = resolve(root, "data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json");
 const suttacentralIndicRightsAuditPath = resolve(root, "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json");
+const suttacentralVinayaRightsAuditPath = resolve(root, "data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json");
 const crossCatalogAlignmentsPath = resolve(root, "data/gbcr/cross-catalog-alignments-v0.5.0.json");
 const rktsEvidencePath = resolve(root, "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json");
 const rktsKernelAlignmentsPath = resolve(root, "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v3.1.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.2.0.sha256");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -45,6 +46,8 @@ const khuddakaBatchPath = resolve(root, "data/corpus/suttacentral/kn-batch-v1.2.
 const khuddakaManifestPath = resolve(root, "data/corpus/suttacentral/kn-manifest-v1.2.0.json");
 const indicBatchPath = resolve(root, "data/corpus/suttacentral/indic-batch-v1.3.0.json");
 const indicManifestPath = resolve(root, "data/corpus/suttacentral/indic-manifest-v1.3.0.json");
+const vinayaBatchPath = resolve(root, "data/corpus/suttacentral/vinaya-batch-v1.4.0.json");
+const vinayaManifestPath = resolve(root, "data/corpus/suttacentral/vinaya-manifest-v1.4.0.json");
 const raw = await readFile(registryPath, "utf8");
 const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
@@ -54,6 +57,7 @@ const sanskritEvidenceRaw = await readFile(sanskritEvidencePath, "utf8");
 const sanskritRightsRaw = await readFile(sanskritRightsPath, "utf8");
 const gretilFileRightsAuditRaw = await readFile(gretilFileRightsAuditPath, "utf8");
 const suttacentralIndicRightsAuditRaw = await readFile(suttacentralIndicRightsAuditPath, "utf8");
+const suttacentralVinayaRightsAuditRaw = await readFile(suttacentralVinayaRightsAuditPath, "utf8");
 const crossCatalogAlignmentsRaw = await readFile(crossCatalogAlignmentsPath, "utf8");
 const rktsEvidenceRaw = await readFile(rktsEvidencePath, "utf8");
 const rktsKernelAlignmentsRaw = await readFile(rktsKernelAlignmentsPath, "utf8");
@@ -86,6 +90,8 @@ const khuddakaBatchRaw = await readFile(khuddakaBatchPath, "utf8");
 const khuddakaManifestRaw = await readFile(khuddakaManifestPath, "utf8");
 const indicBatchRaw = await readFile(indicBatchPath, "utf8");
 const indicManifestRaw = await readFile(indicManifestPath, "utf8");
+const vinayaBatchRaw = await readFile(vinayaBatchPath, "utf8");
+const vinayaManifestRaw = await readFile(vinayaManifestPath, "utf8");
 const registry = JSON.parse(raw);
 const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
 const inventory = JSON.parse(inventoryRaw);
@@ -95,6 +101,7 @@ const sanskritEvidence = JSON.parse(sanskritEvidenceRaw);
 const sanskritRights = JSON.parse(sanskritRightsRaw);
 const gretilFileRightsAudit = JSON.parse(gretilFileRightsAuditRaw);
 const suttacentralIndicRightsAudit = JSON.parse(suttacentralIndicRightsAuditRaw);
+const suttacentralVinayaRightsAudit = JSON.parse(suttacentralVinayaRightsAuditRaw);
 const crossCatalogAlignments = JSON.parse(crossCatalogAlignmentsRaw);
 const rktsEvidence = JSON.parse(rktsEvidenceRaw);
 const rktsKernelAlignments = JSON.parse(rktsKernelAlignmentsRaw);
@@ -127,6 +134,8 @@ const khuddakaBatch = JSON.parse(khuddakaBatchRaw);
 const khuddakaManifest = JSON.parse(khuddakaManifestRaw);
 const indicBatch = JSON.parse(indicBatchRaw);
 const indicManifest = JSON.parse(indicManifestRaw);
+const vinayaBatch = JSON.parse(vinayaBatchRaw);
+const vinayaManifest = JSON.parse(vinayaManifestRaw);
 const errors = [];
 
 const requireValue = (condition, message) => {
@@ -134,7 +143,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "3.1.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "3.2.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -326,6 +335,17 @@ requireValue(suttacentralIndicRightsAudit?.integrity?.translationBodiesPublished
 requireValue(registry.suttacentralIndicRootRightsAudit?.sha256 === indicRightsSha256, "登记册 SuttaCentral 印度语 root 权利摘要不匹配");
 requireValue(sanskritFamily?.controlledSuttacentralIndicWorks === 3 && sanskritFamily?.controlledSuttacentralIndicRootFiles === 24, "梵文来源族受控印度语 root 统计不匹配");
 requireValue(sanskritFamily?.suttacentralIndicRightsAuditSha256 === indicRightsSha256, "梵文来源族印度语 root 权利摘要不匹配");
+const vinayaRightsSha256 = createHash("sha256").update(suttacentralVinayaRightsAuditRaw).digest("hex");
+requireValue(suttacentralVinayaRightsAudit?.version === "0.9.0", "SuttaCentral 巴利律藏 root 权利账本版本漂移");
+requireValue(suttacentralVinayaRightsAudit?.source?.commit === "eac6c24781dd1eefdc17dc2f787b54bf6fe31719", "SuttaCentral 巴利律藏 root 固定提交漂移");
+requireValue(suttacentralVinayaRightsAudit?.summary?.filesAudited === 422 && suttacentralVinayaRightsAudit?.records?.length === 422, "SuttaCentral 巴利律藏 root 权利账本不完整");
+requireValue(suttacentralVinayaRightsAudit?.summary?.representedWorks === 6, "SuttaCentral 巴利律藏书级作品统计漂移");
+requireValue(suttacentralVinayaRightsAudit?.summary?.sourceBytes === 6710444, "SuttaCentral 巴利律藏 root 字节数漂移");
+requireValue(suttacentralVinayaRightsAudit?.summary?.sourceSegments === 71565 && suttacentralVinayaRightsAudit?.summary?.stableSegments === 71557, "SuttaCentral 巴利律藏 root 段落统计漂移");
+requireValue(suttacentralVinayaRightsAudit?.summary?.omittedEmptySegments === 8, "SuttaCentral 巴利律藏 root 空段落统计漂移");
+requireValue(suttacentralVinayaRightsAudit?.summary?.filesApprovedForReadingAndRetrieval === 422 && suttacentralVinayaRightsAudit?.summary?.filesApprovedForModelTraining === 0, "SuttaCentral 巴利律藏 root 许可边界漂移");
+requireValue(suttacentralVinayaRightsAudit?.integrity?.sourceBodiesPublished === true && suttacentralVinayaRightsAudit?.integrity?.translationBodiesPublished === false, "SuttaCentral 巴利律藏 root 发布边界漂移");
+requireValue(registry.suttacentralVinayaRootRightsAudit?.sha256 === vinayaRightsSha256, "登记册 SuttaCentral 巴利律藏 root 权利摘要不匹配");
 const chineseSubset = sourceSnapshots.sources
   .find((source) => source.id === "cbeta_xml_p5")
   ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
@@ -570,13 +590,18 @@ requireValue(cbetaRegistry?.works?.length === 705, "CBETA 书目实体数漂移"
 const suttacentralFamily = registry.sourceFamilies.find(
   (family) => family.id === "suttacentral_early_buddhist_texts",
 );
-requireValue(suttacentralFamily?.controlledWorks === 273, "SuttaCentral 巴利受控作品数不匹配");
-requireValue(suttacentralFamily?.controlledExpressions === 273, "SuttaCentral 巴利受控表达数不匹配");
-requireValue(suttacentralFamily?.controlledRootRecords === 5764, "SuttaCentral 巴利受控 root 记录数不匹配");
-requireValue(suttacentralFamily?.controlledRootBytes === 22786236, "SuttaCentral 巴利受控 root 字节数不匹配");
-requireValue(suttacentralFamily?.controlledAllLanguageWorks === 276, "SuttaCentral 全语种受控作品数不匹配");
-requireValue(suttacentralFamily?.controlledAllLanguageRootRecords === 5788, "SuttaCentral 全语种受控 root 记录数不匹配");
-requireValue(suttacentralFamily?.controlledAllLanguageRootBytes === 23002621, "SuttaCentral 全语种受控 root 字节数不匹配");
+requireValue(suttacentralFamily?.controlledWorks === 279, "SuttaCentral 巴利受控作品数不匹配");
+requireValue(suttacentralFamily?.controlledExpressions === 279, "SuttaCentral 巴利受控表达数不匹配");
+requireValue(suttacentralFamily?.controlledRootRecords === 6186, "SuttaCentral 巴利受控 root 记录数不匹配");
+requireValue(suttacentralFamily?.controlledRootBytes === 29496680, "SuttaCentral 巴利受控 root 字节数不匹配");
+requireValue(suttacentralFamily?.controlledAllLanguageWorks === 282, "SuttaCentral 全语种受控作品数不匹配");
+requireValue(suttacentralFamily?.controlledAllLanguageExpressions === 282, "SuttaCentral 全语种受控表达数不匹配");
+requireValue(suttacentralFamily?.controlledAllLanguageRootRecords === 6210, "SuttaCentral 全语种受控 root 记录数不匹配");
+requireValue(suttacentralFamily?.controlledAllLanguageRootBytes === 29713065, "SuttaCentral 全语种受控 root 字节数不匹配");
+requireValue(suttacentralFamily?.controlledVinayaWorks === 6 && suttacentralFamily?.controlledVinayaExpressions === 6, "SuttaCentral 巴利律藏作品或表达数不匹配");
+requireValue(suttacentralFamily?.controlledVinayaRootRecords === 422 && suttacentralFamily?.controlledVinayaRootBytes === 6710444, "SuttaCentral 巴利律藏 root 记录或字节数不匹配");
+requireValue(suttacentralFamily?.controlledVinayaStableSegments === 71557 && suttacentralFamily?.controlledVinayaOmittedEmptySegments === 8, "SuttaCentral 巴利律藏稳定段落或空段落数不匹配");
+requireValue(suttacentralFamily?.vinayaRightsAuditSha256 === vinayaRightsSha256, "SuttaCentral 来源族律藏权利摘要不匹配");
 requireValue(suttacentralFamily?.controlledNonPaliIndicWorks === 3, "SuttaCentral 印度语 root 作品数不匹配");
 requireValue(suttacentralFamily?.controlledNonPaliIndicRootRecords === 24, "SuttaCentral 印度语 root 记录数不匹配");
 requireValue(suttacentralFamily?.controlledNonPaliIndicStableSegments === 1909, "SuttaCentral 印度语 root 稳定段落数不匹配");
@@ -625,6 +650,14 @@ requireValue(indicManifest?.collection?.sourceSegments === 1910, "印度语 root
 requireValue(indicManifest?.collection?.stableSegments === 1909, "印度语 root 可读稳定段落数漂移");
 requireValue(indicManifest?.collection?.omittedEmptyEditorialPlaceholderSegments === 1, "印度语 root 空编辑占位数漂移");
 requireValue(indicManifest?.rightsAudit?.sha256 === indicRightsSha256, "印度语 root 清单权利摘要不匹配");
+requireValue(vinayaBatch?.source?.commit === suttacentralBatch?.source?.commit, "巴利律藏 root 来源提交漂移");
+requireValue(vinayaManifest?.files?.length === 6, "巴利律藏 root 必须登记 6 个书级文本表达");
+requireValue(vinayaBatch?.files?.length === 422, "巴利律藏 root 必须保存 422 份物理来源");
+requireValue(vinayaManifest?.collection?.sourceBytes === 6710444, "巴利律藏 root 来源字节数漂移");
+requireValue(vinayaManifest?.collection?.sourceSegments === 71565, "巴利律藏 root 来源段落数漂移");
+requireValue(vinayaManifest?.collection?.stableSegments === 71557, "巴利律藏 root 可读稳定段落数漂移");
+requireValue(vinayaManifest?.collection?.omittedEmptySegments === 8, "巴利律藏 root 空段落数漂移");
+requireValue(vinayaManifest?.rightsAudit?.sha256 === vinayaRightsSha256, "巴利律藏 root 清单权利摘要不匹配");
 
 const checksumLines = (await readFile(checksumPath, "utf8")).trim().split("\n");
 const checksums = new Map(checksumLines.map((line) => {
@@ -632,7 +665,7 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v3.1.0.json", raw],
+  ["registry-v3.2.0.json", raw],
   ["source-snapshots-v0.5.0.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["bdrc-derge-kangyur-inventory-v0.3.0.json", dergeInventoryRaw],
@@ -641,6 +674,7 @@ const controlledFiles = [
   ["sanskrit-rights-policy-v0.4.0.json", sanskritRightsRaw],
   ["gretil-sanskrit-file-rights-audit-v0.7.0.json", gretilFileRightsAuditRaw],
   ["suttacentral-indic-root-rights-audit-v0.8.0.json", suttacentralIndicRightsAuditRaw],
+  ["suttacentral-vinaya-root-rights-audit-v0.9.0.json", suttacentralVinayaRightsAuditRaw],
   ["cross-catalog-alignments-v0.5.0.json", crossCatalogAlignmentsRaw],
   ["rkts-kangyur-catalog-snapshot-v0.5.0.json", rktsEvidenceRaw],
   ["rkts-kernel-alignment-audit-v0.6.0.json", rktsKernelAlignmentsRaw],
@@ -667,6 +701,8 @@ const controlledFiles = [
   ["kn-manifest-v1.2.0.json", khuddakaManifestRaw],
   ["indic-batch-v1.3.0.json", indicBatchRaw],
   ["indic-manifest-v1.3.0.json", indicManifestRaw],
+  ["vinaya-batch-v1.4.0.json", vinayaBatchRaw],
+  ["vinaya-manifest-v1.4.0.json", vinayaManifestRaw],
 ];
 for (const [file, content] of controlledFiles) {
   const actualHash = createHash("sha256").update(content).digest("hex");
@@ -689,10 +725,10 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.works.length === 981, "v3.1 必须登记 981 个可追踪作品实体");
-requireValue(expressions.length === 1144, "v3.1 必须登记 1144 个文本表达或见证");
-requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1130, "v3.1 必须登记 1130 个完整文本表达或见证");
-requireValue(segmentCount === 1685893, "v3.1 稳定行段总数漂移");
+requireValue(registry.works.length === 987, "v3.2 必须登记 987 个可追踪作品实体");
+requireValue(expressions.length === 1150, "v3.2 必须登记 1150 个文本表达或见证");
+requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1136, "v3.2 必须登记 1136 个完整文本表达或见证");
+requireValue(segmentCount === 1757450, "v3.2 稳定行段总数漂移");
 const provisionalCbetaWorks = registry.works.filter((work) =>
   work.workType === "provisional_bibliographic_entity" && /^gbcr:work:taisho-t/.test(work.id),
 );
@@ -1058,6 +1094,14 @@ requireValue(
   khuddakaWorks.every((work) => work.relationDecision?.includes("不因其位于同一目录就声称全部为佛陀亲说")),
   "《小部》体裁与佛说归属边界未写入作品裁决",
 );
+const vinayaWorks = registry.works.filter((work) =>
+  work.externalIds?.suttacentral?.some((id) => /^pli-tv-(?:bu|bi)-(?:pm|vb)$|^pli-tv-(?:kd|pvr)$/.test(id)),
+);
+requireValue(vinayaWorks.length === 6, "巴利律藏六个书级作品记录不完整");
+requireValue(vinayaWorks.every((work) => work.workType === "canonical_text_collection" && work.expressions?.length === 1), "巴利律藏必须保持六个书级文本集合与六个表达");
+requireValue(vinayaWorks.reduce((sum, work) => sum + (work.expressions?.[0]?.sourceTextAssets?.length ?? 0), 0) === 422, "巴利律藏必须保留 422 个可独立校验的来源资产");
+requireValue(vinayaWorks.reduce((sum, work) => sum + (work.expressions?.[0]?.stableSegments ?? 0), 0) === 71557, "巴利律藏六个表达的稳定段落总数漂移");
+requireValue(vinayaWorks.every((work) => work.relationDecision?.includes("物理文件只作可复核来源记录")), "巴利律藏作品计数裁决边界缺失");
 requireValue(
   JSON.stringify(lankavatara?.externalIds?.cbeta) === JSON.stringify(["T0670", "T0671", "T0672"]),
   "《楞伽经》三个汉译文本未正确归并",
