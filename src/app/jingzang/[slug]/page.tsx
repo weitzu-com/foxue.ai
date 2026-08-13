@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, BookOpenText, Layers3 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
+import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { getSutra } from "@/data/sutras";
 import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
 import { buildSegmentFolioMap, buildSegmentFolioRanges, folioHref } from "@/lib/reader-routes";
@@ -118,6 +119,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
           {sutra.attributionNote ? (
             <p className="reader-meta__caution"><strong>归属边界：</strong>{sutra.attributionNote}</p>
           ) : null}
+          <ParallelEvidencePanel slug={sutra.slug} />
         </aside>
       </div>
     </>

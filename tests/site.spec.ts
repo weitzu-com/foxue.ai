@@ -753,6 +753,11 @@ test("巴利长部三十四经保留 Bilara 原生锚点并受控分页", async 
   await page.waitForURL(/\/jingzang\/digha-nikaya-dn1\/001-dn1-0001-0120#dn1:1\.1\.1$/);
   await expect(page.locator('[id="dn1:1.1.1"]')).toContainText("Evaṁ me sutaṁ");
   await expect(page.getByText(/全经 662 稳定段落/)).toBeVisible();
+  await expect(page.getByText("跨传统证据")).toBeVisible();
+  await expect(page.getByText("2 条可审计关系")).toBeVisible();
+  await expect(page.getByText("梵網六十二見經")).toBeVisible();
+  await expect(page.getByText("dn1 ↔ t21")).toBeVisible();
+  await expect(page.getByText("不自动合并作品，也不声称当前版页已经逐段或逐句对齐。", { exact: false })).toBeVisible();
 
   await page.goto("/jingzang/digha-nikaya-dn1#dn1:3.74.7");
   await page.waitForURL(/\/jingzang\/digha-nikaya-dn1\/006-dn1-0601-0662#dn1:3\.74\.7$/);
@@ -773,6 +778,10 @@ test("巴利中部一百五十二经保留 Bilara 原生锚点并受控分页", 
   await page.waitForURL(/\/jingzang\/majjhima-nikaya-mn1\/001-mn1-0001-0120#mn1:1\.1$/);
   await expect(page.locator('[id="mn1:1.1"]')).toContainText("Evaṁ me sutaṁ");
   await expect(page.getByText(/全经 334 稳定段落/)).toBeVisible();
+  await expect(page.getByText("3 条可审计关系")).toBeVisible();
+  await expect(page.getByText("中阿含經")).toBeVisible();
+  await expect(page.getByText("mn1 ↔ ma106")).toBeVisible();
+  await expect(page.getByText("近似或部分平行 · 上游附范围备注")).toBeVisible();
 
   await page.goto("/jingzang/majjhima-nikaya-mn1#mn1:194.10");
   await page.waitForURL(/\/jingzang\/majjhima-nikaya-mn1\/003-mn1-0241-0334#mn1:194\.10$/);

@@ -190,6 +190,7 @@ const requiredPaths = [
   "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
   "data/gbcr/registry-v3.4.0.json",
   "data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
+  "data/gbcr/suttacentral-chinese-parallel-reader-index-v0.1.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",

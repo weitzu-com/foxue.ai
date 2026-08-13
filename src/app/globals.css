@@ -1317,6 +1317,22 @@ a {
 .reader-meta dt { color: var(--cinnabar); font-size: 0.62rem; font-weight: 700; }
 .reader-meta dd { margin: 3px 0 0; color: var(--ink-soft); font-size: 0.72rem; line-height: 1.55; }
 .reader-meta__caution { color: var(--muted); font-size: 0.65rem; line-height: 1.7; }
+.parallel-evidence { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 9px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-dark); }
+.parallel-evidence > svg { width: 17px; color: var(--cinnabar); stroke-width: 1.5; }
+.parallel-evidence .eyebrow { margin-top: 2px; }
+.parallel-evidence h3 { margin: 7px 0 0; font-family: var(--font-serif), serif; font-size: 1rem; font-weight: 600; line-height: 1.35; }
+.parallel-evidence__scope { margin: 10px 0 0; color: var(--muted); font-size: 0.62rem; line-height: 1.72; }
+.parallel-evidence__counts { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+.parallel-evidence__counts span { padding: 3px 5px; background: var(--wash); color: var(--ink-soft); font-size: 0.55rem; line-height: 1.45; }
+.parallel-evidence__examples { margin: 13px 0 0; padding: 0; list-style: none; }
+.parallel-evidence__examples li { border-top: 1px solid var(--line); }
+.parallel-evidence__examples a { display: block; padding: 9px 0; }
+.parallel-evidence__examples strong, .parallel-evidence__examples span, .parallel-evidence__examples small { display: block; }
+.parallel-evidence__examples strong { color: var(--ink); font-size: 0.65rem; font-weight: 650; line-height: 1.5; }
+.parallel-evidence__examples span { margin-top: 3px; color: var(--cinnabar); font-size: 0.57rem; overflow-wrap: anywhere; }
+.parallel-evidence__examples small { margin-top: 3px; color: var(--muted); font-size: 0.53rem; line-height: 1.45; }
+.parallel-evidence__examples a:hover strong { color: var(--cinnabar); }
+.parallel-evidence__ledger { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; color: var(--cinnabar); font-size: 0.59rem; line-height: 1.5; }
 
 /* Ask */
 .ask-page { padding-bottom: 120px; }
