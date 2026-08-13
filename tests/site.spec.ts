@@ -42,6 +42,7 @@ const criticalRoutes = [
   "/jingzang/sanskrit-candrasutra/001-sf276-0001-0025",
   "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034",
   "/jingzang/pali-bhikkhu-patimokkha/001-pli-tv-bu-pm-0001-0120",
+  "/jingzang/pali-dhammasangani/001-ds1-1-0001-0092",
   "/fugai",
   "/touming",
 ];
@@ -100,6 +101,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
   await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
+  await expect(page.getByText("巴利论藏七论受控原文")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -112,12 +114,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 987,
-    registeredExpressions: 1150,
-    fullSourceTextWorks: 986,
-    fullSourceTextExpressions: 1136,
-    stableSegments: 1757450,
-    structureVerifiedWorks: 987,
+    registeredWorks: 994,
+    registeredExpressions: 1157,
+    fullSourceTextWorks: 993,
+    fullSourceTextExpressions: 1143,
+    stableSegments: 1845864,
+    structureVerifiedWorks: 994,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -130,6 +132,25 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     sanskritRootFiles: 2,
     prakritRootFiles: 22,
     omittedEmptyEditorialPlaceholderSegments: 1,
+  });
+  expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
+    denominator: 7288,
+    controlled: 7288,
+    percentage: 100,
+    controlledBytes: 40689597,
+    controlledWorks: 286,
+  });
+  expect(coverage.candidateInventory.suttacentralPaliAbhidhammaRoot).toMatchObject({
+    denominator: 1102,
+    controlled: 1102,
+    percentage: 100,
+    controlledBytes: 11192917,
+    controlledWorks: 7,
+    controlledExpressions: 7,
+    stableSegments: 88414,
+    omittedEmptySegments: 0,
+    filesApprovedForReadingAndRetrieval: 1102,
+    filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
     denominator: 881,
@@ -201,10 +222,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
-    controlled: 6186,
-    percentage: 84.88,
-    controlledBytes: 29496680,
-    controlledWorks: 279,
+    controlled: 7288,
+    percentage: 100,
+    controlledBytes: 40689597,
+    controlledWorks: 286,
   });
   expect(coverage.candidateInventory.suttacentralPaliSuttaRoot).toMatchObject({
     denominator: 5764,
@@ -862,6 +883,22 @@ test("巴利律藏六个书级表达按正典次序阅读并保留原生锚点",
   expect(sitemap).toContain("/jingzang/pali-bhikkhu-patimokkha");
   expect(sitemap).toContain("/jingzang/pali-vinaya-khandhaka");
   expect(sitemap).toContain("/jingzang/pali-vinaya-parivara");
+});
+
+test("巴利论藏七论按书级边界阅读并保留首尾原生锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/pali-dhammasangani#ds1.1:0.1");
+  await page.waitForURL(/\/jingzang\/pali-dhammasangani\/001-ds1-1-0001-0092#ds1\.1:0\.1$/);
+  await expect(page.locator('[id="ds1.1:0.1"]')).toContainText("Dhammasaṅgaṇī");
+  await expect(page.getByText(/全书 7777 稳定段落/)).toBeVisible();
+  await expect(page.getByText(/不据此标作佛陀逐字亲说/)).toBeVisible();
+
+  await page.goto("/jingzang/pali-patthana#patthana24.22:23.1");
+  await page.waitForURL(/\/jingzang\/pali-patthana\/892-patthana24-22-0001-0034#patthana24\.22:23\.1$/);
+  await expect(page.locator('[id="patthana24.22:23.1"]')).toBeVisible();
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/pali-dhammasangani/001-ds1-1-0001-0092");
+  expect(sitemap).toContain("/jingzang/pali-patthana/892-patthana24-22-0001-0034");
 });
 
 test.describe("桌面无障碍扫描", () => {

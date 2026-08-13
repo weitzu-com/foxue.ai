@@ -14,6 +14,7 @@ const inputs = {
   gretilFileRightsAudit: "data/gbcr/gretil-sanskrit-file-rights-audit-v0.7.0.json",
   suttacentralIndicRightsAudit: "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
   suttacentralVinayaRightsAudit: "data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
+  suttacentralAbhidhammaRightsAudit: "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
@@ -42,6 +43,8 @@ const inputs = {
   indicManifest: "data/corpus/suttacentral/indic-manifest-v1.3.0.json",
   vinayaBatch: "data/corpus/suttacentral/vinaya-batch-v1.4.0.json",
   vinayaManifest: "data/corpus/suttacentral/vinaya-manifest-v1.4.0.json",
+  abhidhammaBatch: "data/corpus/suttacentral/abhidhamma-batch-v1.5.0.json",
+  abhidhammaManifest: "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json",
 };
 const entries = await Promise.all(Object.entries(inputs).map(async ([id, relativePath]) => [
   id,
@@ -58,6 +61,7 @@ const sanskritRights = JSON.parse(rawById.sanskritRights);
 const gretilFileRightsAudit = JSON.parse(rawById.gretilFileRightsAudit);
 const suttacentralIndicRightsAudit = JSON.parse(rawById.suttacentralIndicRightsAudit);
 const suttacentralVinayaRightsAudit = JSON.parse(rawById.suttacentralVinayaRightsAudit);
+const suttacentralAbhidhammaRightsAudit = JSON.parse(rawById.suttacentralAbhidhammaRightsAudit);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
@@ -79,8 +83,10 @@ const indicBatch = JSON.parse(rawById.indicBatch);
 const indicManifest = JSON.parse(rawById.indicManifest);
 const vinayaBatch = JSON.parse(rawById.vinayaBatch);
 const vinayaManifest = JSON.parse(rawById.vinayaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v3.2.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v3.2.0.sha256");
+const abhidhammaBatch = JSON.parse(rawById.abhidhammaBatch);
+const abhidhammaManifest = JSON.parse(rawById.abhidhammaManifest);
+const outputPath = resolve(root, "data/gbcr/registry-v3.3.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.3.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -181,6 +187,26 @@ if (
   suttacentralVinayaRightsAudit.summary?.stableSegments !== 71557 ||
   suttacentralVinayaRightsAudit.integrity?.translationBodiesPublished !== false
 ) throw new Error("SuttaCentral 巴利律藏 root 权利批次、清单或结构统计不一致");
+if (
+  abhidhammaManifest.source.commit !== abhidhammaBatch.source.commit ||
+  abhidhammaManifest.source.commit !== vinayaManifest.source.commit ||
+  abhidhammaBatch.version !== "1.5.0" || abhidhammaManifest.version !== "1.5.0" ||
+  abhidhammaManifest.files.length !== 7 || abhidhammaBatch.files.length !== 1102 ||
+  abhidhammaBatch.collection.workCount !== 7 ||
+  abhidhammaBatch.collection.sourceRecordCount !== 1102 ||
+  abhidhammaBatch.collection.sourceBytes !== 11192917 ||
+  abhidhammaBatch.collection.sourceSegments !== 88414 ||
+  abhidhammaBatch.collection.stableSegments !== 88414 ||
+  abhidhammaBatch.collection.omittedEmptySegments !== 0 ||
+  suttacentralAbhidhammaRightsAudit.version !== "1.0.0" ||
+  suttacentralAbhidhammaRightsAudit.source?.commit !== abhidhammaBatch.source.commit ||
+  suttacentralAbhidhammaRightsAudit.summary?.filesAudited !== 1102 ||
+  suttacentralAbhidhammaRightsAudit.summary?.filesApprovedForReadingAndRetrieval !== 1102 ||
+  suttacentralAbhidhammaRightsAudit.summary?.filesApprovedForModelTraining !== 0 ||
+  suttacentralAbhidhammaRightsAudit.summary?.representedWorks !== 7 ||
+  suttacentralAbhidhammaRightsAudit.summary?.stableSegments !== 88414 ||
+  suttacentralAbhidhammaRightsAudit.integrity?.translationBodiesPublished !== false
+) throw new Error("SuttaCentral 巴利论藏 root 权利批次、清单或结构统计不一致");
 if (
   cbetaBatch.version !== "2.4.0" || cbetaBatch.files.length !== 129 ||
   cbetaBatch.collection.sourceRecordDenominator !== 131 ||
@@ -368,6 +394,43 @@ const vinayaWorks = vinayaManifest.files.map((file) => {
     }],
   };
 });
+const abhidhammaWorks = abhidhammaManifest.files.map((file) => {
+  const sourceAssets = file.sourceParts.map((source) => ({
+    part: source.part,
+    id: source.id,
+    path: source.localPath,
+    format: source.format,
+    sha256: source.localSha256,
+    rightsStatus: source.rightsStatus,
+  }));
+  return {
+    id: file.workId,
+    workType: "canonical_text_collection",
+    canonicalTitle: file.presentation.alternateTitle,
+    canonicalTitleZh: file.presentation.title,
+    traditions: ["上座部佛教"],
+    externalIds: { suttacentral: [file.id.toLowerCase()] },
+    relationDecision: file.relationDecision,
+    attributionDecision: "论藏属于上座部佛教经典；本登记不据此声称其为佛陀逐字亲说。",
+    expressions: [{
+      id: `gbcr:expression:${file.id}-pi-Latn-sc`,
+      language: file.language,
+      title: file.presentation.alternateTitle,
+      edition: file.presentation.translator,
+      sourceSnapshotId: "suttacentral_bilara",
+      localSlug: file.slug,
+      cataloged: true,
+      fullSourceText: true,
+      sampled: false,
+      stableSegments: file.verification.segments,
+      omittedEmptySegments: file.verification.omittedEmptySegmentIds.length,
+      rightsReviewed: true,
+      trainingUse: "prohibited_by_foxue_policy",
+      qualityStatus: "verified_structure_rights_and_anchors",
+      sourceTextAssets: sourceAssets,
+    }],
+  };
+});
 const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "cbeta_chinese") return cbetaFamily;
   if (family.id === "tibetan_kangyur_tengyur") {
@@ -416,15 +479,15 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "suttacentral_early_buddhist_texts") {
     return {
       ...family,
-      denominatorStatus: "candidate_snapshot_with_controlled_sutta_vinaya_and_indic_roots",
-      controlledWorks: 279,
-      controlledExpressions: 279,
-      controlledRootRecords: 6186,
-      controlledRootBytes: 29496680,
-      controlledAllLanguageWorks: 282,
-      controlledAllLanguageExpressions: 282,
-      controlledAllLanguageRootRecords: 6210,
-      controlledAllLanguageRootBytes: 29713065,
+      denominatorStatus: "candidate_snapshot_with_all_pali_roots_and_controlled_indic_roots",
+      controlledWorks: 286,
+      controlledExpressions: 286,
+      controlledRootRecords: 7288,
+      controlledRootBytes: 40689597,
+      controlledAllLanguageWorks: 289,
+      controlledAllLanguageExpressions: 289,
+      controlledAllLanguageRootRecords: 7312,
+      controlledAllLanguageRootBytes: 40905982,
       controlledVinayaWorks: vinayaBatch.collection.workCount,
       controlledVinayaExpressions: vinayaBatch.collection.expressionCount,
       controlledVinayaRootRecords: vinayaBatch.collection.sourceRecordCount,
@@ -433,6 +496,14 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       controlledVinayaOmittedEmptySegments: vinayaBatch.collection.omittedEmptySegments,
       vinayaRightsAuditFile: inputs.suttacentralVinayaRightsAudit,
       vinayaRightsAuditSha256: sha256(rawById.suttacentralVinayaRightsAudit),
+      controlledAbhidhammaWorks: abhidhammaBatch.collection.workCount,
+      controlledAbhidhammaExpressions: abhidhammaBatch.collection.expressionCount,
+      controlledAbhidhammaRootRecords: abhidhammaBatch.collection.sourceRecordCount,
+      controlledAbhidhammaRootBytes: abhidhammaBatch.collection.sourceBytes,
+      controlledAbhidhammaStableSegments: abhidhammaBatch.collection.stableSegments,
+      controlledAbhidhammaOmittedEmptySegments: abhidhammaBatch.collection.omittedEmptySegments,
+      abhidhammaRightsAuditFile: inputs.suttacentralAbhidhammaRightsAudit,
+      abhidhammaRightsAuditSha256: sha256(rawById.suttacentralAbhidhammaRightsAudit),
       controlledNonPaliIndicWorks: indicBatch.collection.workCount,
       controlledNonPaliIndicExpressions: indicBatch.collection.expressionCount,
       controlledNonPaliIndicRootRecords: indicBatch.collection.sourceRecordCount,
@@ -441,7 +512,7 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
       controlledNonPaliIndicOmittedPlaceholders: indicBatch.collection.omittedEmptyEditorialPlaceholderSegments,
       indicRightsAuditFile: inputs.suttacentralIndicRightsAudit,
       indicRightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
-      denominatorNote: "固定提交的 5,764 条巴利经藏 root 与 422 条巴利律藏 root 已逐文件受控；律藏物理记录按六个书级集合计为六个表达。另受控 2 份梵文与 22 份俗语 root，按 sf36、sf276、pdhp 登记为 3 个表达。经、律、论分别统计，物理文件不冒充作品，全球分母继续未知。",
+      denominatorNote: "固定提交的 7,288 条巴利 root 已全部逐文件受控：经藏 5,764 份、律藏 422 份、论藏 1,102 份；分别按经级或书级边界登记为 286 个表达。另受控 2 份梵文与 22 份俗语 root，按 sf36、sf276、pdhp 登记为 3 个表达。物理文件不冒充作品，固定来源内 100% 不能外推为全球佛典覆盖率。",
     };
   }
   if (family.id === "sanskrit_fragments_and_witnesses") {
@@ -486,8 +557,8 @@ const sourceSnapshots = [
     ...source,
     inventory: {
       candidateRootRecords: snapshots.sources.find((candidate) => candidate.id === "suttacentral_bilara")?.candidateRecordCount,
-      controlledRootRecords: 6210,
-      controlledPaliRootRecords: 6186,
+      controlledRootRecords: 7312,
+      controlledPaliRootRecords: 7288,
       controlledVinayaRootRecords: vinayaBatch.collection.sourceRecordCount,
       controlledVinayaRootBytes: vinayaBatch.collection.sourceBytes,
       controlledNonPaliIndicRootRecords: indicBatch.collection.sourceRecordCount,
@@ -496,10 +567,14 @@ const sourceSnapshots = [
       rightsAuditSha256: sha256(rawById.suttacentralIndicRightsAudit),
       vinayaRightsAuditFile: inputs.suttacentralVinayaRightsAudit,
       vinayaRightsAuditSha256: sha256(rawById.suttacentralVinayaRightsAudit),
+      controlledAbhidhammaRootRecords: abhidhammaBatch.collection.sourceRecordCount,
+      controlledAbhidhammaRootBytes: abhidhammaBatch.collection.sourceBytes,
+      abhidhammaRightsAuditFile: inputs.suttacentralAbhidhammaRightsAudit,
+      abhidhammaRightsAuditSha256: sha256(rawById.suttacentralAbhidhammaRightsAudit),
     },
     rights: {
       status: "mixed_item_level_with_audited_public_domain_roots",
-      summary: "SuttaCentral 材料权利逐项处理。5,764 份巴利经藏、422 份巴利律藏、2 份梵文和 22 份俗语 root 由官方许可政策列为公共领域；第三方译文未导入，保留来源署名，禁止用于模型训练。",
+      summary: "SuttaCentral 材料权利逐项处理。5,764 份巴利经藏、422 份巴利律藏、1,102 份巴利论藏、2 份梵文和 22 份俗语 root 由官方许可政策列为公共领域；第三方译文未导入，保留来源署名，禁止用于模型训练。",
     },
   } : source.id === "84000_progress" ? {
     ...source,
@@ -630,7 +705,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "3.2.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "3.3.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -679,25 +754,34 @@ const registry = {
     ...suttacentralVinayaRightsAudit.summary,
     warning: suttacentralVinayaRightsAudit.warning,
   },
-  works: [...nonCbetaWorks, ...indicWorks, ...vinayaWorks, ...cbetaWorks],
+  suttacentralAbhidhammaRootRightsAudit: {
+    version: suttacentralAbhidhammaRightsAudit.version,
+    status: suttacentralAbhidhammaRightsAudit.status,
+    file: inputs.suttacentralAbhidhammaRightsAudit,
+    sha256: sha256(rawById.suttacentralAbhidhammaRightsAudit),
+    inventorySha256: suttacentralAbhidhammaRightsAudit.integrity.inventorySha256,
+    ...suttacentralAbhidhammaRightsAudit.summary,
+    warning: suttacentralAbhidhammaRightsAudit.warning,
+  },
+  works: [...nonCbetaWorks, ...indicWorks, ...vinayaWorks, ...abhidhammaWorks, ...cbetaWorks],
 };
 if (
-  registry.works.length !== 987 ||
-  registry.works.flatMap((work) => work.expressions).length !== 1150 ||
+  registry.works.length !== 994 ||
+  registry.works.flatMap((work) => work.expressions).length !== 1157 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v3.2.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v3.3.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v3.2.0.json`,
+  `${sha256(registryRaw)}  registry-v3.3.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.2.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.2.0.sha256 不可复现");
-  console.log("跨语种登记册 v3.2.0 可复现：SuttaCentral 422 份巴利律藏 root 合并为 6 个受控表达；全球作品分母保持未知。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.3.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.3.0.sha256 不可复现");
+  console.log("跨语种登记册 v3.3.0 可复现：SuttaCentral 1,102 份巴利论藏 root 合并为 7 个受控表达；全球作品分母保持未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v3.2.0 已生成：新增 6 个公共领域巴利律藏原文表达，不复制第三方译文。");
+  console.log("跨语种登记册 v3.3.0 已生成：新增 7 个公共领域巴利论藏原文表达，不复制第三方译文。");
 }

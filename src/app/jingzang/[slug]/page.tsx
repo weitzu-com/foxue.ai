@@ -22,7 +22,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
-  const bilaraCorpusUnit = sutra.tradition.includes("律藏") ? "全书" : "全经";
+  const bilaraCorpusUnit = /律藏|论藏/.test(sutra.tradition) ? "全书" : "全经";
 
   return (
     <>

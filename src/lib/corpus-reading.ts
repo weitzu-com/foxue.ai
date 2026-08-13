@@ -11,6 +11,7 @@ import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-
 import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
+import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
@@ -49,6 +50,7 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(khuddakaNikayaManifest.files as CorpusManifestFile[]),
     ...(indicRootManifest.files as CorpusManifestFile[]),
     ...(vinayaRootManifest.files as CorpusManifestFile[]),
+    ...(abhidhammaRootManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
@@ -372,6 +374,15 @@ async function readControlledCorpusAsset(localPath: string) {
     /^(?:pli-tv-(?:bu|bi)-pm_root-pli-ms\.json|pli-tv-(?:bu|bi)-vb\/(?:pli-tv-(?:bu|bi)-vb-[a-z]+\/)?pli-tv-(?:bu|bi)-vb-[a-z]+\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json|pli-tv-(?:kd|pvr)\/pli-tv-(?:kd|pvr)\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json)$/.test(vinayaRelative)
   ) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "vinaya", vinayaRelative), "utf8");
+  }
+  const abhidhammaPrefix = "suttacentral/root/pli/ms/abhidhamma/";
+  const abhidhammaRelative = localPath.startsWith(abhidhammaPrefix)
+    ? localPath.slice(abhidhammaPrefix.length)
+    : "";
+  if (
+    /^(?:ds\/ds\d+\/ds\d+(?:\.\d+)+(?:-\d+)?|vb\/vb\d+(?:-\d+)?|dt\/dt\d+\/dt\d+(?:\.\d+)+(?:-\d+)?|pp\/pp\d+\/pp\d+(?:\.\d+)+(?:-\d+)?|kv\/kv\d+\/kv\d+(?:\.\d+)+(?:-\d+)?|ya\/ya\d+\/ya\d+(?:\.\d+)+(?:-\d+)?|patthana\/patthana\d+\/patthana\d+(?:\.\d+)+(?:-\d+)?)_root-pli-ms\.json$/.test(abhidhammaRelative)
+  ) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "abhidhamma", abhidhammaRelative), "utf8");
   }
   throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
 }

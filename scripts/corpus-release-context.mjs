@@ -14,6 +14,7 @@ export async function loadCorpusReleaseContext(root) {
     ["suttacentral_bilara_khuddaka_nikaya", "data/corpus/suttacentral/kn-manifest-v1.2.0.json"],
     ["suttacentral_bilara_indic_roots", "data/corpus/suttacentral/indic-manifest-v1.3.0.json"],
     ["suttacentral_bilara_vinaya_roots", "data/corpus/suttacentral/vinaya-manifest-v1.4.0.json"],
+    ["suttacentral_bilara_abhidhamma_roots", "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json"],
   ];
   const sourceManifests = await Promise.all(manifestInputs.map(async ([id, relativePath]) => {
     const bytes = await readFile(resolve(root, relativePath));
@@ -36,7 +37,7 @@ export async function loadCorpusReleaseContext(root) {
   const releaseFingerprint = fingerprint.digest("hex").slice(0, 12);
   const releaseId = [
     "gbcr",
-    "3.2.0",
+    "3.3.0",
     sourceManifests[0].manifest.source.commit.slice(0, 12),
     sourceManifests[1].manifest.source.commit.slice(0, 12),
     releaseFingerprint,

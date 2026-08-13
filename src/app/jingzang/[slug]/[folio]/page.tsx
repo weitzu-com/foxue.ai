@@ -117,7 +117,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
       : bilara
         ? "pi-Latn"
         : "zh-Hant";
-  const bilaraCorpusUnit = sutra.tradition.includes("律藏") ? "全书" : "全经";
+  const bilaraCorpusUnit = /律藏|论藏/.test(sutra.tradition) ? "全书" : "全经";
 
   return (
     <>

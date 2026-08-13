@@ -168,11 +168,28 @@ export default function CoveragePage() {
               /{snapshot.candidateInventory.suttacentralPaliSuttaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliSuttaRoot.percentage}%）逐文件受控；
               律藏已完成 {snapshot.candidateInventory.suttacentralPaliVinayaRoot.controlled}
               /{snapshot.candidateInventory.suttacentralPaliVinayaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliVinayaRoot.percentage}%）逐文件受控；
-              论藏仍保持独立统计
+              论藏已完成 {snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.controlled}
+              /{snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.denominator} 条（{snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.percentage}%）逐文件受控
             </p>
             <small>{snapshot.candidateInventory.suttacentralPaliRootPilot.caveat}</small>
             <Link className="text-link" href="/jingzang/khuddaka-nikaya-snp">
               阅读巴利《小部·经集》 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
+          </article>
+          <article>
+            <span>巴利论藏七论受控原文</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.controlledExpressions}
+              <small> 个表达 / {snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.controlled} 份 root</small>
+            </strong>
+            <p>
+              固定提交的巴利论藏目录已 100% 逐文件受控，按七论书级边界登记，
+              共 {snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.stableSegments?.toLocaleString("zh-CN")} 个可读稳定段落；
+              固定来源未发现空正文值，且未导入第三方译文或授予模型训练权。
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralPaliAbhidhammaRoot.caveat}</small>
+            <Link className="text-link" href="/jingzang/pali-dhammasangani">
+              阅读上座部《法集论》 <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </article>
           <article>

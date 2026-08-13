@@ -94,6 +94,9 @@ const suttacentralIndicSources = archivedPaths.filter((path) =>
 const suttacentralVinayaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/vinaya/") && path.endsWith(".json"),
 );
+const suttacentralAbhidhammaSources = archivedPaths.filter((path) =>
+  path.startsWith("data/corpus/suttacentral/root/pli/ms/abhidhamma/") && path.endsWith(".json"),
+);
 if (suttacentralDhammapadaSources.length !== 26) {
   throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
 }
@@ -117,6 +120,9 @@ if (suttacentralIndicSources.length !== 24) {
 }
 if (suttacentralVinayaSources.length !== 422) {
   throw new Error(`保存包应包含 422 个巴利律藏 root 来源文件，实际为 ${suttacentralVinayaSources.length}`);
+}
+if (suttacentralAbhidhammaSources.length !== 1102) {
+  throw new Error(`保存包应包含 1,102 个巴利论藏 root 来源文件，实际为 ${suttacentralAbhidhammaSources.length}`);
 }
 const requiredPaths = [
   "README.md",
@@ -180,6 +186,8 @@ const requiredPaths = [
   "data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
   "data/gbcr/registry-v3.2.0.json",
   "data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
+  "data/gbcr/registry-v3.3.0.json",
+  "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -219,6 +227,7 @@ const requiredPaths = [
   "data/gbcr/checksums-v3.0.0.sha256",
   "data/gbcr/checksums-v3.1.0.sha256",
   "data/gbcr/checksums-v3.2.0.sha256",
+  "data/gbcr/checksums-v3.3.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -278,6 +287,8 @@ const requiredPaths = [
   "data/corpus/suttacentral/indic-manifest-v1.3.0.json",
   "data/corpus/suttacentral/vinaya-batch-v1.4.0.json",
   "data/corpus/suttacentral/vinaya-manifest-v1.4.0.json",
+  "data/corpus/suttacentral/abhidhamma-batch-v1.5.0.json",
+  "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json",
   ...suttacentralDhammapadaSources,
   ...suttacentralDighaSources,
   ...suttacentralMajjhimaSources,
@@ -286,6 +297,7 @@ const requiredPaths = [
   ...suttacentralKhuddakaAdditionalSources,
   ...suttacentralIndicSources,
   ...suttacentralVinayaSources,
+  ...suttacentralAbhidhammaSources,
   ...cbetaSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
@@ -363,6 +375,8 @@ const requiredPaths = [
   "scripts/build-suttacentral-indic-catalog.mjs",
   "scripts/audit-suttacentral-vinaya.mjs",
   "scripts/build-suttacentral-vinaya-catalog.mjs",
+  "scripts/audit-suttacentral-abhidhamma.mjs",
+  "scripts/build-suttacentral-abhidhamma-catalog.mjs",
   "scripts/build-federated-corpus.mjs",
   "scripts/verify-corpus-registry.mjs",
   "scripts/build-corpus-release.mjs",

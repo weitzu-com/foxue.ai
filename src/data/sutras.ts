@@ -7,6 +7,7 @@ import anguttaraNikayaManifest from "../../data/corpus/suttacentral/an-manifest-
 import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v1.2.0.json";
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
+import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
 
 export type SutraSegment = {
   id: string;
@@ -368,6 +369,23 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
   sourceUrl: file.presentation.sourceUrl,
   sourceLicense: "巴利原文依 SuttaCentral 官方政策属公有领域；保留来源署名；不用于模型训练",
   bibliographicNote: file.relationDecision,
+  status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-sutta" as const,
+  segments: [],
+}))).concat(abhidhammaRootManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "巴利原文依 SuttaCentral 官方政策属公有领域；保留来源署名；不用于模型训练",
+  bibliographicNote: file.relationDecision,
+  attributionNote: "本页保存上座部论藏文本；论藏属于佛教经典，不据此标作佛陀逐字亲说。",
   status: "完整原文 · 原生段落" as const,
   readerMode: "bilara-sutta" as const,
   segments: [],

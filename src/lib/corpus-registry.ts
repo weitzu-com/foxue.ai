@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v3.2.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.3.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -168,6 +168,21 @@ export function buildCoverageSnapshot() {
     : null;
   const vinayaControlledStableSegments = "controlledVinayaStableSegments" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.controlledVinayaStableSegments ?? null
+    : null;
+  const abhidhammaControlledWorks = "controlledAbhidhammaWorks" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledAbhidhammaWorks ?? null
+    : null;
+  const abhidhammaControlledExpressions = "controlledAbhidhammaExpressions" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledAbhidhammaExpressions ?? null
+    : null;
+  const abhidhammaControlledRootRecords = "controlledAbhidhammaRootRecords" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledAbhidhammaRootRecords ?? null
+    : null;
+  const abhidhammaControlledRootBytes = "controlledAbhidhammaRootBytes" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledAbhidhammaRootBytes ?? null
+    : null;
+  const abhidhammaControlledStableSegments = "controlledAbhidhammaStableSegments" in (suttacentralFamily ?? {})
+    ? suttacentralFamily?.controlledAbhidhammaStableSegments ?? null
     : null;
   const paliSuttaRootDenominator = "suttaRootRecordDenominator" in (suttacentralFamily ?? {})
     ? suttacentralFamily?.suttaRootRecordDenominator ?? null
@@ -436,7 +451,7 @@ export function buildCoverageSnapshot() {
         controlledBytes: paliControlledBytes,
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
-        caveat: "6,186 个物理 JSON 文件覆盖固定提交的巴利经藏与律藏目录；经藏 5,764 份、律藏 422 份分别统计，论藏尚未受控。物理文件比例不是作品覆盖率。",
+        caveat: "固定提交中的 7,288 个巴利 root 物理文件已全部受控：经藏 5,764 份、律藏 422 份、论藏 1,102 份分别统计。100% 是固定来源内文件完整性，不是作品去重率或全球佛典覆盖率。",
       },
       suttacentralPaliVinayaRoot: {
         denominator: corpusRegistry.suttacentralVinayaRootRightsAudit.filesAudited,
@@ -454,6 +469,23 @@ export function buildCoverageSnapshot() {
         rightsAuditSha256: corpusRegistry.suttacentralVinayaRootRightsAudit.sha256,
         unit: "SuttaCentral 固定提交 root/pli/ms/vinaya 目录物理记录",
         caveat: "422 份物理 root 已逐文件受控，并按戒本、经分别、犍度、附随六个书级集合登记为六个表达；文件数不等于作品数，且不包含任何第三方译文或训练授权。",
+      },
+      suttacentralPaliAbhidhammaRoot: {
+        denominator: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.filesAudited,
+        controlled: abhidhammaControlledRootRecords,
+        percentage: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.filesAudited && abhidhammaControlledRootRecords !== null
+          ? Number(((abhidhammaControlledRootRecords / corpusRegistry.suttacentralAbhidhammaRootRightsAudit.filesAudited) * 100).toFixed(2))
+          : null,
+        controlledBytes: abhidhammaControlledRootBytes,
+        controlledWorks: abhidhammaControlledWorks,
+        controlledExpressions: abhidhammaControlledExpressions,
+        stableSegments: abhidhammaControlledStableSegments,
+        omittedEmptySegments: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.omittedEmptySegments,
+        filesApprovedForReadingAndRetrieval: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.filesApprovedForReadingAndRetrieval,
+        filesApprovedForModelTraining: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.filesApprovedForModelTraining,
+        rightsAuditSha256: corpusRegistry.suttacentralAbhidhammaRootRightsAudit.sha256,
+        unit: "SuttaCentral 固定提交 root/pli/ms/abhidhamma 目录物理记录",
+        caveat: "1,102 份物理 root 已逐文件受控，并按上座部论藏七论登记为七个书级表达；章节文件不等于作品，论藏属于佛教经典但不据此标作佛陀逐字亲说。",
       },
       suttacentralIndicRoots: {
         controlledWorks: indicControlledWorks,
