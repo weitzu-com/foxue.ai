@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v2.5.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.3.0.json";
+import registryDocument from "../../data/gbcr/registry-v2.6.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.4.0.json";
 
 type Expression = {
   id: string;
@@ -171,6 +171,33 @@ export function buildCoverageSnapshot() {
   const dergeVolumes = "volumeManifests" in (tibetanFamily ?? {})
     ? tibetanFamily?.volumeManifests ?? null
     : null;
+  const sanskritFamily = corpusRegistry.sourceFamilies.find(
+    (family) => family.id === "sanskrit_fragments_and_witnesses",
+  );
+  const dsbcCatalogRecords = "candidateDsbcCatalogRecords" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateDsbcCatalogRecords ?? null
+    : null;
+  const dsbcSutrapitakaRecords = "candidateDsbcSutrapitakaRecords" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateDsbcSutrapitakaRecords ?? null
+    : null;
+  const dsbcVinayapitakaRecords = "candidateDsbcVinayapitakaRecords" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateDsbcVinayapitakaRecords ?? null
+    : null;
+  const dsbcSastrapitakaRecords = "candidateDsbcSastrapitakaRecords" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateDsbcSastrapitakaRecords ?? null
+    : null;
+  const gretilPhysicalFiles = "candidateGretilPhysicalFiles" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateGretilPhysicalFiles ?? null
+    : null;
+  const gretilBytes = "candidateGretilBytes" in (sanskritFamily ?? {})
+    ? sanskritFamily?.candidateGretilBytes ?? null
+    : null;
+  const dsbcSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "dsbc_sanskrit_catalog",
+  );
+  const gretilSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "gretil_sanskrit_buddhist_files",
+  );
 
   return {
     schema: "https://foxue.ai/schemas/gbcr/coverage-snapshot-v0.1",
@@ -384,6 +411,22 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "BDRC 德格甘珠尔初印本固定版本顶层文本表达式",
         caveat: "1,114 是可定位到德格初印本卷页的顶层表达式；8 个目录补充项、71 个嵌套子文本、1,193 个德格编号和 844 个链接抽象作品分别计数。它不是跨版本去重后的藏文作品分母，更不是全球佛典覆盖率。",
+      },
+      sanskritCatalogs: {
+        dsbcCatalogRecords,
+        dsbcSutrapitakaRecords,
+        dsbcVinayapitakaRecords,
+        dsbcSastrapitakaRecords,
+        gretilPhysicalFiles,
+        gretilBytes,
+        dsbcInventorySha256: dsbcSourceInventory && "inventorySha256" in dsbcSourceInventory
+          ? dsbcSourceInventory.inventorySha256
+          : null,
+        gretilInventorySha256: gretilSourceInventory && "inventorySha256" in gretilSourceInventory
+          ? gretilSourceInventory.inventorySha256
+          : null,
+        unit: "DSBC 梵文目录记录与 GRETIL 固定 Git 物理文件",
+        caveat: "DSBC 的 486 条目录记录与 GRETIL 的 417 个物理文件可能互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。权利与作品对齐完成前不导入正文、不相加为作品分母。",
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

@@ -1,0 +1,26 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/source-rights-policy-v0.4",
+  "version": "0.4.0",
+  "capturedAt": "2026-08-13",
+  "dsbc": {
+    "provider": "Digital Sanskrit Buddhist Canon, University of the West",
+    "url": "https://dsbcproject.org/pages/usage-policy",
+    "responseBytes": 34536,
+    "responseSha256": "0a127725c364b5a8e4a0482d8d982359cc6341e5ca2b8b226867bfd680de3869",
+    "observedPolicy": {
+      "noncommercialEducationalAndResearchUse": true,
+      "indexingAndWordSearchPurpose": true,
+      "reproductionWithoutPermissionProhibited": true,
+      "compilationIndexingTransliterationRightsHeld": true
+    },
+    "foxueDecision": "只发布汇总计数、页面哈希和记录标识集合摘要；不复制逐条目录、转写或正文，许可明确前不计为可发布全文。"
+  },
+  "gretil": {
+    "provider": "INDOLOGY/GRETIL-mirror",
+    "repository": "https://github.com/INDOLOGY/GRETIL-mirror",
+    "repositoryLicenseDetected": false,
+    "detectedLicense": null,
+    "archivalDoi": "10.5281/zenodo.6486741",
+    "foxueDecision": "仓库级许可证未标明；只登记固定 Git 路径、blob 与字节汇总，不镜像正文。任何全文入库须逐文件核对头部来源与权利。"
+  }
+}

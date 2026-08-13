@@ -78,6 +78,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("5,005")).toBeVisible();
   await expect(page.getByText("7,584")).toBeVisible();
   await expect(page.getByText("1,114").first()).toBeVisible();
+  await expect(page.getByText("486").first()).toBeVisible();
+  await expect(page.getByText("417").first()).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -87,7 +89,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.globalPercentages.catalog).toBeNull();
   expect(coverage.candidateInventory).toMatchObject({
     denominatorReady: false,
-    totalSourceRecords: 13703,
+    totalSourceRecords: 14606,
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 978,
@@ -185,6 +187,14 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     dergeIdentifiers: 1193,
     linkedAbstractWorkIds: 844,
     volumeManifests: 103,
+  });
+  expect(coverage.candidateInventory.sanskritCatalogs).toMatchObject({
+    dsbcCatalogRecords: 486,
+    dsbcSutrapitakaRecords: 111,
+    dsbcVinayapitakaRecords: 15,
+    dsbcSastrapitakaRecords: 360,
+    gretilPhysicalFiles: 417,
+    gretilBytes: 62432484,
   });
 });
 

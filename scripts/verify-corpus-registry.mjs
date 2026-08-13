@@ -3,12 +3,14 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v2.5.0.json");
-const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.3.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v2.6.0.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v0.4.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const dergeInventoryPath = resolve(root, "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json");
 const rights84000Path = resolve(root, "data/gbcr/84000-rights-policy-v0.3.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.5.0.sha256");
+const sanskritEvidencePath = resolve(root, "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json");
+const sanskritRightsPath = resolve(root, "data/gbcr/sanskrit-rights-policy-v0.4.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.6.0.sha256");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -41,6 +43,8 @@ const sourceSnapshotsRaw = await readFile(sourceSnapshotsPath, "utf8");
 const inventoryRaw = await readFile(inventoryPath, "utf8");
 const dergeInventoryRaw = await readFile(dergeInventoryPath, "utf8");
 const rights84000Raw = await readFile(rights84000Path, "utf8");
+const sanskritEvidenceRaw = await readFile(sanskritEvidencePath, "utf8");
+const sanskritRightsRaw = await readFile(sanskritRightsPath, "utf8");
 const agamaBatchRaw = await readFile(agamaBatchPath, "utf8");
 const benyuanBatchRaw = await readFile(benyuanBatchPath, "utf8");
 const prajnaparamitaBatchRaw = await readFile(prajnaparamitaBatchPath, "utf8");
@@ -73,6 +77,8 @@ const sourceSnapshots = JSON.parse(sourceSnapshotsRaw);
 const inventory = JSON.parse(inventoryRaw);
 const dergeInventory = JSON.parse(dergeInventoryRaw);
 const rights84000 = JSON.parse(rights84000Raw);
+const sanskritEvidence = JSON.parse(sanskritEvidenceRaw);
+const sanskritRights = JSON.parse(sanskritRightsRaw);
 const agamaBatch = JSON.parse(agamaBatchRaw);
 const benyuanBatch = JSON.parse(benyuanBatchRaw);
 const prajnaparamitaBatch = JSON.parse(prajnaparamitaBatchRaw);
@@ -107,7 +113,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "2.5.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "2.6.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -159,8 +165,8 @@ for (const source of registry.sourceSnapshots) {
 }
 
 requireValue(sourceSnapshots.denominatorReady === false, "候选来源记录尚未去重，不得标为分母就绪");
-requireValue(sourceSnapshots.version === "0.3.0", "来源候选快照版本不匹配");
-requireValue(sourceSnapshots.sources?.length === 3, "来源候选快照必须包含 CBETA、SuttaCentral 与 BDRC 德格甘珠尔");
+requireValue(sourceSnapshots.version === "0.4.0", "来源候选快照版本不匹配");
+requireValue(sourceSnapshots.sources?.length === 5, "来源候选快照必须包含 CBETA、SuttaCentral、BDRC、DSBC 与 GRETIL");
 for (const snapshot of sourceSnapshots.sources ?? []) {
   const registrySource = registry.sourceSnapshots.find((item) => item.id === snapshot.id);
   if (snapshot.commit) {
@@ -193,6 +199,25 @@ requireValue(tibetanFamily?.denominatorWorks === null, "藏文跨版本作品分
 requireValue(rights84000?.policy?.publishedTranslations?.license === "CC BY-NC-ND 4.0", "84000 译文许可边界漂移");
 requireValue(rights84000?.policy?.translationMetadata?.license === "CC BY 4.0", "84000 元数据许可边界漂移");
 requireValue(rights84000?.policy?.api?.open === false && rights84000?.policy?.api?.writtenAgreementRequired === true, "84000 API 边界漂移");
+const dsbcSnapshot = sourceSnapshots.sources.find((source) => source.id === "dsbc_sanskrit_catalog");
+const gretilSnapshot = sourceSnapshots.sources.find((source) => source.id === "gretil_sanskrit_buddhist_files");
+const sanskritFamily = registry.sourceFamilies.find((family) => family.id === "sanskrit_fragments_and_witnesses");
+requireValue(dsbcSnapshot?.candidateRecordCount === 486, "DSBC 梵文目录记录数漂移");
+requireValue(gretilSnapshot?.candidateRecordCount === 417, "GRETIL 梵文佛教物理文件数漂移");
+requireValue(dsbcSnapshot?.inventorySha256 === createHash("sha256").update(sanskritEvidenceRaw).digest("hex"), "DSBC 梵文来源证据摘要不匹配");
+requireValue(gretilSnapshot?.inventorySha256 === createHash("sha256").update(sanskritEvidenceRaw).digest("hex"), "GRETIL 梵文来源证据摘要不匹配");
+requireValue(sanskritEvidence?.dsbc?.groups?.sutrapitaka === 111, "DSBC 经藏类记录数漂移");
+requireValue(sanskritEvidence?.dsbc?.groups?.vinayapitaka === 15, "DSBC 律藏类记录数漂移");
+requireValue(sanskritEvidence?.dsbc?.groups?.sastrapitaka === 360, "DSBC 论疏及其他类记录数漂移");
+requireValue(sanskritEvidence?.dsbc?.integrity?.itemInventoryPublished === false, "DSBC 逐条目录不得在无许可时发布");
+requireValue(sanskritEvidence?.gretil?.commit === "0baf718d8e450821eb0403c03aacc9a4a82316d7", "GRETIL 固定提交漂移");
+requireValue(sanskritEvidence?.gretil?.tree === "b3f67ca1d814b5b20a33fd5a0d686ad1768703ee", "GRETIL 固定 tree 漂移");
+requireValue(sanskritEvidence?.gretil?.candidatePhysicalFiles === 417 && sanskritEvidence?.gretil?.candidateBytes === 62432484, "GRETIL 物理文件或字节统计漂移");
+requireValue(sanskritRights?.dsbc?.observedPolicy?.reproductionWithoutPermissionProhibited === true, "DSBC 复制限制边界漂移");
+requireValue(sanskritRights?.gretil?.repositoryLicenseDetected === false, "GRETIL 仓库级许可状态漂移");
+requireValue(sanskritFamily?.denominatorStatus === "catalog_and_file_snapshots_ready_rights_and_alignment_pending", "梵文来源族状态未升级");
+requireValue(sanskritFamily?.candidateDsbcCatalogRecords === 486 && sanskritFamily?.candidateGretilPhysicalFiles === 417, "梵文来源族候选记录数不匹配");
+requireValue(sanskritFamily?.denominatorWorks === null, "梵文作品分母不得提前填写");
 const chineseSubset = sourceSnapshots.sources
   .find((source) => source.id === "cbeta_xml_p5")
   ?.candidateSubsets?.find((subset) => subset.id === "taisho_chinese_sutra_t01_t17");
@@ -485,11 +510,13 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v2.5.0.json", raw],
-  ["source-snapshots-v0.3.0.json", sourceSnapshotsRaw],
+  ["registry-v2.6.0.json", raw],
+  ["source-snapshots-v0.4.0.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["bdrc-derge-kangyur-inventory-v0.3.0.json", dergeInventoryRaw],
   ["84000-rights-policy-v0.3.0.json", rights84000Raw],
+  ["dsbc-gretil-source-snapshot-v0.4.0.json", sanskritEvidenceRaw],
+  ["sanskrit-rights-policy-v0.4.0.json", sanskritRightsRaw],
   ["batch-v1.9.0.json", t12BatchRaw],
   ["batch-v2.0.0.json", t13BatchRaw],
   ["batch-v2.1.0.json", t14BatchRaw],
@@ -532,10 +559,10 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.works.length === 978, "v2.5 必须登记 978 个可追踪作品实体");
-requireValue(expressions.length === 1141, "v2.5 必须登记 1141 个文本表达或见证");
-requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1127, "v2.5 必须登记 1127 个完整文本表达或见证");
-requireValue(segmentCount === 1683984, "v2.5 稳定行段总数漂移");
+requireValue(registry.works.length === 978, "v2.6 必须登记 978 个可追踪作品实体");
+requireValue(expressions.length === 1141, "v2.6 必须登记 1141 个文本表达或见证");
+requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1127, "v2.6 必须登记 1127 个完整文本表达或见证");
+requireValue(segmentCount === 1683984, "v2.6 稳定行段总数漂移");
 const provisionalCbetaWorks = registry.works.filter((work) =>
   work.workType === "provisional_bibliographic_entity" && /^gbcr:work:taisho-t/.test(work.id),
 );

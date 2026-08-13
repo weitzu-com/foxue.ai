@@ -36,6 +36,8 @@ const sourceLabels: Record<string, string> = {
   cbeta_xml_p5: "CBETA",
   suttacentral_bilara: "SUTTACENTRAL",
   bdrc_derge_kangyur: "BDRC · 德格甘珠尔",
+  dsbc_sanskrit_catalog: "DSBC · 梵文目录",
+  gretil_sanskrit_buddhist_files: "GRETIL · 梵文文件",
 };
 
 const dimensionNotes: Record<string, string> = {
@@ -190,6 +192,30 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 1,114 条机器清单与 8 条排除证据 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
+            <span>梵文候选来源</span>
+            <strong>
+              {snapshot.candidateInventory.sanskritCatalogs.dsbcCatalogRecords}
+              <small> + {snapshot.candidateInventory.sanskritCatalogs.gretilPhysicalFiles}</small>
+            </strong>
+            <p>
+              DSBC 固定目录含 {snapshot.candidateInventory.sanskritCatalogs.dsbcCatalogRecords} 条记录：
+              经藏类 {snapshot.candidateInventory.sanskritCatalogs.dsbcSutrapitakaRecords}、
+              律藏类 {snapshot.candidateInventory.sanskritCatalogs.dsbcVinayapitakaRecords}、
+              论疏及其他 {snapshot.candidateInventory.sanskritCatalogs.dsbcSastrapitakaRecords}；
+              GRETIL 固定提交另有 {snapshot.candidateInventory.sanskritCatalogs.gretilPhysicalFiles} 个物理文件，
+              合计 {(snapshot.candidateInventory.sanskritCatalogs.gretilBytes! / 1_000_000).toFixed(1)} MB
+            </p>
+            <small>{snapshot.candidateInventory.sanskritCatalogs.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看汇总证据与权利边界 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
         </div>

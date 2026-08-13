@@ -1,0 +1,54 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/sanskrit-source-snapshot-v0.4",
+  "version": "0.4.0",
+  "capturedAt": "2026-08-13",
+  "scope": "aggregate_catalog_and_fixed_git_file_inventory",
+  "warning": "DSBC 目录项与 GRETIL 物理文件可能互相重叠，也可能是同一作品的版本、分卷或转写；本快照不执行作品级去重。",
+  "dsbc": {
+    "provider": "Digital Sanskrit Buddhist Canon, University of the West",
+    "catalogUrl": "https://dsbcproject.org/canon-text/browse-by-list/1",
+    "responseBytes": 526953,
+    "responseSha256": "d7f244ed7e2b289f38058602de2ed772434fbe92af98a6192ff7579ae27670ce",
+    "candidateCatalogRecords": 486,
+    "recordUnit": "DSBC Romanized catalog entry or edition record",
+    "groups": {
+      "sutrapitaka": 111,
+      "vinayapitaka": 15,
+      "sastrapitaka": 360
+    },
+    "integrity": {
+      "recordIdSha256": "c42d42fb6da4038b6cc5306776c57eadf0492722ad95b966e18c7329ce735f7c",
+      "itemInventoryPublished": false,
+      "reason": "DSBC 使用政策禁止未经许可复制内容；foxue.ai 只保存汇总计数、记录标识摘要与来源响应摘要。"
+    }
+  },
+  "gretil": {
+    "provider": "GRETIL archival mirror maintained by INDOLOGY",
+    "repository": "INDOLOGY/GRETIL-mirror",
+    "commit": "0baf718d8e450821eb0403c03aacc9a4a82316d7",
+    "tree": "b3f67ca1d814b5b20a33fd5a0d686ad1768703ee",
+    "treeTruncated": false,
+    "repositoryTreeEntries": 5555,
+    "candidatePhysicalFiles": 417,
+    "candidateBytes": 62432484,
+    "recordUnit": "Unicode HTML physical file under a Sanskrit Buddhist source directory",
+    "groups": {
+      "sanskritBuddhistLiterature": {
+        "records": 261,
+        "bytes": 41719238,
+        "pathSha256": "183c71f254a8a50da5bdd20f1ac18f6e1941292ab2a81f9364b7780b225f5231",
+        "blobSetSha256": "3b409ac79ea10cd9305acadb897118c1b26eb6fcd3badaf827abe77a1ad2ce67"
+      },
+      "sanskritBuddhistPhilosophy": {
+        "records": 156,
+        "bytes": 20713246,
+        "pathSha256": "f5de6d409f9286b0253a2cd022308d2734f0be7a6d0854f2fa1bfe6cc5c45153",
+        "blobSetSha256": "c74c12a72bfc9ed235618a078bdafcc22f85ac7e33d5caaece6f3aedefbca461"
+      }
+    },
+    "integrity": {
+      "candidatePathSha256": "9ef8efde743abad9eb14732ec2e21d7bb0e79e3c56b313a1aa0780ef3e8964f6",
+      "recordSetSha256": "ff2638f75efd8928602bae4963e5d557c420d337ee079b003b5d6901ed69c17e"
+    }
+  }
+}

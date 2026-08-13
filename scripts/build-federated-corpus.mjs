@@ -5,10 +5,12 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const inputs = {
   base: "data/gbcr/registry-v2.1.0.json",
-  snapshots: "data/gbcr/source-snapshots-v0.3.0.json",
+  snapshots: "data/gbcr/source-snapshots-v0.4.0.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   dergeInventory: "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
+  sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
+  sanskritRights: "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
   cbetaT12Batch: "data/corpus/cbeta/batch-v1.9.0.json",
   cbetaT13Batch: "data/corpus/cbeta/batch-v2.0.0.json",
   cbetaT14Batch: "data/corpus/cbeta/batch-v2.1.0.json",
@@ -41,6 +43,8 @@ const base = JSON.parse(rawById.base);
 const snapshots = JSON.parse(rawById.snapshots);
 const dergeInventory = JSON.parse(rawById.dergeInventory);
 const rights84000 = JSON.parse(rawById.rights84000);
+const sanskritEvidence = JSON.parse(rawById.sanskritEvidence);
+const sanskritRights = JSON.parse(rawById.sanskritRights);
 const cbetaBatch = JSON.parse(rawById.cbetaBatch);
 const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
 const cbetaManifest = JSON.parse(rawById.cbetaManifest);
@@ -55,8 +59,8 @@ const anguttaraBatch = JSON.parse(rawById.anguttaraBatch);
 const anguttaraManifest = JSON.parse(rawById.anguttaraManifest);
 const khuddakaBatch = JSON.parse(rawById.khuddakaBatch);
 const khuddakaManifest = JSON.parse(rawById.khuddakaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v2.5.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v2.5.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v2.6.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v2.6.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -134,7 +138,7 @@ if (
 ) throw new Error("CBETA 汉译经藏受控来源记录统计不一致");
 const dergeSource = snapshots.sources.find((source) => source.id === "bdrc_derge_kangyur");
 if (
-  snapshots.version !== "0.3.0" || snapshots.denominatorReady !== false ||
+  snapshots.version !== "0.4.0" || snapshots.denominatorReady !== false ||
   dergeSource?.candidateRecordCount !== 1114 ||
   dergeInventory.totals?.topLevelCatalogRecords !== 1122 ||
   dergeInventory.totals?.topLevelExpressionRecords !== 1114 ||
@@ -147,6 +151,19 @@ if (
   rights84000.policy?.translationMetadata?.license !== "CC BY 4.0" ||
   rights84000.policy?.api?.open !== false
 ) throw new Error("BDRC 德格甘珠尔快照或 84000 权利边界不一致");
+const dsbcSource = snapshots.sources.find((source) => source.id === "dsbc_sanskrit_catalog");
+const gretilSource = snapshots.sources.find((source) => source.id === "gretil_sanskrit_buddhist_files");
+if (
+  dsbcSource?.candidateRecordCount !== 486 ||
+  gretilSource?.candidateRecordCount !== 417 ||
+  sanskritEvidence.dsbc?.groups?.sutrapitaka !== 111 ||
+  sanskritEvidence.dsbc?.groups?.vinayapitaka !== 15 ||
+  sanskritEvidence.dsbc?.groups?.sastrapitaka !== 360 ||
+  sanskritEvidence.gretil?.candidatePhysicalFiles !== 417 ||
+  sanskritEvidence.gretil?.candidateBytes !== 62432484 ||
+  sanskritRights.dsbc?.observedPolicy?.reproductionWithoutPermissionProhibited !== true ||
+  sanskritRights.gretil?.repositoryLicenseDetected !== false
+) throw new Error("DSBC 或 GRETIL 梵文来源快照与权利边界不一致");
 const nonCbetaWorks = base.works.filter((work) =>
   !(work.expressions ?? []).some((expression) => expression.sourceSnapshotId === "cbeta_xml_p5"),
 );
@@ -168,25 +185,44 @@ const cbetaWorks = cbetaRegistry.works.map((work) => {
 });
 const sourceFamilies = base.sourceFamilies.map((family) => {
   if (family.id === "cbeta_chinese") return cbetaFamily;
-  if (family.id !== "tibetan_kangyur_tengyur") return family;
-  return {
-    ...family,
-    primarySources: ["bdrc_derge_kangyur", "bdrc_linked_data", "bdrc_iiif", "84000_progress"],
-    denominatorStatus: "fixed_edition_expression_snapshot_ready",
-    denominatorWorks: null,
-    candidateEditionId: dergeInventory.source.instanceId,
-    candidateEditionTitle: dergeInventory.source.titleZh,
-    candidateTopLevelCatalogRecords: dergeInventory.totals.topLevelCatalogRecords,
-    candidateExpressionRecords: dergeInventory.totals.topLevelExpressionRecords,
-    excludedCatalogOnlyRecords: dergeInventory.totals.excludedCatalogOnlyRecords,
-    nestedTextPartRecords: dergeInventory.totals.nestedTextPartRecords,
-    dergeIdentifierRecords: dergeInventory.totals.dergeIdentifierRecords,
-    candidateLinkedAbstractWorkIds: dergeInventory.totals.linkedAbstractWorkIds,
-    volumeManifests: dergeInventory.totals.volumeManifests,
-    inventoryFile: dergeSource.inventoryFile,
-    inventorySha256: dergeSource.inventorySha256,
-    denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。BDRC 当前关联出 844 个抽象作品标识，但尚未完成跨版本、跨目录和跨语言独立复核，因此作品分母继续保持未知。",
-  };
+  if (family.id === "tibetan_kangyur_tengyur") {
+    return {
+      ...family,
+      primarySources: ["bdrc_derge_kangyur", "bdrc_linked_data", "bdrc_iiif", "84000_progress"],
+      denominatorStatus: "fixed_edition_expression_snapshot_ready",
+      denominatorWorks: null,
+      candidateEditionId: dergeInventory.source.instanceId,
+      candidateEditionTitle: dergeInventory.source.titleZh,
+      candidateTopLevelCatalogRecords: dergeInventory.totals.topLevelCatalogRecords,
+      candidateExpressionRecords: dergeInventory.totals.topLevelExpressionRecords,
+      excludedCatalogOnlyRecords: dergeInventory.totals.excludedCatalogOnlyRecords,
+      nestedTextPartRecords: dergeInventory.totals.nestedTextPartRecords,
+      dergeIdentifierRecords: dergeInventory.totals.dergeIdentifierRecords,
+      candidateLinkedAbstractWorkIds: dergeInventory.totals.linkedAbstractWorkIds,
+      volumeManifests: dergeInventory.totals.volumeManifests,
+      inventoryFile: dergeSource.inventoryFile,
+      inventorySha256: dergeSource.inventorySha256,
+      denominatorNote: "德格甘珠尔初印本固定版本已冻结 1,122 个顶层目录项；其中 1,114 个可定位表达式、8 个无法定位到初印本的目录补充项，另有 71 个嵌套子文本。BDRC 当前关联出 844 个抽象作品标识，但尚未完成跨版本、跨目录和跨语言独立复核，因此作品分母继续保持未知。",
+    };
+  }
+  if (family.id === "sanskrit_fragments_and_witnesses") {
+    return {
+      ...family,
+      primarySources: ["dsbc_sanskrit_catalog", "gretil_sanskrit_buddhist_files"],
+      denominatorStatus: "catalog_and_file_snapshots_ready_rights_and_alignment_pending",
+      denominatorWorks: null,
+      candidateDsbcCatalogRecords: sanskritEvidence.dsbc.candidateCatalogRecords,
+      candidateDsbcSutrapitakaRecords: sanskritEvidence.dsbc.groups.sutrapitaka,
+      candidateDsbcVinayapitakaRecords: sanskritEvidence.dsbc.groups.vinayapitaka,
+      candidateDsbcSastrapitakaRecords: sanskritEvidence.dsbc.groups.sastrapitaka,
+      candidateGretilPhysicalFiles: sanskritEvidence.gretil.candidatePhysicalFiles,
+      candidateGretilBytes: sanskritEvidence.gretil.candidateBytes,
+      candidateInventoryFile: dsbcSource.inventoryFile,
+      candidateInventorySha256: dsbcSource.inventorySha256,
+      denominatorNote: "DSBC 的 486 条目录记录和 GRETIL 的 417 个物理文件已冻结，但两者会互相重叠，也包含同作品多版本、分卷、律藏、密续与论疏。DSBC 禁止未经许可复制内容，GRETIL 镜像没有仓库级许可证；因此不导入正文，不合并为作品分母。",
+    };
+  }
+  return family;
 });
 const sourceSnapshots = [
   ...base.sourceSnapshots.map((source) => source.id === "84000_progress" ? {
@@ -230,11 +266,58 @@ const sourceSnapshots = [
       summary: "本登记只保存事实性目录元数据和 BDRC 导航；IIIF 集合标注 Public Domain Mark，但任何图像或全文再分发仍逐对象核对 BDRC 访问政策。",
     },
   },
+  {
+    id: "dsbc_sanskrit_catalog",
+    name: "Digital Sanskrit Buddhist Canon Romanized 目录",
+    role: "梵文佛典目录记录、版本页面与经律论分类候选源",
+    homepage: "https://dsbcproject.org/",
+    dataUrl: sanskritEvidence.dsbc.catalogUrl,
+    licenseUrl: sanskritRights.dsbc.url,
+    snapshot: {
+      type: "web_sha256",
+      ref: sanskritEvidence.dsbc.responseSha256,
+      capturedAt: sanskritEvidence.capturedAt,
+    },
+    inventory: {
+      file: dsbcSource.inventoryFile,
+      sha256: dsbcSource.inventorySha256,
+      candidateCatalogRecords: dsbcSource.candidateRecordCount,
+      itemInventoryPublished: false,
+    },
+    rights: {
+      status: "aggregate_metadata_only_reproduction_permission_required",
+      summary: "DSBC 只允许非商业教育研究用途，并禁止未经许可复制内容；foxue.ai 仅发布汇总计数、页面哈希和记录标识集合摘要，不复制目录逐条内容或正文。",
+    },
+  },
+  {
+    id: "gretil_sanskrit_buddhist_files",
+    name: "GRETIL 梵文佛教文献长期镜像",
+    role: "固定 Git 提交中的梵文佛教物理文件、blob 与字节候选源",
+    homepage: "https://github.com/INDOLOGY/GRETIL-mirror",
+    dataUrl: `https://github.com/INDOLOGY/GRETIL-mirror/tree/${sanskritEvidence.gretil.commit}/gretil.sub.uni-goettingen.de/gretil/1_sanskr`,
+    licenseUrl: "https://github.com/INDOLOGY/GRETIL-mirror",
+    snapshot: {
+      type: "git",
+      ref: sanskritEvidence.gretil.commit,
+      capturedAt: sanskritEvidence.capturedAt,
+      relatedRefs: { tree: sanskritEvidence.gretil.tree },
+    },
+    inventory: {
+      file: gretilSource.inventoryFile,
+      sha256: gretilSource.inventorySha256,
+      candidatePhysicalFiles: gretilSource.candidateRecordCount,
+      candidateBytes: gretilSource.candidateBytes,
+    },
+    rights: {
+      status: "repository_license_unspecified_metadata_only",
+      summary: "GRETIL 镜像没有仓库级许可证；foxue.ai 只登记固定路径、blob 和字节汇总，逐文件权利核验完成前不镜像正文。",
+    },
+  },
 ];
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "2.5.0", publishedAt: "2026-08-13" },
+  registry: { ...base.registry, version: "2.6.0", publishedAt: "2026-08-13" },
   sourceFamilies,
   sourceSnapshots,
   works: [...nonCbetaWorks, ...cbetaWorks],
@@ -243,19 +326,19 @@ if (
   registry.works.length !== 978 ||
   registry.works.flatMap((work) => work.expressions).length !== 1141 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v2.5.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v2.6.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v2.5.0.json`,
+  `${sha256(registryRaw)}  registry-v2.6.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.5.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.5.0.sha256 不可复现");
-  console.log("跨语种登记册 v2.5.0 可复现：978 个受控作品实体、1141 个受控表达；德格甘珠尔 1114 个固定版本候选表达。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v2.6.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v2.6.0.sha256 不可复现");
+  console.log("跨语种登记册 v2.6.0 可复现：978 个受控作品；新增 DSBC 486 条与 GRETIL 417 条梵文候选记录，全球分母仍未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v2.5.0 已生成：德格甘珠尔 1114 个可定位固定版本候选表达进入全球分母账本。");
+  console.log("跨语种登记册 v2.6.0 已生成：梵文目录与物理文件候选快照进入全球分母账本，未导入受限正文。");
 }
