@@ -1,0 +1,517 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.6.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.5.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t29-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T29; T29 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T29",
+    "title": "大正藏 T29 毘昙部固定来源记录",
+    "sourceRecordDenominator": 6,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 6,
+    "controlledSourceRecords": 6,
+    "newSourceBytes": 11019060,
+    "newStableSegments": 83885,
+    "newFolios": 3042,
+    "verifiedSameWorkExpressions": 2,
+    "verifiedPartialWorkWitnesses": 1,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 5,
+    "newPartialSourceWitnesses": 1,
+    "relationAnnotatedRecords": 6,
+    "attributionBoundaryRecords": 6,
+    "newWorks": 5,
+    "controlledWorks": 5,
+    "workCountingDecision": "T29 的 6 份来源记录登记为 6 个表达或见证、5 个批次内作品。T1558/T1559 是世亲《俱舍论释》的两个汉译表达；T1560 是独立本颂作品；T1561 是安慧注疏作品的极端节本见证；T1562/T1563 分别是众贤《顺正理》广论与《显宗》略论两个相关作品。因此新增五个作品而不是六个，所有论书均不标为佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_work_expression_root_verse_extreme_abridgment_and_broad_short_relation_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "sanghabhadra-nyayanusara-samayapradipika-t1562-t1563"
+    ],
+    "verifiedTranslationGroups": [
+      "abhidharmakosa-t1558-t1560"
+    ],
+    "rootTreatiseCommentaryGroups": [
+      "abhidharmakosa-t1558-t1560",
+      "abhidharmakosa-tattvartha-t1561",
+      "sanghabhadra-nyayanusara-samayapradipika-t1562-t1563"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1560→T1558/T1559（独立本颂，不与释论合并作品）",
+      "T1563→T1562（显宗略论，不与顺正理广论合并作品）"
+    ],
+    "partialWorkWitnesses": [
+      "T1561"
+    ],
+    "sourceRoles": {
+      "traditional_authored_abhidharma_autocommentary_translation": [
+        "T1558",
+        "T1559"
+      ],
+      "traditional_authored_abhidharma_critique_and_commentary_translation": [
+        "T1562"
+      ],
+      "traditional_authored_abhidharma_root_verse_translation": [
+        "T1560"
+      ],
+      "traditional_authored_abridged_abhidharma_exposition_translation": [
+        "T1563"
+      ],
+      "traditional_authored_extreme_abridgment_of_commentary_witness": [
+        "T1561"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap records embedded root verses and broad/short derivative asymmetry only; work, authorship and translation decisions require independent bibliographic evidence.",
+      "pairs": [
+        {
+          "pair": [
+            "T1558",
+            "T1559"
+          ],
+          "normalizedCharacters": [
+            206240,
+            214720
+          ],
+          "fiveGramContainmentOfShorter": 0.020504,
+          "fiveGramJaccard": 0.010176
+        },
+        {
+          "pair": [
+            "T1558",
+            "T1560"
+          ],
+          "normalizedCharacters": [
+            206240,
+            12375
+          ],
+          "fiveGramContainmentOfShorter": 0.815796,
+          "fiveGramJaccard": 0.051043
+        },
+        {
+          "pair": [
+            "T1559",
+            "T1560"
+          ],
+          "normalizedCharacters": [
+            214720,
+            12375
+          ],
+          "fiveGramContainmentOfShorter": 0.026164,
+          "fiveGramJaccard": 0.00151
+        },
+        {
+          "pair": [
+            "T1562",
+            "T1563"
+          ],
+          "normalizedCharacters": [
+            631665,
+            276606
+          ],
+          "fiveGramContainmentOfShorter": 0.890609,
+          "fiveGramJaccard": 0.377988
+        },
+        {
+          "pair": [
+            "T1558",
+            "T1562"
+          ],
+          "normalizedCharacters": [
+            206240,
+            631665
+          ],
+          "fiveGramContainmentOfShorter": 0.486064,
+          "fiveGramJaccard": 0.137956
+        },
+        {
+          "pair": [
+            "T1558",
+            "T1563"
+          ],
+          "normalizedCharacters": [
+            206240,
+            276606
+          ],
+          "fiveGramContainmentOfShorter": 0.388044,
+          "fiveGramJaccard": 0.198857
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T29",
+      "https://www2.hf.uio.no/polyglotta/index.php?page=volume&vid=511",
+      "https://opac.ryukoku.ac.jp/iwjs0005opc/bdyview.do?bodyid=TD32028765&elmid=Body&fname=r-rcwbc-ej_2016_005.pdf",
+      "https://austriaca.at/0xc1aa5572_0x004039be.pdf",
+      "https://ci.nii.ac.jp/ncid/BD11712610.amp?l=en",
+      "https://www.jstage.jst.go.jp/article/ibk/69/1/69_418/_article/-char/en",
+      "https://hc.hcu.edu.tw/userfiles/file/paper11/04.pdf",
+      "https://www.mahabodhi.org/files/yinshun/40/yinshun40-32.html",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000294"
+    ],
+    "caveat": "T29 是阿毘达磨论书、根本颂、释论、注疏节本与广略论的集合，不是佛说经集合。平台完整保存固定来源，同时区分同本异译、本颂与自释、完整来源文件与部分作品见证、广论与略论、传统作者和译者题记；题名、目录位置、传统责任题记或机器相似度均不能单独证明作者事实、完整作品或佛陀逐字亲说归属。"
+  },
+  "files": [
+    {
+      "id": "T1558",
+      "slug": "taisho-t1558",
+      "workId": "gbcr:work:abhidharmakosa-bhasya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "阿毘达磨俱舍论（Abhidharmakośabhāṣya）",
+      "sourceRole": "traditional_authored_abhidharma_autocommentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_separate_root_verses_verified",
+          "groupId": "abhidharmakosa-t1558-t1560",
+          "label": "《俱舍论释》同本异译与独立本颂关系",
+          "evidence": "学术资料把玄奘 T1558 与真谛 T1559 明确列为世亲《Abhidharmakośabhāṣya》的两种汉译；T1560 题为《俱舍论本颂》，且其绝大多数五字组可在 T1558 中找到。平台把 T1558/T1559 登记为同一释论作品的两个表达，把独立流通的 T1560 登记为相关但不同的根本颂作品，不把本颂与自释混成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1560"
+            ]
+          }
+        },
+        {
+          "type": "extreme_abridgment_commentary_witness_verified",
+          "groupId": "abhidharmakosa-tattvartha-t1561",
+          "label": "安慧《俱舍论实义疏》极端节本见证",
+          "evidence": "奥地利科学院出版的 Tattvārthā 研究说明，T1561 名列五卷、实仅大正藏三页并只涉及前三品，不是完整注疏的残卷，而是极端节出。平台完整保存这份来源文件，但把它标为安慧注疏作品的部分见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1561"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1558.xml",
+      "upstreamPath": "T/T29/T29n1558.xml",
+      "upstreamGitBlobSha1": "7dcd75acb7f654f6b06750d6acca33e6a1adc84f",
+      "upstreamBytes": 1870643,
+      "upstreamSha256": "e9068c3a675250b9789614f5b1a0e9a7651988377c6375c7af0461034817d21f",
+      "localBytes": 1870644,
+      "localSha256": "1e81c13c9ce1e8f522a3cbf24413fa8d9e175bef1d66c632d8b60c43c7de3229",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨俱舍論",
+        "alternateTitle": "阿毘達磨俱舍論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1558",
+        "translator": "尊者世親造 · 唐 · 玄奘譯",
+        "summary": "30卷。固定来源完整保存三十卷与稳定锚点；与 T1559 作为世亲《俱舍论释》的两种汉译共享作品标识，与独立本颂 T1560、安慧注疏 T1561 建立作品关系。传统世亲造、玄奘译题记照录，论书不标为佛陀逐字亲说。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1558_001"
+      },
+      "verification": {
+        "segments": 13675,
+        "folios": 496,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1558.001.0001a02",
+          "T1558.030.0159b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1559",
+      "slug": "taisho-t1559",
+      "workId": "gbcr:work:abhidharmakosa-bhasya",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "阿毘达磨俱舍论（Abhidharmakośabhāṣya）",
+      "sourceRole": "traditional_authored_abhidharma_autocommentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_separate_root_verses_verified",
+          "groupId": "abhidharmakosa-t1558-t1560",
+          "label": "《俱舍论释》同本异译与独立本颂关系",
+          "evidence": "学术资料把玄奘 T1558 与真谛 T1559 明确列为世亲《Abhidharmakośabhāṣya》的两种汉译；T1560 题为《俱舍论本颂》，且其绝大多数五字组可在 T1558 中找到。平台把 T1558/T1559 登记为同一释论作品的两个表达，把独立流通的 T1560 登记为相关但不同的根本颂作品，不把本颂与自释混成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1560"
+            ]
+          }
+        },
+        {
+          "type": "extreme_abridgment_commentary_witness_verified",
+          "groupId": "abhidharmakosa-tattvartha-t1561",
+          "label": "安慧《俱舍论实义疏》极端节本见证",
+          "evidence": "奥地利科学院出版的 Tattvārthā 研究说明，T1561 名列五卷、实仅大正藏三页并只涉及前三品，不是完整注疏的残卷，而是极端节出。平台完整保存这份来源文件，但把它标为安慧注疏作品的部分见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1561"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1559.xml",
+      "upstreamPath": "T/T29/T29n1559.xml",
+      "upstreamGitBlobSha1": "45efc58022f1e6c904feb0c8f855289fd07af2b0",
+      "upstreamBytes": 2027259,
+      "upstreamSha256": "8a03aa19e6e9cd187c6de82886220a00dfab6b171d6cca67a18023e59bd34aba",
+      "localBytes": 2027260,
+      "localSha256": "901a4a77f93265ad2780e3e0a98cd28372b796f8bb02094e391676873c569996",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨俱舍釋論",
+        "alternateTitle": "阿毘達磨俱舍釋論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1559",
+        "translator": "婆藪盤豆造 · 陳 · 真諦譯",
+        "summary": "22卷。固定来源完整保存二十二卷与稳定锚点；学术资料确认其与 T1558 是同一《俱舍论释》的真谛、玄奘异译，故按一个作品、两个表达计数。婆薮盘豆即世亲的传统音译，责任题记按来源照录。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1559_001"
+      },
+      "verification": {
+        "segments": 12950,
+        "folios": 462,
+        "juanRange": [
+          1,
+          22
+        ],
+        "anchors": [
+          "T1559.001.0161a02",
+          "T1559.022.0310c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1560",
+      "slug": "taisho-t1560",
+      "workId": "gbcr:work:abhidharmakosa-karika",
+      "workIdentityStatus": "verified_distinct_root_verse_work",
+      "workTitle": "阿毘达磨俱舍颂（Abhidharmakośakārikā）",
+      "sourceRole": "traditional_authored_abhidharma_root_verse_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_and_separate_root_verses_verified",
+          "groupId": "abhidharmakosa-t1558-t1560",
+          "label": "《俱舍论释》同本异译与独立本颂关系",
+          "evidence": "学术资料把玄奘 T1558 与真谛 T1559 明确列为世亲《Abhidharmakośabhāṣya》的两种汉译；T1560 题为《俱舍论本颂》，且其绝大多数五字组可在 T1558 中找到。平台把 T1558/T1559 登记为同一释论作品的两个表达，把独立流通的 T1560 登记为相关但不同的根本颂作品，不把本颂与自释混成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1560"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1560.xml",
+      "upstreamPath": "T/T29/T29n1560.xml",
+      "upstreamGitBlobSha1": "247ef725727472b91dfb0c8d37e81f6bb4b45a97",
+      "upstreamBytes": 157348,
+      "upstreamSha256": "3f62688a9a4b9c4b53cb1b810adda298894b91b700669627522801c08fc7e60a",
+      "localBytes": 157349,
+      "localSha256": "343c4f82bf07f0d7993c4a73c29d2e0381ef2a6f041acb1ba9e2a3b109bf83ca",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨俱舍論本頌",
+        "alternateTitle": "阿毘達磨俱舍論本頌",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1560",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。固定来源完整保存一卷本颂与稳定锚点；登记为与《俱舍论释》密切相关但可独立流通、可独立表达的根本颂作品，不因 T1558 包含本颂而重复合并表达。传统世亲造、玄奘译题记照录。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1560_001"
+      },
+      "verification": {
+        "segments": 1229,
+        "folios": 44,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1560.001.0310c21",
+          "T1560.001.0325a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1561",
+      "slug": "taisho-t1561",
+      "workId": "gbcr:work:abhidharmakosa-tattvartha-commentary",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "俱舍论实义疏（Sthiramati's Tattvārthā）",
+      "sourceRole": "traditional_authored_extreme_abridgment_of_commentary_witness",
+      "bibliographicRelations": [
+        {
+          "type": "extreme_abridgment_commentary_witness_verified",
+          "groupId": "abhidharmakosa-tattvartha-t1561",
+          "label": "安慧《俱舍论实义疏》极端节本见证",
+          "evidence": "奥地利科学院出版的 Tattvārthā 研究说明，T1561 名列五卷、实仅大正藏三页并只涉及前三品，不是完整注疏的残卷，而是极端节出。平台完整保存这份来源文件，但把它标为安慧注疏作品的部分见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1559",
+              "T1561"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1561.xml",
+      "upstreamPath": "T/T29/T29n1561.xml",
+      "upstreamGitBlobSha1": "8b007a1f06078e5cc9370a7c71616d37b17c2816",
+      "upstreamBytes": 35102,
+      "upstreamSha256": "0a3e92491271dbf61a2fbeffbcb99a9dd410d5faa566a0a20061251a2cad0400",
+      "localBytes": 35103,
+      "localSha256": "202026fffbce54507ddc67408093d3551d08820888570fff7a3b59f39228171f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "俱舍論實義疏",
+        "alternateTitle": "俱舍論實義疏",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1561",
+        "translator": "尊者安惠造",
+        "summary": "5卷。来源文件本身完整保存五卷标号与稳定锚点，但学术研究判定现存汉文只是安慧 Tattvārthā 注疏的极端节本，约三页且只涉及前三品。平台因此计为完整来源文件中的部分作品见证，不冒充完整注疏。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1561_001"
+      },
+      "verification": {
+        "segments": 269,
+        "folios": 14,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1561.001.0325a07",
+          "T1561.005.0328a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1562",
+      "slug": "taisho-t1562",
+      "workId": "gbcr:work:nyayanusara-sanghabhadra",
+      "workIdentityStatus": "verified_distinct_abhidharma_critique_work",
+      "workTitle": "阿毘达磨顺正理论（*Nyāyānusāra）",
+      "sourceRole": "traditional_authored_abhidharma_critique_and_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "broad_critique_and_abridged_exposition_relation_verified",
+          "groupId": "sanghabhadra-nyayanusara-samayapradipika-t1562-t1563",
+          "label": "众贤《顺正理》广论与《显宗》略论关系",
+          "evidence": "同行评审研究确认 T1562 *Nyāyānusāra 与 T1563 *Abhidharmasamayapradīpikā 是众贤的两部不同著作；T1563 序颂自述为使《顺正理》广文易解而造略论，现代研究也说明其大体节出前者显正义部分。平台登记为两个作品并建立广略派生关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1562",
+              "T1563"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1562.xml",
+      "upstreamPath": "T/T29/T29n1562.xml",
+      "upstreamGitBlobSha1": "4d14d91c77f36f72611359268e66969e05966dbe",
+      "upstreamBytes": 4792104,
+      "upstreamSha256": "d683d156aebd7632fe621614c36c995f98a20cce4156ce019fafe87bc98def31",
+      "localBytes": 4792105,
+      "localSha256": "1e95bbab28431e916ee35a0e0dcb5f9f6703f3839f645d67f99eb3a148112ccb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨順正理論",
+        "alternateTitle": "阿毘達磨順正理論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1562",
+        "translator": "尊者眾賢造 · 唐 · 玄奘譯",
+        "summary": "80卷。固定来源完整保存八十卷与稳定锚点；登记为众贤回应《俱舍论释》、阐明毘婆沙宗义的独立广论，与 T1563 建立广略派生关系而不合并作品。传统众贤造、玄奘译题记照录。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1562_001"
+      },
+      "verification": {
+        "segments": 38448,
+        "folios": 1394,
+        "juanRange": [
+          1,
+          80
+        ],
+        "anchors": [
+          "T1562.001.0329a02",
+          "T1562.080.0775c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1563",
+      "slug": "taisho-t1563",
+      "workId": "gbcr:work:abhidharmasamayapradipika-sanghabhadra",
+      "workIdentityStatus": "verified_distinct_abridged_exposition_work",
+      "workTitle": "阿毘达磨藏显宗论（*Abhidharmasamayapradīpikā）",
+      "sourceRole": "traditional_authored_abridged_abhidharma_exposition_translation",
+      "bibliographicRelations": [
+        {
+          "type": "broad_critique_and_abridged_exposition_relation_verified",
+          "groupId": "sanghabhadra-nyayanusara-samayapradipika-t1562-t1563",
+          "label": "众贤《顺正理》广论与《显宗》略论关系",
+          "evidence": "同行评审研究确认 T1562 *Nyāyānusāra 与 T1563 *Abhidharmasamayapradīpikā 是众贤的两部不同著作；T1563 序颂自述为使《顺正理》广文易解而造略论，现代研究也说明其大体节出前者显正义部分。平台登记为两个作品并建立广略派生关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1562",
+              "T1563"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T29n1563.xml",
+      "upstreamPath": "T/T29/T29n1563.xml",
+      "upstreamGitBlobSha1": "4b0fe8a65fe89d43161405ba40fca9624f01a37e",
+      "upstreamBytes": 2136604,
+      "upstreamSha256": "1f75be7c088e9c3b4aef36966b4f574b437c69dcb7adca40967f0c0d9d5ea562",
+      "localBytes": 2136605,
+      "localSha256": "e7b862d76a1aaf1a65932035a0705085964663eccb71f9c338027fd0c4f9c08c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨藏顯宗論",
+        "alternateTitle": "阿毘達磨藏顯宗論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T29, no. 1563",
+        "translator": "尊者眾賢造 · 唐 · 玄奘譯",
+        "summary": "40卷。固定来源完整保存四十卷与稳定锚点；其序颂自明为撮取《顺正理》广文的略论，机器对读也显示高度包含，但它经过删择、改颂并形成独立著作，故建立派生关系而不与 T1562 合并。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1563_001"
+      },
+      "verification": {
+        "segments": 17314,
+        "folios": 632,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T1563.001.0777a02",
+          "T1563.040.0977c07"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

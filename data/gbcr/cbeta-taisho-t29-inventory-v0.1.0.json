@@ -1,0 +1,71 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_abhidharma_t29",
+    "label": "大正藏 T29 毘曇部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T29 目录下、文件名卷号一致的 T29n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T29 的 6 份来源记录包含《俱舍论释》同本异译、独立本颂、安慧注疏的极端节本见证，以及众贤《顺正理》《显宗》广略二论；来源文件、表达、作品、广略关系、完整作品见证与佛陀亲说经文必须分层计量。"
+  },
+  "totals": {
+    "records": 6,
+    "upstreamBytes": 11019060,
+    "candidatePathSha256": "77eab68bd636f42c95a16dc88c6f3cc5bee6111390f1b244c833e96d2398824a"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T29n1558",
+      "canonWitnessId": "T1558",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1558.xml",
+      "upstreamGitBlobSha1": "7dcd75acb7f654f6b06750d6acca33e6a1adc84f",
+      "upstreamBytes": 1870643
+    },
+    {
+      "sourceRecordId": "T29n1559",
+      "canonWitnessId": "T1559",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1559.xml",
+      "upstreamGitBlobSha1": "45efc58022f1e6c904feb0c8f855289fd07af2b0",
+      "upstreamBytes": 2027259
+    },
+    {
+      "sourceRecordId": "T29n1560",
+      "canonWitnessId": "T1560",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1560.xml",
+      "upstreamGitBlobSha1": "247ef725727472b91dfb0c8d37e81f6bb4b45a97",
+      "upstreamBytes": 157348
+    },
+    {
+      "sourceRecordId": "T29n1561",
+      "canonWitnessId": "T1561",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1561.xml",
+      "upstreamGitBlobSha1": "8b007a1f06078e5cc9370a7c71616d37b17c2816",
+      "upstreamBytes": 35102
+    },
+    {
+      "sourceRecordId": "T29n1562",
+      "canonWitnessId": "T1562",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1562.xml",
+      "upstreamGitBlobSha1": "4d14d91c77f36f72611359268e66969e05966dbe",
+      "upstreamBytes": 4792104
+    },
+    {
+      "sourceRecordId": "T29n1563",
+      "canonWitnessId": "T1563",
+      "volume": "T29",
+      "upstreamPath": "T/T29/T29n1563.xml",
+      "upstreamGitBlobSha1": "4b0fe8a65fe89d43161405ba40fca9624f01a37e",
+      "upstreamBytes": 2136604
+    }
+  ]
+}

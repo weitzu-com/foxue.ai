@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v4.6.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.6.0.json";
+import registryDocument from "../../data/gbcr/registry-v4.7.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.7.0.json";
 
 type Expression = {
   id: string;
@@ -181,6 +181,12 @@ export function buildCoverageSnapshot() {
   const chineseT28Controlled = "t28ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t28ControlledSourceRecords ?? null
     : null;
+  const chineseT29Denominator = "t29SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t29SourceRecordDenominator ?? null
+    : null;
+  const chineseT29Controlled = "t29ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t29ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -242,6 +248,11 @@ export function buildCoverageSnapshot() {
   const chineseT28SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_abhidharma_t28",
+      ) ?? null
+    : null;
+  const chineseT29SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_abhidharma_t29",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -463,8 +474,9 @@ export function buildCoverageSnapshot() {
         t26InventorySha256: chineseT26SubsetInventory?.inventorySha256 ?? null,
         t27InventorySha256: chineseT27SubsetInventory?.inventorySha256 ?? null,
         t28InventorySha256: chineseT28SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T28 十二个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T28 释经论、毘昙部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本经论、广释、旧译残存见证、节要、同本异译、失译与归属争议。",
+        t29InventorySha256: chineseT29SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T29 十三个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T29 释经论、毘昙部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、自释、注疏节本、广论、略论、同本异译、失译与归属争议。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -728,6 +740,24 @@ export function buildCoverageSnapshot() {
         controlledWorks: corpusRegistry.cbetaT28BoundaryAudit.controlledWorks,
         unit: "CBETA 固定提交大正藏 T28 毘昙部来源记录",
         caveat: corpusRegistry.cbetaT28BoundaryAudit.caveat,
+      },
+      chineseT29SourceRecords: {
+        denominator: chineseT29Denominator,
+        controlled: chineseT29Controlled,
+        percentage: chineseT29Denominator && chineseT29Controlled !== null
+          ? Number(((chineseT29Controlled / chineseT29Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT29BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT29BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT29BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT29BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT29BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT29BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT29BoundaryAudit.relationAnnotatedRecords,
+        newWorks: corpusRegistry.cbetaT29BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT29BoundaryAudit.controlledWorks,
+        unit: "CBETA 固定提交大正藏 T29 毘昙部来源记录",
+        caveat: corpusRegistry.cbetaT29BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

@@ -209,6 +209,12 @@ export default function CoveragePage() {
               映射为 {snapshot.candidateInventory.chineseT28SourceRecords.controlledWorks} 个批次内作品并新增
               {snapshot.candidateInventory.chineseT28SourceRecords.newWorks} 个作品；T1546 保留为《大毘婆沙论》残存旧译见证，
               T1556/T1557 作为《五事论》同本异译，T1551/T1552 与 T1550 保持扩释、增广而不合并；
+              T29 毘昙部固定来源已完成 {snapshot.candidateInventory.chineseT29SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT29SourceRecords.denominator}（{snapshot.candidateInventory.chineseT29SourceRecords.percentage}%），
+              其中 {snapshot.candidateInventory.chineseT29SourceRecords.fullSourceTexts} 份完整作品来源、
+              {snapshot.candidateInventory.chineseT29SourceRecords.partialSourceWitnesses} 份部分作品见证，
+              映射为 {snapshot.candidateInventory.chineseT29SourceRecords.controlledWorks} 个作品；T1558/T1559 按《俱舍论释》同本异译共享作品，
+              T1560 保留为独立本颂，T1561 标为安慧注疏的极端节本见证，T1562/T1563 保持广论与略论两个相关作品；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -307,6 +313,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T28 的 12 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t29-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T29 的 6 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
