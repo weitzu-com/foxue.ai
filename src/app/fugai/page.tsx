@@ -259,6 +259,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT37SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT37SourceRecords.controlledWorks} 个独立作品；T0353、T0360、T0365、T0366、T0374 与 T0375 根经分别连接所释经疏，
               T1750 与 T1751 保持直接注疏—再注释层级，T1745/T1746 和 T1757/T1758 保持同题或同作者异作边界；
+              T38 涅槃、药师、弥勒与维摩经疏部固定来源已完成 {snapshot.candidateInventory.chineseT38SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT38SourceRecords.denominator}（{snapshot.candidateInventory.chineseT38SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT38SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT38SourceRecords.controlledWorks} 个独立作品；T0375、T0450、T0452/T0454/T0456、T0475/T0476 根经连接对应经疏，
+              T1765/T1766 与 T1778/T1779 保持注释—再注释层级，T1774 明确连接三部弥勒根经，T1777/T1778 与 T1780/T1781 保持相关但不同作品边界；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -429,6 +434,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T37 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t38-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T38 的 18 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
