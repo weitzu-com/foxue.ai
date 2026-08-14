@@ -385,14 +385,9 @@ export default function CoveragePage() {
               当前自动归并 {snapshot.candidateInventory.suttacentralParallelReviewQueue.automaticMerges} 项
             </p>
             <small>{snapshot.candidateInventory.suttacentralParallelReviewQueue.caveat}</small>
-            <a
-              className="text-link"
-              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json"
-              target="_blank"
-              rel="noreferrer"
-            >
-              查看 80 项双人复核队列与裁决规则 <ExternalLink aria-hidden="true" size={13} />
-            </a>
+            <Link className="text-link" href="/shenjiao">
+              进入 80 项只读审校工作台 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
           </article>
           <article>
             <span>rKTs 核心编号候选连接</span>

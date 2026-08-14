@@ -44,6 +44,7 @@ const criticalRoutes = [
   "/jingzang/pali-bhikkhu-patimokkha/001-pli-tv-bu-pm-0001-0120",
   "/jingzang/pali-dhammasangani/001-ds1-1-0001-0092",
   "/fugai",
+  "/shenjiao",
   "/touming",
 ];
 
@@ -331,6 +332,26 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     minimumIndependentReviews: 2,
     denominatorImpact: "none",
   });
+});
+
+test("汉巴作品审校台优先呈现反证并保持真人双重复核边界", async ({ page }) => {
+  await page.goto("/shenjiao");
+
+  await expect(page.getByRole("heading", { level: 1, name: /不是寻找相同/ })).toBeVisible();
+  await expect(page.getByText("已完成人工作品裁决")).toBeVisible();
+  await expect(page.getByText("只读工作台")).toBeVisible();
+  await expect(page.locator(".review-case")).toHaveCount(80);
+
+  await page.getByRole("button", { name: /先审反证/ }).click();
+  await expect(page.locator(".review-case")).toHaveCount(20);
+  await expect(page.getByText("上游范围备注 / 反证").first()).toBeVisible();
+
+  await page.getByRole("searchbox", { name: "检索 80 项证据" }).fill("MN 1");
+  await expect(page.locator(".review-case").first()).toContainText("MN1");
+  await expect(page.getByText("AI 可整理证据，但不能署名为真人复核者")).toBeVisible();
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
 });
 
 test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {

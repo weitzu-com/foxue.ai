@@ -18,6 +18,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <Link href="/jingzang">浏览经藏</Link>
           <Link href="/fugai">佛典覆盖</Link>
+          <Link href="/shenjiao">作品审校</Link>
           <Link href="/yuanze">方法与边界</Link>
           <Link href="/touming">数据透明</Link>
           <a

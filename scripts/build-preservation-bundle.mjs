@@ -395,6 +395,8 @@ const requiredPaths = [
   "src/lib/bilara-reading.d.mts",
   "src/lib/corpus-reading.ts",
   "src/lib/reader-routes.ts",
+  "src/app/shenjiao/page.tsx",
+  "src/app/shenjiao/review-queue-workbench.tsx",
   "infra/corpus-edge/src/index.ts",
   "infra/corpus-edge/wrangler.jsonc",
   "infra/corpus-edge/worker-configuration.d.ts",

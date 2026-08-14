@@ -11,7 +11,7 @@ export async function generateSitemaps() {
 
 async function allSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
-  const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/yuanze", "/touming"];
+  const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/shenjiao", "/yuanze", "/touming"];
   const readings = await Promise.all(
     sutras.map(async (sutra) => ({ sutra, reading: await getSutraReading(sutra) })),
   );
