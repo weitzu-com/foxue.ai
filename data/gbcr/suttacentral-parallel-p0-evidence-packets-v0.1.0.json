@@ -1,0 +1,2142 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "status": "machine_prepared_p0_materials_pending_two_independent_human_reviews",
+  "warning": "20 份证据包都不是学术复核或裁决。它们只减少寻找来源的机械劳动；作品判断仍须两名独立真人与必要仲裁。",
+  "generatedFrom": {
+    "queue": {
+      "file": "data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json",
+      "sha256": "e0a4f901aaffb8d04da1cabe49f1e574cbaebe8900b72ccad82d8edc704454e5"
+    },
+    "registry": {
+      "file": "data/gbcr/registry-v3.5.0.json",
+      "sha256": "746c135696d4c42c9d25f2ddbd99c19840dd2252f67064c530fa94cf47c0b921"
+    },
+    "majjhima": {
+      "file": "data/corpus/suttacentral/mn-manifest-v0.9.0.json",
+      "sha256": "7f9fec2e0af8126217926b3fdeaddb360f69622f34507e2e4adf0b4f6d8fb63a"
+    },
+    "samyutta": {
+      "file": "data/corpus/suttacentral/sn-manifest-v1.0.0.json",
+      "sha256": "b6b3f94d4dabdea0ff5c3ebe4f2901b3b08accf18cd7da165e6e22e7b888d844"
+    },
+    "cbeta": {
+      "file": "data/corpus/cbeta/manifest-v2.4.0.json",
+      "sha256": "503aee11c90b3cfcb39b7fae71462538f988f11160e7d766b7194f717c09e9e3"
+    }
+  },
+  "cbetaSourceInputs": {
+    "T0026": {
+      "file": "data/corpus/cbeta/T01n0026.xml",
+      "sha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801"
+    },
+    "T0125": {
+      "file": "data/corpus/cbeta/T02n0125.xml",
+      "sha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1"
+    },
+    "T0099": {
+      "file": "data/corpus/cbeta/T02n0099.xml",
+      "sha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61"
+    }
+  },
+  "summary": {
+    "packets": 20,
+    "packetsWithUpstreamRemarksOrCounterevidence": 20,
+    "exactPaliStandaloneOrSourcePartAssets": 20,
+    "exactChineseInternalTeiRangesMachineLocated": 20,
+    "chineseInternalRangesPendingHumanBoundaryCheck": 20,
+    "completedIndependentReviews": 0,
+    "adjudicatedItems": 0,
+    "automaticWorkMerges": 0,
+    "denominatorImpact": "none"
+  },
+  "packets": [
+    {
+      "id": "gbcr:p0-evidence-packet:0a465257c6ab8373",
+      "reviewQueueItemId": "gbcr:parallel-review:0a465257c6ab8373",
+      "evidenceEdgeId": "gbcr:parallel:0a465257c6ab8373",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "MA 106 and T 56 are only partial parallels for MN 1, as they differ from it in several respects. Whereas MN 1 discusses worldling, disciple in higher training, <i>arahant</i>, and <i>tathāgata</i>, MA 106 and T 56 discuss two types of recluses and Brahmins and the Buddha. They name a different location for the discourse and differ from MN 1 in not discussing Nibbāna, and in not concluding with the monks failing to delight in the exposition. In contrast, EA 44.6 agrees with MN 1 on the above points.",
+        "upstreamRowNumbers": [
+          226960,
+          228296
+        ],
+        "evidenceSha256": "813e4d94b30b496334c5cd52437dd86349cdfcda0012e5bc44faff0344c5e1b1"
+      },
+      "pali": {
+        "reference": "mn1",
+        "title": "中部第 1 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn1-pali",
+        "expressionId": "gbcr:expression:MN1-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn1",
+        "registeredStableSegments": 334,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN1",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn1_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn1_root-pli-ms.json",
+            "upstreamGitBlobSha1": "096c49f188d43174850a5bfebdc3432789cae836",
+            "upstreamBytes": 21399,
+            "upstreamSha256": "bee49a5461f36eea8b0c3895a8cb5ff77353134b763898a8c9bf83248757f9ee",
+            "localBytes": 21400,
+            "localSha256": "2e840e7344a08e56451ccbb074a8763af526f91ad0f63a4796c66636082268b9",
+            "firstSegmentId": "mn1:0.1",
+            "lastSegmentId": "mn1:194.10",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma106",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma106",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 106,
+          "discourseLabel": "106 想經",
+          "chapterNumber": 4,
+          "chapterSourceN": null,
+          "chapterLabel": "4 因品",
+          "startSegmentId": "T0026.026.0596b09",
+          "endSegmentId": "T0026.026.0596c17",
+          "firstSourceLine": "0596b09",
+          "lastSourceLine": "0596c17",
+          "stableSegments": 37,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 106
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.026.0596b09",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:bc0c16c4bc557ba1",
+      "reviewQueueItemId": "gbcr:parallel-review:bc0c16c4bc557ba1",
+      "evidenceEdgeId": "gbcr:parallel:bc0c16c4bc557ba1",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "Akanuma p. 163 lists EA 49.5 at T ii 797b as a partial parallel. EA 49.5 reports the Buddha giving a detailed explanation of the twelve links of <i>paṭiccasamuppada</i> and correcting Ānanda’s lack of appreciation of its profundity. It finds its closest parallel in SN 12.2 at SN ii 2 as regards the exposition of <i>paṭiccasamuppada</i>; and it has Ānanda’s underestimation of the profundity of <i>paṭiccasamuppada</i> in common with DN 15 at DN ii 55 and SN 12.60 at SN ii 92.",
+        "upstreamRowNumbers": [
+          227430,
+          230375
+        ],
+        "evidenceSha256": "07f7549af28ebc0c54b53985a392aab36cd450147e751618a9b95c3db3a9fe5a"
+      },
+      "pali": {
+        "reference": "mn9",
+        "title": "中部第 9 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn9-pali",
+        "expressionId": "gbcr:expression:MN9-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn9",
+        "registeredStableSegments": 234,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN9",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn9_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn9_root-pli-ms.json",
+            "upstreamGitBlobSha1": "a6dd3be25d096ce0d644f102cca99152b2d85d7e",
+            "upstreamBytes": 29786,
+            "upstreamSha256": "cbd4cd8a3e327da1fe7a20a88b44fd6576f9130234d54f3d9b31fe9d7fb1ef32",
+            "localBytes": 29787,
+            "localSha256": "9d1447f7f1ae3eb8b7360197ae6c4c4b873e0e309b5c3ac858e5edc5ba637803",
+            "firstSegmentId": "mn9:0.1",
+            "lastSegmentId": "mn9:71.5",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma29",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma29",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 29,
+          "discourseLabel": "29 大拘絺羅經",
+          "chapterNumber": 3,
+          "chapterSourceN": null,
+          "chapterLabel": "3 舍梨子相應品",
+          "startSegmentId": "T0026.007.0461b22",
+          "endSegmentId": "T0026.007.0464b16",
+          "firstSourceLine": "0461b22",
+          "lastSourceLine": "0464b16",
+          "stableSegments": 255,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 29
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.007.0461b22",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:bb1aed4b3826252d",
+      "reviewQueueItemId": "gbcr:parallel-review:bb1aed4b3826252d",
+      "evidenceEdgeId": "gbcr:parallel:bb1aed4b3826252d",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "EA 41.1 is only a partial parallel, as its first part instead parallels SN 55.21 at SN v 369, another meeting between the Buddha and Mahānāma.",
+        "upstreamRowNumbers": [
+          12244,
+          228929
+        ],
+        "evidenceSha256": "34d59d4cf6a8929423b5263d1504454469b3386c37ad664462d031045241a66c"
+      },
+      "pali": {
+        "reference": "mn14",
+        "title": "中部第 14 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn14-pali",
+        "expressionId": "gbcr:expression:MN14-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn14",
+        "registeredStableSegments": 144,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN14",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn14_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn14_root-pli-ms.json",
+            "upstreamGitBlobSha1": "7f38297154a85f06f97980d54b5b65a34f959e1d",
+            "upstreamBytes": 17551,
+            "upstreamSha256": "114dbc6eade984e735c729a24f20922d58abad6806c439498ee784adc7326ee1",
+            "localBytes": 17552,
+            "localSha256": "45db4bdf78b3cf2ce64088b8ced7ba9daf5c9ebaf1faaf7475ffa8276d9bbc48",
+            "firstSegmentId": "mn14:0.1",
+            "lastSegmentId": "mn14:21.24",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea41.1",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea41.1",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 1,
+          "discourseLabel": "1",
+          "chapterNumber": 41,
+          "chapterSourceN": "41",
+          "chapterLabel": "41 莫畏品",
+          "startSegmentId": "T0125.035.0744a02",
+          "endSegmentId": "T0125.035.0744c02",
+          "firstSourceLine": "0744a02",
+          "lastSourceLine": "0744c02",
+          "stableSegments": 59,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 41,
+            "discourseNumber": 1
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.035.0744a02",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:1fc7ba6d729c7d8f",
+      "reviewQueueItemId": "gbcr:parallel-review:1fc7ba6d729c7d8f",
+      "evidenceEdgeId": "gbcr:parallel:1fc7ba6d729c7d8f",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "EA 50.8 is only a partial parallel to MN 21. Its first part agrees with MN 21 in having the monk Moliyaphagguna (~茂羅破群) associating excessively with nuns. The remainder of EA 50.8 agrees rather with MN 22, as in EA 50.8 the claim that sensuality is no obstacle to progress is made by Moliyaphagguna, while in MN 22 it is made by another monk, Ariṭṭha. EA 50.8 thereafter agrees with MN 22 in having the Buddha correct this mistaken view and deliver the snake simile. We therefore list EA 50.8 as a partial parallel to both MN 21 and MN 22.",
+        "upstreamRowNumbers": [
+          12478,
+          229120
+        ],
+        "evidenceSha256": "33789df7b295659a4fb4284c9bc4b948472ad7345ff623658082167de9bad3cc"
+      },
+      "pali": {
+        "reference": "mn21",
+        "title": "中部第 21 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn21-pali",
+        "expressionId": "gbcr:expression:MN21-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn21",
+        "registeredStableSegments": 227,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN21",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn21_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn21_root-pli-ms.json",
+            "upstreamGitBlobSha1": "8388da261c4b895776318e7c9caf64c2ec63f7f5",
+            "upstreamBytes": 23300,
+            "upstreamSha256": "921721fe862ad7b411f394cec19f38d3f991a9140a5c08ad63ab9411c09730b1",
+            "localBytes": 23301,
+            "localSha256": "52aa83af9245da94cf5f2849ef7ed703080cd13446cf552bf29bc7385b2d4fbf",
+            "firstSegmentId": "mn21:0.1",
+            "lastSegmentId": "mn21:21.8",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea50.8",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea50.8",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 8,
+          "discourseLabel": "8",
+          "chapterNumber": 50,
+          "chapterSourceN": "51",
+          "chapterLabel": "50 禮三寶品",
+          "startSegmentId": "T0125.048.0812c02",
+          "endSegmentId": "T0125.048.0813b22",
+          "firstSourceLine": "0812c02",
+          "lastSourceLine": "0813b22",
+          "stableSegments": 79,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 50,
+            "discourseNumber": 8
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.048.0812c02",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:b79e6af7011f78ea",
+      "reviewQueueItemId": "gbcr:parallel-review:b79e6af7011f78ea",
+      "evidenceEdgeId": "gbcr:parallel:b79e6af7011f78ea",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "Akanuma p. 165 lists no parallel. The main content of MN 30 is similar to that of MN 29; consequently EA 43.4, the parallel to MN 29, is also a partial parallel to MN 30.",
+        "upstreamRowNumbers": [
+          12287,
+          229357
+        ],
+        "evidenceSha256": "2eda4d6552392f0292183b43d8e89ff273c455dd03216de17888b871ae0d329a"
+      },
+      "pali": {
+        "reference": "mn30",
+        "title": "中部第 30 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn30-pali",
+        "expressionId": "gbcr:expression:MN30-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn30",
+        "registeredStableSegments": 163,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN30",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn30_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn30_root-pli-ms.json",
+            "upstreamGitBlobSha1": "18d09238f706a9c76a9e0b1db7af044c79ae44f5",
+            "upstreamBytes": 20217,
+            "upstreamSha256": "78eab779e8056ad61034b944c07803dbb74c7045cadeeb659c51b3e2faefb0ef",
+            "localBytes": 20218,
+            "localSha256": "3d0c91bf40d0c660a9646a003258142bd4b56612c353c98937f01a4fcb04227b",
+            "firstSegmentId": "mn30:0.1",
+            "lastSegmentId": "mn30:25.4",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea43.4",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea43.4",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 4,
+          "discourseLabel": "4",
+          "chapterNumber": 43,
+          "chapterSourceN": "43",
+          "chapterLabel": "43 馬血天子問八政品",
+          "startSegmentId": "T0125.038.0759a29",
+          "endSegmentId": "T0125.038.0759c28",
+          "firstSourceLine": "0759a29",
+          "lastSourceLine": "0759c28",
+          "stableSegments": 58,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 43,
+            "discourseNumber": 4
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.038.0759a29",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:19facd25e26b8c08",
+      "reviewQueueItemId": "gbcr:parallel-review:19facd25e26b8c08",
+      "evidenceEdgeId": "gbcr:parallel:19facd25e26b8c08",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "Akanuma p. 165 lists SA 251 at T ii 060b as another parallel. However, SA 251 should rather be reckoned as a parallel to SN 22.127–132 at SN iii 172, since it agrees with them in having Mahakoṭṭhita ask Sāriputta only about the implications of ignorance and its opposite, not about the whole range of topics treated in MN 43 and MA 211.",
+        "upstreamRowNumbers": [
+          227388,
+          229609
+        ],
+        "evidenceSha256": "be72a2be869c2d05d5130d9e8f7d4284d209690f36fa101be0ecccd95676f571"
+      },
+      "pali": {
+        "reference": "mn43",
+        "title": "中部第 43 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn43-pali",
+        "expressionId": "gbcr:expression:MN43-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn43",
+        "registeredStableSegments": 183,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN43",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn43_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn43_root-pli-ms.json",
+            "upstreamGitBlobSha1": "03f774c0afa5d6c0e5352d33814984838822ed4a",
+            "upstreamBytes": 19851,
+            "upstreamSha256": "8d04c656e6a7f455bde6ce7c27980633b0562322162c6c5e968f8e0d34534229",
+            "localBytes": 19852,
+            "localSha256": "c1a97caf90f5e4f0946e5fa518303c9d90e2540da9809357d139f6b265ce6d17",
+            "firstSegmentId": "mn43:0.1",
+            "lastSegmentId": "mn43:37.8",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma211",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma211",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 211,
+          "discourseLabel": "211 大拘絺羅經",
+          "chapterNumber": 3,
+          "chapterSourceN": null,
+          "chapterLabel": "3 晡利多品",
+          "startSegmentId": "T0026.058.0790b08",
+          "endSegmentId": "T0026.058.0792c02",
+          "firstSourceLine": "0790b08",
+          "lastSourceLine": "0792c02",
+          "stableSegments": 197,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 211
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.058.0790b08",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:54ce9e7714c0f209",
+      "reviewQueueItemId": "gbcr:parallel-review:54ce9e7714c0f209",
+      "evidenceEdgeId": "gbcr:parallel:54ce9e7714c0f209",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "EA 49.7 is a partial parallel to M 65, as Akanuma p. 167 indicates. After reporting the Buddha’s instruction to Bhaddali ~(跋提婆羅) about taking only a single meal, EA 49.7 describes how Udayi (~優陀夷) once went begging at night and so startled a pregnant woman that she miscarried, a tale related also in MN 66 and MA 192. In EA 49.7 the Buddha comes to hear of this and addresses the monks on the benefit of taking a single meal, after which EA 49.7 returns to the events relating to Bhaddali. We therefore reckon EA 49.7 as a partial parallel to both MN 65 and MN 66.",
+        "upstreamRowNumbers": [
+          12446,
+          229887
+        ],
+        "evidenceSha256": "b53d6c82a4c5caeb0b221e848f4ca2f0c8fd09817a863556ff57ca72128b0dde"
+      },
+      "pali": {
+        "reference": "mn66",
+        "title": "中部第 66 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn66-pali",
+        "expressionId": "gbcr:expression:MN66-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn66",
+        "registeredStableSegments": 202,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN66",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn66_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn66_root-pli-ms.json",
+            "upstreamGitBlobSha1": "e329fe4f1a7b52ad7f13d4c2b39233d0383866bb",
+            "upstreamBytes": 24428,
+            "upstreamSha256": "18109629dc7736a393f55a96c33550c5665a31b9f02ba1aa9fbf69461eb811e9",
+            "localBytes": 24429,
+            "localSha256": "96222ec064be1f827b8a67c104ebc9ab1dc62dbe7ae233c9f7e0e28fc43b4ae5",
+            "firstSegmentId": "mn66:0.1",
+            "lastSegmentId": "mn66:34.7",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea49.7",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea49.7",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 7,
+          "discourseLabel": "7",
+          "chapterNumber": 49,
+          "chapterSourceN": "50",
+          "chapterLabel": "49 放牛品",
+          "startSegmentId": "T0125.047.0800b27",
+          "endSegmentId": "T0125.047.0801c13",
+          "firstSourceLine": "0800b27",
+          "lastSourceLine": "0801c13",
+          "stableSegments": 103,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 49,
+            "discourseNumber": 7
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.047.0800b27",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:e2cdf268c6ac3ae3",
+      "reviewQueueItemId": "gbcr:parallel-review:e2cdf268c6ac3ae3",
+      "evidenceEdgeId": "gbcr:parallel:e2cdf268c6ac3ae3",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "The events related in MN 86 recur in T 120 at T ii 512b (as recognised by Akanuma p. 168) and in Derge 213 at mdo sde tsha (57): 126a. Both of these are Mahayana discourses of the <i>tathāgatagarbha</i> type and therefore fall outside the scope of our presentation.",
+        "upstreamRowNumbers": [
+          230305,
+          273654
+        ],
+        "evidenceSha256": "284b6e3b156c52d181abfa5b83aa51072c6289bc91f8aa581d03386e8e956ff4"
+      },
+      "pali": {
+        "reference": "mn86",
+        "title": "中部第 86 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn86-pali",
+        "expressionId": "gbcr:expression:MN86-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn86",
+        "registeredStableSegments": 208,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN86",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn86_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn86_root-pli-ms.json",
+            "upstreamGitBlobSha1": "8519ba3784f4dc25d5c3129e43616977e4e0f612",
+            "upstreamBytes": 18372,
+            "upstreamSha256": "923474f1f7cda98f585628c10254001210f5f2e593306d06717e67cec15b3abb",
+            "localBytes": 18373,
+            "localSha256": "37c8524b955b8fafbe9bb4ec00bb69f1fd9d3bc4b85d16de0d02c985abc5827a",
+            "firstSegmentId": "mn86:0.1",
+            "lastSegmentId": "mn86:18.67",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa1077",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa1077",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 1077,
+          "discourseLabel": "1084",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.039.0284b20",
+          "endSegmentId": "T0099.039.0284c09",
+          "firstSourceLine": "0284b20",
+          "lastSourceLine": "0284c09",
+          "stableSegments": 19,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 1077
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.039.0284b20",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:a5335affb82bf8b9",
+      "reviewQueueItemId": "gbcr:parallel-review:a5335affb82bf8b9",
+      "evidenceEdgeId": "gbcr:parallel:a5335affb82bf8b9",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 168 lists T 79 at T i 888b as a parallel to MN 99. Inspection reveals that T 79 is rather a parallel to MN 135.",
+        "upstreamRowNumbers": [
+          227131,
+          230761
+        ],
+        "evidenceSha256": "431fad182abee41bd03158cb0d762f054ddb0cfb7a6c307f2d863cf79475db6c"
+      },
+      "pali": {
+        "reference": "mn99",
+        "title": "中部第 99 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn99-pali",
+        "expressionId": "gbcr:expression:MN99-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn99",
+        "registeredStableSegments": 270,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN99",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn99_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn99_root-pli-ms.json",
+            "upstreamGitBlobSha1": "22cb6422a7365fbf94b894a17072e0b2ddcfceec",
+            "upstreamBytes": 30669,
+            "upstreamSha256": "e8de79b257b74090830a75f706b6d482b740e8db718c5985cf8a506d39000413",
+            "localBytes": 30670,
+            "localSha256": "ac0e5141464ce78dcb066d00884e2d932fe9d43cfb9e96ddcd60a99067ba38de",
+            "firstSegmentId": "mn99:0.1",
+            "lastSegmentId": "mn99:31.4",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma152",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma152",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 152,
+          "discourseLabel": "152 鸚鵡經",
+          "chapterNumber": 1,
+          "chapterSourceN": null,
+          "chapterLabel": "1 梵志品",
+          "startSegmentId": "T0026.038.0666c26",
+          "endSegmentId": "T0026.038.0670a25",
+          "firstSourceLine": "0666c26",
+          "lastSourceLine": "0670a25",
+          "stableSegments": 289,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 152
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.038.0666c26",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:62677fc27fa74438",
+      "reviewQueueItemId": "gbcr:parallel-review:62677fc27fa74438",
+      "evidenceEdgeId": "gbcr:parallel:62677fc27fa74438",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 169 draws attention to a passage in the Mahāvastu (Senart 1882 p. 357). This passage describes the self–cremation of <i>paccekabuddhas</i> on being told that the bodhisatta was about to take birth and thus is not a parallel to MN 116.",
+        "upstreamRowNumbers": [
+          12135,
+          228540
+        ],
+        "evidenceSha256": "b305d3e52b8d345a554ba43d80c6d1f7c13eff260c98c19d64ddc69a100639e6"
+      },
+      "pali": {
+        "reference": "mn116",
+        "title": "中部第 116 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn116-pali",
+        "expressionId": "gbcr:expression:MN116-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn116",
+        "registeredStableSegments": 96,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN116",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn116_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn116_root-pli-ms.json",
+            "upstreamGitBlobSha1": "dd0ae72c6ab1a0a36001489ef19bdd2d8b6cf1b0",
+            "upstreamBytes": 6653,
+            "upstreamSha256": "fab3151e74141a7bcace56375a9b8e6977a81a4209801e234e8aa9bad4e7a8a6",
+            "localBytes": 6654,
+            "localSha256": "7a4426aba9be7d14875eea4cc76a8964c739d4a1fb0dcb7bf8b534e91c3c8f82",
+            "firstSegmentId": "mn116:0.1",
+            "lastSegmentId": "mn116:7.5",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea38.7",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea38.7",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 7,
+          "discourseLabel": "7",
+          "chapterNumber": 38,
+          "chapterSourceN": "38",
+          "chapterLabel": "38 力品",
+          "startSegmentId": "T0125.032.0723a06",
+          "endSegmentId": "T0125.032.0723c05",
+          "firstSourceLine": "0723a06",
+          "lastSourceLine": "0723c05",
+          "stableSegments": 58,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 38,
+            "discourseNumber": 7
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.032.0723a06",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:2ad07a3ed617786b",
+      "reviewQueueItemId": "gbcr:parallel-review:2ad07a3ed617786b",
+      "evidenceEdgeId": "gbcr:parallel:2ad07a3ed617786b",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 169 lists T 96. Examination shows that this discourse bears no resemblance to MN 118, apart from a single introductory sentence that links mindfulness of breathing to the attainment of knowledge and liberation.",
+        "upstreamRowNumbers": [
+          228558,
+          276559
+        ],
+        "evidenceSha256": "daf53866cbf71242fe0111757b7634843550c65b242aef67271cb222722703d4"
+      },
+      "pali": {
+        "reference": "mn118",
+        "title": "中部第 118 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn118-pali",
+        "expressionId": "gbcr:expression:MN118-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn118",
+        "registeredStableSegments": 154,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN118",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn118_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn118_root-pli-ms.json",
+            "upstreamGitBlobSha1": "ba7300f59c44e8564ebf2405e18d785e41e49be0",
+            "upstreamBytes": 21497,
+            "upstreamSha256": "65eeb3cb1e395fa4aa103928c2262e2f50bad8d76b197534746e161ef988c15c",
+            "localBytes": 21498,
+            "localSha256": "95fa8a2435f7f39ba1b501e613fb89661039109643d156d2f349c8076897ef4f",
+            "firstSegmentId": "mn118:0.1",
+            "lastSegmentId": "mn118:43.4",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa815",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa815",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 815,
+          "discourseLabel": "822",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.029.0211a12",
+          "endSegmentId": "T0099.029.0211b05",
+          "firstSourceLine": "0211a12",
+          "lastSourceLine": "0211b05",
+          "stableSegments": 23,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 815
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.029.0211a12",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:1af62d4160280299",
+      "reviewQueueItemId": "gbcr:parallel-review:1af62d4160280299",
+      "evidenceEdgeId": "gbcr:parallel:1af62d4160280299",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "Akanuma p. 169 lists T 96. Examination shows that this discourse bears no resemblance to MN 118, apart from a single introductory sentence that links mindfulness of breathing to the attainment of knowledge and liberation.",
+        "upstreamRowNumbers": [
+          228559
+        ],
+        "evidenceSha256": "d9979a18d682f9f476b7479816b588e611a2966f189d7d36bbb50182104c3980"
+      },
+      "pali": {
+        "reference": "mn118#16.1-#22.1",
+        "title": "中部第 118 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn118-pali",
+        "expressionId": "gbcr:expression:MN118-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn118",
+        "registeredStableSegments": 154,
+        "requestedScope": "#16.1-#22.1",
+        "scopeStatus": "upstream_fragment_scope_preserved_human_boundary_check_required",
+        "controlledAssets": [
+          {
+            "id": "MN118",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn118_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn118_root-pli-ms.json",
+            "upstreamGitBlobSha1": "ba7300f59c44e8564ebf2405e18d785e41e49be0",
+            "upstreamBytes": 21497,
+            "upstreamSha256": "65eeb3cb1e395fa4aa103928c2262e2f50bad8d76b197534746e161ef988c15c",
+            "localBytes": 21498,
+            "localSha256": "95fa8a2435f7f39ba1b501e613fb89661039109643d156d2f349c8076897ef4f",
+            "firstSegmentId": "mn118:0.1",
+            "lastSegmentId": "mn118:43.4",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa815",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa815",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 815,
+          "discourseLabel": "822",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.029.0211a12",
+          "endSegmentId": "T0099.029.0211b05",
+          "firstSourceLine": "0211a12",
+          "lastSourceLine": "0211b05",
+          "stableSegments": 23,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 815
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.029.0211a12",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:71e0741f297eb83a",
+      "reviewQueueItemId": "gbcr:parallel-review:71e0741f297eb83a",
+      "evidenceEdgeId": "gbcr:parallel:71e0741f297eb83a",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "Akanuma p. 169 lists A iv. 123, 124 as parallel(s). Neither AN 4.123–124 at AN ii 126 nor AN 7.66 at AN iv 123–124 bears any resemblance to MN 120. He also lists MA 168 as a full parallel, yet  examination shows that this discourse differs in so many respects from MN 120 that it is probably best reckoned as a partial parallel. A so far unpublished Gandharī fragment, Senior manuscript 10, parallels part of MN 120 (Mark Allon, private communication).",
+        "upstreamRowNumbers": [
+          227182,
+          228627
+        ],
+        "evidenceSha256": "af8019d1f9c4dedd8047d0ae2c24be274a1c41e26f234d675720ce7f6bdcd4d4"
+      },
+      "pali": {
+        "reference": "mn120",
+        "title": "中部第 120 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn120-pali",
+        "expressionId": "gbcr:expression:MN120-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn120",
+        "registeredStableSegments": 201,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN120",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn120_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn120_root-pli-ms.json",
+            "upstreamGitBlobSha1": "f6143269888ff1be3c2215eb24f3ecc035c9fc10",
+            "upstreamBytes": 16538,
+            "upstreamSha256": "2527d6c9e159eb8c0626d1d2c4134ea3c83a755aa167864ae927a80a105966d6",
+            "localBytes": 16539,
+            "localSha256": "86cd2a42441dda4e04c9fd0e9cc0ef83086f7d3bebfd028da4885615732ec053",
+            "firstSegmentId": "mn120:0.1",
+            "lastSegmentId": "mn120:38.4",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma168",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma168",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 168,
+          "discourseLabel": "168 意行經",
+          "chapterNumber": 2,
+          "chapterSourceN": null,
+          "chapterLabel": "2 根本分別品",
+          "startSegmentId": "T0026.043.0700b24",
+          "endSegmentId": "T0026.043.0701b21",
+          "firstSourceLine": "0700b24",
+          "lastSourceLine": "0701b21",
+          "stableSegments": 84,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 168
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.043.0700b24",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:01d0e858565833ee",
+      "reviewQueueItemId": "gbcr:parallel-review:01d0e858565833ee",
+      "evidenceEdgeId": "gbcr:parallel:01d0e858565833ee",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Several of the “wonderful and marvellous” qualities of the Buddha treated in MN 123 recur in various Buddha biographies. Thus, e.g., his taking of a series of steps and making a proclamation right after being born can be found in the Saṅghabhedavastu in Gnoli 1977 p. 45, the Buddhacarita in Johnston 1995 p. 2, the Lalitavistara in Lefmann 1902 p. 85 or Vaidya 1958b p. 62, the Mahāvastu in Senart 1890 p. 24 or Basak 1965 p. 33, and in several Chinese accounts such as T 184 at T iii 463c, T 185 at T iii 473c, T 188 at T iii 618a, T 189 at T iii 625a.",
+        "upstreamRowNumbers": [
+          227444,
+          228634
+        ],
+        "evidenceSha256": "8ce48f4f6c4fbeb87b12c603d6c6d47b438c1eb52d0802bf76f81455af787f21"
+      },
+      "pali": {
+        "reference": "mn123",
+        "title": "中部第 123 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn123-pali",
+        "expressionId": "gbcr:expression:MN123-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn123",
+        "registeredStableSegments": 107,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN123",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn123_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn123_root-pli-ms.json",
+            "upstreamGitBlobSha1": "73127958fa6efff4ee0bef35225cdba95ba39f28",
+            "upstreamBytes": 14748,
+            "upstreamSha256": "8c7b7b02a6395ac0a911c30fef77ad275ae627c891f5d7309902f0afe1255bb7",
+            "localBytes": 14749,
+            "localSha256": "4e5d4fd598d575ddb4e2a91b6c7466370438b5ec72378b86bd8747479c404d40",
+            "firstSegmentId": "mn123:0.1",
+            "lastSegmentId": "mn123:23.8",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma32",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma32",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 32,
+          "discourseLabel": "32 未曾有法經",
+          "chapterNumber": 4,
+          "chapterSourceN": null,
+          "chapterLabel": "4 未曾有法品",
+          "startSegmentId": "T0026.008.0469c20",
+          "endSegmentId": "T0026.008.0471c26",
+          "firstSourceLine": "0469c20",
+          "lastSourceLine": "0471c26",
+          "stableSegments": 181,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 32
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.008.0469c20",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:e97ff2e596f8df9d",
+      "reviewQueueItemId": "gbcr:parallel-review:e97ff2e596f8df9d",
+      "evidenceEdgeId": "gbcr:parallel:e97ff2e596f8df9d",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "The Karmavibhaṅga sections preserved in the Kutchean fragment in Lévi 1933 (cf. also Sieg 1938), and in the Sogdian fragment in Rosenberg 1920, do not parallel MN 135.",
+        "upstreamRowNumbers": [
+          227190,
+          228885
+        ],
+        "evidenceSha256": "23c7035e89d6676743741e98efc1f8dc3952471a4b9518f5f2b0e276fc5af8b4"
+      },
+      "pali": {
+        "reference": "mn135",
+        "title": "中部第 135 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "expressionId": "gbcr:expression:MN135-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn135",
+        "registeredStableSegments": 137,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN135",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn135_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn135_root-pli-ms.json",
+            "upstreamGitBlobSha1": "12bc0f2b7776c35d35e3dae240153291f4e3e803",
+            "upstreamBytes": 16862,
+            "upstreamSha256": "c03352119d44ce72bccaf6dbeac732ec2e1e191bbca9fd52ca8c1a4be073c432",
+            "localBytes": 16863,
+            "localSha256": "36b47d4989ebbb5dcac2a06dec891fb228c71f5e061813f4bf60801a3bf23a53",
+            "firstSegmentId": "mn135:0.1",
+            "lastSegmentId": "mn135:21.6",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ma170",
+        "cbetaId": "T0026",
+        "title": "中阿含經",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "expressionId": "gbcr:expression:T0026-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zhongahanjing",
+        "registeredStableSegments": 33424,
+        "requestedScope": "ma170",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 170,
+          "discourseLabel": "170 鸚鵡經",
+          "chapterNumber": 2,
+          "chapterSourceN": null,
+          "chapterLabel": "2 根本分別品",
+          "startSegmentId": "T0026.044.0703c21",
+          "endSegmentId": "T0026.044.0706b11",
+          "firstSourceLine": "0703c21",
+          "lastSourceLine": "0706b11",
+          "stableSegments": 222,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 170
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zhongahanjing#T0026.044.0703c21",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0026",
+            "localPath": "data/corpus/cbeta/T01n0026.xml",
+            "upstreamPath": "T/T01/T01n0026.xml",
+            "upstreamGitBlobSha1": "4bf8b9b601d4b5a58dc1b433c6f273a98ceaa3d3",
+            "upstreamBytes": 6904134,
+            "upstreamSha256": "be7b8a399740f984799c762ca572b0ea80a6c79c26a0589c9de07674260eaa07",
+            "localBytes": 6904135,
+            "localSha256": "036887154e8b8a86f8b4882e0cd8deb203e071dfbb5e2886ece28a0042b7a801",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:97523ae2d844968c",
+      "reviewQueueItemId": "gbcr:parallel-review:97523ae2d844968c",
+      "evidenceEdgeId": "gbcr:parallel:97523ae2d844968c",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 171 lists MA 28 at T i 458b as another parallel. But MA 28 agrees with SN 55.26 at SN v 380 as regards Sāriputta’s instructions to Anāthapiṇḍika, and in having Anāthapiṇḍika recover rather than dying, as recorded in MN 143 and EA 51.8. Hence, MA 28 (as also Skt fragment cat. no. 1397 in SHT vi 116) is better reckoned a parallel to SN 55.26.",
+        "upstreamRowNumbers": [
+          12526,
+          228977
+        ],
+        "evidenceSha256": "d55fa115e1a736b0f066a8579ac04b05942a14a2579a22a4c4e7778a91731955"
+      },
+      "pali": {
+        "reference": "mn143",
+        "title": "中部第 143 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn143-pali",
+        "expressionId": "gbcr:expression:MN143-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn143",
+        "registeredStableSegments": 193,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN143",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn143_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn143_root-pli-ms.json",
+            "upstreamGitBlobSha1": "d48362712dd8fd129997260d9be1e759ac3d1120",
+            "upstreamBytes": 16706,
+            "upstreamSha256": "b8e49b024c2bfdfe9efdd059b155f6346976974d251cf10fa45500a91a879d06",
+            "localBytes": 16707,
+            "localSha256": "bb324e776d63b7a132a5465fade085b7daf2812d4e395830916d020622480010",
+            "firstSegmentId": "mn143:0.1",
+            "lastSegmentId": "mn143:20.9",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea51.8",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea51.8",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 8,
+          "discourseLabel": "8",
+          "chapterNumber": 51,
+          "chapterSourceN": "52",
+          "chapterLabel": "51 非常品",
+          "startSegmentId": "T0125.049.0819b11",
+          "endSegmentId": "T0125.049.0820c02",
+          "firstSourceLine": "0819b11",
+          "lastSourceLine": "0820c02",
+          "stableSegments": 109,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 51,
+            "discourseNumber": 8
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.049.0819b11",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:3b44f2c47abb881f",
+      "reviewQueueItemId": "gbcr:parallel-review:3b44f2c47abb881f",
+      "evidenceEdgeId": "gbcr:parallel:3b44f2c47abb881f",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 171 lists SA 215 at T ii 54b as a further parallel. However, SA 215 corresponds to only the first section of MN 145. We follow Yin Shun 1983 vol. i pp. 263–264 in identifying SA 215 as rather a parallel to SN 35.70, which it matches closely though disagreeing over the bhikkhu’s name: Punna in SA 215, Upavana in SN 35.70.  ",
+        "upstreamRowNumbers": [
+          228993,
+          274946
+        ],
+        "evidenceSha256": "99375d0e0f36e96c609db3673e051d10a2f67bd289ea07179fe616e095b7cdeb"
+      },
+      "pali": {
+        "reference": "mn145",
+        "title": "中部第 145 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn145-pali",
+        "expressionId": "gbcr:expression:MN145-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn145",
+        "registeredStableSegments": 83,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN145",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn145_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn145_root-pli-ms.json",
+            "upstreamGitBlobSha1": "c384d9defe585a3e1840453ed633d70f6e206e74",
+            "upstreamBytes": 8535,
+            "upstreamSha256": "86bfbd13a44fe649395cef230553b2f86c91e1ddaea68319b3c25d33e344789e",
+            "localBytes": 8536,
+            "localSha256": "8a38f2320fcd7fd49b1a758ad10b9641d9d28dd5054193d5f8db12165dc62e71",
+            "firstSegmentId": "mn145:0.1",
+            "lastSegmentId": "mn145:8.8",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa311",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa311",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 311,
+          "discourseLabel": "313",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.013.0090b27",
+          "endSegmentId": "T0099.013.0090c18",
+          "firstSourceLine": "0090b27",
+          "lastSourceLine": "0090c18",
+          "stableSegments": 21,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 311
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.013.0090b27",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:b96200b11bf8a915",
+      "reviewQueueItemId": "gbcr:parallel-review:b96200b11bf8a915",
+      "evidenceEdgeId": "gbcr:parallel:b96200b11bf8a915",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "component_parallel_within_registered_work",
+        "upstreamType": "full",
+        "resembling": false,
+        "upstreamRemark": "Akanuma p. 171 lists MA 86 at T i 562a as another parallel. In MA 86 Ānanda asks the Buddha how to instruct a group of young monks. The Buddha responds by discussing the five aggregates, the six senses, and a broad range of other topics. Thus, despite some overlap as regards the exposition of the six senses, MA 86 and MN 148 do not seem to be parallels. ",
+        "upstreamRowNumbers": [
+          229018,
+          274923
+        ],
+        "evidenceSha256": "3d8c1f5e85ffbc42ed7da704afd162c238ecf3af83fbf8d8ccbed3eb3b78ab04"
+      },
+      "pali": {
+        "reference": "mn148",
+        "title": "中部第 148 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn148-pali",
+        "expressionId": "gbcr:expression:MN148-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn148",
+        "registeredStableSegments": 227,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN148",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn148_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn148_root-pli-ms.json",
+            "upstreamGitBlobSha1": "7e4e09dfb1c555abde64a677ab84fdcdb3bf17ac",
+            "upstreamBytes": 21851,
+            "upstreamSha256": "817b5ca1fadd1d7c9973387b5d6ba1ff1470e7e2b6defc3e26a9cf99dc8e927e",
+            "localBytes": 21852,
+            "localSha256": "16e1262cedad912c7abbbf559c5e55e1a2204d99c794228917883d748180fde1",
+            "firstSegmentId": "mn148:0.1",
+            "lastSegmentId": "mn148:41.11",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa304",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa304",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 304,
+          "discourseLabel": "306",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.013.0087c18",
+          "endSegmentId": "T0099.013.0088a20",
+          "firstSourceLine": "0087c18",
+          "lastSourceLine": "0088a20",
+          "stableSegments": 32,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 304
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.013.0087c18",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:061c74b561d98654",
+      "reviewQueueItemId": "gbcr:parallel-review:061c74b561d98654",
+      "evidenceEdgeId": "gbcr:parallel:061c74b561d98654",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "EA 45.6 parallels only the first part of MN 151, after which it continues differently.",
+        "upstreamRowNumbers": [
+          12336,
+          229037
+        ],
+        "evidenceSha256": "14c0fc248d28af872069fb510470b1a8d81b07fb3fc7d7bad1bd4dc4a276e591"
+      },
+      "pali": {
+        "reference": "mn151",
+        "title": "中部第 151 经",
+        "workId": "gbcr:work:majjhima-nikaya-mn151-pali",
+        "expressionId": "gbcr:expression:MN151-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/majjhima-nikaya-mn151",
+        "registeredStableSegments": 109,
+        "requestedScope": "whole_standalone_sutta",
+        "scopeStatus": "whole_standalone_sutta_source_controlled",
+        "controlledAssets": [
+          {
+            "id": "MN151",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/mn/mn151_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/mn/mn151_root-pli-ms.json",
+            "upstreamGitBlobSha1": "650a85bfd8b809a62dc3139c9042349cd8cae7d2",
+            "upstreamBytes": 12944,
+            "upstreamSha256": "2f59830560f4f540d63a69231d51245dd2a9885fbd4939815fd09306a2377dea",
+            "localBytes": 12945,
+            "localSha256": "0f99bcb724e3ba686c60bd68da327cb21bbae4bdd460bf70db48c70f331e52f7",
+            "firstSegmentId": "mn151:0.1",
+            "lastSegmentId": "mn151:21.8",
+            "segments": null
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "ea45.6",
+        "cbetaId": "T0125",
+        "title": "增壹阿含經",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "expressionId": "gbcr:expression:T0125-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing",
+        "registeredStableSegments": 24172,
+        "requestedScope": "ea45.6",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 6,
+          "discourseLabel": "6",
+          "chapterNumber": 45,
+          "chapterSourceN": "45",
+          "chapterLabel": "45 馬王品",
+          "startSegmentId": "T0125.041.0773b20",
+          "endSegmentId": "T0125.041.0773c19",
+          "firstSourceLine": "0773b20",
+          "lastSourceLine": "0773c19",
+          "stableSegments": 29,
+          "locator": {
+            "method": "cbeta_tei_pin_number_plus_jing_number",
+            "chapterNumber": 45,
+            "discourseNumber": 6
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zengyiahanjing#T0125.041.0773b20",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0125",
+            "localPath": "data/corpus/cbeta/T02n0125.xml",
+            "upstreamPath": "T/T02/T02n0125.xml",
+            "upstreamGitBlobSha1": "3c98f6e3c76baa36fb429d9300f4f23789c8e5bd",
+            "upstreamBytes": 7459818,
+            "upstreamSha256": "60231d9d9252297879948e14ca06d9f5944d561f2aef8e49999b566ee864be27",
+            "localBytes": 7459819,
+            "localSha256": "45da2c08409c3862f105b9829b24b6e8bfa64adfc3d8c1abd227d54eadb834a1",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    },
+    {
+      "id": "gbcr:p0-evidence-packet:aeb12c9551682aa3",
+      "reviewQueueItemId": "gbcr:parallel-review:aeb12c9551682aa3",
+      "evidenceEdgeId": "gbcr:parallel:aeb12c9551682aa3",
+      "status": "machine_prepared_preadjudication_materials_not_human_review",
+      "warning": "本包只固定查证入口与现有反证，不建议裁决结论，不计入真人复核，也不得改变作品数、逐段对齐或全球分母。",
+      "sourceRelationship": {
+        "decisionClass": "resembling_or_partial_parallel",
+        "upstreamType": "full",
+        "resembling": true,
+        "upstreamRemark": "SA1 is a group of four sutras that apply one of the four marks to the five aggregates. The template matches SN 22.51 with nibbidā leading to the end of delight and greed for the aggregates.",
+        "upstreamRowNumbers": [
+          273446,
+          347779
+        ],
+        "evidenceSha256": "1bc381d0f0eecf77180d5355fef330c3aa7ca84de2c121ffcb83670d3922970b"
+      },
+      "pali": {
+        "reference": "sn22.51",
+        "title": "相应部第 22 相应",
+        "workId": "gbcr:work:samyutta-nikaya-sn22-pali",
+        "expressionId": "gbcr:expression:SN22-pi-Latn-ms",
+        "readerUrl": "https://foxue.ai/jingzang/samyutta-nikaya-sn22",
+        "registeredStableSegments": 5241,
+        "requestedScope": "sn22.51",
+        "scopeStatus": "exact_sutta_source_part_controlled_within_registered_collection",
+        "controlledAssets": [
+          {
+            "id": "SN22.51",
+            "localPath": "data/corpus/suttacentral/root/pli/ms/sutta/sn/sn22/sn22.51_root-pli-ms.json",
+            "upstreamPath": "root/pli/ms/sutta/sn/sn22/sn22.51_root-pli-ms.json",
+            "upstreamGitBlobSha1": "b5df6eda8ae5152cafc5741f79340bc6423231a8",
+            "upstreamBytes": 1582,
+            "upstreamSha256": "f738b3fb95ae7984dd4acad8a834f933d706e6d73b4b42afb2da0821fec065c3",
+            "localBytes": 1583,
+            "localSha256": "39ebdd24135350e6fef601ac3c74cb5977b8a9cbd1b889098f9cd217856af3d9",
+            "firstSegmentId": "sn22.51:0.1",
+            "lastSegmentId": "sn22.51:1.19",
+            "segments": 22
+          }
+        ]
+      },
+      "chinese": {
+        "reference": "sa1",
+        "cbetaId": "T0099",
+        "title": "雜阿含經",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "expressionId": "gbcr:expression:T0099-zh-Hant",
+        "readerUrl": "https://foxue.ai/jingzang/zaahanjing",
+        "registeredStableSegments": 32193,
+        "requestedScope": "sa1",
+        "scopeStatus": "exact_internal_agama_tei_div_and_line_range_machine_located_pending_human_boundary_check",
+        "exactInternalRange": {
+          "discourseNumber": 1,
+          "discourseLabel": "1",
+          "chapterNumber": null,
+          "chapterSourceN": null,
+          "chapterLabel": null,
+          "startSegmentId": "T0099.001.0001a06",
+          "endSegmentId": "T0099.001.0001a15",
+          "firstSourceLine": "0001a06",
+          "lastSourceLine": "0001a15",
+          "stableSegments": 10,
+          "locator": {
+            "method": "cbeta_tei_jing_div_global_number",
+            "discourseNumber": 1
+          },
+          "readerUrl": "https://foxue.ai/jingzang/zaahanjing#T0099.001.0001a06",
+          "boundaryStatus": "machine_located_from_cbeta_tei_structure_pending_human_check"
+        },
+        "controlledAssets": [
+          {
+            "id": "T0099",
+            "localPath": "data/corpus/cbeta/T02n0099.xml",
+            "upstreamPath": "T/T02/T02n0099.xml",
+            "upstreamGitBlobSha1": "0cc80aa307d6da1e48e436113453bdfa3f168ce8",
+            "upstreamBytes": 6347276,
+            "upstreamSha256": "40d5e26b65940b2431597fa7c369b6d169ed96ced48dfdc11e0edb210815b160",
+            "localBytes": 6347277,
+            "localSha256": "8b38787fe777ef01572c240752c38ca90853e1a25e8df498fde20d69edba7b61",
+            "firstSegmentId": null,
+            "lastSegmentId": null,
+            "segments": null
+          }
+        ]
+      },
+      "humanTasksStillRequired": [
+        "人工核对机器从 CBETA TEI 目录结构提取的汉译内部经文首尾锚点；不得据此声称整部合集与巴利单经等同",
+        "逐项核对两端开头、结尾、地点、人物、叙事框架、章节结构、教义次序与显著增删",
+        "核对上游备注中引用的替代平行、反例、页码与现代研究，不把上游摘要当作已完成复核",
+        "分别保存最强支持证据与最强反证，并说明底本、版本、范围和不确定性",
+        "核对原文、转写、译文和研究引用的权利边界；受限正文不得进入证据包",
+        "由两名具名真人独立提交复核；结论或范围不一致时交由第三位仲裁者"
+      ],
+      "humanReviewProgress": {
+        "completedIndependentReviews": 0,
+        "requiredIndependentReviews": 2,
+        "adjudicated": false,
+        "aiReviewCredits": 0
+      },
+      "automaticWorkMerge": false,
+      "automaticSegmentAlignment": false,
+      "denominatorImpact": "none"
+    }
+  ]
+}

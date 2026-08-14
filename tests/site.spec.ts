@@ -332,6 +332,9 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     minimumIndependentReviews: 2,
     denominatorImpact: "none",
   });
+  expect(coverage.links.suttacentralParallelP0EvidencePackets).toBe(
+    "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json",
+  );
 });
 
 test("汉巴作品审校台优先呈现反证并保持真人双重复核边界", async ({ page }) => {
@@ -344,10 +347,16 @@ test("汉巴作品审校台优先呈现反证并保持真人双重复核边界",
 
   await page.getByRole("button", { name: /先审反证/ }).click();
   await expect(page.locator(".review-case")).toHaveCount(20);
+  await expect(page.locator(".review-machine-range")).toHaveCount(20);
   await expect(page.getByText("上游范围备注 / 反证").first()).toBeVisible();
 
   await page.getByRole("searchbox", { name: "检索 80 项证据" }).fill("MN 1");
   await expect(page.locator(".review-case").first()).toContainText("MN1");
+  await expect(page.locator(".review-case").first()).toContainText("T0026.026.0596b09 → T0026.026.0596c17");
+  await expect(page.getByRole("link", { name: "直达汉译范围" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/zhongahanjing#T0026.026.0596b09",
+  );
   await expect(page.getByText("AI 可整理证据，但不能署名为真人复核者")).toBeVisible();
   await expect(page.getByRole("link", { name: /提交具名复核意见/ })).toHaveAttribute(
     "href",
@@ -356,6 +365,10 @@ test("汉巴作品审校台优先呈现反证并保持真人双重复核边界",
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+
+  await page.getByRole("link", { name: "直达汉译范围" }).first().click();
+  await page.waitForURL(/\/jingzang\/zhongahanjing\/026-0596b#T0026\.026\.0596b09$/);
+  await expect(page.locator('[id="T0026.026.0596b09"]')).toContainText("想經");
 });
 
 test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {

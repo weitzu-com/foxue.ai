@@ -22,6 +22,7 @@ export function GET() {
         suttacentralAbhidhammaRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
         suttacentralChineseParallels: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
         suttacentralParallelReviewQueue: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json",
+        suttacentralParallelP0EvidencePackets: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json",
         crossCatalogAlignments: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cross-catalog-alignments-v0.5.0.json",
         rktsKangyurCatalogs: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
         rktsKernelAlignments: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",

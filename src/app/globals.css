@@ -1592,6 +1592,11 @@ a {
 .review-case blockquote p { margin: 10px 0 0; color: #b8c2b9; font-family: var(--font-serif), serif; font-size: 0.76rem; line-height: 1.85; }
 .review-case__links { display: flex; flex-wrap: wrap; gap: 10px 23px; margin-top: 20px; }
 .review-case__links a { display: inline-flex; align-items: center; gap: 7px; color: var(--cinnabar); font-size: 0.68rem; font-weight: 700; }
+.review-machine-range { margin-top: 20px; padding: 15px 17px; border: 1px solid color-mix(in srgb, var(--cinnabar) 30%, var(--line)); background: color-mix(in srgb, var(--paper-warm) 84%, var(--cinnabar) 4%); }
+.review-machine-range header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; color: var(--muted); font-size: 0.61rem; letter-spacing: 0.08em; }
+.review-machine-range header strong { color: var(--cinnabar); letter-spacing: 0; }
+.review-machine-range p { margin: 10px 0 5px; color: var(--ink-soft); font-size: 0.69rem; }
+.review-machine-range code { color: var(--ink); font-size: 0.6rem; overflow-wrap: anywhere; }
 .review-evidence-details { margin-top: 20px; border-top: 1px solid var(--line); }
 .review-evidence-details summary { min-height: 49px; display: flex; align-items: center; gap: 7px; color: var(--muted); cursor: pointer; font-size: 0.67rem; list-style: none; }
 .review-evidence-details summary::-webkit-details-marker { display: none; }

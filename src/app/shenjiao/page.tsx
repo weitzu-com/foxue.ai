@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { ExternalLink, Scale, Send, UsersRound } from "lucide-react";
 import queueDocument from "../../../data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json";
-import { ReviewQueueWorkbench, type ReviewQueueItem } from "./review-queue-workbench";
+import p0EvidenceDocument from "../../../data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json";
+import {
+  ReviewQueueWorkbench,
+  type P0EvidencePacket,
+  type ReviewQueueItem,
+} from "./review-queue-workbench";
 
 export const metadata: Metadata = {
   title: "汉—巴作品审校台",
@@ -26,6 +31,14 @@ export default function ReviewQueuePage() {
           >
             查看原始队列 JSON <ExternalLink aria-hidden="true" size={14} />
           </a>
+          <a
+            className="text-link"
+            href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json"
+            target="_blank"
+            rel="noreferrer"
+          >
+            查看 P0 审前证据包 <ExternalLink aria-hidden="true" size={14} />
+          </a>
         </div>
 
         <aside className="review-seal" aria-label="当前裁决状态">
@@ -48,7 +61,10 @@ export default function ReviewQueuePage() {
         </div>
       </section>
 
-      <ReviewQueueWorkbench items={queueDocument.items as ReviewQueueItem[]} />
+      <ReviewQueueWorkbench
+        items={queueDocument.items as ReviewQueueItem[]}
+        p0EvidencePackets={p0EvidenceDocument.packets as P0EvidencePacket[]}
+      />
 
       <section className="review-governance page-shell">
         <p className="eyebrow">ADJUDICATION GATE</p>

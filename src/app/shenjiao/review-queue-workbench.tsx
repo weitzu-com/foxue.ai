@@ -39,6 +39,39 @@ export type ReviewQueueItem = {
   adjudication: unknown | null;
 };
 
+export type P0EvidencePacket = {
+  reviewQueueItemId: string;
+  status: string;
+  chinese: {
+    exactInternalRange: {
+      discourseLabel: string;
+      chapterLabel: string | null;
+      startSegmentId: string;
+      endSegmentId: string;
+      firstSourceLine: string;
+      lastSourceLine: string;
+      stableSegments: number;
+      readerUrl: string;
+      boundaryStatus: string;
+      locator: {
+        method: string;
+        chapterNumber?: number;
+        discourseNumber: number;
+      };
+    };
+    controlledAssets: Array<{
+      id: string;
+      localSha256: string;
+    }>;
+  };
+  humanReviewProgress: {
+    completedIndependentReviews: number;
+    requiredIndependentReviews: number;
+  };
+  automaticWorkMerge: false;
+  denominatorImpact: "none";
+};
+
 type Filter = "all" | "p0" | "p1";
 
 const filterLabels: Array<{ id: Filter; label: string; note: string }> = [
@@ -62,9 +95,19 @@ const normalizeSearch = (value: string) => value
   .toLocaleLowerCase("zh-CN")
   .replace(/[\s‐‑‒–—-]+/g, "");
 
-export function ReviewQueueWorkbench({ items }: { items: ReviewQueueItem[] }) {
+export function ReviewQueueWorkbench({
+  items,
+  p0EvidencePackets,
+}: {
+  items: ReviewQueueItem[];
+  p0EvidencePackets: P0EvidencePacket[];
+}) {
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
+  const evidencePacketByItemId = useMemo(
+    () => new Map(p0EvidencePackets.map((packet) => [packet.reviewQueueItemId, packet])),
+    [p0EvidencePackets],
+  );
 
   const visibleItems = useMemo(() => {
     const normalizedQuery = normalizeSearch(query.trim());
@@ -138,6 +181,8 @@ export function ReviewQueueWorkbench({ items }: { items: ReviewQueueItem[] }) {
           <ol className="review-case-list">
             {visibleItems.map((item, index) => {
               const priority = priorityMeta[item.priority];
+              const evidencePacket = evidencePacketByItemId.get(item.id);
+              const chineseRange = evidencePacket?.chinese.exactInternalRange;
               return (
                 <li className={`review-case review-case--${priority.short.toLowerCase()}`} key={item.id}>
                   <article>
@@ -163,6 +208,17 @@ export function ReviewQueueWorkbench({ items }: { items: ReviewQueueItem[] }) {
 
                     <p className="review-rationale">{item.rationale}</p>
 
+                    {chineseRange ? (
+                      <section className="review-machine-range" aria-label="机器准备的汉译校勘范围">
+                        <header><span>机器审前材料</span><strong>汉译内部范围已定位 · 待真人核边界</strong></header>
+                        <p>
+                          {chineseRange.chapterLabel ? `${chineseRange.chapterLabel} · ` : ""}
+                          {chineseRange.discourseLabel}，共 {chineseRange.stableSegments} 个稳定行段
+                        </p>
+                        <code>{chineseRange.startSegmentId} → {chineseRange.endSegmentId}</code>
+                      </section>
+                    ) : null}
+
                     {item.upstreamRemark ? (
                       <blockquote>
                         <span>上游范围备注 / 反证</span>
@@ -174,8 +230,8 @@ export function ReviewQueueWorkbench({ items }: { items: ReviewQueueItem[] }) {
                       <Link href={`/jingzang/${item.pali.localSlug}`}>
                         <BookOpenText aria-hidden="true" size={15} /> 阅读巴利原文
                       </Link>
-                      <Link href={`/jingzang/${item.chinese.localSlug}`}>
-                        <BookOpenText aria-hidden="true" size={15} /> 阅读汉译原文
+                      <Link href={chineseRange ? `/jingzang/${item.chinese.localSlug}#${chineseRange.startSegmentId}` : `/jingzang/${item.chinese.localSlug}`}>
+                        <BookOpenText aria-hidden="true" size={15} /> {chineseRange ? "直达汉译范围" : "阅读汉译原文"}
                       </Link>
                     </div>
 
@@ -186,6 +242,9 @@ export function ReviewQueueWorkbench({ items }: { items: ReviewQueueItem[] }) {
                         <div><dt>上游行</dt><dd>{item.upstreamRowNumbers.join("、")}</dd></div>
                         <div><dt>关系类型</dt><dd>{item.sourceDecisionClass}</dd></div>
                         <div><dt>证据摘要</dt><dd>{item.evidenceSha256}</dd></div>
+                        {chineseRange ? <div><dt>汉译范围</dt><dd>{chineseRange.firstSourceLine}—{chineseRange.lastSourceLine} · {chineseRange.stableSegments} 行段</dd></div> : null}
+                        {evidencePacket ? <div><dt>CBETA 资产</dt><dd>{evidencePacket.chinese.controlledAssets[0].id} · sha256:{evidencePacket.chinese.controlledAssets[0].localSha256}</dd></div> : null}
+                        {evidencePacket ? <div><dt>人工进度</dt><dd>{evidencePacket.humanReviewProgress.completedIndependentReviews} / {evidencePacket.humanReviewProgress.requiredIndependentReviews} · 自动归并 0 · 分母影响 none</dd></div> : null}
                       </dl>
                       <ol>
                         {item.reviewChecklist.map((check) => <li key={check}>{check}</li>)}
