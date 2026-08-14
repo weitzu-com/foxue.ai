@@ -1,0 +1,2859 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.8.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.7.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t31-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T31; T31 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T31",
+    "title": "大正藏 T31 瑜伽部固定来源记录",
+    "sourceRecordDenominator": 43,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 43,
+    "controlledSourceRecords": 43,
+    "newSourceBytes": 11039332,
+    "newStableSegments": 76949,
+    "newFolios": 2799,
+    "newJuans": 164,
+    "verifiedSameWorkExpressions": 21,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 43,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 38,
+    "attributionBoundaryRecords": 43,
+    "newWorks": 31,
+    "controlledWorks": 31,
+    "workCountingDecision": "T31 的 43 份来源记录登记为 43 个表达或见证、31 个批次内作品。九组同作品异译或异本包括 T1586/T1587、T1588–T1590、T1592–T1594、T1595–T1597、T1599/T1600、T1608/T1609、T1619/T1624、T1620/T1621、T1626/T1627，共 21 个同作品表达；根本颂、长行释、复合注释和独立流通组成部分保持作品边界。所有 43 份来源文件均完整，但完整来源文件不等于作者归属无争议或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_translation_commentary_component_recension_and_attribution_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [
+      "trimsika-t1585-t1587",
+      "vimsatika-t1588-t1591",
+      "mahayanasamgraha-t1592-t1598",
+      "madhyantavibhaga-t1599-t1601",
+      "karmasiddhiprakarana-t1608-t1609",
+      "alambanapariksa-t1619-t1625",
+      "hastavalaprakarana-t1620-t1621",
+      "dharmadhatu-avisesa-t1626-t1627"
+    ],
+    "rootTreatiseCommentaryGroups": [
+      "trimsika-t1585-t1587",
+      "vimsatika-t1588-t1591",
+      "mahayanasamgraha-t1592-t1598",
+      "madhyantavibhaga-t1599-t1601",
+      "prakaranaryavaca-t1602-t1603",
+      "abhidharmasamuccaya-t1605-t1606",
+      "pancaskandhaka-t1612-t1613",
+      "alambanapariksa-t1619-t1625"
+    ],
+    "componentGroups": [
+      "yogacarabhumi-t1579-t1615",
+      "paramartha-yogacara-t1587-t1618"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1610↔T1611（如来藏义理近缘但不是同一作品）",
+      "T1616↔T1599/T1600（与《中边分别论》章节相关，但现存《十八空论》的作品形成与范围不足以合并）",
+      "T1617↔T1602（对应《显扬论·成无性品》，作为独立流通组成作品登记）",
+      "T1585↔T1586/T1587（复合注释与根本颂不合并）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "alternate_translation_or_recension_witness": [
+        "T1627"
+      ],
+      "independently_translated_yogacarabhumi_component": [
+        "T1615"
+      ],
+      "paramartha_treatise_lecture_or_composition": [
+        "T1616",
+        "T1617",
+        "T1618"
+      ],
+      "traditional_abridged_commentary_translation": [
+        "T1613"
+      ],
+      "traditional_attributed_treatise_or_sinitic_compilation": [
+        "T1610"
+      ],
+      "traditional_authored_commentary_translation": [
+        "T1591",
+        "T1595",
+        "T1596",
+        "T1597",
+        "T1598",
+        "T1625"
+      ],
+      "traditional_collated_root_and_commentary_translation": [
+        "T1606"
+      ],
+      "traditional_composite_trimsika_commentary_translation": [
+        "T1585"
+      ],
+      "traditional_root_treatise_translation": [
+        "T1588",
+        "T1589",
+        "T1590",
+        "T1592",
+        "T1593",
+        "T1594",
+        "T1605",
+        "T1612",
+        "T1619",
+        "T1624"
+      ],
+      "traditional_root_verse_translation": [
+        "T1586",
+        "T1601",
+        "T1603",
+        "T1623"
+      ],
+      "traditional_root_verses_with_commentary_translation": [
+        "T1599",
+        "T1600",
+        "T1604",
+        "T1607",
+        "T1611"
+      ],
+      "traditional_root_verses_with_prose_exposition_translation": [
+        "T1602"
+      ],
+      "traditional_short_treatise_translation": [
+        "T1614",
+        "T1622"
+      ],
+      "traditional_translation_or_extracted_component_recension": [
+        "T1587"
+      ],
+      "traditional_treatise_translation": [
+        "T1608",
+        "T1609",
+        "T1620",
+        "T1621",
+        "T1626"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap records embedded roots or lexical continuity only; translation identity, authorship, completeness and work boundaries require independent bibliographic evidence.",
+      "pairs": [
+        {
+          "pair": [
+            "T1585",
+            "T1586"
+          ],
+          "normalizedCharacters": [
+            81089,
+            1253
+          ],
+          "fiveGramContainmentOfShorter": 0.70885,
+          "fiveGramJaccard": 0.011138
+        },
+        {
+          "pair": [
+            "T1585",
+            "T1587"
+          ],
+          "normalizedCharacters": [
+            81089,
+            2969
+          ],
+          "fiveGramContainmentOfShorter": 0.005194,
+          "fiveGramJaccard": 0.000189
+        },
+        {
+          "pair": [
+            "T1586",
+            "T1587"
+          ],
+          "normalizedCharacters": [
+            1253,
+            2969
+          ],
+          "fiveGramContainmentOfShorter": 0.010753,
+          "fiveGramJaccard": 0.003183
+        },
+        {
+          "pair": [
+            "T1588",
+            "T1589"
+          ],
+          "normalizedCharacters": [
+            8420,
+            5206
+          ],
+          "fiveGramContainmentOfShorter": 0.01595,
+          "fiveGramJaccard": 0.006629
+        },
+        {
+          "pair": [
+            "T1588",
+            "T1590"
+          ],
+          "normalizedCharacters": [
+            8420,
+            3688
+          ],
+          "fiveGramContainmentOfShorter": 0.007269,
+          "fiveGramJaccard": 0.002518
+        },
+        {
+          "pair": [
+            "T1589",
+            "T1590"
+          ],
+          "normalizedCharacters": [
+            5206,
+            3688
+          ],
+          "fiveGramContainmentOfShorter": 0.018731,
+          "fiveGramJaccard": 0.008097
+        },
+        {
+          "pair": [
+            "T1590",
+            "T1591"
+          ],
+          "normalizedCharacters": [
+            3688,
+            27620
+          ],
+          "fiveGramContainmentOfShorter": 0.043332,
+          "fiveGramJaccard": 0.005049
+        },
+        {
+          "pair": [
+            "T1592",
+            "T1593"
+          ],
+          "normalizedCharacters": [
+            20283,
+            26956
+          ],
+          "fiveGramContainmentOfShorter": 0.017401,
+          "fiveGramJaccard": 0.00757
+        },
+        {
+          "pair": [
+            "T1592",
+            "T1594"
+          ],
+          "normalizedCharacters": [
+            20283,
+            24772
+          ],
+          "fiveGramContainmentOfShorter": 0.017962,
+          "fiveGramJaccard": 0.008315
+        },
+        {
+          "pair": [
+            "T1593",
+            "T1594"
+          ],
+          "normalizedCharacters": [
+            26956,
+            24772
+          ],
+          "fiveGramContainmentOfShorter": 0.070383,
+          "fiveGramJaccard": 0.034389
+        },
+        {
+          "pair": [
+            "T1595",
+            "T1596"
+          ],
+          "normalizedCharacters": [
+            151633,
+            68389
+          ],
+          "fiveGramContainmentOfShorter": 0.068499,
+          "fiveGramJaccard": 0.021729
+        },
+        {
+          "pair": [
+            "T1595",
+            "T1597"
+          ],
+          "normalizedCharacters": [
+            151633,
+            76697
+          ],
+          "fiveGramContainmentOfShorter": 0.0437,
+          "fiveGramJaccard": 0.014369
+        },
+        {
+          "pair": [
+            "T1596",
+            "T1597"
+          ],
+          "normalizedCharacters": [
+            68389,
+            76697
+          ],
+          "fiveGramContainmentOfShorter": 0.073907,
+          "fiveGramJaccard": 0.037115
+        },
+        {
+          "pair": [
+            "T1599",
+            "T1600"
+          ],
+          "normalizedCharacters": [
+            16395,
+            16576
+          ],
+          "fiveGramContainmentOfShorter": 0.026,
+          "fiveGramJaccard": 0.013087
+        },
+        {
+          "pair": [
+            "T1599",
+            "T1601"
+          ],
+          "normalizedCharacters": [
+            16395,
+            2390
+          ],
+          "fiveGramContainmentOfShorter": 0.033656,
+          "fiveGramJaccard": 0.004389
+        },
+        {
+          "pair": [
+            "T1600",
+            "T1601"
+          ],
+          "normalizedCharacters": [
+            16576,
+            2390
+          ],
+          "fiveGramContainmentOfShorter": 0.806479,
+          "fiveGramJaccard": 0.118399
+        },
+        {
+          "pair": [
+            "T1602",
+            "T1603"
+          ],
+          "normalizedCharacters": [
+            138097,
+            5249
+          ],
+          "fiveGramContainmentOfShorter": 0.793487,
+          "fiveGramJaccard": 0.033291
+        },
+        {
+          "pair": [
+            "T1605",
+            "T1606"
+          ],
+          "normalizedCharacters": [
+            42319,
+            110538
+          ],
+          "fiveGramContainmentOfShorter": 0.722121,
+          "fiveGramJaccard": 0.247104
+        },
+        {
+          "pair": [
+            "T1608",
+            "T1609"
+          ],
+          "normalizedCharacters": [
+            5113,
+            7433
+          ],
+          "fiveGramContainmentOfShorter": 0.009907,
+          "fiveGramJaccard": 0.004136
+        },
+        {
+          "pair": [
+            "T1610",
+            "T1611"
+          ],
+          "normalizedCharacters": [
+            37296,
+            40232
+          ],
+          "fiveGramContainmentOfShorter": 0.006356,
+          "fiveGramJaccard": 0.00307
+        },
+        {
+          "pair": [
+            "T1612",
+            "T1613"
+          ],
+          "normalizedCharacters": [
+            3146,
+            5745
+          ],
+          "fiveGramContainmentOfShorter": 0.415589,
+          "fiveGramJaccard": 0.17065
+        },
+        {
+          "pair": [
+            "T1616",
+            "T1617"
+          ],
+          "normalizedCharacters": [
+            8819,
+            15861
+          ],
+          "fiveGramContainmentOfShorter": 0.008124,
+          "fiveGramJaccard": 0.002961
+        },
+        {
+          "pair": [
+            "T1616",
+            "T1618"
+          ],
+          "normalizedCharacters": [
+            8819,
+            5488
+          ],
+          "fiveGramContainmentOfShorter": 0.000746,
+          "fiveGramJaccard": 0.000286
+        },
+        {
+          "pair": [
+            "T1617",
+            "T1618"
+          ],
+          "normalizedCharacters": [
+            15861,
+            5488
+          ],
+          "fiveGramContainmentOfShorter": 0.005411,
+          "fiveGramJaccard": 0.00142
+        },
+        {
+          "pair": [
+            "T1619",
+            "T1624"
+          ],
+          "normalizedCharacters": [
+            1202,
+            943
+          ],
+          "fiveGramContainmentOfShorter": 0.003268,
+          "fiveGramJaccard": 0.001428
+        },
+        {
+          "pair": [
+            "T1620",
+            "T1621"
+          ],
+          "normalizedCharacters": [
+            865,
+            924
+          ],
+          "fiveGramContainmentOfShorter": 0.007026,
+          "fiveGramJaccard": 0.003405
+        },
+        {
+          "pair": [
+            "T1624",
+            "T1625"
+          ],
+          "normalizedCharacters": [
+            943,
+            4293
+          ],
+          "fiveGramContainmentOfShorter": 0.009804,
+          "fiveGramJaccard": 0.001737
+        },
+        {
+          "pair": [
+            "T1626",
+            "T1627"
+          ],
+          "normalizedCharacters": [
+            2847,
+            2790
+          ],
+          "fiveGramContainmentOfShorter": 0.078245,
+          "fiveGramJaccard": 0.040324
+        }
+      ],
+      "crossVolumeChecks": [
+        {
+          "pair": [
+            "T1579",
+            "T1615"
+          ],
+          "fiveGramContainmentOfShorter": 0.929173,
+          "evidence": "T1615 is an independently translated component corresponding to T1579 juan 61; computed against controlled T1579."
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T31",
+      "https://vms.dila.edu.tw/main.html",
+      "https://www.kccl.ca/resources-used-in-erich-frauwallners-the-philosophy-of-buddhism/",
+      "https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?key=%E8%A6%9A%E5%B1%B1&mode=detail&useid=1591_%2C31%2C0078",
+      "https://encyclopediaofbuddhism.org/wiki/Mah%C4%81y%C4%81nasa%E1%B9%83grahabh%C4%81%E1%B9%A3ya",
+      "https://archive2.cbeta.org/ko/node/5424",
+      "https://www.jstage.jst.go.jp/article/ibk1952/51/2/51_2_1006/_article",
+      "https://www2.hf.uio.no/polyglotta/index.php?page=volume&vid=1119",
+      "https://edoc.ub.uni-muenchen.de/34820/1/Tou_Minhui.pdf.pdf",
+      "https://researchmap.jp/kanokazuo/published_papers/31781439/attachment_file.pdf",
+      "https://www.chibs.edu.tw/ch_html/hkbj/05/hkbj0503.htm",
+      "https://dazangthings.nz/cbc/text/794/",
+      "https://dazangthings.nz/cbc/text/797/",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000922",
+      "https://www.ss.ncu.edu.tw/~calin/scripture/t55/T55n2154.pdf",
+      "https://icabs.repo.nii.ac.jp/record/419/files/%E7%A0%94%E7%A9%B6%E7%B4%80%E8%A6%81%20%E7%AC%AC%EF%BC%92%EF%BC%91%E5%8F%B7%EF%BC%88%E6%A8%AA%E7%B5%84%EF%BC%9A%E4%BD%95%E6%AD%93%E6%AD%93%EF%BC%89.pdf"
+    ],
+    "caveat": "T31 是瑜伽行、唯识、如来藏与因明相关论书集合，不是佛说经集合。平台完整保存固定来源，同时区分根本论、根本颂、释论、合糅注释、同本异译、独立流通组成部分、异本、传统作者题记与汉地编成研究；目录邻接、题名、共同署名或机器相似度都不能单独证明作品相同、作者确定、文本完整或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1585",
+      "slug": "taisho-t1585",
+      "workId": "gbcr:work:cheng-weishi-lun-compilation",
+      "workIdentityStatus": "verified_composite_commentary_work",
+      "workTitle": "成唯识论（十家释糅译复合论）",
+      "sourceRole": "traditional_composite_trimsika_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "trimsika_root_translations_and_composite_commentary_boundary_verified",
+          "groupId": "trimsika-t1585-t1587",
+          "label": "《唯识三十颂》异译与《成唯识论》复合注释边界",
+          "evidence": "研究与经录把 T1586、T1587 作为《唯识三十颂》的两个汉文表达；T1585 糅合十家注释并以护法释为主，是围绕根本颂形成的汉文复合注释作品，不与根本颂合并。T1587 又见从《无相论》或《显识论》抽出的目录传统，平台保留这一形成史。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1586",
+              "T1587"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1585.xml",
+      "upstreamPath": "T/T31/T31n1585.xml",
+      "upstreamGitBlobSha1": "7497efb668e1c77e073381c13d34764397e9596a",
+      "upstreamBytes": 757376,
+      "upstreamSha256": "6f9b12bbe105b503e5e21df7e74428fba7c0bad0481e64512c61e313c963102f",
+      "localBytes": 757377,
+      "localSha256": "5b2af54d21c7533591fdc07d6640f80769a70c9f91926d6def956020818ccd14",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識論",
+        "alternateTitle": "成唯識論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1585",
+        "translator": "護法等菩薩造 · 唐 · 玄奘譯",
+        "summary": "10卷。十卷复合论完整来源；不是任何单一梵本的逐字翻译，也不与三十颂根本作品合并。传统责任题记：護法等菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1585_001"
+      },
+      "verification": {
+        "segments": 5103,
+        "folios": 185,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1585.001.0001a02",
+          "T1585.010.0060a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1586",
+      "slug": "taisho-t1586",
+      "workId": "gbcr:work:trimsika-vijnaptimatrata",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "唯识三十颂（Triṃśikā-vijñaptimātratā）",
+      "sourceRole": "traditional_root_verse_translation",
+      "bibliographicRelations": [
+        {
+          "type": "trimsika_root_translations_and_composite_commentary_boundary_verified",
+          "groupId": "trimsika-t1585-t1587",
+          "label": "《唯识三十颂》异译与《成唯识论》复合注释边界",
+          "evidence": "研究与经录把 T1586、T1587 作为《唯识三十颂》的两个汉文表达；T1585 糅合十家注释并以护法释为主，是围绕根本颂形成的汉文复合注释作品，不与根本颂合并。T1587 又见从《无相论》或《显识论》抽出的目录传统，平台保留这一形成史。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1586",
+              "T1587"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1586.xml",
+      "upstreamPath": "T/T31/T31n1586.xml",
+      "upstreamGitBlobSha1": "d06192f7301ddbb7f9f44938837d6d024d328804",
+      "upstreamBytes": 72254,
+      "upstreamSha256": "1809344b4ba982d927363eb41304de806721b46e6c06d28087e0752545431e3a",
+      "localBytes": 72255,
+      "localSha256": "7bc2817a12bdb83581f57e4475d5f642c8d487792c24d451f1c963bf2bf7f039",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唯識三十論頌",
+        "alternateTitle": "唯識三十論頌",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1586",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘所译三十颂完整来源。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1586_001"
+      },
+      "verification": {
+        "segments": 106,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1586.001.0060a15",
+          "T1586.001.0061b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1587",
+      "slug": "taisho-t1587",
+      "workId": "gbcr:work:trimsika-vijnaptimatrata",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "唯识三十颂（Triṃśikā-vijñaptimātratā）",
+      "sourceRole": "traditional_translation_or_extracted_component_recension",
+      "bibliographicRelations": [
+        {
+          "type": "trimsika_root_translations_and_composite_commentary_boundary_verified",
+          "groupId": "trimsika-t1585-t1587",
+          "label": "《唯识三十颂》异译与《成唯识论》复合注释边界",
+          "evidence": "研究与经录把 T1586、T1587 作为《唯识三十颂》的两个汉文表达；T1585 糅合十家注释并以护法释为主，是围绕根本颂形成的汉文复合注释作品，不与根本颂合并。T1587 又见从《无相论》或《显识论》抽出的目录传统，平台保留这一形成史。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1586",
+              "T1587"
+            ]
+          }
+        },
+        {
+          "type": "paramartha_translation_lecture_or_composition_attribution_boundary",
+          "groupId": "paramartha-yogacara-t1587-t1618",
+          "label": "真谛名下瑜伽论书的译作、讲录与编成边界",
+          "evidence": "经录把 T1587、T1617、T1618 联系到《无相论》的篇章传统；同行研究又指出 T1610、T1616、T1617、T1618 更自然地视为真谛在汉地的编成或讲录，而非可复原的逐字印度原典翻译。平台分别保存各部，不因共同来源传统合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1587",
+              "T1610",
+              "T1616",
+              "T1617",
+              "T1618"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1587.xml",
+      "upstreamPath": "T/T31/T31n1587.xml",
+      "upstreamGitBlobSha1": "1a56db386c69707f791c04617b9767adffde2217",
+      "upstreamBytes": 43296,
+      "upstreamSha256": "588e83612fe8fa9d534d6f9245a218bff4e8251e7d72739f634636fc2a73af1d",
+      "localBytes": 43297,
+      "localSha256": "9f167c90067fb391780ae93a33d65b375a1b636a5e0f8f9ca116ad67544a1ea3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "轉識論",
+        "alternateTitle": "轉識論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1587",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。真谛译本或《无相论》篇章传统的完整来源记录；同一性按书目研究建立，形成方式保留争议。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1587_001"
+      },
+      "verification": {
+        "segments": 178,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1587.001.0061c02",
+          "T1587.001.0063c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1588",
+      "slug": "taisho-t1588",
+      "workId": "gbcr:work:vimsatika-vijnaptimatratasiddhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "唯识二十论（Viṃśatikā-vijñaptimātratāsiddhi）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vimsatika_three_translations_and_dharmapala_commentary_verified",
+          "groupId": "vimsatika-t1588-t1591",
+          "label": "《唯识二十论》三译与护法释",
+          "evidence": "T1588、T1589、T1590 是世亲《唯识二十论》的三种汉译；T1591 是护法对该论的独立注释，又名《二十唯识顺释论》，故前三者共享作品标识而 T1591 另立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1588",
+              "T1589",
+              "T1590",
+              "T1591"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1588.xml",
+      "upstreamPath": "T/T31/T31n1588.xml",
+      "upstreamGitBlobSha1": "2ec8d83858f5c63670aa8c3a0318270f6dea9294",
+      "upstreamBytes": 100992,
+      "upstreamSha256": "7bf105dfe8dacedb0383ca8ea663e110b1e28c7bedc7275d16f0941bce3c57d4",
+      "localBytes": 100993,
+      "localSha256": "5c530a1a0f47ecb7d5b469c9ba9afce6579f5f2b475e4e509fc68414ce602881",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唯識論",
+        "alternateTitle": "唯識論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1588",
+        "translator": "天親菩薩造 · 後魏 · 瞿曇般若流支譯",
+        "summary": "1卷。般若流支译完整表达。传统责任题记：天親菩薩造 後魏 瞿曇般若流支譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1588_001"
+      },
+      "verification": {
+        "segments": 551,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1588.001.0063c22",
+          "T1588.001.0070a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1589",
+      "slug": "taisho-t1589",
+      "workId": "gbcr:work:vimsatika-vijnaptimatratasiddhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "唯识二十论（Viṃśatikā-vijñaptimātratāsiddhi）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vimsatika_three_translations_and_dharmapala_commentary_verified",
+          "groupId": "vimsatika-t1588-t1591",
+          "label": "《唯识二十论》三译与护法释",
+          "evidence": "T1588、T1589、T1590 是世亲《唯识二十论》的三种汉译；T1591 是护法对该论的独立注释，又名《二十唯识顺释论》，故前三者共享作品标识而 T1591 另立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1588",
+              "T1589",
+              "T1590",
+              "T1591"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1589.xml",
+      "upstreamPath": "T/T31/T31n1589.xml",
+      "upstreamGitBlobSha1": "823e5378248353bb0157cc5cec84108733bf59ff",
+      "upstreamBytes": 75502,
+      "upstreamSha256": "85f1592966707f5734a0daa6ec04dc4220b24b1b8290200feff0aacea99af3a9",
+      "localBytes": 75503,
+      "localSha256": "b91d6488e283689f3495a8b716a20bb17f55f3e8e17b10ffe1e56b70f0eab410",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘唯識論",
+        "alternateTitle": "大乘唯識論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1589",
+        "translator": "天親菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。真谛译完整表达。传统责任题记：天親菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1589_001"
+      },
+      "verification": {
+        "segments": 367,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1589.001.0070a25",
+          "T1589.001.0074b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1590",
+      "slug": "taisho-t1590",
+      "workId": "gbcr:work:vimsatika-vijnaptimatratasiddhi",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "唯识二十论（Viṃśatikā-vijñaptimātratāsiddhi）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vimsatika_three_translations_and_dharmapala_commentary_verified",
+          "groupId": "vimsatika-t1588-t1591",
+          "label": "《唯识二十论》三译与护法释",
+          "evidence": "T1588、T1589、T1590 是世亲《唯识二十论》的三种汉译；T1591 是护法对该论的独立注释，又名《二十唯识顺释论》，故前三者共享作品标识而 T1591 另立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1588",
+              "T1589",
+              "T1590",
+              "T1591"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1590.xml",
+      "upstreamPath": "T/T31/T31n1590.xml",
+      "upstreamGitBlobSha1": "8d58ce1d077e93c27ec9e2c6da1cba06bdc782ba",
+      "upstreamBytes": 41175,
+      "upstreamSha256": "8da071c267e95238fb752401cda26db93a524442e42f90f21e496a907c89c80d",
+      "localBytes": 41176,
+      "localSha256": "db170b9a96a3091bc35062404b0691112381307008ca7f23abd726e230871b27",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唯識二十論",
+        "alternateTitle": "唯識二十論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1590",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘译完整表达。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1590_001"
+      },
+      "verification": {
+        "segments": 247,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1590.001.0074b21",
+          "T1590.001.0077b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1591",
+      "slug": "taisho-t1591",
+      "workId": "gbcr:work:vimsatika-commentary-dharmapala",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "成唯识宝生论（护法《唯识二十论》释）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vimsatika_three_translations_and_dharmapala_commentary_verified",
+          "groupId": "vimsatika-t1588-t1591",
+          "label": "《唯识二十论》三译与护法释",
+          "evidence": "T1588、T1589、T1590 是世亲《唯识二十论》的三种汉译；T1591 是护法对该论的独立注释，又名《二十唯识顺释论》，故前三者共享作品标识而 T1591 另立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1588",
+              "T1589",
+              "T1590",
+              "T1591"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1591.xml",
+      "upstreamPath": "T/T31/T31n1591.xml",
+      "upstreamGitBlobSha1": "7eaf942f0cfa6068e40edecf7ae2295594fbe3b7",
+      "upstreamBytes": 236588,
+      "upstreamSha256": "9fcf8c367a56cb7a0c774df71509255c1f17b5bbd917ee87f3ba9ca28309483a",
+      "localBytes": 236589,
+      "localSha256": "f2d84defc815ab1a95ee515b673bdf414487d528f8df8b994b0954d793ba1c08",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識寶生論",
+        "alternateTitle": "成唯識寶生論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1591",
+        "translator": "護法菩薩造 · 唐 · 義淨譯",
+        "summary": "5卷。护法注释完整来源；不与二十论根本作品合并。传统责任题记：護法菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1591_001"
+      },
+      "verification": {
+        "segments": 1673,
+        "folios": 63,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1591.001.0077b11",
+          "T1591.005.0096c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1592",
+      "slug": "taisho-t1592",
+      "workId": "gbcr:work:mahayanasamgraha-asanga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论（Mahāyānasaṃgraha）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1592.xml",
+      "upstreamPath": "T/T31/T31n1592.xml",
+      "upstreamGitBlobSha1": "280fa6806af70ee99523253b84c3b6ab850c0303",
+      "upstreamBytes": 227461,
+      "upstreamSha256": "fdb878e04fd2d0f072c4464389a688b7ec42086ade5d33aeb082201e28d0ee92",
+      "localBytes": 227462,
+      "localSha256": "b870086bee6dbd7f86fb05b7bbc019197091b3165b8dae83b58d0eef32f749b0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論",
+        "alternateTitle": "攝大乘論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1592",
+        "translator": "阿僧伽作 · 後魏 · 佛陀扇多譯",
+        "summary": "2卷。佛陀扇多译完整表达。传统责任题记：阿僧伽作 後魏 佛陀扇多譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1592_001"
+      },
+      "verification": {
+        "segments": 1337,
+        "folios": 48,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1592.001.0097a02",
+          "T1592.002.0112b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1593",
+      "slug": "taisho-t1593",
+      "workId": "gbcr:work:mahayanasamgraha-asanga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论（Mahāyānasaṃgraha）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1593.xml",
+      "upstreamPath": "T/T31/T31n1593.xml",
+      "upstreamGitBlobSha1": "d9c2fbaaef320b32008a88c2215126798a034088",
+      "upstreamBytes": 269206,
+      "upstreamSha256": "55e50857facf200ac11833e6cc5bb0fba80af70476d39bb20583e6b74128e28e",
+      "localBytes": 269207,
+      "localSha256": "590b8823c013a1fb98e7155394f82a80bdb8a0ef2728ae0232037fbbfc3dbd0c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論",
+        "alternateTitle": "攝大乘論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1593",
+        "translator": "無著菩薩造 · 陳 · 真諦譯",
+        "summary": "3卷。真谛译完整表达。传统责任题记：無著菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1593_001"
+      },
+      "verification": {
+        "segments": 1764,
+        "folios": 64,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1593.001.0112b11",
+          "T1593.003.0132c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1594",
+      "slug": "taisho-t1594",
+      "workId": "gbcr:work:mahayanasamgraha-asanga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论（Mahāyānasaṃgraha）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1594.xml",
+      "upstreamPath": "T/T31/T31n1594.xml",
+      "upstreamGitBlobSha1": "409a30952fbd425e76482b8fa1ebb12a85531ba5",
+      "upstreamBytes": 219994,
+      "upstreamSha256": "c791d0d2cc1905ef4313e100bc51fbfb963c9cf7e73f400f98bf1906ce467ad3",
+      "localBytes": 219995,
+      "localSha256": "670083663a5e4ee6dd8c219183ca3d1a888ef69d4457890da0044eefc4b74627",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論本",
+        "alternateTitle": "攝大乘論本",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1594",
+        "translator": "無著菩薩造 · 唐 · 玄奘譯",
+        "summary": "3卷。玄奘译完整表达。传统责任题记：無著菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1594_001"
+      },
+      "verification": {
+        "segments": 1677,
+        "folios": 61,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1594.001.0132c17",
+          "T1594.003.0152a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1595",
+      "slug": "taisho-t1595",
+      "workId": "gbcr:work:mahayanasamgrahabhasya-vasubandhu",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论释（Mahāyānasaṃgrahabhāṣya）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1595.xml",
+      "upstreamPath": "T/T31/T31n1595.xml",
+      "upstreamGitBlobSha1": "fa47d32d523b9dc2b860ed1c7b612de38e47d01f",
+      "upstreamBytes": 1525623,
+      "upstreamSha256": "4cf53f6d341b0b90282f011496d3c62c027786af01e564ed485d381788780598",
+      "localBytes": 1525624,
+      "localSha256": "e3b8a4a6dcdf1d648822baa771d4943e1c3c3c8242d304e9f91c94ccee9927f3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論釋",
+        "alternateTitle": "攝大乘論釋",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1595",
+        "translator": "世親菩薩釋 · 陳 · 真諦譯",
+        "summary": "15卷。真谛译世亲释完整表达。传统责任题记：世親菩薩釋 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1595_001"
+      },
+      "verification": {
+        "segments": 10224,
+        "folios": 365,
+        "juanRange": [
+          1,
+          15
+        ],
+        "anchors": [
+          "T1595.001.0152a21",
+          "T1595.015.0270b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1596",
+      "slug": "taisho-t1596",
+      "workId": "gbcr:work:mahayanasamgrahabhasya-vasubandhu",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论释（Mahāyānasaṃgrahabhāṣya）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1596.xml",
+      "upstreamPath": "T/T31/T31n1596.xml",
+      "upstreamGitBlobSha1": "3b6b3f46cd0669b04e29f947de0ae04d9fff098f",
+      "upstreamBytes": 573418,
+      "upstreamSha256": "4dc270e431ecafac78dc987fc2a24c3ca8a86f30e1d2d59636ea1f6f31595b73",
+      "localBytes": 573419,
+      "localSha256": "0e7af4d5d7874d1f2bd5df69d657a72e043448841b5c9441a0c7d0c848e82c0d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論釋論",
+        "alternateTitle": "攝大乘論釋論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1596",
+        "translator": "世親菩薩造 · 隋 · 笈多共行矩等譯",
+        "summary": "10卷。笈多等译世亲释完整表达。传统责任题记：世親菩薩造 隋 笈多共行矩等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1596_001"
+      },
+      "verification": {
+        "segments": 4327,
+        "folios": 159,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1596.001.0271a03",
+          "T1596.010.0321a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1597",
+      "slug": "taisho-t1597",
+      "workId": "gbcr:work:mahayanasamgrahabhasya-vasubandhu",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "摄大乘论释（Mahāyānasaṃgrahabhāṣya）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1597.xml",
+      "upstreamPath": "T/T31/T31n1597.xml",
+      "upstreamGitBlobSha1": "e39ffdbc73dc80c4cb268c771ddea932d90239a6",
+      "upstreamBytes": 559242,
+      "upstreamSha256": "d23f4fbeca56791a1c04f058c8fc066e0a23ced5011c06843dd79c08bc54d7bf",
+      "localBytes": 559243,
+      "localSha256": "7fe5e769d3c4ac22994705428c1c32829024344ee7a60373adc935d554371abd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論釋",
+        "alternateTitle": "攝大乘論釋",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1597",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "10卷。玄奘译世亲释完整表达。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1597_001"
+      },
+      "verification": {
+        "segments": 5105,
+        "folios": 186,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1597.001.0321a12",
+          "T1597.010.0380a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1598",
+      "slug": "taisho-t1598",
+      "workId": "gbcr:work:mahayanasamgrahopanibandhana-asvabhava",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "摄大乘论释（无性释）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mahayanasamgraha_root_and_commentary_families_verified",
+          "groupId": "mahayanasamgraha-t1592-t1598",
+          "label": "《摄大乘论》三译、世亲释三译与无性释边界",
+          "evidence": "T1592–T1594 是无著根本论三译；T1595–T1597 是世亲释三译；T1598 是无性释。平台建立两个同作品异译组，并把根本论、世亲释、无性释计为三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1592",
+              "T1593",
+              "T1594",
+              "T1595",
+              "T1596",
+              "T1597",
+              "T1598"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1598.xml",
+      "upstreamPath": "T/T31/T31n1598.xml",
+      "upstreamGitBlobSha1": "dab2364ea34fdad8249bca84190dc0bf67226208",
+      "upstreamBytes": 705214,
+      "upstreamSha256": "078261c159fb90df29798adf49b0f8b5fd30c06965eee5303f4411a1ebbe9e71",
+      "localBytes": 705215,
+      "localSha256": "42178c095bd8bf450d8fa691b271953f85973aad990ea0f74db905a294d1cd34",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大乘論釋",
+        "alternateTitle": "攝大乘論釋",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1598",
+        "translator": "無性菩薩造 · 唐 · 玄奘譯",
+        "summary": "10卷。无性释完整来源，与世亲释分列作品。传统责任题记：無性菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1598_001"
+      },
+      "verification": {
+        "segments": 6011,
+        "folios": 216,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1598.001.0380a20",
+          "T1598.010.0449b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1599",
+      "slug": "taisho-t1599",
+      "workId": "gbcr:work:madhyantavibhagabhasya-vasubandhu",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "中边分别论释（Madhyāntavibhāgabhāṣya）",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "madhyantavibhaga_root_and_bhasya_translations_verified",
+          "groupId": "madhyantavibhaga-t1599-t1601",
+          "label": "《中边分别论》本颂与世亲释边界",
+          "evidence": "T1599、T1600 是世亲《中边分别论释》的两个汉译；T1601 是独立译出的根本颂。T1600 大量嵌入本颂，但释论与本颂仍是不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1599",
+              "T1600",
+              "T1601"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1599.xml",
+      "upstreamPath": "T/T31/T31n1599.xml",
+      "upstreamGitBlobSha1": "e7a1f135c3e3d658f6397663f47a3a2f2207712b",
+      "upstreamBytes": 234097,
+      "upstreamSha256": "1e8bce7897c4dcb88c867424cdb04eecac6d0c902e1a642e4b8398889633740e",
+      "localBytes": 234098,
+      "localSha256": "cdabf8506e4c6eaf72d27ef36ce710d3343ce310c6707bdf30fea09c60efd65f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中邊分別論",
+        "alternateTitle": "中邊分別論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1599",
+        "translator": "天親菩薩造 · 陳 · 真諦譯",
+        "summary": "2卷。真谛译世亲释完整表达。传统责任题记：天親菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1599_001"
+      },
+      "verification": {
+        "segments": 1149,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1599.001.0451a02",
+          "T1599.002.0464a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1600",
+      "slug": "taisho-t1600",
+      "workId": "gbcr:work:madhyantavibhagabhasya-vasubandhu",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "辩中边论（Madhyāntavibhāgabhāṣya）",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "madhyantavibhaga_root_and_bhasya_translations_verified",
+          "groupId": "madhyantavibhaga-t1599-t1601",
+          "label": "《中边分别论》本颂与世亲释边界",
+          "evidence": "T1599、T1600 是世亲《中边分别论释》的两个汉译；T1601 是独立译出的根本颂。T1600 大量嵌入本颂，但释论与本颂仍是不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1599",
+              "T1600",
+              "T1601"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1600.xml",
+      "upstreamPath": "T/T31/T31n1600.xml",
+      "upstreamGitBlobSha1": "d24b5e4377f7a996d251bd7a25a43cbf675da798",
+      "upstreamBytes": 133668,
+      "upstreamSha256": "9fa0951b13fda56ff5bf97a2181b988713c4b3fdc284325d4c8166295e6f9618",
+      "localBytes": 133669,
+      "localSha256": "f8d1f6618609013258ebb58db2ea0202307d283dfa34020c493b842f7ea0d234",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "辯中邊論",
+        "alternateTitle": "辯中邊論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1600",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "3卷。玄奘译世亲释完整表达，内嵌根本颂。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1600_001"
+      },
+      "verification": {
+        "segments": 1137,
+        "folios": 40,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1600.001.0464b02",
+          "T1600.003.0477b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1601",
+      "slug": "taisho-t1601",
+      "workId": "gbcr:work:madhyantavibhaga-karika",
+      "workIdentityStatus": "verified_distinct_root_verse_work",
+      "workTitle": "辩中边论颂（Madhyāntavibhāgakārikā）",
+      "sourceRole": "traditional_root_verse_translation",
+      "bibliographicRelations": [
+        {
+          "type": "madhyantavibhaga_root_and_bhasya_translations_verified",
+          "groupId": "madhyantavibhaga-t1599-t1601",
+          "label": "《中边分别论》本颂与世亲释边界",
+          "evidence": "T1599、T1600 是世亲《中边分别论释》的两个汉译；T1601 是独立译出的根本颂。T1600 大量嵌入本颂，但释论与本颂仍是不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1599",
+              "T1600",
+              "T1601"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1601.xml",
+      "upstreamPath": "T/T31/T31n1601.xml",
+      "upstreamGitBlobSha1": "cb1b025e53373e303a01e0d5140489305e04be80",
+      "upstreamBytes": 36363,
+      "upstreamSha256": "b55244fd0ac4949f149b9e0f9b888d3ffc3eec58cf42ed7488e0e478958a751e",
+      "localBytes": 36364,
+      "localSha256": "903aab06e09e1e7febd4045b9d2f84f7a639cd77cb130620088af662f9959521",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "辯中邊論頌",
+        "alternateTitle": "辯中邊論頌",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1601",
+        "translator": "彌勒菩薩說 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘独立译出的根本颂完整来源。传统责任题记：彌勒菩薩說 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1601_001"
+      },
+      "verification": {
+        "segments": 238,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1601.001.0477c01",
+          "T1601.001.0480b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1602",
+      "slug": "taisho-t1602",
+      "workId": "gbcr:work:prakaranaryavaca-sastra",
+      "workIdentityStatus": "verified_distinct_composite_treatise_work",
+      "workTitle": "显扬圣教论",
+      "sourceRole": "traditional_root_verses_with_prose_exposition_translation",
+      "bibliographicRelations": [
+        {
+          "type": "prakaranaryavaca_verses_and_prose_exposition_verified",
+          "groupId": "prakaranaryavaca-t1602-t1603",
+          "label": "《显扬圣教论》长行与独立本颂",
+          "evidence": "T1603 完整保存 T1602 各品所嵌本颂，五字组短文本包含率约 79%；独立本颂与含长行解释的复合论体分列作品，作者层次的传统与现代争论照录而不强行裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T1602",
+              "T1603"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1602.xml",
+      "upstreamPath": "T/T31/T31n1602.xml",
+      "upstreamGitBlobSha1": "4de2e819bac007cb64e3a854c8ac28971cefd7cc",
+      "upstreamBytes": 1150988,
+      "upstreamSha256": "10dc692abb5733d0077ba7a2708010c1cb3b8268a7d9c1467ceb0a4d1ce2c91f",
+      "localBytes": 1150989,
+      "localSha256": "febd15312ef293b6af607cdfca927a921122e26f136f7e4540f131fb8a9299d0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "顯揚聖教論",
+        "alternateTitle": "顯揚聖教論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1602",
+        "translator": "無著菩薩造 · 唐 · 玄奘譯",
+        "summary": "20卷。二十卷长行论体完整来源；作者层次争论保留。传统责任题记：無著菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1602_001"
+      },
+      "verification": {
+        "segments": 8899,
+        "folios": 326,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1602.001.0480b10",
+          "T1602.020.0583b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1603",
+      "slug": "taisho-t1603",
+      "workId": "gbcr:work:prakaranaryavaca-karika",
+      "workIdentityStatus": "verified_distinct_root_verse_work",
+      "workTitle": "显扬圣教论颂",
+      "sourceRole": "traditional_root_verse_translation",
+      "bibliographicRelations": [
+        {
+          "type": "prakaranaryavaca_verses_and_prose_exposition_verified",
+          "groupId": "prakaranaryavaca-t1602-t1603",
+          "label": "《显扬圣教论》长行与独立本颂",
+          "evidence": "T1603 完整保存 T1602 各品所嵌本颂，五字组短文本包含率约 79%；独立本颂与含长行解释的复合论体分列作品，作者层次的传统与现代争论照录而不强行裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T1602",
+              "T1603"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1603.xml",
+      "upstreamPath": "T/T31/T31n1603.xml",
+      "upstreamGitBlobSha1": "bef5fea30139d3f47bd52798b983d8236fe1c876",
+      "upstreamBytes": 69246,
+      "upstreamSha256": "762c1051539b171d4d568db989ce36a6bf999f62e97b151b4e57d997811c5537",
+      "localBytes": 69247,
+      "localSha256": "74f56fbe894a338903d29b3a1e79a52291746838bcc72f90a32fc7f19903b3d7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "顯揚聖教論頌",
+        "alternateTitle": "顯揚聖教論頌",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1603",
+        "translator": "無著菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。十一品本颂的独立完整来源。传统责任题记：無著菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1603_001"
+      },
+      "verification": {
+        "segments": 521,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1603.001.0583b19",
+          "T1603.001.0589b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1604",
+      "slug": "taisho-t1604",
+      "workId": "gbcr:work:mahayanasutralamkara-bhasya",
+      "workIdentityStatus": "verified_composite_root_and_commentary_work",
+      "workTitle": "大乘庄严经论（Mahāyānasūtrālaṃkārabhāṣya）",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "localPath": "data/corpus/cbeta/T31n1604.xml",
+      "upstreamPath": "T/T31/T31n1604.xml",
+      "upstreamGitBlobSha1": "d409e14a6d69d00d1af2d568e6273001782b4d1d",
+      "upstreamBytes": 956788,
+      "upstreamSha256": "3b80a7576c27d823e51a46555f614c368fa5ef0ad27bfa9763ed23eca04c4392",
+      "localBytes": 956789,
+      "localSha256": "4331853b49049579cf14db1be4a002268c013a085fd5162015c9007cf4066acb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘莊嚴經論",
+        "alternateTitle": "大乘莊嚴經論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1604",
+        "translator": "無著菩薩造 · 唐 · 波羅頗蜜多羅譯",
+        "summary": "13卷。十三卷完整来源；本颂与长行注释责任层次按来源题记保存。传统责任题记：無著菩薩造 唐 波羅頗蜜多羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1604_001"
+      },
+      "verification": {
+        "segments": 6246,
+        "folios": 227,
+        "juanRange": [
+          1,
+          13
+        ],
+        "anchors": [
+          "T1604.001.0589b20",
+          "T1604.013.0661c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1605",
+      "slug": "taisho-t1605",
+      "workId": "gbcr:work:abhidharmasamuccaya",
+      "workIdentityStatus": "verified_distinct_root_treatise_work",
+      "workTitle": "大乘阿毘达磨集论（Abhidharmasamuccaya）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharmasamuccaya_root_and_collated_commentary_verified",
+          "groupId": "abhidharmasamuccaya-t1605-t1606",
+          "label": "《集论》与《杂集论》根本论—合糅释关系",
+          "evidence": "T1605 是无著《大乘阿毘达磨集论》；T1606 是安慧把根本论与解释合糅而成的《杂集论》。机器对读显示根本文本大量嵌入，但二者是不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1605",
+              "T1606"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1605.xml",
+      "upstreamPath": "T/T31/T31n1605.xml",
+      "upstreamGitBlobSha1": "c27900c7fc64f90e924c8da4e42b9e4885141f0b",
+      "upstreamBytes": 339631,
+      "upstreamSha256": "24b51c92130314162a9a060c10c35bcc85271e045416c753e2edfb041bd7d47d",
+      "localBytes": 339632,
+      "localSha256": "bbf86ab8b06742593d70be776624793c600ddc93295d852e292ffc8ae179a855",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘阿毘達磨集論",
+        "alternateTitle": "大乘阿毘達磨集論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1605",
+        "translator": "無著菩薩造 · 唐 · 玄奘譯",
+        "summary": "7卷。无著根本论完整来源。传统责任题记：無著菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1605_001"
+      },
+      "verification": {
+        "segments": 2707,
+        "folios": 99,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1605.001.0663a02",
+          "T1605.007.0694b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1606",
+      "slug": "taisho-t1606",
+      "workId": "gbcr:work:abhidharmasamuccaya-vyakhya",
+      "workIdentityStatus": "verified_distinct_collated_commentary_work",
+      "workTitle": "大乘阿毘达磨杂集论（Abhidharmasamuccayavyākhyā）",
+      "sourceRole": "traditional_collated_root_and_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharmasamuccaya_root_and_collated_commentary_verified",
+          "groupId": "abhidharmasamuccaya-t1605-t1606",
+          "label": "《集论》与《杂集论》根本论—合糅释关系",
+          "evidence": "T1605 是无著《大乘阿毘达磨集论》；T1606 是安慧把根本论与解释合糅而成的《杂集论》。机器对读显示根本文本大量嵌入，但二者是不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1605",
+              "T1606"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1606.xml",
+      "upstreamPath": "T/T31/T31n1606.xml",
+      "upstreamGitBlobSha1": "e03534b1fb88b6be8d87b69ba69720d6e617d38b",
+      "upstreamBytes": 968679,
+      "upstreamSha256": "5d2108a7d0edc319b68f95eca20312c89b4d2c2262116972f5e21f046103b8b4",
+      "localBytes": 968680,
+      "localSha256": "8d88dbe54228854a65c2c33784b0e9629664a254f0608b114ed5f9f9168b13cf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘阿毘達磨雜集論",
+        "alternateTitle": "大乘阿毘達磨雜集論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1606",
+        "translator": "安慧菩薩糅 · 唐 · 玄奘譯",
+        "summary": "16卷。安慧合糅根本论与解释的完整复合来源。传统责任题记：安慧菩薩糅 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1606_001"
+      },
+      "verification": {
+        "segments": 6874,
+        "folios": 250,
+        "juanRange": [
+          1,
+          16
+        ],
+        "anchors": [
+          "T1606.001.0694b13",
+          "T1606.016.0774a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1607",
+      "slug": "taisho-t1607",
+      "workId": "gbcr:work:sad-dvara-dhyana-commentary",
+      "workIdentityStatus": "verified_composite_root_and_commentary_work",
+      "workTitle": "六门教授习定论",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "localPath": "data/corpus/cbeta/T31n1607.xml",
+      "upstreamPath": "T/T31/T31n1607.xml",
+      "upstreamGitBlobSha1": "712a509d232947c72b5bc8b493cd35805016a9a2",
+      "upstreamBytes": 40649,
+      "upstreamSha256": "7587fce6633711281c2fa4aa9215d0504d988dbbe7855bcda215b7e983d0b74b",
+      "localBytes": 40650,
+      "localSha256": "114c2fc6a0cd2757781f1c01fce98273199aecc23ff8e70916b8c1ff3b838f4b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "六門教授習定論",
+        "alternateTitle": "六門教授習定論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1607",
+        "translator": "無著本 · 世親釋 · 唐 · 義淨譯",
+        "summary": "1卷。无著本、世亲释的完整复合论来源。传统责任题记：無著本 世親釋 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1607_001"
+      },
+      "verification": {
+        "segments": 283,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1607.001.0774a10",
+          "T1607.001.0777b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1608",
+      "slug": "taisho-t1608",
+      "workId": "gbcr:work:karmasiddhiprakarana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "业成就论（Karmasiddhiprakaraṇa）",
+      "sourceRole": "traditional_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "karmasiddhiprakarana_two_chinese_translations_verified",
+          "groupId": "karmasiddhiprakarana-t1608-t1609",
+          "label": "世亲《成业论》两种汉译",
+          "evidence": "学术研究明确把 T1608 与 T1609 识别为世亲 Karmasiddhiprakaraṇa 的两种汉译，故共享作品标识并各保留译者、题名与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T1608",
+              "T1609"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1608.xml",
+      "upstreamPath": "T/T31/T31n1608.xml",
+      "upstreamGitBlobSha1": "9cf7c54c05665970600c0b9382a91493f89f476a",
+      "upstreamBytes": 61636,
+      "upstreamSha256": "83e494295640a551850ef203fe47dc12464e685215cdcc62089c62dc01a30f66",
+      "localBytes": 61637,
+      "localSha256": "fcf35f7e4ba0de5930367b66a4009a61fe5b1a818c24bc6dca8c60a61e2313ed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "業成就論",
+        "alternateTitle": "業成就論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1608",
+        "translator": "天親菩薩造 · 元魏 · 毘目智仙譯",
+        "summary": "1卷。毘目智仙译完整表达。传统责任题记：天親菩薩造 元魏 毘目智仙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1608_001"
+      },
+      "verification": {
+        "segments": 331,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1608.001.0777b06",
+          "T1608.001.0781a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1609",
+      "slug": "taisho-t1609",
+      "workId": "gbcr:work:karmasiddhiprakarana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "大乘成业论（Karmasiddhiprakaraṇa）",
+      "sourceRole": "traditional_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "karmasiddhiprakarana_two_chinese_translations_verified",
+          "groupId": "karmasiddhiprakarana-t1608-t1609",
+          "label": "世亲《成业论》两种汉译",
+          "evidence": "学术研究明确把 T1608 与 T1609 识别为世亲 Karmasiddhiprakaraṇa 的两种汉译，故共享作品标识并各保留译者、题名与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T1608",
+              "T1609"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1609.xml",
+      "upstreamPath": "T/T31/T31n1609.xml",
+      "upstreamGitBlobSha1": "987e91b9484a04090da914a81476ad83f9a6f91a",
+      "upstreamBytes": 64656,
+      "upstreamSha256": "863caf03177d7d9d9c7c5bc3ba7ead35b308d73413467156cc75d2d7b3a5e5eb",
+      "localBytes": 64657,
+      "localSha256": "1fb6d80b2335be3fbca8f8e11ddea43def0cbef2be02d67cf62ca66cc15d5e70",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘成業論",
+        "alternateTitle": "大乘成業論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1609",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘译完整表达。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1609_001"
+      },
+      "verification": {
+        "segments": 454,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1609.001.0781a24",
+          "T1609.001.0786b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1610",
+      "slug": "taisho-t1610",
+      "workId": "gbcr:work:buddhadhatu-sastra",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "佛性论",
+      "sourceRole": "traditional_attributed_treatise_or_sinitic_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "tathagatagarbha_related_distinct_treatises",
+          "groupId": "tathagatagarbha-t1610-t1611",
+          "label": "《佛性论》与《宝性论》的近缘但不同作品",
+          "evidence": "T1610 与 T1611 都是如来藏、佛性思想的重要论典，义理近缘不等于文本同一；平台分列作品，并保留 T1610 更可能为真谛编成而非单纯翻译的研究意见。",
+          "externalIds": {
+            "cbeta": [
+              "T1610",
+              "T1611"
+            ]
+          }
+        },
+        {
+          "type": "paramartha_translation_lecture_or_composition_attribution_boundary",
+          "groupId": "paramartha-yogacara-t1587-t1618",
+          "label": "真谛名下瑜伽论书的译作、讲录与编成边界",
+          "evidence": "经录把 T1587、T1617、T1618 联系到《无相论》的篇章传统；同行研究又指出 T1610、T1616、T1617、T1618 更自然地视为真谛在汉地的编成或讲录，而非可复原的逐字印度原典翻译。平台分别保存各部，不因共同来源传统合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1587",
+              "T1610",
+              "T1616",
+              "T1617",
+              "T1618"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1610.xml",
+      "upstreamPath": "T/T31/T31n1610.xml",
+      "upstreamGitBlobSha1": "269291e13ebe0aa1f3b12be96e3c9ca9fe41271e",
+      "upstreamBytes": 326651,
+      "upstreamSha256": "f1f15d9a3dad9c5d82cc3df0e890cec708b0fb2e227487c47cc0b2bc3d079475",
+      "localBytes": 326652,
+      "localSha256": "58c962e96f0bdf89fc702a16a4e5f5b589fa9be49076d725b54de11573f6777d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛性論",
+        "alternateTitle": "佛性論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1610",
+        "translator": "天親菩薩造 · 陳 · 真諦譯",
+        "summary": "4卷。四卷完整来源；传统世亲造、真谛译题记与现代编成研究并存。传统责任题记：天親菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1610_001"
+      },
+      "verification": {
+        "segments": 2249,
+        "folios": 81,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1610.001.0787a02",
+          "T1610.004.0813a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1611",
+      "slug": "taisho-t1611",
+      "workId": "gbcr:work:ratnagotravibhaga",
+      "workIdentityStatus": "verified_distinct_tathagatagarbha_treatise_work",
+      "workTitle": "究竟一乘宝性论（Ratnagotravibhāga）",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "tathagatagarbha_related_distinct_treatises",
+          "groupId": "tathagatagarbha-t1610-t1611",
+          "label": "《佛性论》与《宝性论》的近缘但不同作品",
+          "evidence": "T1610 与 T1611 都是如来藏、佛性思想的重要论典，义理近缘不等于文本同一；平台分列作品，并保留 T1610 更可能为真谛编成而非单纯翻译的研究意见。",
+          "externalIds": {
+            "cbeta": [
+              "T1610",
+              "T1611"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1611.xml",
+      "upstreamPath": "T/T31/T31n1611.xml",
+      "upstreamGitBlobSha1": "605df36612e82897a6a8f90c3a4e2d377cae42a4",
+      "upstreamBytes": 529260,
+      "upstreamSha256": "0e30847b2191d6f72e4bba32d206f3f533b90ee8173cb62c1459211cf8e6dfc5",
+      "localBytes": 529261,
+      "localSha256": "686897bcf9aaf78caba6b5fbf3ef598db76f5cd74b5ca48201b1f7b12f7e77b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "究竟一乘寶性論",
+        "alternateTitle": "究竟一乘寶性論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1611",
+        "translator": "後魏 · 勒那摩提譯",
+        "summary": "4卷。四卷完整来源；与《佛性论》义理近缘但不合并。传统责任题记：後魏 勒那摩提譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1611_001"
+      },
+      "verification": {
+        "segments": 3057,
+        "folios": 108,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1611.001.0813a06",
+          "T1611.004.0848a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1612",
+      "slug": "taisho-t1612",
+      "workId": "gbcr:work:pancaskandhaka",
+      "workIdentityStatus": "verified_distinct_root_treatise_work",
+      "workTitle": "大乘五蕴论（Pañcaskandhaka）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "pancaskandhaka_root_and_sthiramati_commentary_verified",
+          "groupId": "pancaskandhaka-t1612-t1613",
+          "label": "《五蕴论》与安慧广释",
+          "evidence": "T1612 是世亲 Pañcaskandhaka；T1613 是安慧 Pañcaskandhakavibhāṣā 的汉文节译或摘要。后者大量重用根本文本，但作为注释作品另立。",
+          "externalIds": {
+            "cbeta": [
+              "T1612",
+              "T1613"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1612.xml",
+      "upstreamPath": "T/T31/T31n1612.xml",
+      "upstreamGitBlobSha1": "f88acd4e382067438f37840e75d14d389bfb6e68",
+      "upstreamBytes": 34676,
+      "upstreamSha256": "ffb87ead9bbd3aeb7ed8cdd219e6d6a35a363171cc8d934163979dbe887190e9",
+      "localBytes": 34677,
+      "localSha256": "aff6117b4469775add7532bae287677c2299db83300ef32b3f0a12a04e5ea83d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘五蘊論",
+        "alternateTitle": "大乘五蘊論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1612",
+        "translator": "世親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。世亲根本论完整来源。传统责任题记：世親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1612_001"
+      },
+      "verification": {
+        "segments": 213,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1612.001.0848b01",
+          "T1612.001.0850c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1613",
+      "slug": "taisho-t1613",
+      "workId": "gbcr:work:pancaskandhakavibhasa-sthiramati",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大乘广五蕴论（Pañcaskandhakavibhāṣā）",
+      "sourceRole": "traditional_abridged_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "pancaskandhaka_root_and_sthiramati_commentary_verified",
+          "groupId": "pancaskandhaka-t1612-t1613",
+          "label": "《五蕴论》与安慧广释",
+          "evidence": "T1612 是世亲 Pañcaskandhaka；T1613 是安慧 Pañcaskandhakavibhāṣā 的汉文节译或摘要。后者大量重用根本文本，但作为注释作品另立。",
+          "externalIds": {
+            "cbeta": [
+              "T1612",
+              "T1613"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1613.xml",
+      "upstreamPath": "T/T31/T31n1613.xml",
+      "upstreamGitBlobSha1": "713ddcd4b1f375e9d27da4831e8392f39b008d1f",
+      "upstreamBytes": 59633,
+      "upstreamSha256": "cf3aa2e01c5e388ee3cd1a718c11772a01ce451fb1ab80bf992383fabe4bb7df",
+      "localBytes": 59634,
+      "localSha256": "106c69f079532039b894998d9cf200002e9f210e804d91e0dacd491cc60698a6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘廣五蘊論",
+        "alternateTitle": "大乘廣五蘊論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1613",
+        "translator": "安慧菩薩造 · 唐 · 地婆訶羅譯",
+        "summary": "1卷。安慧广释的汉文节译或摘要完整来源，不与根本论合并。传统责任题记：安慧菩薩造 唐 地婆訶羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1613_001"
+      },
+      "verification": {
+        "segments": 399,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1613.001.0850c13",
+          "T1613.001.0855b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1614",
+      "slug": "taisho-t1614",
+      "workId": "gbcr:work:mahayana-satadharma-prakasa-mukha",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "大乘百法明门论",
+      "sourceRole": "traditional_short_treatise_translation",
+      "localPath": "data/corpus/cbeta/T31n1614.xml",
+      "upstreamPath": "T/T31/T31n1614.xml",
+      "upstreamGitBlobSha1": "86403228a3ebfc010b79b95405ed6b532a04672b",
+      "upstreamBytes": 15420,
+      "upstreamSha256": "bd4117b89ec9ad4e2d3b4823ec0ea9982b7f0ad5c63630d09a47712c17212fd2",
+      "localBytes": 15421,
+      "localSha256": "9f4a5216ac18ca173aecbba7bfdbca3b2d09ca6aeed3ac801e9f109ed2a19930",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘百法明門論",
+        "alternateTitle": "大乘百法明門論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1614",
+        "translator": "天親菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。世亲传统归属的短论完整来源。传统责任题记：天親菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1614_001"
+      },
+      "verification": {
+        "segments": 42,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1614.001.0855b09",
+          "T1614.001.0855c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1615",
+      "slug": "taisho-t1615",
+      "workId": "gbcr:work:rajadharmanyaya",
+      "workIdentityStatus": "verified_component_work_translation",
+      "workTitle": "王法正理论（Rājadharmanyāya）",
+      "sourceRole": "independently_translated_yogacarabhumi_component",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_independently_translated_component_verified",
+          "groupId": "yogacarabhumi-t1579-t1615",
+          "label": "《瑜伽师地论》卷六十一与《王法正理论》",
+          "evidence": "研究明确 T1615 是 T1579 卷六十一相关段落的别译并独立流通；机器对读的短文本五字组包含率约 93%。平台把它登记为组成作品，而不把一份整部论表达重复拆算为另一份完整整部论。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1615"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1615.xml",
+      "upstreamPath": "T/T31/T31n1615.xml",
+      "upstreamGitBlobSha1": "20c976784b8831a3f8f89c28ce7b765cd7fd37a9",
+      "upstreamBytes": 58882,
+      "upstreamSha256": "7c52481dd2a0c71de71771b1d319a5d5bfcb9a0e95a1b8b36d4b18ca472a2528",
+      "localBytes": 58883,
+      "localSha256": "fce2f9b3adfeb7d698780d2c662dda361ca60e08b2e8b58750c8b668b06cc37e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "王法正理論",
+        "alternateTitle": "王法正理論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1615",
+        "translator": "彌勒菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。《瑜伽师地论》卷六十一相关组成部分的独立完整译本。传统责任题记：彌勒菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1615_001"
+      },
+      "verification": {
+        "segments": 450,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1615.001.0855c24",
+          "T1615.001.0861a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1616",
+      "slug": "taisho-t1616",
+      "workId": "gbcr:work:eighteen-emptiness-treatise-paramartha",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "十八空论",
+      "sourceRole": "paramartha_treatise_lecture_or_composition",
+      "bibliographicRelations": [
+        {
+          "type": "paramartha_translation_lecture_or_composition_attribution_boundary",
+          "groupId": "paramartha-yogacara-t1587-t1618",
+          "label": "真谛名下瑜伽论书的译作、讲录与编成边界",
+          "evidence": "经录把 T1587、T1617、T1618 联系到《无相论》的篇章传统；同行研究又指出 T1610、T1616、T1617、T1618 更自然地视为真谛在汉地的编成或讲录，而非可复原的逐字印度原典翻译。平台分别保存各部，不因共同来源传统合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1587",
+              "T1610",
+              "T1616",
+              "T1617",
+              "T1618"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1616.xml",
+      "upstreamPath": "T/T31/T31n1616.xml",
+      "upstreamGitBlobSha1": "9eada9343519d9bf48c4235bdc0929cdb28b8507",
+      "upstreamBytes": 91924,
+      "upstreamSha256": "0e743d2b8ce5a5c355db15a1aa8254c39534e3b7ecdc07b97a28f4f930cbf6dd",
+      "localBytes": 91925,
+      "localSha256": "905db6411d92d1e58a51d8368950bf65545f7f23350d1f7f07944a6766aa1dbe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十八空論",
+        "alternateTitle": "十八空論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1616",
+        "translator": "龍樹菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。完整来源记录；保存与《中边分别论》章节的关系及真谛编成研究，不冒充无争议逐字译本。传统责任题记：龍樹菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1616_001"
+      },
+      "verification": {
+        "segments": 537,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1616.001.0861a13",
+          "T1616.001.0867a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1617",
+      "slug": "taisho-t1617",
+      "workId": "gbcr:work:three-natures-treatise-paramartha",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "三无性论",
+      "sourceRole": "paramartha_treatise_lecture_or_composition",
+      "bibliographicRelations": [
+        {
+          "type": "paramartha_translation_lecture_or_composition_attribution_boundary",
+          "groupId": "paramartha-yogacara-t1587-t1618",
+          "label": "真谛名下瑜伽论书的译作、讲录与编成边界",
+          "evidence": "经录把 T1587、T1617、T1618 联系到《无相论》的篇章传统；同行研究又指出 T1610、T1616、T1617、T1618 更自然地视为真谛在汉地的编成或讲录，而非可复原的逐字印度原典翻译。平台分别保存各部，不因共同来源传统合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1587",
+              "T1610",
+              "T1616",
+              "T1617",
+              "T1618"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1617.xml",
+      "upstreamPath": "T/T31/T31n1617.xml",
+      "upstreamGitBlobSha1": "fb038c8e53731ccc9c41fdbea91bad4949445f27",
+      "upstreamBytes": 176904,
+      "upstreamSha256": "284a5716b4b4a4fb9266f290411f1f4d9883f3e4b85160f59aa8b50dbe9c6082",
+      "localBytes": 176905,
+      "localSha256": "95217f1e595af61ae0166369a21438e46e18a8f626a187f4c4018bc72bb152f7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三無性論",
+        "alternateTitle": "三無性論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1617",
+        "translator": "陳 · 真諦譯",
+        "summary": "2卷。两卷完整来源；与《显扬论·成无性品》高度相关但按独立流通组成作品登记。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1617_001"
+      },
+      "verification": {
+        "segments": 978,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1617.001.0867b02",
+          "T1617.002.0878b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1618",
+      "slug": "taisho-t1618",
+      "workId": "gbcr:work:manifest-consciousness-treatise-paramartha",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "显识论",
+      "sourceRole": "paramartha_treatise_lecture_or_composition",
+      "bibliographicRelations": [
+        {
+          "type": "paramartha_translation_lecture_or_composition_attribution_boundary",
+          "groupId": "paramartha-yogacara-t1587-t1618",
+          "label": "真谛名下瑜伽论书的译作、讲录与编成边界",
+          "evidence": "经录把 T1587、T1617、T1618 联系到《无相论》的篇章传统；同行研究又指出 T1610、T1616、T1617、T1618 更自然地视为真谛在汉地的编成或讲录，而非可复原的逐字印度原典翻译。平台分别保存各部，不因共同来源传统合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1587",
+              "T1610",
+              "T1616",
+              "T1617",
+              "T1618"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1618.xml",
+      "upstreamPath": "T/T31/T31n1618.xml",
+      "upstreamGitBlobSha1": "149f31043f54d3017c4bdafb8f3f0ca89e6f75dc",
+      "upstreamBytes": 62479,
+      "upstreamSha256": "305882f0e46e0a0a16a6857109f0e30b93b711eaad5a8d1e9b0d5513045fb153",
+      "localBytes": 62480,
+      "localSha256": "00183d8ea3173fddd5d9561b0a3c98d10ad1090fc79c52eb35c99deb18aea7b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "顯識論",
+        "alternateTitle": "顯識論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1618",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。完整来源记录；保存《无相论》篇章传统与汉地编成研究。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1618_001"
+      },
+      "verification": {
+        "segments": 343,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1618.001.0878c02",
+          "T1618.001.0882b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1619",
+      "slug": "taisho-t1619",
+      "workId": "gbcr:work:alambanapariksa-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "观所缘缘论（Ālambanaparīkṣā）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "alambanapariksa_two_translations_and_commentary_verified",
+          "groupId": "alambanapariksa-t1619-t1625",
+          "label": "陈那《观所缘缘论》两译与护法释",
+          "evidence": "经录明确 T1619 与 T1624 同本异译，均为陈那 Ālambanaparīkṣā；T1625 是护法的独立注释。翻译词汇差异导致机器字面重合低，不据此否定书目同一性。",
+          "externalIds": {
+            "cbeta": [
+              "T1619",
+              "T1624",
+              "T1625"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1619.xml",
+      "upstreamPath": "T/T31/T31n1619.xml",
+      "upstreamGitBlobSha1": "2854ceb9c3f2f791759707d9fa90e3a8e48787ee",
+      "upstreamBytes": 23178,
+      "upstreamSha256": "bde6f0ad30a63990cd9a7b4d7afd8014d0c38233e36e650a3bc5c7c0fe09e34f",
+      "localBytes": 23179,
+      "localSha256": "d8ee73c2c810da6d65c59351038c1765fa09e0d956d1ee64ab8793872e50d553",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無相思塵論",
+        "alternateTitle": "無相思塵論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1619",
+        "translator": "陳那菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。真谛译完整表达，旧题《无相思尘论》。传统责任题记：陳那菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1619_001"
+      },
+      "verification": {
+        "segments": 79,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1619.001.0882c02",
+          "T1619.001.0883b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1620",
+      "slug": "taisho-t1620",
+      "workId": "gbcr:work:hastavalaprakarana-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "掌中论（Hastavālaprakaraṇa）",
+      "sourceRole": "traditional_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "hastavalaprakarana_two_chinese_translations_verified",
+          "groupId": "hastavalaprakarana-t1620-t1621",
+          "label": "《解卷论》《掌中论》同本异译",
+          "evidence": "古代经录与现代目录均明确 T1620 是真谛初译、T1621 是义净再译的 Hastavālaprakaraṇa；两者共享作品标识，保留不同题名与译者。",
+          "externalIds": {
+            "cbeta": [
+              "T1620",
+              "T1621"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1620.xml",
+      "upstreamPath": "T/T31/T31n1620.xml",
+      "upstreamGitBlobSha1": "3151e7632f3f3d4563d37ad17caad9f6f449fe27",
+      "upstreamBytes": 16075,
+      "upstreamSha256": "f3f45d10519be8fe41ad91ed958274f7859001b635892579e2fadbcf294343bb",
+      "localBytes": 16076,
+      "localSha256": "e616f5a7366b117f3e7a5a48ef134d657a9cc2f4affe71162e2c714b97d49272",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "解捲論",
+        "alternateTitle": "解捲論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1620",
+        "translator": "陳那菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。真谛初译完整表达，题《解卷论》。传统责任题记：陳那菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1620_001"
+      },
+      "verification": {
+        "segments": 62,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1620.001.0883c02",
+          "T1620.001.0884b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1621",
+      "slug": "taisho-t1621",
+      "workId": "gbcr:work:hastavalaprakarana-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "掌中论（Hastavālaprakaraṇa）",
+      "sourceRole": "traditional_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "hastavalaprakarana_two_chinese_translations_verified",
+          "groupId": "hastavalaprakarana-t1620-t1621",
+          "label": "《解卷论》《掌中论》同本异译",
+          "evidence": "古代经录与现代目录均明确 T1620 是真谛初译、T1621 是义净再译的 Hastavālaprakaraṇa；两者共享作品标识，保留不同题名与译者。",
+          "externalIds": {
+            "cbeta": [
+              "T1620",
+              "T1621"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1621.xml",
+      "upstreamPath": "T/T31/T31n1621.xml",
+      "upstreamGitBlobSha1": "6e2633ee69329c5bb74cb1c9277b98e20e5dc2b6",
+      "upstreamBytes": 14257,
+      "upstreamSha256": "5c9c4ad87321e129a199e069bf32e3091331dc454522cd8fe959601e588b15a0",
+      "localBytes": 14258,
+      "localSha256": "34dfae64c750812e741e0bf3402286a1dd4bb62e4ffe4adcb89eadd4aa87f9ef",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "掌中論",
+        "alternateTitle": "掌中論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1621",
+        "translator": "陳那菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。义净再译完整表达。传统责任题记：陳那菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1621_001"
+      },
+      "verification": {
+        "segments": 66,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1621.001.0884b09",
+          "T1621.001.0885a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1622",
+      "slug": "taisho-t1622",
+      "workId": "gbcr:work:hetu-prajnapti-dignaga",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "取因假设论",
+      "sourceRole": "traditional_short_treatise_translation",
+      "localPath": "data/corpus/cbeta/T31n1622.xml",
+      "upstreamPath": "T/T31/T31n1622.xml",
+      "upstreamGitBlobSha1": "c28497bb9be5fb140975101009f8ccbb77527904",
+      "upstreamBytes": 37005,
+      "upstreamSha256": "094af2e71b26f638a1d6cdacfd8a4425358d5f3e171b0464d2e7ef5a8b1d411a",
+      "localBytes": 37006,
+      "localSha256": "e3c724430c0ee385fc89f411cb747b3357074a369afcb38efeca0e4e14a5275f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "取因假設論",
+        "alternateTitle": "取因假設論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1622",
+        "translator": "陳那菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。陈那传统归属的独立短论完整来源。传统责任题记：陳那菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1622_001"
+      },
+      "verification": {
+        "segments": 233,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1622.001.0885a20",
+          "T1622.001.0887c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1623",
+      "slug": "taisho-t1623",
+      "workId": "gbcr:work:sarvasamanyalaksana-karika-dignaga",
+      "workIdentityStatus": "verified_distinct_root_verse_work",
+      "workTitle": "观总相论颂",
+      "sourceRole": "traditional_root_verse_translation",
+      "localPath": "data/corpus/cbeta/T31n1623.xml",
+      "upstreamPath": "T/T31/T31n1623.xml",
+      "upstreamGitBlobSha1": "7ab789773fc02d4de93cf4e50491cc38281d892f",
+      "upstreamBytes": 9223,
+      "upstreamSha256": "dc249baacba9afea73060a1d1eab469341ce016a566ffe80b33c000711e5cddc",
+      "localBytes": 9224,
+      "localSha256": "dd69d37902311c3f742cbccec9c688dfc1ad3d41e609a30e55b05405a9c19030",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀總相論頌",
+        "alternateTitle": "觀總相論頌",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1623",
+        "translator": "陳那菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。陈那传统归属的独立短颂完整来源。传统责任题记：陳那菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1623_001"
+      },
+      "verification": {
+        "segments": 27,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1623.001.0887c24",
+          "T1623.001.0888a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1624",
+      "slug": "taisho-t1624",
+      "workId": "gbcr:work:alambanapariksa-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "观所缘缘论（Ālambanaparīkṣā）",
+      "sourceRole": "traditional_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "alambanapariksa_two_translations_and_commentary_verified",
+          "groupId": "alambanapariksa-t1619-t1625",
+          "label": "陈那《观所缘缘论》两译与护法释",
+          "evidence": "经录明确 T1619 与 T1624 同本异译，均为陈那 Ālambanaparīkṣā；T1625 是护法的独立注释。翻译词汇差异导致机器字面重合低，不据此否定书目同一性。",
+          "externalIds": {
+            "cbeta": [
+              "T1619",
+              "T1624",
+              "T1625"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1624.xml",
+      "upstreamPath": "T/T31/T31n1624.xml",
+      "upstreamGitBlobSha1": "5fe7709244239463dc8d09c5a86182552158e410",
+      "upstreamBytes": 14867,
+      "upstreamSha256": "ccd3721806c5d2c8b2ad8721260b08659009399a262edf7f76e8478df7c413f2",
+      "localBytes": 14868,
+      "localSha256": "18425b9051df50a8c2414b8fcdcafbfe9ea5f077b1705d7e6d7bc581f0648e14",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀所緣緣論",
+        "alternateTitle": "觀所緣緣論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1624",
+        "translator": "陳那菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘译完整表达。传统责任题记：陳那菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1624_001"
+      },
+      "verification": {
+        "segments": 67,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1624.001.0888b02",
+          "T1624.001.0889a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1625",
+      "slug": "taisho-t1625",
+      "workId": "gbcr:work:alambanapariksa-commentary-dharmapala",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "观所缘论释（护法释）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "alambanapariksa_two_translations_and_commentary_verified",
+          "groupId": "alambanapariksa-t1619-t1625",
+          "label": "陈那《观所缘缘论》两译与护法释",
+          "evidence": "经录明确 T1619 与 T1624 同本异译，均为陈那 Ālambanaparīkṣā；T1625 是护法的独立注释。翻译词汇差异导致机器字面重合低，不据此否定书目同一性。",
+          "externalIds": {
+            "cbeta": [
+              "T1619",
+              "T1624",
+              "T1625"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1625.xml",
+      "upstreamPath": "T/T31/T31n1625.xml",
+      "upstreamGitBlobSha1": "c3cbec9e78bff2c22fdafc2a9ef648e101784d49",
+      "upstreamBytes": 40617,
+      "upstreamSha256": "3a580527daa5c9ff07413e43a7c0349c1747b5190abd0febca18863db71ccd08",
+      "localBytes": 40618,
+      "localSha256": "dc7c955acb3222f7fda58c7d690b030de498294208288e315b443ceb338e6b11",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀所緣論釋",
+        "alternateTitle": "觀所緣論釋",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1625",
+        "translator": "護法菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。护法对陈那《观所缘缘论》的独立注释完整来源。传统责任题记：護法菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1625_001"
+      },
+      "verification": {
+        "segments": 258,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1625.001.0889a14",
+          "T1625.001.0892a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1626",
+      "slug": "taisho-t1626",
+      "workId": "gbcr:work:dharmadhatu-avisesa-sastra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "大乘法界无差别论",
+      "sourceRole": "traditional_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "dharmadhatu_avisesa_alternate_chinese_versions_verified",
+          "groupId": "dharmadhatu-avisesa-t1626-t1627",
+          "label": "《大乘法界无差别论》两种汉文传本",
+          "evidence": "T1626 与 T1627 义同文异。校勘研究认为契丹系 T1626 更可能是提云般若真译，开宝、高丽系 T1627 可能是开元录之后的未知重译；平台登记为同一作品的两个完整汉文表达，并保留译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T1626",
+              "T1627"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1626.xml",
+      "upstreamPath": "T/T31/T31n1626.xml",
+      "upstreamGitBlobSha1": "4f111a7762a55bb23bda234f6ca2a87c561c06a3",
+      "upstreamBytes": 34071,
+      "upstreamSha256": "9b4c4a0e9bcd8396ce43a57c238a813ab69782094d4da3da678be20d1b9c9b75",
+      "localBytes": 34072,
+      "localSha256": "f4c835b30ad93885d57878ecbf172b7de68d906c409525d514b1503927c9d4f0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘法界無差別論",
+        "alternateTitle": "大乘法界無差別論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1626",
+        "translator": "堅慧菩薩造 · 唐 · 提雲般若等譯",
+        "summary": "1卷。契丹系汉文完整表达；较可能为提云般若真译。传统责任题记：堅慧菩薩造 唐 提雲般若等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1626_001"
+      },
+      "verification": {
+        "segments": 199,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1626.001.0892a14",
+          "T1626.001.0894b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1627",
+      "slug": "taisho-t1627",
+      "workId": "gbcr:work:dharmadhatu-avisesa-sastra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "大乘法界无差别论",
+      "sourceRole": "alternate_translation_or_recension_witness",
+      "bibliographicRelations": [
+        {
+          "type": "dharmadhatu_avisesa_alternate_chinese_versions_verified",
+          "groupId": "dharmadhatu-avisesa-t1626-t1627",
+          "label": "《大乘法界无差别论》两种汉文传本",
+          "evidence": "T1626 与 T1627 义同文异。校勘研究认为契丹系 T1626 更可能是提云般若真译，开宝、高丽系 T1627 可能是开元录之后的未知重译；平台登记为同一作品的两个完整汉文表达，并保留译者归属争议。",
+          "externalIds": {
+            "cbeta": [
+              "T1626",
+              "T1627"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T31n1627.xml",
+      "upstreamPath": "T/T31/T31n1627.xml",
+      "upstreamGitBlobSha1": "fd04ae5d50cfefbe0c83bb9c4e7ec0d59caf66ed",
+      "upstreamBytes": 30468,
+      "upstreamSha256": "cf637a0dafcc400e4638300869b48b3a9bba25013cd7fd1ad3d7a5880d5f0126",
+      "localBytes": 30469,
+      "localSha256": "41a0d745542194bb57a8418ef11fbfa6d412a05b0a974fe1bb0706d7be71a8b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘法界無差別論",
+        "alternateTitle": "大乘法界無差別論",
+        "tradition": "汉传佛教 · 瑜伽部",
+        "language": "汉文",
+        "canonRef": "大正藏 T31, no. 1627",
+        "translator": "堅慧菩薩造 · 唐 · 提雲般若譯",
+        "summary": "1卷。开宝、高丽系汉文完整表达；译者与年代未知的研究意见保留。传统责任题记：堅慧菩薩造 唐 提雲般若譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1627_001"
+      },
+      "verification": {
+        "segments": 181,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1627.001.0894b13",
+          "T1627.001.0896b20"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
