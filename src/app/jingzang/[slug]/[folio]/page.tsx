@@ -209,7 +209,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
                 : bilara
                   ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
                 : partialWitness
-                  ? `当前仅加载大正藏 ${folio.item.label} 版页；来源文件完整保存，但正文只作为节译、后分或残篇见证，不计作完整作品译本。`
+                  ? `当前仅加载大正藏 ${folio.item.label} 版页；来源文件完整保存，但正文只作为局部、节译、后分、短本或残篇见证，不冒充完整母作品或完整译本。`
                   : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
             </p>
           </div>

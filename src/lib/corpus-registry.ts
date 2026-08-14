@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v3.5.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.6.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.6.0.json";
 
 type Expression = {
   id: string;
@@ -115,12 +115,23 @@ export function buildCoverageSnapshot() {
   const chineseT17Controlled = "t17ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t17ControlledSourceRecords ?? null
     : null;
+  const chineseT18Denominator = "t18SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t18SourceRecordDenominator ?? null
+    : null;
+  const chineseT18Controlled = "t18ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t18ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
   const chineseSubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_chinese_sutra_t01_t17",
+      ) ?? null
+    : null;
+  const chineseT18SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_esoteric_t18",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -331,8 +342,9 @@ export function buildCoverageSnapshot() {
           ? Number(((chineseControlledBytes / chineseCandidateBytes) * 100).toFixed(2))
           : null,
         inventorySha256: chineseSubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T17 汉译经藏候选文本记录",
-        caveat: "这是固定来源中的文本记录进度，不是去重作品覆盖率或全球佛典覆盖率。",
+        t18InventorySha256: chineseT18SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T18 两个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18 的密教部目录还同时容纳译经、仪轨、撰述、辑录与失译。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -441,6 +453,19 @@ export function buildCoverageSnapshot() {
           : null,
         unit: "CBETA 固定提交大正藏 T17 经集部来源记录",
         caveat: "131/131 表示固定来源记录完整性；异译、同经号 a/b 版本、失译、撰集、节抄与疑似中国撰述分别登记，候选关系不作强制作品合并。",
+      },
+      chineseT18SourceRecords: {
+        denominator: chineseT18Denominator,
+        controlled: chineseT18Controlled,
+        percentage: chineseT18Denominator && chineseT18Controlled !== null
+          ? Number(((chineseT18Controlled / chineseT18Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT18BoundaryAudit.fullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT18BoundaryAudit.partialSourceWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT18BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT18BoundaryAudit.attributionBoundaryRecords,
+        unit: "CBETA 固定提交大正藏 T18 密教部来源记录",
+        caveat: corpusRegistry.cbetaT18BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

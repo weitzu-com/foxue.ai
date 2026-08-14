@@ -5,8 +5,9 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const inputs = {
   base: "data/gbcr/registry-v2.1.0.json",
-  snapshots: "data/gbcr/source-snapshots-v0.5.0.json",
+  snapshots: "data/gbcr/source-snapshots-v0.6.0.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+  t18Inventory: "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json",
   dergeInventory: "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
@@ -17,6 +18,7 @@ const inputs = {
   suttacentralAbhidhammaRightsAudit: "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
   suttacentralChineseParallels: "data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
   suttacentralParallelReviewQueue: "data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json",
+  suttacentralParallelP0EvidencePackets: "data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json",
   crossCatalogAlignments: "data/gbcr/cross-catalog-alignments-v0.5.0.json",
   rktsEvidence: "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
   rktsKernelAlignments: "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json",
@@ -25,10 +27,11 @@ const inputs = {
   cbetaT14Batch: "data/corpus/cbeta/batch-v2.1.0.json",
   cbetaT15Batch: "data/corpus/cbeta/batch-v2.2.0.json",
   cbetaT16Batch: "data/corpus/cbeta/batch-v2.3.0.json",
-  cbetaBatch: "data/corpus/cbeta/batch-v2.4.0.json",
-  cbetaCatalog: "data/corpus/cbeta/catalog-v2.4.0.json",
-  cbetaManifest: "data/corpus/cbeta/manifest-v2.4.0.json",
-  cbetaRegistry: "data/gbcr/registry-cbeta-v2.4.0.json",
+  cbetaT17Batch: "data/corpus/cbeta/batch-v2.4.0.json",
+  cbetaBatch: "data/corpus/cbeta/batch-v2.5.0.json",
+  cbetaCatalog: "data/corpus/cbeta/catalog-v2.5.0.json",
+  cbetaManifest: "data/corpus/cbeta/manifest-v2.5.0.json",
+  cbetaRegistry: "data/gbcr/registry-cbeta-v2.5.0.json",
   dhammapadaBatch: "data/corpus/suttacentral/batch-v0.7.0.json",
   dhammapadaManifest: "data/corpus/suttacentral/manifest-v0.7.0.json",
   dighaBatch: "data/corpus/suttacentral/dn-batch-v0.8.0.json",
@@ -66,6 +69,7 @@ const suttacentralVinayaRightsAudit = JSON.parse(rawById.suttacentralVinayaRight
 const suttacentralAbhidhammaRightsAudit = JSON.parse(rawById.suttacentralAbhidhammaRightsAudit);
 const suttacentralChineseParallels = JSON.parse(rawById.suttacentralChineseParallels);
 const suttacentralParallelReviewQueue = JSON.parse(rawById.suttacentralParallelReviewQueue);
+const suttacentralParallelP0EvidencePackets = JSON.parse(rawById.suttacentralParallelP0EvidencePackets);
 const crossCatalogAlignments = JSON.parse(rawById.crossCatalogAlignments);
 const rktsEvidence = JSON.parse(rawById.rktsEvidence);
 const rktsKernelAlignments = JSON.parse(rawById.rktsKernelAlignments);
@@ -89,8 +93,8 @@ const vinayaBatch = JSON.parse(rawById.vinayaBatch);
 const vinayaManifest = JSON.parse(rawById.vinayaManifest);
 const abhidhammaBatch = JSON.parse(rawById.abhidhammaBatch);
 const abhidhammaManifest = JSON.parse(rawById.abhidhammaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v3.5.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v3.5.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v3.6.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v3.6.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -240,26 +244,38 @@ if (
   suttacentralParallelReviewQueue.governance?.automaticWorkMerge !== false
 ) throw new Error("SuttaCentral 汉巴作品裁决队列或双人复核边界不一致");
 if (
-  cbetaBatch.version !== "2.4.0" || cbetaBatch.files.length !== 129 ||
-  cbetaBatch.collection.sourceRecordDenominator !== 131 ||
-  cbetaBatch.collection.previouslyControlledSourceRecords !== 2 ||
-  cbetaBatch.collection.controlledSourceRecords !== 131 ||
-  cbetaBatch.collection.newSourceBytes !== 14726248 ||
-  cbetaBatch.collection.newStableSegments !== 81274 ||
-  cbetaCatalog.files.length !== 868 || cbetaManifest.files.length !== 868 ||
-  cbetaRegistry.registry.version !== "2.4.0" || cbetaRegistry.works.length !== 705 ||
-  cbetaRegistry.works.flatMap((work) => work.expressions).length !== 868
-) throw new Error("CBETA T17 固定批次、目录、清单或登记册统计不一致");
+  suttacentralParallelP0EvidencePackets.version !== "0.1.0" ||
+  suttacentralParallelP0EvidencePackets.summary?.packets !== 20 ||
+  suttacentralParallelP0EvidencePackets.summary?.exactPaliStandaloneOrSourcePartAssets !== 20 ||
+  suttacentralParallelP0EvidencePackets.summary?.exactChineseInternalTeiRangesMachineLocated !== 20 ||
+  suttacentralParallelP0EvidencePackets.summary?.chineseInternalRangesPendingHumanBoundaryCheck !== 20 ||
+  suttacentralParallelP0EvidencePackets.summary?.automaticWorkMerges !== 0 ||
+  suttacentralParallelP0EvidencePackets.summary?.denominatorImpact !== "none"
+) throw new Error("SuttaCentral 汉巴 P0 审前证据包边界不一致");
+if (
+  cbetaBatch.version !== "2.5.0" || cbetaBatch.files.length !== 76 ||
+  cbetaBatch.collection.sourceRecordDenominator !== 76 ||
+  cbetaBatch.collection.controlledSourceRecords !== 76 ||
+  cbetaBatch.collection.newSourceBytes !== 23056368 ||
+  cbetaBatch.collection.newStableSegments !== 77825 ||
+  cbetaBatch.collection.fullSourceTexts !== 74 ||
+  cbetaBatch.collection.partialSourceWitnesses !== 2 ||
+  cbetaBatch.collection.verifiedEditionWitnesses !== 9 ||
+  cbetaBatch.collection.newWorks !== 71 ||
+  cbetaCatalog.files.length !== 944 || cbetaManifest.files.length !== 944 ||
+  cbetaRegistry.registry.version !== "2.5.0" || cbetaRegistry.works.length !== 776 ||
+  cbetaRegistry.works.flatMap((work) => work.expressions).length !== 944
+) throw new Error("CBETA T18 固定批次、目录、清单或登记册统计不一致");
 
 const cbetaFamily = cbetaRegistry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 if (
-  cbetaFamily?.controlledExpressionRecords !== 881 ||
-  cbetaFamily?.controlledExpressionBytes !== 247280257
+  cbetaFamily?.controlledExpressionRecords !== 957 ||
+  cbetaFamily?.controlledExpressionBytes !== 270336625
 ) throw new Error("CBETA 汉译经藏受控来源记录统计不一致");
 const dergeSource = snapshots.sources.find((source) => source.id === "bdrc_derge_kangyur");
 const rktsSource = snapshots.sources.find((source) => source.id === "rkts_kangyur_catalogs");
 if (
-  snapshots.version !== "0.5.0" || snapshots.denominatorReady !== false ||
+  snapshots.version !== "0.6.0" || snapshots.denominatorReady !== false ||
   dergeSource?.candidateRecordCount !== 1114 ||
   dergeInventory.totals?.topLevelCatalogRecords !== 1122 ||
   dergeInventory.totals?.topLevelExpressionRecords !== 1114 ||
@@ -605,7 +621,15 @@ const sourceFamilies = base.sourceFamilies.map((family) => {
   return family;
 });
 const sourceSnapshots = [
-  ...base.sourceSnapshots.map((source) => source.id === "suttacentral_bilara" ? {
+  ...base.sourceSnapshots.map((source) => source.id === "cbeta_xml_p5" ? {
+    ...source,
+    snapshot: { ...source.snapshot, capturedAt: snapshots.capturedAt },
+    inventory: {
+      candidateSubsets: snapshots.sources.find((candidate) => candidate.id === "cbeta_xml_p5")?.candidateSubsets,
+      controlledSourceRecords: cbetaFamily.controlledExpressionRecords,
+      controlledSourceBytes: cbetaFamily.controlledExpressionBytes,
+    },
+  } : source.id === "suttacentral_bilara" ? {
     ...source,
     inventory: {
       candidateRootRecords: snapshots.sources.find((candidate) => candidate.id === "suttacentral_bilara")?.candidateRecordCount,
@@ -782,7 +806,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "3.5.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "3.6.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -859,25 +883,42 @@ const registry = {
     minimumIndependentReviews: suttacentralParallelReviewQueue.governance.minimumIndependentReviews,
     warning: suttacentralParallelReviewQueue.warning,
   },
+  suttacentralParallelP0EvidencePackets: {
+    version: suttacentralParallelP0EvidencePackets.version,
+    status: suttacentralParallelP0EvidencePackets.status,
+    file: inputs.suttacentralParallelP0EvidencePackets,
+    sha256: sha256(rawById.suttacentralParallelP0EvidencePackets),
+    ...suttacentralParallelP0EvidencePackets.summary,
+    warning: suttacentralParallelP0EvidencePackets.warning,
+  },
+  cbetaT18BoundaryAudit: {
+    version: cbetaBatch.version,
+    status: cbetaBatch.boundaryAudit.status,
+    file: inputs.cbetaBatch,
+    sha256: sha256(rawById.cbetaBatch),
+    ...cbetaBatch.collection,
+    candidateRelationsNotMerged: cbetaBatch.boundaryAudit.candidateRelationsNotMerged,
+    caveat: cbetaBatch.boundaryAudit.caveat,
+  },
   works: [...nonCbetaWorks, ...indicWorks, ...vinayaWorks, ...abhidhammaWorks, ...cbetaWorks],
 };
 if (
-  registry.works.length !== 994 ||
-  registry.works.flatMap((work) => work.expressions).length !== 1157 ||
+  registry.works.length !== 1065 ||
+  registry.works.flatMap((work) => work.expressions).length !== 1233 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v3.5.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v3.6.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v3.5.0.json`,
+  `${sha256(registryRaw)}  registry-v3.6.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.5.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.5.0.sha256 不可复现");
-  console.log("跨语种登记册 v3.5.0 可复现：80 项汉巴作品裁决队列已进入双人复核治理；全球作品分母保持未知。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v3.6.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v3.6.0.sha256 不可复现");
+  console.log("跨语种登记册 v3.6.0 可复现：T18 密教部 76/76 固定来源已完成角色与版本边界审计；全球作品分母保持未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v3.5.0 已生成：新增 80 项汉巴双人复核队列，当前 0 项自动归并。");
+  console.log("跨语种登记册 v3.6.0 已生成：新增 T18 密教部 71 个作品、76 个表达或见证；目录部类不冒充佛陀亲说。");
 }

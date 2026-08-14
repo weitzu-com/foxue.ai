@@ -1,0 +1,3461 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "2.5.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v2.4.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T18 plus T19n0945; T18 source-record closure",
+  "workOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T18",
+    "title": "大正藏 T18 密教部固定来源记录",
+    "sourceRecordDenominator": 76,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 76,
+    "controlledSourceRecords": 76,
+    "newSourceBytes": 23056368,
+    "newStableSegments": 77825,
+    "newFolios": 2957,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedEditionWitnesses": 9,
+    "provisionalRecords": 67,
+    "fullSourceTexts": 74,
+    "partialSourceWitnesses": 2,
+    "relationAnnotatedRecords": 15,
+    "attributionBoundaryRecords": 25,
+    "newWorks": 71,
+    "workCountingDecision": "T18 共 76 条固定来源记录。9 条 a/b/c 记录按同一大正藏基础经号、题名、署名与正文主干归入 4 个作品并保留为独立版本/传承见证；其余 67 条暂按书目实体登记，共新增 71 个作品。T0865/T0866/T0882、同题异范围 T0865/T0874 与 T0908/T0909 只建立候选关系，不自动归并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_edition_groups_attribution_partial_witness_and_homonymous_scope_boundaries_recorded",
+    "editionOrRecensionGroups": [
+      "t0852-edition-recension-witnesses",
+      "t0893-edition-recension-witnesses",
+      "t0894-edition-recension-witnesses",
+      "t0895-edition-recension-witnesses"
+    ],
+    "candidateRelationsNotMerged": [
+      "sarvatathagata-tattvasamgraha-t0865-t0866-t0882",
+      "homonymous-t0865-t0874",
+      "homa-ritual-t0908-t0909-candidate"
+    ],
+    "partialWorkWitnesses": [
+      "T0863",
+      "T0886"
+    ],
+    "translatedRecords": [
+      "T0848",
+      "T0849",
+      "T0850",
+      "T0851",
+      "T0856",
+      "T0857",
+      "T0861",
+      "T0865",
+      "T0866",
+      "T0867",
+      "T0868",
+      "T0869",
+      "T0870",
+      "T0871",
+      "T0872",
+      "T0873",
+      "T0874",
+      "T0876",
+      "T0877",
+      "T0878",
+      "T0879",
+      "T0880",
+      "T0882",
+      "T0883",
+      "T0884",
+      "T0885",
+      "T0886",
+      "T0887",
+      "T0888",
+      "T0889",
+      "T0890",
+      "T0891",
+      "T0892",
+      "T0893a",
+      "T0893b",
+      "T0893c",
+      "T0894a",
+      "T0894b",
+      "T0895a",
+      "T0895b",
+      "T0896",
+      "T0897",
+      "T0901",
+      "T0902",
+      "T0903",
+      "T0905",
+      "T0906",
+      "T0907",
+      "T0908",
+      "T0909",
+      "T0915"
+    ],
+    "unattributedRecords": [
+      "T0852b",
+      "T0855",
+      "T0858",
+      "T0859",
+      "T0860",
+      "T0862",
+      "T0864A",
+      "T0881",
+      "T0898",
+      "T0899",
+      "T0910",
+      "T0913",
+      "T0914",
+      "T0916"
+    ],
+    "lostTranslatorRecords": [
+      "T0854",
+      "T0875"
+    ],
+    "attributedAuthoredCompiledOrTaughtRecords": [
+      "T0852a",
+      "T0853",
+      "T0863",
+      "T0864B",
+      "T0900",
+      "T0904",
+      "T0911",
+      "T0912",
+      "T0917"
+    ],
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison is evidence, not a work-identity verdict.",
+      "pairs": [
+        {
+          "pair": [
+            "T0852a",
+            "T0852b"
+          ],
+          "normalizedCharacters": [
+            15264,
+            13755
+          ],
+          "fiveGramContainmentOfShorter": 0.619389,
+          "fiveGramJaccard": 0.443329
+        },
+        {
+          "pair": [
+            "T0865",
+            "T0874"
+          ],
+          "normalizedCharacters": [
+            18519,
+            10219
+          ],
+          "fiveGramContainmentOfShorter": 0.022156,
+          "fiveGramJaccard": 0.008953
+        },
+        {
+          "pair": [
+            "T0865",
+            "T0882"
+          ],
+          "normalizedCharacters": [
+            18519,
+            109588
+          ],
+          "fiveGramContainmentOfShorter": 0.109748,
+          "fiveGramJaccard": 0.016424
+        },
+        {
+          "pair": [
+            "T0866",
+            "T0882"
+          ],
+          "normalizedCharacters": [
+            36986,
+            109588
+          ],
+          "fiveGramContainmentOfShorter": 0.02744,
+          "fiveGramJaccard": 0.007785
+        },
+        {
+          "pair": [
+            "T0893a",
+            "T0893b"
+          ],
+          "normalizedCharacters": [
+            42587,
+            39967
+          ],
+          "fiveGramContainmentOfShorter": 0.590199,
+          "fiveGramJaccard": 0.401337
+        },
+        {
+          "pair": [
+            "T0893a",
+            "T0893c"
+          ],
+          "normalizedCharacters": [
+            42587,
+            40112
+          ],
+          "fiveGramContainmentOfShorter": 0.613118,
+          "fiveGramJaccard": 0.421974
+        },
+        {
+          "pair": [
+            "T0893b",
+            "T0893c"
+          ],
+          "normalizedCharacters": [
+            39967,
+            40112
+          ],
+          "fiveGramContainmentOfShorter": 0.703649,
+          "fiveGramJaccard": 0.540704
+        },
+        {
+          "pair": [
+            "T0894a",
+            "T0894b"
+          ],
+          "normalizedCharacters": [
+            12056,
+            16954
+          ],
+          "fiveGramContainmentOfShorter": 0.374267,
+          "fiveGramJaccard": 0.19982
+        },
+        {
+          "pair": [
+            "T0895a",
+            "T0895b"
+          ],
+          "normalizedCharacters": [
+            22275,
+            16022
+          ],
+          "fiveGramContainmentOfShorter": 0.37369,
+          "fiveGramJaccard": 0.187534
+        },
+        {
+          "pair": [
+            "T0908",
+            "T0909"
+          ],
+          "normalizedCharacters": [
+            4100,
+            4540
+          ],
+          "fiveGramContainmentOfShorter": 0.401137,
+          "fiveGramJaccard": 0.250081
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003733",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001642",
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T18"
+    ],
+    "caveat": "T18 的目录部类同时容纳译经、仪轨、念诵法、撰述、辑录、失译与版本见证。平台完整保存固定来源，但不把部类位置、佛说式题名、同题或相似片段单独当成佛陀亲说或同一作品的证明。"
+  },
+  "files": [
+    {
+      "id": "T0848",
+      "slug": "taisho-t0848",
+      "workId": "gbcr:work:taisho-t0848",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0848.xml",
+      "upstreamPath": "T/T18/T18n0848.xml",
+      "upstreamGitBlobSha1": "3c18ed0e0f55870ddd648eaafd9db9b8ffec2794",
+      "upstreamBytes": 1346076,
+      "upstreamSha256": "98208406e6d58574be58ae30d6f3df12efdec1cb41596beaf4f4575086a9cdd0",
+      "localBytes": 1346077,
+      "localSha256": "34041eae911e5b656a41a5153ff6b10b114c8b98782d485fb8d86314affb973a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那成佛神變加持經",
+        "alternateTitle": "大毘盧遮那成佛神變加持經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 848",
+        "translator": "唐 · 善無畏．一行譯",
+        "summary": "7卷。本站完整保存 T0848 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0848_001"
+      },
+      "verification": {
+        "segments": 4595,
+        "folios": 165,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0848.001.0001a02",
+          "T0848.007.0055a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0849",
+      "slug": "taisho-t0849",
+      "workId": "gbcr:work:taisho-t0849",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0849.xml",
+      "upstreamPath": "T/T18/T18n0849.xml",
+      "upstreamGitBlobSha1": "c90e36511787f964d2d8e97054b2d0066356e398",
+      "upstreamBytes": 104437,
+      "upstreamSha256": "b0ec2247a33be540d2110eaee373422a22793dec6d34918abcd9413ccfa263e4",
+      "localBytes": 104438,
+      "localSha256": "fa0c1d09493e7959c3dd5444c07e6f5d34cae15269a0a1dd9430e59361a86286",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那佛說要略念誦經",
+        "alternateTitle": "大毘盧遮那佛說要略念誦經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 849",
+        "translator": "唐 · 菩提金剛譯",
+        "summary": "1卷。本站完整保存 T0849 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0849_001"
+      },
+      "verification": {
+        "segments": 776,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0849.001.0055a07",
+          "T0849.001.0064a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0850",
+      "slug": "taisho-t0850",
+      "workId": "gbcr:work:taisho-t0850",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0850.xml",
+      "upstreamPath": "T/T18/T18n0850.xml",
+      "upstreamGitBlobSha1": "60fe2cb06d656c16d33bbe5ee580ac193464ff38",
+      "upstreamBytes": 1123697,
+      "upstreamSha256": "7e55db511135608221d761cc9b67593a17f241af469b9a8c814f7f21c5abab08",
+      "localBytes": 1123698,
+      "localSha256": "0a4238a22f2ca906843202a52990e79abaf51fc1f5a4df1d7bc7ae2b9c8bd655",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "攝大毘盧遮那成佛神變加持經入蓮華胎藏海會悲生曼荼攞廣大念誦儀軌供養方便會",
+        "alternateTitle": "攝大毘盧遮那成佛神變加持經入蓮華胎藏海會悲生曼荼攞廣大念誦儀軌供養方便會",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 850",
+        "translator": "唐 · 輸婆迦羅譯",
+        "summary": "3卷。本站完整保存 T0850 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0850_001"
+      },
+      "verification": {
+        "segments": 2083,
+        "folios": 78,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0850.001.0065a02",
+          "T0850.003.0090b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0851",
+      "slug": "taisho-t0851",
+      "workId": "gbcr:work:taisho-t0851",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0851.xml",
+      "upstreamPath": "T/T18/T18n0851.xml",
+      "upstreamGitBlobSha1": "5ff0a1cd97950dbed772c193d43c64e1ad53c175",
+      "upstreamBytes": 231683,
+      "upstreamSha256": "46b183a648cb4092eed738681f7f25d060592ba229638b245cf80ceb035646ba",
+      "localBytes": 231684,
+      "localSha256": "a4c15efaaede55dd6ebf663f6f2124d58b0007cbe10a33086abfc6e82baff2c9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那經廣大儀軌",
+        "alternateTitle": "大毘盧遮那經廣大儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 851",
+        "translator": "唐 · 善無畏譯",
+        "summary": "3卷。本站完整保存 T0851 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0851_001"
+      },
+      "verification": {
+        "segments": 1539,
+        "folios": 57,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0851.001.0090b23",
+          "T0851.003.0108b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0852a",
+      "slug": "taisho-t0852a",
+      "workId": "gbcr:work:maha-vairocana-ritual-t0852",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0852-edition-recension-witnesses",
+          "label": "大毘卢遮那胎藏仪轨 T0852 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 852，题名范围相合，正文五字片段对较短本的覆盖为 61.9%；作者题记与具体措辞差异作为版本/传承边界保留，不合并来源资产。",
+          "externalIds": {
+            "cbeta": [
+              "T0852a",
+              "T0852b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0852a.xml",
+      "upstreamPath": "T/T18/T18n0852a.xml",
+      "upstreamGitBlobSha1": "c144a2aafde38cff01202f263d7adcefc97fc0f8",
+      "upstreamBytes": 755427,
+      "upstreamSha256": "74dd310d7f62453bc6881ad9c2b24b0558dcf8b361a8cdd26ec037ec78d5e55e",
+      "localBytes": 755428,
+      "localSha256": "260a119fffffa90e3cd5a69cd057594a362daa2724ee4b847aea43aceeef6f92",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那成佛神變加持經蓮華胎藏悲生曼荼羅廣大成就儀軌供養方便會",
+        "alternateTitle": "大毘盧遮那成佛神變加持經蓮華胎藏悲生曼荼羅廣大成就儀軌供養方便會",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 852a",
+        "translator": "唐 · 法全撰",
+        "summary": "2卷。本站完整保存 T0852a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0852a_001"
+      },
+      "verification": {
+        "segments": 1549,
+        "folios": 57,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0852a.001.0108c03",
+          "T0852a.002.0127a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0852b",
+      "slug": "taisho-t0852b",
+      "workId": "gbcr:work:maha-vairocana-ritual-t0852",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0852-edition-recension-witnesses",
+          "label": "大毘卢遮那胎藏仪轨 T0852 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 852，题名范围相合，正文五字片段对较短本的覆盖为 61.9%；作者题记与具体措辞差异作为版本/传承边界保留，不合并来源资产。",
+          "externalIds": {
+            "cbeta": [
+              "T0852a",
+              "T0852b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0852b.xml",
+      "upstreamPath": "T/T18/T18n0852b.xml",
+      "upstreamGitBlobSha1": "ee49103e9235e38d58d0949c863f0177ea1845b6",
+      "upstreamBytes": 203707,
+      "upstreamSha256": "87bcb9ce5ecfe83243033d904e7af969910c47d6477dcda9f304adff262ebfce",
+      "localBytes": 203708,
+      "localSha256": "46c6d3cd2ecd1dbcc54887dff380a5efadc11bfadd0e7eceb6c013e4e7eb43c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧舍那成佛神變加持經蓮華胎藏悲生曼荼羅廣大成就儀軌",
+        "alternateTitle": "大毘盧舍那成佛神變加持經蓮華胎藏悲生曼荼羅廣大成就儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 852b",
+        "translator": "题记未载作者／译者",
+        "summary": "2卷。本站完整保存 T0852b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0852b_001"
+      },
+      "verification": {
+        "segments": 1395,
+        "folios": 51,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0852b.001.0127b03",
+          "T0852b.002.0143c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0853",
+      "slug": "taisho-t0853",
+      "workId": "gbcr:work:taisho-t0853",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0853.xml",
+      "upstreamPath": "T/T18/T18n0853.xml",
+      "upstreamGitBlobSha1": "40ad3ea11c6bb446475c7332c8d12d187922a7e3",
+      "upstreamBytes": 552866,
+      "upstreamSha256": "ef46a678b653899789da509cbeb7feec91b026d1a36131f91a5610a91c517859",
+      "localBytes": 552867,
+      "localSha256": "3f4567870cff9ca2462a4c894203d2f49c35b83212aed58acb0027fa083867d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那成佛神變加持經蓮華胎藏菩提幢標幟普通真言藏廣大成就瑜伽",
+        "alternateTitle": "大毘盧遮那成佛神變加持經蓮華胎藏菩提幢標幟普通真言藏廣大成就瑜伽",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 853",
+        "translator": "唐 · 法全集",
+        "summary": "3卷。本站完整保存 T0853 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0853_001"
+      },
+      "verification": {
+        "segments": 1578,
+        "folios": 65,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0853.001.0143c19",
+          "T0853.003.0164b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0854",
+      "slug": "taisho-t0854",
+      "workId": "gbcr:work:taisho-t0854",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T18n0854.xml",
+      "upstreamPath": "T/T18/T18n0854.xml",
+      "upstreamGitBlobSha1": "367f8c7c664431b53749dc5af855281f747a17f7",
+      "upstreamBytes": 571472,
+      "upstreamSha256": "73094e77b43106a9486fb678b56ec7269631a6131fdcab9742348b053ba1012e",
+      "localBytes": 571473,
+      "localSha256": "5ff642b84aae6997a53c132b88cfb30664d7e12cbef2f1570257334f30626355",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "胎藏梵字真言",
+        "alternateTitle": "胎藏梵字真言",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 854",
+        "translator": "失譯",
+        "summary": "2卷。本站完整保存 T0854 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译，平台不补造译者、年代或印度来源；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0854_001"
+      },
+      "verification": {
+        "segments": 701,
+        "folios": 25,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0854.001.0164c02",
+          "T0854.002.0172b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0855",
+      "slug": "taisho-t0855",
+      "workId": "gbcr:work:taisho-t0855",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0855.xml",
+      "upstreamPath": "T/T18/T18n0855.xml",
+      "upstreamGitBlobSha1": "66c1b27a704b6e50db5a77f45550d9577e851236",
+      "upstreamBytes": 70024,
+      "upstreamSha256": "49d0b16abeb60e0e36f4dca43d9b3a83ea02fd3bdd36cec2531aae5190b92c35",
+      "localBytes": 70025,
+      "localSha256": "2aebe911d7d719b3aa9393b5018378ed5adf328b7c835c1a12ec5caa96c35ec9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "青龍寺軌記",
+        "alternateTitle": "青龍寺軌記",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 855",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0855 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0855_001"
+      },
+      "verification": {
+        "segments": 185,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0855.001.0172b09",
+          "T0855.001.0174c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0856",
+      "slug": "taisho-t0856",
+      "workId": "gbcr:work:taisho-t0856",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0856.xml",
+      "upstreamPath": "T/T18/T18n0856.xml",
+      "upstreamGitBlobSha1": "aa723d347f33cd2705f7349a06ec51216877e672",
+      "upstreamBytes": 50335,
+      "upstreamSha256": "a6508771e0930564b08dc989f7d3438cb0c0160b34a4adbf268a54556715ebac",
+      "localBytes": 50336,
+      "localSha256": "3cbd69378e0fd874a4631d660cfc8a4ca4cc947a578c7917e0d2bd90306ed799",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那成佛神變加持經略示七支念誦隨行法",
+        "alternateTitle": "大毘盧遮那成佛神變加持經略示七支念誦隨行法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 856",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0856 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0856_001"
+      },
+      "verification": {
+        "segments": 111,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0856.001.0174c07",
+          "T0856.001.0176a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0857",
+      "slug": "taisho-t0857",
+      "workId": "gbcr:work:taisho-t0857",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0857.xml",
+      "upstreamPath": "T/T18/T18n0857.xml",
+      "upstreamGitBlobSha1": "9097445737031f467520b884f3b27a26e1bb5bea",
+      "upstreamBytes": 66422,
+      "upstreamSha256": "0a37a64b45fe7c9996d804d269f35c3a0617cb9adde1fd05b8c93245b7047961",
+      "localBytes": 66423,
+      "localSha256": "3bfdfd2bb35d3cf3ce1a449d6eb2b073b753c511a65dcb9e912abe31f81ec417",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大日經略攝念誦隨行法",
+        "alternateTitle": "大日經略攝念誦隨行法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 857",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0857 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0857_001"
+      },
+      "verification": {
+        "segments": 90,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0857.001.0176a09",
+          "T0857.001.0177a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0858",
+      "slug": "taisho-t0858",
+      "workId": "gbcr:work:taisho-t0858",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0858.xml",
+      "upstreamPath": "T/T18/T18n0858.xml",
+      "upstreamGitBlobSha1": "d5b516d4174aa7a430954897b73dd7df1b3e271f",
+      "upstreamBytes": 8090,
+      "upstreamSha256": "868727044bcc2a66d57fc522bd492f5e1cd9bd8c53172f4d99a97d9422c47a54",
+      "localBytes": 8091,
+      "localSha256": "4b4c32bf05a3b57ed1d4096f14d6fc05f6cc602dd1c9cf03483d0ffcbc9eb81c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那略要速疾門五支念誦法",
+        "alternateTitle": "大毘盧遮那略要速疾門五支念誦法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 858",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0858 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0858_001"
+      },
+      "verification": {
+        "segments": 34,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0858.001.0177b02",
+          "T0858.001.0177c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0859",
+      "slug": "taisho-t0859",
+      "workId": "gbcr:work:taisho-t0859",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0859.xml",
+      "upstreamPath": "T/T18/T18n0859.xml",
+      "upstreamGitBlobSha1": "fa0f77e9781e3fb9d0709e843a23192ff445c25b",
+      "upstreamBytes": 155205,
+      "upstreamSha256": "f2b06593f63dc77b1887481bac316592829fc780f0782566a65013a6848de280",
+      "localBytes": 155206,
+      "localSha256": "b094522fe5d807a668d928eda975424beb0121473bcc419e646a9b4f5bcb95bc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "供養儀式",
+        "alternateTitle": "供養儀式",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 859",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0859 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0859_001"
+      },
+      "verification": {
+        "segments": 190,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0859.001.0177c11",
+          "T0859.001.0181a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0860",
+      "slug": "taisho-t0860",
+      "workId": "gbcr:work:taisho-t0860",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0860.xml",
+      "upstreamPath": "T/T18/T18n0860.xml",
+      "upstreamGitBlobSha1": "eb2d250fa7543d0952acfa52ca5275b49fdefc97",
+      "upstreamBytes": 254902,
+      "upstreamSha256": "5339c952369d92321f21eab457763288cca2e80a53fa39914d4077a27d91902b",
+      "localBytes": 254903,
+      "localSha256": "6bdfc5ebe5a8feaed9e7851555e3831069ae5a85402c5ff5275d6d8bddf85535",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大日經持誦次第儀軌",
+        "alternateTitle": "大日經持誦次第儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 860",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0860 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0860_001"
+      },
+      "verification": {
+        "segments": 507,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0860.001.0181a07",
+          "T0860.001.0188a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0861",
+      "slug": "taisho-t0861",
+      "workId": "gbcr:work:taisho-t0861",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0861.xml",
+      "upstreamPath": "T/T18/T18n0861.xml",
+      "upstreamGitBlobSha1": "182270f13e64d04e692a3d03258fd367d2f06d4b",
+      "upstreamBytes": 55220,
+      "upstreamSha256": "ba6ec47ee7fe08f550eb120e91b0b9864775cec0bea336b5922aad2770e3b7f7",
+      "localBytes": 55221,
+      "localSha256": "a514e97f4dbccfa85564f9a9d58c99992e47b1bc3f1a6ff77943163cb4003d02",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "毘盧遮那五字真言修習儀軌",
+        "alternateTitle": "毘盧遮那五字真言修習儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 861",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0861 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0861_001"
+      },
+      "verification": {
+        "segments": 123,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0861.001.0188a15",
+          "T0861.001.0189b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0862",
+      "slug": "taisho-t0862",
+      "workId": "gbcr:work:taisho-t0862",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0862.xml",
+      "upstreamPath": "T/T18/T18n0862.xml",
+      "upstreamGitBlobSha1": "c5023be677985635687cc1f520083f52593e7745",
+      "upstreamBytes": 177966,
+      "upstreamSha256": "a0080e741bedf54cf302a91ab3f07b283aac060a023654164454948743adeb4a",
+      "localBytes": 177967,
+      "localSha256": "204a025c20968270f1837067fded548dd81e3101b91852e193a789238e4218ac",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿闍梨大曼荼攞灌頂儀軌",
+        "alternateTitle": "阿闍梨大曼荼攞灌頂儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 862",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0862 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0862_001"
+      },
+      "verification": {
+        "segments": 280,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0862.001.0189b26",
+          "T0862.001.0193a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0863",
+      "slug": "taisho-t0863",
+      "workId": "gbcr:work:taisho-t0863",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0863.xml",
+      "upstreamPath": "T/T18/T18n0863.xml",
+      "upstreamGitBlobSha1": "51a9cbfc0ed938e81078fe22d2223ea7fccff7b1",
+      "upstreamBytes": 119530,
+      "upstreamSha256": "53cf26599b94a072f83087bf25ba8bf777601c169a90ff82334b6f59a9a93d16",
+      "localBytes": 119531,
+      "localSha256": "52440b70e46ccc00854a59bb2746bfc8ef17af8f7515c0dd294466fb245bad01",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "大毘盧遮那經阿闍梨真實智品中阿闍梨住阿字觀門",
+        "alternateTitle": "大毘盧遮那經阿闍梨真實智品中阿闍梨住阿字觀門",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 863",
+        "translator": "唐 · 惟謹述",
+        "summary": "1卷。本站完整保存 T0863 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题名明确显示为某品或某教中的局部材料，完整保存来源文件但不冒充完整母作品；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0863_001"
+      },
+      "verification": {
+        "segments": 214,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0863.001.0193a13",
+          "T0863.001.0195c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0864A",
+      "slug": "taisho-t0864a",
+      "workId": "gbcr:work:taisho-t0864a",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0864A.xml",
+      "upstreamPath": "T/T18/T18n0864A.xml",
+      "upstreamGitBlobSha1": "26a3577dc53baf9222e8e70439b7d72bddb3126b",
+      "upstreamBytes": 384961,
+      "upstreamSha256": "1a78f3b7556dc3939f97b1784fd4f1ee5356c7252bcf5049c6645461237828e7",
+      "localBytes": 384962,
+      "localSha256": "255f41c306a4baf2fa6d1c60204b9450c96db13f9500bebe02663ae30cfaf60c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大日如來劍印",
+        "alternateTitle": "大日如來劍印",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 864A",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0864A 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0864A_001"
+      },
+      "verification": {
+        "segments": 456,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0864A.001.0195c22",
+          "T0864A.001.0203a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0864B",
+      "slug": "taisho-t0864b",
+      "workId": "gbcr:work:taisho-t0864b",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0864B.xml",
+      "upstreamPath": "T/T18/T18n0864B.xml",
+      "upstreamGitBlobSha1": "ff271697a49e2e68e332228410dc551b5b8d802d",
+      "upstreamBytes": 92105,
+      "upstreamSha256": "04303eddcb4c4b80caac5da3d58f67f6dc7899cbfca9e125295e2e23616118bd",
+      "localBytes": 92106,
+      "localSha256": "b08210c4b8ffc22fed86e8eafd4168a6089b290baf5be414510259189c48e68f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "胎藏金剛教法名號",
+        "alternateTitle": "胎藏金剛教法名號",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 864B",
+        "translator": "唐 · 義操集",
+        "summary": "1卷。本站完整保存 T0864B 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0864B_001"
+      },
+      "verification": {
+        "segments": 256,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0864B.001.0203b03",
+          "T0864B.001.0206b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0865",
+      "slug": "taisho-t0865",
+      "workId": "gbcr:work:taisho-t0865",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_or_component_candidate_unmerged",
+          "groupId": "sarvatathagata-tattvasamgraha-t0865-t0866-t0882",
+          "label": "《一切如来真实摄》文本家族与组件候选",
+          "evidence": "DILA 经录为 T0865、T0866、T0882 相互列出相关经典，T0882 并登记 Sarvatathāgatatattvasaṁgraha；三者篇幅与结构差异显著，未完成人工组件校勘前保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0865",
+              "T0866",
+              "T0882"
+            ]
+          },
+          "authorityUrl": "https://authority.dila.edu.tw/catalog/search.php?code=CA0003733"
+        },
+        {
+          "type": "homonymous_scope_conflict_candidate_unmerged",
+          "groupId": "homonymous-t0865-t0874",
+          "label": "T0865／T0874 同题异范围候选",
+          "evidence": "两条记录题名与译者完全相同，但卷数为三卷/二卷，规范化正文五字片段覆盖仅 2.2%、Jaccard 仅 0.9%；题名不足以证明作品等同，保留独立作品并公开范围冲突。",
+          "externalIds": {
+            "cbeta": [
+              "T0865",
+              "T0874"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0865.xml",
+      "upstreamPath": "T/T18/T18n0865.xml",
+      "upstreamGitBlobSha1": "7e9606ba93baea955d9c8007c8a4b78dfb210662",
+      "upstreamBytes": 516161,
+      "upstreamSha256": "6cf9db88be4eb8d49021208fe51f032ac270f06d3e27022c1f561fc4b4abf7cb",
+      "localBytes": 516162,
+      "localSha256": "30a5484684536b9deba7f32dd88f9642e658538b145c8bbf7d6c0f7ed5f314bb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂一切如來真實攝大乘現證大教王經",
+        "alternateTitle": "金剛頂一切如來真實攝大乘現證大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 865",
+        "translator": "唐 · 不空譯",
+        "summary": "3卷。本站完整保存 T0865 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0865_001"
+      },
+      "verification": {
+        "segments": 1393,
+        "folios": 52,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0865.001.0207a01",
+          "T0865.003.0223b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0866",
+      "slug": "taisho-t0866",
+      "workId": "gbcr:work:taisho-t0866",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_or_component_candidate_unmerged",
+          "groupId": "sarvatathagata-tattvasamgraha-t0865-t0866-t0882",
+          "label": "《一切如来真实摄》文本家族与组件候选",
+          "evidence": "DILA 经录为 T0865、T0866、T0882 相互列出相关经典，T0882 并登记 Sarvatathāgatatattvasaṁgraha；三者篇幅与结构差异显著，未完成人工组件校勘前保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0865",
+              "T0866",
+              "T0882"
+            ]
+          },
+          "authorityUrl": "https://authority.dila.edu.tw/catalog/search.php?code=CA0003733"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0866.xml",
+      "upstreamPath": "T/T18/T18n0866.xml",
+      "upstreamGitBlobSha1": "2a1f657ef88b13445427cfc0bb3c6fbfa3b831cb",
+      "upstreamBytes": 848075,
+      "upstreamSha256": "ca8789c99efb477ecf63c70837e97476601f07ad96d3fa9be7aca02489d2eb90",
+      "localBytes": 848076,
+      "localSha256": "8457c43b2091a374ccc4225285b483efd49330561c5b9c85437b1609de50095a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽中略出念誦經",
+        "alternateTitle": "金剛頂瑜伽中略出念誦經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 866",
+        "translator": "唐 · 金剛智譯",
+        "summary": "4卷。本站完整保存 T0866 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0866_001"
+      },
+      "verification": {
+        "segments": 2586,
+        "folios": 95,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0866.001.0223b24",
+          "T0866.004.0253c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0867",
+      "slug": "taisho-t0867",
+      "workId": "gbcr:work:taisho-t0867",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0867.xml",
+      "upstreamPath": "T/T18/T18n0867.xml",
+      "upstreamGitBlobSha1": "2b92672e2ef938d7233296adfe0a1a04e298edbe",
+      "upstreamBytes": 699395,
+      "upstreamSha256": "edf5b809b41c826b00486f730ac14ac8a3798daadfa89f8d714282cd45867a5e",
+      "localBytes": 699396,
+      "localSha256": "ac4ce78a3825e5adee6adfe3437abb5025b155015655cfd4c7ac93d20493c02f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛峰樓閣一切瑜伽瑜祇經",
+        "alternateTitle": "金剛峰樓閣一切瑜伽瑜祇經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 867",
+        "translator": "唐 · 金剛智譯",
+        "summary": "2卷。本站完整保存 T0867 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0867_001"
+      },
+      "verification": {
+        "segments": 1136,
+        "folios": 50,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0867.001.0253c12",
+          "T0867.002.0269c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0868",
+      "slug": "taisho-t0868",
+      "workId": "gbcr:work:taisho-t0868",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0868.xml",
+      "upstreamPath": "T/T18/T18n0868.xml",
+      "upstreamGitBlobSha1": "a6f590eea0fe8e2b01c47452d2ddbe76740125b7",
+      "upstreamBytes": 310579,
+      "upstreamSha256": "4715034660e422425e3820813515544865422467bc60f577587feed9f923b217",
+      "localBytes": 310580,
+      "localSha256": "92cad50cb4af8149e95759e44cc10fc9fd652ca64106e1a687f8239ff41776fa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸佛境界攝真實經",
+        "alternateTitle": "諸佛境界攝真實經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 868",
+        "translator": "唐 · 般若譯",
+        "summary": "3卷。本站完整保存 T0868 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0868_001"
+      },
+      "verification": {
+        "segments": 1176,
+        "folios": 46,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0868.001.0270a02",
+          "T0868.003.0284c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0869",
+      "slug": "taisho-t0869",
+      "workId": "gbcr:work:taisho-t0869",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0869.xml",
+      "upstreamPath": "T/T18/T18n0869.xml",
+      "upstreamGitBlobSha1": "314c4f7d774c4d439b74189a95c6245bc18b0cb4",
+      "upstreamBytes": 107241,
+      "upstreamSha256": "a178ff8c5734344c54275d3f65fba7b5e66b3dcb9231b05709f71f6768ae602b",
+      "localBytes": 107242,
+      "localSha256": "89afedd80ebbf0ce654de2f820a0e1d4afe9948bc6f883a5b5c02afb64e9db6c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂經瑜伽十八會指歸",
+        "alternateTitle": "金剛頂經瑜伽十八會指歸",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 869",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0869 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0869_001"
+      },
+      "verification": {
+        "segments": 259,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0869.001.0284c10",
+          "T0869.001.0287c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0870",
+      "slug": "taisho-t0870",
+      "workId": "gbcr:work:taisho-t0870",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0870.xml",
+      "upstreamPath": "T/T18/T18n0870.xml",
+      "upstreamGitBlobSha1": "de6d750380f739d8576efb896ca79e97323ec35d",
+      "upstreamBytes": 76867,
+      "upstreamSha256": "5d51f67b61f5ad45f269f3b942c3c1e695b2058237f62642eee75c7d4c8c5a79",
+      "localBytes": 76868,
+      "localSha256": "1c8e4e9df4f975364b88e29d85c89c4e9480fa891f23d5710aaa9d1694430e8c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "略述金剛頂瑜伽分別聖位修證法門",
+        "alternateTitle": "略述金剛頂瑜伽分別聖位修證法門",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 870",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0870 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0870_001"
+      },
+      "verification": {
+        "segments": 341,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0870.001.0287c16",
+          "T0870.001.0291c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0871",
+      "slug": "taisho-t0871",
+      "workId": "gbcr:work:taisho-t0871",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0871.xml",
+      "upstreamPath": "T/T18/T18n0871.xml",
+      "upstreamGitBlobSha1": "7c30fd759f88a5a5bd4af2ac7172c6ec9dd4325d",
+      "upstreamBytes": 118477,
+      "upstreamSha256": "1afa6eea580d427e31938d5ec945032ee3067123c8d04192bccd5035d7e55485",
+      "localBytes": 118478,
+      "localSha256": "737557b338f86f0f5ffd48b64718c522a9cd857b47c579786499853063f6bc72",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽略述三十七尊心要",
+        "alternateTitle": "金剛頂瑜伽略述三十七尊心要",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 871",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0871 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0871_001"
+      },
+      "verification": {
+        "segments": 508,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0871.001.0291c20",
+          "T0871.001.0297c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0872",
+      "slug": "taisho-t0872",
+      "workId": "gbcr:work:taisho-t0872",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0872.xml",
+      "upstreamPath": "T/T18/T18n0872.xml",
+      "upstreamGitBlobSha1": "36ddf8eb185eb487157fca987a009e862586130b",
+      "upstreamBytes": 48644,
+      "upstreamSha256": "4eed4a926db9f54acddeaf93c03ef8c953224720bf372b8a3deb03cad166c9f9",
+      "localBytes": 48645,
+      "localSha256": "550cf33a9e22c332a04f6941416611034b3b8e7c15bf629946dd42583e2cb4de",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽三十七尊出生義",
+        "alternateTitle": "金剛頂瑜伽三十七尊出生義",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 872",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0872 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0872_001"
+      },
+      "verification": {
+        "segments": 128,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0872.001.0297c10",
+          "T0872.001.0299a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0873",
+      "slug": "taisho-t0873",
+      "workId": "gbcr:work:taisho-t0873",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0873.xml",
+      "upstreamPath": "T/T18/T18n0873.xml",
+      "upstreamGitBlobSha1": "11c92c1beeef42115e23b98534efd9227822a92a",
+      "upstreamBytes": 373719,
+      "upstreamSha256": "b1f7f52e7e9c892324ac65ff376e25ffa36feaf79fed973ec0824834d8a774f3",
+      "localBytes": 373720,
+      "localSha256": "1afc46df89f06465d11b79ff7fafd3a7fad4d5a65f33e28c38c35758b737250d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂蓮華部心念誦儀軌",
+        "alternateTitle": "金剛頂蓮華部心念誦儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 873",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0873 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0873_001"
+      },
+      "verification": {
+        "segments": 894,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0873.001.0299b01",
+          "T0873.001.0310a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0874",
+      "slug": "taisho-t0874",
+      "workId": "gbcr:work:taisho-t0874",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "homonymous_scope_conflict_candidate_unmerged",
+          "groupId": "homonymous-t0865-t0874",
+          "label": "T0865／T0874 同题异范围候选",
+          "evidence": "两条记录题名与译者完全相同，但卷数为三卷/二卷，规范化正文五字片段覆盖仅 2.2%、Jaccard 仅 0.9%；题名不足以证明作品等同，保留独立作品并公开范围冲突。",
+          "externalIds": {
+            "cbeta": [
+              "T0865",
+              "T0874"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0874.xml",
+      "upstreamPath": "T/T18/T18n0874.xml",
+      "upstreamGitBlobSha1": "ff3162088b810259c6966de013958e6ad6166cb4",
+      "upstreamBytes": 193218,
+      "upstreamSha256": "d33e1171d553bab1a3262161e116df99ab5b4ae4a7f8a931e9e66943697f1b7a",
+      "localBytes": 193219,
+      "localSha256": "a584d99f4424c08fdbc1cdda44268b4907812a72a5644068ffa89f3adc5cb9fb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂一切如來真實攝大乘現證大教王經",
+        "alternateTitle": "金剛頂一切如來真實攝大乘現證大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 874",
+        "translator": "唐 · 不空譯",
+        "summary": "2卷。本站完整保存 T0874 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0874_001"
+      },
+      "verification": {
+        "segments": 1045,
+        "folios": 39,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0874.001.0310a16",
+          "T0874.002.0322b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0875",
+      "slug": "taisho-t0875",
+      "workId": "gbcr:work:taisho-t0875",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translation_attribution_unknown",
+      "localPath": "data/corpus/cbeta/T18n0875.xml",
+      "upstreamPath": "T/T18/T18n0875.xml",
+      "upstreamGitBlobSha1": "361c9717f2de6ef32a13d1246a1dda4d1a412437",
+      "upstreamBytes": 301042,
+      "upstreamSha256": "4dca80e3f46ff9263d84a16c3f60ed1c582eb1d633e54d4a122f751926bc297a",
+      "localBytes": 301043,
+      "localSha256": "2db3e080fafeee699e9a03dd8581dcca608da4324da123355878e654a76c8a95",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蓮華部心念誦儀軌",
+        "alternateTitle": "蓮華部心念誦儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 875",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T0875 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录题记为失译，平台不补造译者、年代或印度来源；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0875_001"
+      },
+      "verification": {
+        "segments": 377,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0875.001.0322b12",
+          "T0875.001.0326c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0876",
+      "slug": "taisho-t0876",
+      "workId": "gbcr:work:taisho-t0876",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0876.xml",
+      "upstreamPath": "T/T18/T18n0876.xml",
+      "upstreamGitBlobSha1": "f070d9778294ef5ee57281e120f5595d28431614",
+      "upstreamBytes": 166244,
+      "upstreamSha256": "89f45923967c7caf13e77c5ab44a040b3a6ef201c7dae4ff45b4d239746a4b0d",
+      "localBytes": 166245,
+      "localSha256": "4ba20b7c0bd4f341a0f75efc5e1eae3c2ec9a6b08d2d79f6c7e8e606d989ad4a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂經瑜伽修習毘盧遮那三摩地法",
+        "alternateTitle": "金剛頂經瑜伽修習毘盧遮那三摩地法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 876",
+        "translator": "唐 · 金剛智譯",
+        "summary": "1卷。本站完整保存 T0876 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0876_001"
+      },
+      "verification": {
+        "segments": 388,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0876.001.0326c12",
+          "T0876.001.0331b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0877",
+      "slug": "taisho-t0877",
+      "workId": "gbcr:work:taisho-t0877",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0877.xml",
+      "upstreamPath": "T/T18/T18n0877.xml",
+      "upstreamGitBlobSha1": "53a0a23b4b6d605ec1e9d046c47802aced953e07",
+      "upstreamBytes": 292731,
+      "upstreamSha256": "a1dedbaad4f5434dae99acb273685673009ac2d42a36c83dff22096d3f09fc27",
+      "localBytes": 292732,
+      "localSha256": "934c9353e6a710a404f13129e983927741c50b104810c8551c5f29cbbce2bb68",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂經毘盧遮那一百八尊法身契印",
+        "alternateTitle": "金剛頂經毘盧遮那一百八尊法身契印",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 877",
+        "translator": "唐 · 善無畏．一行譯",
+        "summary": "1卷。本站完整保存 T0877 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0877_001"
+      },
+      "verification": {
+        "segments": 229,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0877.001.0331b13",
+          "T0877.001.0335c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0878",
+      "slug": "taisho-t0878",
+      "workId": "gbcr:work:taisho-t0878",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0878.xml",
+      "upstreamPath": "T/T18/T18n0878.xml",
+      "upstreamGitBlobSha1": "1403c59261e7a6a6d8a5c69f895ce703bda3e940",
+      "upstreamBytes": 22880,
+      "upstreamSha256": "d86e63baa279fa6a0a642157b44a12f7e5dedbb01f11b01abd7ad6aaf5120c8e",
+      "localBytes": 22881,
+      "localSha256": "3ed6823f8db7d340d4814bcce7f020c836cf5e718c91851c4dcb3a8b02b2c388",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂經金剛界大道場毘盧遮那如來自受用身內證智眷屬法身異名佛最上乘祕密三摩地禮懺文",
+        "alternateTitle": "金剛頂經金剛界大道場毘盧遮那如來自受用身內證智眷屬法身異名佛最上乘祕密三摩地禮懺文",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 878",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0878 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0878_001"
+      },
+      "verification": {
+        "segments": 118,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0878.001.0335c19",
+          "T0878.001.0337a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0879",
+      "slug": "taisho-t0879",
+      "workId": "gbcr:work:taisho-t0879",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0879.xml",
+      "upstreamPath": "T/T18/T18n0879.xml",
+      "upstreamGitBlobSha1": "9a9585679e2854ee4a1abfcd822702dd03a398a1",
+      "upstreamBytes": 16296,
+      "upstreamSha256": "1e253a4cc020c8fa6a0d59c8dd72bc3a6b105a0484d8e56d1314bafea4c1a250",
+      "localBytes": 16297,
+      "localSha256": "20dccc46d45103b59f9cdbcddc6bea866e3b23f6b20044335a440a6df518d109",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽三十七尊禮",
+        "alternateTitle": "金剛頂瑜伽三十七尊禮",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 879",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0879 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0879_001"
+      },
+      "verification": {
+        "segments": 102,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0879.001.0337a24",
+          "T0879.001.0338b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0880",
+      "slug": "taisho-t0880",
+      "workId": "gbcr:work:taisho-t0880",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0880.xml",
+      "upstreamPath": "T/T18/T18n0880.xml",
+      "upstreamGitBlobSha1": "32a2b37fd1eaf130aac79bf5e194b204c55bccdb",
+      "upstreamBytes": 71566,
+      "upstreamSha256": "9221b9628df0c7da5e72f074e5a4e8c695e1b3664074208287f4cb1394024927",
+      "localBytes": 71567,
+      "localSha256": "951bc595fff3cadc664ec78291db3db23d29f7f505009b0e0e4aa9651644ca17",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "瑜伽金剛頂經釋字母品",
+        "alternateTitle": "瑜伽金剛頂經釋字母品",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 880",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0880 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0880_001"
+      },
+      "verification": {
+        "segments": 57,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0880.001.0338b12",
+          "T0880.001.0339a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0881",
+      "slug": "taisho-t0881",
+      "workId": "gbcr:work:taisho-t0881",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0881.xml",
+      "upstreamPath": "T/T18/T18n0881.xml",
+      "upstreamGitBlobSha1": "eff979cb06645d8ddd3bbf5aeb118825744e2d29",
+      "upstreamBytes": 99759,
+      "upstreamSha256": "b62dc0fc63d6041b1519f09189d4792a45bea167e9bdc50d57d7654d8e35d337",
+      "localBytes": 99760,
+      "localSha256": "08df4a31212605b99dd554089ebf38c3812da0f9a4b8eede3d1d94ac28c36200",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "賢劫十六尊",
+        "alternateTitle": "賢劫十六尊",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 881",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0881 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0881_001"
+      },
+      "verification": {
+        "segments": 83,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0881.001.0339a20",
+          "T0881.001.0340c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0882",
+      "slug": "taisho-t0882",
+      "workId": "gbcr:work:taisho-t0882",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "text_family_or_component_candidate_unmerged",
+          "groupId": "sarvatathagata-tattvasamgraha-t0865-t0866-t0882",
+          "label": "《一切如来真实摄》文本家族与组件候选",
+          "evidence": "DILA 经录为 T0865、T0866、T0882 相互列出相关经典，T0882 并登记 Sarvatathāgatatattvasaṁgraha；三者篇幅与结构差异显著，未完成人工组件校勘前保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0865",
+              "T0866",
+              "T0882"
+            ]
+          },
+          "authorityUrl": "https://authority.dila.edu.tw/catalog/search.php?code=CA0003733"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0882.xml",
+      "upstreamPath": "T/T18/T18n0882.xml",
+      "upstreamGitBlobSha1": "0051a14bff5374ad65538926bc36a2e05407d1fa",
+      "upstreamBytes": 1508570,
+      "upstreamSha256": "99c59a5c901d1068a847171762737391f203720c9747251ff7aa15c7b9c30cb3",
+      "localBytes": 1508571,
+      "localSha256": "ddcd94639376a06d417e9cb7855edac7711296db432a53ddd3591ba37dcb7089",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說一切如來真實攝大乘現證三昧大教王經",
+        "alternateTitle": "佛說一切如來真實攝大乘現證三昧大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 882",
+        "translator": "宋 · 施護等譯",
+        "summary": "30卷。本站完整保存 T0882 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0882_001"
+      },
+      "verification": {
+        "segments": 8707,
+        "folios": 334,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T0882.001.0341a02",
+          "T0882.030.0445b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0883",
+      "slug": "taisho-t0883",
+      "workId": "gbcr:work:taisho-t0883",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0883.xml",
+      "upstreamPath": "T/T18/T18n0883.xml",
+      "upstreamGitBlobSha1": "fd76da709d5a6e65fb3b51dbd8ba48c4cfd42610",
+      "upstreamBytes": 244998,
+      "upstreamSha256": "ce5879fbba49d7d098d14c718a27b275e374283a1643449a7041ce402f96bc62",
+      "localBytes": 244999,
+      "localSha256": "60fe914d9db1940cd43229ba50fe1232ea9a287cd799e6142ffce5bbe0b7458a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說祕密三昧大教王經",
+        "alternateTitle": "佛說祕密三昧大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 883",
+        "translator": "宋 · 施護等譯",
+        "summary": "4卷。本站完整保存 T0883 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0883_001"
+      },
+      "verification": {
+        "segments": 1472,
+        "folios": 54,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0883.001.0446a03",
+          "T0883.004.0463a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0884",
+      "slug": "taisho-t0884",
+      "workId": "gbcr:work:taisho-t0884",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0884.xml",
+      "upstreamPath": "T/T18/T18n0884.xml",
+      "upstreamGitBlobSha1": "5a847eb891c1f97265cc51d2714d80c88ac27a4f",
+      "upstreamBytes": 90270,
+      "upstreamSha256": "c9381f5923416424401a946f5b8d1c1aed2bdcb2e7c353d91b04ef00c1316c2b",
+      "localBytes": 90271,
+      "localSha256": "62cb3bcd0c0ca7c87a5183412bf67287a10ea268366a1d15dfc765ae9d2f6bec",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說祕密相經",
+        "alternateTitle": "佛說祕密相經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 884",
+        "translator": "宋 · 施護等譯",
+        "summary": "3卷。本站完整保存 T0884 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0884_001"
+      },
+      "verification": {
+        "segments": 551,
+        "folios": 22,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0884.001.0463b02",
+          "T0884.003.0469c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0885",
+      "slug": "taisho-t0885",
+      "workId": "gbcr:work:taisho-t0885",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0885.xml",
+      "upstreamPath": "T/T18/T18n0885.xml",
+      "upstreamGitBlobSha1": "0ce14837dab541640a2071eec870308795b8c283",
+      "upstreamBytes": 617645,
+      "upstreamSha256": "de38b45316b5d106190b41959907a57dc5df11fc13b19ae36ae0cc04421db423",
+      "localBytes": 617646,
+      "localSha256": "4b72bc9d781b38182c768b17945f501c76ee2c86df73b89feb435c9aa542005d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說一切如來金剛三業最上祕密大教王經",
+        "alternateTitle": "佛說一切如來金剛三業最上祕密大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 885",
+        "translator": "宋 · 施護譯",
+        "summary": "7卷。本站完整保存 T0885 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0885_001"
+      },
+      "verification": {
+        "segments": 3527,
+        "folios": 129,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T0885.001.0469c15",
+          "T0885.007.0511b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0886",
+      "slug": "taisho-t0886",
+      "workId": "gbcr:work:taisho-t0886",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0886.xml",
+      "upstreamPath": "T/T18/T18n0886.xml",
+      "upstreamGitBlobSha1": "60d1558d380c367eeec09740c5856244c45ae37e",
+      "upstreamBytes": 45950,
+      "upstreamSha256": "f41d6884bfabdf6d460d1b2d12b325b5398e198477e8514c4d75bec7d8cd8dde",
+      "localBytes": 45951,
+      "localSha256": "f819073304edd171410b4904c0df1d01f46f74a4cbdee0496df54873df349df8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛說金剛場莊嚴般若波羅蜜多教中一分",
+        "alternateTitle": "佛說金剛場莊嚴般若波羅蜜多教中一分",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 886",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T0886 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题名明确显示为某品或某教中的局部材料，完整保存来源文件但不冒充完整母作品；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0886_001"
+      },
+      "verification": {
+        "segments": 239,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0886.001.0511b23",
+          "T0886.001.0514b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0887",
+      "slug": "taisho-t0887",
+      "workId": "gbcr:work:taisho-t0887",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0887.xml",
+      "upstreamPath": "T/T18/T18n0887.xml",
+      "upstreamGitBlobSha1": "d4b9386570cf5713dd9b09795dfcce49261176e3",
+      "upstreamBytes": 251803,
+      "upstreamSha256": "29a67f4fc05f85a59c7e0e8ac3b9a53d57c21bf97146e26c29eb9dd51cc44bc4",
+      "localBytes": 251804,
+      "localSha256": "ff0a1191bafb3adfc10d7fca321b5da5deb3b094451fd670d77dc117a6f4a04a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說無二平等最上瑜伽大教王經",
+        "alternateTitle": "佛說無二平等最上瑜伽大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 887",
+        "translator": "宋 · 施護譯",
+        "summary": "6卷。本站完整保存 T0887 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0887_001"
+      },
+      "verification": {
+        "segments": 1913,
+        "folios": 72,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T0887.001.0514b06",
+          "T0887.006.0536c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0888",
+      "slug": "taisho-t0888",
+      "workId": "gbcr:work:taisho-t0888",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0888.xml",
+      "upstreamPath": "T/T18/T18n0888.xml",
+      "upstreamGitBlobSha1": "235c3b6682d53706743c4ab1fe67b1704dbcd3a9",
+      "upstreamBytes": 63876,
+      "upstreamSha256": "1285958e3322dd31bf513eacfb915974de3a5ddbf7ed88d95d94020b69b9fe9a",
+      "localBytes": 63877,
+      "localSha256": "3e77460169d859cb3ce82a01d22c7b41a9a98a28216936913df9fb363abf28d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "一切祕密最上名義大教王儀軌",
+        "alternateTitle": "一切祕密最上名義大教王儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 888",
+        "translator": "宋 · 施護譯",
+        "summary": "2卷。本站完整保存 T0888 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0888_001"
+      },
+      "verification": {
+        "segments": 424,
+        "folios": 17,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0888.001.0536c17",
+          "T0888.002.0541c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0889",
+      "slug": "taisho-t0889",
+      "workId": "gbcr:work:taisho-t0889",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0889.xml",
+      "upstreamPath": "T/T18/T18n0889.xml",
+      "upstreamGitBlobSha1": "ea0dc207640e4b6cbb95d1a227f2ec2cd29d6e11",
+      "upstreamBytes": 205520,
+      "upstreamSha256": "09fdc4abf62f0a75209bb9f6bdc77293c77615299699da62b42c4ba950bc535f",
+      "localBytes": 205521,
+      "localSha256": "9f29851d21d0fccb76a505b4f122e4f4251631861f0a03890f1774841106b00c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "一切如來大祕密王未曾有最上微妙大曼拏羅經",
+        "alternateTitle": "一切如來大祕密王未曾有最上微妙大曼拏羅經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 889",
+        "translator": "宋 · 天息災譯",
+        "summary": "5卷。本站完整保存 T0889 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0889_001"
+      },
+      "verification": {
+        "segments": 1512,
+        "folios": 56,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0889.001.0541c14",
+          "T0889.005.0559b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0890",
+      "slug": "taisho-t0890",
+      "workId": "gbcr:work:taisho-t0890",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0890.xml",
+      "upstreamPath": "T/T18/T18n0890.xml",
+      "upstreamGitBlobSha1": "2fc0eebf0c69111719d5151d7f17f31fed9311f6",
+      "upstreamBytes": 390796,
+      "upstreamSha256": "f9f643eb1613d6837c5c40eb34449a895fc7be144acd56e28c80993d85bc3bac",
+      "localBytes": 390797,
+      "localSha256": "216773324e7e093e74582666b534621cd2bfab3d9f183b7ae58cabb98ad41c1f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說瑜伽大教王經",
+        "alternateTitle": "佛說瑜伽大教王經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 890",
+        "translator": "宋 · 法賢譯",
+        "summary": "5卷。本站完整保存 T0890 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0890_001"
+      },
+      "verification": {
+        "segments": 1976,
+        "folios": 74,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0890.001.0559b21",
+          "T0890.005.0583a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0891",
+      "slug": "taisho-t0891",
+      "workId": "gbcr:work:taisho-t0891",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0891.xml",
+      "upstreamPath": "T/T18/T18n0891.xml",
+      "upstreamGitBlobSha1": "d025b1f1fa3f4bbaec2b0a5565d4960fb0ed72c9",
+      "upstreamBytes": 91134,
+      "upstreamSha256": "73c5a4f442a3338c45545016c9eeecceaa1bcda3285df80dc22a64a48ff87f59",
+      "localBytes": 91135,
+      "localSha256": "fdfafe23b3f23c0c3ec19dba551afe95651d3adf056684ec925b376be022b9f2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說幻化網大瑜伽教十忿怒明王大明觀想儀軌經",
+        "alternateTitle": "佛說幻化網大瑜伽教十忿怒明王大明觀想儀軌經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 891",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。本站完整保存 T0891 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0891_001"
+      },
+      "verification": {
+        "segments": 363,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0891.001.0583a16",
+          "T0891.001.0587b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0892",
+      "slug": "taisho-t0892",
+      "workId": "gbcr:work:taisho-t0892",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0892.xml",
+      "upstreamPath": "T/T18/T18n0892.xml",
+      "upstreamGitBlobSha1": "162401115666bf8cf9e8c1b20d4647dccceef7b7",
+      "upstreamBytes": 210369,
+      "upstreamSha256": "ff2dcaf1127ddeee267936346548c010f0289452cfae35fbf50ed5da8338f86f",
+      "localBytes": 210370,
+      "localSha256": "35962630f8a640779e3257949d314714162db78524d9dd92e868f7bb7f9bbe1c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大悲空智金剛大教王儀軌經",
+        "alternateTitle": "佛說大悲空智金剛大教王儀軌經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 892",
+        "translator": "宋 · 法護譯",
+        "summary": "5卷。本站完整保存 T0892 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0892_001"
+      },
+      "verification": {
+        "segments": 1186,
+        "folios": 47,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T0892.001.0587c04",
+          "T0892.005.0601c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0893a",
+      "slug": "taisho-t0893a",
+      "workId": "gbcr:work:susiddhikara-sutra-t0893",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0893-edition-recension-witnesses",
+          "label": "《苏悉地羯罗经》T0893 a/b/c 版本见证组",
+          "evidence": "三份固定记录共享大正藏基础经号 893、题名、译者和三卷范围；正文五字片段两两覆盖为 59.0%–70.4%，平台登记为同一作品的三个独立版本/传承见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0893a",
+              "T0893b",
+              "T0893c"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0893a.xml",
+      "upstreamPath": "T/T18/T18n0893a.xml",
+      "upstreamGitBlobSha1": "f513ef26bcc9be71e115abac56b2548fdfc4a61c",
+      "upstreamBytes": 300147,
+      "upstreamSha256": "7492254880d05983a8704e940ba0f5a41f4894c43c526517f995e8a282879b6a",
+      "localBytes": 300148,
+      "localSha256": "56d901a8e94d0ad36cf8f144251e725e13a1f799797bda15acd34a7935c0c618",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇悉地羯羅經",
+        "alternateTitle": "蘇悉地羯羅經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 893a",
+        "translator": "唐 · 輸波迦羅譯",
+        "summary": "3卷。本站完整保存 T0893a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0893a_001"
+      },
+      "verification": {
+        "segments": 2649,
+        "folios": 95,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0893a.001.0603a02",
+          "T0893a.003.0633c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0893b",
+      "slug": "taisho-t0893b",
+      "workId": "gbcr:work:susiddhikara-sutra-t0893",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0893-edition-recension-witnesses",
+          "label": "《苏悉地羯罗经》T0893 a/b/c 版本见证组",
+          "evidence": "三份固定记录共享大正藏基础经号 893、题名、译者和三卷范围；正文五字片段两两覆盖为 59.0%–70.4%，平台登记为同一作品的三个独立版本/传承见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0893a",
+              "T0893b",
+              "T0893c"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0893b.xml",
+      "upstreamPath": "T/T18/T18n0893b.xml",
+      "upstreamGitBlobSha1": "0010fdcf3f95d127c141833be64d2a137e69ba3b",
+      "upstreamBytes": 914687,
+      "upstreamSha256": "82cb0d15c2f49c3a29f2f593809ce31c924ef54acb36283a98eaf31ab45b174d",
+      "localBytes": 914688,
+      "localSha256": "9546f41c30eac26e2c54e71cb3fb44f6c0d52e222fb2e93a4dfe0f7d7c15e82c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇悉地羯羅經",
+        "alternateTitle": "蘇悉地羯羅經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 893b",
+        "translator": "唐 · 輸波迦羅譯",
+        "summary": "3卷。本站完整保存 T0893b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0893b_001"
+      },
+      "verification": {
+        "segments": 2528,
+        "folios": 91,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0893b.001.0633c04",
+          "T0893b.003.0663b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0893c",
+      "slug": "taisho-t0893c",
+      "workId": "gbcr:work:susiddhikara-sutra-t0893",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0893-edition-recension-witnesses",
+          "label": "《苏悉地羯罗经》T0893 a/b/c 版本见证组",
+          "evidence": "三份固定记录共享大正藏基础经号 893、题名、译者和三卷范围；正文五字片段两两覆盖为 59.0%–70.4%，平台登记为同一作品的三个独立版本/传承见证。",
+          "externalIds": {
+            "cbeta": [
+              "T0893a",
+              "T0893b",
+              "T0893c"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0893c.xml",
+      "upstreamPath": "T/T18/T18n0893c.xml",
+      "upstreamGitBlobSha1": "57c7e0463f33c452ba87d73d86a40357ec974c72",
+      "upstreamBytes": 316976,
+      "upstreamSha256": "e5e72a6ebb18742d0d4e43bba43f64bb537b1c43e23377e38ccdeb37e4c04be2",
+      "localBytes": 316977,
+      "localSha256": "f43caca0e62795b668330ef175b2cbbfbc13ce943ab20f2de2b8b1a1e92f8d1e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇悉地羯羅經",
+        "alternateTitle": "蘇悉地羯羅經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 893c",
+        "translator": "唐 · 輸波迦羅譯",
+        "summary": "3卷。本站完整保存 T0893c 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0893c_001"
+      },
+      "verification": {
+        "segments": 2485,
+        "folios": 88,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0893c.001.0663b06",
+          "T0893c.003.0692a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0894a",
+      "slug": "taisho-t0894a",
+      "workId": "gbcr:work:susiddhikara-puja-t0894",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0894-edition-recension-witnesses",
+          "label": "《苏悉地羯罗供养法》T0894 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 894、题名和译者；卷数与正文范围不同，五字片段覆盖为 37.4%，故只共享作品实体并保留为两个版本/传承表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0894a",
+              "T0894b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0894a.xml",
+      "upstreamPath": "T/T18/T18n0894a.xml",
+      "upstreamGitBlobSha1": "a2d1b8bbb9738fcd5c6eee701adf469a3acda20c",
+      "upstreamBytes": 438124,
+      "upstreamSha256": "e67376dba194e7fe51c4f27c1600f7575e9dcefc7e942bdc73e51ffa0cf5dc24",
+      "localBytes": 438125,
+      "localSha256": "50875add1c1293c7ce4691287cd73f7e1f4a2e38a304246d7486691a3fd9c6b5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇悉地羯羅供養法",
+        "alternateTitle": "蘇悉地羯羅供養法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 894a",
+        "translator": "唐 · 善無畏譯",
+        "summary": "3卷。本站完整保存 T0894a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0894a_001"
+      },
+      "verification": {
+        "segments": 961,
+        "folios": 37,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0894a.001.0692b02",
+          "T0894a.003.0704b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0894b",
+      "slug": "taisho-t0894b",
+      "workId": "gbcr:work:susiddhikara-puja-t0894",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0894-edition-recension-witnesses",
+          "label": "《苏悉地羯罗供养法》T0894 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 894、题名和译者；卷数与正文范围不同，五字片段覆盖为 37.4%，故只共享作品实体并保留为两个版本/传承表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0894a",
+              "T0894b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0894b.xml",
+      "upstreamPath": "T/T18/T18n0894b.xml",
+      "upstreamGitBlobSha1": "77b7d972c430914c10d12fc4c7606276d4d6b791",
+      "upstreamBytes": 705923,
+      "upstreamSha256": "2be0b52caeaf000ba190984567ba4f9e84870e0ceff929e025cc8075aa20899f",
+      "localBytes": 705924,
+      "localSha256": "3819c18e4067597c7e6da866f0e0957800993429d556a8f9a7cbe17475287dd1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇悉地羯羅供養法",
+        "alternateTitle": "蘇悉地羯羅供養法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 894b",
+        "translator": "唐 · 善無畏譯",
+        "summary": "2卷。本站完整保存 T0894b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0894b_001"
+      },
+      "verification": {
+        "segments": 997,
+        "folios": 45,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0894b.001.0704b09",
+          "T0894b.002.0718c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0895a",
+      "slug": "taisho-t0895a",
+      "workId": "gbcr:work:subahu-pariprccha-t0895",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0895-edition-recension-witnesses",
+          "label": "《苏婆呼童子请问经》T0895 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 895、题名和译者；三卷/二卷范围与正文差异保留，五字片段覆盖为 37.4%，不折叠来源或稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0895a",
+              "T0895b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0895a.xml",
+      "upstreamPath": "T/T18/T18n0895a.xml",
+      "upstreamGitBlobSha1": "b318f54af0a6524fb3d6056e07a00c0dd3cf1958",
+      "upstreamBytes": 374995,
+      "upstreamSha256": "dfd267914d8fb38c892dc49eec595b231f376cb728ba9b9b399f4d6d109ecb0a",
+      "localBytes": 374996,
+      "localSha256": "d533f269bd111b65ec3d24a30010e5293abb6ad46c21995c8e42c22f94a96f92",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇婆呼童子請問經",
+        "alternateTitle": "蘇婆呼童子請問經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 895a",
+        "translator": "唐 · 輸波迦羅譯",
+        "summary": "3卷。本站完整保存 T0895a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0895a_001"
+      },
+      "verification": {
+        "segments": 1415,
+        "folios": 52,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0895a.001.0719a02",
+          "T0895a.003.0735b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0895b",
+      "slug": "taisho-t0895b",
+      "workId": "gbcr:work:subahu-pariprccha-t0895",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t0895-edition-recension-witnesses",
+          "label": "《苏婆呼童子请问经》T0895 a/b 版本见证组",
+          "evidence": "两份固定记录共享大正藏基础经号 895、题名和译者；三卷/二卷范围与正文差异保留，五字片段覆盖为 37.4%，不折叠来源或稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T0895a",
+              "T0895b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0895b.xml",
+      "upstreamPath": "T/T18/T18n0895b.xml",
+      "upstreamGitBlobSha1": "81846df052aeab7f2d3b73a9f24023da3ac05a0e",
+      "upstreamBytes": 151817,
+      "upstreamSha256": "8dcf989aa19077072ebdd7590065cc2daeb79070243f6ecac75de328b5330293",
+      "localBytes": 151818,
+      "localSha256": "8f69c196c11c04356de461eb5b2c8e689ab0e7d366a69169acc9835628b244c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蘇婆呼童子請問經",
+        "alternateTitle": "蘇婆呼童子請問經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 895b",
+        "translator": "唐 · 輸波迦羅譯",
+        "summary": "2卷。本站完整保存 T0895b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0895b_001"
+      },
+      "verification": {
+        "segments": 970,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T0895b.001.0735b05",
+          "T0895b.002.0746b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0896",
+      "slug": "taisho-t0896",
+      "workId": "gbcr:work:taisho-t0896",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0896.xml",
+      "upstreamPath": "T/T18/T18n0896.xml",
+      "upstreamGitBlobSha1": "49c52583f25400ce13ba3ef84de689555c295aed",
+      "upstreamBytes": 191809,
+      "upstreamSha256": "1003fef3d98df4829abd36a2a207dbefbdefd6e48c99d716090455a6b1593c05",
+      "localBytes": 191810,
+      "localSha256": "495ace5dad9d9097e76e316bd9fde084e9714216caedc3d76780919cb12664b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙臂菩薩所問經",
+        "alternateTitle": "妙臂菩薩所問經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 896",
+        "translator": "宋 · 法天譯",
+        "summary": "4卷。本站完整保存 T0896 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0896_001"
+      },
+      "verification": {
+        "segments": 1204,
+        "folios": 46,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T0896.001.0746b24",
+          "T0896.004.0760b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0897",
+      "slug": "taisho-t0897",
+      "workId": "gbcr:work:taisho-t0897",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0897.xml",
+      "upstreamPath": "T/T18/T18n0897.xml",
+      "upstreamGitBlobSha1": "ca277f74f834c9545b271014276dee936cef7889",
+      "upstreamBytes": 344311,
+      "upstreamSha256": "93ecacf9d3056f955e71c1b21cec247d56ebb585d5e762bc3cb923fd16ed1866",
+      "localBytes": 344312,
+      "localSha256": "3f489049a7d7a5a2b83c0ddf095393d5f573a945430e4386fff23029d1aafd06",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "蕤呬耶經",
+        "alternateTitle": "蕤呬耶經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 897",
+        "translator": "唐 · 不空譯",
+        "summary": "3卷。本站完整保存 T0897 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0897_001"
+      },
+      "verification": {
+        "segments": 1063,
+        "folios": 40,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T0897.001.0760c02",
+          "T0897.003.0773a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0898",
+      "slug": "taisho-t0898",
+      "workId": "gbcr:work:taisho-t0898",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0898.xml",
+      "upstreamPath": "T/T18/T18n0898.xml",
+      "upstreamGitBlobSha1": "044704eff7869d680533d03494e79aa921dd7ce7",
+      "upstreamBytes": 108186,
+      "upstreamSha256": "6bdf4ae32af203ecbcec775783dcab47479be84ec22cbb2635203589743f3c0c",
+      "localBytes": 108187,
+      "localSha256": "d1f8d2c722e8654195607aa6fe3314d5f7d951e9b868e0681845bec430b3456b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說毘奈耶經",
+        "alternateTitle": "佛說毘奈耶經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 898",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0898 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0898_001"
+      },
+      "verification": {
+        "segments": 326,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0898.001.0773a07",
+          "T0898.001.0776c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0899",
+      "slug": "taisho-t0899",
+      "workId": "gbcr:work:taisho-t0899",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0899.xml",
+      "upstreamPath": "T/T18/T18n0899.xml",
+      "upstreamGitBlobSha1": "5ac9f662cb3cbce8665bd3089f27ebf54739a67f",
+      "upstreamBytes": 68539,
+      "upstreamSha256": "35882cf0806c78fd1b78d191361dd9fbfb059a62c8c1caa0f7a6c23412a7e23d",
+      "localBytes": 68540,
+      "localSha256": "ff08daf77e4ff8a380b80b3e0d8202408e12634399f38a2103371c72dd196ccc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "清淨法身毘盧遮那心地法門成就一切陀羅尼三種悉地",
+        "alternateTitle": "清淨法身毘盧遮那心地法門成就一切陀羅尼三種悉地",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 899",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0899 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0899_001"
+      },
+      "verification": {
+        "segments": 428,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0899.001.0776c24",
+          "T0899.001.0781c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0900",
+      "slug": "taisho-t0900",
+      "workId": "gbcr:work:taisho-t0900",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0900.xml",
+      "upstreamPath": "T/T18/T18n0900.xml",
+      "upstreamGitBlobSha1": "b0bd32c13648e7cd7fff8a9be1e39c6e8a616aa2",
+      "upstreamBytes": 33207,
+      "upstreamSha256": "ff363e296b2af1f0d761cc4491ddc1d2adc2ab39020f9dad6c5405a2b1f6209f",
+      "localBytes": 33208,
+      "localSha256": "39d71fa4d547de50c922731b66a995c212b8acd551ad7b218b9700023dc66fd0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十八契印",
+        "alternateTitle": "十八契印",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 900",
+        "translator": "唐 · 惠果造",
+        "summary": "1卷。本站完整保存 T0900 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0900_001"
+      },
+      "verification": {
+        "segments": 170,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0900.001.0781c21",
+          "T0900.001.0783c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0901",
+      "slug": "taisho-t0901",
+      "workId": "gbcr:work:taisho-t0901",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0901.xml",
+      "upstreamPath": "T/T18/T18n0901.xml",
+      "upstreamGitBlobSha1": "45228415c241f93e270e06a0ac28e5ab9583d14c",
+      "upstreamBytes": 3167797,
+      "upstreamSha256": "fa57af77d6cb0807d53ac1e1d9557d7ceb97b50b7c50aad6d7412cff3ba7be69",
+      "localBytes": 3167798,
+      "localSha256": "ccac31475fa2d95c393f7a0b952f53a2a60898c495a8f7d83bef329c8d53b56d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "陀羅尼集經",
+        "alternateTitle": "陀羅尼集經",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 901",
+        "translator": "唐 · 阿地瞿多譯",
+        "summary": "12卷。本站完整保存 T0901 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0901_001"
+      },
+      "verification": {
+        "segments": 9444,
+        "folios": 346,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T0901.001.0785a02",
+          "T0901.012.0897b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0902",
+      "slug": "taisho-t0902",
+      "workId": "gbcr:work:taisho-t0902",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0902.xml",
+      "upstreamPath": "T/T18/T18n0902.xml",
+      "upstreamGitBlobSha1": "2bfc1990bbcba4acb7d284f7e20bdab9d465382a",
+      "upstreamBytes": 11751,
+      "upstreamSha256": "734debe48761169945969fc3e8a47d35cacb30ce88b16aa35d963e4ca0bfec8f",
+      "localBytes": 11752,
+      "localSha256": "f224cfd0e030c4144fd6ef3245238093183697873c837fb9d978f8aa1a52d3f5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "總釋陀羅尼義讚",
+        "alternateTitle": "總釋陀羅尼義讚",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 902",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0902 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0902_001"
+      },
+      "verification": {
+        "segments": 55,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0902.001.0898a02",
+          "T0902.001.0898b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0903",
+      "slug": "taisho-t0903",
+      "workId": "gbcr:work:taisho-t0903",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0903.xml",
+      "upstreamPath": "T/T18/T18n0903.xml",
+      "upstreamGitBlobSha1": "5137a585af1445eac58beb17b78813d89ac7e75a",
+      "upstreamBytes": 78148,
+      "upstreamSha256": "c6310830f27150d74ceaa5aa4e54aae41902baccbc59300dc9f09ece2b10c4d3",
+      "localBytes": 78149,
+      "localSha256": "9317e89aa6c0dea8856d67775f9196c637dcb0c87fa45a9295d55fd81d89b6cd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "都部陀羅尼目",
+        "alternateTitle": "都部陀羅尼目",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 903",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0903 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0903_001"
+      },
+      "verification": {
+        "segments": 120,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0903.001.0898c02",
+          "T0903.001.0900a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0904",
+      "slug": "taisho-t0904",
+      "workId": "gbcr:work:taisho-t0904",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0904.xml",
+      "upstreamPath": "T/T18/T18n0904.xml",
+      "upstreamGitBlobSha1": "d00840de3e194bda3ecba0afb060ca796b6698c0",
+      "upstreamBytes": 278154,
+      "upstreamSha256": "7a6f99ddc010a413d92f8487c03b8e7c85759e7170c12cc4067196c6a3e13695",
+      "localBytes": 278155,
+      "localSha256": "05888907b08e16801963be975254d9c21fe5db80ea71de82a40bcac8ec928b97",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "念誦結護法普通諸部",
+        "alternateTitle": "念誦結護法普通諸部",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 904",
+        "translator": "唐 · 金剛智述",
+        "summary": "1卷。本站完整保存 T0904 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0904_001"
+      },
+      "verification": {
+        "segments": 765,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0904.001.0900a22",
+          "T0904.001.0909b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0905",
+      "slug": "taisho-t0905",
+      "workId": "gbcr:work:taisho-t0905",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0905.xml",
+      "upstreamPath": "T/T18/T18n0905.xml",
+      "upstreamGitBlobSha1": "606cff7bdc44099b04d4d13a65fb9b3800733839",
+      "upstreamBytes": 79035,
+      "upstreamSha256": "9ea70d89a9c6e8fe82ad4252add080b56a0668cab46c5496e37de1812b11e9ea",
+      "localBytes": 79036,
+      "localSha256": "663a201cf11c9451375f130dfcbec8b58d11f6de1dd28a0fbd4aee44584a6c17",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三種悉地破地獄轉業障出三界祕密陀羅尼法",
+        "alternateTitle": "三種悉地破地獄轉業障出三界祕密陀羅尼法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 905",
+        "translator": "唐 · 善無畏譯",
+        "summary": "1卷。本站完整保存 T0905 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0905_001"
+      },
+      "verification": {
+        "segments": 244,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0905.001.0909b12",
+          "T0905.001.0912b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0906",
+      "slug": "taisho-t0906",
+      "workId": "gbcr:work:taisho-t0906",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0906.xml",
+      "upstreamPath": "T/T18/T18n0906.xml",
+      "upstreamGitBlobSha1": "4cdf028728f732e437c9ee4b85f0548e6da0b652",
+      "upstreamBytes": 30166,
+      "upstreamSha256": "795de35df723cdc7d6699ebc4dafda5ec5816f6bd1418e1b0a7a90b6efc5c915",
+      "localBytes": 30167,
+      "localSha256": "cd3ba87a66118f0a8e60855c353a472fbe381b43a10cd21709985594c3960f9b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛頂尊勝心破地獄轉業障出三界祕密三身佛果三種悉地真言儀軌",
+        "alternateTitle": "佛頂尊勝心破地獄轉業障出三界祕密三身佛果三種悉地真言儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 906",
+        "translator": "唐 · 善無畏譯",
+        "summary": "1卷。本站完整保存 T0906 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0906_001"
+      },
+      "verification": {
+        "segments": 208,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0906.001.0912b06",
+          "T0906.001.0914c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0907",
+      "slug": "taisho-t0907",
+      "workId": "gbcr:work:taisho-t0907",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0907.xml",
+      "upstreamPath": "T/T18/T18n0907.xml",
+      "upstreamGitBlobSha1": "dfc2312af250cba0e636ad6f218aff5fa443180b",
+      "upstreamBytes": 26464,
+      "upstreamSha256": "0b926a017564cba14fffa56c2bd30ab15119d5366905a85592aa93eae1fc1179",
+      "localBytes": 26465,
+      "localSha256": "04e20c768b1609699f36ae990c882b8756493950572b7bf6bb358ee6568396a4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛頂尊勝心破地獄轉業障出三界祕密陀羅尼",
+        "alternateTitle": "佛頂尊勝心破地獄轉業障出三界祕密陀羅尼",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 907",
+        "translator": "唐 · 善無畏譯",
+        "summary": "1卷。本站完整保存 T0907 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0907_001"
+      },
+      "verification": {
+        "segments": 88,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0907.001.0914c21",
+          "T0907.001.0915c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0908",
+      "slug": "taisho-t0908",
+      "workId": "gbcr:work:taisho-t0908",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate_unmerged",
+          "groupId": "homa-ritual-t0908-t0909-candidate",
+          "label": "《金刚顶瑜伽护摩仪轨》T0908／T0909 候选",
+          "evidence": "DILA 经录让 T0908 与 T0909 互列相关经典；两条记录同题、同署不空译且五字片段覆盖为 40.1%，但底本与正文差异仍须人工校勘，暂不合并 Work。",
+          "externalIds": {
+            "cbeta": [
+              "T0908",
+              "T0909"
+            ]
+          },
+          "authorityUrl": "https://authority.dila.edu.tw/catalog/search.php?code=CA0001642"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0908.xml",
+      "upstreamPath": "T/T18/T18n0908.xml",
+      "upstreamGitBlobSha1": "83531354b448067ab4e68df48642447de4dc3146",
+      "upstreamBytes": 252472,
+      "upstreamSha256": "df099ac92a646e8e1e934423d8b734ea9b2f7f2dbd6aaa90714ca540e72a69f9",
+      "localBytes": 252473,
+      "localSha256": "3ca10d1606d04e334232facc85862feabe106c999ae1c665107725523270be3c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽護摩儀軌",
+        "alternateTitle": "金剛頂瑜伽護摩儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 908",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0908 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0908_001"
+      },
+      "verification": {
+        "segments": 343,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0908.001.0916a02",
+          "T0908.001.0920b16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0909",
+      "slug": "taisho-t0909",
+      "workId": "gbcr:work:taisho-t0909",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_candidate_unmerged",
+          "groupId": "homa-ritual-t0908-t0909-candidate",
+          "label": "《金刚顶瑜伽护摩仪轨》T0908／T0909 候选",
+          "evidence": "DILA 经录让 T0908 与 T0909 互列相关经典；两条记录同题、同署不空译且五字片段覆盖为 40.1%，但底本与正文差异仍须人工校勘，暂不合并 Work。",
+          "externalIds": {
+            "cbeta": [
+              "T0908",
+              "T0909"
+            ]
+          },
+          "authorityUrl": "https://authority.dila.edu.tw/catalog/search.php?code=CA0001642"
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T18n0909.xml",
+      "upstreamPath": "T/T18/T18n0909.xml",
+      "upstreamGitBlobSha1": "0bfe883f628db8f31f20d2fb4296f81f19f31bc6",
+      "upstreamBytes": 162755,
+      "upstreamSha256": "03765f86f8f3a1977087a0ed1f055df7398a737cde09b6094d71d12fbd4ba3ea",
+      "localBytes": 162756,
+      "localSha256": "2d74c291a34c87e314e5f54d299ba6fb32d335bc508fe56e45de2e803888d509",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽護摩儀軌",
+        "alternateTitle": "金剛頂瑜伽護摩儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 909",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0909 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0909_001"
+      },
+      "verification": {
+        "segments": 302,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0909.001.0920b20",
+          "T0909.001.0924c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0910",
+      "slug": "taisho-t0910",
+      "workId": "gbcr:work:taisho-t0910",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0910.xml",
+      "upstreamPath": "T/T18/T18n0910.xml",
+      "upstreamGitBlobSha1": "911c0f39aa86ae803ab859096a001bf9657caa0a",
+      "upstreamBytes": 24568,
+      "upstreamSha256": "01597e0f7b9c0b5b1e35122072491b161529162388e2ae588a1556d335ab39cd",
+      "localBytes": 24569,
+      "localSha256": "c80544f909d1c4af7f9db8da7035392f6483e5d4243b975437d6ee69f4d92daa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵天擇地法",
+        "alternateTitle": "梵天擇地法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 910",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0910 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0910_001"
+      },
+      "verification": {
+        "segments": 115,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0910.001.0924c12",
+          "T0910.001.0926a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0911",
+      "slug": "taisho-t0911",
+      "workId": "gbcr:work:taisho-t0911",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0911.xml",
+      "upstreamPath": "T/T18/T18n0911.xml",
+      "upstreamGitBlobSha1": "391c9f55c460ab6118a07e6e6f3de325ba74d5b7",
+      "upstreamBytes": 66845,
+      "upstreamSha256": "eb3f9b16109b84cb543fe04b827670e9142b20c3079b29503f7a4321763acd4e",
+      "localBytes": 66846,
+      "localSha256": "4b76eb61d8db5995d9d717b2b204164e9758f63d2224da093aa941ea19a7bcbf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "建立曼荼羅及揀擇地法",
+        "alternateTitle": "建立曼荼羅及揀擇地法",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 911",
+        "translator": "唐 · 慧琳集",
+        "summary": "1卷。本站完整保存 T0911 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0911_001"
+      },
+      "verification": {
+        "segments": 255,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0911.001.0926a14",
+          "T0911.001.0929a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0912",
+      "slug": "taisho-t0912",
+      "workId": "gbcr:work:taisho-t0912",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0912.xml",
+      "upstreamPath": "T/T18/T18n0912.xml",
+      "upstreamGitBlobSha1": "7468766f5ac12c35a43f091ff571c98dbd60df06",
+      "upstreamBytes": 120008,
+      "upstreamSha256": "e6a852be9eedb1542ae9465208608dc4fb1b1c8ce7d6d46d71116b0ca7e81b5d",
+      "localBytes": 120009,
+      "localSha256": "880ca184748635c5b57df6d125e408f73d33fe96f52b8e0e8e261c155758552f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "建立曼荼羅護摩儀軌",
+        "alternateTitle": "建立曼荼羅護摩儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 912",
+        "translator": "唐 · 法全集",
+        "summary": "1卷。本站完整保存 T0912 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0912_001"
+      },
+      "verification": {
+        "segments": 485,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0912.001.0929a13",
+          "T0912.001.0934c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0913",
+      "slug": "taisho-t0913",
+      "workId": "gbcr:work:taisho-t0913",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0913.xml",
+      "upstreamPath": "T/T18/T18n0913.xml",
+      "upstreamGitBlobSha1": "7672e79df85b23aeaef435f9fe0e83db55fabf27",
+      "upstreamBytes": 96875,
+      "upstreamSha256": "676b9982ae0a2a7004780516411c5ef75f0cd486ffe046ada97ee4df2c2ccb1e",
+      "localBytes": 96876,
+      "localSha256": "4f57ad42d18d49546cf4025135c7a4d617e6982d7483e1d0987d3044b0c43a3f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "火𤙖供養儀軌",
+        "alternateTitle": "火𤙖供養儀軌",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 913",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0913 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0913_001"
+      },
+      "verification": {
+        "segments": 138,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0913.001.0934c15",
+          "T0913.001.0936b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0914",
+      "slug": "taisho-t0914",
+      "workId": "gbcr:work:taisho-t0914",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0914.xml",
+      "upstreamPath": "T/T18/T18n0914.xml",
+      "upstreamGitBlobSha1": "1d1aa0471069a15748535cc392188c48e35679b6",
+      "upstreamBytes": 236328,
+      "upstreamSha256": "6a8bfb8fbd5f6880fcea3a1901a18121c99c507ef012b36737f20fde455dbf2d",
+      "localBytes": 236329,
+      "localSha256": "779cd8dece1592614d118ffd62d78fef9a793734cf95197c3235697bfed7ab66",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "火吽軌別錄",
+        "alternateTitle": "火吽軌別錄",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 914",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0914 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0914_001"
+      },
+      "verification": {
+        "segments": 229,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0914.001.0936b25",
+          "T0914.001.0940b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0915",
+      "slug": "taisho-t0915",
+      "workId": "gbcr:work:taisho-t0915",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_esoteric_canonical_record",
+      "localPath": "data/corpus/cbeta/T18n0915.xml",
+      "upstreamPath": "T/T18/T18n0915.xml",
+      "upstreamGitBlobSha1": "d44a73a2aa0fba3d6599158f6adff8b6eb9ab04e",
+      "upstreamBytes": 27679,
+      "upstreamSha256": "1c03e7634b08baf29893cc99d431fa785ff2afa7010bdaaac8d4cc1a23a818f5",
+      "localBytes": 27680,
+      "localSha256": "2b070d11e3e6b6fb7ff1b62e53c094bc25c27ef3bf41d86c43cdebe5d0c98090",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "受菩提心戒儀",
+        "alternateTitle": "受菩提心戒儀",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 915",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。本站完整保存 T0915 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译，但密教部类位置不等于佛陀逐字亲说，作品归属与跨语种关系仍需逐项证据；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0915_001"
+      },
+      "verification": {
+        "segments": 106,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0915.001.0940b07",
+          "T0915.001.0941b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0916",
+      "slug": "taisho-t0916",
+      "workId": "gbcr:work:taisho-t0916",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_esoteric_text_or_ritual",
+      "localPath": "data/corpus/cbeta/T18n0916.xml",
+      "upstreamPath": "T/T18/T18n0916.xml",
+      "upstreamGitBlobSha1": "e616a6dbfc359fc501aec29dad77fd2968cf7854",
+      "upstreamBytes": 13890,
+      "upstreamSha256": "3c2f74ca2ae080469012c69d862e5c4928ceeed84a8680e05178987f70258b7d",
+      "localBytes": 13891,
+      "localSha256": "56a86b8e704cdf42a27e1972e62a35fcc6a32306a75efcdd0d7d9cf8bd468521",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "受五戒八戒文",
+        "alternateTitle": "受五戒八戒文",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 916",
+        "translator": "题记未载作者／译者",
+        "summary": "1卷。本站完整保存 T0916 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不把匿名仪轨自动改写为译经；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0916_001"
+      },
+      "verification": {
+        "segments": 79,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0916.001.0941c02",
+          "T0916.001.0942b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T0917",
+      "slug": "taisho-t0917",
+      "workId": "gbcr:work:taisho-t0917",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "attributed_authored_compiled_or_taught_esoteric_text",
+      "localPath": "data/corpus/cbeta/T18n0917.xml",
+      "upstreamPath": "T/T18/T18n0917.xml",
+      "upstreamGitBlobSha1": "91285df89bd2b9d488ff3a471a25b703be3b9095",
+      "upstreamBytes": 126762,
+      "upstreamSha256": "098e5db1b046e0cd4396e38263f96e30afeff95adf45950ac689ccdcb92cebe1",
+      "localBytes": 126763,
+      "localSha256": "c0c6069dd94792a5a57c85f5a9c6cf916d189b934b30d5d57dc016c51cf7ed0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無畏三藏禪要",
+        "alternateTitle": "無畏三藏禪要",
+        "tradition": "漢傳佛教 · 密教部",
+        "language": "漢文",
+        "canonRef": "大正藏 T18, no. 917",
+        "translator": "唐 · 善無畏說",
+        "summary": "1卷。本站完整保存 T0917 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为撰、述、集、造或说，平台保留其编撰/传授角色，不改写成佛陀亲说；物理记录、作品、表达、版本见证与佛说归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0917_001"
+      },
+      "verification": {
+        "segments": 301,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T0917.001.0942b26",
+          "T0917.001.0946a26"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

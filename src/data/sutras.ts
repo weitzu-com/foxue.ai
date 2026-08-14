@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.4.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.5.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -33,7 +33,7 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
@@ -207,6 +207,15 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "compiled_canonical_witness") {
     return "来源题记与权威目录明确本记录为合部编纂见证；平台保留全文和编纂责任，不将其冒充单一古代译本。";
   }
+  if (file.sourceRole === "translated_esoteric_canonical_record") {
+    return "来源目录将本记录署为翻译；平台保留密教部目录位置与译者题记，但不据题名或部类自动声称为佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "attributed_authored_compiled_or_taught_esoteric_text") {
+    return "来源题记明确为撰、述、集、造或说的密教文本；平台保留编撰或传授责任，不改写成佛陀亲说。";
+  }
+  if (file.sourceRole === "unattributed_esoteric_text_or_ritual") {
+    return "来源题记未载作者或译者；平台保留匿名文本或仪轨边界，不补造译者、印度来源或佛陀亲说归属。";
+  }
   return undefined;
 };
 
@@ -236,7 +245,9 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
             ? "节本见证 · 完整来源记录"
             : file.sourceRole === "abridged_translation_witness"
               ? "短本见证 · 完整来源记录"
-          : "节译见证 · 完整来源记录"
+          : file.sourceRole === "partial_translation_witness"
+            ? "节译见证 · 完整来源记录"
+            : "局部见证 · 完整来源记录"
       : file.sourceRole === "compiled_canonical_witness"
         ? "合部见证 · 完整原文"
         : "完整原文 · 行段试行",

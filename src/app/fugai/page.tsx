@@ -144,7 +144,13 @@ export default function CoveragePage() {
               同经异译、再译、合部编纂、单品译出与短本见证分层计数；
               T17 经集部固定来源已完成 {snapshot.candidateInventory.chineseT17SourceRecords.controlled}
               /{snapshot.candidateInventory.chineseT17SourceRecords.denominator}（{snapshot.candidateInventory.chineseT17SourceRecords.percentage}%），
-              异译、a/b 版本、失译、撰集、节抄与疑似中国撰述分层计数；至此这份固定的 881 条汉文来源记录清单已逐文件受控
+              异译、a/b 版本、失译、撰集、节抄与疑似中国撰述分层计数；
+              T18 密教部固定来源已完成 {snapshot.candidateInventory.chineseT18SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT18SourceRecords.denominator}（{snapshot.candidateInventory.chineseT18SourceRecords.percentage}%），
+              其中 {snapshot.candidateInventory.chineseT18SourceRecords.fullSourceTexts} 份登记为完整作品来源全文、
+              {snapshot.candidateInventory.chineseT18SourceRecords.partialSourceWitnesses} 份明确保持局部作品见证，
+              {snapshot.candidateInventory.chineseT18SourceRecords.verifiedEditionWitnesses} 份版本见证共享作品实体；
+              译经、仪轨、撰述、辑录与失译分层计数，不把密教部目录位置冒充佛陀亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a
@@ -153,7 +159,15 @@ export default function CoveragePage() {
               target="_blank"
               rel="noreferrer"
             >
-              查看 881 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+              查看 T01–T17 的 881 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T18 的 76 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
