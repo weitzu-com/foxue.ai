@@ -1,0 +1,611 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/source-snapshots-v0.5",
+  "version": "2.7.0",
+  "capturedAt": "2026-08-15",
+  "status": "multi_tradition_candidate_record_inventory_with_multi_edition_tibetan_catalogs",
+  "denominatorReady": false,
+  "warning": "候选来源记录、目录项、物理文件、固定版本表达式与链接作品标识彼此重叠且计数单位不同，不得直接用作全球覆盖率分母。",
+  "sources": [
+    {
+      "id": "cbeta_xml_p5",
+      "repository": "cbeta-org/xml-p5",
+      "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 5632,
+      "candidateRecordCount": 5005,
+      "recordUnit": "TEI P5 XML source record",
+      "inclusionRule": "Git tree 中所有以 .xml 结尾的路径",
+      "candidatePathSha256": "bd5c34b0625b1c08a0572d322842ad3c7b92078717ff1f63840c5ba1ad4da5a2",
+      "groups": {
+        "A": 12,
+        "B": 204,
+        "C": 12,
+        "CC": 6,
+        "D": 64,
+        "F": 27,
+        "G": 60,
+        "GA": 58,
+        "GB": 2,
+        "I": 101,
+        "J": 287,
+        "K": 10,
+        "L": 26,
+        "LC": 8,
+        "M": 1,
+        "N": 83,
+        "P": 20,
+        "S": 2,
+        "T": 2471,
+        "TX": 40,
+        "U": 3,
+        "X": 1236,
+        "Y": 44,
+        "YP": 25,
+        "ZS": 1,
+        "ZW": 202
+      },
+      "candidateSubsets": [
+        {
+          "id": "taisho_chinese_sutra_t01_t17",
+          "label": "大正藏 T01–T17 汉译经藏候选文本记录",
+          "candidateRecordCount": 881,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "T/T01 至 T/T17 目录下、文件名卷号一致的 T*.xml",
+          "candidatePathSha256": "69eb2530ae53000a606478824eec70e21fb238b495c0ee6c703e2e44f161cf44",
+          "candidateBytes": 247280257,
+          "inventoryFile": "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
+          "inventorySha256": "d96cb57adf185c6311cf458d268ae0ffe333feaddc29eb6f66f5321f9014eeb4",
+          "groups": {
+            "T01": 98,
+            "T02": 57,
+            "T03": 44,
+            "T04": 28,
+            "T05": 1,
+            "T06": 1,
+            "T07": 13,
+            "T08": 42,
+            "T09": 17,
+            "T10": 31,
+            "T11": 12,
+            "T12": 76,
+            "T13": 28,
+            "T14": 166,
+            "T15": 71,
+            "T16": 65,
+            "T17": 131
+          },
+          "denominatorCaveat": "这是可复算的汉译经藏文本记录子集，不是去重作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_esoteric_t18",
+          "label": "大正藏 T18 密教部固定来源记录",
+          "candidateRecordCount": 76,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T18 目录下、文件名卷号一致的 T18n*.xml",
+          "candidatePathSha256": "216634c3736e87650a10a6da3c795720236fb99afba993a9dda6118733aea74a",
+          "candidateBytes": 23056368,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json",
+          "inventorySha256": "89364a6dcf275a156a088502a75832b6c5eb7f056042f5ab645e2dac7971d1f7",
+          "groups": {
+            "T18": 76
+          },
+          "denominatorCaveat": "密教部含译经、仪轨、念诵法、撰述、辑录、失译与版本见证；来源文件数不是佛陀亲说作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_esoteric_t19",
+          "label": "大正藏 T19 密教部固定来源记录",
+          "candidateRecordCount": 126,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T19 目录下、文件名卷号一致的 T19n*.xml",
+          "candidatePathSha256": "951a90e94332b13d8a05af4e1ee420c6f8ee7306b2a8ff0b9dc69dd1f9de631d",
+          "candidateBytes": 18889279,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json",
+          "inventorySha256": "b549479359e4d8661aa70bd2471f4a2ae421b4466e81e275da295c182fc996b3",
+          "groups": {
+            "T19": 126
+          },
+          "denominatorCaveat": "密教部含译经、陀罗尼、仪轨、念诵法、撰述、辑录、失译、局部材料与版本见证；来源文件数不是佛陀亲说作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_esoteric_t20",
+          "label": "大正藏 T20 密教部固定来源记录",
+          "candidateRecordCount": 184,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T20 目录下、文件名卷号一致的 T20n*.xml",
+          "candidatePathSha256": "bf0f821e6f1e90dc920f54418e0428eefdfe23f88d398026e69aa4fc6b6ba65f",
+          "candidateBytes": 24220376,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t20-inventory-v0.1.0.json",
+          "inventorySha256": "98661fa1c52ac4e27adf9b7bb3d3966b870cb6f07a96d03daa22e006ffdf0cc2",
+          "groups": {
+            "T20": 184
+          },
+          "denominatorCaveat": "密教部含译经、陀罗尼、仪轨、念诵法、赞颂、注校、请来或口受材料、失译、局部材料与版本见证；来源文件数不是佛陀亲说作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_esoteric_t21",
+          "label": "大正藏 T21 密教部固定来源记录",
+          "candidateRecordCount": 228,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T21 目录下、文件名卷号一致的 T21n*.xml",
+          "candidatePathSha256": "405ebba94c6d3baaa7e94958928e609bdf836684d0dd5381421a340819e0ef1f",
+          "candidateBytes": 21264046,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t21-inventory-v0.1.0.json",
+          "inventorySha256": "91d87689fe2fb0d8d226a7d7c69628abefe0c677e658b3d85c11415f7ca4a150",
+          "groups": {
+            "T21": 228
+          },
+          "denominatorCaveat": "密教部含译经、陀罗尼、仪轨、念诵法、天部修法、星曜术、施食法、治病咒、合集、论书、译解、失译、局部材料与版本见证；来源文件数不是佛陀亲说作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_vinaya_t22",
+          "label": "大正藏 T22 律部固定来源记录",
+          "candidateRecordCount": 15,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T22 目录下、文件名卷号一致的 T22n*.xml",
+          "candidatePathSha256": "ec74e95a96d7c9b6a16ab96ec1f6787bafdf2e3aeaf30b667a3f310dc395b0a6",
+          "candidateBytes": 24063535,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t22-inventory-v0.1.0.json",
+          "inventorySha256": "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
+          "groups": {
+            "T22": 15
+          },
+          "denominatorCaveat": "律部含完整部派律、比丘戒本、比丘尼戒本、羯磨本、后世编集本与同号版本见证；来源文件数不是去重作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_vinaya_t23",
+          "label": "大正藏 T23 律部固定来源记录",
+          "candidateRecordCount": 13,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T23 目录下、文件名卷号一致的 T23n*.xml",
+          "candidatePathSha256": "ab7ee3274e2c3aa4484ca6a0fa5e9d627acb5a4feb8d1781cb6acfaaa3d4d5a3",
+          "candidateBytes": 18890532,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json",
+          "inventorySha256": "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
+          "groups": {
+            "T23": 13
+          },
+          "denominatorCaveat": "律部含完整部派律、僧尼戒本、羯磨、毘尼解释、摩得勒伽、根本说一切有部律及其事部组件，也含集出、撰出、无署名与失译附序记录；来源文件数不是去重作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_vinaya_t24",
+          "label": "大正藏 T24 律部固定来源记录",
+          "candidateRecordCount": 59,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T24 目录下、文件名卷号一致的 T24n*.xml",
+          "candidatePathSha256": "10212439eec4876aa3f6852280f1e9a8fdf65f863e97f451c0e4f1fe3d1db334",
+          "candidateBytes": 19745486,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json",
+          "inventorySha256": "3877b903a827bf8023699d63f54555f34aa77a2381aea35049fd0df631fb56b5",
+          "groups": {
+            "T24": 59
+          },
+          "denominatorCaveat": "律部含根本说一切有部律事、律摄、戒经、羯磨、威仪、在家戒与菩萨戒，也含同经异本、异译、节出、失译、无署名及传统归属有争议的中国撰述候选；来源文件数不是去重作品数，也不是全球佛典分母。"
+        },
+        {
+          "id": "taisho_sutra_commentary_t25",
+          "label": "大正藏 T25 释经论部固定来源记录",
+          "candidateRecordCount": 15,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T25 目录下、文件名卷号一致的 T25n*.xml",
+          "candidatePathSha256": "77f929c952a53baa1bd0c6be928dbf8dd02c72e3f37e52164f9475efe6427e36",
+          "candidateBytes": 20558857,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json",
+          "inventorySha256": "84355632ad64186d56ade349561028ac4bce2e3020e51d373a469df0fdafe391",
+          "groups": {
+            "T25": 15
+          },
+          "denominatorCaveat": "释经论部含阿含论释、《大智度论》、金刚般若论释及般若要义根本颂与复注，也含同本异译、a/b 异本、内嵌根本文本和传统作者归属有争议的论书；来源文件数不是去重作品数，更不是佛陀亲说经文数或全球佛典分母。"
+        },
+        {
+          "id": "taisho_sutra_commentary_abhidharma_t26",
+          "label": "大正藏 T26 释经论与毘昙部固定来源记录",
+          "candidateRecordCount": 26,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T26 目录下、文件名卷号一致的 T26n*.xml",
+          "candidatePathSha256": "e7ed614ddbd5fb13486949f26593efbac0e3c9b0c6c6cfd41a5bb9fd3820d8e9",
+          "candidateBytes": 14495358,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t26-inventory-v0.1.0.json",
+          "inventorySha256": "006bedf4dd5b28ff0d1c2de5e87224f6bae7b93b187fb86e9b26cedef8a3ccf9",
+          "groups": {
+            "T26": 26
+          },
+          "denominatorCaveat": "T26 同时包含大乘释经论、敦煌无署名释文、同本异译以及说一切有部六足论与发智论；来源文件数不是去重作品数，更不是佛陀亲说经文数或全球佛典分母。"
+        },
+        {
+          "id": "taisho_abhidharma_commentary_t27",
+          "label": "大正藏 T27 毘曇部《大毘婆沙論》固定来源记录",
+          "candidateRecordCount": 1,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T27 目录下、文件名卷号一致的 T27n*.xml",
+          "candidatePathSha256": "321d8520127a2838deabb37db0715ecc43f6fef31008861558cb43854227a4f1",
+          "candidateBytes": 9552926,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t27-inventory-v0.1.0.json",
+          "inventorySha256": "4154778df251623c7d3fed77a72307471d6e1d25db3b99e3a942e7410fd75907",
+          "groups": {
+            "T27": 1
+          },
+          "denominatorCaveat": "T27 只有 T1545《阿毘達磨大毘婆沙論》一份大型来源记录；一份来源记录、一个作品、二百卷与八万余稳定行段是不同计量单位，也不是佛陀亲说经文数或全球佛典分母。"
+        },
+        {
+          "id": "taisho_abhidharma_t28",
+          "label": "大正藏 T28 毘曇部固定来源记录",
+          "candidateRecordCount": 12,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T28 目录下、文件名卷号一致的 T28n*.xml",
+          "candidatePathSha256": "965838a61b6403b8216de11567bd55210db610bf6ac053a7313a1373bd57f913",
+          "candidateBytes": 14447693,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t28-inventory-v0.1.0.json",
+          "inventorySha256": "33f6555b386a3afa17ab24cad128a3f2264c3373f25cd8ae18037a753fd23679",
+          "groups": {
+            "T28": 12
+          },
+          "denominatorCaveat": "T28 的 12 份来源记录混合《大毘婆沙》旧译残存见证、节抄、独立阿毘达磨论书、根本论、扩充或注释作品与同本异译；文件数、表达数、作品数、卷数与佛陀亲说经文数必须分层计量。"
+        },
+        {
+          "id": "taisho_abhidharma_t29",
+          "label": "大正藏 T29 毘曇部固定来源记录",
+          "candidateRecordCount": 6,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T29 目录下、文件名卷号一致的 T29n*.xml",
+          "candidatePathSha256": "77eab68bd636f42c95a16dc88c6f3cc5bee6111390f1b244c833e96d2398824a",
+          "candidateBytes": 11019060,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t29-inventory-v0.1.0.json",
+          "inventorySha256": "fbab8cbb8bb0770c128cce4e3d34749bbeb5dd53c47f6bb20a1e8948bb4b925e",
+          "groups": {
+            "T29": 6
+          },
+          "denominatorCaveat": "T29 的 6 份来源记录包含《俱舍论释》同本异译、独立本颂、安慧注疏的极端节本见证，以及众贤《顺正理》《显宗》广略二论；来源文件、表达、作品、广略关系、完整作品见证与佛陀亲说经文必须分层计量。"
+        },
+        {
+          "id": "taisho_madhyamaka_yogacara_t30",
+          "label": "大正藏 T30 中觀部、瑜伽部固定來源記錄",
+          "candidateRecordCount": 21,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T30 目錄下、文件名卷號一致的 T30n*.xml",
+          "candidatePathSha256": "329b2dd6712952a97782404cfb0aac19861ba088d5365d5fb47db28a211ecf77",
+          "candidateBytes": 13938106,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t30-inventory-v0.1.0.json",
+          "inventorySha256": "dda6b9612df5cb08b0900eca6a76726aa421c1a6c92923d612add7b3fccc2839",
+          "groups": {
+            "T30": 21
+          },
+          "denominatorCaveat": "T30 的 21 份來源記錄包含根本頌、釋論、節略注釋、僅存前半的譯本、整部瑜伽論、獨立流通的組成部分、異譯或改編爭議，以及原屬同一十卷文本而後分離的兩份來源；來源文件、表達、作品、組成部分、完整作品見證與傳統作者題記必須分層計量。"
+        },
+        {
+          "id": "taisho_yogacara_t31",
+          "label": "大正藏 T31 瑜伽部固定来源记录",
+          "candidateRecordCount": 43,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T31 目录下、文件名卷号一致的 T31n*.xml",
+          "candidatePathSha256": "cf83ccc8d698b518abee015a520a3df9628ddd6d6936f563a06bcb46e2928716",
+          "candidateBytes": 11039332,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t31-inventory-v0.1.0.json",
+          "inventorySha256": "9efd4f5897ef47c36e5310b9263dfa515483fa6c713433555a899e12a63566ca",
+          "groups": {
+            "T31": 43
+          },
+          "denominatorCaveat": "T31 的 43 份来源记录包含根本颂、释论、复合注释、同本异译、独立流通的组成部分、真谛译作或讲录的归属争议，以及同一汉译传统的异本；来源文件、表达、作品、组成部分、完整性与传统作者题记必须分层计量。"
+        },
+        {
+          "id": "taisho_sastra_t32",
+          "label": "大正藏 T32 论集部固定来源记录",
+          "candidateRecordCount": 66,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T32 目录下、文件名卷号一致的 T32n*.xml",
+          "candidatePathSha256": "cd05f0632086a08a486b0449265e48bbf1a37c5356b638fa3bc84a857b588266",
+          "candidateBytes": 11121227,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t32-inventory-v0.1.0.json",
+          "inventorySha256": "7f4aae2c0ab97ffdf872ec72705acf05f9ef6dcd0d42f12e9756c9465ca670f7",
+          "groups": {
+            "T32": 66
+          },
+          "denominatorCaveat": "T32 的 66 份来源记录包含译论、注释、纲要、书信、发愿文、譬喻集、汉地撰述、疑伪或归属争议材料，以及同经号 A/B 见证；来源文件、表达、作品、版本、组成部分、完整性和传统作者题记必须分层计量。"
+        },
+        {
+          "id": "taisho_sutra_commentary_t33",
+          "label": "大正藏 T33 经疏部固定来源记录",
+          "candidateRecordCount": 25,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T33 目录下、文件名卷号一致的 T33n*.xml",
+          "candidatePathSha256": "649f5efffc7c24b8acb5834498a1be07c4b623d779ae8ba5a53ab456446cfc5e",
+          "candidateBytes": 12016019,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t33-inventory-v0.1.0.json",
+          "inventorySha256": "3556eb927dd4bbc00229fb5c8c45208f26c14a92838ddcfb7a33b7a20784e174",
+          "groups": {
+            "T33": 25
+          },
+          "denominatorCaveat": "T33 的 25 份来源记录是经疏、述赞、宗要、疏论、刊定记、略疏、神宝记、义记、玄义与释籤；根本经、注疏、再注释、讲说记录、撰述责任和作品身份必须分层计量，不能把经疏目录位置误作佛陀亲说归属。"
+        },
+        {
+          "id": "taisho_sutra_commentary_t34",
+          "label": "大正藏 T34 经疏部固定来源记录",
+          "candidateRecordCount": 13,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T34 目录下、文件名卷号一致的 T34n*.xml",
+          "candidatePathSha256": "6e863b2ddfc06572bffc8beb04c151c73dd21923f8353cba354ae6a8d557d83b",
+          "candidateBytes": 13196188,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t34-inventory-v0.1.0.json",
+          "inventorySha256": "0e5bca400777a5f819f1d6809f5e803e1ce657dc699bfea37da15d2b83c7a8fb",
+          "groups": {
+            "T34": 13
+          },
+          "denominatorCaveat": "T34 的 13 份来源记录是《法华经》《观世音菩萨普门品》与《金刚三昧经》的文句、玄论、义疏、游意、玄赞、宗要、论及再注释；根本经、章节、直接注释、教义阐释、讲说记录和再注释必须分层计量，不能把经疏目录位置误作佛陀逐字亲说归属。"
+        },
+        {
+          "id": "taisho_huayan_commentary_t35",
+          "label": "大正藏 T35 华严经疏部固定来源记录",
+          "candidateRecordCount": 5,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T35 目录下、文件名卷号一致的 T35n*.xml",
+          "candidatePathSha256": "b49b9c5d9eccb861be1065b15d505b894d279a95db8cf087d2a497bc634c6432",
+          "candidateBytes": 11056559,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t35-inventory-v0.1.0.json",
+          "inventorySha256": "ad6ba047693f8d7693df43e204d5c55c9d8924e825e1d54fb7924cafb6227697",
+          "groups": {
+            "T35": 5
+          },
+          "denominatorCaveat": "T35 的 5 份来源记录是围绕六十卷本与八十卷本《大方广佛华严经》形成的游意、搜玄、探玄、纲目与经疏；根本经、教义阐释、直接注释、同作者异作及下一卷再注释必须分层计量，不能把经疏目录位置误作佛陀逐字亲说归属。"
+        },
+        {
+          "id": "taisho_huayan_commentary_t36",
+          "label": "大正藏 T36 华严经疏部固定来源记录",
+          "candidateRecordCount": 8,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T36 目录下、文件名卷号一致的 T36n*.xml",
+          "candidatePathSha256": "c166cf1f1620a4ada75c6a5a18e7d03fff817417abf515a966188365a97f5986",
+          "candidateBytes": 14520834,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t36-inventory-v0.1.0.json",
+          "inventorySha256": "5e9130fd3ab079deeb3300d411c23e2773ba9693c82e2742dee1340f489a3d72",
+          "groups": {
+            "T36": 8
+          },
+          "denominatorCaveat": "T36 的 8 份来源记录是围绕八十卷本《大方广佛华严经》及澄观疏形成的再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义；根本经、直接注释、再注释、同作者异作和不同体例必须分层计量，不能把经疏目录位置或同根经关系误作佛陀逐字亲说归属。"
+        },
+        {
+          "id": "taisho_pure_land_nirvana_commentary_t37",
+          "label": "大正藏 T37 净土与涅槃经疏部固定来源记录",
+          "candidateRecordCount": 21,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T37 目录下、文件名卷号一致的 T37n*.xml",
+          "candidatePathSha256": "53b953118c161034f574cd26f4037eb5cdc0bc7a38081ab10d86d944ec544fe2",
+          "candidateBytes": 10041102,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t37-inventory-v0.1.0.json",
+          "inventorySha256": "7b66418c7d6b711a3ed9b2b9c0f0317c9278ba5de9b647151a6b7b8613df15e2",
+          "groups": {
+            "T37": 21
+          },
+          "denominatorCaveat": "T37 的 21 份来源记录是《胜鬘经》、净土三经及《大般涅槃经》的东亚经疏、宗要、讲说记录、再注释与集解；根本经、直接注释、再注释、同题异作、同作者异作和集解责任必须分层计量，不能把经疏目录位置或共同根经误作佛陀逐字亲说归属。"
+        },
+        {
+          "id": "taisho_nirvana_medicine_buddha_maitreya_vimalakirti_commentary_t38",
+          "label": "大正藏 T38 涅槃、药师、弥勒与维摩经疏部固定来源记录",
+          "candidateRecordCount": 18,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T38 目录下、文件名卷号一致的 T38n*.xml",
+          "candidatePathSha256": "0beb8d95c7893ca952fe26ab1c68aa0935fd57d0f90a2662fe0683499c9d9843",
+          "candidateBytes": 13495590,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t38-inventory-v0.1.0.json",
+          "inventorySha256": "d19c39a8cbf41f9cc14293f439046a71ece59d5412087389cb4301e136b78359",
+          "groups": {
+            "T38": 18
+          },
+          "denominatorCaveat": "T38 的 18 份来源记录是《大般涅槃经》《药师经》、弥勒诸经及《维摩经》的东亚玄义、游意、宗要、义记、经疏、略疏与再注释；共同根经、同一作者、同一教说传统、略本关系和互相关联目录记录必须分层计量，不能把经疏目录位置或引文误作佛陀逐字亲说归属。"
+        },
+        {
+          "id": "taisho_golden_light_lankavatara_esoteric_commentary_t39",
+          "label": "大正藏 T39 金光明、楞伽及显密经疏部固定来源记录",
+          "candidateRecordCount": 21,
+          "recordUnit": "TEI P5 source record",
+          "inclusionRule": "固定 Git tree 中 T/T39 目录下、文件名卷号一致的 T39n*.xml",
+          "candidatePathSha256": "883d37f2a72573abf04a9a45c8c43e3cc03f789f516d683c0abd5c6f786cb040",
+          "candidateBytes": 12940653,
+          "inventoryFile": "data/gbcr/cbeta-taisho-t39-inventory-v0.1.0.json",
+          "inventorySha256": "7c71afa40dfe62b4c02367357445bf865f31a4456a20e01ea3737d2626451550",
+          "groups": {
+            "T39": 21
+          },
+          "denominatorCaveat": "T39 的 21 份来源记录是《金光明经》《楞伽经》及盂兰盆、温室、四十二章、圆觉、大日、金刚顶、楞严、请观音和陀罗尼经的东亚玄义、文句、经疏、注解、略疏、义诀、集注与再注释；共同根经、同一作者、章节范围、经轨关系和传统归属必须分层计量，不能把注疏目录位置、密教仪轨或正文引文误作佛陀逐字亲说归属。"
+        }
+      ],
+      "denominatorCaveat": "异译、别本、续藏与版本见证尚未映射到 Work/Expression/Witness，文件数不是作品数。"
+    },
+    {
+      "id": "suttacentral_bilara",
+      "repository": "suttacentral/bilara-data",
+      "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 45756,
+      "allJsonFiles": 43762,
+      "allRootRecords": 7797,
+      "excludedInterfaceAndNameRecords": 213,
+      "candidateRecordCount": 7584,
+      "recordUnit": "Bilara canonical-language root record",
+      "inclusionRule": "root/{pli,lzh,pra,san}/ 下所有 JSON；排除英文界面和 misc 名称记录",
+      "candidatePathSha256": "e1741097b752db14dd998e92f5ec19416a840e4bd368720b6db0df05794f6bf6",
+      "groups": {
+        "lzh": 272,
+        "pli": 7288,
+        "pra": 22,
+        "san": 2
+      },
+      "denominatorCaveat": "root 记录可能是经、律、论的章节或细分单元；跨语言平行关系与作品级去重尚未裁决。"
+    },
+    {
+      "id": "bdrc_derge_kangyur",
+      "provider": "Buddhist Digital Resource Center",
+      "repository": "buda-base linked-data and IIIF public interfaces",
+      "instanceRevision": "f0b7bee5198d5ddf50dd6853765a8e966821a078",
+      "outlineRevision": "7925566c564577bfa97631ebfea355f0b7e11e25",
+      "candidateRecordCount": 1114,
+      "recordUnit": "fixed-edition top-level Tibetan text expression",
+      "inclusionRule": "BDRC O22084 已发布纲要中，bdo:partOf 指向 MW22084_S0001–S0014、具有初印本卷页位置且未标注 not in parphud 的 bdo:Instance",
+      "candidatePathSha256": "c4dd64c4e72474cc1a8447d9035f3d885fc6715929eaee6f0df99d798b02fd6c",
+      "recordSetSha256": "1909e2f5a16f5e6571761861f9b7b9a0ed51b25a783401aaf233c2c01c01ff4a",
+      "inventoryFile": "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
+      "inventorySha256": "04d7add0b86ad0cd63ca9ef7e8b96e21a6f0901aafcf8280454ea6699277a967",
+      "groups": {
+        "S0001": 8,
+        "S0002": 1,
+        "S0003": 1,
+        "S0004": 1,
+        "S0005": 1,
+        "S0006": 1,
+        "S0007": 31,
+        "S0008": 1,
+        "S0009": 49,
+        "S0010": 266,
+        "S0011": 470,
+        "S0012": 18,
+        "S0013": 265,
+        "S0014": 1
+      },
+      "metrics": {
+        "rootAndPartInstanceNodes": 1208,
+        "partInstanceNodes": 1207,
+        "sectionNodes": 14,
+        "topLevelCatalogRecords": 1122,
+        "topLevelExpressionRecords": 1114,
+        "excludedCatalogOnlyRecords": 8,
+        "nestedTextPartRecords": 71,
+        "dergeIdentifierRecords": 1193,
+        "uniqueDergeIdentifiers": 1193,
+        "linkedAbstractWorkIds": 844,
+        "volumeManifests": 103
+      },
+      "rights": {
+        "iiifCollectionLicense": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "accessPolicyUrl": "https://www.bdrc.io/access-policies/",
+        "status": "public_domain_collection_metadata_only",
+        "decision": "本快照只保存事实性目录元数据与外部导航，不镜像图像；任何全文或图像入库仍须逐对象核对 BDRC 访问政策和清单权利标记。"
+      },
+      "denominatorCaveat": "1114 是单一固定版本中可定位的顶层文本表达式，不是跨版本去重作品数；BDRC 当前链接的抽象作品标识数量也尚未通过跨目录独立复核。"
+    },
+    {
+      "id": "dsbc_sanskrit_catalog",
+      "provider": "Digital Sanskrit Buddhist Canon, University of the West",
+      "repository": "public web catalog",
+      "capturedAt": "2026-08-13",
+      "candidateRecordCount": 486,
+      "recordUnit": "DSBC Romanized catalog entry or edition record",
+      "inclusionRule": "DSBC Romanized 总目录中具有 /canon-text/book/{id} 持久页面的记录",
+      "candidatePathSha256": "c42d42fb6da4038b6cc5306776c57eadf0492722ad95b966e18c7329ce735f7c",
+      "responseSha256": "d7f244ed7e2b289f38058602de2ed772434fbe92af98a6192ff7579ae27670ce",
+      "inventoryFile": "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
+      "inventorySha256": "3571d9fe9f30e7066ce8d4230e0dad3fc1c7b28741c90edfb4ab01997c86d2c2",
+      "groups": {
+        "sutrapitaka": 111,
+        "vinayapitaka": 15,
+        "sastrapitaka": 360
+      },
+      "rights": {
+        "policyFile": "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
+        "status": "aggregate_metadata_only_reproduction_permission_required",
+        "decision": "只发布汇总计数、页面哈希和记录标识集合摘要；不复制逐条目录、转写或正文，许可明确前不计为可发布全文。"
+      },
+      "denominatorCaveat": "486 是 DSBC Romanized 目录记录数，其中可能包含同题多版本、分卷、密续、律藏与论疏；不是去重梵文作品数，也不是站内全文数。"
+    },
+    {
+      "id": "gretil_sanskrit_buddhist_files",
+      "provider": "INDOLOGY/GRETIL archival mirror",
+      "repository": "INDOLOGY/GRETIL-mirror",
+      "commit": "0baf718d8e450821eb0403c03aacc9a4a82316d7",
+      "tree": "b3f67ca1d814b5b20a33fd5a0d686ad1768703ee",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 5555,
+      "candidateRecordCount": 417,
+      "candidateBytes": 62432484,
+      "recordUnit": "Unicode HTML physical file under a Sanskrit Buddhist source directory",
+      "inclusionRule": "固定 Git tree 中 Sanskrit Buddhist literature 与 philosophy 两目录下的 Unicode .htm blob；排除 .tmp 和非 HTML 文件",
+      "candidatePathSha256": "9ef8efde743abad9eb14732ec2e21d7bb0e79e3c56b313a1aa0780ef3e8964f6",
+      "recordSetSha256": "ff2638f75efd8928602bae4963e5d557c420d337ee079b003b5d6901ed69c17e",
+      "inventoryFile": "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
+      "inventorySha256": "3571d9fe9f30e7066ce8d4230e0dad3fc1c7b28741c90edfb4ab01997c86d2c2",
+      "groups": {
+        "sanskritBuddhistLiterature": 261,
+        "sanskritBuddhistPhilosophy": 156
+      },
+      "rights": {
+        "policyFile": "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
+        "status": "repository_license_unspecified_metadata_only",
+        "decision": "仓库级许可证未标明；只登记固定 Git 路径、blob 与字节汇总，不镜像正文。任何全文入库须逐文件核对头部来源与权利。"
+      },
+      "denominatorCaveat": "417 是固定镜像中的物理 HTML 文件数；同一作品可能有分卷、不同底本或多份编码，且与 DSBC 高度可能重叠，不是去重作品数。"
+    },
+    {
+      "id": "rkts_kangyur_catalogs",
+      "provider": "Resources for Kanjur and Tanjur Studies (rKTs)",
+      "repository": "brunogml/rKTs",
+      "commit": "f6a87b6965641111b566ce2db14f7641a7469e6f",
+      "tree": "d31e7bf96b111120f48c33f4441f54b03d503618",
+      "treeTruncated": false,
+      "repositoryTreeEntries": 26340,
+      "candidateRecordCount": 15069,
+      "candidateBytes": 15544576,
+      "recordUnit": "rKTs XML catalog item across a fixed edition, collection or fragment catalog",
+      "inclusionRule": "固定 migration 提交 migrate.php 选中的 20 个目录配置；统计固定 source 子模块中实际存在且 Git blob 校验通过的 19 个 XML",
+      "exclusionRule": "goldenmustang/Cx 配置路径在固定 source 提交中不存在，单独记录为缺失且不计入 15,069；不导入逐条 item",
+      "candidatePathSha256": "f531424302c77d921c71afc1a2bc59f3e2d8c567ef71622b4f0bc55516bec007",
+      "recordSetSha256": "439117912d4c60ada8507396e8da0559b9d5a0fea9dbae926dcf964e902e53c7",
+      "inventoryFile": "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
+      "inventorySha256": "f0e467eedeff38c2638b6cd1fd86ff09469c8f9c7a617892acc488ecb0a51db1",
+      "groups": {
+        "D": 1122,
+        "A": 1250,
+        "EG": 172,
+        "Z": 780,
+        "S": 817,
+        "N": 789,
+        "Q": 1108,
+        "H": 812,
+        "U": 1109,
+        "C": 1104,
+        "J": 1121,
+        "F": 778,
+        "R": 1111,
+        "Hi": 159,
+        "Ty": 812,
+        "Go": 418,
+        "Ng": 638,
+        "Bd": 218,
+        "L": 751
+      },
+      "metrics": {
+        "configuredCatalogs": 20,
+        "availableCatalogs": 19,
+        "missingConfiguredCatalogs": 1,
+        "sourceBytes": 15544576,
+        "itemRecords": 15069,
+        "referenceFields": 15139,
+        "uniqueReferencesWithinCatalogs": 15025,
+        "rktsLinks": 15116
+      },
+      "rights": {
+        "status": "cc0_catalog_metadata_aggregate_only",
+        "license": "CC0-1.0",
+        "decision": "发布事实性版本级目录统计、固定路径、Git blob 与 BDRC 实例标识；本阶段不镜像 15 MB XML，也不把跨版本 item 相加为作品分母。"
+      },
+      "denominatorCaveat": "19 个目录的 15,069 条 item 会大量跨版本重复，且混合完整甘珠尔、合集与残片目录；不能与 BDRC 德格 1,114 条表达式相加为去重作品数。"
+    }
+  ],
+  "rightsEvidence": [
+    {
+      "id": "84000_rights_policy",
+      "file": "data/gbcr/84000-rights-policy-v0.3.0.json",
+      "sha256": "cc61ce577bf7330c42d12168f8b79ec25a5abce290cbab83e783355c963ffbfa"
+    },
+    {
+      "id": "sanskrit_source_rights_policy",
+      "file": "data/gbcr/sanskrit-rights-policy-v0.4.0.json",
+      "sha256": "649a53e17694526f0a35c426b348496275c4486614a8108de931ab4ca744c563"
+    },
+    {
+      "id": "rkts_cc0_catalog_license",
+      "file": "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json",
+      "sha256": "f0e467eedeff38c2638b6cd1fd86ff09469c8f9c7a617892acc488ecb0a51db1"
+    }
+  ],
+  "derivedFrom": {
+    "file": "data/gbcr/source-snapshots-v2.6.0.json",
+    "sha256": "3963a3e7a1f6def30a714cea4d0b6bfd8adf817c9ed88586cf086824670f1809"
+  }
+}
