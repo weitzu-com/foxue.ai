@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v4.5.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.5.0.json";
+import registryDocument from "../../data/gbcr/registry-v4.6.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.6.0.json";
 
 type Expression = {
   id: string;
@@ -175,6 +175,12 @@ export function buildCoverageSnapshot() {
   const chineseT27Controlled = "t27ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t27ControlledSourceRecords ?? null
     : null;
+  const chineseT28Denominator = "t28SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t28SourceRecordDenominator ?? null
+    : null;
+  const chineseT28Controlled = "t28ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t28ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -231,6 +237,11 @@ export function buildCoverageSnapshot() {
   const chineseT27SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_abhidharma_commentary_t27",
+      ) ?? null
+    : null;
+  const chineseT28SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_abhidharma_t28",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -451,8 +462,9 @@ export function buildCoverageSnapshot() {
         t25InventorySha256: chineseT25SubsetInventory?.inventorySha256 ?? null,
         t26InventorySha256: chineseT26SubsetInventory?.inventorySha256 ?? null,
         t27InventorySha256: chineseT27SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T27 十一个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T27 释经论、毘昙部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本经论、广释、异本、异译、异传、无署名释文与归属争议。",
+        t28InventorySha256: chineseT28SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T28 十二个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T28 释经论、毘昙部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本经论、广释、旧译残存见证、节要、同本异译、失译与归属争议。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -698,6 +710,24 @@ export function buildCoverageSnapshot() {
         relationAnnotatedRecords: corpusRegistry.cbetaT27BoundaryAudit.relationAnnotatedRecords,
         unit: "CBETA 固定提交大正藏 T27 毘昙部《大毘婆沙论》来源记录",
         caveat: corpusRegistry.cbetaT27BoundaryAudit.caveat,
+      },
+      chineseT28SourceRecords: {
+        denominator: chineseT28Denominator,
+        controlled: chineseT28Controlled,
+        percentage: chineseT28Denominator && chineseT28Controlled !== null
+          ? Number(((chineseT28Controlled / chineseT28Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT28BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT28BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT28BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT28BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT28BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT28BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT28BoundaryAudit.relationAnnotatedRecords,
+        newWorks: corpusRegistry.cbetaT28BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT28BoundaryAudit.controlledWorks,
+        unit: "CBETA 固定提交大正藏 T28 毘昙部来源记录",
+        caveat: corpusRegistry.cbetaT28BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,
