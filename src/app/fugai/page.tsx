@@ -264,6 +264,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT38SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT38SourceRecords.controlledWorks} 个独立作品；T0375、T0450、T0452/T0454/T0456、T0475/T0476 根经连接对应经疏，
               T1765/T1766 与 T1778/T1779 保持注释—再注释层级，T1774 明确连接三部弥勒根经，T1777/T1778 与 T1780/T1781 保持相关但不同作品边界；
+              T39 金光明、楞伽及显密经疏部固定来源已完成 {snapshot.candidateInventory.chineseT39SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT39SourceRecords.denominator}（{snapshot.candidateInventory.chineseT39SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT39SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT39SourceRecords.controlledWorks} 个独立作品；14 组根经—注疏、3 组直接注释—再注释与 4 组相关异作边界均已记录，
+              T1796 的全经疏和 T1797 仅释第七卷供养次第法的范围差异、T1799 所连《首楞严经》的成书争议均不被抹平；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -442,6 +447,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T38 的 18 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t39-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T39 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

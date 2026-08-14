@@ -1,0 +1,1597 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.6.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.5.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t39-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T39; T39 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T39",
+    "title": "大正藏 T39 金光明、楞伽及显密经疏部固定来源记录",
+    "sourceRecordDenominator": 21,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 21,
+    "controlledSourceRecords": 21,
+    "newSourceBytes": 12940653,
+    "newStableSegments": 88790,
+    "newFolios": 3160,
+    "newJuans": 89,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 21,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 21,
+    "attributionBoundaryRecords": 21,
+    "newWorks": 21,
+    "controlledWorks": 21,
+    "workCountingDecision": "T39 的 21 份来源记录登记为 21 个完整表达和 21 个独立经疏作品。T1783/T1784、T1785/T1786 与 T1800/T1801 分别保持直接注释—再注释层级；T1790/T1791 共同解释 T0672 但保持异作；T1796 解释 T0848 全经，T1797 只解释第七卷供养次第法；T1799 连接 T0945 但不消除根本经成书争议。所有记录均不标作根本经表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_root_translation_commentary_fascicle_scope_compiled_commentary_traditional_attribution_and_subcommentary_boundaries_recorded",
+    "existingControlledRecords": [
+      "T0663",
+      "T0665",
+      "T0670",
+      "T0672",
+      "T0685",
+      "T0701",
+      "T0784",
+      "T0842",
+      "T0848",
+      "T0866",
+      "T0945",
+      "T0967",
+      "T1043",
+      "T1071"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "golden-light-exegesis-t0663-t1783-t1787",
+      "golden-light-best-king-exegesis-t0665-t1788",
+      "lankavatara-exegesis-t0670-t1789",
+      "lankavatara-exegesis-t0672-t1790-t1791",
+      "ullambana-exegesis-t0685-t1792",
+      "bathhouse-exegesis-t0701-t1793",
+      "forty-two-chapters-exegesis-t0784-t1794",
+      "perfect-enlightenment-exegesis-t0842-t1795",
+      "mahavairocana-exegesis-t0848-t1796-t1797",
+      "vajrasekhara-exegesis-t0866-t1798",
+      "surangama-exegesis-t0945-t1799",
+      "guanyin-dharani-exegesis-t1043-t1800-t1801",
+      "eleven-faced-dharani-exegesis-t1071-t1802",
+      "usnisa-vijaya-exegesis-t0967-t1803"
+    ],
+    "subcommentaryGroups": [
+      "golden-light-xuanyi-subcommentary-t0663-t1783-t1784",
+      "golden-light-wenju-subcommentary-t0663-t1785-t1786",
+      "guanyin-dharani-subcommentary-t1043-t1800-t1801"
+    ],
+    "relatedDistinctWorkGroups": [
+      "zhiyi-golden-light-commentaries-t1783-t1785",
+      "zhili-golden-light-subcommentaries-t1784-t1786",
+      "lankavatara-commentaries-t1790-t1791",
+      "mahavairocana-commentary-scope-t1796-t1797"
+    ],
+    "candidateRelationsNotMerged": [
+      "T0663↔T1783–T1787，T1783↔T1784，T1785↔T1786（金光明根经、玄义、文句、经疏及两组再注释分层保存）",
+      "T0665↔T1788（义净译《金光明最胜王经》与慧沼经疏分层保存）",
+      "T0670↔T1789；T0672↔T1790/T1791（三种楞伽经译本及各自注疏不跨译本合并）",
+      "T0685/T0701/T0784/T0842 与 T1792–T1795（根经、传统译者题记与后世注疏分层保存）",
+      "T0848↔T1796/T1797（全经疏与只释卷七供养次第法的范围边界分层保存）",
+      "T0866↔T1798，T0945↔T1799（经轨与义诀分层；楞严注疏不消除根经成书争议）",
+      "T1043↔T1800↔T1801（请观音根经、直接疏与阐义钞再注释分层保存）",
+      "T0967↔T1803，T1071↔T1802（陀罗尼根经与义疏、义记分层保存）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_subcommentary": [
+        "T1784",
+        "T1786",
+        "T1801"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1787",
+        "T1788",
+        "T1789",
+        "T1790",
+        "T1791",
+        "T1792",
+        "T1793",
+        "T1794",
+        "T1795",
+        "T1797",
+        "T1798",
+        "T1802",
+        "T1803"
+      ],
+      "sinitic_compiled_sutra_commentary": [
+        "T1799"
+      ],
+      "sinitic_recorded_sutra_commentary": [
+        "T1796"
+      ],
+      "sinitic_taught_commentary_record": [
+        "T1783",
+        "T1785",
+        "T1800"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation, abridgment and exegetical dependence; it cannot merge root translations, direct commentaries, fascicle-scoped ritual commentaries, compiled annotations, subcommentaries, same-author works or texts with disputed attribution.",
+      "pairs": [
+        {
+          "pair": [
+            "T1783",
+            "T1784"
+          ],
+          "normalizedCharacters": [
+            15990,
+            50213
+          ],
+          "fiveGramContainmentOfShorter": 0.046082,
+          "fiveGramJaccard": 0.011004
+        },
+        {
+          "pair": [
+            "T1785",
+            "T1786"
+          ],
+          "normalizedCharacters": [
+            52255,
+            112532
+          ],
+          "fiveGramContainmentOfShorter": 0.026289,
+          "fiveGramJaccard": 0.00832
+        },
+        {
+          "pair": [
+            "T1783",
+            "T1785"
+          ],
+          "normalizedCharacters": [
+            15990,
+            52255
+          ],
+          "fiveGramContainmentOfShorter": 0.013608,
+          "fiveGramJaccard": 0.003165
+        },
+        {
+          "pair": [
+            "T1784",
+            "T1786"
+          ],
+          "normalizedCharacters": [
+            50213,
+            112532
+          ],
+          "fiveGramContainmentOfShorter": 0.01309,
+          "fiveGramJaccard": 0.004057
+        },
+        {
+          "pair": [
+            "T1790",
+            "T1791"
+          ],
+          "normalizedCharacters": [
+            11552,
+            95868
+          ],
+          "fiveGramContainmentOfShorter": 0.014757,
+          "fiveGramJaccard": 0.001632
+        },
+        {
+          "pair": [
+            "T1796",
+            "T1797"
+          ],
+          "normalizedCharacters": [
+            293952,
+            25953
+          ],
+          "fiveGramContainmentOfShorter": 0.304963,
+          "fiveGramJaccard": 0.025602
+        },
+        {
+          "pair": [
+            "T1800",
+            "T1801"
+          ],
+          "normalizedCharacters": [
+            13460,
+            40117
+          ],
+          "fiveGramContainmentOfShorter": 0.033526,
+          "fiveGramJaccard": 0.008504
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T39",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001769",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001794",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001940",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002683",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003835",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003345",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002838",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003889",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000642",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001662",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000587",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001042",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002602",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003078",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001788",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001790",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001783",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001785",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001782",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001797",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001942",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002684",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002685",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003837",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003344",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002842",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003877",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000641",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000650",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001626",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002004",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002603",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002604",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003079",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001046"
+    ],
+    "caveat": "T39 是经疏部，不是佛说经集合。平台完整保存固定来源，同时区分金光明、楞伽、显教与密教根经表达，以及玄义、文句、拾遗记、文句记、略疏、义诀、集注、卷七仪轨疏和再注释；共同根经、同作者、传统责任题记、章节范围、经轨关系、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1783",
+      "slug": "taisho-t1783",
+      "workId": "gbcr:work:golden-light-xuanyi-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明經玄義",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-exegesis-t0663-t1783-t1787",
+          "label": "《金光明经》与 T1783–T1787 五部玄义、文句、记及经疏",
+          "evidence": "DILA T1783–T1787 规范记录均把 T0663 标为相关经典。五部诠释在作者、题名、体例与层级上不同，根本经和后世注疏保持六个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784",
+              "T1785",
+              "T1786",
+              "T1787"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-xuanyi-subcommentary-t0663-t1783-t1784",
+          "label": "《金光明经》、智顗说《玄义》与知礼《玄义拾遗记》",
+          "evidence": "DILA T1783 与 T1784 规范记录互相关联；T1784 依 T1783 拾遗阐释。根经、玄义讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_teacher_distinct",
+          "groupId": "zhiyi-golden-light-commentaries-t1783-t1785",
+          "label": "智顗说、灌顶录《金光明经玄义》与《金光明经文句》",
+          "evidence": "两部记录同属智顗教说与灌顶记录传统，但玄义与随文文句具有不同题名、结构和解释任务，保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1785"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1783.xml",
+      "upstreamPath": "T/T39/T39n1783.xml",
+      "upstreamGitBlobSha1": "01e6aa7111a38de13bb4924e60e8a7778f414179",
+      "upstreamBytes": 374234,
+      "upstreamSha256": "5de7d0c783e767a3cb90f60411954d22203e121e646f81a3636fd4605fe89252",
+      "localBytes": 374235,
+      "localSha256": "cfb5a09eeb0ea0f927cc523ac1122b72303d6c09db4bc88861c09572dd5ff291",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經玄義",
+        "alternateTitle": "金光明經玄義",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1783",
+        "translator": "隋 · 智顗說 · 灌頂錄",
+        "summary": "2卷。智顗说、灌顶录《金光明经玄义》完整来源。传统责任题记：隋 智顗說 灌頂錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1783_001"
+      },
+      "verification": {
+        "segments": 963,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1783.001.0001a01",
+          "T1783.002.0012a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1784",
+      "slug": "taisho-t1784",
+      "workId": "gbcr:work:golden-light-xuanyi-shiyi-ji-zhili",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明經玄義拾遺記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-exegesis-t0663-t1783-t1787",
+          "label": "《金光明经》与 T1783–T1787 五部玄义、文句、记及经疏",
+          "evidence": "DILA T1783–T1787 规范记录均把 T0663 标为相关经典。五部诠释在作者、题名、体例与层级上不同，根本经和后世注疏保持六个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784",
+              "T1785",
+              "T1786",
+              "T1787"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-xuanyi-subcommentary-t0663-t1783-t1784",
+          "label": "《金光明经》、智顗说《玄义》与知礼《玄义拾遗记》",
+          "evidence": "DILA T1783 与 T1784 规范记录互相关联；T1784 依 T1783 拾遗阐释。根经、玄义讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784"
+            ]
+          }
+        },
+        {
+          "type": "related_subcommentaries_by_same_author_distinct",
+          "groupId": "zhili-golden-light-subcommentaries-t1784-t1786",
+          "label": "知礼《金光明经玄义拾遗记》与《金光明经文句记》",
+          "evidence": "两部再注释同署知礼，却分别依 T1783 玄义与 T1785 文句展开；共同作者与根经不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1784",
+              "T1786"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1784.xml",
+      "upstreamPath": "T/T39/T39n1784.xml",
+      "upstreamGitBlobSha1": "b64bc4738deb78796e017f5ee2848d22ecdf5322",
+      "upstreamBytes": 357495,
+      "upstreamSha256": "7b05f94f30955ec423eb29949a9e0c7bc580ba66e0a2b5a3c95baee5e2b8ab1e",
+      "localBytes": 357496,
+      "localSha256": "f5ce2969bf8293cd0a5f2772db56d47dcb2964d2bbb731cf915fd54eb58dbbfe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經玄義拾遺記",
+        "alternateTitle": "金光明經玄義拾遺記",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1784",
+        "translator": "宋 · 知禮述",
+        "summary": "6卷。知礼《金光明经玄义拾遗记》再注释完整来源。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1784_001"
+      },
+      "verification": {
+        "segments": 2961,
+        "folios": 108,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1784.001.0012b02",
+          "T1784.006.0046b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1785",
+      "slug": "taisho-t1785",
+      "workId": "gbcr:work:golden-light-wenju-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明經文句",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-exegesis-t0663-t1783-t1787",
+          "label": "《金光明经》与 T1783–T1787 五部玄义、文句、记及经疏",
+          "evidence": "DILA T1783–T1787 规范记录均把 T0663 标为相关经典。五部诠释在作者、题名、体例与层级上不同，根本经和后世注疏保持六个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784",
+              "T1785",
+              "T1786",
+              "T1787"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-wenju-subcommentary-t0663-t1785-t1786",
+          "label": "《金光明经》、智顗说《文句》与知礼《文句记》",
+          "evidence": "DILA T1785 与 T1786 规范记录互相关联；T1786 是对 T1785 文句解释的再注。根经、文句讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1785",
+              "T1786"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_teacher_distinct",
+          "groupId": "zhiyi-golden-light-commentaries-t1783-t1785",
+          "label": "智顗说、灌顶录《金光明经玄义》与《金光明经文句》",
+          "evidence": "两部记录同属智顗教说与灌顶记录传统，但玄义与随文文句具有不同题名、结构和解释任务，保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1785"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1785.xml",
+      "upstreamPath": "T/T39/T39n1785.xml",
+      "upstreamGitBlobSha1": "f139b2cbacf251484b752b821025f583c6b51124",
+      "upstreamBytes": 867312,
+      "upstreamSha256": "c368659a952b74676a71120b159fb162c74ca51f44c0ebe7d1ac72b184688833",
+      "localBytes": 867313,
+      "localSha256": "e36b77e70da3cb632034fd1b2dce2a0b8c8088f42200817b861a02e86da54be4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經文句",
+        "alternateTitle": "金光明經文句",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1785",
+        "translator": "隋 · 智顗說 · 灌頂錄",
+        "summary": "6卷。智顗说、灌顶录《金光明经文句》完整来源。传统责任题记：隋 智顗說 灌頂錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1785_001"
+      },
+      "verification": {
+        "segments": 3139,
+        "folios": 113,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1785.001.0046b23",
+          "T1785.006.0083b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1786",
+      "slug": "taisho-t1786",
+      "workId": "gbcr:work:golden-light-wenju-ji-zhili",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明經文句記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-exegesis-t0663-t1783-t1787",
+          "label": "《金光明经》与 T1783–T1787 五部玄义、文句、记及经疏",
+          "evidence": "DILA T1783–T1787 规范记录均把 T0663 标为相关经典。五部诠释在作者、题名、体例与层级上不同，根本经和后世注疏保持六个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784",
+              "T1785",
+              "T1786",
+              "T1787"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-wenju-subcommentary-t0663-t1785-t1786",
+          "label": "《金光明经》、智顗说《文句》与知礼《文句记》",
+          "evidence": "DILA T1785 与 T1786 规范记录互相关联；T1786 是对 T1785 文句解释的再注。根经、文句讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1785",
+              "T1786"
+            ]
+          }
+        },
+        {
+          "type": "related_subcommentaries_by_same_author_distinct",
+          "groupId": "zhili-golden-light-subcommentaries-t1784-t1786",
+          "label": "知礼《金光明经玄义拾遗记》与《金光明经文句记》",
+          "evidence": "两部再注释同署知礼，却分别依 T1783 玄义与 T1785 文句展开；共同作者与根经不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1784",
+              "T1786"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1786.xml",
+      "upstreamPath": "T/T39/T39n1786.xml",
+      "upstreamGitBlobSha1": "f02b679cae05b6feb21b0cfda8cec94036dbf54f",
+      "upstreamBytes": 1024386,
+      "upstreamSha256": "c46f8e1ce3a040352ac70b6a553ccc9dfdfc1e5661edb46561e7c916b7b18ce6",
+      "localBytes": 1024387,
+      "localSha256": "7ee26e13f756c1b6b35f4033ed961ae758e7326002ca9f14d8e8fe206dcdedf8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經文句記",
+        "alternateTitle": "金光明經文句記",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1786",
+        "translator": "宋 · 知禮述",
+        "summary": "6卷。知礼《金光明经文句记》再注释完整来源。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1786_001"
+      },
+      "verification": {
+        "segments": 6652,
+        "folios": 236,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1786.001.0083b04",
+          "T1786.006.0160a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1787",
+      "slug": "taisho-t1787",
+      "workId": "gbcr:work:golden-light-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_golden_light_sutra_distinct",
+          "groupId": "golden-light-exegesis-t0663-t1783-t1787",
+          "label": "《金光明经》与 T1783–T1787 五部玄义、文句、记及经疏",
+          "evidence": "DILA T1783–T1787 规范记录均把 T0663 标为相关经典。五部诠释在作者、题名、体例与层级上不同，根本经和后世注疏保持六个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0663",
+              "T1783",
+              "T1784",
+              "T1785",
+              "T1786",
+              "T1787"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1787.xml",
+      "upstreamPath": "T/T39/T39n1787.xml",
+      "upstreamGitBlobSha1": "356773dfd7c3dc0d448b617aadd88609d5c4017a",
+      "upstreamBytes": 123447,
+      "upstreamSha256": "40ff0542139fcc3a752c6bfe292cc9221c70012c513215145a372ff0eeccf2aa",
+      "localBytes": 123448,
+      "localSha256": "34aadbfc2464fd03a1378afac2c5518f74ae5c8e2ee6442e83fe42a4f717824e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明經疏",
+        "alternateTitle": "金光明經疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1787",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。吉藏《金光明经疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1787_001"
+      },
+      "verification": {
+        "segments": 1247,
+        "folios": 44,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1787.001.0160a24",
+          "T1787.001.0174b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1788",
+      "slug": "taisho-t1788",
+      "workId": "gbcr:work:suvarnaprabhasa-uttamaraja-shu-huizhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金光明最勝王經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_golden_light_best_king_sutra_distinct",
+          "groupId": "golden-light-best-king-exegesis-t0665-t1788",
+          "label": "义净译《金光明最胜王经》与慧沼《金光明最胜王经疏》",
+          "evidence": "DILA T1788 规范记录把 T0665 标为相关经典。六卷经疏是独立诠释作品，不与根本经或 T0663 系注疏合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0665",
+              "T1788"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1788.xml",
+      "upstreamPath": "T/T39/T39n1788.xml",
+      "upstreamGitBlobSha1": "c0c6bc7164e1ad68ab7cec1c0c2af75be6fb20d7",
+      "upstreamBytes": 1622291,
+      "upstreamSha256": "ff58d5bc064c5c79ebf59ba1385484dd51cc38594a3f442c1c7ba0a3e3cf5238",
+      "localBytes": 1622292,
+      "localSha256": "42ef131af086ebd9ca4296af3bf26d3826fb0b7d845f96afff630bc349dce484",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明最勝王經疏",
+        "alternateTitle": "金光明最勝王經疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1788",
+        "translator": "唐 · 慧沼撰",
+        "summary": "6卷。慧沼《金光明最胜王经疏》完整来源。传统责任题记：唐 慧沼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1788_001"
+      },
+      "verification": {
+        "segments": 14476,
+        "folios": 505,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1788.001.0175a02",
+          "T1788.006.0341c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1789",
+      "slug": "taisho-t1789",
+      "workId": "gbcr:work:lankavatara-t0670-zhu-jie-zongle-ruqi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "楞伽阿跋多羅寶經註解",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_lankavatara_t0670_distinct",
+          "groupId": "lankavatara-exegesis-t0670-t1789",
+          "label": "求那跋陀罗译《楞伽阿跋多罗宝经》与宗泐、如玘《注解》",
+          "evidence": "DILA T1789 规范记录把 T0670 标为相关经典。明代四卷注解是独立经疏，不是刘宋译本的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0670",
+              "T1789"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1789.xml",
+      "upstreamPath": "T/T39/T39n1789.xml",
+      "upstreamGitBlobSha1": "adb1ef9a7fcabc0d2308d80f64b73630bc0c59b4",
+      "upstreamBytes": 920622,
+      "upstreamSha256": "7358225260dbca3729dd3b5161690568b4c6410bb3fa6825c8beea4e66b86973",
+      "localBytes": 920623,
+      "localSha256": "ebf5cd32bf0c78304513128b2cd1b486fd520f57ebeeaff16b597d4f216fbccd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "楞伽阿跋多羅寶經註解",
+        "alternateTitle": "楞伽阿跋多羅寶經註解",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1789",
+        "translator": "明 · 宗泐．如󰃗同註",
+        "summary": "4卷。宗泐、如玘同注《楞伽阿跋多罗宝经注解》完整来源。传统责任题记：明 宗泐．如󰃗同註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1789_001"
+      },
+      "verification": {
+        "segments": 7133,
+        "folios": 251,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1789.001.0343a02",
+          "T1789.004.0425c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1790",
+      "slug": "taisho-t1790",
+      "workId": "gbcr:work:lankavatara-xin-xuanyi-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "入楞伽心玄義",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_lankavatara_t0672_distinct",
+          "groupId": "lankavatara-exegesis-t0672-t1790-t1791",
+          "label": "实叉难陀译《大乘入楞伽经》与法藏《心玄义》、宝臣《注》",
+          "evidence": "DILA T1790 与 T1791 规范记录均把 T0672 标为相关经典。唐代玄义与宋代十卷注在作者、体例和篇幅上不同，根经与两部注疏保持三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0672",
+              "T1790",
+              "T1791"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_on_same_translation_distinct",
+          "groupId": "lankavatara-commentaries-t1790-t1791",
+          "label": "法藏《入楞伽心玄义》与宝臣《注大乘入楞伽经》",
+          "evidence": "两部作品共同解释 T0672，但一卷玄义与十卷随文注具有不同作者、结构和范围，只建立关系而不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0672",
+              "T1790",
+              "T1791"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1790.xml",
+      "upstreamPath": "T/T39/T39n1790.xml",
+      "upstreamGitBlobSha1": "43f297e077d64b8e88443f40c60f659011499f25",
+      "upstreamBytes": 70095,
+      "upstreamSha256": "722623508b44e34974170d2eb64d0d66cbdc0ac5762d45cec0ff8d130b786343",
+      "localBytes": 70096,
+      "localSha256": "49d93466d1adb0a870c7ba3db2dc466e83eccd16863b7e10b7d86959c520a307",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入楞伽心玄義",
+        "alternateTitle": "入楞伽心玄義",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1790",
+        "translator": "唐 · 法藏撰",
+        "summary": "1卷。法藏《入楞伽心玄义》完整来源。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1790_001"
+      },
+      "verification": {
+        "segments": 679,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1790.001.0425c08",
+          "T1790.001.0433b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1791",
+      "slug": "taisho-t1791",
+      "workId": "gbcr:work:lankavatara-t0672-zhu-baochen",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "注大乘入楞伽經",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_lankavatara_t0672_distinct",
+          "groupId": "lankavatara-exegesis-t0672-t1790-t1791",
+          "label": "实叉难陀译《大乘入楞伽经》与法藏《心玄义》、宝臣《注》",
+          "evidence": "DILA T1790 与 T1791 规范记录均把 T0672 标为相关经典。唐代玄义与宋代十卷注在作者、体例和篇幅上不同，根经与两部注疏保持三个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0672",
+              "T1790",
+              "T1791"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_on_same_translation_distinct",
+          "groupId": "lankavatara-commentaries-t1790-t1791",
+          "label": "法藏《入楞伽心玄义》与宝臣《注大乘入楞伽经》",
+          "evidence": "两部作品共同解释 T0672，但一卷玄义与十卷随文注具有不同作者、结构和范围，只建立关系而不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0672",
+              "T1790",
+              "T1791"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1791.xml",
+      "upstreamPath": "T/T39/T39n1791.xml",
+      "upstreamGitBlobSha1": "3256e2edc63e6b0cc4d81763716ec325a3dab360",
+      "upstreamBytes": 679766,
+      "upstreamSha256": "529586f4a4754d15036eb793583a2f16f5cc712c91eeecc3927dd981670cdb16",
+      "localBytes": 679767,
+      "localSha256": "e0384a1d5020bf81444fd3cf9679ee2f2c5c2b322455f30a9553698b3d66abe5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "注大乘入楞伽經",
+        "alternateTitle": "注大乘入楞伽經",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1791",
+        "translator": "宋 · 寶臣述",
+        "summary": "10卷。宝臣《注大乘入楞伽经》完整来源。传统责任题记：宋 寶臣述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1791_001"
+      },
+      "verification": {
+        "segments": 6170,
+        "folios": 223,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1791.001.0433b24",
+          "T1791.010.0504c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1792",
+      "slug": "taisho-t1792",
+      "workId": "gbcr:work:ullambana-shu-zongmi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "佛說盂蘭盆經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_ullambana_sutra_distinct",
+          "groupId": "ullambana-exegesis-t0685-t1792",
+          "label": "《佛说盂兰盆经》与宗密《疏》",
+          "evidence": "DILA T1792 规范记录把 T0685 标为相关经典。两卷疏是独立诠释作品。根经传统译者题记与后世注疏责任分别保留。",
+          "externalIds": {
+            "cbeta": [
+              "T0685",
+              "T1792"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1792.xml",
+      "upstreamPath": "T/T39/T39n1792.xml",
+      "upstreamGitBlobSha1": "9c650c9ab2f782373bdeffaa2344b0800b76a882",
+      "upstreamBytes": 226383,
+      "upstreamSha256": "cff5495b353c71677b6e90731d4c37f110f2f4e7f7eb33d208342ef00589389e",
+      "localBytes": 226384,
+      "localSha256": "86cc0fc775a5814c104d90e63910a14e4b9d128c90cdf06e5b992c48dae5f2e6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說盂蘭盆經疏",
+        "alternateTitle": "佛說盂蘭盆經疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1792",
+        "translator": "唐 · 宗密述",
+        "summary": "2卷。宗密《佛说盂兰盆经疏》完整来源。传统责任题记：唐 宗密述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1792_001"
+      },
+      "verification": {
+        "segments": 665,
+        "folios": 25,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1792.001.0505a02",
+          "T1792.002.0512c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1793",
+      "slug": "taisho-t1793",
+      "workId": "gbcr:work:bathhouse-sutra-yiji-huiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "溫室經義記",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_bathhouse_sutra_distinct",
+          "groupId": "bathhouse-exegesis-t0701-t1793",
+          "label": "《佛说温室洗浴众僧经》与慧远《义记》",
+          "evidence": "DILA T1793 规范记录把 T0701 标为相关经典。一卷义记是独立经疏，不是根本经表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0701",
+              "T1793"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1793.xml",
+      "upstreamPath": "T/T39/T39n1793.xml",
+      "upstreamGitBlobSha1": "62f45a616cc1f9f02dee08721898e4977a5affc4",
+      "upstreamBytes": 53258,
+      "upstreamSha256": "1ecd911af1ece1c3401505eff5fe833baf20c199002fbafee34f35345cff1e0d",
+      "localBytes": 53259,
+      "localSha256": "6744962051f736d5347517f28bcdc8dc87c406fd5a79b69af422ade5383283f3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "溫室經義記",
+        "alternateTitle": "溫室經義記",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1793",
+        "translator": "隋 · 慧遠撰",
+        "summary": "1卷。慧远《温室经义记》完整来源。传统责任题记：隋 慧遠撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1793_001"
+      },
+      "verification": {
+        "segments": 320,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1793.001.0512c06",
+          "T1793.001.0516b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1794",
+      "slug": "taisho-t1794",
+      "workId": "gbcr:work:forty-two-chapters-zhu-song-zhenzong",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "註四十二章經",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_forty_two_chapters_distinct",
+          "groupId": "forty-two-chapters-exegesis-t0784-t1794",
+          "label": "《四十二章经》与宋真宗《注》",
+          "evidence": "DILA T1794 规范记录把 T0784 标为相关经典。帝王注释责任、根本经传统译者题记和作品层级分别保留。",
+          "externalIds": {
+            "cbeta": [
+              "T0784",
+              "T1794"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1794.xml",
+      "upstreamPath": "T/T39/T39n1794.xml",
+      "upstreamGitBlobSha1": "9ec0f757532b6454ca9fcf735d2d08cc0d3b7afe",
+      "upstreamBytes": 71604,
+      "upstreamSha256": "7ae422cd8950a59233348e7bca91126b1f4ae255f0f503c5e73f40f873a7494d",
+      "localBytes": 71605,
+      "localSha256": "3aeb36a2cf75a48059d1b1fcf147d0a9c722295be1b18177e416cd5f8c02b6ef",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "註四十二章經",
+        "alternateTitle": "註四十二章經",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1794",
+        "translator": "宋 · 真宗皇帝註",
+        "summary": "1卷。宋真宗《注四十二章经》完整来源。传统责任题记：宋 真宗皇帝註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1794_001"
+      },
+      "verification": {
+        "segments": 591,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1794.001.0516b09",
+          "T1794.001.0523b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1795",
+      "slug": "taisho-t1795",
+      "workId": "gbcr:work:perfect-enlightenment-lueshu-zongmi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣圓覺修多羅了義經略疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_perfect_enlightenment_sutra_distinct",
+          "groupId": "perfect-enlightenment-exegesis-t0842-t1795",
+          "label": "《大方广圆觉修多罗了义经》与宗密《略疏》",
+          "evidence": "DILA T1795 规范记录把 T0842 标为相关经典。两卷略疏是独立诠释作品，不解决根本经的传统译者与成书争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0842",
+              "T1795"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1795.xml",
+      "upstreamPath": "T/T39/T39n1795.xml",
+      "upstreamGitBlobSha1": "0f7f5f3513b4c670adb97b19ca51cccd531381c2",
+      "upstreamBytes": 679153,
+      "upstreamSha256": "1d6f3216cb4b98b2ed72807d865cf94a24312e2d712b05e6f0fbf43a92321224",
+      "localBytes": 679154,
+      "localSha256": "db5844ff49b2617af4b1116ad5ee35be746cfd9355e751b8284a1e3d8ac162c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣圓覺修多羅了義經略疏",
+        "alternateTitle": "大方廣圓覺修多羅了義經略疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1795",
+        "translator": "唐 · 宗密述",
+        "summary": "2卷。宗密《大方广圆觉修多罗了义经略疏》完整来源。传统责任题记：唐 宗密述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1795_001"
+      },
+      "verification": {
+        "segments": 4744,
+        "folios": 166,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1795.001.0523b04",
+          "T1795.002.0578a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1796",
+      "slug": "taisho-t1796",
+      "workId": "gbcr:work:mahavairocana-sutra-shu-yixing",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大毘盧遮那成佛經疏",
+      "sourceRole": "sinitic_recorded_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_mahavairocana_sutra_distinct",
+          "groupId": "mahavairocana-exegesis-t0848-t1796-t1797",
+          "label": "《大毘卢遮那成佛神变加持经》与 T1796 全经疏、T1797 卷七供养次第法疏",
+          "evidence": "DILA T1796 关联 T0848 全经，T1797 明确关联 T0848 第七卷。全经疏、卷七仪轨疏与根本经的范围和责任不同，保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0848",
+              "T1796",
+              "T1797"
+            ]
+          }
+        },
+        {
+          "type": "whole_sutra_and_fascicle_commentaries_distinct",
+          "groupId": "mahavairocana-commentary-scope-t1796-t1797",
+          "label": "一行记《大毘卢遮那成佛经疏》与不可思议《供养次第法疏》",
+          "evidence": "T1796 解释全经，T1797 只解释第七卷供养次第法。共同根经和仪轨术语不构成同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0848",
+              "T1796",
+              "T1797"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1796.xml",
+      "upstreamPath": "T/T39/T39n1796.xml",
+      "upstreamGitBlobSha1": "79a12546ee3c28721fae4f4720c22a90e3571280",
+      "upstreamBytes": 2980213,
+      "upstreamSha256": "bf0db466d70473adad80465984ddb18661b41417a1a506065d6b70fbad8c66fe",
+      "localBytes": 2980214,
+      "localSha256": "4637529668b5fb1409fa3ba96bad6e1c659aea0c53f7b3fbbca5aa2a772848c7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那成佛經疏",
+        "alternateTitle": "大毘盧遮那成佛經疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1796",
+        "translator": "唐 · 一行記",
+        "summary": "20卷。一行记《大毘卢遮那成佛经疏》完整来源。传统责任题记：唐 一行記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1796_001"
+      },
+      "verification": {
+        "segments": 17591,
+        "folios": 638,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1796.001.0579a02",
+          "T1796.020.0789c31"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1797",
+      "slug": "taisho-t1797",
+      "workId": "gbcr:work:mahavairocana-offering-sequence-shu-bukesiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大毘盧遮那經供養次第法疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_mahavairocana_sutra_distinct",
+          "groupId": "mahavairocana-exegesis-t0848-t1796-t1797",
+          "label": "《大毘卢遮那成佛神变加持经》与 T1796 全经疏、T1797 卷七供养次第法疏",
+          "evidence": "DILA T1796 关联 T0848 全经，T1797 明确关联 T0848 第七卷。全经疏、卷七仪轨疏与根本经的范围和责任不同，保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0848",
+              "T1796",
+              "T1797"
+            ]
+          }
+        },
+        {
+          "type": "whole_sutra_and_fascicle_commentaries_distinct",
+          "groupId": "mahavairocana-commentary-scope-t1796-t1797",
+          "label": "一行记《大毘卢遮那成佛经疏》与不可思议《供养次第法疏》",
+          "evidence": "T1796 解释全经，T1797 只解释第七卷供养次第法。共同根经和仪轨术语不构成同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0848",
+              "T1796",
+              "T1797"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1797.xml",
+      "upstreamPath": "T/T39/T39n1797.xml",
+      "upstreamGitBlobSha1": "6a4bf96d5b00debc83b46341c45525b9aa0789ab",
+      "upstreamBytes": 202330,
+      "upstreamSha256": "3921689b95f348f507fea96b713ed1528204aa7a00ffd3f1d1417dfcae0478dc",
+      "localBytes": 202331,
+      "localSha256": "19530bf913f07006fde9e026310fb81785ca330a166a8f83111c6761c93a10e7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大毘盧遮那經供養次第法疏",
+        "alternateTitle": "大毘盧遮那經供養次第法疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1797",
+        "translator": "唐 · 不可思議撰",
+        "summary": "2卷。不可思议《大毘卢遮那经供养次第法疏》卷七范围注疏完整来源。传统责任题记：唐 不可思議撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1797_001"
+      },
+      "verification": {
+        "segments": 1531,
+        "folios": 55,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1797.001.0790a02",
+          "T1797.002.0807c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1798",
+      "slug": "taisho-t1798",
+      "workId": "gbcr:work:vajrasekhara-yoga-xindi-yijue-amoghavajra",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛頂經大瑜伽祕密心地法門義訣",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_vajrasekhara_ritual_distinct",
+          "groupId": "vajrasekhara-exegesis-t0866-t1798",
+          "label": "《金刚顶瑜伽中略出念诵经》与《大瑜伽秘密心地法门义诀》",
+          "evidence": "DILA T1798 规范记录把 T0866 标为相关经典。一卷义诀是传统署名不空的独立解释作品，经轨关系不等于作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0866",
+              "T1798"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1798.xml",
+      "upstreamPath": "T/T39/T39n1798.xml",
+      "upstreamGitBlobSha1": "24a00c214c5fb35df1550bd79e6b71a4b4ebf2cc",
+      "upstreamBytes": 109366,
+      "upstreamSha256": "90a9f786cd5ad924137e55ee6dd515d4f956319a2667a5799e5636cb18540a83",
+      "localBytes": 109367,
+      "localSha256": "0bf8cd3ca591566e249ee9049c8e1970f32190d527eb4ff5b56bf2d0abf6ddcc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂經大瑜伽祕密心地法門義訣",
+        "alternateTitle": "金剛頂經大瑜伽祕密心地法門義訣",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1798",
+        "translator": "唐 · 不空撰",
+        "summary": "1卷。传统署名不空《金刚顶经大瑜伽秘密心地法门义诀》完整来源。传统责任题记：唐 不空撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1798_001"
+      },
+      "verification": {
+        "segments": 1149,
+        "folios": 40,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1798.001.0808a02",
+          "T1798.001.0821a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1799",
+      "slug": "taisho-t1799",
+      "workId": "gbcr:work:surangama-yishu-zhu-jing-zixuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "首楞嚴義疏注經",
+      "sourceRole": "sinitic_compiled_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_surangama_t0945_distinct",
+          "groupId": "surangama-exegesis-t0945-t1799",
+          "label": "《大佛顶首楞严经》与子璿《义疏注经》",
+          "evidence": "DILA T1799 规范记录把 T0945 标为相关经典。十卷集注是独立经疏；存在注疏传统不能反向消除 T0945 的译者与成书争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0945",
+              "T1799"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1799.xml",
+      "upstreamPath": "T/T39/T39n1799.xml",
+      "upstreamGitBlobSha1": "2759c957a975768eae3824ad559fd784f570b115",
+      "upstreamBytes": 1880422,
+      "upstreamSha256": "acbee9b906063d3553fed6e5840af05cd4d5cb0beba235b288e371e18c19f628",
+      "localBytes": 1880423,
+      "localSha256": "37d0768abc80f97440ddd6417e12601163301b2288d73c9e651f83a6a797723b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "首楞嚴義疏注經",
+        "alternateTitle": "首楞嚴義疏注經",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1799",
+        "translator": "宋 · 子璿集",
+        "summary": "10卷。子璿集《首楞严义疏注经》完整来源，保留根本经成书争议边界。传统责任题记：宋 子璿集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1799_001"
+      },
+      "verification": {
+        "segments": 12472,
+        "folios": 438,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1799.001.0823a02",
+          "T1799.010.0967c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1800",
+      "slug": "taisho-t1800",
+      "workId": "gbcr:work:guanyin-dharani-shu-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "請觀音經疏",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_guanyin_dharani_sutra_distinct",
+          "groupId": "guanyin-dharani-exegesis-t1043-t1800-t1801",
+          "label": "《请观世音菩萨消伏毒害陀罗尼呪经》与智顗说《疏》、智圆《阐义钞》",
+          "evidence": "DILA T1800 与 T1801 规范记录均把 T1043 标为相关经典。根经、讲说记录和再注释保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T1043",
+              "T1800",
+              "T1801"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_guanyin_dharani_sutra_distinct",
+          "groupId": "guanyin-dharani-subcommentary-t1043-t1800-t1801",
+          "label": "《请观音经》、智顗说灌顶记《疏》与智圆《疏阐义钞》",
+          "evidence": "DILA T1800 与 T1801 规范记录互相关联；T1801 依 T1800 展开四卷再注。根经、直接疏与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T1043",
+              "T1800",
+              "T1801"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1800.xml",
+      "upstreamPath": "T/T39/T39n1800.xml",
+      "upstreamGitBlobSha1": "f4485a67804e0e58804b621ee1d0e6624789f96c",
+      "upstreamBytes": 78545,
+      "upstreamSha256": "8dc5ca79c33f6200d41c17dc386829776b1700e74268a347b7295dfa89b77fd9",
+      "localBytes": 78546,
+      "localSha256": "196fd618b480f1b8d6dfbd71f60dbcc19918fbcc98176314c8c7b53a863b3b0d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "請觀音經疏",
+        "alternateTitle": "請觀音經疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1800",
+        "translator": "隋 · 智顗說 · 灌頂記",
+        "summary": "1卷。智顗说、灌顶记《请观音经疏》完整来源。传统责任题记：隋 智顗說 灌頂記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1800_001"
+      },
+      "verification": {
+        "segments": 797,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1800.001.0968a02",
+          "T1800.001.0977a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1801",
+      "slug": "taisho-t1801",
+      "workId": "gbcr:work:guanyin-dharani-shu-chanyi-chao-zhiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "請觀音經疏闡義鈔",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_guanyin_dharani_sutra_distinct",
+          "groupId": "guanyin-dharani-exegesis-t1043-t1800-t1801",
+          "label": "《请观世音菩萨消伏毒害陀罗尼呪经》与智顗说《疏》、智圆《阐义钞》",
+          "evidence": "DILA T1800 与 T1801 规范记录均把 T1043 标为相关经典。根经、讲说记录和再注释保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T1043",
+              "T1800",
+              "T1801"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_guanyin_dharani_sutra_distinct",
+          "groupId": "guanyin-dharani-subcommentary-t1043-t1800-t1801",
+          "label": "《请观音经》、智顗说灌顶记《疏》与智圆《疏阐义钞》",
+          "evidence": "DILA T1800 与 T1801 规范记录互相关联；T1801 依 T1800 展开四卷再注。根经、直接疏与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T1043",
+              "T1800",
+              "T1801"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1801.xml",
+      "upstreamPath": "T/T39/T39n1801.xml",
+      "upstreamGitBlobSha1": "779920acc9f692448f7bfd79e1ea1e65e10a3f77",
+      "upstreamBytes": 246985,
+      "upstreamSha256": "8ef8a8159b9981f3b4c2ecb74dce62210244d22cd1347261f95a696c06f56923",
+      "localBytes": 246986,
+      "localSha256": "a93e09306b587d52caaf1534c46214e8decd36078028f06f1f585b1f132636f4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "請觀音經疏闡義鈔",
+        "alternateTitle": "請觀音經疏闡義鈔",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1801",
+        "translator": "宋 · 智圓述",
+        "summary": "4卷。智圆《请观音经疏阐义钞》再注释完整来源。传统责任题记：宋 智圓述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1801_001"
+      },
+      "verification": {
+        "segments": 2351,
+        "folios": 86,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1801.001.0977a20",
+          "T1801.004.1004b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1802",
+      "slug": "taisho-t1802",
+      "workId": "gbcr:work:eleven-faced-heart-dharani-yishu-huizhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "十一面神呪心經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_eleven_faced_dharani_distinct",
+          "groupId": "eleven-faced-dharani-exegesis-t1071-t1802",
+          "label": "《十一面神呪心经》与慧沼《义疏》",
+          "evidence": "DILA T1802 规范记录把 T1071 标为相关经典。一卷义疏是独立诠释作品，不是玄奘译本的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1071",
+              "T1802"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1802.xml",
+      "upstreamPath": "T/T39/T39n1802.xml",
+      "upstreamGitBlobSha1": "e631bf255d58e2912d17150cf591c6e1f15ec040",
+      "upstreamBytes": 111302,
+      "upstreamSha256": "7cea5e4b9dea48640952855b02510fc2cc2d1330d3c8abe9994862bafeaf8471",
+      "localBytes": 111303,
+      "localSha256": "8d8faaf507eb4b4df6387fd2592e80bc7fb3dc29dcbe5d771353c5f8694f4863",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十一面神呪心經義疏",
+        "alternateTitle": "十一面神呪心經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1802",
+        "translator": "唐 · 慧沼撰",
+        "summary": "1卷。慧沼《十一面神呪心经义疏》完整来源。传统责任题记：唐 慧沼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1802_001"
+      },
+      "verification": {
+        "segments": 642,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1802.001.1004b09",
+          "T1802.001.1011c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1803",
+      "slug": "taisho-t1803",
+      "workId": "gbcr:work:usnisa-vijaya-dharani-jiaochi-yiji-fachong",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "佛頂尊勝陀羅尼經教跡義記",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_usnisa_vijaya_dharani_distinct",
+          "groupId": "usnisa-vijaya-exegesis-t0967-t1803",
+          "label": "《佛顶尊胜陀罗尼经》与法崇《教迹义记》",
+          "evidence": "DILA T1803 规范记录把 T0967 标为相关经典。两卷教迹义记是独立经疏，不是根本经或仪轨的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0967",
+              "T1803"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T39n1803.xml",
+      "upstreamPath": "T/T39/T39n1803.xml",
+      "upstreamGitBlobSha1": "edb9b06dbb289b7c9eb797f2fdbc2b1960113bf9",
+      "upstreamBytes": 261444,
+      "upstreamSha256": "028e50ac627e0e01c7ab383abbe9f0603da63ddb70e08f1abfa6cae21d478423",
+      "localBytes": 261445,
+      "localSha256": "c3984b439773371cfc150e3d77a21ed6ad75b9691fd4d247923016367ba767ad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛頂尊勝陀羅尼經教跡義記",
+        "alternateTitle": "佛頂尊勝陀羅尼經教跡義記",
+        "tradition": "汉传佛教 · 经疏部 · 金光明、楞伽与显密经疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T39, no. 1803",
+        "translator": "唐 · 法崇述",
+        "summary": "2卷。法崇《佛顶尊胜陀罗尼经教迹义记》完整来源。传统责任题记：唐 法崇述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1803_001"
+      },
+      "verification": {
+        "segments": 2517,
+        "folios": 88,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1803.001.1012a01",
+          "T1803.002.1040c29"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
