@@ -99,6 +99,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("rKTs 核心编号候选连接")).toBeVisible();
   await expect(page.getByText("跨目录标识对齐")).toBeVisible();
   await expect(page.getByText("SuttaCentral 汉—巴平行证据")).toBeVisible();
+  await expect(page.getByText("汉—巴作品裁决队列")).toBeVisible();
   await expect(page.getByText("梵文逐文件权利审计")).toBeVisible();
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
   await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
@@ -317,6 +318,17 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseWorksReferenced: 147,
     directTaishoWorksReferenced: 141,
     agamaContainerWorksReferenced: 6,
+    denominatorImpact: "none",
+  });
+  expect(coverage.candidateInventory.suttacentralParallelReviewQueue).toMatchObject({
+    queueItems: 80,
+    p0ScopeCaveatOrCounterevidence: 20,
+    p1UpstreamFullStandalonePairs: 60,
+    assignedItems: 0,
+    completedIndependentReviews: 0,
+    adjudicatedItems: 0,
+    automaticMerges: 0,
+    minimumIndependentReviews: 2,
     denominatorImpact: "none",
   });
 });

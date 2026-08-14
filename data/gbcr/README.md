@@ -1,6 +1,6 @@
 # 全球佛典覆盖登记册（GBCR）
 
-本目录是 foxue.ai “收录 99% 佛经”承诺的可审计基础。当前发布版为 `registry-v3.4.0.json`；`source-snapshots-v0.5.0.json` 保存 CBETA、SuttaCentral、BDRC 德格甘珠尔、DSBC、GRETIL 与 rKTs 多版本目录的固定候选库存。逐条清单冻结大正藏 T01–T17 和德格甘珠尔初印本的来源标识、定位证据及完整性摘要；`gretil-sanskrit-file-rights-audit-v0.7.0.json` 对 417 份梵文佛教 HTML 逐文件保存题名、固定 Git 身份、哈希、权利信号、保守分类与外链，但不复制正文；SuttaCentral 的印度语、巴利律藏与巴利论藏权利账本逐项连接官方公共领域政策、出版或版本元数据和 Git 指纹，并明确排除第三方译文与模型训练；`suttacentral-chinese-parallels-v0.7.0.json` 固定官方汉—巴关系表的 5,161 条去重证据边，将整经、合集组件、近似和提及分层；rKTs 与跨目录账本保存候选连接但不自动合并作品。网页与 API 都由这些受控文件生成，旧版本永久保留。
+本目录是 foxue.ai “收录 99% 佛经”承诺的可审计基础。当前发布版为 `registry-v3.5.0.json`；`source-snapshots-v0.5.0.json` 保存 CBETA、SuttaCentral、BDRC 德格甘珠尔、DSBC、GRETIL 与 rKTs 多版本目录的固定候选库存。逐条清单冻结大正藏 T01–T17 和德格甘珠尔初印本的来源标识、定位证据及完整性摘要；`gretil-sanskrit-file-rights-audit-v0.7.0.json` 对 417 份梵文佛教 HTML 逐文件保存题名、固定 Git 身份、哈希、权利信号、保守分类与外链，但不复制正文；SuttaCentral 的印度语、巴利律藏与巴利论藏权利账本逐项连接官方公共领域政策、出版或版本元数据和 Git 指纹，并明确排除第三方译文与模型训练；`suttacentral-chinese-parallels-v0.7.0.json` 固定官方汉—巴关系表的 5,161 条去重证据边，将整经、合集组件、近似和提及分层；`suttacentral-parallel-review-queue-v0.1.0.json` 将 20 项含范围备注或反证的候选与 60 项整经候选送入双人独立复核，当前 0 项自动归并；rKTs 与跨目录账本保存候选连接但不自动合并作品。网页与 API 都由这些受控文件生成，旧版本永久保留。
 
 ## 统计纪律
 
@@ -66,6 +66,7 @@ pnpm verify:rkts
 pnpm verify:rkts-kernel-alignments
 pnpm verify:cross-catalog
 pnpm verify:suttacentral-parallels
+pnpm verify:suttacentral-parallel-review-queue
 ```
 
 如需从 BDRC、IIIF 与 84000 官方端点重新抓取证据并生成新快照，运行 `pnpm snapshot:bdrc-derge`；如需从 DSBC 与 GitHub 官方端点重新生成梵文聚合快照，运行 `pnpm snapshot:sanskrit`；如需从 rKTs 两个固定 Git 仓库重建多版本目录快照，运行 `pnpm snapshot:rkts`。写入操作都必须在提交前人工审阅差异。上述检查不会把文件、章节、目录项或单一版本表达式自动升级为独立作品。

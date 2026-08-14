@@ -1,0 +1,4516 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/suttacentral-parallel-review-queue-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "status": "open_two_reviewer_work_identity_queue",
+  "warning": "队列项不是已确认同一作品。未完成两名独立复核与必要仲裁前，不得改变 Work 数、全球分母或逐段对齐状态。",
+  "generatedFrom": {
+    "file": "data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
+    "version": "0.7.0",
+    "sha256": "5005a266ce584c97174c37af28847f5b93c6d82bf6cc043883c47085a04ec96b",
+    "sourceCommit": "80b2a63d8442517c1f8be90c4b597088eb855852"
+  },
+  "governance": {
+    "minimumIndependentReviews": 2,
+    "reviewerIdentityRequired": true,
+    "reviewTimestampRequired": true,
+    "citedEvidenceRequired": true,
+    "counterevidenceRequired": true,
+    "scopeDecisionRequired": true,
+    "adjudicatorRequiredOnDisagreement": true,
+    "automaticWorkMerge": false,
+    "automaticSegmentAlignment": false,
+    "aiMayPrepareEvidenceButMayNotCastHumanReview": true
+  },
+  "summary": {
+    "queueItems": 80,
+    "p0ScopeCaveatOrCounterevidence": 20,
+    "p1UpstreamFullStandalonePairs": 60,
+    "assignedItems": 0,
+    "completedIndependentReviews": 0,
+    "adjudicatedItems": 0,
+    "automaticMerges": 0,
+    "denominatorImpact": "none"
+  },
+  "items": [
+    {
+      "id": "gbcr:parallel-review:0a465257c6ab8373",
+      "evidenceEdgeId": "gbcr:parallel:0a465257c6ab8373",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "MA 106 and T 56 are only partial parallels for MN 1, as they differ from it in several respects. Whereas MN 1 discusses worldling, disciple in higher training, <i>arahant</i>, and <i>tathāgata</i>, MA 106 and T 56 discuss two types of recluses and Brahmins and the Buddha. They name a different location for the discourse and differ from MN 1 in not discussing Nibbāna, and in not concluding with the monks failing to delight in the exposition. In contrast, EA 44.6 agrees with MN 1 on the above points.",
+      "pali": {
+        "reference": "mn1",
+        "workId": "gbcr:work:majjhima-nikaya-mn1-pali",
+        "title": "中部第 1 经",
+        "localSlug": "majjhima-nikaya-mn1",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma106",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "813e4d94b30b496334c5cd52437dd86349cdfcda0012e5bc44faff0344c5e1b1",
+      "upstreamRowNumbers": [
+        226960,
+        228296
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:bc0c16c4bc557ba1",
+      "evidenceEdgeId": "gbcr:parallel:bc0c16c4bc557ba1",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "Akanuma p. 163 lists EA 49.5 at T ii 797b as a partial parallel. EA 49.5 reports the Buddha giving a detailed explanation of the twelve links of <i>paṭiccasamuppada</i> and correcting Ānanda’s lack of appreciation of its profundity. It finds its closest parallel in SN 12.2 at SN ii 2 as regards the exposition of <i>paṭiccasamuppada</i>; and it has Ānanda’s underestimation of the profundity of <i>paṭiccasamuppada</i> in common with DN 15 at DN ii 55 and SN 12.60 at SN ii 92.",
+      "pali": {
+        "reference": "mn9",
+        "workId": "gbcr:work:majjhima-nikaya-mn9-pali",
+        "title": "中部第 9 经",
+        "localSlug": "majjhima-nikaya-mn9",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma29",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "07f7549af28ebc0c54b53985a392aab36cd450147e751618a9b95c3db3a9fe5a",
+      "upstreamRowNumbers": [
+        227430,
+        230375
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:bb1aed4b3826252d",
+      "evidenceEdgeId": "gbcr:parallel:bb1aed4b3826252d",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "EA 41.1 is only a partial parallel, as its first part instead parallels SN 55.21 at SN v 369, another meeting between the Buddha and Mahānāma.",
+      "pali": {
+        "reference": "mn14",
+        "workId": "gbcr:work:majjhima-nikaya-mn14-pali",
+        "title": "中部第 14 经",
+        "localSlug": "majjhima-nikaya-mn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea41.1",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "34d59d4cf6a8929423b5263d1504454469b3386c37ad664462d031045241a66c",
+      "upstreamRowNumbers": [
+        12244,
+        228929
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:1fc7ba6d729c7d8f",
+      "evidenceEdgeId": "gbcr:parallel:1fc7ba6d729c7d8f",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "EA 50.8 is only a partial parallel to MN 21. Its first part agrees with MN 21 in having the monk Moliyaphagguna (~茂羅破群) associating excessively with nuns. The remainder of EA 50.8 agrees rather with MN 22, as in EA 50.8 the claim that sensuality is no obstacle to progress is made by Moliyaphagguna, while in MN 22 it is made by another monk, Ariṭṭha. EA 50.8 thereafter agrees with MN 22 in having the Buddha correct this mistaken view and deliver the snake simile. We therefore list EA 50.8 as a partial parallel to both MN 21 and MN 22.",
+      "pali": {
+        "reference": "mn21",
+        "workId": "gbcr:work:majjhima-nikaya-mn21-pali",
+        "title": "中部第 21 经",
+        "localSlug": "majjhima-nikaya-mn21",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea50.8",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "33789df7b295659a4fb4284c9bc4b948472ad7345ff623658082167de9bad3cc",
+      "upstreamRowNumbers": [
+        12478,
+        229120
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:b79e6af7011f78ea",
+      "evidenceEdgeId": "gbcr:parallel:b79e6af7011f78ea",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "Akanuma p. 165 lists no parallel. The main content of MN 30 is similar to that of MN 29; consequently EA 43.4, the parallel to MN 29, is also a partial parallel to MN 30.",
+      "pali": {
+        "reference": "mn30",
+        "workId": "gbcr:work:majjhima-nikaya-mn30-pali",
+        "title": "中部第 30 经",
+        "localSlug": "majjhima-nikaya-mn30",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea43.4",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "2eda4d6552392f0292183b43d8e89ff273c455dd03216de17888b871ae0d329a",
+      "upstreamRowNumbers": [
+        12287,
+        229357
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:19facd25e26b8c08",
+      "evidenceEdgeId": "gbcr:parallel:19facd25e26b8c08",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "Akanuma p. 165 lists SA 251 at T ii 060b as another parallel. However, SA 251 should rather be reckoned as a parallel to SN 22.127–132 at SN iii 172, since it agrees with them in having Mahakoṭṭhita ask Sāriputta only about the implications of ignorance and its opposite, not about the whole range of topics treated in MN 43 and MA 211.",
+      "pali": {
+        "reference": "mn43",
+        "workId": "gbcr:work:majjhima-nikaya-mn43-pali",
+        "title": "中部第 43 经",
+        "localSlug": "majjhima-nikaya-mn43",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma211",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "be72a2be869c2d05d5130d9e8f7d4284d209690f36fa101be0ecccd95676f571",
+      "upstreamRowNumbers": [
+        227388,
+        229609
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:54ce9e7714c0f209",
+      "evidenceEdgeId": "gbcr:parallel:54ce9e7714c0f209",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "EA 49.7 is a partial parallel to M 65, as Akanuma p. 167 indicates. After reporting the Buddha’s instruction to Bhaddali ~(跋提婆羅) about taking only a single meal, EA 49.7 describes how Udayi (~優陀夷) once went begging at night and so startled a pregnant woman that she miscarried, a tale related also in MN 66 and MA 192. In EA 49.7 the Buddha comes to hear of this and addresses the monks on the benefit of taking a single meal, after which EA 49.7 returns to the events relating to Bhaddali. We therefore reckon EA 49.7 as a partial parallel to both MN 65 and MN 66.",
+      "pali": {
+        "reference": "mn66",
+        "workId": "gbcr:work:majjhima-nikaya-mn66-pali",
+        "title": "中部第 66 经",
+        "localSlug": "majjhima-nikaya-mn66",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea49.7",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "b53d6c82a4c5caeb0b221e848f4ca2f0c8fd09817a863556ff57ca72128b0dde",
+      "upstreamRowNumbers": [
+        12446,
+        229887
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:e2cdf268c6ac3ae3",
+      "evidenceEdgeId": "gbcr:parallel:e2cdf268c6ac3ae3",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "The events related in MN 86 recur in T 120 at T ii 512b (as recognised by Akanuma p. 168) and in Derge 213 at mdo sde tsha (57): 126a. Both of these are Mahayana discourses of the <i>tathāgatagarbha</i> type and therefore fall outside the scope of our presentation.",
+      "pali": {
+        "reference": "mn86",
+        "workId": "gbcr:work:majjhima-nikaya-mn86-pali",
+        "title": "中部第 86 经",
+        "localSlug": "majjhima-nikaya-mn86",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "sa1077",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "284b6e3b156c52d181abfa5b83aa51072c6289bc91f8aa581d03386e8e956ff4",
+      "upstreamRowNumbers": [
+        230305,
+        273654
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:a5335affb82bf8b9",
+      "evidenceEdgeId": "gbcr:parallel:a5335affb82bf8b9",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 168 lists T 79 at T i 888b as a parallel to MN 99. Inspection reveals that T 79 is rather a parallel to MN 135.",
+      "pali": {
+        "reference": "mn99",
+        "workId": "gbcr:work:majjhima-nikaya-mn99-pali",
+        "title": "中部第 99 经",
+        "localSlug": "majjhima-nikaya-mn99",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma152",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "431fad182abee41bd03158cb0d762f054ddb0cfb7a6c307f2d863cf79475db6c",
+      "upstreamRowNumbers": [
+        227131,
+        230761
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:62677fc27fa74438",
+      "evidenceEdgeId": "gbcr:parallel:62677fc27fa74438",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 169 draws attention to a passage in the Mahāvastu (Senart 1882 p. 357). This passage describes the self–cremation of <i>paccekabuddhas</i> on being told that the bodhisatta was about to take birth and thus is not a parallel to MN 116.",
+      "pali": {
+        "reference": "mn116",
+        "workId": "gbcr:work:majjhima-nikaya-mn116-pali",
+        "title": "中部第 116 经",
+        "localSlug": "majjhima-nikaya-mn116",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea38.7",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "b305d3e52b8d345a554ba43d80c6d1f7c13eff260c98c19d64ddc69a100639e6",
+      "upstreamRowNumbers": [
+        12135,
+        228540
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:2ad07a3ed617786b",
+      "evidenceEdgeId": "gbcr:parallel:2ad07a3ed617786b",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 169 lists T 96. Examination shows that this discourse bears no resemblance to MN 118, apart from a single introductory sentence that links mindfulness of breathing to the attainment of knowledge and liberation.",
+      "pali": {
+        "reference": "mn118",
+        "workId": "gbcr:work:majjhima-nikaya-mn118-pali",
+        "title": "中部第 118 经",
+        "localSlug": "majjhima-nikaya-mn118",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "sa815",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "daf53866cbf71242fe0111757b7634843550c65b242aef67271cb222722703d4",
+      "upstreamRowNumbers": [
+        228558,
+        276559
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:1af62d4160280299",
+      "evidenceEdgeId": "gbcr:parallel:1af62d4160280299",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "Akanuma p. 169 lists T 96. Examination shows that this discourse bears no resemblance to MN 118, apart from a single introductory sentence that links mindfulness of breathing to the attainment of knowledge and liberation.",
+      "pali": {
+        "reference": "mn118#16.1-#22.1",
+        "workId": "gbcr:work:majjhima-nikaya-mn118-pali",
+        "title": "中部第 118 经",
+        "localSlug": "majjhima-nikaya-mn118",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "sa815",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "d9979a18d682f9f476b7479816b588e611a2966f189d7d36bbb50182104c3980",
+      "upstreamRowNumbers": [
+        228559
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:71e0741f297eb83a",
+      "evidenceEdgeId": "gbcr:parallel:71e0741f297eb83a",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "Akanuma p. 169 lists A iv. 123, 124 as parallel(s). Neither AN 4.123–124 at AN ii 126 nor AN 7.66 at AN iv 123–124 bears any resemblance to MN 120. He also lists MA 168 as a full parallel, yet  examination shows that this discourse differs in so many respects from MN 120 that it is probably best reckoned as a partial parallel. A so far unpublished Gandharī fragment, Senior manuscript 10, parallels part of MN 120 (Mark Allon, private communication).",
+      "pali": {
+        "reference": "mn120",
+        "workId": "gbcr:work:majjhima-nikaya-mn120-pali",
+        "title": "中部第 120 经",
+        "localSlug": "majjhima-nikaya-mn120",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma168",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "af8019d1f9c4dedd8047d0ae2c24be274a1c41e26f234d675720ce7f6bdcd4d4",
+      "upstreamRowNumbers": [
+        227182,
+        228627
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:01d0e858565833ee",
+      "evidenceEdgeId": "gbcr:parallel:01d0e858565833ee",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Several of the “wonderful and marvellous” qualities of the Buddha treated in MN 123 recur in various Buddha biographies. Thus, e.g., his taking of a series of steps and making a proclamation right after being born can be found in the Saṅghabhedavastu in Gnoli 1977 p. 45, the Buddhacarita in Johnston 1995 p. 2, the Lalitavistara in Lefmann 1902 p. 85 or Vaidya 1958b p. 62, the Mahāvastu in Senart 1890 p. 24 or Basak 1965 p. 33, and in several Chinese accounts such as T 184 at T iii 463c, T 185 at T iii 473c, T 188 at T iii 618a, T 189 at T iii 625a.",
+      "pali": {
+        "reference": "mn123",
+        "workId": "gbcr:work:majjhima-nikaya-mn123-pali",
+        "title": "中部第 123 经",
+        "localSlug": "majjhima-nikaya-mn123",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma32",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "8ce48f4f6c4fbeb87b12c603d6c6d47b438c1eb52d0802bf76f81455af787f21",
+      "upstreamRowNumbers": [
+        227444,
+        228634
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:e97ff2e596f8df9d",
+      "evidenceEdgeId": "gbcr:parallel:e97ff2e596f8df9d",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "The Karmavibhaṅga sections preserved in the Kutchean fragment in Lévi 1933 (cf. also Sieg 1938), and in the Sogdian fragment in Rosenberg 1920, do not parallel MN 135.",
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ma170",
+        "cbetaId": "T0026",
+        "workId": "gbcr:work:madhyama-agama-t0026",
+        "title": "中阿含經",
+        "localSlug": "zhongahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Madhyama Āgama 内部经号"
+      },
+      "evidenceSha256": "23c7035e89d6676743741e98efc1f8dc3952471a4b9518f5f2b0e276fc5af8b4",
+      "upstreamRowNumbers": [
+        227190,
+        228885
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:97523ae2d844968c",
+      "evidenceEdgeId": "gbcr:parallel:97523ae2d844968c",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 171 lists MA 28 at T i 458b as another parallel. But MA 28 agrees with SN 55.26 at SN v 380 as regards Sāriputta’s instructions to Anāthapiṇḍika, and in having Anāthapiṇḍika recover rather than dying, as recorded in MN 143 and EA 51.8. Hence, MA 28 (as also Skt fragment cat. no. 1397 in SHT vi 116) is better reckoned a parallel to SN 55.26.",
+      "pali": {
+        "reference": "mn143",
+        "workId": "gbcr:work:majjhima-nikaya-mn143-pali",
+        "title": "中部第 143 经",
+        "localSlug": "majjhima-nikaya-mn143",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea51.8",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "d55fa115e1a736b0f066a8579ac04b05942a14a2579a22a4c4e7778a91731955",
+      "upstreamRowNumbers": [
+        12526,
+        228977
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:3b44f2c47abb881f",
+      "evidenceEdgeId": "gbcr:parallel:3b44f2c47abb881f",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 171 lists SA 215 at T ii 54b as a further parallel. However, SA 215 corresponds to only the first section of MN 145. We follow Yin Shun 1983 vol. i pp. 263–264 in identifying SA 215 as rather a parallel to SN 35.70, which it matches closely though disagreeing over the bhikkhu’s name: Punna in SA 215, Upavana in SN 35.70.  ",
+      "pali": {
+        "reference": "mn145",
+        "workId": "gbcr:work:majjhima-nikaya-mn145-pali",
+        "title": "中部第 145 经",
+        "localSlug": "majjhima-nikaya-mn145",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "sa311",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "99375d0e0f36e96c609db3673e051d10a2f67bd289ea07179fe616e095b7cdeb",
+      "upstreamRowNumbers": [
+        228993,
+        274946
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:b96200b11bf8a915",
+      "evidenceEdgeId": "gbcr:parallel:b96200b11bf8a915",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "component_parallel_within_registered_work",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": "Akanuma p. 171 lists MA 86 at T i 562a as another parallel. In MA 86 Ānanda asks the Buddha how to instruct a group of young monks. The Buddha responds by discussing the five aggregates, the six senses, and a broad range of other topics. Thus, despite some overlap as regards the exposition of the six senses, MA 86 and MN 148 do not seem to be parallels. ",
+      "pali": {
+        "reference": "mn148",
+        "workId": "gbcr:work:majjhima-nikaya-mn148-pali",
+        "title": "中部第 148 经",
+        "localSlug": "majjhima-nikaya-mn148",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "sa304",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "3d8c1f5e85ffbc42ed7da704afd162c238ecf3af83fbf8d8ccbed3eb3b78ab04",
+      "upstreamRowNumbers": [
+        229018,
+        274923
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:061c74b561d98654",
+      "evidenceEdgeId": "gbcr:parallel:061c74b561d98654",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "EA 45.6 parallels only the first part of MN 151, after which it continues differently.",
+      "pali": {
+        "reference": "mn151",
+        "workId": "gbcr:work:majjhima-nikaya-mn151-pali",
+        "title": "中部第 151 经",
+        "localSlug": "majjhima-nikaya-mn151",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "ea45.6",
+        "cbetaId": "T0125",
+        "workId": "gbcr:work:ekottarika-agama-t0125",
+        "title": "增壹阿含經",
+        "localSlug": "zengyiahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Ekottarika Āgama 内部经号"
+      },
+      "evidenceSha256": "14c0fc248d28af872069fb510470b1a8d81b07fb3fc7d7bad1bd4dc4a276e591",
+      "upstreamRowNumbers": [
+        12336,
+        229037
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:aeb12c9551682aa3",
+      "evidenceEdgeId": "gbcr:parallel:aeb12c9551682aa3",
+      "priority": "p0_scope_caveat_or_counterevidence",
+      "rationale": "上游保存了范围差异、反证或研究备注；必须先核对备注与正文，禁止按关系类型直接归并。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "resembling_or_partial_parallel",
+      "sourceType": "full",
+      "resembling": true,
+      "upstreamRemark": "SA1 is a group of four sutras that apply one of the four marks to the five aggregates. The template matches SN 22.51 with nibbidā leading to the end of delight and greed for the aggregates.",
+      "pali": {
+        "reference": "sn22.51",
+        "workId": "gbcr:work:samyutta-nikaya-sn22-pali",
+        "title": "相应部第 22 相应",
+        "localSlug": "samyutta-nikaya-sn22",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "source_record_within_registered_collection"
+      },
+      "chinese": {
+        "reference": "sa1",
+        "cbetaId": "T0099",
+        "workId": "gbcr:work:samyukta-agama-t0099",
+        "title": "雜阿含經",
+        "localSlug": "zaahanjing",
+        "componentWithinRegisteredWork": true,
+        "matchedBy": "Saṃyukta Āgama 内部经号"
+      },
+      "evidenceSha256": "1bc381d0f0eecf77180d5355fef330c3aa7ca84de2c121ffcb83670d3922970b",
+      "upstreamRowNumbers": [
+        273446,
+        347779
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:f236541f5fbdbb2c",
+      "evidenceEdgeId": "gbcr:parallel:f236541f5fbdbb2c",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn1",
+        "workId": "gbcr:work:digha-nikaya-dn1-pali",
+        "title": "长部第 1 经",
+        "localSlug": "digha-nikaya-dn1",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t21",
+        "cbetaId": "T0021",
+        "workId": "gbcr:work:taisho-t0021",
+        "title": "梵網六十二見經",
+        "localSlug": "taisho-t0021",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "7d5582330e6bca57a2105c5cb87fd6b850d43e3456a93efc80692a7c5e7f69db",
+      "upstreamRowNumbers": [
+        10217,
+        353232
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:78e3ea51a467df60",
+      "evidenceEdgeId": "gbcr:parallel:78e3ea51a467df60",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn2",
+        "workId": "gbcr:work:digha-nikaya-dn2-pali",
+        "title": "长部第 2 经",
+        "localSlug": "digha-nikaya-dn2",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t22",
+        "cbetaId": "T0022",
+        "workId": "gbcr:work:taisho-t0022",
+        "title": "寂志果經",
+        "localSlug": "taisho-t0022",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "37da352be8cf3c65398bb8649c461cc76811d88910af5a96214bc251999eb807",
+      "upstreamRowNumbers": [
+        10822,
+        368294
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:48603c98bb9a3729",
+      "evidenceEdgeId": "gbcr:parallel:48603c98bb9a3729",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn3",
+        "workId": "gbcr:work:digha-nikaya-dn3-pali",
+        "title": "长部第 3 经",
+        "localSlug": "digha-nikaya-dn3",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t20",
+        "cbetaId": "T0020",
+        "workId": "gbcr:work:taisho-t0020",
+        "title": "佛開解梵志阿颰經",
+        "localSlug": "taisho-t0020",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "ac3aa1c213483275ce2d7b7b7d0573e31f3556e4ad955d86565ee2748c59326d",
+      "upstreamRowNumbers": [
+        11008,
+        353169
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:5cd3f879adaaecb6",
+      "evidenceEdgeId": "gbcr:parallel:5cd3f879adaaecb6",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn14",
+        "workId": "gbcr:work:digha-nikaya-dn14-pali",
+        "title": "长部第 14 经",
+        "localSlug": "digha-nikaya-dn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t2",
+        "cbetaId": "T0002",
+        "workId": "gbcr:work:taisho-t0002",
+        "title": "七佛經",
+        "localSlug": "taisho-t0002",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "5021f2c234bdf63591b521efbf6a81976840800f445b8edd710e835914f668f0",
+      "upstreamRowNumbers": [
+        10481,
+        353147
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:8a6f32ccf7c48d99",
+      "evidenceEdgeId": "gbcr:parallel:8a6f32ccf7c48d99",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn14",
+        "workId": "gbcr:work:digha-nikaya-dn14-pali",
+        "title": "长部第 14 经",
+        "localSlug": "digha-nikaya-dn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t3",
+        "cbetaId": "T0003",
+        "workId": "gbcr:work:taisho-t0003",
+        "title": "毘婆尸佛經",
+        "localSlug": "taisho-t0003",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "d50402c66f8e73a4d03648d495108556f875ea450c576b257e46c60a92818085",
+      "upstreamRowNumbers": [
+        10494,
+        368336
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:45c940357890ed16",
+      "evidenceEdgeId": "gbcr:parallel:45c940357890ed16",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn14",
+        "workId": "gbcr:work:digha-nikaya-dn14-pali",
+        "title": "长部第 14 经",
+        "localSlug": "digha-nikaya-dn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t4",
+        "cbetaId": "T0004",
+        "workId": "gbcr:work:taisho-t0004",
+        "title": "七佛父母姓字經",
+        "localSlug": "taisho-t0004",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "bd34c0f81a1b4b2a81b79bfe2626a789040e20b2fd1f5310647c2539cd46802f",
+      "upstreamRowNumbers": [
+        10495,
+        368427
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:45aee83d741408e5",
+      "evidenceEdgeId": "gbcr:parallel:45aee83d741408e5",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn15",
+        "workId": "gbcr:work:digha-nikaya-dn15-pali",
+        "title": "长部第 15 经",
+        "localSlug": "digha-nikaya-dn15",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t14",
+        "cbetaId": "T0014",
+        "workId": "gbcr:work:taisho-t0014",
+        "title": "人本欲生經",
+        "localSlug": "taisho-t0014",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "adf723938e40ed605d9ebc868dc147baeb296d85fb10629cc6e0c3052783644f",
+      "upstreamRowNumbers": [
+        10522,
+        352509
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:70a7d6be12647ecc",
+      "evidenceEdgeId": "gbcr:parallel:70a7d6be12647ecc",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn15",
+        "workId": "gbcr:work:digha-nikaya-dn15-pali",
+        "title": "长部第 15 经",
+        "localSlug": "digha-nikaya-dn15",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t52",
+        "cbetaId": "T0052",
+        "workId": "gbcr:work:taisho-t0052",
+        "title": "大生義經",
+        "localSlug": "taisho-t0052",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "6bfd74260c599ac4a7192460da29a90ed056d24bd2a69d87a047f757370894de",
+      "upstreamRowNumbers": [
+        10524,
+        368530
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:2c84e5de32727966",
+      "evidenceEdgeId": "gbcr:parallel:2c84e5de32727966",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn18",
+        "workId": "gbcr:work:digha-nikaya-dn18-pali",
+        "title": "长部第 18 经",
+        "localSlug": "digha-nikaya-dn18",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t9",
+        "cbetaId": "T0009",
+        "workId": "gbcr:work:taisho-t0009",
+        "title": "人仙經",
+        "localSlug": "taisho-t0009",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "7ef6c1a72fd3ca300039ff42794d39f3a8d65f96359e37c255776ae8933e091e",
+      "upstreamRowNumbers": [
+        10706,
+        369090
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:cdb9c6c76d90f036",
+      "evidenceEdgeId": "gbcr:parallel:cdb9c6c76d90f036",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn19",
+        "workId": "gbcr:work:digha-nikaya-dn19-pali",
+        "title": "长部第 19 经",
+        "localSlug": "digha-nikaya-dn19",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t8",
+        "cbetaId": "T0008",
+        "workId": "gbcr:work:taisho-t0008",
+        "title": "大堅固婆羅門緣起經",
+        "localSlug": "taisho-t0008",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "37a88c430d1e2805fcd2a2144ebfe8ac102eaf3f10b8a69bdb355db5039b1363",
+      "upstreamRowNumbers": [
+        10723,
+        368960
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:96a776a14ee3a0f3",
+      "evidenceEdgeId": "gbcr:parallel:96a776a14ee3a0f3",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn20",
+        "workId": "gbcr:work:digha-nikaya-dn20-pali",
+        "title": "长部第 20 经",
+        "localSlug": "digha-nikaya-dn20",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t19",
+        "cbetaId": "T0019",
+        "workId": "gbcr:work:taisho-t0019",
+        "title": "大三摩惹經",
+        "localSlug": "taisho-t0019",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "79ab8c2a84a2a8e5c4fb6cfd05fc7d3310053232fdd3c1543d5f42bd0a48a70b",
+      "upstreamRowNumbers": [
+        10846,
+        353072
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:054e370b29fa3788",
+      "evidenceEdgeId": "gbcr:parallel:054e370b29fa3788",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn21",
+        "workId": "gbcr:work:digha-nikaya-dn21-pali",
+        "title": "长部第 21 经",
+        "localSlug": "digha-nikaya-dn21",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t15",
+        "cbetaId": "T0015",
+        "workId": "gbcr:work:taisho-t0015",
+        "title": "帝釋所問經",
+        "localSlug": "taisho-t0015",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "b62fcd8aa829fe1f450dc6c728a80c8d6661668197483c475d5e33e1bcc65eaf",
+      "upstreamRowNumbers": [
+        10859,
+        352717
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:4d9afeadf8ef683a",
+      "evidenceEdgeId": "gbcr:parallel:4d9afeadf8ef683a",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn23",
+        "workId": "gbcr:work:digha-nikaya-dn23-pali",
+        "title": "长部第 23 经",
+        "localSlug": "digha-nikaya-dn23",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t45",
+        "cbetaId": "T0045",
+        "workId": "gbcr:work:taisho-t0045",
+        "title": "大正句王經",
+        "localSlug": "taisho-t0045",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "f1a37af28f4938339419d8394471850a7f9f8bffbb6ec08c5991aa636f282925",
+      "upstreamRowNumbers": [
+        10893,
+        368469
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:8afb51969417323e",
+      "evidenceEdgeId": "gbcr:parallel:8afb51969417323e",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn25",
+        "workId": "gbcr:work:digha-nikaya-dn25-pali",
+        "title": "长部第 25 经",
+        "localSlug": "digha-nikaya-dn25",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t11",
+        "cbetaId": "T0011",
+        "workId": "gbcr:work:taisho-t0011",
+        "title": "尼拘陀梵志經",
+        "localSlug": "taisho-t0011",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "be64ddaf12e1b3557e7eec15dbd7c841bfc131455c7ee52494a4181afd499abc",
+      "upstreamRowNumbers": [
+        10910,
+        352328
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:07e7cc99e4496612",
+      "evidenceEdgeId": "gbcr:parallel:07e7cc99e4496612",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn27",
+        "workId": "gbcr:work:digha-nikaya-dn27-pali",
+        "title": "长部第 27 经",
+        "localSlug": "digha-nikaya-dn27",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t10",
+        "cbetaId": "T0010",
+        "workId": "gbcr:work:taisho-t0010",
+        "title": "白衣金幢二婆羅門緣起經",
+        "localSlug": "taisho-t0010",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "021de399ef5a9c5473cd5c908dde2464465f4a2fdfe19304f0700a0f3dd43189",
+      "upstreamRowNumbers": [
+        10926,
+        352273
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:86ec2d68fa583586",
+      "evidenceEdgeId": "gbcr:parallel:86ec2d68fa583586",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn28",
+        "workId": "gbcr:work:digha-nikaya-dn28-pali",
+        "title": "长部第 28 经",
+        "localSlug": "digha-nikaya-dn28",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t18",
+        "cbetaId": "T0018",
+        "workId": "gbcr:work:taisho-t0018",
+        "title": "信佛功德經",
+        "localSlug": "taisho-t0018",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "1f9531356be0c1825dd0a5273ee058eaa85b6d88f87b840c0a4210e63bef9f43",
+      "upstreamRowNumbers": [
+        10940,
+        353065
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:15b8e705d376593d",
+      "evidenceEdgeId": "gbcr:parallel:15b8e705d376593d",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn31",
+        "workId": "gbcr:work:digha-nikaya-dn31-pali",
+        "title": "长部第 31 经",
+        "localSlug": "digha-nikaya-dn31",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t16",
+        "cbetaId": "T0016",
+        "workId": "gbcr:work:taisho-t0016",
+        "title": "尸迦羅越六方禮經",
+        "localSlug": "taisho-t0016",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "ccbe51d7bc5a92bc992b235bbc8e8899edfa55842c9584bcc6233f77e822cb9e",
+      "upstreamRowNumbers": [
+        11032,
+        352941
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:fc3a76494b4e33ba",
+      "evidenceEdgeId": "gbcr:parallel:fc3a76494b4e33ba",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn31",
+        "workId": "gbcr:work:digha-nikaya-dn31-pali",
+        "title": "长部第 31 经",
+        "localSlug": "digha-nikaya-dn31",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t17",
+        "cbetaId": "T0017",
+        "workId": "gbcr:work:taisho-t0017",
+        "title": "善生子經",
+        "localSlug": "taisho-t0017",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "55a3346a1aec3962a821dc9cf38567128ab96139ecb9dbc90f55de8da38a1cdf",
+      "upstreamRowNumbers": [
+        11033,
+        353059
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:57253979026ca0ea",
+      "evidenceEdgeId": "gbcr:parallel:57253979026ca0ea",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn33",
+        "workId": "gbcr:work:digha-nikaya-dn33-pali",
+        "title": "长部第 33 经",
+        "localSlug": "digha-nikaya-dn33",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t12",
+        "cbetaId": "T0012",
+        "workId": "gbcr:work:taisho-t0012",
+        "title": "大集法門經",
+        "localSlug": "taisho-t0012",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "721c067f657273f81f30453bbe0e7db2bd42896035a13869d200e24ac4655bee",
+      "upstreamRowNumbers": [
+        11184,
+        352407
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:378212a203be9c6d",
+      "evidenceEdgeId": "gbcr:parallel:378212a203be9c6d",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "dn34",
+        "workId": "gbcr:work:digha-nikaya-dn34-pali",
+        "title": "长部第 34 经",
+        "localSlug": "digha-nikaya-dn34",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t13",
+        "cbetaId": "T0013",
+        "workId": "gbcr:work:taisho-t0013",
+        "title": "長阿含十報法經",
+        "localSlug": "taisho-t0013",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "262d8fa12d1e129809d38faf45389b6f7e273181e42217df33e58257def9a3f2",
+      "upstreamRowNumbers": [
+        11276,
+        352480
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:7b1b36e7a4504952",
+      "evidenceEdgeId": "gbcr:parallel:7b1b36e7a4504952",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn2",
+        "workId": "gbcr:work:majjhima-nikaya-mn2-pali",
+        "title": "中部第 2 经",
+        "localSlug": "majjhima-nikaya-mn2",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t31",
+        "cbetaId": "T0031",
+        "workId": "gbcr:work:taisho-t0031",
+        "title": "一切流攝守因經",
+        "localSlug": "taisho-t0031",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "25b09ddac5551fe52dffbc3f80e9fbd0e213cfb369421ceaf48b8e65fa4d968d",
+      "upstreamRowNumbers": [
+        229113,
+        368361
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:a87462ab66ba5531",
+      "evidenceEdgeId": "gbcr:parallel:a87462ab66ba5531",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn5",
+        "workId": "gbcr:work:majjhima-nikaya-mn5-pali",
+        "title": "中部第 5 经",
+        "localSlug": "majjhima-nikaya-mn5",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t49",
+        "cbetaId": "T0049",
+        "workId": "gbcr:work:taisho-t0049",
+        "title": "求欲經",
+        "localSlug": "taisho-t0049",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "df123acfec2c89f7c10bc5705057099adb744831bdb8e07c43af85f64a7bd905",
+      "upstreamRowNumbers": [
+        229644,
+        368486
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:5fba0fc2c3db8c83",
+      "evidenceEdgeId": "gbcr:parallel:5fba0fc2c3db8c83",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn7",
+        "workId": "gbcr:work:majjhima-nikaya-mn7-pali",
+        "title": "中部第 7 经",
+        "localSlug": "majjhima-nikaya-mn7",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t51",
+        "cbetaId": "T0051",
+        "workId": "gbcr:work:taisho-t0051",
+        "title": "梵志計水淨經",
+        "localSlug": "taisho-t0051",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "ec82afa3c2fab71926b9c0ef285c9d818d0ca2496add50f4e3702f0c1a363184",
+      "upstreamRowNumbers": [
+        229906,
+        368523
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:f4f5ea8a396087b6",
+      "evidenceEdgeId": "gbcr:parallel:f4f5ea8a396087b6",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn13",
+        "workId": "gbcr:work:majjhima-nikaya-mn13-pali",
+        "title": "中部第 13 经",
+        "localSlug": "majjhima-nikaya-mn13",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t53",
+        "cbetaId": "T0053",
+        "workId": "gbcr:work:taisho-t0053",
+        "title": "苦陰經",
+        "localSlug": "taisho-t0053",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "941232e5323c42afb1b8d39f0c53d3606acd773e0d8e2cd6738bb137299b8ae8",
+      "upstreamRowNumbers": [
+        228801,
+        368538
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:813aaecb8a45f2e0",
+      "evidenceEdgeId": "gbcr:parallel:813aaecb8a45f2e0",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn14",
+        "workId": "gbcr:work:majjhima-nikaya-mn14-pali",
+        "title": "中部第 14 经",
+        "localSlug": "majjhima-nikaya-mn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t54",
+        "cbetaId": "T0054",
+        "workId": "gbcr:work:taisho-t0054",
+        "title": "釋摩男本四子經",
+        "localSlug": "taisho-t0054",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "dd9724915d7a4be7cbd6460e815e2cbae8981c9b16f3e08b7114cf220bfab329",
+      "upstreamRowNumbers": [
+        228938,
+        368541
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:571629f71f213236",
+      "evidenceEdgeId": "gbcr:parallel:571629f71f213236",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn14",
+        "workId": "gbcr:work:majjhima-nikaya-mn14-pali",
+        "title": "中部第 14 经",
+        "localSlug": "majjhima-nikaya-mn14",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t55",
+        "cbetaId": "T0055",
+        "workId": "gbcr:work:taisho-t0055",
+        "title": "苦陰因事經",
+        "localSlug": "taisho-t0055",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "c41d0e508926883565914850edd1f4eee0dba4913481e27a394fc9f3d48bbf75",
+      "upstreamRowNumbers": [
+        228939,
+        368545
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:c5ad69b09449c417",
+      "evidenceEdgeId": "gbcr:parallel:c5ad69b09449c417",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn15",
+        "workId": "gbcr:work:majjhima-nikaya-mn15-pali",
+        "title": "中部第 15 经",
+        "localSlug": "majjhima-nikaya-mn15",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t50",
+        "cbetaId": "T0050",
+        "workId": "gbcr:work:taisho-t0050",
+        "title": "受歲經",
+        "localSlug": "taisho-t0050",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "9425708ebfd1975c7b5431be230c56b5dddb68aab3773df8bbbbc90bef68d730",
+      "upstreamRowNumbers": [
+        229033,
+        368516
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:b3ecb12e26af82cc",
+      "evidenceEdgeId": "gbcr:parallel:b3ecb12e26af82cc",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn23",
+        "workId": "gbcr:work:majjhima-nikaya-mn23-pali",
+        "title": "中部第 23 经",
+        "localSlug": "majjhima-nikaya-mn23",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t95",
+        "cbetaId": "T0095",
+        "workId": "gbcr:work:taisho-t0095",
+        "title": "蟻喻經",
+        "localSlug": "taisho-t0095",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "e42ddfd56c6c7d86f52b8b28123fecf7bfa2e0a87fabd5e57abfc882752d96e8",
+      "upstreamRowNumbers": [
+        229143,
+        369107
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:badfc92eed1c37db",
+      "evidenceEdgeId": "gbcr:parallel:badfc92eed1c37db",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn33",
+        "workId": "gbcr:work:majjhima-nikaya-mn33-pali",
+        "title": "中部第 33 经",
+        "localSlug": "majjhima-nikaya-mn33",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t123",
+        "cbetaId": "T0123",
+        "workId": "gbcr:work:taisho-t0123",
+        "title": "佛說放牛經",
+        "localSlug": "taisho-t0123",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "71bdbc8c230b433234ec0c8332e4c9fd830c1fae94638145027c74bdf01ce5f2",
+      "upstreamRowNumbers": [
+        229412,
+        352423
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:21d4f862dfc1ca56",
+      "evidenceEdgeId": "gbcr:parallel:21d4f862dfc1ca56",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn46",
+        "workId": "gbcr:work:majjhima-nikaya-mn46-pali",
+        "title": "中部第 46 经",
+        "localSlug": "majjhima-nikaya-mn46",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t83",
+        "cbetaId": "T0083",
+        "workId": "gbcr:work:taisho-t0083",
+        "title": "應法經",
+        "localSlug": "taisho-t0083",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "c1e00670335fe36a147c8211209c88d9835db3ea3baaab5e6450fec50ab414e6",
+      "upstreamRowNumbers": [
+        229634,
+        369023
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:b716356e84f9b835",
+      "evidenceEdgeId": "gbcr:parallel:b716356e84f9b835",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn50",
+        "workId": "gbcr:work:majjhima-nikaya-mn50-pali",
+        "title": "中部第 50 经",
+        "localSlug": "majjhima-nikaya-mn50",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t66",
+        "cbetaId": "T0066",
+        "workId": "gbcr:work:taisho-t0066",
+        "title": "魔嬈亂經",
+        "localSlug": "taisho-t0066",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "d923ceeb1492dec5feac593accaa7ff676065553049dd76d1bcec8419bc0bf89",
+      "upstreamRowNumbers": [
+        229648,
+        368646
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:dff658eacd363f03",
+      "evidenceEdgeId": "gbcr:parallel:dff658eacd363f03",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn50",
+        "workId": "gbcr:work:majjhima-nikaya-mn50-pali",
+        "title": "中部第 50 经",
+        "localSlug": "majjhima-nikaya-mn50",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t67",
+        "cbetaId": "T0067",
+        "workId": "gbcr:work:taisho-t0067",
+        "title": "弊魔試目連經",
+        "localSlug": "taisho-t0067",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "3dedb572182c6e6dfa549b342f550d991c0333cad2af85ae652c04d6e43f6ca5",
+      "upstreamRowNumbers": [
+        229649,
+        368651
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:9bbe4902a82ed983",
+      "evidenceEdgeId": "gbcr:parallel:9bbe4902a82ed983",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn52",
+        "workId": "gbcr:work:majjhima-nikaya-mn52-pali",
+        "title": "中部第 52 经",
+        "localSlug": "majjhima-nikaya-mn52",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t92",
+        "cbetaId": "T0092",
+        "workId": "gbcr:work:taisho-t0092",
+        "title": "十支居士八城人經",
+        "localSlug": "taisho-t0092",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "0b4c06543a70e99749855f8ec5bac255756a5d9ca969576e50370e38747fef63",
+      "upstreamRowNumbers": [
+        229717,
+        369100
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:fecba4230548bb95",
+      "evidenceEdgeId": "gbcr:parallel:fecba4230548bb95",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn63",
+        "workId": "gbcr:work:majjhima-nikaya-mn63-pali",
+        "title": "中部第 63 经",
+        "localSlug": "majjhima-nikaya-mn63",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t94",
+        "cbetaId": "T0094",
+        "workId": "gbcr:work:taisho-t0094",
+        "title": "箭喻經",
+        "localSlug": "taisho-t0094",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "7ecbc2541cedbeb6547c946726930511bc2004f8e60c7384b10aa55ee72b4883",
+      "upstreamRowNumbers": [
+        229876,
+        369104
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:ecab3e8a53d911f9",
+      "evidenceEdgeId": "gbcr:parallel:ecab3e8a53d911f9",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn67",
+        "workId": "gbcr:work:majjhima-nikaya-mn67-pali",
+        "title": "中部第 67 经",
+        "localSlug": "majjhima-nikaya-mn67",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t137",
+        "cbetaId": "T0137",
+        "workId": "gbcr:work:taisho-t0137",
+        "title": "舍利弗摩訶目連遊四衢經",
+        "localSlug": "taisho-t0137",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "c43332ec64cb9e2291c9402d9816891a2d2b7487855742d6b50938dfb333301a",
+      "upstreamRowNumbers": [
+        229898,
+        352503
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:982af0c5e68fe2ac",
+      "evidenceEdgeId": "gbcr:parallel:982af0c5e68fe2ac",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn80",
+        "workId": "gbcr:work:majjhima-nikaya-mn80-pali",
+        "title": "中部第 80 经",
+        "localSlug": "majjhima-nikaya-mn80",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t90",
+        "cbetaId": "T0090",
+        "workId": "gbcr:work:taisho-t0090",
+        "title": "鞞摩肅經",
+        "localSlug": "taisho-t0090",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "cb71b6a603878ef7c367af0310f5dc72148f399bbc5e1ae57daa9b6819821a74",
+      "upstreamRowNumbers": [
+        230093,
+        369093
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:d82a425d264f57cb",
+      "evidenceEdgeId": "gbcr:parallel:d82a425d264f57cb",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn82",
+        "workId": "gbcr:work:majjhima-nikaya-mn82-pali",
+        "title": "中部第 82 经",
+        "localSlug": "majjhima-nikaya-mn82",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t68",
+        "cbetaId": "T0068",
+        "workId": "gbcr:work:taisho-t0068",
+        "title": "賴吒和羅經",
+        "localSlug": "taisho-t0068",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "ca803c2fc2e2c0f5fc4d725babf16dc6278e0028f91a2b09ad721c612e1e17cc",
+      "upstreamRowNumbers": [
+        230128,
+        368658
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:cb1e4e8bd8783581",
+      "evidenceEdgeId": "gbcr:parallel:cb1e4e8bd8783581",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn82",
+        "workId": "gbcr:work:majjhima-nikaya-mn82-pali",
+        "title": "中部第 82 经",
+        "localSlug": "majjhima-nikaya-mn82",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t69",
+        "cbetaId": "T0069",
+        "workId": "gbcr:work:taisho-t0069",
+        "title": "護國經",
+        "localSlug": "taisho-t0069",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "2010a9d1c57776e468b9f62e9d53ecdea2c4bc984297ff6a423e16ded4f5dd6b",
+      "upstreamRowNumbers": [
+        230130,
+        368671
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:4fcdced41e332224",
+      "evidenceEdgeId": "gbcr:parallel:4fcdced41e332224",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn86",
+        "workId": "gbcr:work:majjhima-nikaya-mn86-pali",
+        "title": "中部第 86 经",
+        "localSlug": "majjhima-nikaya-mn86",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t118",
+        "cbetaId": "T0118",
+        "workId": "gbcr:work:taisho-t0118",
+        "title": "佛說鴦掘摩經",
+        "localSlug": "taisho-t0118",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "1b35eb1a1084e899568f1a9839f01469fffe880b60a4cc18e7c64f71f7a366b2",
+      "upstreamRowNumbers": [
+        230311,
+        352385
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:fcad3635848e0bb6",
+      "evidenceEdgeId": "gbcr:parallel:fcad3635848e0bb6",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn86",
+        "workId": "gbcr:work:majjhima-nikaya-mn86-pali",
+        "title": "中部第 86 经",
+        "localSlug": "majjhima-nikaya-mn86",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t119",
+        "cbetaId": "T0119",
+        "workId": "gbcr:work:taisho-t0119",
+        "title": "佛說鴦崛髻經",
+        "localSlug": "taisho-t0119",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "670f143d88d7456de1612969d45a43a7d0e4c6e2495276c5536d654673b5a421",
+      "upstreamRowNumbers": [
+        230312,
+        352395
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:d10bf81d3657c514",
+      "evidenceEdgeId": "gbcr:parallel:d10bf81d3657c514",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn87",
+        "workId": "gbcr:work:majjhima-nikaya-mn87-pali",
+        "title": "中部第 87 经",
+        "localSlug": "majjhima-nikaya-mn87",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t91",
+        "cbetaId": "T0091",
+        "workId": "gbcr:work:taisho-t0091",
+        "title": "婆羅門子命終愛念不離經",
+        "localSlug": "taisho-t0091",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "67041cdd03ebbb6e087201fb629c825b858c584958b28ef4df9d9b496eafb4af",
+      "upstreamRowNumbers": [
+        230365,
+        369096
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:3db8883892e87c5f",
+      "evidenceEdgeId": "gbcr:parallel:3db8883892e87c5f",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn91",
+        "workId": "gbcr:work:majjhima-nikaya-mn91-pali",
+        "title": "中部第 91 经",
+        "localSlug": "majjhima-nikaya-mn91",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t76",
+        "cbetaId": "T0076",
+        "workId": "gbcr:work:taisho-t0076",
+        "title": "梵摩渝經",
+        "localSlug": "taisho-t0076",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "30fbf41d0b26f412fd250ffc7cf9a9cae540c6bcfa3d41a2d7499c66555e0763",
+      "upstreamRowNumbers": [
+        230396,
+        368855
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:5aa31654717f1244",
+      "evidenceEdgeId": "gbcr:parallel:5aa31654717f1244",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn93",
+        "workId": "gbcr:work:majjhima-nikaya-mn93-pali",
+        "title": "中部第 93 经",
+        "localSlug": "majjhima-nikaya-mn93",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t71",
+        "cbetaId": "T0071",
+        "workId": "gbcr:work:taisho-t0071",
+        "title": "梵志頞波羅延問種尊經",
+        "localSlug": "taisho-t0071",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "651f8414b070b563bc9d0eb73330a4bd34411dec906fd2cbf22d50e5d28188c5",
+      "upstreamRowNumbers": [
+        230421,
+        368700
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:11e770b533b6cad1",
+      "evidenceEdgeId": "gbcr:parallel:11e770b533b6cad1",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn104",
+        "workId": "gbcr:work:majjhima-nikaya-mn104-pali",
+        "title": "中部第 104 经",
+        "localSlug": "majjhima-nikaya-mn104",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t85",
+        "cbetaId": "T0085",
+        "workId": "gbcr:work:taisho-t0085",
+        "title": "息諍因緣經",
+        "localSlug": "taisho-t0085",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "f3d0f40f2f23348bfe7d50fe575e17beaccf2b4e73bb6edcf0078ab2323cb5d6",
+      "upstreamRowNumbers": [
+        228404,
+        369041
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:adbd5d45c3f7d602",
+      "evidenceEdgeId": "gbcr:parallel:adbd5d45c3f7d602",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn107",
+        "workId": "gbcr:work:majjhima-nikaya-mn107-pali",
+        "title": "中部第 107 经",
+        "localSlug": "majjhima-nikaya-mn107",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t70",
+        "cbetaId": "T0070",
+        "workId": "gbcr:work:taisho-t0070",
+        "title": "數經",
+        "localSlug": "taisho-t0070",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "4054f96300231935b7e1af6d7e3333707c31ca9852fc887a43563be31cb20356",
+      "upstreamRowNumbers": [
+        228452,
+        368697
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:5d8413b99b6e2371",
+      "evidenceEdgeId": "gbcr:parallel:5d8413b99b6e2371",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn113",
+        "workId": "gbcr:work:majjhima-nikaya-mn113-pali",
+        "title": "中部第 113 经",
+        "localSlug": "majjhima-nikaya-mn113",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t48",
+        "cbetaId": "T0048",
+        "workId": "gbcr:work:taisho-t0048",
+        "title": "是法非法經",
+        "localSlug": "taisho-t0048",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "5c5993433557c1dc9761656fa41cf3ebfd0c489f4a8b132901334befd916af55",
+      "upstreamRowNumbers": [
+        228513,
+        368483
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:146233cff1943480",
+      "evidenceEdgeId": "gbcr:parallel:146233cff1943480",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn115",
+        "workId": "gbcr:work:majjhima-nikaya-mn115-pali",
+        "title": "中部第 115 经",
+        "localSlug": "majjhima-nikaya-mn115",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t776",
+        "cbetaId": "T0776",
+        "workId": "gbcr:work:taisho-t0776",
+        "title": "佛說四品法門經",
+        "localSlug": "taisho-t0776",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "c55b63d0fc712253e3b8a37ad9ab9514db9bfd7d6365abb564aaab90cd8c64d7",
+      "upstreamRowNumbers": [
+        228537,
+        368862
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:e7dbe04b87a572d2",
+      "evidenceEdgeId": "gbcr:parallel:e7dbe04b87a572d2",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn130",
+        "workId": "gbcr:work:majjhima-nikaya-mn130-pali",
+        "title": "中部第 130 经",
+        "localSlug": "majjhima-nikaya-mn130",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t42",
+        "cbetaId": "T0042",
+        "workId": "gbcr:work:taisho-t0042",
+        "title": "鐵城泥犁經",
+        "localSlug": "taisho-t0042",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "6e2b99bd52564bd472cb73927a693711474bab6be332efdbfc034b1b6f5aa15a",
+      "upstreamRowNumbers": [
+        228823,
+        368450
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:8397b6e589f4d004",
+      "evidenceEdgeId": "gbcr:parallel:8397b6e589f4d004",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn130",
+        "workId": "gbcr:work:majjhima-nikaya-mn130-pali",
+        "title": "中部第 130 经",
+        "localSlug": "majjhima-nikaya-mn130",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t43",
+        "cbetaId": "T0043",
+        "workId": "gbcr:work:taisho-t0043",
+        "title": "閻羅王五天使者經",
+        "localSlug": "taisho-t0043",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "e47907d8cf7e2cf7eea3c4c7ba2f58d56cdbbeb8ad2e56d6312a20eeb8c2d747",
+      "upstreamRowNumbers": [
+        228824,
+        368461
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:b2b424a4db2dc363",
+      "evidenceEdgeId": "gbcr:parallel:b2b424a4db2dc363",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn130",
+        "workId": "gbcr:work:majjhima-nikaya-mn130-pali",
+        "title": "中部第 130 经",
+        "localSlug": "majjhima-nikaya-mn130",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t86",
+        "cbetaId": "T0086",
+        "workId": "gbcr:work:taisho-t0086",
+        "title": "泥犁經",
+        "localSlug": "taisho-t0086",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "12cae64bb97e508bb2f23535ce95e281b14cf63fc3837a595ba3d1a3083b49ff",
+      "upstreamRowNumbers": [
+        228826,
+        369049
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:1b8ad9ef32b7f137",
+      "evidenceEdgeId": "gbcr:parallel:1b8ad9ef32b7f137",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn134",
+        "workId": "gbcr:work:majjhima-nikaya-mn134-pali",
+        "title": "中部第 134 经",
+        "localSlug": "majjhima-nikaya-mn134",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t77",
+        "cbetaId": "T0077",
+        "workId": "gbcr:work:taisho-t0077",
+        "title": "尊上經",
+        "localSlug": "taisho-t0077",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "a03163443c1553610722388388218028e232a46e45367f55f50b82a780531e69",
+      "upstreamRowNumbers": [
+        228880,
+        368858
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:30bed2bf322a33f5",
+      "evidenceEdgeId": "gbcr:parallel:30bed2bf322a33f5",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t78",
+        "cbetaId": "T0078",
+        "workId": "gbcr:work:taisho-t0078",
+        "title": "兜調經",
+        "localSlug": "taisho-t0078",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "a5d8b34e2f184b69bc436f2e468595b6c85c03d245718ed68a0c34915d9697d4",
+      "upstreamRowNumbers": [
+        228896,
+        368870
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:28fdbb8cc50a1579",
+      "evidenceEdgeId": "gbcr:parallel:28fdbb8cc50a1579",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t79",
+        "cbetaId": "T0079",
+        "workId": "gbcr:work:taisho-t0079",
+        "title": "鸚鵡經",
+        "localSlug": "taisho-t0079",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "aa09bc066de2fcbc6984044edb233a91299e9bb099f28dbaa76ddf979030b6ee",
+      "upstreamRowNumbers": [
+        228897,
+        368944
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:3b5bcd7dc00229a8",
+      "evidenceEdgeId": "gbcr:parallel:3b5bcd7dc00229a8",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t80",
+        "cbetaId": "T0080",
+        "workId": "gbcr:work:taisho-t0080",
+        "title": "佛為首迦長者說業報差別經",
+        "localSlug": "taisho-t0080",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "d8202ca0e447af9082f55717cf543693068f63f5e2099c006ab1388d6c67b2ed",
+      "upstreamRowNumbers": [
+        228898,
+        368971
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:17a0ed416a164c94",
+      "evidenceEdgeId": "gbcr:parallel:17a0ed416a164c94",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t81",
+        "cbetaId": "T0081",
+        "workId": "gbcr:work:taisho-t0081",
+        "title": "分別善惡報應經",
+        "localSlug": "taisho-t0081",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "30b8936ea47fcf396faa830172a4391d483fe4611c42a3845235a9cf2a0c831b",
+      "upstreamRowNumbers": [
+        228899,
+        369007
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:6b5aed9af866d389",
+      "evidenceEdgeId": "gbcr:parallel:6b5aed9af866d389",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn135",
+        "workId": "gbcr:work:majjhima-nikaya-mn135-pali",
+        "title": "中部第 135 经",
+        "localSlug": "majjhima-nikaya-mn135",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t755",
+        "cbetaId": "T0755",
+        "workId": "gbcr:work:taisho-t0755",
+        "title": "佛說淨意優婆塞所問經",
+        "localSlug": "taisho-t0755",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "e1420bb84e1da2e9149ad1f43383a7ae5017e969caa71c2e3e58ae43df17d6b9",
+      "upstreamRowNumbers": [
+        228895,
+        368800
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:1ddcb5a5158e6547",
+      "evidenceEdgeId": "gbcr:parallel:1ddcb5a5158e6547",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn140",
+        "workId": "gbcr:work:majjhima-nikaya-mn140-pali",
+        "title": "中部第 140 经",
+        "localSlug": "majjhima-nikaya-mn140",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t511",
+        "cbetaId": "T0511",
+        "workId": "gbcr:work:taisho-t0511",
+        "title": "佛說蓱沙王五願經",
+        "localSlug": "taisho-t0511",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "7305fc9f01b54cae0c1972561141cc2cf07ca39b94d8a94d0ebbc501848a87cd",
+      "upstreamRowNumbers": [
+        228948,
+        368527
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:aa406f771adb2f0f",
+      "evidenceEdgeId": "gbcr:parallel:aa406f771adb2f0f",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn141",
+        "workId": "gbcr:work:majjhima-nikaya-mn141-pali",
+        "title": "中部第 141 经",
+        "localSlug": "majjhima-nikaya-mn141",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t32",
+        "cbetaId": "T0032",
+        "workId": "gbcr:work:taisho-t0032",
+        "title": "四諦經",
+        "localSlug": "taisho-t0032",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "1fa6c9a0ad887c8a794b8c40db513dba1d5918ce2561f6adadd41c759e79daf4",
+      "upstreamRowNumbers": [
+        228957,
+        368370
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:d69b631766484b11",
+      "evidenceEdgeId": "gbcr:parallel:d69b631766484b11",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn142",
+        "workId": "gbcr:work:majjhima-nikaya-mn142-pali",
+        "title": "中部第 142 经",
+        "localSlug": "majjhima-nikaya-mn142",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t84",
+        "cbetaId": "T0084",
+        "workId": "gbcr:work:taisho-t0084",
+        "title": "分別布施經",
+        "localSlug": "taisho-t0084",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "eadd7455e37478f3650754532d5e72a2201c2667c5dbfc9718d5cbcacf96bcba",
+      "upstreamRowNumbers": [
+        228973,
+        369029
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    },
+    {
+      "id": "gbcr:parallel-review:a36c35062fc69010",
+      "evidenceEdgeId": "gbcr:parallel:a36c35062fc69010",
+      "priority": "p1_upstream_full_standalone_pair",
+      "rationale": "上游标作 full，且两端都是站内独立作品记录；这是作品裁决候选，不是已经确认的同一作品。",
+      "reviewState": "unassigned_pending_two_independent_reviews",
+      "sourceDecisionClass": "full_parallel_without_automatic_work_merge",
+      "sourceType": "full",
+      "resembling": false,
+      "upstreamRemark": null,
+      "pali": {
+        "reference": "mn145",
+        "workId": "gbcr:work:majjhima-nikaya-mn145-pali",
+        "title": "中部第 145 经",
+        "localSlug": "majjhima-nikaya-mn145",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "exact_suttacentral_identifier"
+      },
+      "chinese": {
+        "reference": "t108",
+        "cbetaId": "T0108",
+        "workId": "gbcr:work:taisho-t0108",
+        "title": "佛說滿願子經",
+        "localSlug": "taisho-t0108",
+        "componentWithinRegisteredWork": false,
+        "matchedBy": "direct_taisho_identifier"
+      },
+      "evidenceSha256": "199007a49f0308752402b2107819c4b5322163c27898267672a4b6687ebf0da8",
+      "upstreamRowNumbers": [
+        228995,
+        352300
+      ],
+      "requiredReviews": 2,
+      "adjudicationRequiredOnDisagreement": true,
+      "reviewChecklist": [
+        "核对两端文本范围与是否为整经、合集组件或片段",
+        "核对开头、结尾、说法地点、人物和叙事框架",
+        "核对章节结构、教义次序、重复段落与显著增删",
+        "核对异本、节译、编纂本和目录层级，避免以经号代替作品边界",
+        "至少保存一条可复核的现代研究或权威目录来源；若无则维持未决",
+        "记录支持证据、反证、范围差异与置信理由",
+        "分别确认原文、转写、译文与元数据权利，不扩大许可"
+      ],
+      "allowedOutcomes": [
+        "same_work_different_expression",
+        "text_family_relation_only",
+        "component_relation_only",
+        "partial_parallel_only",
+        "citation_or_mention_only",
+        "rejected_not_parallel",
+        "unresolved_more_evidence_required"
+      ],
+      "reviews": [],
+      "adjudication": null,
+      "denominatorImpactUntilAdjudicated": "none"
+    }
+  ]
+}

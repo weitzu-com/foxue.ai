@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v3.4.0.json";
+import registryDocument from "../../data/gbcr/registry-v3.5.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v0.5.0.json";
 
 type Expression = {
@@ -618,6 +618,20 @@ export function buildCoverageSnapshot() {
         sha256: corpusRegistry.suttacentralChineseParallelAudit.sha256,
         unit: "SuttaCentral 固定关系表中与站内巴利及汉译作品可定位的去重证据边",
         caveat: corpusRegistry.suttacentralChineseParallelAudit.warning,
+      },
+      suttacentralParallelReviewQueue: {
+        queueItems: corpusRegistry.suttacentralParallelReviewQueue.queueItems,
+        p0ScopeCaveatOrCounterevidence: corpusRegistry.suttacentralParallelReviewQueue.p0ScopeCaveatOrCounterevidence,
+        p1UpstreamFullStandalonePairs: corpusRegistry.suttacentralParallelReviewQueue.p1UpstreamFullStandalonePairs,
+        assignedItems: corpusRegistry.suttacentralParallelReviewQueue.assignedItems,
+        completedIndependentReviews: corpusRegistry.suttacentralParallelReviewQueue.completedIndependentReviews,
+        adjudicatedItems: corpusRegistry.suttacentralParallelReviewQueue.adjudicatedItems,
+        automaticMerges: corpusRegistry.suttacentralParallelReviewQueue.automaticMerges,
+        minimumIndependentReviews: corpusRegistry.suttacentralParallelReviewQueue.minimumIndependentReviews,
+        denominatorImpact: corpusRegistry.suttacentralParallelReviewQueue.denominatorImpact,
+        sha256: corpusRegistry.suttacentralParallelReviewQueue.sha256,
+        unit: "需由两名独立复核者完成证据核对并在分歧时仲裁的汉—巴作品关系候选",
+        caveat: corpusRegistry.suttacentralParallelReviewQueue.warning,
       },
     },
     sourceFamilies: corpusRegistry.sourceFamilies.map((family) => ({

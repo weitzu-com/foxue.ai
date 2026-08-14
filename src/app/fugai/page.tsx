@@ -373,6 +373,28 @@ export default function CoveragePage() {
             </a>
           </article>
           <article>
+            <span>汉—巴作品裁决队列</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralParallelReviewQueue.adjudicatedItems}
+              <small> / {snapshot.candidateInventory.suttacentralParallelReviewQueue.queueItems} 已裁决</small>
+            </strong>
+            <p>
+              {snapshot.candidateInventory.suttacentralParallelReviewQueue.p0ScopeCaveatOrCounterevidence} 项含明确范围备注或反证，
+              {snapshot.candidateInventory.suttacentralParallelReviewQueue.p1UpstreamFullStandalonePairs} 项为上游整经级候选。
+              每项至少需要 {snapshot.candidateInventory.suttacentralParallelReviewQueue.minimumIndependentReviews} 名独立复核者；
+              当前自动归并 {snapshot.candidateInventory.suttacentralParallelReviewQueue.automaticMerges} 项
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralParallelReviewQueue.caveat}</small>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 80 项双人复核队列与裁决规则 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          </article>
+          <article>
             <span>rKTs 核心编号候选连接</span>
             <strong>
               {snapshot.candidateInventory.rktsKernelAlignment.exactKernelIds.toLocaleString("zh-CN")}
