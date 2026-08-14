@@ -1,0 +1,192 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "eb8272f999d1b815c23afa51308b36b4dcc1d299"
+  },
+  "subset": {
+    "id": "taisho_pure_land_nirvana_commentary_t37",
+    "label": "大正藏 T37 净土与涅槃经疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T37 目录下、文件名卷号一致的 T37n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T37 的 21 份来源记录是《胜鬘经》、净土三经及《大般涅槃经》的东亚经疏、宗要、讲说记录、再注释与集解；根本经、直接注释、再注释、同题异作、同作者异作和集解责任必须分层计量，不能把经疏目录位置或共同根经误作佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 21,
+    "upstreamBytes": 10041102,
+    "candidatePathSha256": "53b953118c161034f574cd26f4037eb5cdc0bc7a38081ab10d86d944ec544fe2"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T37n1744",
+      "canonWitnessId": "T1744",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1744.xml",
+      "upstreamGitBlobSha1": "ac45096f112ac1dadbc031f1e66d0d476d68085e",
+      "upstreamBytes": 1768628
+    },
+    {
+      "sourceRecordId": "T37n1745",
+      "canonWitnessId": "T1745",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1745.xml",
+      "upstreamGitBlobSha1": "127395371bf49ba94eaff8a10729b38d6b6b1aad",
+      "upstreamBytes": 223824
+    },
+    {
+      "sourceRecordId": "T37n1746",
+      "canonWitnessId": "T1746",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1746.xml",
+      "upstreamGitBlobSha1": "fbd83a4e11d9beb7ce26b2a1d13208e554201f55",
+      "upstreamBytes": 111462
+    },
+    {
+      "sourceRecordId": "T37n1747",
+      "canonWitnessId": "T1747",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1747.xml",
+      "upstreamGitBlobSha1": "7d2f6362cebc19dd0b31d454319e8d07eaf8573c",
+      "upstreamBytes": 53420
+    },
+    {
+      "sourceRecordId": "T37n1748",
+      "canonWitnessId": "T1748",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1748.xml",
+      "upstreamGitBlobSha1": "274566043a54da3428786ac457efcacb2fe757dd",
+      "upstreamBytes": 355933
+    },
+    {
+      "sourceRecordId": "T37n1749",
+      "canonWitnessId": "T1749",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1749.xml",
+      "upstreamGitBlobSha1": "c549bf48a1343af9684c944d61a3ae15d032bb4c",
+      "upstreamBytes": 125348
+    },
+    {
+      "sourceRecordId": "T37n1750",
+      "canonWitnessId": "T1750",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1750.xml",
+      "upstreamGitBlobSha1": "31e7c1a5f757e7557b101fea14cc137aca862d40",
+      "upstreamBytes": 88131
+    },
+    {
+      "sourceRecordId": "T37n1751",
+      "canonWitnessId": "T1751",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1751.xml",
+      "upstreamGitBlobSha1": "15e64d9b2521d2e1b2acc6793043b858a74e9aaf",
+      "upstreamBytes": 398345
+    },
+    {
+      "sourceRecordId": "T37n1752",
+      "canonWitnessId": "T1752",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1752.xml",
+      "upstreamGitBlobSha1": "633d19f796d0de802561fe1d64642ead639000ab",
+      "upstreamBytes": 99261
+    },
+    {
+      "sourceRecordId": "T37n1753",
+      "canonWitnessId": "T1753",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1753.xml",
+      "upstreamGitBlobSha1": "e8193d008b43eaacc5b58d79518452fe7d2d5551",
+      "upstreamBytes": 286134
+    },
+    {
+      "sourceRecordId": "T37n1754",
+      "canonWitnessId": "T1754",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1754.xml",
+      "upstreamGitBlobSha1": "092a3d506e500a648c4066ea3f27fc781ff52198",
+      "upstreamBytes": 252906
+    },
+    {
+      "sourceRecordId": "T37n1755",
+      "canonWitnessId": "T1755",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1755.xml",
+      "upstreamGitBlobSha1": "ffbc16f648e3f7a3fc1a24e7af7be59a37353acd",
+      "upstreamBytes": 31288
+    },
+    {
+      "sourceRecordId": "T37n1756",
+      "canonWitnessId": "T1756",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1756.xml",
+      "upstreamGitBlobSha1": "8f1cf7fb160841cf18768a52bd3b6435ce216451",
+      "upstreamBytes": 47718
+    },
+    {
+      "sourceRecordId": "T37n1757",
+      "canonWitnessId": "T1757",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1757.xml",
+      "upstreamGitBlobSha1": "f5c6f96ef40474ffc7ad819cc951f3aa4aec29cc",
+      "upstreamBytes": 177610
+    },
+    {
+      "sourceRecordId": "T37n1758",
+      "canonWitnessId": "T1758",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1758.xml",
+      "upstreamGitBlobSha1": "b35a2ca070934a5794cffb6cabe9086a5d779537",
+      "upstreamBytes": 180444
+    },
+    {
+      "sourceRecordId": "T37n1759",
+      "canonWitnessId": "T1759",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1759.xml",
+      "upstreamGitBlobSha1": "c8fe24b3f95977dddfc058c65f5deccd0dbc79b7",
+      "upstreamBytes": 25911
+    },
+    {
+      "sourceRecordId": "T37n1760",
+      "canonWitnessId": "T1760",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1760.xml",
+      "upstreamGitBlobSha1": "fb030f0ae2278ee44935e0a1514def240194a917",
+      "upstreamBytes": 69004
+    },
+    {
+      "sourceRecordId": "T37n1761",
+      "canonWitnessId": "T1761",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1761.xml",
+      "upstreamGitBlobSha1": "ad46387dc3ce6f146ad00b91ffde11b33ab89897",
+      "upstreamBytes": 72869
+    },
+    {
+      "sourceRecordId": "T37n1762",
+      "canonWitnessId": "T1762",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1762.xml",
+      "upstreamGitBlobSha1": "79c366042695bddf821075f52afa810ab98d715d",
+      "upstreamBytes": 100323
+    },
+    {
+      "sourceRecordId": "T37n1763",
+      "canonWitnessId": "T1763",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1763.xml",
+      "upstreamGitBlobSha1": "e0bc298638fe2cdea5eefb261cc705a964029d08",
+      "upstreamBytes": 2764584
+    },
+    {
+      "sourceRecordId": "T37n1764",
+      "canonWitnessId": "T1764",
+      "volume": "T37",
+      "upstreamPath": "T/T37/T37n1764.xml",
+      "upstreamGitBlobSha1": "81a5d036d3beeae415d4692884a1784e92d32ce9",
+      "upstreamBytes": 2807959
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
+import { getSitemapIds } from "@/lib/sitemap-data";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
+  const sitemapIds = await getSitemapIds();
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: [`${baseUrl}/sitemap/0.xml`, `${baseUrl}/sitemap/1.xml`, `${baseUrl}/sitemap/2.xml`],
+    sitemap: sitemapIds.map(({ id }) => `${baseUrl}/sitemap/${id}.xml`),
     host: baseUrl,
   };
 }

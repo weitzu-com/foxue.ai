@@ -2,11 +2,13 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type APIRequestContext } from "@playwright/test";
 
 async function readSitemaps(request: APIRequestContext) {
-  const responses = await Promise.all([
-    request.get("/sitemap/0.xml"),
-    request.get("/sitemap/1.xml"),
-    request.get("/sitemap/2.xml"),
-  ]);
+  const robotsResponse = await request.get("/robots.txt");
+  expect(robotsResponse.ok()).toBeTruthy();
+  const robots = await robotsResponse.text();
+  const sitemapPaths = [...robots.matchAll(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap\/\d+\.xml)$/gm)]
+    .map((match) => match[1]);
+  expect(sitemapPaths.length).toBeGreaterThan(0);
+  const responses = await Promise.all(sitemapPaths.map((path) => request.get(path)));
   expect(responses.every((response) => response.ok())).toBeTruthy();
   return (await Promise.all(responses.map((response) => response.text()))).join("\n");
 }
@@ -123,12 +125,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1880,
-    registeredExpressions: 2098,
-    fullSourceTextWorks: 1853,
-    fullSourceTextExpressions: 2055,
-    stableSegments: 3412460,
-    structureVerifiedWorks: 1880,
+    registeredWorks: 1901,
+    registeredExpressions: 2119,
+    fullSourceTextWorks: 1874,
+    fullSourceTextExpressions: 2076,
+    stableSegments: 3490028,
+    structureVerifiedWorks: 1901,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -162,11 +164,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1823,
-    controlled: 1823,
+    denominator: 1844,
+    controlled: 1844,
     percentage: 100,
-    sourceBytes: 554372038,
-    controlledBytes: 554372038,
+    sourceBytes: 564413140,
+    controlledBytes: 564413140,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -183,6 +185,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t34InventorySha256: "0e5bca400777a5f819f1d6809f5e803e1ce657dc699bfea37da15d2b83c7a8fb",
     t35InventorySha256: "ad6ba047693f8d7693df43e204d5c55c9d8924e825e1d54fb7924cafb6227697",
     t36InventorySha256: "5e9130fd3ab079deeb3300d411c23e2773ba9693c82e2742dee1340f489a3d72",
+    t37InventorySha256: "7b66418c7d6b711a3ed9b2b9c0f0317c9278ba5de9b647151a6b7b8613df15e2",
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -483,6 +486,24 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     subcommentaryGroups: 1,
     relatedDistinctWorkGroups: 2,
   });
+  expect(coverage.candidateInventory.chineseT37SourceRecords).toMatchObject({
+    denominator: 21,
+    controlled: 21,
+    percentage: 100,
+    fullSourceTexts: 21,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedPartialWorkWitnesses: 0,
+    verifiedSplitWorkWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 21,
+    relationAnnotatedRecords: 21,
+    newWorks: 21,
+    controlledWorks: 21,
+    rootTreatiseCommentaryGroups: 6,
+    subcommentaryGroups: 1,
+    relatedDistinctWorkGroups: 2,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -522,6 +543,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseHuayanCommentaryT35BoundaryAudit: expect.stringContaining("batch-v4.2.0.json"),
     chineseHuayanCommentaryT36Inventory: expect.stringContaining("cbeta-taisho-t36-inventory-v0.1.0.json"),
     chineseHuayanCommentaryT36BoundaryAudit: expect.stringContaining("batch-v4.3.0.json"),
+    chinesePureLandNirvanaCommentaryT37Inventory: expect.stringContaining("cbeta-taisho-t37-inventory-v0.1.0.json"),
+    chinesePureLandNirvanaCommentaryT37BoundaryAudit: expect.stringContaining("batch-v4.4.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -1855,6 +1878,55 @@ test("汉译 T36 华严疏钞论义完整受控并保持根经、经疏、再注
     "/jingzang/taisho-t1742/001-1049c",
     "/jingzang/taisho-t1743/001-1064c",
   ]) expect(sitemap).toContain(path);
+});
+
+test("汉译 T37 净土、胜鬘与涅槃经疏完整受控并保持根经、再注释、讲说集解与同题异作边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1745/001-0091a");
+  await expect(page.getByRole("heading", { level: 1, name: "無量壽經義疏" })).toBeVisible();
+  await expect(page.getByText(/慧远与吉藏两部《无量寿经义疏》/)).toBeVisible();
+  await expect(page.getByText(/相同题名与共同根经不构成同一作品/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1751/001-0195a");
+  await expect(page.getByRole("heading", { level: 1, name: "觀無量壽佛經疏妙宗鈔" })).toBeVisible();
+  await expect(page.getByText(/《观无量寿佛经》、智顗说疏与知礼《妙宗钞》/)).toBeVisible();
+  await expect(page.getByText(/根本经、讲说记录与再注释分层登记/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1763/001-0377a");
+  await expect(page.getByRole("heading", { level: 1, name: "大般涅槃經集解" })).toBeVisible();
+  await expect(page.getByText(/南本《大般涅槃经》与宝亮等《大般涅槃经集解》/)).toBeVisible();
+  await expect(page.getByText(/独立注释作品，不是南本根经的另一表达/)).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t1744/003-0090c",
+    "/jingzang/taisho-t1748/003-0171a",
+    "/jingzang/taisho-t1751/006-0233b",
+    "/jingzang/taisho-t1754/003-0305c",
+    "/jingzang/taisho-t1758/003-0348a",
+    "/jingzang/taisho-t1762/001-0375a",
+    "/jingzang/taisho-t1763/071-0611a",
+    "/jingzang/taisho-t1764/010-0903c",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT37SourceRecords).toMatchObject({
+    denominator: 21,
+    controlled: 21,
+    percentage: 100,
+    fullSourceTexts: 21,
+    partialSourceWitnesses: 0,
+    relationAnnotatedRecords: 21,
+    attributionBoundaryRecords: 21,
+    newWorks: 21,
+    controlledWorks: 21,
+    rootTreatiseCommentaryGroups: 6,
+    subcommentaryGroups: 1,
+    relatedDistinctWorkGroups: 2,
+  });
+
+  const sitemap = await readSitemaps(request);
+  for (const id of Array.from({ length: 21 }, (_, index) => 1744 + index)) {
+    expect(sitemap).toContain(`/jingzang/taisho-t${id}/`);
+  }
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
