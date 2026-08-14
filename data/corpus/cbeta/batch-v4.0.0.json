@@ -1,0 +1,1763 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.0.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.9.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t33-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T33; T33 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T33",
+    "title": "大正藏 T33 经疏部固定来源记录",
+    "sourceRecordDenominator": 25,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 25,
+    "controlledSourceRecords": 25,
+    "newSourceBytes": 12016019,
+    "newStableSegments": 82527,
+    "newFolios": 2930,
+    "newJuans": 90,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 25,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 25,
+    "attributionBoundaryRecords": 25,
+    "newWorks": 25,
+    "controlledWorks": 25,
+    "workCountingDecision": "T33 的 25 份来源记录登记为 25 个完整表达和 25 个独立经疏作品。共同解释《般若》《金刚》《仁王》《心经》或《法华经》只形成主题与注释关系，不构成同一作品；T1702、T1706、T1713、T1717 分别作为再注释作品连接到所释注疏，仍不合并。所有记录均为东亚撰述、讲说记录、治定本、合注、疏、记或释籤，不标作根本经的表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_commentary_subcommentary_root_text_and_authorship_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "renben-yusheng-t0014-t1693",
+      "yinchi-ru-t0603-t1694",
+      "great-prajnaparamita-commentaries-t1695-t1697",
+      "diamond-sutra-commentaries-t1698-t1704",
+      "renwang-commentaries-t1705-t1708",
+      "renwang-new-translation-t0246-t1709",
+      "heart-sutra-commentaries-t1710-t1714",
+      "lotus-commentaries-t1715-t1717"
+    ],
+    "subcommentaryGroups": [
+      "diamond-t1701-t1702",
+      "renwang-t1705-t1706",
+      "heart-t1712-t1713",
+      "lotus-t1716-t1717"
+    ],
+    "relatedDistinctWorkGroups": [
+      "great-prajnaparamita-commentaries-t1695-t1697",
+      "diamond-sutra-commentaries-t1698-t1704",
+      "renwang-commentaries-t1705-t1708",
+      "heart-sutra-commentaries-t1710-t1714",
+      "lotus-commentaries-t1715-t1717"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1695–T1697（同属般若经疏释，但根本对象、作者、体例与范围不同）",
+      "T1698–T1704（共同解释《金刚经》，七部注疏保持七个作品）",
+      "T1701↔T1702（疏论纂要与刊定记为注疏—再注释关系）",
+      "T1705↔T1706（仁王经疏与神宝记为注疏—再注释关系）",
+      "T1705–T1708↔T1709（旧译与新译仁王经疏系保持版本对象边界）",
+      "T1710–T1714（共同解释《心经》，五部经疏保持五个作品）",
+      "T1712↔T1713（心经略疏与连珠记为注疏—再注释关系）",
+      "T1715↔T1716↔T1717（义记、玄义与释籤分属经文注释、教义玄释和再注释）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_doctrinal_exposition": [
+        "T1696",
+        "T1697"
+      ],
+      "sinitic_authored_subcommentary": [
+        "T1702",
+        "T1706",
+        "T1713",
+        "T1717"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1693",
+        "T1694",
+        "T1695",
+        "T1699",
+        "T1700",
+        "T1704",
+        "T1707",
+        "T1708",
+        "T1709",
+        "T1710",
+        "T1711",
+        "T1712",
+        "T1715"
+      ],
+      "sinitic_coauthored_sutra_commentary": [
+        "T1703",
+        "T1714"
+      ],
+      "sinitic_commentary_with_editorial_redaction": [
+        "T1701"
+      ],
+      "sinitic_taught_commentary_record": [
+        "T1698",
+        "T1705"
+      ],
+      "sinitic_taught_doctrinal_exposition_record": [
+        "T1716"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation and exegetical dependence; it cannot merge root texts, commentaries or subcommentaries.",
+      "pairs": [
+        {
+          "pair": [
+            "T1698",
+            "T1699"
+          ],
+          "normalizedCharacters": [
+            12274,
+            59195
+          ],
+          "fiveGramContainmentOfShorter": 0.024988,
+          "fiveGramJaccard": 0.00441
+        },
+        {
+          "pair": [
+            "T1701",
+            "T1702"
+          ],
+          "normalizedCharacters": [
+            21132,
+            85905
+          ],
+          "fiveGramContainmentOfShorter": 0.068345,
+          "fiveGramJaccard": 0.013213
+        },
+        {
+          "pair": [
+            "T1705",
+            "T1706"
+          ],
+          "normalizedCharacters": [
+            45550,
+            41133
+          ],
+          "fiveGramContainmentOfShorter": 0.021145,
+          "fiveGramJaccard": 0.01024
+        },
+        {
+          "pair": [
+            "T1705",
+            "T1707"
+          ],
+          "normalizedCharacters": [
+            45550,
+            65126
+          ],
+          "fiveGramContainmentOfShorter": 0.063803,
+          "fiveGramJaccard": 0.027713
+        },
+        {
+          "pair": [
+            "T1710",
+            "T1711"
+          ],
+          "normalizedCharacters": [
+            27491,
+            13615
+          ],
+          "fiveGramContainmentOfShorter": 0.025035,
+          "fiveGramJaccard": 0.008168
+        },
+        {
+          "pair": [
+            "T1712",
+            "T1713"
+          ],
+          "normalizedCharacters": [
+            4466,
+            19968
+          ],
+          "fiveGramContainmentOfShorter": 0.064968,
+          "fiveGramJaccard": 0.012013
+        },
+        {
+          "pair": [
+            "T1715",
+            "T1716"
+          ],
+          "normalizedCharacters": [
+            157708,
+            186813
+          ],
+          "fiveGramContainmentOfShorter": 0.00809,
+          "fiveGramJaccard": 0.003535
+        },
+        {
+          "pair": [
+            "T1716",
+            "T1717"
+          ],
+          "normalizedCharacters": [
+            186813,
+            209813
+          ],
+          "fiveGramContainmentOfShorter": 0.020927,
+          "fiveGramJaccard": 0.009801
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T33",
+      "https://cbetaonline.dila.edu.tw/zh/T1693_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1694_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1701_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1702_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1705_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1706_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1712_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1713_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1716_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1717_001"
+    ],
+    "caveat": "T33 是经疏部，不是佛说经集合。平台完整保存固定来源，同时区分根本经、直接注疏、教义玄释、讲说记录、治定本、合注和再注释；共同经题、宗派传承、作者题记、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1693",
+      "slug": "taisho-t1693",
+      "workId": "gbcr:work:renben-yusheng-jing-zhu-daoan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "人本欲生經註",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_work_verified",
+          "groupId": "renben-yusheng-t0014-t1693",
+          "label": "《人本欲生经》与道安注",
+          "evidence": "T1693 的题名、卷首经序与 CBETA 校勘头明确其为道安对《人本欲生经》的注释；根本经与注释保持两个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0014",
+              "T1693"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1693.xml",
+      "upstreamPath": "T/T33/T33n1693.xml",
+      "upstreamGitBlobSha1": "e55e0a6e9e5d67260581b049c2c32e36710eab1d",
+      "upstreamBytes": 86853,
+      "upstreamSha256": "e56d3c8d0e08a449e80c06ed28d4d750b8bb4d9f5cc60750d135656d0156ef82",
+      "localBytes": 86854,
+      "localSha256": "dc40bd6388a49ee0496aee13aa6f3d884792c50bea9329204b6b873dc8cf3f19",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "人本欲生經註",
+        "alternateTitle": "人本欲生經註",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1693",
+        "translator": "東晉 · 道安撰",
+        "summary": "1卷。道安所撰经注完整来源。传统责任题记：東晉 道安撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1693_001"
+      },
+      "verification": {
+        "segments": 720,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1693.001.0001a02",
+          "T1693.001.0009b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1694",
+      "slug": "taisho-t1694",
+      "workId": "gbcr:work:yinchi-ru-jing-zhu-chenhui",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "陰持入經註",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_work_verified",
+          "groupId": "yinchi-ru-t0603-t1694",
+          "label": "《阴持入经》与陈慧注",
+          "evidence": "T1694 的正藏题名与责任题记明确其为陈慧所撰经注；平台保存根本经、注释作品与撰者责任，不作同作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0603",
+              "T1694"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1694.xml",
+      "upstreamPath": "T/T33/T33n1694.xml",
+      "upstreamGitBlobSha1": "c9c904f2542810d82def739b30ff484c19add14d",
+      "upstreamBytes": 366555,
+      "upstreamSha256": "fd3d65efc054808c80a22dfc75dd2bc1ca2ccb2f60b4956c4a8a4273889f3290",
+      "localBytes": 366556,
+      "localSha256": "250c8bb5fb94633a69224a4de33d64008d9e2fea67e4974504be74964dbc99b0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "陰持入經註",
+        "alternateTitle": "陰持入經註",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1694",
+        "translator": "吳 · 陳慧撰",
+        "summary": "2卷。陈慧所撰经注完整来源。传统责任题记：吳 陳慧撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1694_001"
+      },
+      "verification": {
+        "segments": 1343,
+        "folios": 48,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1694.001.0009b05",
+          "T1694.002.0024c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1695",
+      "slug": "taisho-t1695",
+      "workId": "gbcr:work:prajna-liqu-fen-shuzan-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大般若波羅蜜多經般若理趣分述讚",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "related_commentaries_on_great_prajnaparamita_distinct",
+          "groupId": "great-prajnaparamita-commentaries-t1695-t1697",
+          "label": "大般若、大品与大慧度经疏释边界",
+          "evidence": "T1695 是般若理趣分述赞，T1696 是《大品经》游意，T1697 是《大慧度经》宗要；三者对象、作者、体例和范围均不同，只记录经疏亲缘，不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220",
+              "T1695",
+              "T1696",
+              "T1697"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1695.xml",
+      "upstreamPath": "T/T33/T33n1695.xml",
+      "upstreamGitBlobSha1": "37278aa9fb0ea863760b6e854b3d61d93620c62a",
+      "upstreamBytes": 347406,
+      "upstreamSha256": "d9998f60705eb099f93da850e4f120322c8eda36483b4ad2f5f14d4147970416",
+      "localBytes": 347407,
+      "localSha256": "933ea556db4b8bee4cdbed0bb3f58e30241f336c819b40eef1135c51cb68c175",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大般若波羅蜜多經般若理趣分述讚",
+        "alternateTitle": "大般若波羅蜜多經般若理趣分述讚",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1695",
+        "translator": "唐 · 窺基撰",
+        "summary": "3卷。窺基《般若理趣分述赞》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1695_001"
+      },
+      "verification": {
+        "segments": 3316,
+        "folios": 115,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1695.001.0025a02",
+          "T1695.003.0063a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1696",
+      "slug": "taisho-t1696",
+      "workId": "gbcr:work:dapin-jing-youyi-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大品經遊意",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "related_commentaries_on_great_prajnaparamita_distinct",
+          "groupId": "great-prajnaparamita-commentaries-t1695-t1697",
+          "label": "大般若、大品与大慧度经疏释边界",
+          "evidence": "T1695 是般若理趣分述赞，T1696 是《大品经》游意，T1697 是《大慧度经》宗要；三者对象、作者、体例和范围均不同，只记录经疏亲缘，不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220",
+              "T1695",
+              "T1696",
+              "T1697"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1696.xml",
+      "upstreamPath": "T/T33/T33n1696.xml",
+      "upstreamGitBlobSha1": "2119965f4b94a1d17ddf62d756cb3fd4e3d2ae6c",
+      "upstreamBytes": 59334,
+      "upstreamSha256": "5fd963f63d4c1988c11e9f95f88443d3cd198375d459d143272e9dc4364e5e6b",
+      "localBytes": 59335,
+      "localSha256": "0fa110983cad681f3ce445be26f25b1dbb88e5b834d9bd2c7e6d9f198bd8da6d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大品經遊意",
+        "alternateTitle": "大品經遊意",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1696",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。吉藏《大品经游意》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1696_001"
+      },
+      "verification": {
+        "segments": 455,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1696.001.0063a24",
+          "T1696.001.0068b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1697",
+      "slug": "taisho-t1697",
+      "workId": "gbcr:work:dahuidu-jing-zongyao-wonhyo",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大慧度經宗要",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "related_commentaries_on_great_prajnaparamita_distinct",
+          "groupId": "great-prajnaparamita-commentaries-t1695-t1697",
+          "label": "大般若、大品与大慧度经疏释边界",
+          "evidence": "T1695 是般若理趣分述赞，T1696 是《大品经》游意，T1697 是《大慧度经》宗要；三者对象、作者、体例和范围均不同，只记录经疏亲缘，不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0220",
+              "T1695",
+              "T1696",
+              "T1697"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1697.xml",
+      "upstreamPath": "T/T33/T33n1697.xml",
+      "upstreamGitBlobSha1": "4347ba6db873f7a52e74220c290c8b21efcadc2c",
+      "upstreamBytes": 50485,
+      "upstreamSha256": "a1d97768554481488cfcee13ee13493c1d396199903e9c42d40ba58520178601",
+      "localBytes": 50486,
+      "localSha256": "d09dc66ef142550a0de407d9cc7b3a1c271af7bf3d987659472faf36622935b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大慧度經宗要",
+        "alternateTitle": "大慧度經宗要",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1697",
+        "translator": "新羅 · 元曉撰",
+        "summary": "1卷。元晓《大慧度经宗要》完整来源。传统责任题记：新羅 元曉撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1697_001"
+      },
+      "verification": {
+        "segments": 479,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1697.001.0068b18",
+          "T1697.001.0074a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1698",
+      "slug": "taisho-t1698",
+      "workId": "gbcr:work:jingang-bore-jing-shu-zhiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若經疏",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1698.xml",
+      "upstreamPath": "T/T33/T33n1698.xml",
+      "upstreamGitBlobSha1": "3f5f042395769bfa34390bbf03c71f7a01e89df0",
+      "upstreamBytes": 256529,
+      "upstreamSha256": "83ec8632213726f48cec7f7b55542f523196c6949bb1b33236a9802ae685ccef",
+      "localBytes": 256530,
+      "localSha256": "07912bdfa3de193870de16d651f3b8d43bf256bd9c6e4201ee6cf8753dadc170",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若經疏",
+        "alternateTitle": "金剛般若經疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1698",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。传统题记为智顗说的《金刚般若经疏》完整来源。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1698_001"
+      },
+      "verification": {
+        "segments": 721,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1698.001.0075a02",
+          "T1698.001.0084a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1699",
+      "slug": "taisho-t1699",
+      "workId": "gbcr:work:jingang-bore-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1699.xml",
+      "upstreamPath": "T/T33/T33n1699.xml",
+      "upstreamGitBlobSha1": "04773397a628b12cc503036d238d53ea4b5a5cb5",
+      "upstreamBytes": 334652,
+      "upstreamSha256": "94faf067569d4786640bc2931095005084344ff4dbe782df322aa6afb8d95d43",
+      "localBytes": 334653,
+      "localSha256": "c17b9366c7f4b76311a17d6f15199dfa0b497bfbf051fc5424eef239326bdd70",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若疏",
+        "alternateTitle": "金剛般若疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1699",
+        "translator": "隋 · 吉藏撰",
+        "summary": "4卷。吉藏《金刚般若疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1699_001"
+      },
+      "verification": {
+        "segments": 3468,
+        "folios": 122,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1699.001.0084a16",
+          "T1699.004.0124a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1700",
+      "slug": "taisho-t1700",
+      "workId": "gbcr:work:jingang-bore-jing-zanshu-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若經贊述",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1700.xml",
+      "upstreamPath": "T/T33/T33n1700.xml",
+      "upstreamGitBlobSha1": "0ddc50f4bfc54dc33c14c169e72eebf510043a2a",
+      "upstreamBytes": 547015,
+      "upstreamSha256": "b2a74ed6b949cf6fd82c1ba56f1529cbea6b5f63f95b7ab54fee8a5f65c929f4",
+      "localBytes": 547016,
+      "localSha256": "6f9debe4d4b454bc4b0323013516ff166c44c293897ffa11e4299995949f2435",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若經贊述",
+        "alternateTitle": "金剛般若經贊述",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1700",
+        "translator": "唐 · 窺基撰",
+        "summary": "2卷。窺基《金刚般若经赞述》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1700_001"
+      },
+      "verification": {
+        "segments": 2632,
+        "folios": 93,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1700.001.0124a19",
+          "T1700.002.0154b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1701",
+      "slug": "taisho-t1701",
+      "workId": "gbcr:work:jingang-bore-jing-shulun-zuanyao-zongmi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若經疏論纂要",
+      "sourceRole": "sinitic_commentary_with_editorial_redaction",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "diamond-t1701-t1702",
+          "label": "《金刚般若经疏论纂要》与《刊定记》",
+          "evidence": "T1702 的题名与正文结构明确承接 T1701 的《纂要》而作刊定记；再注释与所释注疏分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1701",
+              "T1702"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1701.xml",
+      "upstreamPath": "T/T33/T33n1701.xml",
+      "upstreamGitBlobSha1": "f2bb5463bd4faf189ff425da37ace57b9635e604",
+      "upstreamBytes": 158518,
+      "upstreamSha256": "30734141cd2be33a13aed69f7185cc13dfc953a91f8f6ba7eb575c815ff33849",
+      "localBytes": 158519,
+      "localSha256": "9f068cccdef2444b562ec819438a674cac153dee091195595572aea169fc866d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若經疏論纂要",
+        "alternateTitle": "金剛般若經疏論纂要",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1701",
+        "translator": "唐 · 宗密述 · 宋 · 子璿治定",
+        "summary": "2卷。宗密述、子璿治定的《疏论纂要》完整来源。传统责任题记：唐 宗密述 宋 子璿治定。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1701_001"
+      },
+      "verification": {
+        "segments": 1330,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1701.001.0154c02",
+          "T1701.002.0170a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1702",
+      "slug": "taisho-t1702",
+      "workId": "gbcr:work:jingang-jing-zuanyao-kandingji-zixuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛經纂要刊定記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "diamond-t1701-t1702",
+          "label": "《金刚般若经疏论纂要》与《刊定记》",
+          "evidence": "T1702 的题名与正文结构明确承接 T1701 的《纂要》而作刊定记；再注释与所释注疏分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1701",
+              "T1702"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1702.xml",
+      "upstreamPath": "T/T33/T33n1702.xml",
+      "upstreamGitBlobSha1": "14fb48b78da9573b452045a44a1e8525860b2856",
+      "upstreamBytes": 540898,
+      "upstreamSha256": "a60e99b4ad3f1713c3f3c8d5b1841d2dfb567c6c3b7107ab2206dd632300de2f",
+      "localBytes": 540899,
+      "localSha256": "17d603382e5856e6f994b927b3b0e4c07f9048a9240371283179edb92bd1f890",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛經纂要刊定記",
+        "alternateTitle": "金剛經纂要刊定記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1702",
+        "translator": "宋 · 子璿錄",
+        "summary": "7卷。子璿《金刚经纂要刊定记》完整来源。传统责任题记：宋 子璿錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1702_001"
+      },
+      "verification": {
+        "segments": 5021,
+        "folios": 180,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1702.001.0170a05",
+          "T1702.007.0228a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1703",
+      "slug": "taisho-t1703",
+      "workId": "gbcr:work:jingang-bore-jing-zhujie-zongle-ruqi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若波羅蜜經註解",
+      "sourceRole": "sinitic_coauthored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1703.xml",
+      "upstreamPath": "T/T33/T33n1703.xml",
+      "upstreamGitBlobSha1": "0cf0b0ff98cc3f399b74208c5e7839c435f61c95",
+      "upstreamBytes": 197969,
+      "upstreamSha256": "52280a5d60105e15f8acafd289c1dc5672989c28ba8830d2c90008733493b831",
+      "localBytes": 197970,
+      "localSha256": "7a8dd3f9073c2b2f01e300b1e3ab814fd86d6c7143500e99a8a25a1a5006a101",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經註解",
+        "alternateTitle": "金剛般若波羅蜜經註解",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1703",
+        "translator": "明 · 宗泐．如󰃗同註",
+        "summary": "1卷。宗泐、如玘同注本完整来源。传统责任题记：明 宗泐．如󰃗同註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1703_001"
+      },
+      "verification": {
+        "segments": 945,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1703.001.0228a06",
+          "T1703.001.0238c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1704",
+      "slug": "taisho-t1704",
+      "workId": "gbcr:work:jingang-bore-jing-lueshu-zhiyan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若波羅蜜經略疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "diamond_sutra_commentaries_distinct",
+          "groupId": "diamond-sutra-commentaries-t1698-t1704",
+          "label": "《金刚经》七部疏、赞、纂要与注解",
+          "evidence": "T1698–T1704 共享《金刚般若》解释对象，但由不同作者、时代和注释层形成；共同根本经不等于同一注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T1698",
+              "T1699",
+              "T1700",
+              "T1701",
+              "T1702",
+              "T1703",
+              "T1704"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1704.xml",
+      "upstreamPath": "T/T33/T33n1704.xml",
+      "upstreamGitBlobSha1": "a1c5c3cf4a6cf565254304ac490befb514c0a221",
+      "upstreamBytes": 107096,
+      "upstreamSha256": "c53a018a7fe9f5823f6793e1903f2495a73a67a51c3a586f77ab2ffa1bbbdb0a",
+      "localBytes": 107097,
+      "localSha256": "5c59c49048cf70f1bbd644c6c75aa76a3d728b66462e3274d4382559c9a573c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經略疏",
+        "alternateTitle": "金剛般若波羅蜜經略疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1704",
+        "translator": "唐 · 智儼述",
+        "summary": "2卷。智俨《金刚般若波罗蜜经略疏》完整来源。传统责任题记：唐 智儼述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1704_001"
+      },
+      "verification": {
+        "segments": 1068,
+        "folios": 38,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1704.001.0239a02",
+          "T1704.002.0251a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1705",
+      "slug": "taisho-t1705",
+      "workId": "gbcr:work:renwang-huguo-bore-jing-shu-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "仁王護國般若經疏",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "renwang_old_translation_commentaries_distinct",
+          "groupId": "renwang-commentaries-t1705-t1708",
+          "label": "旧译《仁王经》疏与再注释",
+          "evidence": "T1705、T1707、T1708 是不同师家对《仁王经》的疏释，T1706 是围绕智顗、灌顶疏系形成的神宝记；共同经题与宗派传承不取消各自作品身份。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T1705",
+              "T1706",
+              "T1707",
+              "T1708"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "renwang-t1705-t1706",
+          "label": "《仁王护国般若经疏》与《疏神宝记》",
+          "evidence": "T1706 明示为疏之神宝记，属于对 T1705 疏系的再注释；两层文本及责任题记独立保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1705",
+              "T1706"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1705.xml",
+      "upstreamPath": "T/T33/T33n1705.xml",
+      "upstreamGitBlobSha1": "8165cfc9e4e59248a048224392abbbbe45a356af",
+      "upstreamBytes": 976388,
+      "upstreamSha256": "4e3979cf2dfb2910150b1f062d61cc5e9380ce0e59868af3042953186ea60a8a",
+      "localBytes": 976389,
+      "localSha256": "1d35f405b1a31c16afff1167175587390ce77221a58715782c76ed64c6b6c56c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王護國般若經疏",
+        "alternateTitle": "仁王護國般若經疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1705",
+        "translator": "隋 · 智顗說 · 灌頂記",
+        "summary": "5卷。智顗说、灌顶记的仁王经疏完整来源。传统责任题记：隋 智顗說 灌頂記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1705_001"
+      },
+      "verification": {
+        "segments": 2714,
+        "folios": 100,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1705.001.0253a03",
+          "T1705.005.0286a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1706",
+      "slug": "taisho-t1706",
+      "workId": "gbcr:work:renwang-shu-shenbaoji-shanyue",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "仁王護國般若波羅蜜經疏神寶記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "renwang_old_translation_commentaries_distinct",
+          "groupId": "renwang-commentaries-t1705-t1708",
+          "label": "旧译《仁王经》疏与再注释",
+          "evidence": "T1705、T1707、T1708 是不同师家对《仁王经》的疏释，T1706 是围绕智顗、灌顶疏系形成的神宝记；共同经题与宗派传承不取消各自作品身份。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T1705",
+              "T1706",
+              "T1707",
+              "T1708"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "renwang-t1705-t1706",
+          "label": "《仁王护国般若经疏》与《疏神宝记》",
+          "evidence": "T1706 明示为疏之神宝记，属于对 T1705 疏系的再注释；两层文本及责任题记独立保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1705",
+              "T1706"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1706.xml",
+      "upstreamPath": "T/T33/T33n1706.xml",
+      "upstreamGitBlobSha1": "d682e0590d037d99659ea03f69bc0c8dff0bb971",
+      "upstreamBytes": 243410,
+      "upstreamSha256": "20e162a56255d857c32bbe4804904f288c492938acd9ebe7d04246bcd87442a1",
+      "localBytes": 243411,
+      "localSha256": "77f10b8ddebf0d0448dc344cb78bda7808a60a1de6d171d4434b2f6bd388ee79",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王護國般若波羅蜜經疏神寶記",
+        "alternateTitle": "仁王護國般若波羅蜜經疏神寶記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1706",
+        "translator": "宋 · 善月述",
+        "summary": "4卷。善月《仁王经疏神宝记》完整来源。传统责任题记：宋 善月述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1706_001"
+      },
+      "verification": {
+        "segments": 2429,
+        "folios": 86,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1706.001.0286a13",
+          "T1706.004.0314a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1707",
+      "slug": "taisho-t1707",
+      "workId": "gbcr:work:renwang-bore-jing-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "仁王般若經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "renwang_old_translation_commentaries_distinct",
+          "groupId": "renwang-commentaries-t1705-t1708",
+          "label": "旧译《仁王经》疏与再注释",
+          "evidence": "T1705、T1707、T1708 是不同师家对《仁王经》的疏释，T1706 是围绕智顗、灌顶疏系形成的神宝记；共同经题与宗派传承不取消各自作品身份。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T1705",
+              "T1706",
+              "T1707",
+              "T1708"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1707.xml",
+      "upstreamPath": "T/T33/T33n1707.xml",
+      "upstreamGitBlobSha1": "4444bfa8dfa4d5bfb1265d6a90b00aabf36e012a",
+      "upstreamBytes": 391347,
+      "upstreamSha256": "cebc2f42190cc4dc82b50a32afb53fbf0bfef394318a8654a382f7655507df7d",
+      "localBytes": 391348,
+      "localSha256": "a6e3b34d18406d8713bc64e113a062f543e24448d2a3b1f312482b3faf483792",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王般若經疏",
+        "alternateTitle": "仁王般若經疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1707",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。吉藏《仁王般若经疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1707_001"
+      },
+      "verification": {
+        "segments": 3876,
+        "folios": 136,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1707.001.0314b02",
+          "T1707.003.0359a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1708",
+      "slug": "taisho-t1708",
+      "workId": "gbcr:work:renwang-jing-shu-woncheuk",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "仁王經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "renwang_old_translation_commentaries_distinct",
+          "groupId": "renwang-commentaries-t1705-t1708",
+          "label": "旧译《仁王经》疏与再注释",
+          "evidence": "T1705、T1707、T1708 是不同师家对《仁王经》的疏释，T1706 是围绕智顗、灌顶疏系形成的神宝记；共同经题与宗派传承不取消各自作品身份。",
+          "externalIds": {
+            "cbeta": [
+              "T0245",
+              "T1705",
+              "T1706",
+              "T1707",
+              "T1708"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1708.xml",
+      "upstreamPath": "T/T33/T33n1708.xml",
+      "upstreamGitBlobSha1": "89b345ff869ddd04c1ac5361ec09af78faad3380",
+      "upstreamBytes": 944489,
+      "upstreamSha256": "d2aad84fb3aa5251252741152136fe42c3af7dd9c3e26659d16b0b16bc128c06",
+      "localBytes": 944490,
+      "localSha256": "7bd36242aab33fb9d45cbcfccc32b650299cc1fe57d9551f0760b52e824a995a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王經疏",
+        "alternateTitle": "仁王經疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1708",
+        "translator": "唐 · 圓測撰",
+        "summary": "3卷。圆测《仁王经疏》完整来源。传统责任题记：唐 圓測撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1708_001"
+      },
+      "verification": {
+        "segments": 5935,
+        "folios": 208,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1708.001.0359a18",
+          "T1708.003.0427c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1709",
+      "slug": "taisho-t1709",
+      "workId": "gbcr:work:renwang-huguo-bore-boluomiduo-jing-shu-liangben",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "仁王護國般若波羅蜜多經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_new_renwang_translation_verified",
+          "groupId": "renwang-new-translation-t0246-t1709",
+          "label": "不空新译《仁王经》与良贲疏",
+          "evidence": "T1709 对《仁王护国般若波罗蜜多经》作疏，和 T1705–T1708 的旧译疏系保持版本及注释传统边界。",
+          "externalIds": {
+            "cbeta": [
+              "T0246",
+              "T1709"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1709.xml",
+      "upstreamPath": "T/T33/T33n1709.xml",
+      "upstreamGitBlobSha1": "8e06b4a85e7545cb7450cdb0cbfe492e1aecc456",
+      "upstreamBytes": 1901601,
+      "upstreamSha256": "ed722fcca97ed5c665be99cc28101333d2bc3f3acf4e8f6e4ec2121d923b36e9",
+      "localBytes": 1901602,
+      "localSha256": "7ed6930445ea4227be0cd9591eca37469f484c4104b36e236ee205d909ebe223",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "仁王護國般若波羅蜜多經疏",
+        "alternateTitle": "仁王護國般若波羅蜜多經疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1709",
+        "translator": "唐 · 良賁述",
+        "summary": "3卷。良贲新译仁王经疏完整来源。传统责任题记：唐 良賁述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1709_001"
+      },
+      "verification": {
+        "segments": 8192,
+        "folios": 286,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1709.001.0429a02",
+          "T1709.003.0523b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1710",
+      "slug": "taisho-t1710",
+      "workId": "gbcr:work:heart-sutra-youzan-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若波羅蜜多心經幽贊",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "heart_sutra_commentaries_distinct",
+          "groupId": "heart-sutra-commentaries-t1710-t1714",
+          "label": "《心经》幽赞、赞、略疏、连珠记与注解",
+          "evidence": "T1710–T1714 共享《心经》解释对象，却由窺基、圆测、法藏、师会、宗泐与如玘等不同责任层形成；不得重复算作《心经》正文表达，也不得彼此合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0251",
+              "T1710",
+              "T1711",
+              "T1712",
+              "T1713",
+              "T1714"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1710.xml",
+      "upstreamPath": "T/T33/T33n1710.xml",
+      "upstreamGitBlobSha1": "f1111e1a483dbfec34fcc78d680f02a2a9d3fbc8",
+      "upstreamBytes": 235235,
+      "upstreamSha256": "9d63a665bb112e33c7325ed230b85a31e069a74b101f7816c66496107b9cdaec",
+      "localBytes": 235236,
+      "localSha256": "e97ea8748b88c654e8660d180b5dbf5457bdb7e858d5baadc3d5149923544c37",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經幽贊",
+        "alternateTitle": "般若波羅蜜多心經幽贊",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1710",
+        "translator": "唐 · 窺基撰",
+        "summary": "2卷。窺基《心经幽赞》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1710_001"
+      },
+      "verification": {
+        "segments": 1685,
+        "folios": 60,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1710.001.0523b09",
+          "T1710.002.0542c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1711",
+      "slug": "taisho-t1711",
+      "workId": "gbcr:work:heart-sutra-zan-woncheuk",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若波羅蜜多心經贊",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "heart_sutra_commentaries_distinct",
+          "groupId": "heart-sutra-commentaries-t1710-t1714",
+          "label": "《心经》幽赞、赞、略疏、连珠记与注解",
+          "evidence": "T1710–T1714 共享《心经》解释对象，却由窺基、圆测、法藏、师会、宗泐与如玘等不同责任层形成；不得重复算作《心经》正文表达，也不得彼此合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0251",
+              "T1710",
+              "T1711",
+              "T1712",
+              "T1713",
+              "T1714"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1711.xml",
+      "upstreamPath": "T/T33/T33n1711.xml",
+      "upstreamGitBlobSha1": "d554069097d392854bd1d5c3474a351a83d8211a",
+      "upstreamBytes": 83882,
+      "upstreamSha256": "9591ffb509a06939c23fa3e9d84e7991249842bddd557cf50293e35ba26be1cf",
+      "localBytes": 83883,
+      "localSha256": "65405acceb0758ef8caec7493929e151032d271b4692f713bf4294151a57a4f7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經贊",
+        "alternateTitle": "般若波羅蜜多心經贊",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1711",
+        "translator": "唐 · 圓測撰",
+        "summary": "1卷。圆测《心经赞》完整来源。传统责任题记：唐 圓測撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1711_001"
+      },
+      "verification": {
+        "segments": 801,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1711.001.0542c18",
+          "T1711.001.0552a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1712",
+      "slug": "taisho-t1712",
+      "workId": "gbcr:work:heart-sutra-lueshu-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若波羅蜜多心經略疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "heart_sutra_commentaries_distinct",
+          "groupId": "heart-sutra-commentaries-t1710-t1714",
+          "label": "《心经》幽赞、赞、略疏、连珠记与注解",
+          "evidence": "T1710–T1714 共享《心经》解释对象，却由窺基、圆测、法藏、师会、宗泐与如玘等不同责任层形成；不得重复算作《心经》正文表达，也不得彼此合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0251",
+              "T1710",
+              "T1711",
+              "T1712",
+              "T1713",
+              "T1714"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "heart-t1712-t1713",
+          "label": "法藏《心经略疏》与师会《连珠记》",
+          "evidence": "T1713 题名明示为《般若心经略疏连珠记》，承接 T1712 的略疏而作；再注释与原疏分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1712",
+              "T1713"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1712.xml",
+      "upstreamPath": "T/T33/T33n1712.xml",
+      "upstreamGitBlobSha1": "020588738dc61e948649cfa3e1d7c9055bcd73bc",
+      "upstreamBytes": 39709,
+      "upstreamSha256": "f9a089284cb7ecc12dc9d3cf05d62cea219eafbc101b06b44cf6f1f28f1f8442",
+      "localBytes": 39710,
+      "localSha256": "c759eb40f065b6a023549c78f89d7ea911457e13fd4a089e85b00faa6b9d09d1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經略疏",
+        "alternateTitle": "般若波羅蜜多心經略疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1712",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。法藏《心经略疏》完整来源。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1712_001"
+      },
+      "verification": {
+        "segments": 287,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1712.001.0552a10",
+          "T1712.001.0555b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1713",
+      "slug": "taisho-t1713",
+      "workId": "gbcr:work:heart-sutra-lueshu-lianzhuji-shihui",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若心經略疏連珠記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "heart_sutra_commentaries_distinct",
+          "groupId": "heart-sutra-commentaries-t1710-t1714",
+          "label": "《心经》幽赞、赞、略疏、连珠记与注解",
+          "evidence": "T1710–T1714 共享《心经》解释对象，却由窺基、圆测、法藏、师会、宗泐与如玘等不同责任层形成；不得重复算作《心经》正文表达，也不得彼此合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0251",
+              "T1710",
+              "T1711",
+              "T1712",
+              "T1713",
+              "T1714"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "heart-t1712-t1713",
+          "label": "法藏《心经略疏》与师会《连珠记》",
+          "evidence": "T1713 题名明示为《般若心经略疏连珠记》，承接 T1712 的略疏而作；再注释与原疏分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1712",
+              "T1713"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1713.xml",
+      "upstreamPath": "T/T33/T33n1713.xml",
+      "upstreamGitBlobSha1": "1c0e18d23b14bd22bdf4342b7fddb8af4d039943",
+      "upstreamBytes": 116565,
+      "upstreamSha256": "7e5b62324620b5e00854c95f8197646226127e529aff84c1050a69e1600002a6",
+      "localBytes": 116566,
+      "localSha256": "0618beb2e8d8a4c8fe43eb45b205b6c1c0598e2f363091371a8b13581fa97132",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若心經略疏連珠記",
+        "alternateTitle": "般若心經略疏連珠記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1713",
+        "translator": "宋 · 師會述",
+        "summary": "2卷。师会《心经略疏连珠记》完整来源。传统责任题记：宋 師會述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1713_001"
+      },
+      "verification": {
+        "segments": 1168,
+        "folios": 42,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1713.001.0555b15",
+          "T1713.002.0568c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1714",
+      "slug": "taisho-t1714",
+      "workId": "gbcr:work:heart-sutra-zhujie-zongle-ruqi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若波羅蜜多心經註解",
+      "sourceRole": "sinitic_coauthored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "heart_sutra_commentaries_distinct",
+          "groupId": "heart-sutra-commentaries-t1710-t1714",
+          "label": "《心经》幽赞、赞、略疏、连珠记与注解",
+          "evidence": "T1710–T1714 共享《心经》解释对象，却由窺基、圆测、法藏、师会、宗泐与如玘等不同责任层形成；不得重复算作《心经》正文表达，也不得彼此合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0251",
+              "T1710",
+              "T1711",
+              "T1712",
+              "T1713",
+              "T1714"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1714.xml",
+      "upstreamPath": "T/T33/T33n1714.xml",
+      "upstreamGitBlobSha1": "03c466e6bdff5b5360c6fdf289b0e2af104454f2",
+      "upstreamBytes": 23352,
+      "upstreamSha256": "ee17364025e68210e533fb5a031f6214c7d13dae057d30ebf0cba2e758700379",
+      "localBytes": 23353,
+      "localSha256": "9890fb1373039120c076d4cf041ac344b2c1fc560f3225573f9bb097d3807616",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若波羅蜜多心經註解",
+        "alternateTitle": "般若波羅蜜多心經註解",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1714",
+        "translator": "明 · 宗泐．如󰃗同註",
+        "summary": "1卷。宗泐、如玘同注《心经》完整来源。传统责任题记：明 宗泐．如󰃗同註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1714_001"
+      },
+      "verification": {
+        "segments": 192,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1714.001.0569a02",
+          "T1714.001.0571a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1715",
+      "slug": "taisho-t1715",
+      "workId": "gbcr:work:lotus-sutra-yiji-fayun",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華經義記",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_and_doctrinal_exegesis_distinct",
+          "groupId": "lotus-commentaries-t1715-t1717",
+          "label": "《法华经》义记、玄义与释籤",
+          "evidence": "T1715 是法云《法华经义记》，T1716 是智顗讲说的《法华玄义》，T1717 是湛然对玄义所作释籤；经文注释、教义玄释与再注释分别建模。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1715",
+              "T1716",
+              "T1717"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1715.xml",
+      "upstreamPath": "T/T33/T33n1715.xml",
+      "upstreamGitBlobSha1": "10ad321aefb0543721ef13b248d65651c06449d9",
+      "upstreamBytes": 993437,
+      "upstreamSha256": "1fca485ae25f6f910001206eed1e40fb122cebcaff77c62f9369524c52023207",
+      "localBytes": 993438,
+      "localSha256": "d1ba071c7869b4d1f294bcec1c20a06e46db003536dd04c94d7286f9199d3458",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華經義記",
+        "alternateTitle": "法華經義記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1715",
+        "translator": "梁 · 法雲撰",
+        "summary": "8卷。法云《法华经义记》完整来源。传统责任题记：梁 法雲撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1715_001"
+      },
+      "verification": {
+        "segments": 9360,
+        "folios": 329,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T1715.001.0572a02",
+          "T1715.008.0679c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1716",
+      "slug": "taisho-t1716",
+      "workId": "gbcr:work:lotus-sutra-xuanyi-zhiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "妙法蓮華經玄義",
+      "sourceRole": "sinitic_taught_doctrinal_exposition_record",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_and_doctrinal_exegesis_distinct",
+          "groupId": "lotus-commentaries-t1715-t1717",
+          "label": "《法华经》义记、玄义与释籤",
+          "evidence": "T1715 是法云《法华经义记》，T1716 是智顗讲说的《法华玄义》，T1717 是湛然对玄义所作释籤；经文注释、教义玄释与再注释分别建模。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1715",
+              "T1716",
+              "T1717"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-t1716-t1717",
+          "label": "《法华玄义》与《法华玄义释籤》",
+          "evidence": "T1717 明示解释 T1716《法华玄义》，是独立再注释作品，不作为 T1716 的另一版本或《法华经》正文表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1716",
+              "T1717"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1716.xml",
+      "upstreamPath": "T/T33/T33n1716.xml",
+      "upstreamGitBlobSha1": "41c989f1d36714c0bdeaf8ae90292c3fd9e94e4f",
+      "upstreamBytes": 1127408,
+      "upstreamSha256": "4310b05ea0c8ff799b16fbeb3c61b73bb53c16c3b54f4b4317d89a6ba3d1fe7d",
+      "localBytes": 1127409,
+      "localSha256": "72f78c01be98b513acff7e674cfb15bbc4929005c2fb561baf644b58aa8de7d8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經玄義",
+        "alternateTitle": "妙法蓮華經玄義",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1716",
+        "translator": "隋 · 智顗說",
+        "summary": "10卷。智顗说《妙法莲华经玄义》完整来源。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1716_001"
+      },
+      "verification": {
+        "segments": 11493,
+        "folios": 408,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1716.001.0681a02",
+          "T1716.010.0814a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1717",
+      "slug": "taisho-t1717",
+      "workId": "gbcr:work:lotus-xuanyi-shiqian-zhanran",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華玄義釋籤",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_and_doctrinal_exegesis_distinct",
+          "groupId": "lotus-commentaries-t1715-t1717",
+          "label": "《法华经》义记、玄义与释籤",
+          "evidence": "T1715 是法云《法华经义记》，T1716 是智顗讲说的《法华玄义》，T1717 是湛然对玄义所作释籤；经文注释、教义玄释与再注释分别建模。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1715",
+              "T1716",
+              "T1717"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-t1716-t1717",
+          "label": "《法华玄义》与《法华玄义释籤》",
+          "evidence": "T1717 明示解释 T1716《法华玄义》，是独立再注释作品，不作为 T1716 的另一版本或《法华经》正文表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1716",
+              "T1717"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T33n1717.xml",
+      "upstreamPath": "T/T33/T33n1717.xml",
+      "upstreamGitBlobSha1": "d82610e77e7f0cde8a0ef3724fa6ea2217a61651",
+      "upstreamBytes": 1885886,
+      "upstreamSha256": "5d72a0e1c27f7a77010fe06898368fb15e21cc575bce321cd3f0b5d371f565f8",
+      "localBytes": 1885887,
+      "localSha256": "c7ed2367ba0e31d9ef1eca6a7a8f34f38fe5333dca4b04ba9bd68aa3c64019ea",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華玄義釋籤",
+        "alternateTitle": "法華玄義釋籤",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T33, no. 1717",
+        "translator": "唐 · 湛然述",
+        "summary": "20卷。湛然《法华玄义释籤》完整来源。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1717_001"
+      },
+      "verification": {
+        "segments": 12897,
+        "folios": 463,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1717.001.0815a02",
+          "T1717.020.0963c21"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

@@ -233,6 +233,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT32SourceRecords.partialSourceWitnesses} 份部分作品见证，映射为
               {snapshot.candidateInventory.chineseT32SourceRecords.controlledWorks} 个作品；《因明正理门论》《缘生论》《大乘起信论》《那先比丘经》《亲友书》与《三身赞》的同作品表达共享实体，
               T1677 因第 4 偈末句缺文保留为部分作品见证，论书、经证汇编、赞颂、仪轨、汉地撰成及“佛说”题名按逐份证据分层；
+              T33 经疏部固定来源已完成 {snapshot.candidateInventory.chineseT33SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT33SourceRecords.denominator}（{snapshot.candidateInventory.chineseT33SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT33SourceRecords.fullSourceTexts} 份均为完整来源并映射为
+              {snapshot.candidateInventory.chineseT33SourceRecords.controlledWorks} 个独立注疏作品；《金刚经》《仁王经》《心经》《法华经》等根本经与直接注疏保持作品边界，
+              T1702、T1706、T1713、T1717 四部再注释另立作品并连接所释注疏，撰述、讲说记录、合注与治定责任均公开保留；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -363,6 +368,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T32 的 66 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t33-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T33 的 25 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
