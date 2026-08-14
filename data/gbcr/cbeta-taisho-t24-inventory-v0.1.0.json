@@ -1,0 +1,495 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_vinaya_t24",
+    "label": "大正藏 T24 律部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T24 目录下、文件名卷号一致的 T24n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "律部含根本说一切有部律事、律摄、戒经、羯磨、威仪、在家戒与菩萨戒，也含同经异本、异译、节出、失译、无署名及传统归属有争议的中国撰述候选；来源文件数不是去重作品数，也不是全球佛典分母。"
+  },
+  "totals": {
+    "records": 59,
+    "upstreamBytes": 19745486,
+    "candidatePathSha256": "10212439eec4876aa3f6852280f1e9a8fdf65f863e97f451c0e4f1fe3d1db334"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T24n1448",
+      "canonWitnessId": "T1448",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1448.xml",
+      "upstreamGitBlobSha1": "fa9290e49ba7d303cd7bf29de567f133d9c7cd06",
+      "upstreamBytes": 837683
+    },
+    {
+      "sourceRecordId": "T24n1449",
+      "canonWitnessId": "T1449",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1449.xml",
+      "upstreamGitBlobSha1": "63697aefaa0445c1c09bd8a759ac0bf151f37985",
+      "upstreamBytes": 18064
+    },
+    {
+      "sourceRecordId": "T24n1450",
+      "canonWitnessId": "T1450",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1450.xml",
+      "upstreamGitBlobSha1": "809bd7bae8fa4c822f4a169c5dee680f0eea63a1",
+      "upstreamBytes": 1654332
+    },
+    {
+      "sourceRecordId": "T24n1451",
+      "canonWitnessId": "T1451",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1451.xml",
+      "upstreamGitBlobSha1": "2fbced42945c6b786776f8bff22775766352a2d3",
+      "upstreamBytes": 3109821
+    },
+    {
+      "sourceRecordId": "T24n1452",
+      "canonWitnessId": "T1452",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1452.xml",
+      "upstreamGitBlobSha1": "9c2d22fd1213188d594b161a72127c24d56c2ed8",
+      "upstreamBytes": 563491
+    },
+    {
+      "sourceRecordId": "T24n1453",
+      "canonWitnessId": "T1453",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1453.xml",
+      "upstreamGitBlobSha1": "c491805b2f84553719d10d9289eab3d753070a63",
+      "upstreamBytes": 708775
+    },
+    {
+      "sourceRecordId": "T24n1454",
+      "canonWitnessId": "T1454",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1454.xml",
+      "upstreamGitBlobSha1": "8ba358e1a98a4900c7c5e0effd5c5a2f48c62c59",
+      "upstreamBytes": 146634
+    },
+    {
+      "sourceRecordId": "T24n1455",
+      "canonWitnessId": "T1455",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1455.xml",
+      "upstreamGitBlobSha1": "3662970b5ea8f517b2307d1419de6416d7202b53",
+      "upstreamBytes": 138518
+    },
+    {
+      "sourceRecordId": "T24n1456",
+      "canonWitnessId": "T1456",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1456.xml",
+      "upstreamGitBlobSha1": "4fcf2029b9c00b7453807df3131aee4d8a2f3ac0",
+      "upstreamBytes": 88568
+    },
+    {
+      "sourceRecordId": "T24n1457",
+      "canonWitnessId": "T1457",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1457.xml",
+      "upstreamGitBlobSha1": "2624e0ca6431a7e5a6eaf843459d468af326d9ff",
+      "upstreamBytes": 65588
+    },
+    {
+      "sourceRecordId": "T24n1458",
+      "canonWitnessId": "T1458",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1458.xml",
+      "upstreamGitBlobSha1": "dffda6b0cdd90b292b716a0a46bdcfa4d6ebbe07",
+      "upstreamBytes": 1975595
+    },
+    {
+      "sourceRecordId": "T24n1459",
+      "canonWitnessId": "T1459",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1459.xml",
+      "upstreamGitBlobSha1": "886b83abc6fd793f437d43240c7c4b2606b9070b",
+      "upstreamBytes": 677937
+    },
+    {
+      "sourceRecordId": "T24n1460",
+      "canonWitnessId": "T1460",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1460.xml",
+      "upstreamGitBlobSha1": "bad51e22840b7690da8cafc3d18b9fc29e3dea58",
+      "upstreamBytes": 156560
+    },
+    {
+      "sourceRecordId": "T24n1461",
+      "canonWitnessId": "T1461",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1461.xml",
+      "upstreamGitBlobSha1": "59cd7f328603ca34f1cca9ec04a647254826113c",
+      "upstreamBytes": 125692
+    },
+    {
+      "sourceRecordId": "T24n1462",
+      "canonWitnessId": "T1462",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1462.xml",
+      "upstreamGitBlobSha1": "4b254fb0a43032526564875534a6111d7e5b9720",
+      "upstreamBytes": 3104812
+    },
+    {
+      "sourceRecordId": "T24n1463",
+      "canonWitnessId": "T1463",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1463.xml",
+      "upstreamGitBlobSha1": "ee1747dcd0271dc09a7b989b3f1d5d408d1b8fe8",
+      "upstreamBytes": 937076
+    },
+    {
+      "sourceRecordId": "T24n1464",
+      "canonWitnessId": "T1464",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1464.xml",
+      "upstreamGitBlobSha1": "4c7d779292d5bb4df1c17a26e8e19db53df0745d",
+      "upstreamBytes": 1238577
+    },
+    {
+      "sourceRecordId": "T24n1465",
+      "canonWitnessId": "T1465",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1465.xml",
+      "upstreamGitBlobSha1": "c0cbcf2987b6fb8fabe0c344b5750ded54e1d7e5",
+      "upstreamBytes": 69161
+    },
+    {
+      "sourceRecordId": "T24n1466",
+      "canonWitnessId": "T1466",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1466.xml",
+      "upstreamGitBlobSha1": "ad335c7c8c8d303941463b0af72e741e7a36a665",
+      "upstreamBytes": 115767
+    },
+    {
+      "sourceRecordId": "T24n1467a",
+      "canonWitnessId": "T1467a",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1467a.xml",
+      "upstreamGitBlobSha1": "06df59936f87b1eeb94623c45792bfe1ea1e749a",
+      "upstreamBytes": 41744
+    },
+    {
+      "sourceRecordId": "T24n1467b",
+      "canonWitnessId": "T1467b",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1467b.xml",
+      "upstreamGitBlobSha1": "c6b0b17c84762fc9a73027870941f53b72624837",
+      "upstreamBytes": 6845
+    },
+    {
+      "sourceRecordId": "T24n1468",
+      "canonWitnessId": "T1468",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1468.xml",
+      "upstreamGitBlobSha1": "6320ad74752ec13719d13587c5e9c60dd7c5b6e5",
+      "upstreamBytes": 11163
+    },
+    {
+      "sourceRecordId": "T24n1469",
+      "canonWitnessId": "T1469",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1469.xml",
+      "upstreamGitBlobSha1": "70e2c55a58dc91416edf783c13665c20cce1602c",
+      "upstreamBytes": 17244
+    },
+    {
+      "sourceRecordId": "T24n1470",
+      "canonWitnessId": "T1470",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1470.xml",
+      "upstreamGitBlobSha1": "716886dfff8ac329f5aedd73b3ef5ec045265678",
+      "upstreamBytes": 386955
+    },
+    {
+      "sourceRecordId": "T24n1471",
+      "canonWitnessId": "T1471",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1471.xml",
+      "upstreamGitBlobSha1": "b7bb707a21a1786db2daaf2e6388757cd19c1072",
+      "upstreamBytes": 153177
+    },
+    {
+      "sourceRecordId": "T24n1472",
+      "canonWitnessId": "T1472",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1472.xml",
+      "upstreamGitBlobSha1": "b256c152ff67b963d5a27a13ba7b30be89b5514c",
+      "upstreamBytes": 68658
+    },
+    {
+      "sourceRecordId": "T24n1473",
+      "canonWitnessId": "T1473",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1473.xml",
+      "upstreamGitBlobSha1": "c4a1598ddd298c79af04d909885cdb9220c70d9d",
+      "upstreamBytes": 20532
+    },
+    {
+      "sourceRecordId": "T24n1474",
+      "canonWitnessId": "T1474",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1474.xml",
+      "upstreamGitBlobSha1": "8c639c4a4bffe0e5bdb52b02083f0c08b3ab7ff3",
+      "upstreamBytes": 30383
+    },
+    {
+      "sourceRecordId": "T24n1475",
+      "canonWitnessId": "T1475",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1475.xml",
+      "upstreamGitBlobSha1": "496fc8a065a0b14d82317148ee6ff800ad8e08f7",
+      "upstreamBytes": 37212
+    },
+    {
+      "sourceRecordId": "T24n1476",
+      "canonWitnessId": "T1476",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1476.xml",
+      "upstreamGitBlobSha1": "455c7aa74ad0a33b7dcb4b79ff3205260c6ed4fb",
+      "upstreamBytes": 82828
+    },
+    {
+      "sourceRecordId": "T24n1477",
+      "canonWitnessId": "T1477",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1477.xml",
+      "upstreamGitBlobSha1": "e632a16103cfe2f29a6ac224bb33e3d114b3eb8e",
+      "upstreamBytes": 34421
+    },
+    {
+      "sourceRecordId": "T24n1478",
+      "canonWitnessId": "T1478",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1478.xml",
+      "upstreamGitBlobSha1": "cf7be7797856ac417ac77e0efca69dfd6b57e08f",
+      "upstreamBytes": 180256
+    },
+    {
+      "sourceRecordId": "T24n1479",
+      "canonWitnessId": "T1479",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1479.xml",
+      "upstreamGitBlobSha1": "a493ddd5f2a86772e7ac3a7f1cd7270db2b01d7e",
+      "upstreamBytes": 23309
+    },
+    {
+      "sourceRecordId": "T24n1480",
+      "canonWitnessId": "T1480",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1480.xml",
+      "upstreamGitBlobSha1": "cbd6c5151c06b49231fb8502c45135fe2d7b8c82",
+      "upstreamBytes": 21654
+    },
+    {
+      "sourceRecordId": "T24n1481",
+      "canonWitnessId": "T1481",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1481.xml",
+      "upstreamGitBlobSha1": "279958f4e9e2ab6b36d7d1b059ed52fc41d95a24",
+      "upstreamBytes": 10043
+    },
+    {
+      "sourceRecordId": "T24n1482",
+      "canonWitnessId": "T1482",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1482.xml",
+      "upstreamGitBlobSha1": "cfff0c79f6e3dff1396cc65ecead33a596b8a87c",
+      "upstreamBytes": 193327
+    },
+    {
+      "sourceRecordId": "T24n1483a",
+      "canonWitnessId": "T1483a",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1483a.xml",
+      "upstreamGitBlobSha1": "046a5ff2232638e3eeaea154aee18528646b5e12",
+      "upstreamBytes": 106858
+    },
+    {
+      "sourceRecordId": "T24n1483b",
+      "canonWitnessId": "T1483b",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1483b.xml",
+      "upstreamGitBlobSha1": "adf5ac18c0e9e20b41d04d8aae2db0bd1e4d113c",
+      "upstreamBytes": 175081
+    },
+    {
+      "sourceRecordId": "T24n1484",
+      "canonWitnessId": "T1484",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1484.xml",
+      "upstreamGitBlobSha1": "75eb52d6373e5a4d0277ef785e6d70eff7fa8267",
+      "upstreamBytes": 361224
+    },
+    {
+      "sourceRecordId": "T24n1485",
+      "canonWitnessId": "T1485",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1485.xml",
+      "upstreamGitBlobSha1": "83742593b484671ec0176906882240dee8e17801",
+      "upstreamBytes": 312793
+    },
+    {
+      "sourceRecordId": "T24n1486",
+      "canonWitnessId": "T1486",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1486.xml",
+      "upstreamGitBlobSha1": "f57ecef5eb88c8bc03f11e39f6fd1f5fa55c064a",
+      "upstreamBytes": 130738
+    },
+    {
+      "sourceRecordId": "T24n1487",
+      "canonWitnessId": "T1487",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1487.xml",
+      "upstreamGitBlobSha1": "20a9bf72143c1128c349835c5d9c880bb9ee420b",
+      "upstreamBytes": 86178
+    },
+    {
+      "sourceRecordId": "T24n1488",
+      "canonWitnessId": "T1488",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1488.xml",
+      "upstreamGitBlobSha1": "80a511fb15e4cc5e2f566d969382422352dbae70",
+      "upstreamBytes": 767777
+    },
+    {
+      "sourceRecordId": "T24n1489",
+      "canonWitnessId": "T1489",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1489.xml",
+      "upstreamGitBlobSha1": "abc7bc2ec3587c5a5e72b2f7199fa07d337e3b6b",
+      "upstreamBytes": 97048
+    },
+    {
+      "sourceRecordId": "T24n1490",
+      "canonWitnessId": "T1490",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1490.xml",
+      "upstreamGitBlobSha1": "715eccf6dc0f17f4c55ec029ead3ed3d7125cd06",
+      "upstreamBytes": 79170
+    },
+    {
+      "sourceRecordId": "T24n1491",
+      "canonWitnessId": "T1491",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1491.xml",
+      "upstreamGitBlobSha1": "a22cfe4ef3888fbf54f78f199f2ab2b86bf6efb9",
+      "upstreamBytes": 46950
+    },
+    {
+      "sourceRecordId": "T24n1492",
+      "canonWitnessId": "T1492",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1492.xml",
+      "upstreamGitBlobSha1": "a3d0eebe881f3f63381b5c1b6d461f91cc736c5d",
+      "upstreamBytes": 31963
+    },
+    {
+      "sourceRecordId": "T24n1493",
+      "canonWitnessId": "T1493",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1493.xml",
+      "upstreamGitBlobSha1": "74d9b0114ecb5c9509272c34f3e159d15c424bde",
+      "upstreamBytes": 52856
+    },
+    {
+      "sourceRecordId": "T24n1494",
+      "canonWitnessId": "T1494",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1494.xml",
+      "upstreamGitBlobSha1": "0357ed43959539bac7941fe6f2f99de6d9d9f2e4",
+      "upstreamBytes": 77588
+    },
+    {
+      "sourceRecordId": "T24n1495",
+      "canonWitnessId": "T1495",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1495.xml",
+      "upstreamGitBlobSha1": "4b11f66f9f43829348573fbde543f5ce37954210",
+      "upstreamBytes": 31891
+    },
+    {
+      "sourceRecordId": "T24n1496",
+      "canonWitnessId": "T1496",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1496.xml",
+      "upstreamGitBlobSha1": "22466ba4b5b56e556ef23d08a629348b9e48c107",
+      "upstreamBytes": 30684
+    },
+    {
+      "sourceRecordId": "T24n1497",
+      "canonWitnessId": "T1497",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1497.xml",
+      "upstreamGitBlobSha1": "99c0cbdc7e371542585841e7ae5201aeaaa5343e",
+      "upstreamBytes": 9770
+    },
+    {
+      "sourceRecordId": "T24n1498",
+      "canonWitnessId": "T1498",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1498.xml",
+      "upstreamGitBlobSha1": "3b1d85810612af42aa80f02fba500253f43ef91b",
+      "upstreamBytes": 8908
+    },
+    {
+      "sourceRecordId": "T24n1499",
+      "canonWitnessId": "T1499",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1499.xml",
+      "upstreamGitBlobSha1": "85e5a2ca1bc9ad3018fde93413d350c7077400c4",
+      "upstreamBytes": 39621
+    },
+    {
+      "sourceRecordId": "T24n1500",
+      "canonWitnessId": "T1500",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1500.xml",
+      "upstreamGitBlobSha1": "458023b42df920541f0697974f2a6ded6168f253",
+      "upstreamBytes": 49283
+    },
+    {
+      "sourceRecordId": "T24n1501",
+      "canonWitnessId": "T1501",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1501.xml",
+      "upstreamGitBlobSha1": "8abb6674ffa0eb7c94f8186119da423b6efec333",
+      "upstreamBytes": 79507
+    },
+    {
+      "sourceRecordId": "T24n1502",
+      "canonWitnessId": "T1502",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1502.xml",
+      "upstreamGitBlobSha1": "dfdae24e5bc56f5336263215df89d4a71bfa0b3d",
+      "upstreamBytes": 16619
+    },
+    {
+      "sourceRecordId": "T24n1503",
+      "canonWitnessId": "T1503",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1503.xml",
+      "upstreamGitBlobSha1": "d57bf3ce5eb6d74d6785fdc56a792607aaebdc11",
+      "upstreamBytes": 87537
+    },
+    {
+      "sourceRecordId": "T24n1504",
+      "canonWitnessId": "T1504",
+      "volume": "T24",
+      "upstreamPath": "T/T24/T24n1504.xml",
+      "upstreamGitBlobSha1": "e1f8facdf7551652e0d340c9a1c71a37bb6144c7",
+      "upstreamBytes": 13040
+    }
+  ]
+}

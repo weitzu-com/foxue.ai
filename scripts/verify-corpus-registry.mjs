@@ -3,8 +3,8 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v4.1.0.json");
-const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v1.1.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v4.2.0.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v1.2.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const t18InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json");
 const t19InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json");
@@ -12,6 +12,7 @@ const t20InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t20-inventory-v0.
 const t21InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t21-inventory-v0.1.0.json");
 const t22InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t22-inventory-v0.1.0.json");
 const t23InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json");
+const t24InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json");
 const dergeInventoryPath = resolve(root, "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json");
 const rights84000Path = resolve(root, "data/gbcr/84000-rights-policy-v0.3.0.json");
 const sanskritEvidencePath = resolve(root, "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json");
@@ -26,7 +27,7 @@ const suttacentralParallelP0EvidencePacketsPath = resolve(root, "data/gbcr/sutta
 const crossCatalogAlignmentsPath = resolve(root, "data/gbcr/cross-catalog-alignments-v0.5.0.json");
 const rktsEvidencePath = resolve(root, "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json");
 const rktsKernelAlignmentsPath = resolve(root, "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v4.1.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v4.2.0.sha256");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -45,9 +46,10 @@ const t20BatchPath = resolve(root, "data/corpus/cbeta/batch-v2.7.0.json");
 const t21BatchPath = resolve(root, "data/corpus/cbeta/batch-v2.8.0.json");
 const t22BatchPath = resolve(root, "data/corpus/cbeta/batch-v2.9.0.json");
 const t23BatchPath = resolve(root, "data/corpus/cbeta/batch-v3.0.0.json");
-const cbetaCatalogPath = resolve(root, "data/corpus/cbeta/catalog-v3.0.0.json");
-const cbetaManifestPath = resolve(root, "data/corpus/cbeta/manifest-v3.0.0.json");
-const cbetaRegistryPath = resolve(root, "data/gbcr/registry-cbeta-v3.0.0.json");
+const t24BatchPath = resolve(root, "data/corpus/cbeta/batch-v3.1.0.json");
+const cbetaCatalogPath = resolve(root, "data/corpus/cbeta/catalog-v3.1.0.json");
+const cbetaManifestPath = resolve(root, "data/corpus/cbeta/manifest-v3.1.0.json");
+const cbetaRegistryPath = resolve(root, "data/gbcr/registry-cbeta-v3.1.0.json");
 const suttacentralBatchPath = resolve(root, "data/corpus/suttacentral/batch-v0.7.0.json");
 const suttacentralManifestPath = resolve(root, "data/corpus/suttacentral/manifest-v0.7.0.json");
 const dighaBatchPath = resolve(root, "data/corpus/suttacentral/dn-batch-v0.8.0.json");
@@ -75,6 +77,7 @@ const t20InventoryRaw = await readFile(t20InventoryPath, "utf8");
 const t21InventoryRaw = await readFile(t21InventoryPath, "utf8");
 const t22InventoryRaw = await readFile(t22InventoryPath, "utf8");
 const t23InventoryRaw = await readFile(t23InventoryPath, "utf8");
+const t24InventoryRaw = await readFile(t24InventoryPath, "utf8");
 const dergeInventoryRaw = await readFile(dergeInventoryPath, "utf8");
 const rights84000Raw = await readFile(rights84000Path, "utf8");
 const sanskritEvidenceRaw = await readFile(sanskritEvidencePath, "utf8");
@@ -107,6 +110,7 @@ const t20BatchRaw = await readFile(t20BatchPath, "utf8");
 const t21BatchRaw = await readFile(t21BatchPath, "utf8");
 const t22BatchRaw = await readFile(t22BatchPath, "utf8");
 const t23BatchRaw = await readFile(t23BatchPath, "utf8");
+const t24BatchRaw = await readFile(t24BatchPath, "utf8");
 const cbetaCatalogRaw = await readFile(cbetaCatalogPath, "utf8");
 const cbetaManifestRaw = await readFile(cbetaManifestPath, "utf8");
 const cbetaRegistryRaw = await readFile(cbetaRegistryPath, "utf8");
@@ -137,6 +141,7 @@ const t20Inventory = JSON.parse(t20InventoryRaw);
 const t21Inventory = JSON.parse(t21InventoryRaw);
 const t22Inventory = JSON.parse(t22InventoryRaw);
 const t23Inventory = JSON.parse(t23InventoryRaw);
+const t24Inventory = JSON.parse(t24InventoryRaw);
 const dergeInventory = JSON.parse(dergeInventoryRaw);
 const rights84000 = JSON.parse(rights84000Raw);
 const sanskritEvidence = JSON.parse(sanskritEvidenceRaw);
@@ -169,6 +174,7 @@ const t20Batch = JSON.parse(t20BatchRaw);
 const t21Batch = JSON.parse(t21BatchRaw);
 const t22Batch = JSON.parse(t22BatchRaw);
 const t23Batch = JSON.parse(t23BatchRaw);
+const t24Batch = JSON.parse(t24BatchRaw);
 const cbetaCatalog = JSON.parse(cbetaCatalogRaw);
 const cbetaManifest = JSON.parse(cbetaManifestRaw);
 const cbetaRegistry = JSON.parse(cbetaRegistryRaw);
@@ -197,7 +203,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "4.1.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "4.2.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -252,7 +258,7 @@ for (const source of registry.sourceSnapshots) {
 }
 
 requireValue(sourceSnapshots.denominatorReady === false, "候选来源记录尚未去重，不得标为分母就绪");
-requireValue(sourceSnapshots.version === "1.1.0", "来源候选快照版本不匹配");
+requireValue(sourceSnapshots.version === "1.2.0", "来源候选快照版本不匹配");
 requireValue(sourceSnapshots.sources?.length === 6, "来源候选快照必须包含 CBETA、SuttaCentral、BDRC、DSBC、GRETIL 与 rKTs");
 for (const snapshot of sourceSnapshots.sources ?? []) {
   const registrySource = registry.sourceSnapshots.find((item) => item.id === snapshot.id);
@@ -541,15 +547,27 @@ requireValue(t23Inventory?.totals?.records === 13 && t23Inventory?.records?.leng
 requireValue(t23Inventory?.totals?.upstreamBytes === 18890532, "T23 律部逐文件清单字节数漂移");
 unique(t23Inventory.records.map((record) => record.sourceRecordId), "T23 律部来源记录");
 unique(t23Inventory.records.map((record) => record.upstreamPath), "T23 律部上游路径");
+const chineseT24Subset = sourceSnapshots.sources
+  .find((source) => source.id === "cbeta_xml_p5")
+  ?.candidateSubsets?.find((subset) => subset.id === "taisho_vinaya_t24");
+requireValue(chineseT24Subset?.candidateRecordCount === 59, "T24 律部候选来源记录分母漂移");
+requireValue(chineseT24Subset?.candidateBytes === 19745486, "T24 律部候选来源字节数漂移");
+requireValue(chineseT24Subset?.candidatePathSha256 === "10212439eec4876aa3f6852280f1e9a8fdf65f863e97f451c0e4f1fe3d1db334", "T24 律部候选路径摘要漂移");
+requireValue(chineseT24Subset?.inventoryFile === "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json", "T24 律部逐文件清单路径不匹配");
+requireValue(chineseT24Subset?.inventorySha256 === createHash("sha256").update(t24InventoryRaw).digest("hex"), "T24 律部逐文件清单摘要不匹配");
+requireValue(t24Inventory?.totals?.records === 59 && t24Inventory?.records?.length === 59, "T24 律部逐文件清单记录数漂移");
+requireValue(t24Inventory?.totals?.upstreamBytes === 19745486, "T24 律部逐文件清单字节数漂移");
+unique(t24Inventory.records.map((record) => record.sourceRecordId), "T24 律部来源记录");
+unique(t24Inventory.records.map((record) => record.upstreamPath), "T24 律部上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.suttacentralParallelEdges === 5161 && chineseFamily?.suttacentralParallelChineseWorksReferenced === 147, "汉译来源族的 SuttaCentral 平行证据统计不匹配");
 requireValue(chineseFamily?.suttacentralParallelEvidenceSha256 === suttacentralChineseParallelsSha256, "汉译来源族的 SuttaCentral 平行证据摘要不匹配");
 requireValue(chineseFamily?.suttacentralParallelReviewQueueItems === 80 && chineseFamily?.suttacentralParallelAdjudicatedItems === 0, "汉译来源族的汉巴裁决进度不匹配");
 requireValue(chineseFamily?.suttacentralParallelReviewQueueSha256 === suttacentralParallelReviewQueueSha256, "汉译来源族的汉巴裁决队列摘要不匹配");
-requireValue(chineseFamily?.candidateExpressionRecords === 1523, "汉译 T01–T23 候选记录未写入来源族");
-requireValue(chineseFamily?.controlledExpressionRecords === 1523, "汉译 T01–T23 受控记录数不匹配");
-requireValue(chineseFamily?.candidateExpressionBytes === 377664393, "汉译 T01–T23 候选字节数未写入来源族");
-requireValue(chineseFamily?.controlledExpressionBytes === 377664393, "汉译 T01–T23 受控字节数不匹配");
+requireValue(chineseFamily?.candidateExpressionRecords === 1582, "汉译 T01–T24 候选记录未写入来源族");
+requireValue(chineseFamily?.controlledExpressionRecords === 1582, "汉译 T01–T24 受控记录数不匹配");
+requireValue(chineseFamily?.candidateExpressionBytes === 397409879, "汉译 T01–T24 候选字节数未写入来源族");
+requireValue(chineseFamily?.controlledExpressionBytes === 397409879, "汉译 T01–T24 受控字节数不匹配");
 requireValue(chineseFamily?.agamaSourceRecordDenominator === 155, "汉译阿含部固定来源分母不匹配");
 requireValue(chineseFamily?.agamaControlledSourceRecords === 155, "汉译阿含部固定来源未完整受控");
 requireValue(chineseFamily?.agamaSourceRecordPercentage === 100, "汉译阿含部固定来源完成率不匹配");
@@ -887,9 +905,30 @@ requireValue(
   "CBETA T23 作品边界状态不匹配",
 );
 requireValue(registry.cbetaT23BoundaryAudit?.sha256 === createHash("sha256").update(t23BatchRaw).digest("hex"), "登记册 CBETA T23 边界审计摘要不匹配");
-requireValue(cbetaCatalog?.files?.length === 1509, "CBETA 受控目录来源记录数漂移");
-requireValue(cbetaManifest?.files?.length === 1509, "CBETA 资产清单来源记录数漂移");
-requireValue(cbetaRegistry?.works?.length === 1323, "CBETA 书目实体数漂移");
+requireValue(chineseFamily?.t24SourceRecordDenominator === 59, "汉译 T24 固定来源分母不匹配");
+requireValue(chineseFamily?.t24ControlledSourceRecords === 59, "汉译 T24 固定来源未完整受控");
+requireValue(chineseFamily?.t24SourceRecordPercentage === 100, "汉译 T24 固定来源完成率不匹配");
+requireValue(t24Batch?.files?.length === 59, "CBETA T24 新增来源记录数漂移");
+requireValue(t24Batch?.collection?.sourceRecordDenominator === 59 && t24Batch?.collection?.controlledSourceRecords === 59, "CBETA T24 固定来源分母或受控记录数漂移");
+requireValue(t24Batch?.collection?.previouslyControlledSourceRecords === 0, "CBETA T24 既有受控来源记录数漂移");
+requireValue(t24Batch?.collection?.newSourceBytes === 19745486, "CBETA T24 新增来源字节数漂移");
+requireValue(t24Batch?.collection?.newStableSegments === 95817, "CBETA T24 新增稳定行段数漂移");
+requireValue(t24Batch?.collection?.newFolios === 3502, "CBETA T24 新增版页数漂移");
+requireValue(t24Batch?.collection?.verifiedSameWorkExpressions === 2, "CBETA T24 同作品异译表达数漂移");
+requireValue(t24Batch?.collection?.verifiedEditionWitnesses === 4, "CBETA T24 版本见证数漂移");
+requireValue(t24Batch?.collection?.provisionalRecords === 53, "CBETA T24 暂定书目记录数漂移");
+requireValue(t24Batch?.collection?.newFullSourceTexts === 58 && t24Batch?.collection?.newPartialSourceWitnesses === 1, "CBETA T24 完整作品来源或局部见证数漂移");
+requireValue(t24Batch?.collection?.relationAnnotatedRecords === 27, "CBETA T24 关系证据记录数漂移");
+requireValue(t24Batch?.collection?.attributionBoundaryRecords === 21, "CBETA T24 来源角色边界漂移");
+requireValue(t24Batch?.collection?.newWorks === 56 && t24Batch?.collection?.controlledWorks === 56, "CBETA T24 作品实体数漂移");
+requireValue(
+  t24Batch?.boundaryAudit?.status === "verified_source_integrity_work_expression_witness_attribution_apocrypha_and_partial_boundaries_recorded",
+  "CBETA T24 作品边界状态不匹配",
+);
+requireValue(registry.cbetaT24BoundaryAudit?.sha256 === createHash("sha256").update(t24BatchRaw).digest("hex"), "登记册 CBETA T24 边界审计摘要不匹配");
+requireValue(cbetaCatalog?.files?.length === 1568, "CBETA 受控目录来源记录数漂移");
+requireValue(cbetaManifest?.files?.length === 1568, "CBETA 资产清单来源记录数漂移");
+requireValue(cbetaRegistry?.works?.length === 1379, "CBETA 书目实体数漂移");
 const suttacentralFamily = registry.sourceFamilies.find(
   (family) => family.id === "suttacentral_early_buddhist_texts",
 );
@@ -984,8 +1023,8 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v4.1.0.json", raw],
-  ["source-snapshots-v1.1.0.json", sourceSnapshotsRaw],
+  ["registry-v4.2.0.json", raw],
+  ["source-snapshots-v1.2.0.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["cbeta-taisho-t18-inventory-v0.1.0.json", t18InventoryRaw],
   ["cbeta-taisho-t19-inventory-v0.1.0.json", t19InventoryRaw],
@@ -993,6 +1032,7 @@ const controlledFiles = [
   ["cbeta-taisho-t21-inventory-v0.1.0.json", t21InventoryRaw],
   ["cbeta-taisho-t22-inventory-v0.1.0.json", t22InventoryRaw],
   ["cbeta-taisho-t23-inventory-v0.1.0.json", t23InventoryRaw],
+  ["cbeta-taisho-t24-inventory-v0.1.0.json", t24InventoryRaw],
   ["bdrc-derge-kangyur-inventory-v0.3.0.json", dergeInventoryRaw],
   ["84000-rights-policy-v0.3.0.json", rights84000Raw],
   ["dsbc-gretil-source-snapshot-v0.4.0.json", sanskritEvidenceRaw],
@@ -1019,9 +1059,10 @@ const controlledFiles = [
   ["batch-v2.8.0.json", t21BatchRaw],
   ["batch-v2.9.0.json", t22BatchRaw],
   ["batch-v3.0.0.json", t23BatchRaw],
-  ["catalog-v3.0.0.json", cbetaCatalogRaw],
-  ["manifest-v3.0.0.json", cbetaManifestRaw],
-  ["registry-cbeta-v3.0.0.json", cbetaRegistryRaw],
+  ["batch-v3.1.0.json", t24BatchRaw],
+  ["catalog-v3.1.0.json", cbetaCatalogRaw],
+  ["manifest-v3.1.0.json", cbetaManifestRaw],
+  ["registry-cbeta-v3.1.0.json", cbetaRegistryRaw],
   ["batch-v0.7.0.json", suttacentralBatchRaw],
   ["manifest-v0.7.0.json", suttacentralManifestRaw],
   ["dn-batch-v0.8.0.json", dighaBatchRaw],
@@ -1062,18 +1103,18 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.registry.version === "4.1.0", "当前 GBCR 版本必须为 v4.1.0");
-requireValue(registry.works.length === 1612, "v4.1 必须登记 1,612 个可追踪作品实体");
-requireValue(expressions.length === 1798, "v4.1 必须登记 1,798 个文本表达或见证");
-requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1765, "v4.1 必须登记 1,765 个完整文本表达或见证");
-requireValue(segmentCount === 2317182, "v4.1 稳定行段总数漂移");
+requireValue(registry.registry.version === "4.2.0", "当前 GBCR 版本必须为 v4.2.0");
+requireValue(registry.works.length === 1668, "v4.2 必须登记 1,668 个可追踪作品实体");
+requireValue(expressions.length === 1857, "v4.2 必须登记 1,857 个文本表达或见证");
+requireValue(expressions.filter((expression) => expression.fullSourceText).length === 1823, "v4.2 必须登记 1,823 个完整文本表达或见证");
+requireValue(segmentCount === 2412999, "v4.2 稳定行段总数漂移");
 const provisionalCbetaWorks = registry.works.filter((work) =>
   work.workType === "provisional_bibliographic_entity" && /^gbcr:work:taisho-t/.test(work.id),
 );
-requireValue(provisionalCbetaWorks.length === 1180, "T01–T23 新增经号必须保留 1,180 个暂定书目实体");
+requireValue(provisionalCbetaWorks.length === 1233, "T01–T24 新增经号必须保留 1,233 个暂定书目实体");
 requireValue(
   provisionalCbetaWorks.every((work) => work.relationDecision?.includes("不据此声称已经完成作品级去重")),
-  "T01–T23 暂定书目实体缺少作品去重边界",
+  "T01–T24 暂定书目实体缺少作品去重边界",
 );
 const benyuanRelatedWorkIds = new Set(benyuanBatch.files
   .filter((file) => file.bibliographicRelations?.length)
@@ -1498,7 +1539,7 @@ for (const [left, right, groupId] of [
     `${left}/${right} 高相似传本必须公开候选关系且保持不同作品实体`,
   );
 }
-requireValue(expressions.filter((expression) => expression.sourceRole === "translated_vinaya_canonical_record").length === 20, "T22–T23 译律、戒本、羯磨或事部文本角色总数漂移");
+requireValue(expressions.filter((expression) => expression.sourceRole === "translated_vinaya_canonical_record").length === 58, "T22–T24 译律、戒本、羯磨或事部文本角色总数漂移");
 requireValue(expressions.filter((expression) => expression.sourceRole === "translated_and_compiled_vinaya_text").length === 2, "T22 佛陀耶舍译并由怀素编集的戒本必须精确保留两条");
 requireValue(expressions.filter((expression) => expression.sourceRole === "compiled_or_recorded_vinaya_text").length === 2, "T22 明徽集与爱同录必须精确保留两条");
 const t23RelatedIds = new Set(t23Batch.files
@@ -1525,6 +1566,42 @@ for (const [left, right, groupId] of [
 requireValue(expressions.filter((expression) => expression.sourceRole === "compiled_or_extracted_vinaya_text").length === 2, "T23 法显集出与僧璩撰出必须精确保留两条");
 requireValue(expressions.filter((expression) => expression.sourceRole === "unattributed_vinaya_procedure_text").length === 1, "T1438 无署名羯磨法必须精确保留一条");
 requireValue(expressions.filter((expression) => expression.sourceRole === "lost_translation_with_appended_vinaya_preface").length === 1, "T1440 失译正文与智首续序边界必须精确保留一条");
+const t24RelatedIds = new Set(t24Batch.files
+  .filter((file) => file.bibliographicRelations?.length)
+  .map((file) => file.id));
+const t24RelatedExpressions = expressions.filter((expression) =>
+  t24RelatedIds.has(expression.id.replace(/^gbcr:expression:(T[^-]+)-zh-Hant$/, "$1")));
+requireValue(t24RelatedExpressions.length === 27, "T24 关系证据未完整进入文本表达或见证");
+for (const [workId, ids] of [
+  ["gbcr:work:disciplinary-consequences-t1467", ["T1467a", "T1467b"]],
+  ["gbcr:work:maudgalyayana-vinaya-questions", ["T1483a", "T1483b"]],
+  ["gbcr:work:paramarthasamvrtisatyanirdesa", ["T1489", "T1490"]],
+]) {
+  const work = registry.works.find((candidate) => candidate.id === workId);
+  requireValue(sameMembers(work?.externalIds?.cbeta, ids) && work?.expressions?.length === 2, `${ids.join("/")} 同作品版本或异译关系未正确登记`);
+}
+for (const [left, right, groupId] of [
+  ["T1454", "T1458", "mulasarvastivada-vinaya-exegesis-t1454-t1459"],
+  ["T1471", "T1472", "novice-precepts-conduct-t1471-t1473"],
+  ["T1484", "T1485", "east-asian-bodhisattva-precepts-t1484-t1485"],
+  ["T1500", "T1501", "yogacara-bodhisattva-precepts-t1499-t1501"],
+]) {
+  const leftWork = registry.works.find((work) => work.externalIds?.cbeta?.includes(left));
+  const rightWork = registry.works.find((work) => work.externalIds?.cbeta?.includes(right));
+  requireValue(
+    leftWork?.id !== rightWork?.id &&
+      leftWork?.bibliographicRelations?.some((relation) => relation.groupId === groupId) &&
+      rightWork?.bibliographicRelations?.some((relation) => relation.groupId === groupId),
+    `${left}/${right} 律部解释、威仪、疑伪或菩萨戒关系必须公开且保持不同作品实体`,
+  );
+}
+requireValue(expressions.filter((expression) => expression.sourceRole === "traditional_attributed_vinaya_translation_with_contested_history").length === 3, "T1467a/T1484/T1485 传统归属争议必须精确保留三条");
+requireValue(expressions.filter((expression) => expression.sourceRole === "authored_or_taught_vinaya_text_with_translation").length === 6, "T24 造、说与翻译责任边界必须精确保留六条");
+requireValue(expressions.filter((expression) => expression.sourceRole === "lost_translation_vinaya_text").length === 9, "T24 一般失译律部文本必须精确保留九条");
+requireValue(expressions.filter((expression) => expression.sourceRole === "lost_translation_with_contested_native_compilation_history").length === 2, "T1483a/b 失译与中国编纂层争议必须精确保留两条");
+requireValue(expressions.filter((expression) => expression.sourceRole === "unattributed_vinaya_text").length === 1, "T1467b 无署名状态必须精确保留一条");
+const t1482 = expressions.find((expression) => expression.id === "gbcr:expression:T1482-zh-Hant");
+requireValue(t1482?.fullSourceText === false && t1482?.sourceRole === "translated_vinaya_canonical_record", "T1482 必须保持完整来源文件、局部作品见证边界");
 requireValue(expressions.filter((expression) => expression.sourceRole === "translated_esoteric_canonical_record").length === 478, "T18–T21 译经型目录记录角色总数漂移");
 requireValue(expressions.filter((expression) => expression.sourceRole === "attributed_authored_compiled_or_taught_esoteric_text").length === 9, "T18 撰述、辑录或传授型文本角色数漂移");
 requireValue(expressions.filter((expression) => expression.sourceRole === "attributed_authored_compiled_or_transmitted_esoteric_text").length === 34, "T19–T21 撰述、论造、译解、注校、记录、请来或口受文本角色数漂移");

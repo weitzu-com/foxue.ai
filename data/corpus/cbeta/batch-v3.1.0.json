@@ -1,0 +1,3171 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.1.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.0.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T24; T24 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T24",
+    "title": "大正藏 T24 律部固定来源记录",
+    "sourceRecordDenominator": 59,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 59,
+    "controlledSourceRecords": 59,
+    "newSourceBytes": 19745486,
+    "newStableSegments": 95817,
+    "newFolios": 3502,
+    "verifiedSameWorkExpressions": 2,
+    "verifiedEditionWitnesses": 4,
+    "provisionalRecords": 53,
+    "newFullSourceTexts": 58,
+    "newPartialSourceWitnesses": 1,
+    "relationAnnotatedRecords": 27,
+    "attributionBoundaryRecords": 21,
+    "newWorks": 56,
+    "controlledWorks": 56,
+    "workCountingDecision": "T24 共 59 条固定来源记录。T1467 a/b 与 T1483 a/b 各归为一个作品的两个版本见证，T1489/T1490 归为一个作品的两个汉译表达；其余 53 条暂按独立书目实体登记，共新增 56 个作品。T1500/T1501 等戒本、羯磨、摄颂、解释书与疑伪文本关系只作分层候选，不因相邻经号、传统译者或机器相似度自动归并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_work_expression_witness_attribution_apocrypha_and_partial_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "disciplinary-consequences-t1467a-b",
+      "maudgalyayana-vinaya-questions-t1483a-b"
+    ],
+    "verifiedTranslationGroups": [
+      "paramarthasamvrtisatyanirdesa-t1489-t1490"
+    ],
+    "candidateRelationsNotMerged": [
+      "mulasarvastivada-vinaya-t1442-t1457",
+      "mulasarvastivada-vinaya-exegesis-t1454-t1459",
+      "vinaya-pratimoksa-parallel-t1454-t1460",
+      "novice-precepts-conduct-t1471-t1473",
+      "east-asian-bodhisattva-precepts-t1484-t1485",
+      "yogacara-bodhisattva-precepts-t1499-t1501"
+    ],
+    "partialWorkWitnesses": [
+      "T1482"
+    ],
+    "translatedRecords": [
+      "T1448",
+      "T1449",
+      "T1450",
+      "T1451",
+      "T1452",
+      "T1453",
+      "T1454",
+      "T1455",
+      "T1456",
+      "T1457",
+      "T1460",
+      "T1462",
+      "T1464",
+      "T1466",
+      "T1468",
+      "T1469",
+      "T1470",
+      "T1472",
+      "T1473",
+      "T1476",
+      "T1477",
+      "T1479",
+      "T1480",
+      "T1481",
+      "T1482",
+      "T1487",
+      "T1488",
+      "T1489",
+      "T1490",
+      "T1491",
+      "T1492",
+      "T1493",
+      "T1495",
+      "T1496",
+      "T1497",
+      "T1498",
+      "T1502",
+      "T1503"
+    ],
+    "traditionalAttributionContestedRecords": [
+      "T1467a",
+      "T1484",
+      "T1485"
+    ],
+    "authoredOrTaughtRecords": [
+      "T1458",
+      "T1459",
+      "T1461",
+      "T1499",
+      "T1500",
+      "T1501"
+    ],
+    "lostTranslationRecords": [
+      "T1463",
+      "T1465",
+      "T1471",
+      "T1474",
+      "T1475",
+      "T1478",
+      "T1486",
+      "T1494",
+      "T1504"
+    ],
+    "lostTranslationContestedCompilationRecords": [
+      "T1483a",
+      "T1483b"
+    ],
+    "unattributedRecords": [
+      "T1467b"
+    ],
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison records edition, component, parallel or explanatory evidence but never decides work identity by itself.",
+      "pairs": [
+        {
+          "pair": [
+            "T1454",
+            "T1458"
+          ],
+          "normalizedCharacters": [
+            9651,
+            126987
+          ],
+          "fiveGramContainmentOfShorter": 0.824128,
+          "fiveGramJaccard": 0.052856
+        },
+        {
+          "pair": [
+            "T1483a",
+            "T1483b"
+          ],
+          "normalizedCharacters": [
+            13833,
+            13657
+          ],
+          "fiveGramContainmentOfShorter": 0.778319,
+          "fiveGramJaccard": 0.629755
+        },
+        {
+          "pair": [
+            "T1452",
+            "T1456"
+          ],
+          "normalizedCharacters": [
+            54472,
+            3109
+          ],
+          "fiveGramContainmentOfShorter": 0.774499,
+          "fiveGramJaccard": 0.044554
+        },
+        {
+          "pair": [
+            "T1467a",
+            "T1467b"
+          ],
+          "normalizedCharacters": [
+            615,
+            457
+          ],
+          "fiveGramContainmentOfShorter": 0.688705,
+          "fiveGramJaccard": 0.410509
+        },
+        {
+          "pair": [
+            "T1454",
+            "T1455"
+          ],
+          "normalizedCharacters": [
+            9651,
+            11827
+          ],
+          "fiveGramContainmentOfShorter": 0.639888,
+          "fiveGramJaccard": 0.424972
+        },
+        {
+          "pair": [
+            "T1471",
+            "T1472"
+          ],
+          "normalizedCharacters": [
+            8904,
+            3830
+          ],
+          "fiveGramContainmentOfShorter": 0.596717,
+          "fiveGramJaccard": 0.221129
+        },
+        {
+          "pair": [
+            "T1451",
+            "T1457"
+          ],
+          "normalizedCharacters": [
+            285273,
+            3042
+          ],
+          "fiveGramContainmentOfShorter": 0.57619,
+          "fiveGramJaccard": 0.006692
+        },
+        {
+          "pair": [
+            "T1455",
+            "T1458"
+          ],
+          "normalizedCharacters": [
+            11827,
+            126987
+          ],
+          "fiveGramContainmentOfShorter": 0.463112,
+          "fiveGramJaccard": 0.033094
+        },
+        {
+          "pair": [
+            "T1499",
+            "T1501"
+          ],
+          "normalizedCharacters": [
+            2883,
+            7747
+          ],
+          "fiveGramContainmentOfShorter": 0.273524,
+          "fiveGramJaccard": 0.093102
+        },
+        {
+          "pair": [
+            "T1449",
+            "T1453"
+          ],
+          "normalizedCharacters": [
+            2482,
+            58296
+          ],
+          "fiveGramContainmentOfShorter": 0.158896,
+          "fiveGramJaccard": 0.009006
+        },
+        {
+          "pair": [
+            "T1456",
+            "T1457"
+          ],
+          "normalizedCharacters": [
+            3109,
+            3042
+          ],
+          "fiveGramContainmentOfShorter": 0.110292,
+          "fiveGramJaccard": 0.057373
+        },
+        {
+          "pair": [
+            "T1454",
+            "T1460"
+          ],
+          "normalizedCharacters": [
+            9651,
+            8104
+          ],
+          "fiveGramContainmentOfShorter": 0.08844,
+          "fiveGramJaccard": 0.042708
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T24",
+      "https://cbetaonline.dila.edu.tw/zh/T1467a_001",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001512",
+      "https://cbetaonline.dila.edu.tw/zh/T1483a_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1484_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1485_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1489_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1490_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1501_001"
+    ],
+    "caveat": "T24 同时容纳根本说一切有部律事、律摄、戒经、羯磨、威仪、在家戒与菩萨戒，也含同经异本、异译、节出、失译、无署名和传统归属有争议的中国撰述候选。平台完整保存固定来源与传统题记，但不把传统归属伪装成现代定论，也不把同一律藏、目录邻接、题名或机器文本重合单独当成同一作品或佛陀逐字亲说的证明。"
+  },
+  "files": [
+    {
+      "id": "T1448",
+      "slug": "taisho-t1448",
+      "workId": "gbcr:work:taisho-t1448",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1448.xml",
+      "upstreamPath": "T/T24/T24n1448.xml",
+      "upstreamGitBlobSha1": "fa9290e49ba7d303cd7bf29de567f133d9c7cd06",
+      "upstreamBytes": 837683,
+      "upstreamSha256": "7e50989ea6b127883139a6b5cb6db50fb4cd6772cae50c4fc061c6c3d2f18791",
+      "localBytes": 837684,
+      "localSha256": "054f8ec5cfd20a34eadd0b62ce42bec67747d94b5ad7501fb95fa1fabdd7dab3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶藥事",
+        "alternateTitle": "根本說一切有部毘奈耶藥事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1448",
+        "translator": "唐 · 義淨譯",
+        "summary": "18卷。本站完整保存 T1448 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1448_001"
+      },
+      "verification": {
+        "segments": 8311,
+        "folios": 302,
+        "juanRange": [
+          1,
+          18
+        ],
+        "anchors": [
+          "T1448.001.0001a02",
+          "T1448.018.0097a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1449",
+      "slug": "taisho-t1449",
+      "workId": "gbcr:work:taisho-t1449",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1449.xml",
+      "upstreamPath": "T/T24/T24n1449.xml",
+      "upstreamGitBlobSha1": "63697aefaa0445c1c09bd8a759ac0bf151f37985",
+      "upstreamBytes": 18064,
+      "upstreamSha256": "f1c40af31fad796b95e830e9046528ead278579c619763bf48bec8a73146f66e",
+      "localBytes": 18065,
+      "localSha256": "cd431db3c51a2dc1c75fb152619d712c60c441dc43bf5896d203194e32c7784c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶羯恥那衣事",
+        "alternateTitle": "根本說一切有部毘奈耶羯恥那衣事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1449",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1449 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1449_001"
+      },
+      "verification": {
+        "segments": 156,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1449.001.0097b02",
+          "T1449.001.0099a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1450",
+      "slug": "taisho-t1450",
+      "workId": "gbcr:work:taisho-t1450",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1450.xml",
+      "upstreamPath": "T/T24/T24n1450.xml",
+      "upstreamGitBlobSha1": "809bd7bae8fa4c822f4a169c5dee680f0eea63a1",
+      "upstreamBytes": 1654332,
+      "upstreamSha256": "b5396b1e171ae1104d8bf00626d183ebe8dc2314119fa70665fe3018cdd2efbb",
+      "localBytes": 1654333,
+      "localSha256": "ed8fcfb082b0193090c2460435d1adb809ca3e1fdba6e2f2f575394b53f7a2ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶破僧事",
+        "alternateTitle": "根本說一切有部毘奈耶破僧事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1450",
+        "translator": "唐 · 義淨譯",
+        "summary": "20卷。本站完整保存 T1450 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1450_001"
+      },
+      "verification": {
+        "segments": 9228,
+        "folios": 335,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1450.001.0099a16",
+          "T1450.020.0206a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1451",
+      "slug": "taisho-t1451",
+      "workId": "gbcr:work:taisho-t1451",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1451.xml",
+      "upstreamPath": "T/T24/T24n1451.xml",
+      "upstreamGitBlobSha1": "2fbced42945c6b786776f8bff22775766352a2d3",
+      "upstreamBytes": 3109821,
+      "upstreamSha256": "667036066486b7863f9943d94d326045b04024bfad55679ed17640a92f6bd9c5",
+      "localBytes": 3109822,
+      "localSha256": "99c25e422d58410406f1d3e3ccd08723ff4a1fd03fb7bc8864867e1e3533cba1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶雜事",
+        "alternateTitle": "根本說一切有部毘奈耶雜事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1451",
+        "translator": "唐 · 義淨譯",
+        "summary": "40卷。本站完整保存 T1451 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1451_001"
+      },
+      "verification": {
+        "segments": 17851,
+        "folios": 651,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T1451.001.0207a02",
+          "T1451.040.0414b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1452",
+      "slug": "taisho-t1452",
+      "workId": "gbcr:work:taisho-t1452",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1452.xml",
+      "upstreamPath": "T/T24/T24n1452.xml",
+      "upstreamGitBlobSha1": "9c2d22fd1213188d594b161a72127c24d56c2ed8",
+      "upstreamBytes": 563491,
+      "upstreamSha256": "e86d4c62045283cd545952b6d741245dfeda7ba04b6297a8ba7f98d0962f9d65",
+      "localBytes": 563492,
+      "localSha256": "74e3fd6718383224a6d39e347de7243b5d13f75f9ade1d62c45629d9e345d5f2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部尼陀那目得迦",
+        "alternateTitle": "根本說一切有部尼陀那目得迦",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1452",
+        "translator": "唐 · 義淨譯",
+        "summary": "10卷。本站完整保存 T1452 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1452_001"
+      },
+      "verification": {
+        "segments": 3500,
+        "folios": 129,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1452.001.0415a02",
+          "T1452.010.0455c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1453",
+      "slug": "taisho-t1453",
+      "workId": "gbcr:work:taisho-t1453",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1453.xml",
+      "upstreamPath": "T/T24/T24n1453.xml",
+      "upstreamGitBlobSha1": "c491805b2f84553719d10d9289eab3d753070a63",
+      "upstreamBytes": 708775,
+      "upstreamSha256": "3c912344c7fb7a64a932fc956ee47da2601cb82b3becda74da7eb6913dc0d508",
+      "localBytes": 708776,
+      "localSha256": "12d6083fd6ba00555cb0fcd32c70e9e19fcf9e18cf60053ef66d3a84b80defe5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部百一羯磨",
+        "alternateTitle": "根本說一切有部百一羯磨",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1453",
+        "translator": "唐 · 義淨譯",
+        "summary": "10卷。本站完整保存 T1453 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1453_001"
+      },
+      "verification": {
+        "segments": 3757,
+        "folios": 142,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1453.001.0455c05",
+          "T1453.010.0500b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1454",
+      "slug": "taisho-t1454",
+      "workId": "gbcr:work:taisho-t1454",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_root_text_exegesis_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-exegesis-t1454-t1459",
+          "label": "根本说一切有部戒经、律摄与毘奈耶颂关系",
+          "evidence": "T1458《律摄》对 T1454 戒经的五字片段覆盖超过 82%，T1459 为毘奈耶颂；高覆盖与题记支持根本文本、解释和偈颂关系，不证明它们是同一作品的版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1458",
+              "T1459"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_pratimoksa_parallel_candidate_unmerged",
+          "groupId": "vinaya-pratimoksa-parallel-t1454-t1460",
+          "label": "僧尼戒经与解脱戒经平行文本候选",
+          "evidence": "T1454/T1455 是根本说一切有部僧尼戒经，T1460 为《解脱戒经》；题名、体裁与正文重合支持戒本平行研究，但部派、对象与文本范围不足以裁为同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1460"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1454.xml",
+      "upstreamPath": "T/T24/T24n1454.xml",
+      "upstreamGitBlobSha1": "8ba358e1a98a4900c7c5e0effd5c5a2f48c62c59",
+      "upstreamBytes": 146634,
+      "upstreamSha256": "8c3974c54b27de8450516b704e18a80793acbd62368e510aa5f7f3708676f4eb",
+      "localBytes": 146635,
+      "localSha256": "c8d8920420b71ae4937b5ac934cd6626acbd816bad6331f7a92d34d8637e348f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部戒經",
+        "alternateTitle": "根本說一切有部戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1454",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1454 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1454_001"
+      },
+      "verification": {
+        "segments": 666,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1454.001.0500b15",
+          "T1454.001.0508a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1455",
+      "slug": "taisho-t1455",
+      "workId": "gbcr:work:taisho-t1455",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_root_text_exegesis_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-exegesis-t1454-t1459",
+          "label": "根本说一切有部戒经、律摄与毘奈耶颂关系",
+          "evidence": "T1458《律摄》对 T1454 戒经的五字片段覆盖超过 82%，T1459 为毘奈耶颂；高覆盖与题记支持根本文本、解释和偈颂关系，不证明它们是同一作品的版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1458",
+              "T1459"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_pratimoksa_parallel_candidate_unmerged",
+          "groupId": "vinaya-pratimoksa-parallel-t1454-t1460",
+          "label": "僧尼戒经与解脱戒经平行文本候选",
+          "evidence": "T1454/T1455 是根本说一切有部僧尼戒经，T1460 为《解脱戒经》；题名、体裁与正文重合支持戒本平行研究，但部派、对象与文本范围不足以裁为同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1460"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1455.xml",
+      "upstreamPath": "T/T24/T24n1455.xml",
+      "upstreamGitBlobSha1": "3662970b5ea8f517b2307d1419de6416d7202b53",
+      "upstreamBytes": 138518,
+      "upstreamSha256": "dfd3c1e71849840e0fb02a671f4e252a6de6f2de2164de4da0793c0bc0926816",
+      "localBytes": 138519,
+      "localSha256": "6d5b65b8c2de7249d0c52cae6072de246cebd08b33dd1a0665997d7c520b9da0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部苾芻尼戒經",
+        "alternateTitle": "根本說一切有部苾芻尼戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1455",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1455 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1455_001"
+      },
+      "verification": {
+        "segments": 817,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1455.001.0508a17",
+          "T1455.001.0517b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1456",
+      "slug": "taisho-t1456",
+      "workId": "gbcr:work:taisho-t1456",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1456.xml",
+      "upstreamPath": "T/T24/T24n1456.xml",
+      "upstreamGitBlobSha1": "4fcf2029b9c00b7453807df3131aee4d8a2f3ac0",
+      "upstreamBytes": 88568,
+      "upstreamSha256": "82589bfed44e471d0ef06cfde7a4c0798ae1cf7528345118555abf33c3433b5c",
+      "localBytes": 88569,
+      "localSha256": "ea574b3b4911052fb636ac1dcb64241a1d78e1ce89bb44d1f545741ae5794d2b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶尼陀那目得迦攝頌",
+        "alternateTitle": "根本說一切有部毘奈耶尼陀那目得迦攝頌",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1456",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1456 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1456_001"
+      },
+      "verification": {
+        "segments": 242,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1456.001.0517c02",
+          "T1456.001.0520b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1457",
+      "slug": "taisho-t1457",
+      "workId": "gbcr:work:taisho-t1457",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1457",
+          "label": "根本说一切有部毘奈耶及事部文本家族",
+          "evidence": "T1442–T1457 连续保存僧尼毘奈耶、出家、安居、随意、皮革、药、羯耻那衣、破僧、杂事、尼陀那目得迦、羯磨、戒经与摄颂；共同译者、部派和结构证明同一律藏家族，但不把广律、事部、戒本、羯磨与摄颂合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447",
+              "T1448",
+              "T1449",
+              "T1450",
+              "T1451",
+              "T1452",
+              "T1453",
+              "T1454",
+              "T1455",
+              "T1456",
+              "T1457"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1457.xml",
+      "upstreamPath": "T/T24/T24n1457.xml",
+      "upstreamGitBlobSha1": "2624e0ca6431a7e5a6eaf843459d468af326d9ff",
+      "upstreamBytes": 65588,
+      "upstreamSha256": "af60ce9cf785b34be5d6a0a9b29133bd1a61617a62c2d4eb5d6ff982f60a4d25",
+      "localBytes": 65589,
+      "localSha256": "059842fd54d8ff96b4ba5afbe4a90998e46af7d09b38f87827adf52a4fb19884",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部略毘奈耶雜事攝頌",
+        "alternateTitle": "根本說一切有部略毘奈耶雜事攝頌",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1457",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1457 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1457_001"
+      },
+      "verification": {
+        "segments": 294,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1457.001.0520c02",
+          "T1457.001.0524a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1458",
+      "slug": "taisho-t1458",
+      "workId": "gbcr:work:taisho-t1458",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_root_text_exegesis_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-exegesis-t1454-t1459",
+          "label": "根本说一切有部戒经、律摄与毘奈耶颂关系",
+          "evidence": "T1458《律摄》对 T1454 戒经的五字片段覆盖超过 82%，T1459 为毘奈耶颂；高覆盖与题记支持根本文本、解释和偈颂关系，不证明它们是同一作品的版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1458",
+              "T1459"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1458.xml",
+      "upstreamPath": "T/T24/T24n1458.xml",
+      "upstreamGitBlobSha1": "dffda6b0cdd90b292b716a0a46bdcfa4d6ebbe07",
+      "upstreamBytes": 1975595,
+      "upstreamSha256": "7d601b1e5b193380393fc742efcf73d33be99fda0a022b893cafbbb6c45e1d5a",
+      "localBytes": 1975596,
+      "localSha256": "8ea61e9dfa038000fce7a5941f277589d50dceee509927110780fd069789e79d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本薩婆多部律攝",
+        "alternateTitle": "根本薩婆多部律攝",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1458",
+        "translator": "尊者勝友造 · 唐 · 義淨譯",
+        "summary": "14卷。本站完整保存 T1458 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1458_001"
+      },
+      "verification": {
+        "segments": 7940,
+        "folios": 287,
+        "juanRange": [
+          1,
+          14
+        ],
+        "anchors": [
+          "T1458.001.0525a02",
+          "T1458.014.0617a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1459",
+      "slug": "taisho-t1459",
+      "workId": "gbcr:work:taisho-t1459",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_root_text_exegesis_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-exegesis-t1454-t1459",
+          "label": "根本说一切有部戒经、律摄与毘奈耶颂关系",
+          "evidence": "T1458《律摄》对 T1454 戒经的五字片段覆盖超过 82%，T1459 为毘奈耶颂；高覆盖与题记支持根本文本、解释和偈颂关系，不证明它们是同一作品的版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1458",
+              "T1459"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1459.xml",
+      "upstreamPath": "T/T24/T24n1459.xml",
+      "upstreamGitBlobSha1": "886b83abc6fd793f437d43240c7c4b2606b9070b",
+      "upstreamBytes": 677937,
+      "upstreamSha256": "318d15458bd7c3244db3153f3475d222125c194c0079e5da42bc68009389ca09",
+      "localBytes": 677938,
+      "localSha256": "0018081f457ebdb4c9f58106ef2f2322423d96b3fad73652a2851de79e573d79",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶頌",
+        "alternateTitle": "根本說一切有部毘奈耶頌",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1459",
+        "translator": "尊者毘舍佉造 · 唐 · 義淨譯",
+        "summary": "3卷。本站完整保存 T1459 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1459_001"
+      },
+      "verification": {
+        "segments": 3495,
+        "folios": 123,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1459.001.0617b02",
+          "T1459.003.0657b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1460",
+      "slug": "taisho-t1460",
+      "workId": "gbcr:work:taisho-t1460",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_pratimoksa_parallel_candidate_unmerged",
+          "groupId": "vinaya-pratimoksa-parallel-t1454-t1460",
+          "label": "僧尼戒经与解脱戒经平行文本候选",
+          "evidence": "T1454/T1455 是根本说一切有部僧尼戒经，T1460 为《解脱戒经》；题名、体裁与正文重合支持戒本平行研究，但部派、对象与文本范围不足以裁为同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1454",
+              "T1455",
+              "T1460"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1460.xml",
+      "upstreamPath": "T/T24/T24n1460.xml",
+      "upstreamGitBlobSha1": "bad51e22840b7690da8cafc3d18b9fc29e3dea58",
+      "upstreamBytes": 156560,
+      "upstreamSha256": "79aba8b7b7abae20151ab52eaea6d080a0a22e34b68b9dbd7d0cd60140719c20",
+      "localBytes": 156561,
+      "localSha256": "69db349c80addc95a4fd015f5d29ba9b16388f5f4925e0b0055aa4f826520c6d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "解脫戒經",
+        "alternateTitle": "解脫戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1460",
+        "translator": "元魏 · 般若流支譯",
+        "summary": "1卷。本站完整保存 T1460 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1460_001"
+      },
+      "verification": {
+        "segments": 553,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1460.001.0659a02",
+          "T1460.001.0665b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1461",
+      "slug": "taisho-t1461",
+      "workId": "gbcr:work:taisho-t1461",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "localPath": "data/corpus/cbeta/T24n1461.xml",
+      "upstreamPath": "T/T24/T24n1461.xml",
+      "upstreamGitBlobSha1": "59cd7f328603ca34f1cca9ec04a647254826113c",
+      "upstreamBytes": 125692,
+      "upstreamSha256": "abb78aa4a379019228b0f931b0a9374c925b466f59bffde0ad575e68a97329db",
+      "localBytes": 125693,
+      "localSha256": "77e9affa8c03ca3297b8ff03da1453f9d81051a67120eb37a884e8ae8d77372d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "律二十二明了論",
+        "alternateTitle": "律二十二明了論",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1461",
+        "translator": "弗陀多羅多造 · 陳 · 真諦譯",
+        "summary": "1卷。本站完整保存 T1461 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1461_001"
+      },
+      "verification": {
+        "segments": 683,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1461.001.0665b12",
+          "T1461.001.0673a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1462",
+      "slug": "taisho-t1462",
+      "workId": "gbcr:work:taisho-t1462",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1462.xml",
+      "upstreamPath": "T/T24/T24n1462.xml",
+      "upstreamGitBlobSha1": "4b254fb0a43032526564875534a6111d7e5b9720",
+      "upstreamBytes": 3104812,
+      "upstreamSha256": "bc6979e42689c9195c68903e02597f132c46c24e7c9ba39a10d78f4b5e798b08",
+      "localBytes": 3104813,
+      "localSha256": "2ad040c1c45c51bc40c6ce342d89c9415d4a1930fdad3b15dfecaa6bdb4fce3f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "善見律毘婆沙",
+        "alternateTitle": "善見律毘婆沙",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1462",
+        "translator": "蕭齊 · 僧伽跋陀羅譯",
+        "summary": "18卷。本站完整保存 T1462 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1462_001"
+      },
+      "verification": {
+        "segments": 10847,
+        "folios": 396,
+        "juanRange": [
+          1,
+          18
+        ],
+        "anchors": [
+          "T1462.001.0673b02",
+          "T1462.018.0800c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1463",
+      "slug": "taisho-t1463",
+      "workId": "gbcr:work:taisho-t1463",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1463.xml",
+      "upstreamPath": "T/T24/T24n1463.xml",
+      "upstreamGitBlobSha1": "ee1747dcd0271dc09a7b989b3f1d5d408d1b8fe8",
+      "upstreamBytes": 937076,
+      "upstreamSha256": "8acd7fa1738deeb2641413897538014f5f2ae86fa8065136118fce910d342345",
+      "localBytes": 937077,
+      "localSha256": "857909b007371707c67ab04594222b7d45b7052d06ee88a7cb1f20ab5f4a9c25",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "毘尼母經",
+        "alternateTitle": "毘尼母經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1463",
+        "translator": "失譯",
+        "summary": "8卷。本站完整保存 T1463 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1463_001"
+      },
+      "verification": {
+        "segments": 4326,
+        "folios": 156,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T1463.001.0801a02",
+          "T1463.008.0850c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1464",
+      "slug": "taisho-t1464",
+      "workId": "gbcr:work:taisho-t1464",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1464.xml",
+      "upstreamPath": "T/T24/T24n1464.xml",
+      "upstreamGitBlobSha1": "4c7d779292d5bb4df1c17a26e8e19db53df0745d",
+      "upstreamBytes": 1238577,
+      "upstreamSha256": "c7fd7d1f9615ead7ff1830c14dc2e6c7d5fb7a8c93842423d954ab6aeb7171b1",
+      "localBytes": 1238578,
+      "localSha256": "dc6500dc39f0d672fd3385b424ba172d66151bd0ba4c083f24cd91824d1ead6c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鼻奈耶",
+        "alternateTitle": "鼻奈耶",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1464",
+        "translator": "姚秦 · 竺佛念譯",
+        "summary": "10卷。本站完整保存 T1464 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1464_001"
+      },
+      "verification": {
+        "segments": 4154,
+        "folios": 152,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1464.001.0851a02",
+          "T1464.010.0899c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1465",
+      "slug": "taisho-t1465",
+      "workId": "gbcr:work:taisho-t1465",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1465.xml",
+      "upstreamPath": "T/T24/T24n1465.xml",
+      "upstreamGitBlobSha1": "c0cbcf2987b6fb8fabe0c344b5750ded54e1d7e5",
+      "upstreamBytes": 69161,
+      "upstreamSha256": "4c50e67a58e5627db5d8bb000d4c640c8fad3df13187c239a044ad222479da8b",
+      "localBytes": 69162,
+      "localSha256": "ea1240a9ca4c03fc8d02bf0deface33fa1f00ef1448ed7cf817078b8e615cea3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "舍利弗問經",
+        "alternateTitle": "舍利弗問經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1465",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1465 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1465_001"
+      },
+      "verification": {
+        "segments": 287,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1465.001.0899c06",
+          "T1465.001.0903a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1466",
+      "slug": "taisho-t1466",
+      "workId": "gbcr:work:taisho-t1466",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1466.xml",
+      "upstreamPath": "T/T24/T24n1466.xml",
+      "upstreamGitBlobSha1": "ad335c7c8c8d303941463b0af72e741e7a36a665",
+      "upstreamBytes": 115767,
+      "upstreamSha256": "8ac34ede31a3a4eba3fdcc3251781a14874573f26fb4e41950b1932627c0664e",
+      "localBytes": 115768,
+      "localSha256": "3188c28874ad5273724ccb61a2766a5acaebe0fd4a7007bc24abfac101f4f778",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "優波離問佛經",
+        "alternateTitle": "優波離問佛經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1466",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1466 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1466_001"
+      },
+      "verification": {
+        "segments": 629,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1466.001.0903a13",
+          "T1466.001.0910b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1467a",
+      "slug": "taisho-t1467a",
+      "workId": "gbcr:work:disciplinary-consequences-t1467",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "traditional_attributed_vinaya_translation_with_contested_history",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "disciplinary-consequences-t1467a-b",
+          "label": "《犯戒罪报轻重经》T1467 a/b 版本见证",
+          "evidence": "DILA/CBETA 把两份同基础经号、核心题名和重合正文的记录并列；五字片段覆盖约 68.9%。平台合并作品实体，保留 a 的安世高传统归属争议与 b 的无署名状态。",
+          "externalIds": {
+            "cbeta": [
+              "T1467a",
+              "T1467b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1467a.xml",
+      "upstreamPath": "T/T24/T24n1467a.xml",
+      "upstreamGitBlobSha1": "06df59936f87b1eeb94623c45792bfe1ea1e749a",
+      "upstreamBytes": 41744,
+      "upstreamSha256": "a8971733178ae4847214134a948edf6a5b67d31b62d43a4e21eb1bf8794aab37",
+      "localBytes": 41745,
+      "localSha256": "b0885438301fa786af3ddca4b2dfb8cb8ed5a45becdba6005e2fdc7b09dcce56",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說犯戒罪報輕重經",
+        "alternateTitle": "佛說犯戒罪報輕重經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1467a",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T1467a 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存传统译者题记，同时明确现代研究对译者归属、中国撰述层或形成年代的争议；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1467a_001"
+      },
+      "verification": {
+        "segments": 47,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1467a.001.0910b08",
+          "T1467a.001.0911a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1467b",
+      "slug": "taisho-t1467b",
+      "workId": "gbcr:work:disciplinary-consequences-t1467",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "unattributed_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "disciplinary-consequences-t1467a-b",
+          "label": "《犯戒罪报轻重经》T1467 a/b 版本见证",
+          "evidence": "DILA/CBETA 把两份同基础经号、核心题名和重合正文的记录并列；五字片段覆盖约 68.9%。平台合并作品实体，保留 a 的安世高传统归属争议与 b 的无署名状态。",
+          "externalIds": {
+            "cbeta": [
+              "T1467a",
+              "T1467b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1467b.xml",
+      "upstreamPath": "T/T24/T24n1467b.xml",
+      "upstreamGitBlobSha1": "c6b0b17c84762fc9a73027870941f53b72624837",
+      "upstreamBytes": 6845,
+      "upstreamSha256": "2c58bebf085160fd6d285947e5faa5f70f1cd1d0a48f81e88395109bf16b604a",
+      "localBytes": 6846,
+      "localSha256": "13b41fb73a6f1f3bdc238d8e9e6d77a8970ba9030cf1c744c3cc57cf30349dbc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說犯戒罪報輕重經",
+        "alternateTitle": "佛說犯戒罪報輕重經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1467b",
+        "translator": "题记未载作者或译者",
+        "summary": "1卷。本站完整保存 T1467b 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者，平台不从同作品另一版本补造其责任归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1467b_001"
+      },
+      "verification": {
+        "segments": 29,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1467b.001.0911a06",
+          "T1467b.001.0911b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1468",
+      "slug": "taisho-t1468",
+      "workId": "gbcr:work:taisho-t1468",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1468.xml",
+      "upstreamPath": "T/T24/T24n1468.xml",
+      "upstreamGitBlobSha1": "6320ad74752ec13719d13587c5e9c60dd7c5b6e5",
+      "upstreamBytes": 11163,
+      "upstreamSha256": "c6f738b21c9bee3af41e69dfc54a7021fa3f9750d7affcf713529823977f3d5e",
+      "localBytes": 11164,
+      "localSha256": "33c90b19f635f36f48cfb787890da52f8ef4e63808264c3fbba9be6a86d5d1b5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說目連所問經",
+        "alternateTitle": "佛說目連所問經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1468",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。本站完整保存 T1468 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1468_001"
+      },
+      "verification": {
+        "segments": 53,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1468.001.0911b08",
+          "T1468.001.0912a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1469",
+      "slug": "taisho-t1469",
+      "workId": "gbcr:work:taisho-t1469",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1469.xml",
+      "upstreamPath": "T/T24/T24n1469.xml",
+      "upstreamGitBlobSha1": "70e2c55a58dc91416edf783c13665c20cce1602c",
+      "upstreamBytes": 17244,
+      "upstreamSha256": "9464067ccf70267995cdb3c743d020290e270d29871777c959343afbd12688c6",
+      "localBytes": 17245,
+      "localSha256": "212b13a9f80658ecba9a76372ce52ef01c5a2fbdcfc7169fff5bbe5ecffdc0b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說迦葉禁戒經",
+        "alternateTitle": "佛說迦葉禁戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1469",
+        "translator": "宋 · 沮渠京聲譯",
+        "summary": "1卷。本站完整保存 T1469 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1469_001"
+      },
+      "verification": {
+        "segments": 71,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1469.001.0912a06",
+          "T1469.001.0912c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1470",
+      "slug": "taisho-t1470",
+      "workId": "gbcr:work:taisho-t1470",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1470.xml",
+      "upstreamPath": "T/T24/T24n1470.xml",
+      "upstreamGitBlobSha1": "716886dfff8ac329f5aedd73b3ef5ec045265678",
+      "upstreamBytes": 386955,
+      "upstreamSha256": "a713b6377152a688b383a3e5a401b8b1a07824180a1f17c188a3f6ebf5acebcd",
+      "localBytes": 386956,
+      "localSha256": "e3d03cf1915a14f2c3621b4d782cb92c404972c95559f596f78506d7c90bfde4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大比丘三千威儀",
+        "alternateTitle": "大比丘三千威儀",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1470",
+        "translator": "後漢 · 安世高譯",
+        "summary": "2卷。本站完整保存 T1470 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1470_001"
+      },
+      "verification": {
+        "segments": 1139,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1470.001.0912c22",
+          "T1470.002.0926a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1471",
+      "slug": "taisho-t1471",
+      "workId": "gbcr:work:taisho-t1471",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "novice_precepts_conduct_family_candidate_unmerged",
+          "groupId": "novice-precepts-conduct-t1471-t1473",
+          "label": "沙弥十戒与威仪文本家族",
+          "evidence": "T1471–T1473 都围绕沙弥十戒与威仪，T1471/T1472 五字片段覆盖约 59.7%；失译、求那跋摩译与施护译题记及文本范围有别，只登记关系而不自动归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1471",
+              "T1472",
+              "T1473"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1471.xml",
+      "upstreamPath": "T/T24/T24n1471.xml",
+      "upstreamGitBlobSha1": "b7bb707a21a1786db2daaf2e6388757cd19c1072",
+      "upstreamBytes": 153177,
+      "upstreamSha256": "7b32741a339e67dcc4a60556832605c6771930796ca02be6079f3db684b87cdb",
+      "localBytes": 153178,
+      "localSha256": "9f5420706c8a4348c7d677dc50ce952b544c0cc9b49dd822675e06a216434cc9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "沙彌十戒法并威儀",
+        "alternateTitle": "沙彌十戒法并威儀",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1471",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1471 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1471_001"
+      },
+      "verification": {
+        "segments": 540,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1471.001.0926a20",
+          "T1471.001.0932b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1472",
+      "slug": "taisho-t1472",
+      "workId": "gbcr:work:taisho-t1472",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "novice_precepts_conduct_family_candidate_unmerged",
+          "groupId": "novice-precepts-conduct-t1471-t1473",
+          "label": "沙弥十戒与威仪文本家族",
+          "evidence": "T1471–T1473 都围绕沙弥十戒与威仪，T1471/T1472 五字片段覆盖约 59.7%；失译、求那跋摩译与施护译题记及文本范围有别，只登记关系而不自动归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1471",
+              "T1472",
+              "T1473"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1472.xml",
+      "upstreamPath": "T/T24/T24n1472.xml",
+      "upstreamGitBlobSha1": "b256c152ff67b963d5a27a13ba7b30be89b5514c",
+      "upstreamBytes": 68658,
+      "upstreamSha256": "735120915f71deac4b16ddf2aa2c0a69eb971189d4dd951aaf00e6d7d9ee064e",
+      "localBytes": 68659,
+      "localSha256": "6d10095f612fcfee1a24a6977f7e500b97923f8fad278d8ddd228b317fa5706e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "沙彌威儀",
+        "alternateTitle": "沙彌威儀",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1472",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1472 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1472_001"
+      },
+      "verification": {
+        "segments": 247,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1472.001.0932b12",
+          "T1472.001.0935a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1473",
+      "slug": "taisho-t1473",
+      "workId": "gbcr:work:taisho-t1473",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "novice_precepts_conduct_family_candidate_unmerged",
+          "groupId": "novice-precepts-conduct-t1471-t1473",
+          "label": "沙弥十戒与威仪文本家族",
+          "evidence": "T1471–T1473 都围绕沙弥十戒与威仪，T1471/T1472 五字片段覆盖约 59.7%；失译、求那跋摩译与施护译题记及文本范围有别，只登记关系而不自动归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1471",
+              "T1472",
+              "T1473"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1473.xml",
+      "upstreamPath": "T/T24/T24n1473.xml",
+      "upstreamGitBlobSha1": "c4a1598ddd298c79af04d909885cdb9220c70d9d",
+      "upstreamBytes": 20532,
+      "upstreamSha256": "42b342a9e5296bbc5a9d36022931f3ff494a0e28a547cb50bb195e5fb1a5fd4e",
+      "localBytes": 20533,
+      "localSha256": "c116fe0bed26c6e1f2f220005faa2c9e64faff3f9b520a92a686e5db324093dd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說沙彌十戒儀則經",
+        "alternateTitle": "佛說沙彌十戒儀則經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1473",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T1473 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1473_001"
+      },
+      "verification": {
+        "segments": 149,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1473.001.0935b02",
+          "T1473.001.0937a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1474",
+      "slug": "taisho-t1474",
+      "workId": "gbcr:work:taisho-t1474",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1474.xml",
+      "upstreamPath": "T/T24/T24n1474.xml",
+      "upstreamGitBlobSha1": "8c639c4a4bffe0e5bdb52b02083f0c08b3ab7ff3",
+      "upstreamBytes": 30383,
+      "upstreamSha256": "f9b894fe747351547ac35bbbcd9051e99478fd2efe3318502213875bfe6aee24",
+      "localBytes": 30384,
+      "localSha256": "5c050bfdaa29cc466594778355906a40fc874247194a676bdf7066c79e6dbd38",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "沙彌尼戒經",
+        "alternateTitle": "沙彌尼戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1474",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1474 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1474_001"
+      },
+      "verification": {
+        "segments": 116,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1474.001.0937a09",
+          "T1474.001.0938b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1475",
+      "slug": "taisho-t1475",
+      "workId": "gbcr:work:taisho-t1475",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1475.xml",
+      "upstreamPath": "T/T24/T24n1475.xml",
+      "upstreamGitBlobSha1": "496fc8a065a0b14d82317148ee6ff800ad8e08f7",
+      "upstreamBytes": 37212,
+      "upstreamSha256": "679577ec8bf6a36d416830c0a602a15ae27ffd86357f2b6e6006d5f29b59bec5",
+      "localBytes": 37213,
+      "localSha256": "ae8d9d7172f5818d870995281965b784354c36b6bd31bfda0a3b318ba19f4b7f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "沙彌尼離戒文",
+        "alternateTitle": "沙彌尼離戒文",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1475",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1475 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1475_001"
+      },
+      "verification": {
+        "segments": 114,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1475.001.0938b12",
+          "T1475.001.0939c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1476",
+      "slug": "taisho-t1476",
+      "workId": "gbcr:work:taisho-t1476",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1476.xml",
+      "upstreamPath": "T/T24/T24n1476.xml",
+      "upstreamGitBlobSha1": "455c7aa74ad0a33b7dcb4b79ff3205260c6ed4fb",
+      "upstreamBytes": 82828,
+      "upstreamSha256": "9cc68c2ab6e999bb3c9f0f4e6f992aa710e2996c622ba31a2d00aee132a3c25e",
+      "localBytes": 82829,
+      "localSha256": "9efe34aadce635b28df10f51f747a4308b84403c7c0068a2bfffd37594aa6aad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說優婆塞五戒相經",
+        "alternateTitle": "佛說優婆塞五戒相經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1476",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1476 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1476_001"
+      },
+      "verification": {
+        "segments": 389,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1476.001.0939c13",
+          "T1476.001.0944a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1477",
+      "slug": "taisho-t1477",
+      "workId": "gbcr:work:taisho-t1477",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1477.xml",
+      "upstreamPath": "T/T24/T24n1477.xml",
+      "upstreamGitBlobSha1": "e632a16103cfe2f29a6ac224bb33e3d114b3eb8e",
+      "upstreamBytes": 34421,
+      "upstreamSha256": "499158d38591e9fc40ec9f84f4ee81a7d56a7a5f13e4afe59ec093e90bb0c863",
+      "localBytes": 34422,
+      "localSha256": "17718757e3b798a2c9dba4720b4da2beea1745bbdef40971460653641ae02791",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說戒消災經",
+        "alternateTitle": "佛說戒消災經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1477",
+        "translator": "吳 · 支謙譯",
+        "summary": "1卷。本站完整保存 T1477 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1477_001"
+      },
+      "verification": {
+        "segments": 103,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1477.001.0944b02",
+          "T1477.001.0945b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1478",
+      "slug": "taisho-t1478",
+      "workId": "gbcr:work:taisho-t1478",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1478.xml",
+      "upstreamPath": "T/T24/T24n1478.xml",
+      "upstreamGitBlobSha1": "cf7be7797856ac417ac77e0efca69dfd6b57e08f",
+      "upstreamBytes": 180256,
+      "upstreamSha256": "a83d6be8670fcaaa7e433a596e6986ee8d5f6a1069c2b931557249135b7476be",
+      "localBytes": 180257,
+      "localSha256": "7872998ebd7ec72a08dc30dd5860e8daa62cb8cde8d71fa5755697861134ec8c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大愛道比丘尼經",
+        "alternateTitle": "大愛道比丘尼經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1478",
+        "translator": "失譯",
+        "summary": "2卷。本站完整保存 T1478 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1478_001"
+      },
+      "verification": {
+        "segments": 831,
+        "folios": 31,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1478.001.0945b21",
+          "T1478.002.0955a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1479",
+      "slug": "taisho-t1479",
+      "workId": "gbcr:work:taisho-t1479",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1479.xml",
+      "upstreamPath": "T/T24/T24n1479.xml",
+      "upstreamGitBlobSha1": "a493ddd5f2a86772e7ac3a7f1cd7270db2b01d7e",
+      "upstreamBytes": 23309,
+      "upstreamSha256": "2bc374983221d542c25fd45dbcb4d2ae7c19cdf0a5a2208fb8943cdb3f87931a",
+      "localBytes": 23310,
+      "localSha256": "686ae79447d7d94bc8f245b3dd841cae16af9971f3b8c380f4fd7894c9b159f2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說苾芻五法經",
+        "alternateTitle": "佛說苾芻五法經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1479",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。本站完整保存 T1479 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1479_001"
+      },
+      "verification": {
+        "segments": 128,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1479.001.0955a17",
+          "T1479.001.0956b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1480",
+      "slug": "taisho-t1480",
+      "workId": "gbcr:work:taisho-t1480",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1480.xml",
+      "upstreamPath": "T/T24/T24n1480.xml",
+      "upstreamGitBlobSha1": "cbd6c5151c06b49231fb8502c45135fe2d7b8c82",
+      "upstreamBytes": 21654,
+      "upstreamSha256": "f4efca52674718071b78d2314196d277b636359d7f869f91674cacae37331a82",
+      "localBytes": 21655,
+      "localSha256": "ef083f0fbe32d62a8a8a5845a48201d88e2a841fef1a73e18771eb345a4f0fed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說苾芻迦尸迦十法經",
+        "alternateTitle": "佛說苾芻迦尸迦十法經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1480",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。本站完整保存 T1480 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1480_001"
+      },
+      "verification": {
+        "segments": 76,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1480.001.0956c03",
+          "T1480.001.0957b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1481",
+      "slug": "taisho-t1481",
+      "workId": "gbcr:work:taisho-t1481",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1481.xml",
+      "upstreamPath": "T/T24/T24n1481.xml",
+      "upstreamGitBlobSha1": "279958f4e9e2ab6b36d7d1b059ed52fc41d95a24",
+      "upstreamBytes": 10043,
+      "upstreamSha256": "26020b97d157bff250e37402dc2b074e6c612545654afb417fe24c78bd7fdc83",
+      "localBytes": 10044,
+      "localSha256": "122dc2360425db897923289996d8cd2994cedf1d9fa8f92949c36dd39885ee25",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說五恐怖世經",
+        "alternateTitle": "佛說五恐怖世經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1481",
+        "translator": "宋 · 沮渠京聲譯",
+        "summary": "1卷。本站完整保存 T1481 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1481_001"
+      },
+      "verification": {
+        "segments": 34,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1481.001.0957b24",
+          "T1481.001.0957c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1482",
+      "slug": "taisho-t1482",
+      "workId": "gbcr:work:taisho-t1482",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1482.xml",
+      "upstreamPath": "T/T24/T24n1482.xml",
+      "upstreamGitBlobSha1": "cfff0c79f6e3dff1396cc65ecead33a596b8a87c",
+      "upstreamBytes": 193327,
+      "upstreamSha256": "bd5ed6fdad7bd3607dd238bd27b439bed3a77fb8d4619cf511e9682d1fd6ff66",
+      "localBytes": 193328,
+      "localSha256": "c80e653cfc43b61ce2db92eb0f453862e01678a6e6a5b454505ebbd9fff71c50",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "佛阿毘曇經出家相品",
+        "alternateTitle": "佛阿毘曇經出家相品",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1482",
+        "translator": "陳 · 真諦譯",
+        "summary": "2卷。本站完整保存该节出见证的 T1482 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1482_001"
+      },
+      "verification": {
+        "segments": 1249,
+        "folios": 45,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1482.001.0958a02",
+          "T1482.002.0972b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1483a",
+      "slug": "taisho-t1483a",
+      "workId": "gbcr:work:maudgalyayana-vinaya-questions",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "lost_translation_with_contested_native_compilation_history",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "maudgalyayana-vinaya-questions-t1483a-b",
+          "label": "《目连问戒律中五百轻重事》T1483 a/b 版本见证",
+          "evidence": "DILA/CBETA 以一个 T1483 书目入口收录 a/b，核心题名一致且五字片段覆盖约 77.8%；研究又提示现存形态有后加卷与中国编纂层，故共享作品实体但保留两份版本见证和形成史争议。",
+          "externalIds": {
+            "cbeta": [
+              "T1483a",
+              "T1483b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1483a.xml",
+      "upstreamPath": "T/T24/T24n1483a.xml",
+      "upstreamGitBlobSha1": "046a5ff2232638e3eeaea154aee18528646b5e12",
+      "upstreamBytes": 106858,
+      "upstreamSha256": "2edf1c84248ad175253d7e431b0986d350a2e5ebc17c61af99b9af2143cb96de",
+      "localBytes": 106859,
+      "localSha256": "1c3211c5da576c32787b72013b26f253541435ac88211abd22b862c36b2782c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說目連問戒律中五百輕重事",
+        "alternateTitle": "佛說目連問戒律中五百輕重事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1483a",
+        "translator": "失譯；现存形态与中国编纂层有争议",
+        "summary": "1卷。本站完整保存 T1483a 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录标为失译，研究提示正文可能源自讲律记录且现存形态含后加编纂层；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1483a_001"
+      },
+      "verification": {
+        "segments": 990,
+        "folios": 35,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1483a.001.0972b12",
+          "T1483a.001.0983c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1483b",
+      "slug": "taisho-t1483b",
+      "workId": "gbcr:work:maudgalyayana-vinaya-questions",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "lost_translation_with_contested_native_compilation_history",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "maudgalyayana-vinaya-questions-t1483a-b",
+          "label": "《目连问戒律中五百轻重事》T1483 a/b 版本见证",
+          "evidence": "DILA/CBETA 以一个 T1483 书目入口收录 a/b，核心题名一致且五字片段覆盖约 77.8%；研究又提示现存形态有后加卷与中国编纂层，故共享作品实体但保留两份版本见证和形成史争议。",
+          "externalIds": {
+            "cbeta": [
+              "T1483a",
+              "T1483b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1483b.xml",
+      "upstreamPath": "T/T24/T24n1483b.xml",
+      "upstreamGitBlobSha1": "adf5ac18c0e9e20b41d04d8aae2db0bd1e4d113c",
+      "upstreamBytes": 175081,
+      "upstreamSha256": "b4583155b57f4f8159b7b96c1bec9a1974cdcd68796b4f8d33bf1905e2c70dd2",
+      "localBytes": 175082,
+      "localSha256": "284b53a814ffe8875f05767dceb6ec3b07a78d91a7914d435f3f31a1adb742c1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說目連問戒律中五百輕重事經",
+        "alternateTitle": "佛說目連問戒律中五百輕重事經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1483b",
+        "translator": "失譯；现存形态与中国编纂层有争议",
+        "summary": "2卷。本站完整保存 T1483b 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录标为失译，研究提示正文可能源自讲律记录且现存形态含后加编纂层；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1483b_001"
+      },
+      "verification": {
+        "segments": 1033,
+        "folios": 38,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1483b.001.0983c19",
+          "T1483b.002.0995c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1484",
+      "slug": "taisho-t1484",
+      "workId": "gbcr:work:taisho-t1484",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_vinaya_translation_with_contested_history",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_bodhisattva_precepts_family_candidate_unmerged",
+          "groupId": "east-asian-bodhisattva-precepts-t1484-t1485",
+          "label": "《梵网经》与《菩萨璎珞本业经》东亚菩萨戒传统",
+          "evidence": "两经都是东亚菩萨戒传统的关键文本，现代研究对其中国撰述层及传统译者归属均有争议；平台保存传统题记和争议标识，不据相邻经号或思想关系合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1485"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1484.xml",
+      "upstreamPath": "T/T24/T24n1484.xml",
+      "upstreamGitBlobSha1": "75eb52d6373e5a4d0277ef785e6d70eff7fa8267",
+      "upstreamBytes": 361224,
+      "upstreamSha256": "ce5d470929f45bb087cea2a155ae1637ec9496f7948ad91aabe1449a37396e91",
+      "localBytes": 361225,
+      "localSha256": "ae743db960c378a84e26b3d6dca5fc6dca56f05dfab0383f63674e33ccbea39a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵網經",
+        "alternateTitle": "梵網經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1484",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "2卷。本站完整保存 T1484 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存传统译者题记，同时明确现代研究对译者归属、中国撰述层或形成年代的争议；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1484_001"
+      },
+      "verification": {
+        "segments": 1118,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1484.001.0997a01",
+          "T1484.002.1010a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1485",
+      "slug": "taisho-t1485",
+      "workId": "gbcr:work:taisho-t1485",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_vinaya_translation_with_contested_history",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_bodhisattva_precepts_family_candidate_unmerged",
+          "groupId": "east-asian-bodhisattva-precepts-t1484-t1485",
+          "label": "《梵网经》与《菩萨璎珞本业经》东亚菩萨戒传统",
+          "evidence": "两经都是东亚菩萨戒传统的关键文本，现代研究对其中国撰述层及传统译者归属均有争议；平台保存传统题记和争议标识，不据相邻经号或思想关系合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1485"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1485.xml",
+      "upstreamPath": "T/T24/T24n1485.xml",
+      "upstreamGitBlobSha1": "83742593b484671ec0176906882240dee8e17801",
+      "upstreamBytes": 312793,
+      "upstreamSha256": "6a38d2b3b2ae11953a3dfa89f985e91c33faf2c4979aa2732abea0444f154bd2",
+      "localBytes": 312794,
+      "localSha256": "e77d8b9cd990bb0098b025b46f79bdfe4536f81c494e2b64786410bb48c2e3d5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩瓔珞本業經",
+        "alternateTitle": "菩薩瓔珞本業經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1485",
+        "translator": "姚秦 · 竺佛念譯",
+        "summary": "2卷。本站完整保存 T1485 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存传统译者题记，同时明确现代研究对译者归属、中国撰述层或形成年代的争议；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1485_001"
+      },
+      "verification": {
+        "segments": 1103,
+        "folios": 39,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1485.001.1010b02",
+          "T1485.002.1023a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1486",
+      "slug": "taisho-t1486",
+      "workId": "gbcr:work:taisho-t1486",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1486.xml",
+      "upstreamPath": "T/T24/T24n1486.xml",
+      "upstreamGitBlobSha1": "f57ecef5eb88c8bc03f11e39f6fd1f5fa55c064a",
+      "upstreamBytes": 130738,
+      "upstreamSha256": "6904dc2bee2502e2a3a3a13df5dfd98e652a1e9f98bcee1bb9a0dbb99d8b9bda",
+      "localBytes": 130739,
+      "localSha256": "057a0c45ef647ff2806b0a93e65c4a3d80531a8ac67a71f4ca23cdb7c09000b4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "受十善戒經",
+        "alternateTitle": "受十善戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1486",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1486 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1486_001"
+      },
+      "verification": {
+        "segments": 485,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1486.001.1023a13",
+          "T1486.001.1028c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1487",
+      "slug": "taisho-t1487",
+      "workId": "gbcr:work:taisho-t1487",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1487.xml",
+      "upstreamPath": "T/T24/T24n1487.xml",
+      "upstreamGitBlobSha1": "20a9bf72143c1128c349835c5d9c880bb9ee420b",
+      "upstreamBytes": 86178,
+      "upstreamSha256": "2faa67b47b42b724b630cde542a007f8a4e2daabaa6b16711fbf671f18fefd66",
+      "localBytes": 86179,
+      "localSha256": "1a506cd47e519f99db3b6c9461ffef3b59739e18d04d097c4a0ab5b6a7c22571",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說菩薩內戒經",
+        "alternateTitle": "佛說菩薩內戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1487",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1487 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1487_001"
+      },
+      "verification": {
+        "segments": 472,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1487.001.1028c08",
+          "T1487.001.1034a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1488",
+      "slug": "taisho-t1488",
+      "workId": "gbcr:work:taisho-t1488",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1488.xml",
+      "upstreamPath": "T/T24/T24n1488.xml",
+      "upstreamGitBlobSha1": "80a511fb15e4cc5e2f566d969382422352dbae70",
+      "upstreamBytes": 767777,
+      "upstreamSha256": "3f0496b78c6576899b0590f8605bb8a31766de5def2a8f6a902d2fe8855fc387",
+      "localBytes": 767778,
+      "localSha256": "82c3b708ddd5e1ce7cd248e8f24de861070e607ac61bb68589fc8ba4b0b5135e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "優婆塞戒經",
+        "alternateTitle": "優婆塞戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1488",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "7卷。本站完整保存 T1488 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1488_001"
+      },
+      "verification": {
+        "segments": 3588,
+        "folios": 131,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1488.001.1034a19",
+          "T1488.007.1075c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1489",
+      "slug": "taisho-t1489",
+      "workId": "gbcr:work:paramarthasamvrtisatyanirdesa",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "paramarthasamvrtisatyanirdesa-t1489-t1490",
+          "label": "Paramārthasaṃvṛtisatyanirdeśa 汉译组",
+          "evidence": "两份固定 TEI 题记互列对方经号，DILA/CBETA 明确登记为同一 Paramārthasaṃvṛtisatyanirdeśa 的异译；平台共享作品实体并保留鸠摩罗什与法海两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1489",
+              "T1490"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1489.xml",
+      "upstreamPath": "T/T24/T24n1489.xml",
+      "upstreamGitBlobSha1": "abc7bc2ec3587c5a5e72b2f7199fa07d337e3b6b",
+      "upstreamBytes": 97048,
+      "upstreamSha256": "26336f68c69033de58102ac36e335eb672c3e9387e6dea976e22600c5b24a3fd",
+      "localBytes": 97049,
+      "localSha256": "66445f1c48f2f91678043e436fb3835134f86640b0adad5b5d402793b80edb19",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "清淨毘尼方廣經",
+        "alternateTitle": "清淨毘尼方廣經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1489",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T1489 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1489_001"
+      },
+      "verification": {
+        "segments": 470,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1489.001.1075c05",
+          "T1489.001.1081a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1490",
+      "slug": "taisho-t1490",
+      "workId": "gbcr:work:paramarthasamvrtisatyanirdesa",
+      "workIdentityStatus": "verified_same_work_expression",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "paramarthasamvrtisatyanirdesa-t1489-t1490",
+          "label": "Paramārthasaṃvṛtisatyanirdeśa 汉译组",
+          "evidence": "两份固定 TEI 题记互列对方经号，DILA/CBETA 明确登记为同一 Paramārthasaṃvṛtisatyanirdeśa 的异译；平台共享作品实体并保留鸠摩罗什与法海两个汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1489",
+              "T1490"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1490.xml",
+      "upstreamPath": "T/T24/T24n1490.xml",
+      "upstreamGitBlobSha1": "715eccf6dc0f17f4c55ec029ead3ed3d7125cd06",
+      "upstreamBytes": 79170,
+      "upstreamSha256": "1fdea831608d2dcfb43a1dc5b0499ca1133d359a25d560730b8df2a7f9bece12",
+      "localBytes": 79171,
+      "localSha256": "6006e8429e3aeeb2c0c9efdd69d7a9d0671426744ef279f80125d8f6168b8415",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寂調音所問經",
+        "alternateTitle": "寂調音所問經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1490",
+        "translator": "宋 · 法海譯",
+        "summary": "1卷。本站完整保存 T1490 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1490_001"
+      },
+      "verification": {
+        "segments": 498,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1490.001.1081a14",
+          "T1490.001.1086c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1491",
+      "slug": "taisho-t1491",
+      "workId": "gbcr:work:taisho-t1491",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1491.xml",
+      "upstreamPath": "T/T24/T24n1491.xml",
+      "upstreamGitBlobSha1": "a22cfe4ef3888fbf54f78f199f2ab2b86bf6efb9",
+      "upstreamBytes": 46950,
+      "upstreamSha256": "fcf60c4ee2df49ff74bdc6a080a26dce82fbac0c6f39892916dae9dd8b1ad22e",
+      "localBytes": 46951,
+      "localSha256": "d149eebee6cc84d8ba2c3c0686298b6917c289b661847f47502e025fe2c4992e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩藏經",
+        "alternateTitle": "菩薩藏經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1491",
+        "translator": "梁 · 僧伽婆羅譯",
+        "summary": "1卷。本站完整保存 T1491 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1491_001"
+      },
+      "verification": {
+        "segments": 266,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1491.001.1086c22",
+          "T1491.001.1089c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1492",
+      "slug": "taisho-t1492",
+      "workId": "gbcr:work:taisho-t1492",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1492.xml",
+      "upstreamPath": "T/T24/T24n1492.xml",
+      "upstreamGitBlobSha1": "a3d0eebe881f3f63381b5c1b6d461f91cc736c5d",
+      "upstreamBytes": 31963,
+      "upstreamSha256": "05cc913a308dab6ec940042fe205899496f22a7754af1a8fa9ca6f3996df84e7",
+      "localBytes": 31964,
+      "localSha256": "4db00fba9e4ae564f9a321bc065a8cbc7b61d5298ee2c0180ef5050cde37ac4a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說舍利弗悔過經",
+        "alternateTitle": "佛說舍利弗悔過經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1492",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。本站完整保存 T1492 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1492_001"
+      },
+      "verification": {
+        "segments": 125,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1492.001.1090a02",
+          "T1492.001.1091b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1493",
+      "slug": "taisho-t1493",
+      "workId": "gbcr:work:taisho-t1493",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1493.xml",
+      "upstreamPath": "T/T24/T24n1493.xml",
+      "upstreamGitBlobSha1": "74d9b0114ecb5c9509272c34f3e159d15c424bde",
+      "upstreamBytes": 52856,
+      "upstreamSha256": "8b0b911498001b684c7cd1ed1d82697d7f2419c6c8af2cc99da6fbf6186477ba",
+      "localBytes": 52857,
+      "localSha256": "bd87e1c3836298bde27b37c683d6a1c9351e460df8148a258b2627ca9bfd4984",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘三聚懺悔經",
+        "alternateTitle": "大乘三聚懺悔經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1493",
+        "translator": "隋 · 闍那崛多共笈多等譯",
+        "summary": "1卷。本站完整保存 T1493 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1493_001"
+      },
+      "verification": {
+        "segments": 345,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1493.001.1091b14",
+          "T1493.001.1095b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1494",
+      "slug": "taisho-t1494",
+      "workId": "gbcr:work:taisho-t1494",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1494.xml",
+      "upstreamPath": "T/T24/T24n1494.xml",
+      "upstreamGitBlobSha1": "0357ed43959539bac7941fe6f2f99de6d9d9f2e4",
+      "upstreamBytes": 77588,
+      "upstreamSha256": "a36c21a4524013ffff026fe40a6016f04d65db4793a0de17d5d1d9f846cdce30",
+      "localBytes": 77589,
+      "localSha256": "0b67a61deb86ab4f697ebfc35ec95ae6844ca541a6bf8cbbe306702d4a4c5db3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說淨業障經",
+        "alternateTitle": "佛說淨業障經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1494",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1494 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1494_001"
+      },
+      "verification": {
+        "segments": 432,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1494.001.1095b14",
+          "T1494.001.1100b11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1495",
+      "slug": "taisho-t1495",
+      "workId": "gbcr:work:taisho-t1495",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1495.xml",
+      "upstreamPath": "T/T24/T24n1495.xml",
+      "upstreamGitBlobSha1": "4b11f66f9f43829348573fbde543f5ce37954210",
+      "upstreamBytes": 31891,
+      "upstreamSha256": "4d0460e65c0c0af0dddd49291709d27a1ce1e733c46f4ccb801dd6610f491d38",
+      "localBytes": 31892,
+      "localSha256": "70d4528d59ad0c4de95fb674bcf801c3ca5de7fe8c1d9006e11fcc477f3a2760",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "善恭敬經",
+        "alternateTitle": "善恭敬經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1495",
+        "translator": "隋 · 闍那崛多譯",
+        "summary": "1卷。本站完整保存 T1495 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1495_001"
+      },
+      "verification": {
+        "segments": 181,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1495.001.1100b15",
+          "T1495.001.1102b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1496",
+      "slug": "taisho-t1496",
+      "workId": "gbcr:work:taisho-t1496",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1496.xml",
+      "upstreamPath": "T/T24/T24n1496.xml",
+      "upstreamGitBlobSha1": "22466ba4b5b56e556ef23d08a629348b9e48c107",
+      "upstreamBytes": 30684,
+      "upstreamSha256": "5f0385449a9d6919be15160c955e11b22060e6ab75091183eefdcd41608e5a85",
+      "localBytes": 30685,
+      "localSha256": "b721e83f4c4681823fb9ea00a76eff87909a31699c69a143575162eb285f177e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說正恭敬經",
+        "alternateTitle": "佛說正恭敬經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1496",
+        "translator": "元魏 · 佛陀扇多譯",
+        "summary": "1卷。本站完整保存 T1496 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1496_001"
+      },
+      "verification": {
+        "segments": 128,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1496.001.1102b25",
+          "T1496.001.1104a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1497",
+      "slug": "taisho-t1497",
+      "workId": "gbcr:work:taisho-t1497",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1497.xml",
+      "upstreamPath": "T/T24/T24n1497.xml",
+      "upstreamGitBlobSha1": "99c0cbdc7e371542585841e7ae5201aeaaa5343e",
+      "upstreamBytes": 9770,
+      "upstreamSha256": "538bafa5e028b96b90f46a5a0a3ed325a1be0cf210e5f48d5f4d0aced4ef8c43",
+      "localBytes": 9771,
+      "localSha256": "d87c28d72dc97ed35e72cc1c9bd95fc9e01130985967f70d4c3cf92bf51684ff",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘戒經",
+        "alternateTitle": "佛說大乘戒經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1497",
+        "translator": "宋 · 施護譯",
+        "summary": "1卷。本站完整保存 T1497 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1497_001"
+      },
+      "verification": {
+        "segments": 28,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1497.001.1104a11",
+          "T1497.001.1104b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1498",
+      "slug": "taisho-t1498",
+      "workId": "gbcr:work:taisho-t1498",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1498.xml",
+      "upstreamPath": "T/T24/T24n1498.xml",
+      "upstreamGitBlobSha1": "3b1d85810612af42aa80f02fba500253f43ef91b",
+      "upstreamBytes": 8908,
+      "upstreamSha256": "8601963f713771f5bf23db3e5b9c2a6f78dd0aac3cd0d2bdf775fbddb8ea2d40",
+      "localBytes": 8909,
+      "localSha256": "1729b962465b7df0e49be5c26cdb8a26bb68035206dd689cb3b97d616a0cc3ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說八種長養功德經",
+        "alternateTitle": "佛說八種長養功德經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1498",
+        "translator": "宋 · 法護等譯",
+        "summary": "1卷。本站完整保存 T1498 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1498_001"
+      },
+      "verification": {
+        "segments": 31,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1498.001.1104b13",
+          "T1498.001.1104c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1499",
+      "slug": "taisho-t1499",
+      "workId": "gbcr:work:taisho-t1499",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "yogacara_bodhisattva_precepts_family_candidate_unmerged",
+          "groupId": "yogacara-bodhisattva-precepts-t1499-t1501",
+          "label": "瑜伽行派菩萨戒羯磨与戒本文本家族",
+          "evidence": "T1499 是羯磨程序，T1500/T1501 是传统上分别由昙无谶与玄奘译出的菩萨戒本；目录与文本证据支持瑜伽行派戒律家族和节出关系，不足以把三者裁为同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1499",
+              "T1500",
+              "T1501"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1499.xml",
+      "upstreamPath": "T/T24/T24n1499.xml",
+      "upstreamGitBlobSha1": "85e5a2ca1bc9ad3018fde93413d350c7077400c4",
+      "upstreamBytes": 39621,
+      "upstreamSha256": "af22ea2ce65f8b002d4c8715e10fde8efaf13fe9c62db9696328317f694d71f1",
+      "localBytes": 39622,
+      "localSha256": "0678194817a60d00dad844f6d72155ed3f84e57b7f9433da2311d63168ceeec8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒羯磨文",
+        "alternateTitle": "菩薩戒羯磨文",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1499",
+        "translator": "彌勒菩薩說 · 唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T1499 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1499_001"
+      },
+      "verification": {
+        "segments": 183,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1499.001.1104c18",
+          "T1499.001.1106c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1500",
+      "slug": "taisho-t1500",
+      "workId": "gbcr:work:taisho-t1500",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "yogacara_bodhisattva_precepts_family_candidate_unmerged",
+          "groupId": "yogacara-bodhisattva-precepts-t1499-t1501",
+          "label": "瑜伽行派菩萨戒羯磨与戒本文本家族",
+          "evidence": "T1499 是羯磨程序，T1500/T1501 是传统上分别由昙无谶与玄奘译出的菩萨戒本；目录与文本证据支持瑜伽行派戒律家族和节出关系，不足以把三者裁为同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1499",
+              "T1500",
+              "T1501"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1500.xml",
+      "upstreamPath": "T/T24/T24n1500.xml",
+      "upstreamGitBlobSha1": "458023b42df920541f0697974f2a6ded6168f253",
+      "upstreamBytes": 49283,
+      "upstreamSha256": "935c8c401cb94e71aa04f53d16cd252837384b78a796a6f7f197de3cfeabc420",
+      "localBytes": 49284,
+      "localSha256": "17dc0913f551659fca7db12d22df26b27630f534815d3ac161f442174ba62b81",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒本",
+        "alternateTitle": "菩薩戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1500",
+        "translator": "慈氏菩薩說 · 北涼 · 曇無讖譯",
+        "summary": "1卷。本站完整保存 T1500 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1500_001"
+      },
+      "verification": {
+        "segments": 283,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1500.001.1107a02",
+          "T1500.001.1110a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1501",
+      "slug": "taisho-t1501",
+      "workId": "gbcr:work:taisho-t1501",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_or_taught_vinaya_text_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "yogacara_bodhisattva_precepts_family_candidate_unmerged",
+          "groupId": "yogacara-bodhisattva-precepts-t1499-t1501",
+          "label": "瑜伽行派菩萨戒羯磨与戒本文本家族",
+          "evidence": "T1499 是羯磨程序，T1500/T1501 是传统上分别由昙无谶与玄奘译出的菩萨戒本；目录与文本证据支持瑜伽行派戒律家族和节出关系，不足以把三者裁为同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1499",
+              "T1500",
+              "T1501"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T24n1501.xml",
+      "upstreamPath": "T/T24/T24n1501.xml",
+      "upstreamGitBlobSha1": "8abb6674ffa0eb7c94f8186119da423b6efec333",
+      "upstreamBytes": 79507,
+      "upstreamSha256": "3724f4ce73fa52008d7885e31293ad484db1213ee152bd8e55cb77021505beb5",
+      "localBytes": 79508,
+      "localSha256": "82a692cc5214536170e3bedac59a0bf0b99c244cf8de13f8cb8ac7fc27522328",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒本",
+        "alternateTitle": "菩薩戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1501",
+        "translator": "彌勒菩薩說 · 唐 · 玄奘譯",
+        "summary": "1卷。本站完整保存 T1501 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记并列保存造、说与汉译责任，不把论师或菩萨说扩张成佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1501_001"
+      },
+      "verification": {
+        "segments": 484,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1501.001.1110b02",
+          "T1501.001.1115c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1502",
+      "slug": "taisho-t1502",
+      "workId": "gbcr:work:taisho-t1502",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1502.xml",
+      "upstreamPath": "T/T24/T24n1502.xml",
+      "upstreamGitBlobSha1": "dfdae24e5bc56f5336263215df89d4a71bfa0b3d",
+      "upstreamBytes": 16619,
+      "upstreamSha256": "bcf7f83399c34c38c5567d5e40f70dd562b038bdcb32821d7a386152dc9d3154",
+      "localBytes": 16620,
+      "localSha256": "cf06c6f2f05663d561800019fc8cbd8a14828e65aa6075ddf409eeda52829292",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩受齋經",
+        "alternateTitle": "菩薩受齋經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1502",
+        "translator": "西晉 · 聶道真譯",
+        "summary": "1卷。本站完整保存 T1502 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1502_001"
+      },
+      "verification": {
+        "segments": 67,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1502.001.1115c25",
+          "T1502.001.1116c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1503",
+      "slug": "taisho-t1503",
+      "workId": "gbcr:work:taisho-t1503",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "localPath": "data/corpus/cbeta/T24n1503.xml",
+      "upstreamPath": "T/T24/T24n1503.xml",
+      "upstreamGitBlobSha1": "d57bf3ce5eb6d74d6785fdc56a792607aaebdc11",
+      "upstreamBytes": 87537,
+      "upstreamSha256": "55c688315aaf8b7171ce6c2d20db7b867aa4197490759ac8e46b21fc7e3b5f88",
+      "localBytes": 87538,
+      "localSha256": "fee024bb6e1de334a575fb87196890a9a586f85fa1df5fb013462e2f8210d39d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "優婆塞五戒威儀經",
+        "alternateTitle": "優婆塞五戒威儀經",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1503",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1503 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、体裁或正文重合不能单独证明同一作品或佛陀逐字亲说；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1503_001"
+      },
+      "verification": {
+        "segments": 413,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1503.001.1116c08",
+          "T1503.001.1121b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1504",
+      "slug": "taisho-t1504",
+      "workId": "gbcr:work:taisho-t1504",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_vinaya_text",
+      "localPath": "data/corpus/cbeta/T24n1504.xml",
+      "upstreamPath": "T/T24/T24n1504.xml",
+      "upstreamGitBlobSha1": "e1f8facdf7551652e0d340c9a1c71a37bb6144c7",
+      "upstreamBytes": 13040,
+      "upstreamSha256": "a6166d6e11df7203552cd4530f8bd9611521b922c73876b4cbaee2d4ac505bd6",
+      "localBytes": 13041,
+      "localSha256": "92e44cbb2ab8750343bc69f3c886a90eeb2bc52abc42cf8482040f811e298054",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩五法懺悔文",
+        "alternateTitle": "菩薩五法懺悔文",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T24, no. 1504",
+        "translator": "失譯",
+        "summary": "1卷。本站完整保存 T1504 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，平台不补造译者、印度原本或佛陀逐字亲说归属；物理记录、作品、译本、版本见证与归属边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1504_001"
+      },
+      "verification": {
+        "segments": 43,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1504.001.1121b19",
+          "T1504.001.1122a04"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

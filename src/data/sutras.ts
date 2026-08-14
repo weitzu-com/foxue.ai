@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.0.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.1.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -239,6 +239,21 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "lost_translation_with_appended_vinaya_preface") {
     return "目录保留正文失译状态，卷内另附后世所撰续序；平台并列呈现未知译者与序作者，不把序文责任扩张到整部正文。";
+  }
+  if (file.sourceRole === "traditional_attributed_vinaya_translation_with_contested_history") {
+    return "来源保留律部传统译者题记，同时公开现代研究对译者归属、中国撰述层或形成年代的争议；平台不把传统署名当作已经裁决的现代事实。";
+  }
+  if (file.sourceRole === "authored_or_taught_vinaya_text_with_translation") {
+    return "来源并列保存造、说与汉译责任；平台保留论师、菩萨说与译者层次，不将其改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "lost_translation_vinaya_text") {
+    return "来源目录题记为失译；平台保留译者未知的律部文本，不补造译者、印度原本或佛陀逐字亲说归属。";
+  }
+  if (file.sourceRole === "lost_translation_with_contested_native_compilation_history") {
+    return "来源目录标为失译，研究又提示现存形态可能包含讲律记录与中国编纂层；平台同时保存两层不确定性。";
+  }
+  if (file.sourceRole === "unattributed_vinaya_text") {
+    return "来源题记未载作者或译者；即使同作品另一版本有传统署名，平台也不把该署名自动转移到本见证。";
   }
   return undefined;
 };

@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 
 export async function loadCorpusReleaseContext(root) {
   const manifestInputs = [
-    ["cbeta_xml_p5", "data/corpus/cbeta/manifest-v3.0.0.json"],
+    ["cbeta_xml_p5", "data/corpus/cbeta/manifest-v3.1.0.json"],
     ["suttacentral_bilara_dhammapada", "data/corpus/suttacentral/manifest-v0.7.0.json"],
     ["suttacentral_bilara_digha_nikaya", "data/corpus/suttacentral/dn-manifest-v0.8.0.json"],
     ["suttacentral_bilara_majjhima_nikaya", "data/corpus/suttacentral/mn-manifest-v0.9.0.json"],
@@ -37,7 +37,7 @@ export async function loadCorpusReleaseContext(root) {
   const releaseFingerprint = fingerprint.digest("hex").slice(0, 12);
   const releaseId = [
     "gbcr",
-    "4.1.0",
+    "4.2.0",
     sourceManifests[0].manifest.source.commit.slice(0, 12),
     sourceManifests[1].manifest.source.commit.slice(0, 12),
     releaseFingerprint,

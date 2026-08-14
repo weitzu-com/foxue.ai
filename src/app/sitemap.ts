@@ -6,7 +6,7 @@ import { folioHref } from "@/lib/reader-routes";
 const sitemapChunkSize = 40_000;
 
 export async function generateSitemaps() {
-  return [{ id: "0" }, { id: "1" }];
+  return [{ id: "0" }, { id: "1" }, { id: "2" }];
 }
 
 async function allSitemapEntries(): Promise<MetadataRoute.Sitemap> {
@@ -47,7 +47,7 @@ export default async function sitemap({
   id: Promise<string>;
 }): Promise<MetadataRoute.Sitemap> {
   const chunk = Number(await id);
-  if (!Number.isSafeInteger(chunk) || chunk < 0 || chunk > 1) return [];
+  if (!Number.isSafeInteger(chunk) || chunk < 0 || chunk > 2) return [];
   const entries = await allSitemapEntries();
   return entries.slice(chunk * sitemapChunkSize, (chunk + 1) * sitemapChunkSize);
 }
