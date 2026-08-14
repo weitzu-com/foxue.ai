@@ -1,0 +1,31 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_abhidharma_commentary_t27",
+    "label": "大正藏 T27 毘曇部《大毘婆沙論》固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T27 目录下、文件名卷号一致的 T27n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T27 只有 T1545《阿毘達磨大毘婆沙論》一份大型来源记录；一份来源记录、一个作品、二百卷与八万余稳定行段是不同计量单位，也不是佛陀亲说经文数或全球佛典分母。"
+  },
+  "totals": {
+    "records": 1,
+    "upstreamBytes": 9552926,
+    "candidatePathSha256": "321d8520127a2838deabb37db0715ecc43f6fef31008861558cb43854227a4f1"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T27n1545",
+      "canonWitnessId": "T1545",
+      "volume": "T27",
+      "upstreamPath": "T/T27/T27n1545.xml",
+      "upstreamGitBlobSha1": "0f7179fab86b02cf3c6cc64caa1029860d710f7e",
+      "upstreamBytes": 9552926
+    }
+  ]
+}

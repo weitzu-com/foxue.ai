@@ -120,12 +120,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1703,
-    registeredExpressions: 1898,
-    fullSourceTextWorks: 1682,
-    fullSourceTextExpressions: 1864,
-    stableSegments: 2579095,
-    structureVerifiedWorks: 1703,
+    registeredWorks: 1704,
+    registeredExpressions: 1899,
+    fullSourceTextWorks: 1683,
+    fullSourceTextExpressions: 1865,
+    stableSegments: 2665387,
+    structureVerifiedWorks: 1704,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -159,17 +159,18 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1623,
-    controlled: 1623,
+    denominator: 1624,
+    controlled: 1624,
     percentage: 100,
-    sourceBytes: 432464094,
-    controlledBytes: 432464094,
+    sourceBytes: 442017020,
+    controlledBytes: 442017020,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
     t24InventorySha256: "3877b903a827bf8023699d63f54555f34aa77a2381aea35049fd0df631fb56b5",
     t25InventorySha256: "84355632ad64186d56ade349561028ac4bce2e3020e51d373a469df0fdafe391",
     t26InventorySha256: "006bedf4dd5b28ff0d1c2de5e87224f6bae7b93b187fb86e9b26cedef8a3ccf9",
+    t27InventorySha256: "4154778df251623c7d3fed77a72307471d6e1d25db3b99e3a942e7410fd75907",
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -316,6 +317,17 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     attributionBoundaryRecords: 26,
     relationAnnotatedRecords: 26,
   });
+  expect(coverage.candidateInventory.chineseT27SourceRecords).toMatchObject({
+    denominator: 1,
+    controlled: 1,
+    percentage: 100,
+    fullSourceTexts: 1,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 1,
+    relationAnnotatedRecords: 1,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -335,6 +347,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseCommentaryT25BoundaryAudit: expect.stringContaining("batch-v3.2.0.json"),
     chineseCommentaryAbhidharmaT26Inventory: expect.stringContaining("cbeta-taisho-t26-inventory-v0.1.0.json"),
     chineseCommentaryAbhidharmaT26BoundaryAudit: expect.stringContaining("batch-v3.3.0.json"),
+    chineseAbhidharmaCommentaryT27Inventory: expect.stringContaining("cbeta-taisho-t27-inventory-v0.1.0.json"),
+    chineseAbhidharmaCommentaryT27BoundaryAudit: expect.stringContaining("batch-v3.4.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -1232,6 +1246,36 @@ test("汉译 T26 释经论与毘昙部完整受控并保留异译、异传、根
   expect(sitemap).toContain("/jingzang/taisho-t1519/001-0001a");
   expect(sitemap).toContain("/jingzang/taisho-t1535/001-0364c");
   expect(sitemap).toContain("/jingzang/taisho-t1544/020-1031c");
+});
+
+test("汉译 T27《大毘婆沙论》完整受控并保留根本论、广释与传统集体归属边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1545/001-0001a");
+  await expect(page.getByRole("heading", { level: 1, name: "阿毘達磨大毘婆沙論" })).toBeVisible();
+  await expect(page.getByText("五百大阿羅漢等造 · 唐 · 玄奘譯", { exact: true })).toBeVisible();
+  await expect(page.getByText(/Jñānaprasthāna.*《发智论》与《大毘婆沙论》根本论—广释关系/)).toBeVisible();
+  await expect(page.getByText(/归属边界：来源保存“五百大阿罗汉等造、玄奘译”.*独立广释作品/)).toBeVisible();
+
+  const lastPage = await request.get("/jingzang/taisho-t1545/200-1004a");
+  expect(lastPage.ok()).toBeTruthy();
+
+  const coverageResponse = await request.get("/api/v1/corpus/coverage");
+  expect(coverageResponse.ok()).toBeTruthy();
+  const coverage = await coverageResponse.json();
+  expect(coverage.candidateInventory.chineseT27SourceRecords).toMatchObject({
+    denominator: 1,
+    controlled: 1,
+    percentage: 100,
+    fullSourceTexts: 1,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 1,
+    relationAnnotatedRecords: 1,
+  });
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/taisho-t1545/001-0001a");
+  expect(sitemap).toContain("/jingzang/taisho-t1545/200-1004a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

@@ -197,6 +197,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT26SourceRecords.verifiedSameWorkExpressions} 份同本异译或异传表达共享作品实体，
               {snapshot.candidateInventory.chineseT26SourceRecords.attributionBoundaryRecords} 份全部明确标注论师、译者、传统说者、无署名敦煌释文或争议作者责任；
               《法华论》《品类足论》《发智论》的三组双译共享作品，其他同根本经论释和“六足一身”历史文献不自动合并；
+              T27 毘昙部《大毘婆沙论》固定来源已完成 {snapshot.candidateInventory.chineseT27SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT27SourceRecords.denominator}（{snapshot.candidateInventory.chineseT27SourceRecords.percentage}%），
+              完整保存 200 卷、{snapshot.candidateInventory.chineseT27SourceRecords.fullSourceTexts} 份来源文本；
+              T1545 作为独立广释作品，与 T1543/T1544《发智论》建立根本论—注释关系，
+              传统“五百大阿罗汉等造”题记与现代作者判断分层呈现；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -279,6 +284,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T26 的 26 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t27-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T27《大毘婆沙论》的逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

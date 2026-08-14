@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.3.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.4.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -287,6 +287,9 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "authored_abhidharma_with_translation") {
     return "来源分开保存论师与汉译者责任；作品、译本、可能的异传层与后期“六足一身”分类分别记录，不把论书改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "traditional_collective_authored_abhidharma_commentary_with_translation") {
+    return "来源保存“五百大阿罗汉等造、玄奘译”的传统集体归属与翻译题记；平台将其作为《发智论》的独立广释作品，不把传统题记冒充无争议的现代作者事实，也不改写成佛陀逐字亲说。";
   }
   return undefined;
 };
