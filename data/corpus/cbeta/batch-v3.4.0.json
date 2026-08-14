@@ -1,0 +1,161 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.4.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.3.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t27-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T27; T27 source-record closure",
+  "workOverrides": {
+    "gbcr:work:jnanaprasthana": {
+      "bibliographicRelations": [
+        {
+          "type": "root_treatise_commentary_relation_verified",
+          "groupId": "jnanaprasthana-mahavibhasa-t1543-t1545",
+          "label": "Jñānaprasthāna／《发智论》与《大毘婆沙论》根本论—广释关系",
+          "evidence": "T1545 正文明确说明迦多衍尼子造《发智论》，全书围绕其论题进行大规模解释；书目与研究资料也将《大毘婆沙论》视为《发智论》的注释性汇编。T1543 与 T1544 是《发智论》的两种汉译或传承表达，T1545 则是独立的广释作品。平台建立关系但不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1543",
+              "T1544",
+              "T1545"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T27",
+    "title": "大正藏 T27 毘曇部《大毘婆沙论》固定来源记录",
+    "sourceRecordDenominator": 1,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 1,
+    "controlledSourceRecords": 1,
+    "newSourceBytes": 9552926,
+    "newStableSegments": 86292,
+    "newFolios": 3139,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 1,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 1,
+    "attributionBoundaryRecords": 1,
+    "newWorks": 1,
+    "controlledWorks": 1,
+    "workCountingDecision": "T27 只有 T1545 一份完整来源记录，登记为一个独立的《阿毘达磨大毘婆沙论》作品和一个汉译表达。T1543/T1544 仍共享《发智论》根本论作品；T1545 与二者建立根本论—广释关系，不合并为第三个《发智论》表达。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_distinct_commentary_work_root_treatise_and_attribution_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "jnanaprasthana-mahavibhasa-t1543-t1545"
+    ],
+    "candidateRelationsNotMerged": [],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "traditional_collective_authored_abhidharma_commentary_with_translation": [
+        "T1545"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap documents a root-treatise/commentary relationship and recension asymmetry; it never decides work identity or authorship alone.",
+      "pairs": [
+        {
+          "pair": [
+            "T1543",
+            "T1545"
+          ],
+          "normalizedCharacters": [
+            208322,
+            1375885
+          ],
+          "fiveGramContainmentOfShorter": 0.059059,
+          "fiveGramJaccard": 0.005045
+        },
+        {
+          "pair": [
+            "T1544",
+            "T1545"
+          ],
+          "normalizedCharacters": [
+            163303,
+            1375885
+          ],
+          "fiveGramContainmentOfShorter": 0.623958,
+          "fiveGramJaccard": 0.048606
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T27",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000051",
+      "https://buddhism.lib.ntu.edu.tw/search/search_detail.jsp?seq=290413",
+      "https://buddhism.lib.ntu.edu.tw/en/search/search_detail.jsp?seq=162490",
+      "https://buddhism.lib.ntu.edu.tw/DLMBS/en/search/search_detail.jsp?seq=669123",
+      "https://buddhism.lib.ntu.edu.tw/search/search_detail.jsp?seq=665095",
+      "https://buddhism.lib.ntu.edu.tw/FULLTEXT/JR-BJ013/bj013133226.pdf"
+    ],
+    "caveat": "T1545 是阿毘达磨论释文献，不是佛说经集合。平台完整保存固定来源、传统集体造论题记与玄奘译记，同时区分根本论、广释作品、汉译表达、传承层和现代书目判断；高文本重叠不能把注释与根本论合并，传统题记也不能被改写成无争议的现代作者事实。"
+  },
+  "files": [
+    {
+      "id": "T1545",
+      "slug": "taisho-t1545",
+      "workId": "gbcr:work:abhidharma-mahavibhasa",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿毘达磨大毘婆沙论（Abhidharma Mahāvibhāṣā）",
+      "sourceRole": "traditional_collective_authored_abhidharma_commentary_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_treatise_commentary_relation_verified",
+          "groupId": "jnanaprasthana-mahavibhasa-t1543-t1545",
+          "label": "Jñānaprasthāna／《发智论》与《大毘婆沙论》根本论—广释关系",
+          "evidence": "T1545 正文明确说明迦多衍尼子造《发智论》，全书围绕其论题进行大规模解释；书目与研究资料也将《大毘婆沙论》视为《发智论》的注释性汇编。T1543 与 T1544 是《发智论》的两种汉译或传承表达，T1545 则是独立的广释作品。平台建立关系但不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1543",
+              "T1544",
+              "T1545"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T27n1545.xml",
+      "upstreamPath": "T/T27/T27n1545.xml",
+      "upstreamGitBlobSha1": "0f7179fab86b02cf3c6cc64caa1029860d710f7e",
+      "upstreamBytes": 9552926,
+      "upstreamSha256": "d735e195bbcfe8f615bdfcbfcefc82acee5ce5ec90193edfa7b88024c890d551",
+      "localBytes": 9552927,
+      "localSha256": "fbc236d6f04004c9d8e629a69311801b53a0c98a48ca453ece3fa7baf7281030",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨大毘婆沙論",
+        "alternateTitle": "阿毘達磨大毘婆沙論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T27, no. 1545",
+        "translator": "五百大阿羅漢等造 · 唐 · 玄奘譯",
+        "summary": "200卷。本站完整保存 T1545 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存“五百大阿罗汉等造、玄奘译”的传统责任陈述，但不把传统集体归属冒充可独立证实的现代作者事实。作品作为《发智论》的独立广释，与 T1543/T1544 建立关系而不合并，也不标为佛陀逐字亲说。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1545_001"
+      },
+      "verification": {
+        "segments": 86292,
+        "folios": 3139,
+        "juanRange": [
+          1,
+          200
+        ],
+        "anchors": [
+          "T1545.001.0001a02",
+          "T1545.200.1004a09"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
