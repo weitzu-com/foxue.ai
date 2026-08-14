@@ -1,0 +1,3543 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.9.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.8.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t32-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T32; T32 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T32",
+    "title": "大正藏 T32 论集部固定来源记录",
+    "sourceRecordDenominator": 66,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 66,
+    "controlledSourceRecords": 66,
+    "newSourceBytes": 11121227,
+    "newStableSegments": 67621,
+    "newFolios": 2509,
+    "newJuans": 201,
+    "verifiedSameWorkExpressions": 13,
+    "verifiedPartialWorkWitnesses": 1,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 65,
+    "newPartialSourceWitnesses": 1,
+    "relationAnnotatedRecords": 27,
+    "attributionBoundaryRecords": 66,
+    "newWorks": 59,
+    "controlledWorks": 59,
+    "workCountingDecision": "T32 的 66 份来源记录登记为 66 个表达或见证、59 个批次内作品。六组同作品表达包括 T1628/T1629、T1652/T1653、T1666/T1667、T1670A/T1670B、T1672–T1674、T1677/T1678，共 13 个表达或见证；经集、释论、论颂、音写、仪轨、汉地编成与仅主题近缘文本保持作品和责任边界。66 份固定来源文件均被完整取得，其中 65 份是完整作品表达，T1677 因第 4 偈末句缺文登记为部分作品见证；来源完整不等于作品无缺、作者无争议或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_translation_recension_commentary_genre_and_attribution_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [
+      "nyayamukha-t1628-t1630",
+      "dependent-origination-t1651-t1654",
+      "awakening-of-faith-t1666-t1668",
+      "nagasena-t1670a-t1670b",
+      "suhrllekha-t1672-t1674",
+      "kayatrayastotra-t1677-t1678"
+    ],
+    "rootTreatiseCommentaryGroups": [
+      "awakening-of-faith-t1666-t1668"
+    ],
+    "relatedDistinctWorkGroups": [
+      "mahayana-compendia-t1635-t1636",
+      "lankavatara-doctrine-t1639-t1640",
+      "dependent-origination-t1651-t1654",
+      "bodhicitta-t1661-t1663",
+      "eight-stupas-t1684-t1685",
+      "pindola-t1689-t1690"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1628/T1629↔T1630（因明主题与题名近邻，但 Nyāyamukha 与 Nyāyapraveśa 是不同作品）",
+      "T1635↔T1636（均汇集经证，但 Sūtrasamuccaya 与 Śikṣāsamuccaya 不同）",
+      "T1639↔T1640（共同楞伽语境、作者与译者题记，但论题及文本不同）",
+      "T1651/T1654↔T1652/T1653（缘起主题近缘，只有 T1652/T1653 有同本异译证据）",
+      "T1661↔T1663（存在对应、重译与扩写痕迹，证据不足以压成同一完整作品）",
+      "T1668↔T1666/T1667（释论与根本作品不合并）",
+      "T1684↔T1685（八塔赞颂与名号经分列）",
+      "T1689↔T1690（邀请仪轨与说法经分列）"
+    ],
+    "partialWorkWitnesses": [
+      {
+        "id": "T1677",
+        "note": "固定 TEI 来源文件完整；Kāyatrayastotra 音写文本第 4 偈末句缺文，故不得把来源完整误报为作品无缺。"
+      }
+    ],
+    "sourceRoles": {
+      "alternate_translation_or_sinitic_redaction": [
+        "T1667"
+      ],
+      "lost_translation_recension_witness": [
+        "T1670A",
+        "T1670B"
+      ],
+      "sanskrit_phonetic_transliteration_witness": [
+        "T1677"
+      ],
+      "sinitic_verse_compilation": [
+        "T1688"
+      ],
+      "traditional_abhidharma_treatise_translation": [
+        "T1641",
+        "T1646",
+        "T1647"
+      ],
+      "traditional_advice_letter_translation": [
+        "T1672",
+        "T1673",
+        "T1674"
+      ],
+      "traditional_advice_treatise_translation": [
+        "T1656"
+      ],
+      "traditional_argumentation_treatise_translation": [
+        "T1632",
+        "T1633"
+      ],
+      "traditional_arhat_discourse_translation": [
+        "T1690"
+      ],
+      "traditional_aspiration_hymn_translation": [
+        "T1676"
+      ],
+      "traditional_authored_sutra_compilation_translation": [
+        "T1643"
+      ],
+      "traditional_awakening_of_faith_commentary_or_sinitic_composition": [
+        "T1668"
+      ],
+      "traditional_bodhicitta_exposition_translation": [
+        "T1663"
+      ],
+      "traditional_bodhicitta_treatise_translation": [
+        "T1659",
+        "T1661"
+      ],
+      "traditional_bodhisattva_practice_verse_compilation_translation": [
+        "T1662"
+      ],
+      "traditional_bodhisattva_training_compendium_translation": [
+        "T1636"
+      ],
+      "traditional_buddha_attributed_abhidharma_translation": [
+        "T1644"
+      ],
+      "traditional_buddha_attributed_short_sutra_translation": [
+        "T1685"
+      ],
+      "traditional_buddha_hymn_translation": [
+        "T1680",
+        "T1681",
+        "T1682"
+      ],
+      "traditional_dependent_origination_treatise_translation": [
+        "T1651",
+        "T1652",
+        "T1653"
+      ],
+      "traditional_doctrinal_treatise_translation": [
+        "T1658"
+      ],
+      "traditional_esoteric_bodhicitta_treatise_translation": [
+        "T1665"
+      ],
+      "traditional_hymn_translation": [
+        "T1675",
+        "T1678"
+      ],
+      "traditional_instruction_verse_translation": [
+        "T1687"
+      ],
+      "traditional_invitation_ritual_translation": [
+        "T1689"
+      ],
+      "traditional_lankavatara_doctrine_treatise_translation": [
+        "T1639",
+        "T1640"
+      ],
+      "traditional_liturgical_hymn_translation": [
+        "T1683"
+      ],
+      "traditional_logic_treatise_translation": [
+        "T1628",
+        "T1629",
+        "T1630"
+      ],
+      "traditional_madhyamaka_treatise_translation": [
+        "T1631"
+      ],
+      "traditional_mahayana_compendium_translation": [
+        "T1637",
+        "T1638"
+      ],
+      "traditional_mahayana_treatise_translation": [
+        "T1634"
+      ],
+      "traditional_meditation_manual_translation": [
+        "T1648"
+      ],
+      "traditional_meditation_treatise_translation": [
+        "T1664"
+      ],
+      "traditional_meditation_verse_translation": [
+        "T1655"
+      ],
+      "traditional_name_hymn_translation": [
+        "T1679"
+      ],
+      "traditional_named_speaker_sutra_translation": [
+        "T1691"
+      ],
+      "traditional_narrative_treatise_unknown_translation": [
+        "T1650"
+      ],
+      "traditional_parable_gatha_translation": [
+        "T1692"
+      ],
+      "traditional_root_verses_with_commentary": [
+        "T1654"
+      ],
+      "traditional_root_verses_with_commentary_translation": [
+        "T1660"
+      ],
+      "traditional_school_treatise_unknown_translation": [
+        "T1649"
+      ],
+      "traditional_social_critique_treatise_translation": [
+        "T1642"
+      ],
+      "traditional_stupa_hymn_translation": [
+        "T1684"
+      ],
+      "traditional_sutra_compendium_translation": [
+        "T1635",
+        "T1671"
+      ],
+      "traditional_tibetan_scholastic_treatise_translation": [
+        "T1645"
+      ],
+      "traditional_treatise_or_sinitic_apocryphon": [
+        "T1669"
+      ],
+      "traditional_treatise_translation": [
+        "T1657"
+      ],
+      "traditional_treatise_translation_or_sinitic_composition": [
+        "T1666"
+      ],
+      "traditional_verse_anthology_translation": [
+        "T1686"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap is corroborating evidence only; translation identity, authorship, completeness and work boundaries require independent bibliographic evidence.",
+      "pairs": [
+        {
+          "pair": [
+            "T1628",
+            "T1629"
+          ],
+          "normalizedCharacters": [
+            6516,
+            6923
+          ],
+          "fiveGramContainmentOfShorter": 0.966817,
+          "fiveGramJaccard": 0.881222
+        },
+        {
+          "pair": [
+            "T1628",
+            "T1630"
+          ],
+          "normalizedCharacters": [
+            6516,
+            2873
+          ],
+          "fiveGramContainmentOfShorter": 0.018959,
+          "fiveGramJaccard": 0.005765
+        },
+        {
+          "pair": [
+            "T1635",
+            "T1636"
+          ],
+          "normalizedCharacters": [
+            36701,
+            93192
+          ],
+          "fiveGramContainmentOfShorter": 0.026608,
+          "fiveGramJaccard": 0.007259
+        },
+        {
+          "pair": [
+            "T1639",
+            "T1640"
+          ],
+          "normalizedCharacters": [
+            2300,
+            2171
+          ],
+          "fiveGramContainmentOfShorter": 0.021692,
+          "fiveGramJaccard": 0.010222
+        },
+        {
+          "pair": [
+            "T1651",
+            "T1652"
+          ],
+          "normalizedCharacters": [
+            1391,
+            4761
+          ],
+          "fiveGramContainmentOfShorter": 0.009146,
+          "fiveGramJaccard": 0.002264
+        },
+        {
+          "pair": [
+            "T1652",
+            "T1653"
+          ],
+          "normalizedCharacters": [
+            4761,
+            4366
+          ],
+          "fiveGramContainmentOfShorter": 0.581489,
+          "fiveGramJaccard": 0.388148
+        },
+        {
+          "pair": [
+            "T1653",
+            "T1654"
+          ],
+          "normalizedCharacters": [
+            4366,
+            1281
+          ],
+          "fiveGramContainmentOfShorter": 0.015666,
+          "fiveGramJaccard": 0.003721
+        },
+        {
+          "pair": [
+            "T1656",
+            "T1672"
+          ],
+          "normalizedCharacters": [
+            10409,
+            3153
+          ],
+          "fiveGramContainmentOfShorter": 0.000319,
+          "fiveGramJaccard": 0.000074
+        },
+        {
+          "pair": [
+            "T1661",
+            "T1663"
+          ],
+          "normalizedCharacters": [
+            3441,
+            1139
+          ],
+          "fiveGramContainmentOfShorter": 0.011743,
+          "fiveGramJaccard": 0.002888
+        },
+        {
+          "pair": [
+            "T1663",
+            "T1664"
+          ],
+          "normalizedCharacters": [
+            1139,
+            12895
+          ],
+          "fiveGramContainmentOfShorter": 0.011743,
+          "fiveGramJaccard": 0.000978
+        },
+        {
+          "pair": [
+            "T1666",
+            "T1667"
+          ],
+          "normalizedCharacters": [
+            11274,
+            11744
+          ],
+          "fiveGramContainmentOfShorter": 0.141794,
+          "fiveGramJaccard": 0.074336
+        },
+        {
+          "pair": [
+            "T1666",
+            "T1668"
+          ],
+          "normalizedCharacters": [
+            11274,
+            102770
+          ],
+          "fiveGramContainmentOfShorter": 0.899743,
+          "fiveGramJaccard": 0.117994
+        },
+        {
+          "pair": [
+            "T1667",
+            "T1668"
+          ],
+          "normalizedCharacters": [
+            11744,
+            102770
+          ],
+          "fiveGramContainmentOfShorter": 0.135225,
+          "fiveGramJaccard": 0.016826
+        },
+        {
+          "pair": [
+            "T1670A",
+            "T1670B"
+          ],
+          "normalizedCharacters": [
+            13768,
+            22735
+          ],
+          "fiveGramContainmentOfShorter": 0.555037,
+          "fiveGramJaccard": 0.273543
+        },
+        {
+          "pair": [
+            "T1672",
+            "T1673"
+          ],
+          "normalizedCharacters": [
+            3153,
+            2769
+          ],
+          "fiveGramContainmentOfShorter": 0.005431,
+          "fiveGramJaccard": 0.002549
+        },
+        {
+          "pair": [
+            "T1672",
+            "T1674"
+          ],
+          "normalizedCharacters": [
+            3153,
+            2889
+          ],
+          "fiveGramContainmentOfShorter": 0.002777,
+          "fiveGramJaccard": 0.001331
+        },
+        {
+          "pair": [
+            "T1673",
+            "T1674"
+          ],
+          "normalizedCharacters": [
+            2769,
+            2889
+          ],
+          "fiveGramContainmentOfShorter": 0.005069,
+          "fiveGramJaccard": 0.002487
+        },
+        {
+          "pair": [
+            "T1677",
+            "T1678"
+          ],
+          "normalizedCharacters": [
+            441,
+            271
+          ],
+          "fiveGramContainmentOfShorter": 0.086792,
+          "fiveGramJaccard": 0.033873
+        },
+        {
+          "pair": [
+            "T1684",
+            "T1685"
+          ],
+          "normalizedCharacters": [
+            530,
+            560
+          ],
+          "fiveGramContainmentOfShorter": 0.044898,
+          "fiveGramJaccard": 0.021978
+        },
+        {
+          "pair": [
+            "T1689",
+            "T1690"
+          ],
+          "normalizedCharacters": [
+            659,
+            3305
+          ],
+          "fiveGramContainmentOfShorter": 0.001575,
+          "fiveGramJaccard": 0.000256
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T32",
+      "https://icabs.repo.nii.ac.jp/record/533/files/%E5%AE%A4%E5%B1%8B%E5%AE%89%E5%AD%9D.pdf",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003897",
+      "https://brill.com/edcollchap-oa/book/9789004706804/BP000001.pdf",
+      "https://dazangthings.nz/cbc/text/1543/",
+      "https://cbc.dila.edu.tw/cbc/text/1538/",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000568",
+      "https://spen.dila.edu.tw/journal_detail/956.htm",
+      "https://dazangthings.nz/cbc/text/1509/",
+      "https://iris.unive.it/handle/10278/5006360",
+      "https://dazangthings.nz/cbc/text/1500/",
+      "https://buddhism.lib.ntu.edu.tw/DLMBS/en/search/search_detail.jsp?comefrom=subjectbooklist&seq=250140",
+      "https://kalavinka.org/ebooks_NEW/Nagarjunas%20Letter_Bilingual_ebk_08-19-23.pdf",
+      "https://tsudax.ninja-x.jp/Tsuda2009.pdf",
+      "https://tais.repo.nii.ac.jp/record/2165/files/06%20%E7%B6%9C%E4%BD%9B%E5%B9%B4%E5%A0%B144%EF%BC%8F%E6%A8%AA05%E3%83%BB%E5%90%89%E6%85%B6%E6%A2%B5%E8%AE%83%E3%81%A8%E4%B8%89%E8%BA%AB%E8%AE%83%E3%81%AE%E3%82%AE%E3%83%AB%E3%82%AE%E3%83%83%E3%83%88%E5%86%99%E6%9C%AC.pdf",
+      "https://dazangthings.nz/cbc/text/1496/",
+      "https://dazangthings.nz/cbc/text/1493/",
+      "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001366324",
+      "https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?mode=detail&s=&useid=1640_%2C01"
+    ],
+    "caveat": "T32 是论典、经证汇编、赞颂、书信、仪轨与少量经题文本的混合卷，不可整体标作佛说或非佛说。平台逐份保存固定来源，并区分传统佛说题名、论师撰述、编集、释论、同本异译、异本、音写见证、失译、汉地撰成和争议作者；目录邻接、共同题名、传统署名或机器相似度都不能单独证明作品相同、作者确定、文本无缺或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1628",
+      "slug": "taisho-t1628",
+      "workId": "gbcr:work:nyayamukha-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "因明正理门论（Nyāyamukha）",
+      "sourceRole": "traditional_logic_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "nyayamukha_two_translations_and_nyayapravesa_boundary_verified",
+          "groupId": "nyayamukha-t1628-t1630",
+          "label": "《因明正理门论》两译与《因明入正理论》边界",
+          "evidence": "T1628 与 T1629 是陈那 Nyāyamukha 的玄奘、义净两种汉译，故共享作品标识；T1630 是商羯罗主 Nyāyapraveśa 的独立因明入门论，不因题名与主题邻近而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1628",
+              "T1629",
+              "T1630"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1628.xml",
+      "upstreamPath": "T/T32/T32n1628.xml",
+      "upstreamGitBlobSha1": "d311f44df9e9bf877206cde6565a26d3ff472bbc",
+      "upstreamBytes": 65224,
+      "upstreamSha256": "46b17bd6aac41f5a0d87eb3a9d70f43d819dff7e535aec3b744de627f3c4a6e2",
+      "localBytes": 65225,
+      "localSha256": "df929249fe05e02feba8139207f992e157c037a2eaba275bb5b4eb183d82dfd8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "因明正理門論本",
+        "alternateTitle": "因明正理門論本",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1628",
+        "translator": "大域龍菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。玄奘译完整表达。传统责任题记：大域龍菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1628_001"
+      },
+      "verification": {
+        "segments": 440,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1628.001.0001a02",
+          "T1628.001.0006a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1629",
+      "slug": "taisho-t1629",
+      "workId": "gbcr:work:nyayamukha-dignaga",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "因明正理门论（Nyāyamukha）",
+      "sourceRole": "traditional_logic_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "nyayamukha_two_translations_and_nyayapravesa_boundary_verified",
+          "groupId": "nyayamukha-t1628-t1630",
+          "label": "《因明正理门论》两译与《因明入正理论》边界",
+          "evidence": "T1628 与 T1629 是陈那 Nyāyamukha 的玄奘、义净两种汉译，故共享作品标识；T1630 是商羯罗主 Nyāyapraveśa 的独立因明入门论，不因题名与主题邻近而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1628",
+              "T1629",
+              "T1630"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1629.xml",
+      "upstreamPath": "T/T32/T32n1629.xml",
+      "upstreamGitBlobSha1": "056a4adc8f8ca0bd2583f2bce564e63cacbb9a33",
+      "upstreamBytes": 72751,
+      "upstreamSha256": "8c93f1c752b7b4e6f7fbb6b9166ad882890253eed6ccc07d370415a55dbde013",
+      "localBytes": 72752,
+      "localSha256": "4d4c42510c9d07c6564d0ff4890d797dfec577612a1c7bd19c22924b03c0bbe4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "因明正理門論",
+        "alternateTitle": "因明正理門論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1629",
+        "translator": "大域龍菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。义净译完整表达。传统责任题记：大域龍菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1629_001"
+      },
+      "verification": {
+        "segments": 445,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1629.001.0006a10",
+          "T1629.001.0011a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1630",
+      "slug": "taisho-t1630",
+      "workId": "gbcr:work:nyayapravesa-sankaramin",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "因明入正理论（Nyāyapraveśa）",
+      "sourceRole": "traditional_logic_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "nyayamukha_two_translations_and_nyayapravesa_boundary_verified",
+          "groupId": "nyayamukha-t1628-t1630",
+          "label": "《因明正理门论》两译与《因明入正理论》边界",
+          "evidence": "T1628 与 T1629 是陈那 Nyāyamukha 的玄奘、义净两种汉译，故共享作品标识；T1630 是商羯罗主 Nyāyapraveśa 的独立因明入门论，不因题名与主题邻近而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1628",
+              "T1629",
+              "T1630"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1630.xml",
+      "upstreamPath": "T/T32/T32n1630.xml",
+      "upstreamGitBlobSha1": "cb8761261a515a7964129ac03ffdc6a0a526aaf3",
+      "upstreamBytes": 35947,
+      "upstreamSha256": "d7122bfe8224be56762fd257d67e8538544446bc2fc17c517e066a49ae451edc",
+      "localBytes": 35948,
+      "localSha256": "d9420a04485dc21d80287ca2fec087c8882f7b09fe02a6d8bd590ba170efef80",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "因明入正理論",
+        "alternateTitle": "因明入正理論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1630",
+        "translator": "商羯羅主菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。商羯罗主因明入门论完整来源，不与 Nyāyamukha 合并。传统责任题记：商羯羅主菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1630_001"
+      },
+      "verification": {
+        "segments": 186,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1630.001.0011a23",
+          "T1630.001.0013b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1631",
+      "slug": "taisho-t1631",
+      "workId": "gbcr:work:vigrahavyavartani-nagarjuna",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "回诤论（Vigrahavyāvartanī）",
+      "sourceRole": "traditional_madhyamaka_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1631.xml",
+      "upstreamPath": "T/T32/T32n1631.xml",
+      "upstreamGitBlobSha1": "61f8dd34e33fe765a69c50145e0bcd00e29d0808",
+      "upstreamBytes": 133656,
+      "upstreamSha256": "07c991898fdf50fcb58986983d2ae9c4d7c8e6c3c3ddbc93216c6e2a6fd2978f",
+      "localBytes": 133657,
+      "localSha256": "ea27b7944a98cf8b2cee2bd7e35f96d2835ff8f4bfe2a0554cffcca68f153be0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "迴諍論",
+        "alternateTitle": "迴諍論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1631",
+        "translator": "龍樹菩薩造 · 後魏 · 毘目智仙共瞿曇流支譯",
+        "summary": "1卷。龙树传统归属的中观论辩文本完整来源。传统责任题记：龍樹菩薩造 後魏 毘目智仙共瞿曇流支譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1631_001"
+      },
+      "verification": {
+        "segments": 856,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1631.001.0013b09",
+          "T1631.001.0023a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1632",
+      "slug": "taisho-t1632",
+      "workId": "gbcr:work:upaya-hrdaya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "方便心论",
+      "sourceRole": "traditional_argumentation_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1632.xml",
+      "upstreamPath": "T/T32/T32n1632.xml",
+      "upstreamGitBlobSha1": "e6a61df9475946c1fc9cbb3be0bd87bc76ab7066",
+      "upstreamBytes": 77510,
+      "upstreamSha256": "34cb4aaf6885dec4042a9f80b8aa324e4c1ecff59a1ad27da2f6c748fdc51c6a",
+      "localBytes": 77511,
+      "localSha256": "dc87ab9eb18b4cf7e675c1b37c28454d89aa1793bcb32ca01ff35e62c8717f86",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "方便心論",
+        "alternateTitle": "方便心論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1632",
+        "translator": "後魏 · 吉迦夜譯",
+        "summary": "1卷。失载作者的论辩方法论完整汉译来源。传统责任题记：後魏 吉迦夜譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1632_001"
+      },
+      "verification": {
+        "segments": 479,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1632.001.0023b02",
+          "T1632.001.0028c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1633",
+      "slug": "taisho-t1633",
+      "workId": "gbcr:work:tattvasiddhi-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "如实论",
+      "sourceRole": "traditional_argumentation_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1633.xml",
+      "upstreamPath": "T/T32/T32n1633.xml",
+      "upstreamGitBlobSha1": "adc3d6b8c98b8acefe3c3aa35f073d073ab1a569",
+      "upstreamBytes": 91538,
+      "upstreamSha256": "c77f85f47854183e7b45abc00502f804513024c8d1f5dbf707b6772580d5ba48",
+      "localBytes": 91539,
+      "localSha256": "875e575e9a6ce28c23d0767723aae3fda12c74e805b86538ca466af44a9792af",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "如實論",
+        "alternateTitle": "如實論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1633",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。真谛译论理文本完整来源。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1633_001"
+      },
+      "verification": {
+        "segments": 636,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1633.001.0028c20",
+          "T1633.001.0036a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1634",
+      "slug": "taisho-t1634",
+      "workId": "gbcr:work:mahayana-avatara",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "入大乘论",
+      "sourceRole": "traditional_mahayana_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1634.xml",
+      "upstreamPath": "T/T32/T32n1634.xml",
+      "upstreamGitBlobSha1": "e7a21c294faa455e16949ceff14d633f56974dd3",
+      "upstreamBytes": 178756,
+      "upstreamSha256": "c1eef11d1da1ed2f99e281f158280f015063bfe14e91c0ee51d93359b6498bed",
+      "localBytes": 178757,
+      "localSha256": "c7eb7ad91a897f69b0fef2651aec84b23273d1ca9fc3d369b27c11c0a8bd5d73",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入大乘論",
+        "alternateTitle": "入大乘論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1634",
+        "translator": "堅意菩薩造 · 北涼 · 道泰等譯",
+        "summary": "2卷。坚意传统归属的大乘论书完整来源。传统责任题记：堅意菩薩造 北涼 道泰等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1634_001"
+      },
+      "verification": {
+        "segments": 1174,
+        "folios": 43,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1634.001.0036a19",
+          "T1634.002.0049c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1635",
+      "slug": "taisho-t1635",
+      "workId": "gbcr:work:sutrasamuccaya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "大乘宝要义论（Sūtrasamuccaya）",
+      "sourceRole": "traditional_sutra_compendium_translation",
+      "bibliographicRelations": [
+        {
+          "type": "sutrasamuccaya_and_siksasamuccaya_distinct_compendia_verified",
+          "groupId": "mahayana-compendia-t1635-t1636",
+          "label": "《大乘宝要义论》与《大乘集菩萨学论》集经边界",
+          "evidence": "T1635 对应 Sūtrasamuccaya，T1636 对应 Śikṣāsamuccaya；二者都大量汇集经证但书目身份、编纂责任与结构不同，分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1635",
+              "T1636"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1635.xml",
+      "upstreamPath": "T/T32/T32n1635.xml",
+      "upstreamGitBlobSha1": "959111aa9aa70a3239e890b1a33dde142a2d77d9",
+      "upstreamBytes": 245834,
+      "upstreamSha256": "7df65857bcff6d91e86552940e49f2929143001f4d11d9a02fb7157c0e2687a8",
+      "localBytes": 245835,
+      "localSha256": "565e8befe6667aaf3febc45d8e74f017bbc38c40410efa08d659ab6ddbd2618b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘寶要義論",
+        "alternateTitle": "大乘寶要義論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1635",
+        "translator": "宋 · 法護等譯",
+        "summary": "10卷。十卷集经论完整来源；经文引证集合不等于佛陀亲说作品的一份完整表达。传统责任题记：宋 法護等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1635_001"
+      },
+      "verification": {
+        "segments": 2189,
+        "folios": 83,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1635.001.0049c10",
+          "T1635.010.0075a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1636",
+      "slug": "taisho-t1636",
+      "workId": "gbcr:work:siksasamuccaya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "大乘集菩萨学论（Śikṣāsamuccaya）",
+      "sourceRole": "traditional_bodhisattva_training_compendium_translation",
+      "bibliographicRelations": [
+        {
+          "type": "sutrasamuccaya_and_siksasamuccaya_distinct_compendia_verified",
+          "groupId": "mahayana-compendia-t1635-t1636",
+          "label": "《大乘宝要义论》与《大乘集菩萨学论》集经边界",
+          "evidence": "T1635 对应 Sūtrasamuccaya，T1636 对应 Śikṣāsamuccaya；二者都大量汇集经证但书目身份、编纂责任与结构不同，分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1635",
+              "T1636"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1636.xml",
+      "upstreamPath": "T/T32/T32n1636.xml",
+      "upstreamGitBlobSha1": "0d0dd928eb8b0ae3a673aee52140bac0b23d05f5",
+      "upstreamBytes": 816512,
+      "upstreamSha256": "67bb5679cd36e2f742119c1ba298e17d962e6cd97f1a0431afc0d204196a0a9f",
+      "localBytes": 816513,
+      "localSha256": "df83446c514dcf8d23f419008252cd3dcd93b376a437d8532103c62414fcc4db",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘集菩薩學論",
+        "alternateTitle": "大乘集菩薩學論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1636",
+        "translator": "法稱菩薩造 · 宋 · 法護等譯",
+        "summary": "25卷。二十五卷学处汇编完整来源，与 Sūtrasamuccaya 分列。传统责任题记：法稱菩薩造 宋 法護等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1636_001"
+      },
+      "verification": {
+        "segments": 5989,
+        "folios": 225,
+        "juanRange": [
+          1,
+          25
+        ],
+        "anchors": [
+          "T1636.001.0075b02",
+          "T1636.025.0145a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1637",
+      "slug": "taisho-t1637",
+      "workId": "gbcr:work:mahayana-laksana-samuccaya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "集大乘相论",
+      "sourceRole": "traditional_mahayana_compendium_translation",
+      "localPath": "data/corpus/cbeta/T32n1637.xml",
+      "upstreamPath": "T/T32/T32n1637.xml",
+      "upstreamGitBlobSha1": "d62ed923263c6d32b082980eddd21b7f35cba5f0",
+      "upstreamBytes": 52563,
+      "upstreamSha256": "5f172854b8d848b208e95b2291002420b3e43afb1d086ab0a54ffb3a39cd7e61",
+      "localBytes": 52564,
+      "localSha256": "80e3a3688604081e3c22f3dcf422a3a94dc212f182705d824070ec531360b0a3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集大乘相論",
+        "alternateTitle": "集大乘相論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1637",
+        "translator": "覺吉祥智菩薩造 · 宋 · 施護譯",
+        "summary": "2卷。觉吉祥智传统归属的论书完整来源。传统责任题记：覺吉祥智菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1637_001"
+      },
+      "verification": {
+        "segments": 420,
+        "folios": 16,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1637.001.0145b02",
+          "T1637.002.0150a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1638",
+      "slug": "taisho-t1638",
+      "workId": "gbcr:work:sarvadharma-ratnottama-artha-samuccaya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "集诸法宝最上义论",
+      "sourceRole": "traditional_mahayana_compendium_translation",
+      "localPath": "data/corpus/cbeta/T32n1638.xml",
+      "upstreamPath": "T/T32/T32n1638.xml",
+      "upstreamGitBlobSha1": "0f4051c16ba979af361fd9f30b73350b9f7e7e3f",
+      "upstreamBytes": 47774,
+      "upstreamSha256": "c34c74de08073867353a682854de09bfefc531db3dd790cc6c05164076a88808",
+      "localBytes": 47775,
+      "localSha256": "8b0e837a0795e496b7de917bb61ac255cb75f41ccbfa8b108434ac381dd5d78a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集諸法寶最上義論",
+        "alternateTitle": "集諸法寶最上義論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1638",
+        "translator": "善寂菩薩造 · 宋 · 施護譯",
+        "summary": "2卷。善寂传统归属的论书完整来源。传统责任题记：善寂菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1638_001"
+      },
+      "verification": {
+        "segments": 419,
+        "folios": 17,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1638.001.0150a22",
+          "T1638.002.0155a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1639",
+      "slug": "taisho-t1639",
+      "workId": "gbcr:work:deva-lankavatara-four-schools-refutation",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "提婆菩萨破楞伽经中外道小乘四宗论",
+      "sourceRole": "traditional_lankavatara_doctrine_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "lankavatara_external_doctrine_treatises_distinct",
+          "groupId": "lankavatara-doctrine-t1639-t1640",
+          "label": "两部《楞伽经》外道小乘论的独立边界",
+          "evidence": "T1639 破四宗，T1640 释外道小乘涅槃论；共同题记、译者和《楞伽经》语境只证明亲缘，不证明文本同一。",
+          "externalIds": {
+            "cbeta": [
+              "T1639",
+              "T1640"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1639.xml",
+      "upstreamPath": "T/T32/T32n1639.xml",
+      "upstreamGitBlobSha1": "2e8ba9c68a7e35a7249f00765ef2d9e1f5604579",
+      "upstreamBytes": 25283,
+      "upstreamSha256": "a55087f17ef8b77954e59a74dad0a507a98cc2d9b33c6aa5d94a3d9d2ffa83c5",
+      "localBytes": 25284,
+      "localSha256": "f5a71392b92ad55d4ac11d28f09c80c44d1c0d42ff9f08a43c24f70fcaefed3e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "提婆菩薩破楞伽經中外道小乘四宗論",
+        "alternateTitle": "提婆菩薩破楞伽經中外道小乘四宗論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1639",
+        "translator": "提波菩薩造 · 後魏 · 菩提流支譯",
+        "summary": "1卷。破四宗论完整来源，与 T1640 保持不同作品。传统责任题记：提波菩薩造 後魏 菩提流支譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1639_001"
+      },
+      "verification": {
+        "segments": 142,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1639.001.0155a12",
+          "T1639.001.0156c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1640",
+      "slug": "taisho-t1640",
+      "workId": "gbcr:work:deva-lankavatara-nirvana-doctrines",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "提婆菩萨释楞伽经中外道小乘涅槃论",
+      "sourceRole": "traditional_lankavatara_doctrine_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "lankavatara_external_doctrine_treatises_distinct",
+          "groupId": "lankavatara-doctrine-t1639-t1640",
+          "label": "两部《楞伽经》外道小乘论的独立边界",
+          "evidence": "T1639 破四宗，T1640 释外道小乘涅槃论；共同题记、译者和《楞伽经》语境只证明亲缘，不证明文本同一。",
+          "externalIds": {
+            "cbeta": [
+              "T1639",
+              "T1640"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1640.xml",
+      "upstreamPath": "T/T32/T32n1640.xml",
+      "upstreamGitBlobSha1": "852405f1dabdf00db697d6e9e3024fb0bfd594d4",
+      "upstreamBytes": 31680,
+      "upstreamSha256": "17594db98a84a3b767ca1ba5ad0665e1e2a19493b225cecad9ef36a8fe44a763",
+      "localBytes": 31681,
+      "localSha256": "05896ef87a3d50ad4847f05b2085075f52f7751be517173d459c6d4a8d298428",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "提婆菩薩釋楞伽經中外道小乘涅槃論",
+        "alternateTitle": "提婆菩薩釋楞伽經中外道小乘涅槃論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1640",
+        "translator": "提波菩薩造 · 後魏 · 菩提流支譯",
+        "summary": "1卷。涅槃宗义论完整来源，与 T1639 保持不同作品。传统责任题记：提波菩薩造 後魏 菩提流支譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1640_001"
+      },
+      "verification": {
+        "segments": 143,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1640.001.0156c11",
+          "T1640.001.0158b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1641",
+      "slug": "taisho-t1641",
+      "workId": "gbcr:work:laksananusara-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "随相论",
+      "sourceRole": "traditional_abhidharma_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1641.xml",
+      "upstreamPath": "T/T32/T32n1641.xml",
+      "upstreamGitBlobSha1": "1d75058fa7c7bd737ef5978db85419a5e69629fd",
+      "upstreamBytes": 166271,
+      "upstreamSha256": "c378fb17e13fe439e815aecf294e88957c74ac172a934ebedb8de19a57c6612e",
+      "localBytes": 166272,
+      "localSha256": "fa1cc9bcad4fcdb6ad3d78b565b63cfe435d96da1e4f9b7f7a27b5ba611652d0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "隨相論",
+        "alternateTitle": "隨相論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1641",
+        "translator": "德慧法師造 · 陳 · 真諦譯",
+        "summary": "1卷。德慧传统归属的阿毘达磨论书完整来源。传统责任题记：德慧法師造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1641_001"
+      },
+      "verification": {
+        "segments": 938,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1641.001.0158b12",
+          "T1641.001.0169a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1642",
+      "slug": "taisho-t1642",
+      "workId": "gbcr:work:vajrasuci",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "金刚针论（Vajrasūcī）",
+      "sourceRole": "traditional_social_critique_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1642.xml",
+      "upstreamPath": "T/T32/T32n1642.xml",
+      "upstreamGitBlobSha1": "9fb3a9ed846eacd983faa3040bd0725473c36f23",
+      "upstreamBytes": 54063,
+      "upstreamSha256": "23ed228fdac265c279adf0156b242728347b94914a3de8d4183132ebefe59bbb",
+      "localBytes": 54064,
+      "localSha256": "c08c3222232288a1de5e7dd910b016a977407ca74e81edd1bf52dff12dcd222c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛針論",
+        "alternateTitle": "金剛針論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1642",
+        "translator": "法稱菩薩造 · 宋 · 法天譯",
+        "summary": "1卷。完整来源；传统法称题记与梵、藏相关传本的作者归属差异必须保留。传统责任题记：法稱菩薩造 宋 法天譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1642_001"
+      },
+      "verification": {
+        "segments": 240,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1642.001.0169b01",
+          "T1642.001.0172a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1643",
+      "slug": "taisho-t1643",
+      "workId": "gbcr:work:nirgrantha-no-self-questions-compilation",
+      "workIdentityStatus": "verified_distinct_compilation_with_attribution_boundary",
+      "workTitle": "尼乾子问无我义经",
+      "sourceRole": "traditional_authored_sutra_compilation_translation",
+      "localPath": "data/corpus/cbeta/T32n1643.xml",
+      "upstreamPath": "T/T32/T32n1643.xml",
+      "upstreamGitBlobSha1": "e252a65f8b46a69fa972e60937a0f35bc64912c6",
+      "upstreamBytes": 12079,
+      "upstreamSha256": "e755c91ff80933120b4a74e3b5759fe8f6524527b6f641c31201c13a424a854b",
+      "localBytes": 12080,
+      "localSha256": "87433c2322fda19499ec896431bdb7dc69c869abeb0a6bb32b964d51a717faf3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "尼乾子問無我義經",
+        "alternateTitle": "尼乾子問無我義經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1643",
+        "translator": "馬鳴菩薩集 · 宋 · 日稱譯",
+        "summary": "1卷。题名为经而责任题记为马鸣集；按编集作品保存，不据题名宣称历史佛陀逐字亲说。传统责任题记：馬鳴菩薩集 宋 日稱譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1643_001"
+      },
+      "verification": {
+        "segments": 89,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1643.001.0172a12",
+          "T1643.001.0173a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1644",
+      "slug": "taisho-t1644",
+      "workId": "gbcr:work:lokasthana-abhidharma",
+      "workIdentityStatus": "verified_distinct_work_with_buddha_attribution_boundary",
+      "workTitle": "佛说立世阿毘昙论",
+      "sourceRole": "traditional_buddha_attributed_abhidharma_translation",
+      "localPath": "data/corpus/cbeta/T32n1644.xml",
+      "upstreamPath": "T/T32/T32n1644.xml",
+      "upstreamGitBlobSha1": "c18305ae97440c996cf3c3b7d2269fcceafd000f",
+      "upstreamBytes": 795951,
+      "upstreamSha256": "10606e964361784ee7ef552d8fe59f1e1bb975f8362f08850f43e1f9b056877b",
+      "localBytes": 795952,
+      "localSha256": "7eb36f5ca353520831d6541c9b0a71894235d51caf04914c2f0a75e99b80cea1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說立世阿毘曇論",
+        "alternateTitle": "佛說立世阿毘曇論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1644",
+        "translator": "陳 · 真諦譯",
+        "summary": "10卷。十卷完整来源；保留“佛说”题名与阿毘昙论体分类，题名本身不充当历史亲说证明。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1644_001"
+      },
+      "verification": {
+        "segments": 4554,
+        "folios": 167,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1644.001.0173a16",
+          "T1644.010.0226a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1645",
+      "slug": "taisho-t1645",
+      "workId": "gbcr:work:ses-bya-rab-gsal",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "彰所知论",
+      "sourceRole": "traditional_tibetan_scholastic_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1645.xml",
+      "upstreamPath": "T/T32/T32n1645.xml",
+      "upstreamGitBlobSha1": "25cd05967b6659d139281fd86e53790c5dbf2252",
+      "upstreamBytes": 96917,
+      "upstreamSha256": "61e6a30314c4ebeead84e670085e6dedccb19bc858c0ccdad50d88ebb5246118",
+      "localBytes": 96918,
+      "localSha256": "c0e544d8f38ba396ae2642e235c3de9d7d3dffc30cc31bb2e4884b29ff47231d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "彰所知論",
+        "alternateTitle": "彰所知論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1645",
+        "translator": "發合思巴造 · 元 · 沙羅巴譯",
+        "summary": "2卷。发合思巴造、沙罗巴汉译的藏传论书完整来源。传统责任题记：發合思巴造 元 沙羅巴譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1645_001"
+      },
+      "verification": {
+        "segments": 983,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1645.001.0226a10",
+          "T1645.002.0238a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1646",
+      "slug": "taisho-t1646",
+      "workId": "gbcr:work:tattvasiddhi-harivarman",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "成实论（Tattvasiddhi）",
+      "sourceRole": "traditional_abhidharma_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1646.xml",
+      "upstreamPath": "T/T32/T32n1646.xml",
+      "upstreamGitBlobSha1": "65621463d738c37bee62f7a1b8b2573f65ca78e5",
+      "upstreamBytes": 2096586,
+      "upstreamSha256": "d8ebf1a337f8fe402bcc0467c34740a08f43c3cf25fc23db4782cf424fb802f6",
+      "localBytes": 2096587,
+      "localSha256": "5327ab722e7fcc1c15ae3795000ff7133d03f532288cc62b303c2b45cb027ebd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成實論",
+        "alternateTitle": "成實論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1646",
+        "translator": "訶梨跋摩造 · 姚秦 · 鳩摩羅什譯",
+        "summary": "16卷。诃梨跋摩论书十六卷完整来源。传统责任题记：訶梨跋摩造 姚秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1646_001"
+      },
+      "verification": {
+        "segments": 11657,
+        "folios": 416,
+        "juanRange": [
+          1,
+          16
+        ],
+        "anchors": [
+          "T1646.001.0239a02",
+          "T1646.016.0373b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1647",
+      "slug": "taisho-t1647",
+      "workId": "gbcr:work:catuhsatya-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "四谛论",
+      "sourceRole": "traditional_abhidharma_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1647.xml",
+      "upstreamPath": "T/T32/T32n1647.xml",
+      "upstreamGitBlobSha1": "e0ab714c9d2abe8cc94b67350025fe7ec9a7e305",
+      "upstreamBytes": 365745,
+      "upstreamSha256": "1588d7e4bbd743380d1d3d782a9653628366f759560f1d25a84bfaca95bcefb3",
+      "localBytes": 365746,
+      "localSha256": "6382b9fe81ec530a843fa3216e2092327e6b93a48cba0eb1fe54b7f35e800300",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四諦論",
+        "alternateTitle": "四諦論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1647",
+        "translator": "婆藪跋摩造 · 陳 · 真諦譯",
+        "summary": "4卷。婆薮跋摩传统归属的论书完整来源。传统责任题记：婆藪跋摩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1647_001"
+      },
+      "verification": {
+        "segments": 2140,
+        "folios": 77,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1647.001.0375a02",
+          "T1647.004.0399c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1648",
+      "slug": "taisho-t1648",
+      "workId": "gbcr:work:vimuttimagga",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "解脱道论（Vimuttimagga）",
+      "sourceRole": "traditional_meditation_manual_translation",
+      "localPath": "data/corpus/cbeta/T32n1648.xml",
+      "upstreamPath": "T/T32/T32n1648.xml",
+      "upstreamGitBlobSha1": "85c0ed582959d47c469890e34844abe59becce7e",
+      "upstreamBytes": 982272,
+      "upstreamSha256": "a0e374fda6065b92adf1d0531c18cab83e052ee0bd9810492f24186b2f0f775f",
+      "localBytes": 982273,
+      "localSha256": "f0e5e41e01c6880ce90e8061864a9db847f00d73f682592dd38cf4311fb14b42",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "解脫道論",
+        "alternateTitle": "解脫道論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1648",
+        "translator": "優波底沙造 · 梁 · 僧伽婆羅譯",
+        "summary": "12卷。优波底沙修道论十二卷完整来源。传统责任题记：優波底沙造 梁 僧伽婆羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1648_001"
+      },
+      "verification": {
+        "segments": 5368,
+        "folios": 196,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1648.001.0399c08",
+          "T1648.012.0461c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1649",
+      "slug": "taisho-t1649",
+      "workId": "gbcr:work:sammatiya-nikaya-sastra",
+      "workIdentityStatus": "verified_distinct_work_with_lost_translator",
+      "workTitle": "三弥底部论",
+      "sourceRole": "traditional_school_treatise_unknown_translation",
+      "localPath": "data/corpus/cbeta/T32n1649.xml",
+      "upstreamPath": "T/T32/T32n1649.xml",
+      "upstreamGitBlobSha1": "de8d7090c5b90a26aa330dc7d1f2bd91d26b1751",
+      "upstreamBytes": 138474,
+      "upstreamSha256": "57ad6ef4be96462520b214135fd157966b41d78f1747bd9735fe2d512d35e90b",
+      "localBytes": 138475,
+      "localSha256": "b1cd4fdfb790898997277d276e7609f6bd9c4e1b6504d7154a77b1c69fd0168c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三彌底部論",
+        "alternateTitle": "三彌底部論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1649",
+        "translator": "失譯",
+        "summary": "3卷。失译部派论书完整来源，译者未知状态不得补写。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1649_001"
+      },
+      "verification": {
+        "segments": 965,
+        "folios": 35,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1649.001.0462a02",
+          "T1649.003.0473a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1650",
+      "slug": "taisho-t1650",
+      "workId": "gbcr:work:pratyekabuddha-nidana-sastra",
+      "workIdentityStatus": "verified_distinct_work_with_lost_translator",
+      "workTitle": "辟支佛因缘论",
+      "sourceRole": "traditional_narrative_treatise_unknown_translation",
+      "localPath": "data/corpus/cbeta/T32n1650.xml",
+      "upstreamPath": "T/T32/T32n1650.xml",
+      "upstreamGitBlobSha1": "2c0075c21c9417890c5254b2ef26a13de84098ff",
+      "upstreamBytes": 146560,
+      "upstreamSha256": "1c35e95963d70d336a85bf3d9805a26632af0bfade4df9fd6cd642ead1ec2043",
+      "localBytes": 146561,
+      "localSha256": "d4372afb43e0813b67aecd0717464c701eb91783996f37a854703e50800c1d7d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "辟支佛因緣論",
+        "alternateTitle": "辟支佛因緣論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1650",
+        "translator": "失譯",
+        "summary": "2卷。失译因缘论完整来源，叙事材料不等于单一历史说法现场记录。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1650_001"
+      },
+      "verification": {
+        "segments": 655,
+        "folios": 25,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1650.001.0473a18",
+          "T1650.002.0480c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1651",
+      "slug": "taisho-t1651",
+      "workId": "gbcr:work:dvadasanga-pratityasamutpada-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "十二因缘论",
+      "sourceRole": "traditional_dependent_origination_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "dependent_origination_related_treatises_and_two_translations_verified",
+          "groupId": "dependent-origination-t1651-t1654",
+          "label": "缘起论群的同本异译与独立作品边界",
+          "evidence": "经录明确 T1652 与 T1653 是欝楞迦同一缘生论的达磨笈多、不空两译；T1651《十二因缘论》与 T1654《因缘心论颂因缘心论释》虽同论缘起，作者、范围与结构不同，分别立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1651",
+              "T1652",
+              "T1653",
+              "T1654"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1651.xml",
+      "upstreamPath": "T/T32/T32n1651.xml",
+      "upstreamGitBlobSha1": "4b020987940657594e0189b3e958499081f9ebe0",
+      "upstreamBytes": 25881,
+      "upstreamSha256": "897133fcce24d6c856688e0b997d6d9c384e7ae2569c346edf649cf26a95ca9a",
+      "localBytes": 25882,
+      "localSha256": "ea212bd0cd35561dce568f6198ee594a2836922db2a6f0ea938500385812ac32",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十二因緣論",
+        "alternateTitle": "十二因緣論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1651",
+        "translator": "淨意菩薩造 · 後魏 · 菩提流支譯",
+        "summary": "1卷。净意传统归属的缘起论完整来源。传统责任题记：淨意菩薩造 後魏 菩提流支譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1651_001"
+      },
+      "verification": {
+        "segments": 104,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1651.001.0480c12",
+          "T1651.001.0481c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1652",
+      "slug": "taisho-t1652",
+      "workId": "gbcr:work:pratityasamutpada-sastra-ulanka",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "缘生论（Pratītyasamutpādaśāstra）",
+      "sourceRole": "traditional_dependent_origination_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "dependent_origination_related_treatises_and_two_translations_verified",
+          "groupId": "dependent-origination-t1651-t1654",
+          "label": "缘起论群的同本异译与独立作品边界",
+          "evidence": "经录明确 T1652 与 T1653 是欝楞迦同一缘生论的达磨笈多、不空两译；T1651《十二因缘论》与 T1654《因缘心论颂因缘心论释》虽同论缘起，作者、范围与结构不同，分别立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1651",
+              "T1652",
+              "T1653",
+              "T1654"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1652.xml",
+      "upstreamPath": "T/T32/T32n1652.xml",
+      "upstreamGitBlobSha1": "e43cb815cb8f94de8cfbf27860ecbc92b7f539f9",
+      "upstreamBytes": 51601,
+      "upstreamSha256": "f2ead8515b5b0c9e95c8207ed50e506f647183627f151f8c27cff269ba9a50ea",
+      "localBytes": 51602,
+      "localSha256": "6280cd41dbcb2747eb34a8d812a9b96485eda86289ee66eca1335ce5f424d4e6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "緣生論",
+        "alternateTitle": "緣生論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1652",
+        "translator": "欝楞迦造 · 隋 · 達磨笈多譯",
+        "summary": "1卷。达磨笈多译完整表达。传统责任题记：欝楞迦造 隋 達磨笈多譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1652_001"
+      },
+      "verification": {
+        "segments": 364,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1652.001.0482a03",
+          "T1652.001.0486a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1653",
+      "slug": "taisho-t1653",
+      "workId": "gbcr:work:pratityasamutpada-sastra-ulanka",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "缘生论（Pratītyasamutpādaśāstra）",
+      "sourceRole": "traditional_dependent_origination_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "dependent_origination_related_treatises_and_two_translations_verified",
+          "groupId": "dependent-origination-t1651-t1654",
+          "label": "缘起论群的同本异译与独立作品边界",
+          "evidence": "经录明确 T1652 与 T1653 是欝楞迦同一缘生论的达磨笈多、不空两译；T1651《十二因缘论》与 T1654《因缘心论颂因缘心论释》虽同论缘起，作者、范围与结构不同，分别立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1651",
+              "T1652",
+              "T1653",
+              "T1654"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1653.xml",
+      "upstreamPath": "T/T32/T32n1653.xml",
+      "upstreamGitBlobSha1": "1154c9e724cbb4e6f14148429e8dbc5b5bd1899a",
+      "upstreamBytes": 66427,
+      "upstreamSha256": "52fbe60457378fe3a47dc0fb6c22245a592cf92ad88e13ef4b744f7c8e64b25a",
+      "localBytes": 66428,
+      "localSha256": "02e2775fa3f1e2555c0f73853f63f591547c79ad5e384593af73722a8fc0ea5a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘緣生論",
+        "alternateTitle": "大乘緣生論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1653",
+        "translator": "欝楞迦造 · 唐 · 不空譯",
+        "summary": "1卷。不空译完整表达。传统责任题记：欝楞迦造 唐 不空譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1653_001"
+      },
+      "verification": {
+        "segments": 338,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1653.001.0486b02",
+          "T1653.001.0490a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1654",
+      "slug": "taisho-t1654",
+      "workId": "gbcr:work:pratityasamutpada-hrdaya-karika-vyakhya",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "因缘心论颂因缘心论释",
+      "sourceRole": "traditional_root_verses_with_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "dependent_origination_related_treatises_and_two_translations_verified",
+          "groupId": "dependent-origination-t1651-t1654",
+          "label": "缘起论群的同本异译与独立作品边界",
+          "evidence": "经录明确 T1652 与 T1653 是欝楞迦同一缘生论的达磨笈多、不空两译；T1651《十二因缘论》与 T1654《因缘心论颂因缘心论释》虽同论缘起，作者、范围与结构不同，分别立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1651",
+              "T1652",
+              "T1653",
+              "T1654"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1654.xml",
+      "upstreamPath": "T/T32/T32n1654.xml",
+      "upstreamGitBlobSha1": "f4b29ab161f7461da04700171a060a4eedac7d34",
+      "upstreamBytes": 19359,
+      "upstreamSha256": "a09d715afcf13549cc85f0453d7e0bb718d693590029387d663347790f44730d",
+      "localBytes": 19360,
+      "localSha256": "775102e08a204004e3882b033e6aefb4e980b508ca97100f9dffff07bccaccbd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "因緣心論頌因緣心論釋",
+        "alternateTitle": "因緣心論頌因緣心論釋",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1654",
+        "translator": "龍猛菩薩造",
+        "summary": "1卷。根本颂与释合载的完整来源，不与欝楞迦论两译合并。传统责任题记：龍猛菩薩造。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1654_001"
+      },
+      "verification": {
+        "segments": 90,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1654.001.0490a24",
+          "T1654.001.0491b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1655",
+      "slug": "taisho-t1655",
+      "workId": "gbcr:work:samatha-vipasyana-dvara-karika",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "止观门论颂",
+      "sourceRole": "traditional_meditation_verse_translation",
+      "localPath": "data/corpus/cbeta/T32n1655.xml",
+      "upstreamPath": "T/T32/T32n1655.xml",
+      "upstreamGitBlobSha1": "a65453164f663d0646e11be92820987fe0ebf946",
+      "upstreamBytes": 29131,
+      "upstreamSha256": "9fb814da873fd39e18907b6e13a26a43d77351c3d6b9d5391a8405c7aaf270e2",
+      "localBytes": 29132,
+      "localSha256": "0f446db65d6c71bfe8346313a64725b37d707790fb6d694b0ab4eda33281aca4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "止觀門論頌",
+        "alternateTitle": "止觀門論頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1655",
+        "translator": "世親菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。世亲传统归属的止观颂完整来源。传统责任题记：世親菩薩造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1655_001"
+      },
+      "verification": {
+        "segments": 159,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1655.001.0491b06",
+          "T1655.001.0493a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1656",
+      "slug": "taisho-t1656",
+      "workId": "gbcr:work:ratnavali-nagarjuna",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "宝行王正论（Ratnāvalī）",
+      "sourceRole": "traditional_advice_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1656.xml",
+      "upstreamPath": "T/T32/T32n1656.xml",
+      "upstreamGitBlobSha1": "4c6ed1a7b2c7444cefe5446bb79a0f71a69c2746",
+      "upstreamBytes": 152028,
+      "upstreamSha256": "bfef070ec10ba84addda5729e292ba635803d34c68799b2f27f79cb20bd2087a",
+      "localBytes": 152029,
+      "localSha256": "cc94d839d075bf2031b438cb35e265b8f8aa42079c55429be4b23364f86b4fd1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶行王正論",
+        "alternateTitle": "寶行王正論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1656",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。龙树《宝鬘论》汉译传统的完整来源；与后列《亲友书》不是同一作品。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1656_001"
+      },
+      "verification": {
+        "segments": 1039,
+        "folios": 37,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1656.001.0493b02",
+          "T1656.001.0505b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1657",
+      "slug": "taisho-t1657",
+      "workId": "gbcr:work:hasta-danda-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "手杖论",
+      "sourceRole": "traditional_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1657.xml",
+      "upstreamPath": "T/T32/T32n1657.xml",
+      "upstreamGitBlobSha1": "21ca42fc47875540d5048bffd6431c9a363838db",
+      "upstreamBytes": 36177,
+      "upstreamSha256": "b522fb0338fcdae9f11e66e19a8c794814ce20ec39ef2777dfa152429e5af358",
+      "localBytes": 36178,
+      "localSha256": "3ba639354d848b138c710bf7c5130399edbe705bda41d6a2794434bbec8d806d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "手杖論",
+        "alternateTitle": "手杖論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1657",
+        "translator": "釋迦稱造 · 唐 · 義淨譯",
+        "summary": "1卷。释迦称造的短论完整来源。传统责任题记：釋迦稱造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1657_001"
+      },
+      "verification": {
+        "segments": 178,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1657.001.0505b04",
+          "T1657.001.0507b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1658",
+      "slug": "taisho-t1658",
+      "workId": "gbcr:work:doctrinal-names-determination",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "诸教决定名义论",
+      "sourceRole": "traditional_doctrinal_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1658.xml",
+      "upstreamPath": "T/T32/T32n1658.xml",
+      "upstreamGitBlobSha1": "52ee92033a7cd21791351364256b31a9accd55b8",
+      "upstreamBytes": 18561,
+      "upstreamSha256": "026110f648b9ab36c4c29e98a3a07a7dbe4ab573e78380c3425728cf87f5634e",
+      "localBytes": 18562,
+      "localSha256": "7ea966c40f2f0e2bfe3b166ce7173272a90dce2b5f4ca857368e1301e988f62b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸教決定名義論",
+        "alternateTitle": "諸教決定名義論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1658",
+        "translator": "慈氏菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。慈氏传统归属的名义论完整来源。传统责任题记：慈氏菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1658_001"
+      },
+      "verification": {
+        "segments": 105,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1658.001.0507b11",
+          "T1658.001.0508c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1659",
+      "slug": "taisho-t1659",
+      "workId": "gbcr:work:bodhicitta-utpada-sutra-sastra",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "发菩提心经论",
+      "sourceRole": "traditional_bodhicitta_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1659.xml",
+      "upstreamPath": "T/T32/T32n1659.xml",
+      "upstreamGitBlobSha1": "67c3f20ce3df739ab2234f779afe9db852ccc004",
+      "upstreamBytes": 137440,
+      "upstreamSha256": "48385e54b5205d9ad3c5c0f6eaf8bcffc3867579fd9fbd01ad5bf3fc0684df63",
+      "localBytes": 137441,
+      "localSha256": "13e2ad61f6b48560dcefe89cb01e268841c45d14f46c887fd8b5e60e0c5e7e8e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "發菩提心經論",
+        "alternateTitle": "發菩提心經論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1659",
+        "translator": "天親菩薩造 · 後秦 · 鳩摩羅什譯",
+        "summary": "2卷。完整来源；传统天亲造题记与早期经录不明作者记录并存。传统责任题记：天親菩薩造 後秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1659_001"
+      },
+      "verification": {
+        "segments": 753,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1659.001.0508c04",
+          "T1659.002.0517b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1660",
+      "slug": "taisho-t1660",
+      "workId": "gbcr:work:bodhisambhara-sastra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "菩提资粮论",
+      "sourceRole": "traditional_root_verses_with_commentary_translation",
+      "localPath": "data/corpus/cbeta/T32n1660.xml",
+      "upstreamPath": "T/T32/T32n1660.xml",
+      "upstreamGitBlobSha1": "fa23f83caad2c4994d9be155fce517801cb6d481",
+      "upstreamBytes": 288315,
+      "upstreamSha256": "503f2810c6ec55ba7dfb68b86eeb4976494efe688a42324fc1224705e071bcd2",
+      "localBytes": 288316,
+      "localSha256": "6aab11dbf7e4b1a1683dead61b8fbe11bb3129eb1cfbe57711e2d4369598c68b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩提資糧論",
+        "alternateTitle": "菩提資糧論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1660",
+        "translator": "龍樹本 · 自在比丘釋 · 隋 · 達磨笈多譯",
+        "summary": "6卷。龙树本颂、自在比丘释的复合论体完整来源。传统责任题记：龍樹本 自在比丘釋 隋 達磨笈多譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1660_001"
+      },
+      "verification": {
+        "segments": 2057,
+        "folios": 76,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1660.001.0517b09",
+          "T1660.006.0541b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1661",
+      "slug": "taisho-t1661",
+      "workId": "gbcr:work:bodhicitta-vivarana-chinese",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "菩提心离相论",
+      "sourceRole": "traditional_bodhicitta_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "bodhicitta_related_retranslation_expansion_boundary",
+          "groupId": "bodhicitta-t1661-t1663",
+          "label": "《菩提心离相论》与《菩提心观释》的对应、重译和扩写边界",
+          "evidence": "同行研究指出 T1663 与 T1661 及相关梵文材料有对应段落，并含重译、扩写痕迹；目前证据不足以把两份来源压成同一完整作品表达，故保留相关但不同作品的可复核边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1661",
+              "T1663"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1661.xml",
+      "upstreamPath": "T/T32/T32n1661.xml",
+      "upstreamGitBlobSha1": "1f1efb8b79c2e86e9ff3dee5c4838856b07d24b2",
+      "upstreamBytes": 27803,
+      "upstreamSha256": "b76f0205fb2d2be3ddcc10f8a524d4231030e912800aff266a06a272999185d5",
+      "localBytes": 27804,
+      "localSha256": "29f31572799cd7641827eb64f6917f1fa3c3e6fb365fd3be7eaaed4b1b6ba08d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩提心離相論",
+        "alternateTitle": "菩提心離相論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1661",
+        "translator": "龍樹菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。龙树传统归属的完整汉文来源；与 T1663 的对应、重译和扩写关系公开但暂不合并。传统责任题记：龍樹菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1661_001"
+      },
+      "verification": {
+        "segments": 210,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1661.001.0541b08",
+          "T1661.001.0543c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1662",
+      "slug": "taisho-t1662",
+      "workId": "gbcr:work:bodhicarya-sutra-anthology",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "菩提行经",
+      "sourceRole": "traditional_bodhisattva_practice_verse_compilation_translation",
+      "localPath": "data/corpus/cbeta/T32n1662.xml",
+      "upstreamPath": "T/T32/T32n1662.xml",
+      "upstreamGitBlobSha1": "b1c8ff277a8ff888272fbdacd622f1c6fe70342f",
+      "upstreamBytes": 201311,
+      "upstreamSha256": "ce0b7cc26f4678e8d702af35fbdede969a2ee60d327cd7dbfab975a4e79fb476",
+      "localBytes": 201312,
+      "localSha256": "d14d7a617e3a82cb57c1022780fa33dde4fcab6c6784aa03b75c69fa1f332e3d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩提行經",
+        "alternateTitle": "菩提行經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1662",
+        "translator": "龍樹菩薩集頌 · 宋 · 天息災譯",
+        "summary": "4卷。龙树集颂传统题记的四卷完整来源。传统责任题记：龍樹菩薩集頌 宋 天息災譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1662_001"
+      },
+      "verification": {
+        "segments": 1585,
+        "folios": 59,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1662.001.0543c17",
+          "T1662.004.0562a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1663",
+      "slug": "taisho-t1663",
+      "workId": "gbcr:work:bodhicittabhavana-vivarana-chinese",
+      "workIdentityStatus": "verified_distinct_work_with_retranslation_expansion_boundary",
+      "workTitle": "菩提心观释",
+      "sourceRole": "traditional_bodhicitta_exposition_translation",
+      "bibliographicRelations": [
+        {
+          "type": "bodhicitta_related_retranslation_expansion_boundary",
+          "groupId": "bodhicitta-t1661-t1663",
+          "label": "《菩提心离相论》与《菩提心观释》的对应、重译和扩写边界",
+          "evidence": "同行研究指出 T1663 与 T1661 及相关梵文材料有对应段落，并含重译、扩写痕迹；目前证据不足以把两份来源压成同一完整作品表达，故保留相关但不同作品的可复核边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1661",
+              "T1663"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1663.xml",
+      "upstreamPath": "T/T32/T32n1663.xml",
+      "upstreamGitBlobSha1": "008ba2a22d4ddb47f8051c2da7ca3f617abc0466",
+      "upstreamBytes": 12754,
+      "upstreamSha256": "1638658c8c48acf3706e84ed97f1981c830d24ab8317f92cacbf8945ca965e9d",
+      "localBytes": 12755,
+      "localSha256": "c1c72dffecd396df3e729010d553aa3857e9e52aa23da4d39571f0750aa3ee5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩提心觀釋",
+        "alternateTitle": "菩提心觀釋",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1663",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。完整来源；保存与 T1661 对应段落及重译、扩写研究，不自动压成同一表达。传统责任题记：宋 法天譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1663_001"
+      },
+      "verification": {
+        "segments": 72,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1663.001.0562a19",
+          "T1663.001.0563a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1664",
+      "slug": "taisho-t1664",
+      "workId": "gbcr:work:bhavanakrama-prathama-kamalasila",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "广释菩提心论",
+      "sourceRole": "traditional_meditation_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1664.xml",
+      "upstreamPath": "T/T32/T32n1664.xml",
+      "upstreamGitBlobSha1": "711aad2ea9d91631b2b2a4d485615e67770a6da7",
+      "upstreamBytes": 101415,
+      "upstreamSha256": "a80ba5ee28f27f064882705ea79050daa2c2e20fd4c92fa57838c2a6460dc846",
+      "localBytes": 101416,
+      "localSha256": "fcb36c22e6bb1d21dbb8f8bdddc8928c1a66a40b4c865745bab7f39dd28f818b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廣釋菩提心論",
+        "alternateTitle": "廣釋菩提心論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1664",
+        "translator": "蓮華戒菩薩造 · 宋 · 施護譯",
+        "summary": "4卷。莲华戒造修习次第相关论书完整来源。传统责任题记：蓮華戒菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1664_001"
+      },
+      "verification": {
+        "segments": 811,
+        "folios": 31,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1664.001.0563a07",
+          "T1664.004.0572b16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1665",
+      "slug": "taisho-t1665",
+      "workId": "gbcr:work:bodhicitta-sastra-vajrasekhara-yoga",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "金刚顶瑜伽中发阿耨多罗三藐三菩提心论",
+      "sourceRole": "traditional_esoteric_bodhicitta_treatise_translation",
+      "localPath": "data/corpus/cbeta/T32n1665.xml",
+      "upstreamPath": "T/T32/T32n1665.xml",
+      "upstreamGitBlobSha1": "3f46cff1f06f3dd5f00f119c6bc4f49b3fa97680",
+      "upstreamBytes": 79910,
+      "upstreamSha256": "492cb4501386653ada3dc08843d3bc16d7475649bf8fec55abc69e25798256ab",
+      "localBytes": 79911,
+      "localSha256": "3a61318df5ddcf852feaa641a69b7e915c8f6130bb2779551038a8d30babc0d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛頂瑜伽中發阿耨多羅三藐三菩提心論",
+        "alternateTitle": "金剛頂瑜伽中發阿耨多羅三藐三菩提心論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1665",
+        "translator": "唐 · 不空譯",
+        "summary": "1卷。不空译密教菩提心论完整来源；作者题记与后世归属研究保持开放。传统责任题记：唐 不空譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1665_001"
+      },
+      "verification": {
+        "segments": 208,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1665.001.0572b19",
+          "T1665.001.0574c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1666",
+      "slug": "taisho-t1666",
+      "workId": "gbcr:work:dasheng-qixin-lun",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "大乘起信论",
+      "sourceRole": "traditional_treatise_translation_or_sinitic_composition",
+      "bibliographicRelations": [
+        {
+          "type": "awakening_of_faith_two_versions_commentary_and_attribution_boundary",
+          "groupId": "awakening-of-faith-t1666-t1668",
+          "label": "《大乘起信论》两版本、释论与汉地形成争议",
+          "evidence": "T1666 与 T1667 属《大乘起信论》同一作品传统的两种汉文版本或重编表达；T1668 是围绕其形成的独立释论。三者传统印度作者、译者题记与现代汉地撰成研究均并存，平台不以传统题记替代历史结论。",
+          "externalIds": {
+            "cbeta": [
+              "T1666",
+              "T1667",
+              "T1668"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1666.xml",
+      "upstreamPath": "T/T32/T32n1666.xml",
+      "upstreamGitBlobSha1": "8e5fc92b06eeaa8344fd67958b6a49536bdc74be",
+      "upstreamBytes": 141752,
+      "upstreamSha256": "fb76d82a2da44ebecd091fd32881996f7d48b9e317c82a098a6b6a18bd5964e4",
+      "localBytes": 141753,
+      "localSha256": "99a04297695962e3f27f02efd380f09bafab0ffb9a64ac0f0318dd84c4dddd6c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘起信論",
+        "alternateTitle": "大乘起信論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1666",
+        "translator": "馬鳴菩薩造 · 梁 · 真諦譯",
+        "summary": "1卷。真谛译题记的一卷本完整表达；汉地撰成争议保留。传统责任题记：馬鳴菩薩造 梁 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1666_001"
+      },
+      "verification": {
+        "segments": 737,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1666.001.0575a02",
+          "T1666.001.0583b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1667",
+      "slug": "taisho-t1667",
+      "workId": "gbcr:work:dasheng-qixin-lun",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "大乘起信论",
+      "sourceRole": "alternate_translation_or_sinitic_redaction",
+      "bibliographicRelations": [
+        {
+          "type": "awakening_of_faith_two_versions_commentary_and_attribution_boundary",
+          "groupId": "awakening-of-faith-t1666-t1668",
+          "label": "《大乘起信论》两版本、释论与汉地形成争议",
+          "evidence": "T1666 与 T1667 属《大乘起信论》同一作品传统的两种汉文版本或重编表达；T1668 是围绕其形成的独立释论。三者传统印度作者、译者题记与现代汉地撰成研究均并存，平台不以传统题记替代历史结论。",
+          "externalIds": {
+            "cbeta": [
+              "T1666",
+              "T1667",
+              "T1668"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1667.xml",
+      "upstreamPath": "T/T32/T32n1667.xml",
+      "upstreamGitBlobSha1": "1c310add466769fccc90f731b16439769ee632f0",
+      "upstreamBytes": 86864,
+      "upstreamSha256": "442fe312fbfdd5405f7d237b2dc4488fbfa12421878abecc86aaac3957d7ba95",
+      "localBytes": 86865,
+      "localSha256": "b92a560ae8b0458fdcb70b655307a1b252c00db7c18da5d55de9a5443d15befe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘起信論",
+        "alternateTitle": "大乘起信論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1667",
+        "translator": "馬鳴菩薩造 · 唐 · 實叉難陀譯",
+        "summary": "2卷。实叉难陀译题记的二卷本完整表达；可能为 T1666 汉地重编本的研究意见保留。传统责任题记：馬鳴菩薩造 唐 實叉難陀譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1667_001"
+      },
+      "verification": {
+        "segments": 721,
+        "folios": 27,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1667.001.0583b20",
+          "T1667.002.0591c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1668",
+      "slug": "taisho-t1668",
+      "workId": "gbcr:work:shi-moheyan-lun-commentary",
+      "workIdentityStatus": "verified_distinct_commentary_with_attribution_boundary",
+      "workTitle": "释摩诃衍论",
+      "sourceRole": "traditional_awakening_of_faith_commentary_or_sinitic_composition",
+      "bibliographicRelations": [
+        {
+          "type": "awakening_of_faith_two_versions_commentary_and_attribution_boundary",
+          "groupId": "awakening-of-faith-t1666-t1668",
+          "label": "《大乘起信论》两版本、释论与汉地形成争议",
+          "evidence": "T1666 与 T1667 属《大乘起信论》同一作品传统的两种汉文版本或重编表达；T1668 是围绕其形成的独立释论。三者传统印度作者、译者题记与现代汉地撰成研究均并存，平台不以传统题记替代历史结论。",
+          "externalIds": {
+            "cbeta": [
+              "T1666",
+              "T1667",
+              "T1668"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1668.xml",
+      "upstreamPath": "T/T32/T32n1668.xml",
+      "upstreamGitBlobSha1": "6fa06610dfc5e93a5d91936a422e281ff04a6814",
+      "upstreamBytes": 1195412,
+      "upstreamSha256": "5f57b84038f39d37b3486d70f15d1413c6826b0f95ce4fd703268fb603eaf967",
+      "localBytes": 1195413,
+      "localSha256": "af2c9542a2792dcc9135c7a92f786df3dde035b82dc3196c8c54aef3f3d89f4f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋摩訶衍論",
+        "alternateTitle": "釋摩訶衍論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1668",
+        "translator": "龍樹菩薩造 · 姚秦 · 筏提摩多譯",
+        "summary": "10卷。十卷释论完整来源；传统龙树造、筏提摩多译与现代汉地撰成及真谛译说并存。传统责任题记：龍樹菩薩造 姚秦 筏提摩多譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1668_001"
+      },
+      "verification": {
+        "segments": 6652,
+        "folios": 236,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1668.001.0591c24",
+          "T1668.010.0668c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1669",
+      "slug": "taisho-t1669",
+      "workId": "gbcr:work:dazongdi-xuanwen-benlun",
+      "workIdentityStatus": "verified_distinct_sinitic_apocryphon_with_attribution_boundary",
+      "workTitle": "大宗地玄文本论",
+      "sourceRole": "traditional_treatise_or_sinitic_apocryphon",
+      "localPath": "data/corpus/cbeta/T32n1669.xml",
+      "upstreamPath": "T/T32/T32n1669.xml",
+      "upstreamGitBlobSha1": "dc1e11d3e0ec412eb7ad4878b081747ae0addb0a",
+      "upstreamBytes": 253724,
+      "upstreamSha256": "daf932bd650812980725ee9b744a2d757fb4f7a07457fce93783bb9bc9a82e3f",
+      "localBytes": 253725,
+      "localSha256": "3d4a4fe4cd81baf025a33fe4f28f6813fb7caafc68c4af401846347c28009332",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大宗地玄文本論",
+        "alternateTitle": "大宗地玄文本論",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1669",
+        "translator": "馬鳴菩薩造 · 陳 · 真諦譯",
+        "summary": "20卷。二十卷完整来源；传统马鸣造、真谛译题记与现代汉地伪经／杂糅道教思想研究并列保存。传统责任题记：馬鳴菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1669_001"
+      },
+      "verification": {
+        "segments": 2069,
+        "folios": 89,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1669.001.0668c19",
+          "T1669.020.0693b16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1670A",
+      "slug": "taisho-t1670a",
+      "workId": "gbcr:work:nagasena-bhiksu-sutra-chinese",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "那先比丘经",
+      "sourceRole": "lost_translation_recension_witness",
+      "bibliographicRelations": [
+        {
+          "type": "nagasena_bhiksu_sutra_two_chinese_recensions_verified",
+          "groupId": "nagasena-t1670a-t1670b",
+          "label": "《那先比丘经》A、B 两种汉文传本",
+          "evidence": "T1670A 与 T1670B 是与 Milindapañha 传统相关的两种汉文版本；卷数、藏本系统与正文差异作为同一作品的独立表达或传本保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1670A",
+              "T1670B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1670A.xml",
+      "upstreamPath": "T/T32/T32n1670A.xml",
+      "upstreamGitBlobSha1": "2348bb68a068abd32ddd2234a9617f9765f4b8e4",
+      "upstreamBytes": 205099,
+      "upstreamSha256": "d270d38ab3665fd790a0af9700a23d560086a1b2940261681ee70372723704a7",
+      "localBytes": 205100,
+      "localSha256": "eb6480d5b135153ed730e8c0c4709708e873687d8b0bad6efe5e08559bcee3a3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "那先比丘經",
+        "alternateTitle": "那先比丘經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1670A",
+        "translator": "失譯",
+        "summary": "2卷。高丽藏系二卷本完整传本，译者失载。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1670A_001"
+      },
+      "verification": {
+        "segments": 819,
+        "folios": 30,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1670A.001.0694a02",
+          "T1670A.002.0703c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1670B",
+      "slug": "taisho-t1670b",
+      "workId": "gbcr:work:nagasena-bhiksu-sutra-chinese",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "那先比丘经",
+      "sourceRole": "lost_translation_recension_witness",
+      "bibliographicRelations": [
+        {
+          "type": "nagasena_bhiksu_sutra_two_chinese_recensions_verified",
+          "groupId": "nagasena-t1670a-t1670b",
+          "label": "《那先比丘经》A、B 两种汉文传本",
+          "evidence": "T1670A 与 T1670B 是与 Milindapañha 传统相关的两种汉文版本；卷数、藏本系统与正文差异作为同一作品的独立表达或传本保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1670A",
+              "T1670B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1670B.xml",
+      "upstreamPath": "T/T32/T32n1670B.xml",
+      "upstreamGitBlobSha1": "b7cf36795a7b9c2c1bb2439a48e92a76a1194e8e",
+      "upstreamBytes": 210374,
+      "upstreamSha256": "c0105897afa203daa7836c895f6aa2d6ac5215eadb7870a122616f7a96ecbf5f",
+      "localBytes": 210375,
+      "localSha256": "356ecc1db9f9579a6f19db4cb224aa19ba7339459b4fdb1f7a6e45d23223620e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "那先比丘經",
+        "alternateTitle": "那先比丘經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1670B",
+        "translator": "失譯",
+        "summary": "3卷。宋元明藏系三卷本完整传本，译者失载。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1670B_001"
+      },
+      "verification": {
+        "segments": 1342,
+        "folios": 49,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1670B.001.0703c06",
+          "T1670B.003.0719a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1671",
+      "slug": "taisho-t1671",
+      "workId": "gbcr:work:sutrartha-samuccaya-nagarjuna",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "福盖正行所集经",
+      "sourceRole": "traditional_sutra_compendium_translation",
+      "localPath": "data/corpus/cbeta/T32n1671.xml",
+      "upstreamPath": "T/T32/T32n1671.xml",
+      "upstreamGitBlobSha1": "92485eb92bc23dd37ca60b372b933125ca3d7300",
+      "upstreamBytes": 230079,
+      "upstreamSha256": "9fbd53a768b73b7c7893354988ba92050d0ac01ac4959a636d65589bf4906e72",
+      "localBytes": 230080,
+      "localSha256": "cda0b6b696c3963ac75d564abcff87da46c1725cbc3a2838326762caa6f046bf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "福蓋正行所集經",
+        "alternateTitle": "福蓋正行所集經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1671",
+        "translator": "龍樹菩薩集 · 宋 · 日稱等譯",
+        "summary": "12卷。龙树集、日称等译的十二卷经义汇编完整来源；编集责任与所引佛说分层。传统责任题记：龍樹菩薩集 宋 日稱等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1671_001"
+      },
+      "verification": {
+        "segments": 2238,
+        "folios": 89,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1671.001.0719a22",
+          "T1671.012.0745b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1672",
+      "slug": "taisho-t1672",
+      "workId": "gbcr:work:suhrllekha-nagarjuna",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "亲友书（Suhṛllekha）",
+      "sourceRole": "traditional_advice_letter_translation",
+      "bibliographicRelations": [
+        {
+          "type": "suhrllekha_three_chinese_translations_verified",
+          "groupId": "suhrllekha-t1672-t1674",
+          "label": "龙树《亲友书》三种汉译",
+          "evidence": "书目与专题研究把 T1672、T1673、T1674 识别为 Nāgārjuna Suhṛllekha 的三种汉译；三者共享作品标识，同时保留不同题名、译者和稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T1672",
+              "T1673",
+              "T1674"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1672.xml",
+      "upstreamPath": "T/T32/T32n1672.xml",
+      "upstreamGitBlobSha1": "2cf476205ae9f8d56c6386fdf64460f00bca6c1a",
+      "upstreamBytes": 52723,
+      "upstreamSha256": "f72822f371b79219cea24118d66612bbd8eb74c6d68313a720430c2c482e5700",
+      "localBytes": 52724,
+      "localSha256": "15680d4ddb8f7532deeca38204d77eee2969549dd925c85d72e00554eb208860",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍樹菩薩為禪陀迦王說法要偈",
+        "alternateTitle": "龍樹菩薩為禪陀迦王說法要偈",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1672",
+        "translator": "宋 · 求那跋摩譯",
+        "summary": "1卷。求那跋摩译完整表达。传统责任题记：宋 求那跋摩譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1672_001"
+      },
+      "verification": {
+        "segments": 225,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1672.001.0745b11",
+          "T1672.001.0748a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1673",
+      "slug": "taisho-t1673",
+      "workId": "gbcr:work:suhrllekha-nagarjuna",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "亲友书（Suhṛllekha）",
+      "sourceRole": "traditional_advice_letter_translation",
+      "bibliographicRelations": [
+        {
+          "type": "suhrllekha_three_chinese_translations_verified",
+          "groupId": "suhrllekha-t1672-t1674",
+          "label": "龙树《亲友书》三种汉译",
+          "evidence": "书目与专题研究把 T1672、T1673、T1674 识别为 Nāgārjuna Suhṛllekha 的三种汉译；三者共享作品标识，同时保留不同题名、译者和稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T1672",
+              "T1673",
+              "T1674"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1673.xml",
+      "upstreamPath": "T/T32/T32n1673.xml",
+      "upstreamGitBlobSha1": "ae6a2c357d825a9492511fbe0ff9e4c1dff01cb2",
+      "upstreamBytes": 49077,
+      "upstreamSha256": "d882644b4abe83f320383827597eb20497c136d6f8752e896910d91e63035ebb",
+      "localBytes": 49078,
+      "localSha256": "eac54a16513d88fe332e3686a46c1abf38a99ff0469908fdc6e0e76917eca830",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勸發諸王要偈",
+        "alternateTitle": "勸發諸王要偈",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1673",
+        "translator": "龍樹菩薩撰 · 宋 · 僧伽跋摩譯",
+        "summary": "1卷。僧伽跋摩译完整表达。传统责任题记：龍樹菩薩撰 宋 僧伽跋摩譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1673_001"
+      },
+      "verification": {
+        "segments": 277,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1673.001.0748a06",
+          "T1673.001.0751a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1674",
+      "slug": "taisho-t1674",
+      "workId": "gbcr:work:suhrllekha-nagarjuna",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "亲友书（Suhṛllekha）",
+      "sourceRole": "traditional_advice_letter_translation",
+      "bibliographicRelations": [
+        {
+          "type": "suhrllekha_three_chinese_translations_verified",
+          "groupId": "suhrllekha-t1672-t1674",
+          "label": "龙树《亲友书》三种汉译",
+          "evidence": "书目与专题研究把 T1672、T1673、T1674 识别为 Nāgārjuna Suhṛllekha 的三种汉译；三者共享作品标识，同时保留不同题名、译者和稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T1672",
+              "T1673",
+              "T1674"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1674.xml",
+      "upstreamPath": "T/T32/T32n1674.xml",
+      "upstreamGitBlobSha1": "7d82fdc21a80bbca498b5f452b7879bd9c915a0b",
+      "upstreamBytes": 58551,
+      "upstreamSha256": "25377a2f80ac51df81face137a0e118335dc9226f473c151432e368fff960648",
+      "localBytes": 58552,
+      "localSha256": "3fe6dd7ce48f875a73f059b152d6c3771a57689321cb13337a5162ff8c26d9c0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍樹菩薩勸誡王頌",
+        "alternateTitle": "龍樹菩薩勸誡王頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1674",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。义净译完整表达。传统责任题记：唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1674_001"
+      },
+      "verification": {
+        "segments": 267,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1674.001.0751a25",
+          "T1674.001.0754b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1675",
+      "slug": "taisho-t1675",
+      "workId": "gbcr:work:dharmadhatu-stava",
+      "workIdentityStatus": "verified_distinct_hymn_with_attribution_boundary",
+      "workTitle": "赞法界颂（Dharmadhātustava）",
+      "sourceRole": "traditional_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1675.xml",
+      "upstreamPath": "T/T32/T32n1675.xml",
+      "upstreamGitBlobSha1": "1524732e4e010682f07d151f559536bcb8154b44",
+      "upstreamBytes": 26527,
+      "upstreamSha256": "2c5f85816346f1ba3d864a4adbef8059a862cada3dc69527890b0feff9103ed3",
+      "localBytes": 26528,
+      "localSha256": "b1a969b3347acb991c0111136c73c5b360c91b9134c93ea08484323c07d83a54",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "讚法界頌",
+        "alternateTitle": "讚法界頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1675",
+        "translator": "龍樹菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。龙树传统归属赞颂完整来源，传统作者题记不等于现代作者鉴定。传统责任题记：龍樹菩薩造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1675_001"
+      },
+      "verification": {
+        "segments": 181,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1675.001.0754b07",
+          "T1675.001.0756b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1676",
+      "slug": "taisho-t1676",
+      "workId": "gbcr:work:pranidhana-stava",
+      "workIdentityStatus": "verified_distinct_hymn_with_attribution_boundary",
+      "workTitle": "广大发愿颂",
+      "sourceRole": "traditional_aspiration_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1676.xml",
+      "upstreamPath": "T/T32/T32n1676.xml",
+      "upstreamGitBlobSha1": "694ef52250d458392f3f4c614a18924ac44bc8ef",
+      "upstreamBytes": 9281,
+      "upstreamSha256": "0a73026d0e5a512daab25a6e7b1716e449e070a366f627b4545861707bf63030",
+      "localBytes": 9282,
+      "localSha256": "a7ce37537015a23edf6d4fcead6caf8d369721fa57581e4d480f66244958b324",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廣大發願頌",
+        "alternateTitle": "廣大發願頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1676",
+        "translator": "龍樹菩薩造 · 宋 · 施護等譯",
+        "summary": "1卷。龙树传统归属发愿颂完整来源。传统责任题记：龍樹菩薩造 宋 施護等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1676_001"
+      },
+      "verification": {
+        "segments": 45,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1676.001.0756b16",
+          "T1676.001.0757a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1677",
+      "slug": "taisho-t1677",
+      "workId": "gbcr:work:kayatrayastotra",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "三身赞（Kāyatrayastotra）",
+      "sourceRole": "sanskrit_phonetic_transliteration_witness",
+      "bibliographicRelations": [
+        {
+          "type": "kayatrayastotra_transliteration_and_translation_verified",
+          "groupId": "kayatrayastotra-t1677-t1678",
+          "label": "《三身赞》的梵文音写见证与汉译",
+          "evidence": "文献研究明确 T1677 是 Kāyatrayastotra 的梵文汉字音写见证，T1678 是汉语义译；二者共享作品标识，但分别保存音写、译文与缺文状况。",
+          "externalIds": {
+            "cbeta": [
+              "T1677",
+              "T1678"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1677.xml",
+      "upstreamPath": "T/T32/T32n1677.xml",
+      "upstreamGitBlobSha1": "68dd9b5d5394004917eda088c3c6be506689d593",
+      "upstreamBytes": 17284,
+      "upstreamSha256": "6b920d83424dc88f2b03a3538dd3fbe754c65caff39574fe2863d277a6ee53d8",
+      "localBytes": 17285,
+      "localSha256": "8821bd817f14e38c382dfe84c5b5532b48abb836dd175d12180310cca1715f00",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "三身梵讚",
+        "alternateTitle": "三身梵讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1677",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。梵文以汉字音写的完整来源文件；研究指出第 4 偈末句存在缺文，故作为部分作品见证登记。传统责任题记：宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1677_001"
+      },
+      "verification": {
+        "segments": 35,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1677.001.0757a05",
+          "T1677.001.0757b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1678",
+      "slug": "taisho-t1678",
+      "workId": "gbcr:work:kayatrayastotra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "三身赞（Kāyatrayastotra）",
+      "sourceRole": "traditional_hymn_translation",
+      "bibliographicRelations": [
+        {
+          "type": "kayatrayastotra_transliteration_and_translation_verified",
+          "groupId": "kayatrayastotra-t1677-t1678",
+          "label": "《三身赞》的梵文音写见证与汉译",
+          "evidence": "文献研究明确 T1677 是 Kāyatrayastotra 的梵文汉字音写见证，T1678 是汉语义译；二者共享作品标识，但分别保存音写、译文与缺文状况。",
+          "externalIds": {
+            "cbeta": [
+              "T1677",
+              "T1678"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1678.xml",
+      "upstreamPath": "T/T32/T32n1678.xml",
+      "upstreamGitBlobSha1": "1ec4bed95c40899c3ceba0dd410ad4f67267f043",
+      "upstreamBytes": 8402,
+      "upstreamSha256": "74df80390d9c347e418cdde89d23ca98dbbf3a48dca3f13d61fe00dc94e3f4ff",
+      "localBytes": 8403,
+      "localSha256": "4ce99a00cb1c09c28950f32fa4b552eab61720539171821737b8b4e40d73b658",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛三身讚",
+        "alternateTitle": "佛三身讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1678",
+        "translator": "西土賢聖撰 · 宋 · 法賢譯",
+        "summary": "1卷。汉语义译完整表达，作者传统保持未定。传统责任题记：西土賢聖撰 宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1678_001"
+      },
+      "verification": {
+        "segments": 25,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1678.001.0757b14",
+          "T1678.001.0757c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1679",
+      "slug": "taisho-t1679",
+      "workId": "gbcr:work:buddha-108-names-stava",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "佛一百八名赞",
+      "sourceRole": "traditional_name_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1679.xml",
+      "upstreamPath": "T/T32/T32n1679.xml",
+      "upstreamGitBlobSha1": "687243bbe56d1fd63dbd81522fd2107f37b57481",
+      "upstreamBytes": 13058,
+      "upstreamSha256": "e19b58ebc879fec6b193f23a339124b642fc25d9aa20b1e7a08d1a08da867d73",
+      "localBytes": 13059,
+      "localSha256": "6e4c62ed39ba8b29857948d9f62978464408223271de957c82effc34ec49ea2d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛一百八名讚",
+        "alternateTitle": "佛一百八名讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1679",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。一百八佛名赞完整来源。传统责任题记：宋 法天譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1679_001"
+      },
+      "verification": {
+        "segments": 65,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1679.001.0757c12",
+          "T1679.001.0758b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1680",
+      "slug": "taisho-t1680",
+      "workId": "gbcr:work:satapancasatka-buddha-stotra",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "一百五十赞佛颂（Śatapañcāśatka）",
+      "sourceRole": "traditional_buddha_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1680.xml",
+      "upstreamPath": "T/T32/T32n1680.xml",
+      "upstreamGitBlobSha1": "fe39d22852496eaeaf21dd1f6957f8b4d448902b",
+      "upstreamBytes": 44773,
+      "upstreamSha256": "9473b556471f6e97c256f3cb11c5d8f24f1024b199f63e030219f2cb6be2a646",
+      "localBytes": 44774,
+      "localSha256": "e1e5c912eedb6b59629bd5800ffe0b7d82c61562a3622ab7c68441733ddf211d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "一百五十讚佛頌",
+        "alternateTitle": "一百五十讚佛頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1680",
+        "translator": "摩咥里制吒造 · 唐 · 義淨譯",
+        "summary": "1卷。摩咥里制吒造、义净译赞佛颂完整来源。传统责任题记：摩咥里制吒造 唐 義淨譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1680_001"
+      },
+      "verification": {
+        "segments": 311,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1680.001.0758b21",
+          "T1680.001.0762a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1681",
+      "slug": "taisho-t1681",
+      "workId": "gbcr:work:buddha-mangalaguna-stava",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "佛吉祥德赞",
+      "sourceRole": "traditional_buddha_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1681.xml",
+      "upstreamPath": "T/T32/T32n1681.xml",
+      "upstreamGitBlobSha1": "a34312e93f185e0d5f97d16b83710869c441f575",
+      "upstreamBytes": 80645,
+      "upstreamSha256": "c12aab472362a986fead59d071bf846b2bf9efecaedc273f011ae65842fff322",
+      "localBytes": 80646,
+      "localSha256": "8945fb2dffd0af694a161c8682f3cb8fb06f66b07541d6c176ad595afb2ff5fe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛吉祥德讚",
+        "alternateTitle": "佛吉祥德讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1681",
+        "translator": "寂友尊者造 · 宋 · 施護譯",
+        "summary": "3卷。寂友造三卷赞颂完整来源。传统责任题记：寂友尊者造 宋 施護譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1681_001"
+      },
+      "verification": {
+        "segments": 606,
+        "folios": 23,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1681.001.0762a15",
+          "T1681.003.0769a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1682",
+      "slug": "taisho-t1682",
+      "workId": "gbcr:work:seven-buddhas-stava-gatha",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "七佛赞呗伽他",
+      "sourceRole": "traditional_buddha_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1682.xml",
+      "upstreamPath": "T/T32/T32n1682.xml",
+      "upstreamGitBlobSha1": "fb60e9e0ec68d373c7ac862a100855931efe705d",
+      "upstreamBytes": 58258,
+      "upstreamSha256": "30d8003bf982d7a9e9ba9b777e8370891a60a66e61db458d4d0a82f25c3f7c24",
+      "localBytes": 58259,
+      "localSha256": "6fef9a5036b54611d704ad0285267ad73b18fad95446a8a9e58d29a0bbc784df",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "七佛讚唄伽他",
+        "alternateTitle": "七佛讚唄伽他",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1682",
+        "translator": "宋 · 法天譯",
+        "summary": "1卷。七佛赞呗完整来源。传统责任题记：宋 法天譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1682_001"
+      },
+      "verification": {
+        "segments": 56,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1682.001.0769a22",
+          "T1682.001.0769c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1683",
+      "slug": "taisho-t1683",
+      "workId": "gbcr:work:ghanta-stava",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "犍稚梵赞",
+      "sourceRole": "traditional_liturgical_hymn_translation",
+      "localPath": "data/corpus/cbeta/T32n1683.xml",
+      "upstreamPath": "T/T32/T32n1683.xml",
+      "upstreamGitBlobSha1": "c96dbcce841b9a12a21f99aa86fb7d93df04e7d4",
+      "upstreamBytes": 114601,
+      "upstreamSha256": "0cb84b878673524bee0632fe2f39f2bde1d9fcac563add6aec926c7fab2b291f",
+      "localBytes": 114602,
+      "localSha256": "927b275fd1af5c9359f86baf0de26462b70f768e2695d9ca868ed97296fe6554",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "犍稚梵讚",
+        "alternateTitle": "犍稚梵讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1683",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。法贤译梵赞完整来源。传统责任题记：宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1683_001"
+      },
+      "verification": {
+        "segments": 200,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1683.001.0770a02",
+          "T1683.001.0772b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1684",
+      "slug": "taisho-t1684",
+      "workId": "gbcr:work:eight-great-stupas-stava",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "八大灵塔梵赞",
+      "sourceRole": "traditional_stupa_hymn_translation",
+      "bibliographicRelations": [
+        {
+          "type": "eight_stupa_hymn_and_name_sutra_distinct",
+          "groupId": "eight-stupas-t1684-t1685",
+          "label": "八大灵塔梵赞与名号经边界",
+          "evidence": "T1684 是戒日王制的赞颂，T1685 是列举八塔名号与功德的短经；主题和部分措辞亲近，不足以合并作品或责任归属。",
+          "externalIds": {
+            "cbeta": [
+              "T1684",
+              "T1685"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1684.xml",
+      "upstreamPath": "T/T32/T32n1684.xml",
+      "upstreamGitBlobSha1": "6b85112084b64b65b3a0e568ae203a4c51d07027",
+      "upstreamBytes": 23984,
+      "upstreamSha256": "baaa9a70234a6dbc3c5f2ace701869de4b180e1edf045555a9213c5eff2f2c69",
+      "localBytes": 23985,
+      "localSha256": "e66e37ed688e554743f09ed732f9b9dd77cc91916a611a691513600f94d72bec",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "八大靈塔梵讚",
+        "alternateTitle": "八大靈塔梵讚",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1684",
+        "translator": "西天戒日王製 · 宋 · 法賢譯",
+        "summary": "1卷。戒日王制赞颂完整来源，与名号经分列。传统责任题记：西天戒日王製 宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1684_001"
+      },
+      "verification": {
+        "segments": 41,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1684.001.0772b07",
+          "T1684.001.0772c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1685",
+      "slug": "taisho-t1685",
+      "workId": "gbcr:work:eight-great-stupas-name-sutra",
+      "workIdentityStatus": "verified_distinct_work_with_buddha_attribution_boundary",
+      "workTitle": "佛说八大灵塔名号经",
+      "sourceRole": "traditional_buddha_attributed_short_sutra_translation",
+      "bibliographicRelations": [
+        {
+          "type": "eight_stupa_hymn_and_name_sutra_distinct",
+          "groupId": "eight-stupas-t1684-t1685",
+          "label": "八大灵塔梵赞与名号经边界",
+          "evidence": "T1684 是戒日王制的赞颂，T1685 是列举八塔名号与功德的短经；主题和部分措辞亲近，不足以合并作品或责任归属。",
+          "externalIds": {
+            "cbeta": [
+              "T1684",
+              "T1685"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1685.xml",
+      "upstreamPath": "T/T32/T32n1685.xml",
+      "upstreamGitBlobSha1": "1d065377a6d0a4eb6f7ec50c051c2236be6c3e98",
+      "upstreamBytes": 9707,
+      "upstreamSha256": "acb37cb9857a17c5eae8bfcc425e9ee009ce1e93b26eecea654573fad1c04059",
+      "localBytes": 9708,
+      "localSha256": "32fd704b6ec6f501aae3e59bcfd63a7bb1ba5147629f829fb32b66a76f786b5a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說八大靈塔名號經",
+        "alternateTitle": "佛說八大靈塔名號經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1685",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。短经完整来源；保留“佛说”题记，同时不以题名独自证明历史亲说。传统责任题记：宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1685_001"
+      },
+      "verification": {
+        "segments": 40,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1685.001.0773a02",
+          "T1685.001.0773b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1686",
+      "slug": "taisho-t1686",
+      "workId": "gbcr:work:arya-sangha-gatha-sataka",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "贤圣集伽陀一百颂",
+      "sourceRole": "traditional_verse_anthology_translation",
+      "localPath": "data/corpus/cbeta/T32n1686.xml",
+      "upstreamPath": "T/T32/T32n1686.xml",
+      "upstreamGitBlobSha1": "58d4817c7a00f8d8089b51afbfe0195649f9272e",
+      "upstreamBytes": 29700,
+      "upstreamSha256": "9d586230c2d36f083777169d1e36ed2990b5a2267b2954c6b69328c4e0d3f570",
+      "localBytes": 29701,
+      "localSha256": "6ca864ca8513f5ec677eba9b206866cb82d4bc94c7e9f9bc0432d8237eff47e1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "賢聖集伽陀一百頌",
+        "alternateTitle": "賢聖集伽陀一百頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1686",
+        "translator": "宋 · 天息災譯",
+        "summary": "1卷。一百颂集完整来源。传统责任题记：宋 天息災譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1686_001"
+      },
+      "verification": {
+        "segments": 206,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1686.001.0773b15",
+          "T1686.001.0775c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1687",
+      "slug": "taisho-t1687",
+      "workId": "gbcr:work:guru-pancasika",
+      "workIdentityStatus": "verified_distinct_work_with_attribution_boundary",
+      "workTitle": "事师法五十颂（Gurupañcāśikā）",
+      "sourceRole": "traditional_instruction_verse_translation",
+      "localPath": "data/corpus/cbeta/T32n1687.xml",
+      "upstreamPath": "T/T32/T32n1687.xml",
+      "upstreamGitBlobSha1": "a2619c8ab07336aad912f4666341cf381d82e921",
+      "upstreamBytes": 20662,
+      "upstreamSha256": "3aadc36aa989a24e7b239735b87dc797515d92bc5836e81dee00abab602f9890",
+      "localBytes": 20663,
+      "localSha256": "266a7d250c861a2691599207caced201309103af38c8acf0b7f03517728fb1d4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "事師法五十頌",
+        "alternateTitle": "事師法五十頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1687",
+        "translator": "馬鳴菩薩集 · 宋 · 日稱等譯",
+        "summary": "1卷。马鸣集传统题记的五十颂完整来源，作者归属保留。传统责任题记：馬鳴菩薩集 宋 日稱等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1687_001"
+      },
+      "verification": {
+        "segments": 110,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1687.001.0775c20",
+          "T1687.001.0777a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1688",
+      "slug": "taisho-t1688",
+      "workId": "gbcr:work:miji-lishi-daquan-shenwang-verses",
+      "workIdentityStatus": "verified_distinct_sinitic_composition",
+      "workTitle": "密迹力士大权神王经偈颂",
+      "sourceRole": "sinitic_verse_compilation",
+      "localPath": "data/corpus/cbeta/T32n1688.xml",
+      "upstreamPath": "T/T32/T32n1688.xml",
+      "upstreamGitBlobSha1": "bb9fde7224289ce57ece03bc09c5f1ba9377a969",
+      "upstreamBytes": 58471,
+      "upstreamSha256": "d63ecd0b162c521976ba53f390d01a75901a6c5d9bd930db426c60a7727c0b06",
+      "localBytes": 58472,
+      "localSha256": "b8894384264499607f8c1aafaddbce5780b12e9f540217661baaf63ba90c8a33",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "密跡力士大權神王經偈頌",
+        "alternateTitle": "密跡力士大權神王經偈頌",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1688",
+        "translator": "元 · 管主八撰",
+        "summary": "1卷。元代管主八撰的汉地偈颂完整来源，不归入历史佛陀亲说表达。传统责任题记：元 管主八撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1688_001"
+      },
+      "verification": {
+        "segments": 617,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1688.001.0777a16",
+          "T1688.001.0784b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1689",
+      "slug": "taisho-t1689",
+      "workId": "gbcr:work:invite-pindola-ritual",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "请宾头卢法",
+      "sourceRole": "traditional_invitation_ritual_translation",
+      "bibliographicRelations": [
+        {
+          "type": "pindola_invitation_ritual_and_discourse_distinct",
+          "groupId": "pindola-t1689-t1690",
+          "label": "宾头卢请法仪轨与说法经边界",
+          "evidence": "T1689 是请宾头卢的仪式文本，T1690 是宾头卢为优陀延王说法的叙事经；共享人物不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1689",
+              "T1690"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1689.xml",
+      "upstreamPath": "T/T32/T32n1689.xml",
+      "upstreamGitBlobSha1": "6944857b3ea85d0f6d11fc8cc05b9b4f28853f8f",
+      "upstreamBytes": 25091,
+      "upstreamSha256": "1eb3876bdc3ec2187cb77665763ac56e55e75c2fc8605a3086fd67c4ffb70ca4",
+      "localBytes": 25092,
+      "localSha256": "6d1fd31f0db57e49a88a02b51927c93fea20f61eb2f41f399d7889907866661e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "請賓頭盧法",
+        "alternateTitle": "請賓頭盧法",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1689",
+        "translator": "劉宋 · 慧簡譯",
+        "summary": "1卷。请圣仪轨完整来源，与说法经分列。传统责任题记：劉宋 慧簡譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1689_001"
+      },
+      "verification": {
+        "segments": 43,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1689.001.0784b03",
+          "T1689.001.0784c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1690",
+      "slug": "taisho-t1690",
+      "workId": "gbcr:work:pindola-discourse-to-udayana",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "宾头卢突罗阇为优陀延王说法经",
+      "sourceRole": "traditional_arhat_discourse_translation",
+      "bibliographicRelations": [
+        {
+          "type": "pindola_invitation_ritual_and_discourse_distinct",
+          "groupId": "pindola-t1689-t1690",
+          "label": "宾头卢请法仪轨与说法经边界",
+          "evidence": "T1689 是请宾头卢的仪式文本，T1690 是宾头卢为优陀延王说法的叙事经；共享人物不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1689",
+              "T1690"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T32n1690.xml",
+      "upstreamPath": "T/T32/T32n1690.xml",
+      "upstreamGitBlobSha1": "53ca4fd13e8827b47e384a4e7d6fe4517e0b35c9",
+      "upstreamBytes": 56359,
+      "upstreamSha256": "ba0cb6ed6472054c282120de898ae5bd2768ec0ee7d4a0f6fa6aa48efded2949",
+      "localBytes": 56360,
+      "localSha256": "d6563a03d9bb640fe2c175ef4b404883c0899d9e22813e6cb656cd09d4a4468b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "賓頭盧突羅闍為優陀延王說法經",
+        "alternateTitle": "賓頭盧突羅闍為優陀延王說法經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1690",
+        "translator": "劉宋 · 求那跋陀羅譯",
+        "summary": "1卷。宾头卢说法叙事完整来源，不因共享人物与仪轨合并。传统责任题记：劉宋 求那跋陀羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1690_001"
+      },
+      "verification": {
+        "segments": 233,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1690.001.0784c19",
+          "T1690.001.0787b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1691",
+      "slug": "taisho-t1691",
+      "workId": "gbcr:work:kasyapa-heals-woman-sutra",
+      "workIdentityStatus": "verified_distinct_work_with_speaker_boundary",
+      "workTitle": "迦叶仙人说医女人经",
+      "sourceRole": "traditional_named_speaker_sutra_translation",
+      "localPath": "data/corpus/cbeta/T32n1691.xml",
+      "upstreamPath": "T/T32/T32n1691.xml",
+      "upstreamGitBlobSha1": "4be8a14301c703bad839dc689976e587f69d6c92",
+      "upstreamBytes": 19558,
+      "upstreamSha256": "5c8822f9cb23f9319e927a58dd828d33ea2acf7428ea06cb7f440ea9fd2bb393",
+      "localBytes": 19559,
+      "localSha256": "8dcac8d4c7b3df5f4cf379511a7d4db4670f687e2019db8341d38de0ab58149c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "迦葉仙人說醫女人經",
+        "alternateTitle": "迦葉仙人說醫女人經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1691",
+        "translator": "宋 · 法賢譯",
+        "summary": "1卷。题名归于迦叶仙人说法的短经完整来源，不标作佛陀逐字亲说。传统责任题记：宋 法賢譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1691_001"
+      },
+      "verification": {
+        "segments": 78,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1691.001.0787b23",
+          "T1691.001.0788b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1692",
+      "slug": "taisho-t1692",
+      "workId": "gbcr:work:senajit-converts-world-parable-gatha",
+      "workIdentityStatus": "verified_distinct_work",
+      "workTitle": "胜军化世百喻伽他经",
+      "sourceRole": "traditional_parable_gatha_translation",
+      "localPath": "data/corpus/cbeta/T32n1692.xml",
+      "upstreamPath": "T/T32/T32n1692.xml",
+      "upstreamGitBlobSha1": "d5082c73f116eb8f2a261af6b4d5773dbd11085c",
+      "upstreamBytes": 43152,
+      "upstreamSha256": "c647c8b213408c3cf45d813737a61b7c8221a060661f4c5e7d1d9d6f5502fa51",
+      "localBytes": 43153,
+      "localSha256": "5074715b76069670dfd4a3e3a0a002172dfadfa4b2ebbed6520a728c837e1caf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝軍化世百喻伽他經",
+        "alternateTitle": "勝軍化世百喻伽他經",
+        "tradition": "汉传佛教 · 论集部",
+        "language": "汉文",
+        "canonRef": "大正藏 T32, no. 1692",
+        "translator": "宋 · 天息災譯",
+        "summary": "1卷。百喻伽他类完整来源；叙事与教诫体不自动等同历史佛说记录。传统责任题记：宋 天息災譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1692_001"
+      },
+      "verification": {
+        "segments": 202,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1692.001.0788b17",
+          "T1692.001.0790c16"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
