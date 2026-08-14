@@ -1,0 +1,1562 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.4.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.3.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t37-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T37; T37 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T37",
+    "title": "大正藏 T37 净土与涅槃经疏部固定来源记录",
+    "sourceRecordDenominator": 21,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 21,
+    "controlledSourceRecords": 21,
+    "newSourceBytes": 10041102,
+    "newStableSegments": 77568,
+    "newFolios": 2774,
+    "newJuans": 117,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 21,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 21,
+    "attributionBoundaryRecords": 21,
+    "newWorks": 21,
+    "controlledWorks": 21,
+    "workCountingDecision": "T37 的 21 份来源记录登记为 21 个完整表达和 21 个独立经疏作品。T1744 连接 T0353；T1745–T1748 连接 T0360；T1749–T1754 连接 T0365，其中 T1750 与 T1751 形成直接经疏—再注释关系；T1755–T1762 连接 T0366；T1763 与 T1764 分别连接 T0375 南本和 T0374 北本《大般涅槃经》。相同题名、共同根经、同一作者、讲说或集记责任都不自动合并作品，所有记录均不标作根本经表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_root_translation_commentary_same_title_taught_record_collective_compilation_and_subcommentary_boundaries_recorded",
+    "existingControlledRecords": [
+      "T0353",
+      "T0360",
+      "T0365",
+      "T0366",
+      "T0374",
+      "T0375"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "srimala-exegesis-t0353-t1744",
+      "larger-sukhavativyuha-exegesis-t0360-t1745-t1748",
+      "contemplation-sutra-exegesis-t0365-t1749-t1754",
+      "amitabha-sutra-exegesis-t0366-t1755-t1762",
+      "nirvana-exegesis-t0375-t1763",
+      "nirvana-exegesis-t0374-t1764"
+    ],
+    "subcommentaryGroups": [
+      "contemplation-sutra-commentary-subcommentary-t0365-t1750-t1751"
+    ],
+    "relatedDistinctWorkGroups": [
+      "wuliangshou-yishu-t1745-t1746",
+      "kuiji-amitabha-commentaries-t1757-t1758"
+    ],
+    "candidateRelationsNotMerged": [
+      "T0353↔T1744（《胜鬘经》根经与吉藏经疏分层保存）",
+      "T0360↔T1745–T1748（《无量寿经》与四部不同作者、体例的注疏分层保存）",
+      "T0365↔T1749–T1754，T1750↔T1751（根经、直接经疏、妙宗钞再注释及其他注疏分层保存）",
+      "T0366↔T1755–T1762（《阿弥陀经》与八部跨时代注疏分层保存）",
+      "T0375↔T1763、T0374↔T1764（南北本根经表达与集解、义记分别保存）",
+      "T1745↔T1746、T1757↔T1758（同题异作或同作者异作只形成关系，不合并作品）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_doctrinal_exposition": [
+        "T1747"
+      ],
+      "sinitic_authored_subcommentary": [
+        "T1751"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1744",
+        "T1745",
+        "T1746",
+        "T1748",
+        "T1749",
+        "T1752",
+        "T1754",
+        "T1756",
+        "T1757",
+        "T1758",
+        "T1759",
+        "T1760",
+        "T1761",
+        "T1762",
+        "T1764"
+      ],
+      "sinitic_collective_compiled_sutra_commentary": [
+        "T1763"
+      ],
+      "sinitic_compiled_commentary_record": [
+        "T1753"
+      ],
+      "sinitic_taught_commentary_record": [
+        "T1750",
+        "T1755"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation and exegetical dependence; it cannot merge root translations, direct commentaries, subcommentaries, taught records, collected explanations or same-title works.",
+      "pairs": [
+        {
+          "pair": [
+            "T1745",
+            "T1746"
+          ],
+          "normalizedCharacters": [
+            37593,
+            13032
+          ],
+          "fiveGramContainmentOfShorter": 0.011541,
+          "fiveGramJaccard": 0.003046
+        },
+        {
+          "pair": [
+            "T1749",
+            "T1752"
+          ],
+          "normalizedCharacters": [
+            20164,
+            17918
+          ],
+          "fiveGramContainmentOfShorter": 0.007459,
+          "fiveGramJaccard": 0.003542
+        },
+        {
+          "pair": [
+            "T1750",
+            "T1751"
+          ],
+          "normalizedCharacters": [
+            12192,
+            56779
+          ],
+          "fiveGramContainmentOfShorter": 0.040542,
+          "fiveGramJaccard": 0.007165
+        },
+        {
+          "pair": [
+            "T1757",
+            "T1758"
+          ],
+          "normalizedCharacters": [
+            26844,
+            27141
+          ],
+          "fiveGramContainmentOfShorter": 0.055056,
+          "fiveGramJaccard": 0.028207
+        },
+        {
+          "pair": [
+            "T1757",
+            "T1759"
+          ],
+          "normalizedCharacters": [
+            26844,
+            3779
+          ],
+          "fiveGramContainmentOfShorter": 0.040087,
+          "fiveGramJaccard": 0.005086
+        },
+        {
+          "pair": [
+            "T1757",
+            "T1760"
+          ],
+          "normalizedCharacters": [
+            26844,
+            8377
+          ],
+          "fiveGramContainmentOfShorter": 0.023521,
+          "fiveGramJaccard": 0.005772
+        },
+        {
+          "pair": [
+            "T1759",
+            "T1760"
+          ],
+          "normalizedCharacters": [
+            3779,
+            8377
+          ],
+          "fiveGramContainmentOfShorter": 0.007584,
+          "fiveGramJaccard": 0.002351
+        },
+        {
+          "pair": [
+            "T1763",
+            "T1764"
+          ],
+          "normalizedCharacters": [
+            310642,
+            428264
+          ],
+          "fiveGramContainmentOfShorter": 0.018037,
+          "fiveGramJaccard": 0.007602
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T37",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003005",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003412",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001216",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000015",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000538",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000539",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003001",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003418",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003419",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003422",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003416",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001227",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001218",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001220",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001226",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001219",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001222",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000033",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000036",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000021",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000028",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000020",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000034",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000035",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000029",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000541",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000543",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000329",
+      "https://authority.dila.edu.tw/person/search.php?aid=A002000",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000136",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001748",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001301",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000756",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001349",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000129",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001723",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001019",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001282",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001257",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001921"
+    ],
+    "caveat": "T37 是经疏部，不是佛说经集合。平台完整保存固定来源，同时区分《胜鬘经》、净土三经、《大般涅槃经》南北本等根经表达，以及义疏、宗要、述文赞、讲说记录、妙宗钞再注释、集记、集解与要解；共同经题、同作者、传统责任题记、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1744",
+      "slug": "taisho-t1744",
+      "workId": "gbcr:work:srimala-baoku-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "勝鬘寶窟",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_srimaladevi_sutra_distinct",
+          "groupId": "srimala-exegesis-t0353-t1744",
+          "label": "《胜鬘师子吼一乘大方便方广经》与吉藏《胜鬘宝窟》",
+          "evidence": "DILA T1744 规范记录把 T0353 标为相关经典。根本经与三卷经疏保持两个作品实体；经题、引文和经疏部目录位置不构成同一作品或佛陀逐字亲说证明。",
+          "externalIds": {
+            "cbeta": [
+              "T0353",
+              "T1744"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1744.xml",
+      "upstreamPath": "T/T37/T37n1744.xml",
+      "upstreamGitBlobSha1": "ac45096f112ac1dadbc031f1e66d0d476d68085e",
+      "upstreamBytes": 1768628,
+      "upstreamSha256": "e03b790362caf78adad0e414f512e0bbf65c0679345166c08f5291abfc3588ab",
+      "localBytes": 1768629,
+      "localSha256": "8c6e7b08fa01c6428487ac12c3bcd86632fe20f16ae4bc1f7e0b512fc95c174b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝鬘寶窟",
+        "alternateTitle": "勝鬘寶窟",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1744",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。吉藏《胜鬘宝窟》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1744_001"
+      },
+      "verification": {
+        "segments": 7793,
+        "folios": 271,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1744.001.0001a01",
+          "T1744.003.0090c30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1745",
+      "slug": "taisho-t1745",
+      "workId": "gbcr:work:wuliangshou-yishu-huiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "無量壽經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_larger_sukhavativyuha_distinct",
+          "groupId": "larger-sukhavativyuha-exegesis-t0360-t1745-t1748",
+          "label": "《佛说无量寿经》与 T1745–T1748 四部义疏、宗要及述文赞",
+          "evidence": "DILA T1745–T1748 规范记录均把 T0360 标为相关经典。四部注疏具有不同作者、题名、体例和篇幅，根本经与四部诠释保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746",
+              "T1747",
+              "T1748"
+            ]
+          }
+        },
+        {
+          "type": "same_title_commentaries_by_different_authors_distinct",
+          "groupId": "wuliangshou-yishu-t1745-t1746",
+          "label": "慧远与吉藏两部《无量寿经义疏》",
+          "evidence": "DILA 分别登记 T1745 与 T1746，并给出不同作者、卷数和规范码。相同题名与共同根经不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1745.xml",
+      "upstreamPath": "T/T37/T37n1745.xml",
+      "upstreamGitBlobSha1": "127395371bf49ba94eaff8a10729b38d6b6b1aad",
+      "upstreamBytes": 223824,
+      "upstreamSha256": "03bd399cba25e8c50d722e83edf10c7fbe88006df2fd06fb7219548ad0179d3a",
+      "localBytes": 223825,
+      "localSha256": "2fde8132fd638d6b24a3b6079802daa6197d9057ce9dcbf4f95fad9cff02e21d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量壽經義疏",
+        "alternateTitle": "無量壽經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1745",
+        "translator": "隋 · 慧遠撰",
+        "summary": "2卷。慧远《无量寿经义疏》完整来源。传统责任题记：隋 慧遠撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1745_001"
+      },
+      "verification": {
+        "segments": 2232,
+        "folios": 78,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1745.001.0091a02",
+          "T1745.002.0116b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1746",
+      "slug": "taisho-t1746",
+      "workId": "gbcr:work:wuliangshou-yishu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "無量壽經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_larger_sukhavativyuha_distinct",
+          "groupId": "larger-sukhavativyuha-exegesis-t0360-t1745-t1748",
+          "label": "《佛说无量寿经》与 T1745–T1748 四部义疏、宗要及述文赞",
+          "evidence": "DILA T1745–T1748 规范记录均把 T0360 标为相关经典。四部注疏具有不同作者、题名、体例和篇幅，根本经与四部诠释保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746",
+              "T1747",
+              "T1748"
+            ]
+          }
+        },
+        {
+          "type": "same_title_commentaries_by_different_authors_distinct",
+          "groupId": "wuliangshou-yishu-t1745-t1746",
+          "label": "慧远与吉藏两部《无量寿经义疏》",
+          "evidence": "DILA 分别登记 T1745 与 T1746，并给出不同作者、卷数和规范码。相同题名与共同根经不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1746.xml",
+      "upstreamPath": "T/T37/T37n1746.xml",
+      "upstreamGitBlobSha1": "fbd83a4e11d9beb7ce26b2a1d13208e554201f55",
+      "upstreamBytes": 111462,
+      "upstreamSha256": "2b5a4e3fdfb913fb6bd2668e65ba0b613749980a62842b822dce0f4732609077",
+      "localBytes": 111463,
+      "localSha256": "32ff9ad3e75f6f27a3496f9a81cb0c4f353dfb6fd806aee02e6aeaf775b6dec3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量壽經義疏",
+        "alternateTitle": "無量壽經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1746",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。吉藏《无量寿经义疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1746_001"
+      },
+      "verification": {
+        "segments": 774,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1746.001.0116c02",
+          "T1746.001.0125b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1747",
+      "slug": "taisho-t1747",
+      "workId": "gbcr:work:liangjuan-wuliangshou-zongyao-wonhyo",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "兩卷無量壽經宗要",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_larger_sukhavativyuha_distinct",
+          "groupId": "larger-sukhavativyuha-exegesis-t0360-t1745-t1748",
+          "label": "《佛说无量寿经》与 T1745–T1748 四部义疏、宗要及述文赞",
+          "evidence": "DILA T1745–T1748 规范记录均把 T0360 标为相关经典。四部注疏具有不同作者、题名、体例和篇幅，根本经与四部诠释保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746",
+              "T1747",
+              "T1748"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1747.xml",
+      "upstreamPath": "T/T37/T37n1747.xml",
+      "upstreamGitBlobSha1": "7d2f6362cebc19dd0b31d454319e8d07eaf8573c",
+      "upstreamBytes": 53420,
+      "upstreamSha256": "be7bfdf7da46e3eca3022026b5bef823b8e320d37de915c0e1bc8c9b7dc9b2bf",
+      "localBytes": 53421,
+      "localSha256": "f097d79094bc62e51550ed3c856de4e85b5670b4ff650241a28c66d5097684aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "兩卷無量壽經宗要",
+        "alternateTitle": "兩卷無量壽經宗要",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1747",
+        "translator": "新羅 · 元曉撰",
+        "summary": "1卷。元晓《两卷无量寿经宗要》完整来源。传统责任题记：新羅 元曉撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1747_001"
+      },
+      "verification": {
+        "segments": 528,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1747.001.0125b24",
+          "T1747.001.0131c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1748",
+      "slug": "taisho-t1748",
+      "workId": "gbcr:work:wuliangshou-lianyi-shuwen-zan-gyeongheung",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "無量壽經連義述文贊",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_larger_sukhavativyuha_distinct",
+          "groupId": "larger-sukhavativyuha-exegesis-t0360-t1745-t1748",
+          "label": "《佛说无量寿经》与 T1745–T1748 四部义疏、宗要及述文赞",
+          "evidence": "DILA T1745–T1748 规范记录均把 T0360 标为相关经典。四部注疏具有不同作者、题名、体例和篇幅，根本经与四部诠释保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T1745",
+              "T1746",
+              "T1747",
+              "T1748"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1748.xml",
+      "upstreamPath": "T/T37/T37n1748.xml",
+      "upstreamGitBlobSha1": "274566043a54da3428786ac457efcacb2fe757dd",
+      "upstreamBytes": 355933,
+      "upstreamSha256": "fc06072ebe4fb4c4b87f49e3c85ee182e693dc444ffeb82211194aa6a904ad9b",
+      "localBytes": 355934,
+      "localSha256": "57fda0f3708a78850552dfc3c42a8763ecc5d33eaf5747dbfb09f5e5c93d5e63",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量壽經連義述文贊",
+        "alternateTitle": "無量壽經連義述文贊",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1748",
+        "translator": "新羅 · 璟興撰",
+        "summary": "3卷。璟兴《无量寿经连义述文赞》完整来源。传统责任题记：新羅 璟興撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1748_001"
+      },
+      "verification": {
+        "segments": 3432,
+        "folios": 121,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1748.001.0131c03",
+          "T1748.003.0171a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1749",
+      "slug": "taisho-t1749",
+      "workId": "gbcr:work:guan-wuliangshou-yishu-huiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1749.xml",
+      "upstreamPath": "T/T37/T37n1749.xml",
+      "upstreamGitBlobSha1": "c549bf48a1343af9684c944d61a3ae15d032bb4c",
+      "upstreamBytes": 125348,
+      "upstreamSha256": "ce342c39269a0389784ceea9811f29cdb4b4e6cd616168d85406544d267fa355",
+      "localBytes": 125349,
+      "localSha256": "f5d0decd43952e038caa97df11b53c26e09bd7e645ff83f1e6e4e4eb17a57e72",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽經義疏",
+        "alternateTitle": "觀無量壽經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1749",
+        "translator": "隋 · 慧遠撰",
+        "summary": "1卷。慧远《观无量寿经义疏》完整来源。传统责任题记：隋 慧遠撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1749_001"
+      },
+      "verification": {
+        "segments": 1175,
+        "folios": 41,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1749.001.0173a02",
+          "T1749.001.0186b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1750",
+      "slug": "taisho-t1750",
+      "workId": "gbcr:work:guan-wuliangshou-shu-zhiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽佛經疏",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-commentary-subcommentary-t0365-t1750-t1751",
+          "label": "《观无量寿佛经》、智顗说疏与知礼《妙宗钞》",
+          "evidence": "DILA T1750 与 T1751 规范记录互相关联：T1750 保存智顗说的直接经疏，T1751 是知礼依疏展开的六卷妙宗钞。根本经、讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1750",
+              "T1751"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1750.xml",
+      "upstreamPath": "T/T37/T37n1750.xml",
+      "upstreamGitBlobSha1": "31e7c1a5f757e7557b101fea14cc137aca862d40",
+      "upstreamBytes": 88131,
+      "upstreamSha256": "eccb801844a4d672bcd460f38fa87fa748387cb2595dc9239005d1d1f84eb86d",
+      "localBytes": 88132,
+      "localSha256": "9b9d0b25383c4654c46d398fae785e7274b9d557b2616a888b902c4618b6a045",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽佛經疏",
+        "alternateTitle": "觀無量壽佛經疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1750",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。智顗说《观无量寿佛经疏》讲说记录完整来源。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1750_001"
+      },
+      "verification": {
+        "segments": 727,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1750.001.0186b23",
+          "T1750.001.0194c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1751",
+      "slug": "taisho-t1751",
+      "workId": "gbcr:work:guan-wuliangshou-miaozong-chao-zhili",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽佛經疏妙宗鈔",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-commentary-subcommentary-t0365-t1750-t1751",
+          "label": "《观无量寿佛经》、智顗说疏与知礼《妙宗钞》",
+          "evidence": "DILA T1750 与 T1751 规范记录互相关联：T1750 保存智顗说的直接经疏，T1751 是知礼依疏展开的六卷妙宗钞。根本经、讲说记录与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1750",
+              "T1751"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1751.xml",
+      "upstreamPath": "T/T37/T37n1751.xml",
+      "upstreamGitBlobSha1": "15e64d9b2521d2e1b2acc6793043b858a74e9aaf",
+      "upstreamBytes": 398345,
+      "upstreamSha256": "3c918c5574c0999e1d97f6e66d3d0b03a60e539fb024df1f4e679254ae264711",
+      "localBytes": 398346,
+      "localSha256": "a2d920bf11b3c1837ba8083034c51dd6f0f2da65c0611007f2d36f4568a57973",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽佛經疏妙宗鈔",
+        "alternateTitle": "觀無量壽佛經疏妙宗鈔",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1751",
+        "translator": "宋 · 知禮述",
+        "summary": "6卷。知礼《观无量寿佛经疏妙宗钞》再注释完整来源。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1751_001"
+      },
+      "verification": {
+        "segments": 3335,
+        "folios": 121,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1751.001.0195a02",
+          "T1751.006.0233b16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1752",
+      "slug": "taisho-t1752",
+      "workId": "gbcr:work:guan-wuliangshou-yishu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1752.xml",
+      "upstreamPath": "T/T37/T37n1752.xml",
+      "upstreamGitBlobSha1": "633d19f796d0de802561fe1d64642ead639000ab",
+      "upstreamBytes": 99261,
+      "upstreamSha256": "9eae07ec858ecd00f05eb1cae7db8e17ee619fb127f1ef6ece28ac4dd03d23f9",
+      "localBytes": 99262,
+      "localSha256": "0e91989ca34133754bfc56546b7bbd549729327ba682dca9c5a3fa0420303c6a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽經義疏",
+        "alternateTitle": "觀無量壽經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1752",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。吉藏《观无量寿经义疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1752_001"
+      },
+      "verification": {
+        "segments": 1055,
+        "folios": 38,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1752.001.0233b19",
+          "T1752.001.0245c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1753",
+      "slug": "taisho-t1753",
+      "workId": "gbcr:work:guan-wuliangshou-shu-shandao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽佛經疏",
+      "sourceRole": "sinitic_compiled_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1753.xml",
+      "upstreamPath": "T/T37/T37n1753.xml",
+      "upstreamGitBlobSha1": "e8193d008b43eaacc5b58d79518452fe7d2d5551",
+      "upstreamBytes": 286134,
+      "upstreamSha256": "0ec6ffb388220f92bc5d3f3eecd8ad59ed5dbe67c89ca2458042145733ef55cf",
+      "localBytes": 286135,
+      "localSha256": "4234a3fcb35012c02f814502837780b5ca313b7b8d288a9a9a8f5e3c09b2bdd7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽佛經疏",
+        "alternateTitle": "觀無量壽佛經疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1753",
+        "translator": "唐 · 善導集記",
+        "summary": "4卷。善导集记《观无量寿佛经疏》完整来源。传统责任题记：唐 善導集記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1753_001"
+      },
+      "verification": {
+        "segments": 2882,
+        "folios": 102,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1753.001.0245c07",
+          "T1753.004.0278c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1754",
+      "slug": "taisho-t1754",
+      "workId": "gbcr:work:guan-wuliangshou-yishu-yuanzhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀無量壽佛經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_contemplation_sutra_distinct",
+          "groupId": "contemplation-sutra-exegesis-t0365-t1749-t1754",
+          "label": "《佛说观无量寿佛经》与 T1749–T1754 六部义疏、疏钞及集记",
+          "evidence": "DILA T1749–T1754 规范记录均把 T0365 标为相关经典。共同根经、相同或近似题名、讲说与集记责任只形成可审计关系，不合并六部后世注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0365",
+              "T1749",
+              "T1750",
+              "T1751",
+              "T1752",
+              "T1753",
+              "T1754"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1754.xml",
+      "upstreamPath": "T/T37/T37n1754.xml",
+      "upstreamGitBlobSha1": "092a3d506e500a648c4066ea3f27fc781ff52198",
+      "upstreamBytes": 252906,
+      "upstreamSha256": "b862bd028051a9631e6b3551e02d1c665d741925aa85ece25c2abb2a8f0f5767",
+      "localBytes": 252907,
+      "localSha256": "6ff15ac8885848ab7f85d04184a925686b20b91238cf6ca4e0e410f5e63498fb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀無量壽佛經義疏",
+        "alternateTitle": "觀無量壽佛經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1754",
+        "translator": "宋 · 元照述",
+        "summary": "3卷。元照《观无量寿佛经义疏》完整来源。传统责任题记：宋 元照述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1754_001"
+      },
+      "verification": {
+        "segments": 2329,
+        "folios": 83,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1754.001.0279a02",
+          "T1754.003.0305c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1755",
+      "slug": "taisho-t1755",
+      "workId": "gbcr:work:amitabha-yiji-zhiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經義記",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1755.xml",
+      "upstreamPath": "T/T37/T37n1755.xml",
+      "upstreamGitBlobSha1": "ffbc16f648e3f7a3fc1a24e7af7be59a37353acd",
+      "upstreamBytes": 31288,
+      "upstreamSha256": "497e701d2448ab784c7ecab8b23607ce7220a53032c0c31fd305e04d836f757b",
+      "localBytes": 31289,
+      "localSha256": "bfcb02b655e09e064c6d323e1f5c318a87478d87d5cdedda9c280ea3ce887d44",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經義記",
+        "alternateTitle": "阿彌陀經義記",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1755",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。智顗说《阿弥陀经义记》讲说记录完整来源。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1755_001"
+      },
+      "verification": {
+        "segments": 128,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1755.001.0306a02",
+          "T1755.001.0307b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1756",
+      "slug": "taisho-t1756",
+      "workId": "gbcr:work:amitabha-yishu-huijing",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經義述",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1756.xml",
+      "upstreamPath": "T/T37/T37n1756.xml",
+      "upstreamGitBlobSha1": "8f1cf7fb160841cf18768a52bd3b6435ce216451",
+      "upstreamBytes": 47718,
+      "upstreamSha256": "9d1975ef52ada61044c0eb47acdcb722abcb1d83d66013a33ffedd64750af62e",
+      "localBytes": 47719,
+      "localSha256": "0d2ad87344314c06105afffe3c5c9307a9c54684099d6554ac44d25370ed90c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經義述",
+        "alternateTitle": "阿彌陀經義述",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1756",
+        "translator": "唐 · 慧淨述",
+        "summary": "1卷。慧净《阿弥陀经义述》完整来源。传统责任题记：唐 慧淨述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1756_001"
+      },
+      "verification": {
+        "segments": 268,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1756.001.0307b17",
+          "T1756.001.0310b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1757",
+      "slug": "taisho-t1757",
+      "workId": "gbcr:work:amitabha-shu-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_author_distinct",
+          "groupId": "kuiji-amitabha-commentaries-t1757-t1758",
+          "label": "窥基《阿弥陀经疏》与《阿弥陀经通赞疏》",
+          "evidence": "DILA 分别登记 T1757 与 T1758，并给出独立规范码和篇幅。两部虽同作者、同根经，仍因题名、结构和范围不同保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1757",
+              "T1758"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1757.xml",
+      "upstreamPath": "T/T37/T37n1757.xml",
+      "upstreamGitBlobSha1": "f5c6f96ef40474ffc7ad819cc951f3aa4aec29cc",
+      "upstreamBytes": 177610,
+      "upstreamSha256": "888bb968b7417cbf49cbd6ef945f716d8e1e90890e9c32133e26cd9265abad08",
+      "localBytes": 177611,
+      "localSha256": "ff93a4083b1262a01ea6bd9378f25acd61a3fcb78d175503aa90bf9e5bdd41c7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經疏",
+        "alternateTitle": "阿彌陀經疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1757",
+        "translator": "唐 · 窺基撰",
+        "summary": "1卷。窥基《阿弥陀经疏》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1757_001"
+      },
+      "verification": {
+        "segments": 1598,
+        "folios": 56,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1757.001.0310c02",
+          "T1757.001.0329a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1758",
+      "slug": "taisho-t1758",
+      "workId": "gbcr:work:amitabha-tongzan-shu-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經通贊疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_author_distinct",
+          "groupId": "kuiji-amitabha-commentaries-t1757-t1758",
+          "label": "窥基《阿弥陀经疏》与《阿弥陀经通赞疏》",
+          "evidence": "DILA 分别登记 T1757 与 T1758，并给出独立规范码和篇幅。两部虽同作者、同根经，仍因题名、结构和范围不同保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1757",
+              "T1758"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1758.xml",
+      "upstreamPath": "T/T37/T37n1758.xml",
+      "upstreamGitBlobSha1": "b35a2ca070934a5794cffb6cabe9086a5d779537",
+      "upstreamBytes": 180444,
+      "upstreamSha256": "4b45e1573f39f8bf760d419695152260f19794e7880fa73379ff60e36416c059",
+      "localBytes": 180445,
+      "localSha256": "713299c5df9a5b1b2f9dad9277bd4aca11a926b8097410699447eb3e432bdf3b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經通贊疏",
+        "alternateTitle": "阿彌陀經通贊疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1758",
+        "translator": "唐 · 窺基撰",
+        "summary": "3卷。窥基《阿弥陀经通赞疏》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1758_001"
+      },
+      "verification": {
+        "segments": 1637,
+        "folios": 60,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1758.001.0329a09",
+          "T1758.003.0348a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1759",
+      "slug": "taisho-t1759",
+      "workId": "gbcr:work:amitabha-shu-wonhyo",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1759.xml",
+      "upstreamPath": "T/T37/T37n1759.xml",
+      "upstreamGitBlobSha1": "c8fe24b3f95977dddfc058c65f5deccd0dbc79b7",
+      "upstreamBytes": 25911,
+      "upstreamSha256": "000951cd2a838f07fe0bf376dc49af2995ede7d8ce323e6ddbae38fa6334c508",
+      "localBytes": 25912,
+      "localSha256": "4b1013214b4ff207bdb1af3c3dfbd1a9a2d6f405a2ae1784975a9bf0b0c5b803",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經疏",
+        "alternateTitle": "阿彌陀經疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1759",
+        "translator": "新羅 · 元曉述",
+        "summary": "1卷。元晓《阿弥陀经疏》完整来源。传统责任题记：新羅 元曉述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1759_001"
+      },
+      "verification": {
+        "segments": 224,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1759.001.0348a06",
+          "T1759.001.0350b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1760",
+      "slug": "taisho-t1760",
+      "workId": "gbcr:work:amitabha-shu-zhiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1760.xml",
+      "upstreamPath": "T/T37/T37n1760.xml",
+      "upstreamGitBlobSha1": "fb030f0ae2278ee44935e0a1514def240194a917",
+      "upstreamBytes": 69004,
+      "upstreamSha256": "c798e60e9d7c6aebd9eb86ded81c27c77dfd96c9c8e6756581c9e32ac47f42a0",
+      "localBytes": 69005,
+      "localSha256": "985f300978d2693614dc4b5d19d1f1c89e4547373708c5a2b877f48559dec4c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經疏",
+        "alternateTitle": "阿彌陀經疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1760",
+        "translator": "宋 · 智圓述",
+        "summary": "1卷。智圆《阿弥陀经疏》完整来源。传统责任题记：宋 智圓述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1760_001"
+      },
+      "verification": {
+        "segments": 494,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1760.001.0350c02",
+          "T1760.001.0356b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1761",
+      "slug": "taisho-t1761",
+      "workId": "gbcr:work:amitabha-yishu-yuanzhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1761.xml",
+      "upstreamPath": "T/T37/T37n1761.xml",
+      "upstreamGitBlobSha1": "ad46387dc3ce6f146ad00b91ffde11b33ab89897",
+      "upstreamBytes": 72869,
+      "upstreamSha256": "2901841933fbaa702b1a7b670396ba54db22b0351ebd670e6e2e9ca3bce1e057",
+      "localBytes": 72870,
+      "localSha256": "cd14b574b99e7cf1f39ec75858e549de479851fa7ef0165fd9eb726c101739df",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經義疏",
+        "alternateTitle": "阿彌陀經義疏",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1761",
+        "translator": "宋 · 元照述",
+        "summary": "1卷。元照《阿弥陀经义疏》完整来源。传统责任题记：宋 元照述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1761_001"
+      },
+      "verification": {
+        "segments": 643,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1761.001.0356b09",
+          "T1761.001.0363c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1762",
+      "slug": "taisho-t1762",
+      "workId": "gbcr:work:amitabha-yaojie-zhixu",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "阿彌陀經要解",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_amitabha_sutra_distinct",
+          "groupId": "amitabha-sutra-exegesis-t0366-t1755-t1762",
+          "label": "《佛说阿弥陀经》与 T1755–T1762 八部义记、义述、疏、通赞疏及要解",
+          "evidence": "DILA T1755–T1762 规范记录均把 T0366 标为相关经典。八部文本跨隋唐宋明，作者、题名与体例不同；共同根经和相同题名不能替代作品裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T0366",
+              "T1755",
+              "T1756",
+              "T1757",
+              "T1758",
+              "T1759",
+              "T1760",
+              "T1761",
+              "T1762"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1762.xml",
+      "upstreamPath": "T/T37/T37n1762.xml",
+      "upstreamGitBlobSha1": "79c366042695bddf821075f52afa810ab98d715d",
+      "upstreamBytes": 100323,
+      "upstreamSha256": "21f5edbfb8504bcb2c5ac28a41979f044c21fdbb77c5279bf406dc37d2c9077c",
+      "localBytes": 100324,
+      "localSha256": "e29fcd962103f65c80aa2d1cdc9a1876c16630aa27fb0cc27c16450f642a87df",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿彌陀經要解",
+        "alternateTitle": "阿彌陀經要解",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1762",
+        "translator": "明 · 智旭解",
+        "summary": "1卷。智旭《阿弥陀经要解》完整来源。传统责任题记：明 智旭解。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1762_001"
+      },
+      "verification": {
+        "segments": 976,
+        "folios": 35,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1762.001.0363c16",
+          "T1762.001.0375a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1763",
+      "slug": "taisho-t1763",
+      "workId": "gbcr:work:nirvana-jijie-baoliang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大般涅槃經集解",
+      "sourceRole": "sinitic_collective_compiled_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_southern_nirvana_recension_distinct",
+          "groupId": "nirvana-exegesis-t0375-t1763",
+          "label": "南本《大般涅槃经》与宝亮等《大般涅槃经集解》",
+          "evidence": "DILA T1763 规范记录把 T0375 标为相关经典。七十一卷集解保存后世集成责任，是独立注释作品，不是南本根经的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0375",
+              "T1763"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1763.xml",
+      "upstreamPath": "T/T37/T37n1763.xml",
+      "upstreamGitBlobSha1": "e0bc298638fe2cdea5eefb261cc705a964029d08",
+      "upstreamBytes": 2764584,
+      "upstreamSha256": "f4b8078709bbe00674e6dec2fd96253772873a4032d82e42339a4151d7568e7b",
+      "localBytes": 2764585,
+      "localSha256": "912ad83504b1c6031fa8bca931f8a2d75565fe8732ed8a48edac616998445c6e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大般涅槃經集解",
+        "alternateTitle": "大般涅槃經集解",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1763",
+        "translator": "梁 · 寶亮等集",
+        "summary": "71卷。宝亮等集《大般涅槃经集解》完整来源。传统责任题记：梁 寶亮等集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1763_001"
+      },
+      "verification": {
+        "segments": 20070,
+        "folios": 750,
+        "juanRange": [
+          1,
+          71
+        ],
+        "anchors": [
+          "T1763.001.0377a02",
+          "T1763.071.0611a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1764",
+      "slug": "taisho-t1764",
+      "workId": "gbcr:work:nirvana-yiji-huiyuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大般涅槃經義記",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_northern_nirvana_recension_distinct",
+          "groupId": "nirvana-exegesis-t0374-t1764",
+          "label": "北本《大般涅槃经》与慧远《大般涅槃经义记》",
+          "evidence": "DILA T1764 规范记录把 T0374 标为相关经典。十卷义记与四十卷北本根经保持两个作品实体，不据共同经题改写为根经表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0374",
+              "T1764"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T37n1764.xml",
+      "upstreamPath": "T/T37/T37n1764.xml",
+      "upstreamGitBlobSha1": "81a5d036d3beeae415d4692884a1784e92d32ce9",
+      "upstreamBytes": 2807959,
+      "upstreamSha256": "6465fb47f8d8fbcc04ca695439557bee953e72ec2add7062eec6682ab7209790",
+      "localBytes": 2807960,
+      "localSha256": "53c7cf81b96a5cdcaacd5062d4e9ed15bccf169070de0f7be2d1a107693b1453",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大般涅槃經義記",
+        "alternateTitle": "大般涅槃經義記",
+        "tradition": "汉传佛教 · 经疏部 · 胜鬘、净土与涅槃",
+        "language": "汉文",
+        "canonRef": "大正藏 T37, no. 1764",
+        "translator": "隋 · 慧遠述",
+        "summary": "10卷。慧远《大般涅槃经义记》完整来源。传统责任题记：隋 慧遠述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1764_001"
+      },
+      "verification": {
+        "segments": 25268,
+        "folios": 881,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1764.001.0613a02",
+          "T1764.010.0903c03"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

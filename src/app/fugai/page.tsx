@@ -254,6 +254,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT36SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT36SourceRecords.controlledWorks} 个独立作品；T1736 明确作为 T1735 的再注释，
               澄观 T1736–T1738 与李通玄 T1739–T1741 均按同作者异作分列，T1742 观门骨目与 T1743 宫廷讲义也保持独立；
+              T37 净土与涅槃经疏部固定来源已完成 {snapshot.candidateInventory.chineseT37SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT37SourceRecords.denominator}（{snapshot.candidateInventory.chineseT37SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT37SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT37SourceRecords.controlledWorks} 个独立作品；T0353、T0360、T0365、T0366、T0374 与 T0375 根经分别连接所释经疏，
+              T1750 与 T1751 保持直接注疏—再注释层级，T1745/T1746 和 T1757/T1758 保持同题或同作者异作边界；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -416,6 +421,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T36 的 8 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t37-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T37 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
