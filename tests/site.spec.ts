@@ -118,12 +118,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1599,
-    registeredExpressions: 1785,
-    fullSourceTextWorks: 1579,
-    fullSourceTextExpressions: 1752,
-    stableSegments: 2226550,
-    structureVerifiedWorks: 1599,
+    registeredWorks: 1612,
+    registeredExpressions: 1798,
+    fullSourceTextWorks: 1592,
+    fullSourceTextExpressions: 1765,
+    stableSegments: 2317182,
+    structureVerifiedWorks: 1612,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -157,13 +157,14 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1510,
-    controlled: 1510,
+    denominator: 1523,
+    controlled: 1523,
     percentage: 100,
-    sourceBytes: 358773861,
-    controlledBytes: 358773861,
+    sourceBytes: 377664393,
+    controlledBytes: 377664393,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
+    t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -270,6 +271,15 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     verifiedEditionWitnesses: 2,
     attributionBoundaryRecords: 4,
   });
+  expect(coverage.candidateInventory.chineseT23SourceRecords).toMatchObject({
+    denominator: 13,
+    controlled: 13,
+    percentage: 100,
+    fullSourceTexts: 13,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 4,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -281,6 +291,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseEsotericT21BoundaryAudit: expect.stringContaining("batch-v2.8.0.json"),
     chineseVinayaT22Inventory: expect.stringContaining("cbeta-taisho-t22-inventory-v0.1.0.json"),
     chineseVinayaT22BoundaryAudit: expect.stringContaining("batch-v2.9.0.json"),
+    chineseVinayaT23Inventory: expect.stringContaining("cbeta-taisho-t23-inventory-v0.1.0.json"),
+    chineseVinayaT23BoundaryAudit: expect.stringContaining("batch-v3.0.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -990,6 +1002,55 @@ test("汉译 T22 律部完整受控并保留广律、戒本、羯磨与译编边
   expect(sitemap).toContain("/jingzang/taisho-t1421/001-0001a");
   expect(sitemap).toContain("/jingzang/taisho-t1429/001-1015a");
   expect(sitemap).toContain("/jingzang/taisho-t1434/001-1072a");
+});
+
+test("汉译 T23 律部完整受控并保留十诵律、毘尼解释、事部组件与署名边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1435/001-0001a");
+  await expect(page.getByRole("heading", { level: 1, name: "十誦律" })).toBeVisible();
+  await expect(page.getByText("後秦 · 弗若多羅共羅什譯", { exact: true })).toBeVisible();
+  await expect(page.getByText(/十诵律、僧尼戒本与羯磨文本家族/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1437/001-0479a");
+  await expect(page.getByText("劉宋 · 法顯集出", { exact: true })).toBeVisible();
+  await expect(page.getByText(/集出或依律撰出/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1438/001-0489a");
+  await expect(page.getByRole("heading", { level: 1, name: "大沙門百一羯磨法" })).toBeVisible();
+  await expect(page.getByText("题记未载作者或译者", { exact: true })).toBeVisible();
+  await expect(page.getByText(/不补造译者、编者、印度来源或佛陀逐字亲说归属/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1439/001-0496a");
+  await expect(page.getByText("劉宋 · 僧璩撰出", { exact: true })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1440/009-0558c");
+  await expect(page.getByRole("heading", { level: 1, name: "薩婆多毘尼毘婆沙" })).toBeVisible();
+  await expect(page.getByText("失譯；西京東禪定沙門智首撰續序", { exact: true })).toBeVisible();
+  await expect(page.getByText(/不把序文责任扩张到整部正文/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1442/001-0627a");
+  await expect(page.getByText("唐 · 義淨譯", { exact: true })).toBeVisible();
+  await expect(page.getByText(/根本说一切有部毘奈耶与事部文本家族/)).toBeVisible();
+  await expect(page.getByText(/保留为平行候选而非版本见证/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1447/002-1057b");
+  await expect(page.getByRole("heading", { level: 1, name: "根本說一切有部毘奈耶皮革事" })).toBeVisible();
+
+  const coverageResponse = await request.get("/api/v1/corpus/coverage");
+  expect(coverageResponse.ok()).toBeTruthy();
+  const coverage = await coverageResponse.json();
+  expect(coverage.candidateInventory.chineseT23SourceRecords).toMatchObject({
+    denominator: 13,
+    controlled: 13,
+    fullSourceTexts: 13,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 4,
+  });
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/taisho-t1435/001-0001a");
+  expect(sitemap).toContain("/jingzang/taisho-t1440/009-0564c");
+  expect(sitemap).toContain("/jingzang/taisho-t1447/002-1057b");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

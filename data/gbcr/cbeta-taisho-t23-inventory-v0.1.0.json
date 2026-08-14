@@ -1,0 +1,127 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_vinaya_t23",
+    "label": "大正藏 T23 律部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T23 目录下、文件名卷号一致的 T23n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "律部含完整部派律、僧尼戒本、羯磨、毘尼解释、摩得勒伽、根本说一切有部律及其事部组件，也含集出、撰出、无署名与失译附序记录；来源文件数不是去重作品数，也不是全球佛典分母。"
+  },
+  "totals": {
+    "records": 13,
+    "upstreamBytes": 18890532,
+    "candidatePathSha256": "ab7ee3274e2c3aa4484ca6a0fa5e9d627acb5a4feb8d1781cb6acfaaa3d4d5a3"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T23n1435",
+      "canonWitnessId": "T1435",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1435.xml",
+      "upstreamGitBlobSha1": "a7304d08a0ecf44c6da0bce4060e7205fbaca9bd",
+      "upstreamBytes": 10501498
+    },
+    {
+      "sourceRecordId": "T23n1436",
+      "canonWitnessId": "T1436",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1436.xml",
+      "upstreamGitBlobSha1": "16ab907c6cf0478380a6173566541cb0cb7466a7",
+      "upstreamBytes": 280939
+    },
+    {
+      "sourceRecordId": "T23n1437",
+      "canonWitnessId": "T1437",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1437.xml",
+      "upstreamGitBlobSha1": "e4b457503b4bab52445211ade06ab397cd74f72b",
+      "upstreamBytes": 275247
+    },
+    {
+      "sourceRecordId": "T23n1438",
+      "canonWitnessId": "T1438",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1438.xml",
+      "upstreamGitBlobSha1": "9a2de3c42a79e65352b85832a3185d6b61c20709",
+      "upstreamBytes": 85504
+    },
+    {
+      "sourceRecordId": "T23n1439",
+      "canonWitnessId": "T1439",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1439.xml",
+      "upstreamGitBlobSha1": "1ccf05b92c82da3a71f8ecdb3559f0a7d82c901d",
+      "upstreamBytes": 121828
+    },
+    {
+      "sourceRecordId": "T23n1440",
+      "canonWitnessId": "T1440",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1440.xml",
+      "upstreamGitBlobSha1": "bb82b845ca3bdac181bc0f7e1c3d79451588ceb7",
+      "upstreamBytes": 1017376
+    },
+    {
+      "sourceRecordId": "T23n1441",
+      "canonWitnessId": "T1441",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1441.xml",
+      "upstreamGitBlobSha1": "9f744f4d62ef9e16671cac9c3166000d24aee134",
+      "upstreamBytes": 966968
+    },
+    {
+      "sourceRecordId": "T23n1442",
+      "canonWitnessId": "T1442",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1442.xml",
+      "upstreamGitBlobSha1": "25155f0a8c56e14cc73d38a8a7be13f160692a1d",
+      "upstreamBytes": 3784524
+    },
+    {
+      "sourceRecordId": "T23n1443",
+      "canonWitnessId": "T1443",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1443.xml",
+      "upstreamGitBlobSha1": "ceb3b80e7edc35ccc934b828076ff388f9af0bd6",
+      "upstreamBytes": 1512745
+    },
+    {
+      "sourceRecordId": "T23n1444",
+      "canonWitnessId": "T1444",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1444.xml",
+      "upstreamGitBlobSha1": "2ccd55376c722d2808ce212e164c692affdad950",
+      "upstreamBytes": 189284
+    },
+    {
+      "sourceRecordId": "T23n1445",
+      "canonWitnessId": "T1445",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1445.xml",
+      "upstreamGitBlobSha1": "a9f0850f8910a773ee0352b18687b0e71cbfb83b",
+      "upstreamBytes": 35803
+    },
+    {
+      "sourceRecordId": "T23n1446",
+      "canonWitnessId": "T1446",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1446.xml",
+      "upstreamGitBlobSha1": "50a61ea162432be41826fddab3e79e62b17f75a7",
+      "upstreamBytes": 37164
+    },
+    {
+      "sourceRecordId": "T23n1447",
+      "canonWitnessId": "T1447",
+      "volume": "T23",
+      "upstreamPath": "T/T23/T23n1447.xml",
+      "upstreamGitBlobSha1": "ca5ce52b36d8526db3d5a5ce284524e9f29eb61b",
+      "upstreamBytes": 81652
+    }
+  ]
+}

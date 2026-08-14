@@ -1,0 +1,988 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.0.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v2.9.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T23; T23 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T23",
+    "title": "大正藏 T23 律部固定来源记录",
+    "sourceRecordDenominator": 13,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 13,
+    "controlledSourceRecords": 13,
+    "newSourceBytes": 18890532,
+    "newStableSegments": 90632,
+    "newFolios": 3285,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 13,
+    "newFullSourceTexts": 13,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 13,
+    "attributionBoundaryRecords": 4,
+    "newWorks": 13,
+    "controlledWorks": 13,
+    "workCountingDecision": "T23 共 13 条固定来源记录。没有仅凭题名、同一部派、共同译者或机器相似度即可裁定为同一作品多个版本的记录，因此 13 条均暂按独立书目实体登记；十诵律组件、毘尼解释、根本说一切有部僧尼律与事部关系只作分层候选，不自动归并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_attribution_vinaya_component_exegesis_and_procedural_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [],
+    "candidateRelationsNotMerged": [
+      "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+      "sarvastivada-vinaya-exegesis-t1435-t1441",
+      "mulasarvastivada-vinaya-t1442-t1447",
+      "mulasarvastivada-bhiksu-bhiksuni-vinaya-t1442-t1443"
+    ],
+    "partialWorkWitnesses": [],
+    "translatedRecords": [
+      "T1435",
+      "T1436",
+      "T1441",
+      "T1442",
+      "T1443",
+      "T1444",
+      "T1445",
+      "T1446",
+      "T1447"
+    ],
+    "compiledOrExtractedRecords": [
+      "T1437",
+      "T1439"
+    ],
+    "unattributedProcedureRecords": [
+      "T1438"
+    ],
+    "lostTranslationWithPrefaceRecords": [
+      "T1440"
+    ],
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison records component, parallel or explanatory evidence but never decides work identity by itself.",
+      "pairs": [
+        {
+          "pair": [
+            "T1435",
+            "T1436"
+          ],
+          "normalizedCharacters": [
+            657791,
+            9374
+          ],
+          "fiveGramContainmentOfShorter": 0.223134,
+          "fiveGramJaccard": 0.004114
+        },
+        {
+          "pair": [
+            "T1435",
+            "T1437"
+          ],
+          "normalizedCharacters": [
+            657791,
+            10529
+          ],
+          "fiveGramContainmentOfShorter": 0.507018,
+          "fiveGramJaccard": 0.009789
+        },
+        {
+          "pair": [
+            "T1435",
+            "T1438"
+          ],
+          "normalizedCharacters": [
+            657791,
+            8708
+          ],
+          "fiveGramContainmentOfShorter": 0.25691,
+          "fiveGramJaccard": 0.002704
+        },
+        {
+          "pair": [
+            "T1435",
+            "T1439"
+          ],
+          "normalizedCharacters": [
+            657791,
+            9408
+          ],
+          "fiveGramContainmentOfShorter": 0.494548,
+          "fiveGramJaccard": 0.006666
+        },
+        {
+          "pair": [
+            "T1435",
+            "T1440"
+          ],
+          "normalizedCharacters": [
+            657791,
+            85624
+          ],
+          "fiveGramContainmentOfShorter": 0.072296,
+          "fiveGramJaccard": 0.012881
+        },
+        {
+          "pair": [
+            "T1435",
+            "T1441"
+          ],
+          "normalizedCharacters": [
+            657791,
+            78721
+          ],
+          "fiveGramContainmentOfShorter": 0.067298,
+          "fiveGramJaccard": 0.010037
+        },
+        {
+          "pair": [
+            "T1438",
+            "T1439"
+          ],
+          "normalizedCharacters": [
+            8708,
+            9408
+          ],
+          "fiveGramContainmentOfShorter": 0.022901,
+          "fiveGramJaccard": 0.010148
+        },
+        {
+          "pair": [
+            "T1442",
+            "T1443"
+          ],
+          "normalizedCharacters": [
+            389620,
+            154832
+          ],
+          "fiveGramContainmentOfShorter": 0.512675,
+          "fiveGramJaccard": 0.165353
+        },
+        {
+          "pair": [
+            "T1442",
+            "T1444"
+          ],
+          "normalizedCharacters": [
+            389620,
+            29157
+          ],
+          "fiveGramContainmentOfShorter": 0.051574,
+          "fiveGramJaccard": 0.004091
+        },
+        {
+          "pair": [
+            "T1442",
+            "T1445"
+          ],
+          "normalizedCharacters": [
+            389620,
+            4813
+          ],
+          "fiveGramContainmentOfShorter": 0.070264,
+          "fiveGramJaccard": 0.000961
+        },
+        {
+          "pair": [
+            "T1442",
+            "T1446"
+          ],
+          "normalizedCharacters": [
+            389620,
+            5541
+          ],
+          "fiveGramContainmentOfShorter": 0.057719,
+          "fiveGramJaccard": 0.000906
+        },
+        {
+          "pair": [
+            "T1442",
+            "T1447"
+          ],
+          "normalizedCharacters": [
+            389620,
+            12757
+          ],
+          "fiveGramContainmentOfShorter": 0.059644,
+          "fiveGramJaccard": 0.002219
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T23",
+      "https://cbetaonline.dila.edu.tw/zh/T1435_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1440_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1442_001"
+    ],
+    "caveat": "T23 同时容纳十诵律及僧尼戒本、羯磨、毘尼解释、摩得勒伽、根本说一切有部僧尼律与事部组件，也含集出、撰出、无署名与失译附序材料。平台完整保存固定来源，但不把同一部派、目录邻接、共同译者、题名或机器文本重合单独当成同一作品、独立翻译或佛陀逐字亲说的证明。"
+  },
+  "files": [
+    {
+      "id": "T1435",
+      "slug": "taisho-t1435",
+      "workId": "gbcr:work:taisho-t1435",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+          "label": "十诵律、僧尼戒本与羯磨文本家族",
+          "evidence": "T1435 是六十一卷《十诵律》，T1436/T1437 分别为比丘与比丘尼戒本，T1438/T1439 为羯磨法或要用；戒本与羯磨对广律的五字片段覆盖从 22.3% 至 50.7% 不等，只支持组件家族，不支持把五份记录合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1436",
+              "T1437",
+              "T1438",
+              "T1439"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_exegesis_or_matrka_family_candidate_unmerged",
+          "groupId": "sarvastivada-vinaya-exegesis-t1435-t1441",
+          "label": "十诵律、毘尼毘婆沙与摩得勒伽解释传统",
+          "evidence": "T1440《薩婆多毘尼毘婆沙》解释《十诵律》，T1441 是毘尼摩得勒伽；与 T1435 的目录和正文关系支持同一律学传统，但解释书、纲要与广律不是同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1440",
+              "T1441"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1435.xml",
+      "upstreamPath": "T/T23/T23n1435.xml",
+      "upstreamGitBlobSha1": "a7304d08a0ecf44c6da0bce4060e7205fbaca9bd",
+      "upstreamBytes": 10501498,
+      "upstreamSha256": "3c241a4545bec536d01626ef5843f09e08ca84538dd5e551e5a27bc79ff18902",
+      "localBytes": 10501499,
+      "localSha256": "9a0661191e37a436dcdbd4b59cf3fdcde998fe6af27fd8c3cbb3b06c553cc194",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十誦律",
+        "alternateTitle": "十誦律",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1435",
+        "translator": "後秦 · 弗若多羅共羅什譯",
+        "summary": "61卷。本站完整保存 T1435 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1435_001"
+      },
+      "verification": {
+        "segments": 40291,
+        "folios": 1453,
+        "juanRange": [
+          1,
+          61
+        ],
+        "anchors": [
+          "T1435.001.0001a03",
+          "T1435.061.0470b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1436",
+      "slug": "taisho-t1436",
+      "workId": "gbcr:work:taisho-t1436",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+          "label": "十诵律、僧尼戒本与羯磨文本家族",
+          "evidence": "T1435 是六十一卷《十诵律》，T1436/T1437 分别为比丘与比丘尼戒本，T1438/T1439 为羯磨法或要用；戒本与羯磨对广律的五字片段覆盖从 22.3% 至 50.7% 不等，只支持组件家族，不支持把五份记录合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1436",
+              "T1437",
+              "T1438",
+              "T1439"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1436.xml",
+      "upstreamPath": "T/T23/T23n1436.xml",
+      "upstreamGitBlobSha1": "16ab907c6cf0478380a6173566541cb0cb7466a7",
+      "upstreamBytes": 280939,
+      "upstreamSha256": "e8ad8df038abea568537d191e416e3c0240660b6f832e38bfc3a49125476c84f",
+      "localBytes": 280940,
+      "localSha256": "402555d3dfc5ea352dbe195dc2cd0d033a0402b9ac0a9f6574cdb03711775de4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十誦比丘波羅提木叉戒本",
+        "alternateTitle": "十誦比丘波羅提木叉戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1436",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。本站完整保存 T1436 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1436_001"
+      },
+      "verification": {
+        "segments": 725,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1436.001.0470b23",
+          "T1436.001.0479a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1437",
+      "slug": "taisho-t1437",
+      "workId": "gbcr:work:taisho-t1437",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "compiled_or_extracted_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+          "label": "十诵律、僧尼戒本与羯磨文本家族",
+          "evidence": "T1435 是六十一卷《十诵律》，T1436/T1437 分别为比丘与比丘尼戒本，T1438/T1439 为羯磨法或要用；戒本与羯磨对广律的五字片段覆盖从 22.3% 至 50.7% 不等，只支持组件家族，不支持把五份记录合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1436",
+              "T1437",
+              "T1438",
+              "T1439"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1437.xml",
+      "upstreamPath": "T/T23/T23n1437.xml",
+      "upstreamGitBlobSha1": "e4b457503b4bab52445211ade06ab397cd74f72b",
+      "upstreamBytes": 275247,
+      "upstreamSha256": "aa59649d44e976b943ff7f2a53f9ac5bbd68104b3d35086369253287a0b68eab",
+      "localBytes": 275248,
+      "localSha256": "4f016871045d99ee038078ea7f6c680679af01c0fcb9984ab1020ca1ca28818f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十誦比丘尼波羅提木叉戒本",
+        "alternateTitle": "十誦比丘尼波羅提木叉戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1437",
+        "translator": "劉宋 · 法顯集出",
+        "summary": "1卷。本站完整保存 T1437 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为集出或依律撰出；平台保留摘集、编撰与部派传承责任，不改写成独立古译或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1437_001"
+      },
+      "verification": {
+        "segments": 810,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1437.001.0479a09",
+          "T1437.001.0488b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1438",
+      "slug": "taisho-t1438",
+      "workId": "gbcr:work:taisho-t1438",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "unattributed_vinaya_procedure_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+          "label": "十诵律、僧尼戒本与羯磨文本家族",
+          "evidence": "T1435 是六十一卷《十诵律》，T1436/T1437 分别为比丘与比丘尼戒本，T1438/T1439 为羯磨法或要用；戒本与羯磨对广律的五字片段覆盖从 22.3% 至 50.7% 不等，只支持组件家族，不支持把五份记录合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1436",
+              "T1437",
+              "T1438",
+              "T1439"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1438.xml",
+      "upstreamPath": "T/T23/T23n1438.xml",
+      "upstreamGitBlobSha1": "9a2de3c42a79e65352b85832a3185d6b61c20709",
+      "upstreamBytes": 85504,
+      "upstreamSha256": "7731ac23905e91da28f729f1730f61a8685543a97cf3578cb1abee2220a4eb23",
+      "localBytes": 85505,
+      "localSha256": "53cc26b3efd921b6ddfd8a870a698f889cc82c7763b7ab705cd641724e6a76a2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大沙門百一羯磨法",
+        "alternateTitle": "大沙門百一羯磨法",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1438",
+        "translator": "题记未载作者或译者",
+        "summary": "1卷。本站完整保存 T1438 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记未载作者或译者；平台保存羯磨法文本但不补造译者、编者、印度来源或佛陀逐字亲说归属；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1438_001"
+      },
+      "verification": {
+        "segments": 597,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1438.001.0489a02",
+          "T1438.001.0495c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1439",
+      "slug": "taisho-t1439",
+      "workId": "gbcr:work:taisho-t1439",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "compiled_or_extracted_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "sarvastivada-dasadhyaya-vinaya-t1435-t1439",
+          "label": "十诵律、僧尼戒本与羯磨文本家族",
+          "evidence": "T1435 是六十一卷《十诵律》，T1436/T1437 分别为比丘与比丘尼戒本，T1438/T1439 为羯磨法或要用；戒本与羯磨对广律的五字片段覆盖从 22.3% 至 50.7% 不等，只支持组件家族，不支持把五份记录合成一个书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1436",
+              "T1437",
+              "T1438",
+              "T1439"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1439.xml",
+      "upstreamPath": "T/T23/T23n1439.xml",
+      "upstreamGitBlobSha1": "1ccf05b92c82da3a71f8ecdb3559f0a7d82c901d",
+      "upstreamBytes": 121828,
+      "upstreamSha256": "150ceb3dce609520bbb4aa7faca32dd619ad44a57b31738f4457971362cfad69",
+      "localBytes": 121829,
+      "localSha256": "02508f755071813fa3882e5f5d2e8073652573d0ad24d45599c2b08964d35dde",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十誦羯磨比丘要用",
+        "alternateTitle": "十誦羯磨比丘要用",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1439",
+        "translator": "劉宋 · 僧璩撰出",
+        "summary": "1卷。本站完整保存 T1439 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为集出或依律撰出；平台保留摘集、编撰与部派传承责任，不改写成独立古译或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1439_001"
+      },
+      "verification": {
+        "segments": 634,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1439.001.0496a02",
+          "T1439.001.0503c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1440",
+      "slug": "taisho-t1440",
+      "workId": "gbcr:work:taisho-t1440",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_with_appended_vinaya_preface",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_exegesis_or_matrka_family_candidate_unmerged",
+          "groupId": "sarvastivada-vinaya-exegesis-t1435-t1441",
+          "label": "十诵律、毘尼毘婆沙与摩得勒伽解释传统",
+          "evidence": "T1440《薩婆多毘尼毘婆沙》解释《十诵律》，T1441 是毘尼摩得勒伽；与 T1435 的目录和正文关系支持同一律学传统，但解释书、纲要与广律不是同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1440",
+              "T1441"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1440.xml",
+      "upstreamPath": "T/T23/T23n1440.xml",
+      "upstreamGitBlobSha1": "bb82b845ca3bdac181bc0f7e1c3d79451588ceb7",
+      "upstreamBytes": 1017376,
+      "upstreamSha256": "dc746ac350f443b69fb5bb7ed45ad286cedd33c0ea104f3fb6ecae2c735b275d",
+      "localBytes": 1017377,
+      "localSha256": "51427aef819cec6a8c1f5fe1e716f7d4afe39a9326e14e176f132976aa623b98",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "薩婆多毘尼毘婆沙",
+        "alternateTitle": "薩婆多毘尼毘婆沙",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1440",
+        "translator": "失譯；西京東禪定沙門智首撰續序",
+        "summary": "9卷。本站完整保存 T1440 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留失译状态，卷九前另附智首所撰续序；平台并列保存未知译者与后世序作者，不把序文责任扩张到九卷正文；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1440_001"
+      },
+      "verification": {
+        "segments": 5282,
+        "folios": 190,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T1440.001.0503c14",
+          "T1440.009.0564c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1441",
+      "slug": "taisho-t1441",
+      "workId": "gbcr:work:taisho-t1441",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_exegesis_or_matrka_family_candidate_unmerged",
+          "groupId": "sarvastivada-vinaya-exegesis-t1435-t1441",
+          "label": "十诵律、毘尼毘婆沙与摩得勒伽解释传统",
+          "evidence": "T1440《薩婆多毘尼毘婆沙》解释《十诵律》，T1441 是毘尼摩得勒伽；与 T1435 的目录和正文关系支持同一律学传统，但解释书、纲要与广律不是同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1435",
+              "T1440",
+              "T1441"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1441.xml",
+      "upstreamPath": "T/T23/T23n1441.xml",
+      "upstreamGitBlobSha1": "9f744f4d62ef9e16671cac9c3166000d24aee134",
+      "upstreamBytes": 966968,
+      "upstreamSha256": "4a935f023a27a39fab15afc4b0655b3543358080eef9081fa0bcdd1a2f3291c3",
+      "localBytes": 966969,
+      "localSha256": "a2c465e757cc2364ff77e91b24efa6b631510dc93ee018ec871e65e9c53f37be",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "薩婆多部毘尼摩得勒伽",
+        "alternateTitle": "薩婆多部毘尼摩得勒伽",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1441",
+        "translator": "劉宋 · 僧伽跋摩譯",
+        "summary": "10卷。本站完整保存 T1441 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1441_001"
+      },
+      "verification": {
+        "segments": 5328,
+        "folios": 192,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1441.001.0564c22",
+          "T1441.010.0626b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1442",
+      "slug": "taisho-t1442",
+      "workId": "gbcr:work:taisho-t1442",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        },
+        {
+          "type": "bhiksu_bhiksuni_vinaya_parallel_candidate_unmerged",
+          "groupId": "mulasarvastivada-bhiksu-bhiksuni-vinaya-t1442-t1443",
+          "label": "根本说一切有部僧尼毘奈耶平行候选",
+          "evidence": "T1442 与 T1443 同署义净译，僧尼戒条结构使较短本五字片段覆盖 51.3%；两者适用对象与文本范围不同，保留为平行候选而非版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1442.xml",
+      "upstreamPath": "T/T23/T23n1442.xml",
+      "upstreamGitBlobSha1": "25155f0a8c56e14cc73d38a8a7be13f160692a1d",
+      "upstreamBytes": 3784524,
+      "upstreamSha256": "a734909fb2c2b6c9aae95f7419397f141073895eb84b76f6fbe6955f8ed602ab",
+      "localBytes": 3784525,
+      "localSha256": "21f1259957153bebe7cb46a9c3e47aed759b3ecc1a999d4ab0fe1d866b2b64bd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶",
+        "alternateTitle": "根本說一切有部毘奈耶",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1442",
+        "translator": "唐 · 義淨譯",
+        "summary": "50卷。本站完整保存 T1442 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1442_001"
+      },
+      "verification": {
+        "segments": 23969,
+        "folios": 873,
+        "juanRange": [
+          1,
+          50
+        ],
+        "anchors": [
+          "T1442.001.0627a02",
+          "T1442.050.0905a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1443",
+      "slug": "taisho-t1443",
+      "workId": "gbcr:work:taisho-t1443",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        },
+        {
+          "type": "bhiksu_bhiksuni_vinaya_parallel_candidate_unmerged",
+          "groupId": "mulasarvastivada-bhiksu-bhiksuni-vinaya-t1442-t1443",
+          "label": "根本说一切有部僧尼毘奈耶平行候选",
+          "evidence": "T1442 与 T1443 同署义净译，僧尼戒条结构使较短本五字片段覆盖 51.3%；两者适用对象与文本范围不同，保留为平行候选而非版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1443.xml",
+      "upstreamPath": "T/T23/T23n1443.xml",
+      "upstreamGitBlobSha1": "ceb3b80e7edc35ccc934b828076ff388f9af0bd6",
+      "upstreamBytes": 1512745,
+      "upstreamSha256": "889ebe44331588d0f273c771c5a3bcb85510d6648ee87fc9d9f335c4b89eae1f",
+      "localBytes": 1512746,
+      "localSha256": "3b04ba19e69e0e83d9de36f3134638ce97d66209efb8623613df884c0a25446a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部苾芻尼毘奈耶",
+        "alternateTitle": "根本說一切有部苾芻尼毘奈耶",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1443",
+        "translator": "唐 · 義淨譯",
+        "summary": "20卷。本站完整保存 T1443 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1443_001"
+      },
+      "verification": {
+        "segments": 9794,
+        "folios": 358,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1443.001.0907a02",
+          "T1443.020.1020b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1444",
+      "slug": "taisho-t1444",
+      "workId": "gbcr:work:taisho-t1444",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1444.xml",
+      "upstreamPath": "T/T23/T23n1444.xml",
+      "upstreamGitBlobSha1": "2ccd55376c722d2808ce212e164c692affdad950",
+      "upstreamBytes": 189284,
+      "upstreamSha256": "8a93406deca2f01cbf6685c49a22cea77673e875e37b681fe24586a9f5f49ebe",
+      "localBytes": 189285,
+      "localSha256": "2f8dcdf9ca65083d35aa361adc35d8646826dcd74c282acfe4aee8f3cb4be2de",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶出家事",
+        "alternateTitle": "根本說一切有部毘奈耶出家事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1444",
+        "translator": "唐 · 義淨譯",
+        "summary": "4卷。本站完整保存 T1444 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1444_001"
+      },
+      "verification": {
+        "segments": 1800,
+        "folios": 66,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1444.001.1020b12",
+          "T1444.004.1041a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1445",
+      "slug": "taisho-t1445",
+      "workId": "gbcr:work:taisho-t1445",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1445.xml",
+      "upstreamPath": "T/T23/T23n1445.xml",
+      "upstreamGitBlobSha1": "a9f0850f8910a773ee0352b18687b0e71cbfb83b",
+      "upstreamBytes": 35803,
+      "upstreamSha256": "931fe56ff7b10857bbcd5a5281cfa09cac2280fcad086df9391dd35e3d5213de",
+      "localBytes": 35804,
+      "localSha256": "babed0d12c591ad9249f2552fb4ee6ed02fc1957a5c85be00604b25fb68308f8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶安居事",
+        "alternateTitle": "根本說一切有部毘奈耶安居事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1445",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1445 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1445_001"
+      },
+      "verification": {
+        "segments": 301,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1445.001.1041a24",
+          "T1445.001.1044c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1446",
+      "slug": "taisho-t1446",
+      "workId": "gbcr:work:taisho-t1446",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1446.xml",
+      "upstreamPath": "T/T23/T23n1446.xml",
+      "upstreamGitBlobSha1": "50a61ea162432be41826fddab3e79e62b17f75a7",
+      "upstreamBytes": 37164,
+      "upstreamSha256": "c324709f7cbd4c6cddd090be9db85a0ec4dade9b3af0b7d5e397ba43ff2a2d4c",
+      "localBytes": 37165,
+      "localSha256": "ce0e4d726d7df23ea55828490b0044ae968dad7df34373804b5be5dfe690c6d1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶隨意事",
+        "alternateTitle": "根本說一切有部毘奈耶隨意事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1446",
+        "translator": "唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1446 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1446_001"
+      },
+      "verification": {
+        "segments": 333,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1446.001.1044c09",
+          "T1446.001.1048b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1447",
+      "slug": "taisho-t1447",
+      "workId": "gbcr:work:taisho-t1447",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "mulasarvastivada_vinaya_component_family_candidate_unmerged",
+          "groupId": "mulasarvastivada-vinaya-t1442-t1447",
+          "label": "根本说一切有部毘奈耶与事部文本家族",
+          "evidence": "T1442/T1443 分别保存苾刍与苾刍尼毘奈耶，T1444–T1447 分别保存出家、安居、随意与皮革事；共同译者、部派和结构证明同一律藏家族，不把僧尼律与各事部组件机械合成一个表达或作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1442",
+              "T1443",
+              "T1444",
+              "T1445",
+              "T1446",
+              "T1447"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T23n1447.xml",
+      "upstreamPath": "T/T23/T23n1447.xml",
+      "upstreamGitBlobSha1": "ca5ce52b36d8526db3d5a5ce284524e9f29eb61b",
+      "upstreamBytes": 81652,
+      "upstreamSha256": "f8d4b7b413d619439fdd285372ca5a98ce79c29830565c7ea511c7f656a0463e",
+      "localBytes": 81653,
+      "localSha256": "ee59b640f2e3ad16ec2dae493d076968b35c3e9a0df29a774a24cf64b637c13f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部毘奈耶皮革事",
+        "alternateTitle": "根本說一切有部毘奈耶皮革事",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T23, no. 1447",
+        "translator": "唐 · 義淨譯",
+        "summary": "2卷。本站完整保存 T1447 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、解释书、事部组件与责任边界分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1447_001"
+      },
+      "verification": {
+        "segments": 768,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1447.001.1048c02",
+          "T1447.002.1057b19"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

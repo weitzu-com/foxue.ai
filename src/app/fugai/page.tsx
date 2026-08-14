@@ -172,7 +172,12 @@ export default function CoveragePage() {
               /{snapshot.candidateInventory.chineseT22SourceRecords.denominator}（{snapshot.candidateInventory.chineseT22SourceRecords.percentage}%），
               15 份均为完整来源全文，{snapshot.candidateInventory.chineseT22SourceRecords.verifiedEditionWitnesses} 份同号版本见证共享作品实体，
               {snapshot.candidateInventory.chineseT22SourceRecords.attributionBoundaryRecords} 份保留“集”“录”或译后编集责任；
-              广律、戒本与羯磨文本分层登记，不把部派、目录位置或机器相似度冒充同一作品或佛陀逐字亲说
+              广律、戒本与羯磨文本分层登记；
+              T23 律部固定来源已完成 {snapshot.candidateInventory.chineseT23SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT23SourceRecords.denominator}（{snapshot.candidateInventory.chineseT23SourceRecords.percentage}%），
+              13 份均为完整来源全文，0 份被自动归并为版本见证，
+              {snapshot.candidateInventory.chineseT23SourceRecords.attributionBoundaryRecords} 份保留“集出”“撰出”、无署名或失译附序责任；
+              十诵律组件、毘尼解释与根本说一切有部事部文本分层登记，不把部派、共同译者、目录位置或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a
@@ -222,6 +227,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T22 的 15 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T23 的 13 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

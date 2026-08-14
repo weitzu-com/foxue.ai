@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.9.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -230,6 +230,15 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "compiled_or_recorded_vinaya_text") {
     return "来源题记明确为后世所集或所录的律部文本；平台保留编集、辑录责任与完整来源，不将其改写成独立古译或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "compiled_or_extracted_vinaya_text") {
+    return "来源题记明确为集出或依律撰出；平台保留摘集、编撰与部派传承责任，不将其改写成独立古译或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "unattributed_vinaya_procedure_text") {
+    return "来源题记未载作者或译者；平台保存羯磨程序文本，但不补造译者、编者、印度来源或佛陀逐字亲说归属。";
+  }
+  if (file.sourceRole === "lost_translation_with_appended_vinaya_preface") {
+    return "目录保留正文失译状态，卷内另附后世所撰续序；平台并列呈现未知译者与序作者，不把序文责任扩张到整部正文。";
   }
   return undefined;
 };

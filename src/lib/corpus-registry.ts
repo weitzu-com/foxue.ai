@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v4.0.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.0.0.json";
+import registryDocument from "../../data/gbcr/registry-v4.1.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.1.0.json";
 
 type Expression = {
   id: string;
@@ -145,6 +145,12 @@ export function buildCoverageSnapshot() {
   const chineseT22Controlled = "t22ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t22ControlledSourceRecords ?? null
     : null;
+  const chineseT23Denominator = "t23SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t23SourceRecordDenominator ?? null
+    : null;
+  const chineseT23Controlled = "t23ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t23ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -176,6 +182,11 @@ export function buildCoverageSnapshot() {
   const chineseT22SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_vinaya_t22",
+      ) ?? null
+    : null;
+  const chineseT23SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_vinaya_t23",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -391,8 +402,9 @@ export function buildCoverageSnapshot() {
         t20InventorySha256: chineseT20SubsetInventory?.inventorySha256 ?? null,
         t21InventorySha256: chineseT21SubsetInventory?.inventorySha256 ?? null,
         t22InventorySha256: chineseT22SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T22 六个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部与 T22 律部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、局部材料与版本见证。",
+        t23InventorySha256: chineseT23SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T23 七个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部与 T22–T23 律部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、解释书、事部组件、局部材料与版本见证。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -567,6 +579,19 @@ export function buildCoverageSnapshot() {
         attributionBoundaryRecords: corpusRegistry.cbetaT22BoundaryAudit.attributionBoundaryRecords,
         unit: "CBETA 固定提交大正藏 T22 律部来源记录",
         caveat: corpusRegistry.cbetaT22BoundaryAudit.caveat,
+      },
+      chineseT23SourceRecords: {
+        denominator: chineseT23Denominator,
+        controlled: chineseT23Controlled,
+        percentage: chineseT23Denominator && chineseT23Controlled !== null
+          ? Number(((chineseT23Controlled / chineseT23Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT23BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT23BoundaryAudit.newPartialSourceWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT23BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT23BoundaryAudit.attributionBoundaryRecords,
+        unit: "CBETA 固定提交大正藏 T23 律部来源记录",
+        caveat: corpusRegistry.cbetaT23BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,
