@@ -59,17 +59,17 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v4.5.0.sha256`。
+1. 核对 `data/gbcr/checksums-v4.6.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot` 至 `pnpm verify:cbeta:t27-snapshot`，复算 T18 的 76 条、T19 的 126 条、T20 的 184 条、T21 的 228 条、T22 的 15 条、T23 的 13 条、T24 的 59 条、T25 的 15 条、T26 的 26 条和 T27 的 1 条来源记录、字节数与 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
-4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、1,899 个文本表达或见证（其中 1,865 个完整全文记录）、1,624 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部站内文本的轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。
+4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:cbeta:t28-snapshot`、`pnpm audit:cbeta:t28`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、1,911 个文本表达或见证（其中 1,876 个完整全文记录）、1,636 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部站内文本的轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 1,865 个受控完整全文记录、34 个节译、后分、节本、短本、残篇、组件、局部或版本见证与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 1,876 个受控完整全文记录、35 个节译、后分、节本、短本、残篇、组件、局部或版本见证与覆盖登记册。
 
 Vercel 恢复顺序：
 

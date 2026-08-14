@@ -1,0 +1,119 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_abhidharma_t28",
+    "label": "大正藏 T28 毘曇部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T28 目录下、文件名卷号一致的 T28n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T28 的 12 份来源记录混合《大毘婆沙》旧译残存见证、节抄、独立阿毘达磨论书、根本论、扩充或注释作品与同本异译；文件数、表达数、作品数、卷数与佛陀亲说经文数必须分层计量。"
+  },
+  "totals": {
+    "records": 12,
+    "upstreamBytes": 14447693,
+    "candidatePathSha256": "965838a61b6403b8216de11567bd55210db610bf6ac053a7313a1373bd57f913"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T28n1546",
+      "canonWitnessId": "T1546",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1546.xml",
+      "upstreamGitBlobSha1": "5ddb0a22cb320ee68cb231f68280255772054872",
+      "upstreamBytes": 5304522
+    },
+    {
+      "sourceRecordId": "T28n1547",
+      "canonWitnessId": "T1547",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1547.xml",
+      "upstreamGitBlobSha1": "2903b6c883fc0b25454eec5c465ad95b554ab5fd",
+      "upstreamBytes": 1608479
+    },
+    {
+      "sourceRecordId": "T28n1548",
+      "canonWitnessId": "T1548",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1548.xml",
+      "upstreamGitBlobSha1": "fc4a1cee4fe0fe966c6db254f23cd191a2146268",
+      "upstreamBytes": 3009695
+    },
+    {
+      "sourceRecordId": "T28n1549",
+      "canonWitnessId": "T1549",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1549.xml",
+      "upstreamGitBlobSha1": "e1dbc0f37f641cdfb48c203c0289ddcf365f25e5",
+      "upstreamBytes": 1503877
+    },
+    {
+      "sourceRecordId": "T28n1550",
+      "canonWitnessId": "T1550",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1550.xml",
+      "upstreamGitBlobSha1": "c82d801369b1fff658556e0ce688651793b74dd9",
+      "upstreamBytes": 364349
+    },
+    {
+      "sourceRecordId": "T28n1551",
+      "canonWitnessId": "T1551",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1551.xml",
+      "upstreamGitBlobSha1": "a1919212187023cf2b4d3b9401346fd8d5dfd29c",
+      "upstreamBytes": 479794
+    },
+    {
+      "sourceRecordId": "T28n1552",
+      "canonWitnessId": "T1552",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1552.xml",
+      "upstreamGitBlobSha1": "37599b0237be7085cc975ea740be70d23a8b388e",
+      "upstreamBytes": 1625230
+    },
+    {
+      "sourceRecordId": "T28n1553",
+      "canonWitnessId": "T1553",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1553.xml",
+      "upstreamGitBlobSha1": "48be21a064e821de03527768ba84b8135f7bfe09",
+      "upstreamBytes": 234506
+    },
+    {
+      "sourceRecordId": "T28n1554",
+      "canonWitnessId": "T1554",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1554.xml",
+      "upstreamGitBlobSha1": "1654c1f7e5e15cad8bbc43a0f5c2f1ab17a78347",
+      "upstreamBytes": 139235
+    },
+    {
+      "sourceRecordId": "T28n1555",
+      "canonWitnessId": "T1555",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1555.xml",
+      "upstreamGitBlobSha1": "1657145ac027622bd8f4f989e19b53f11f8e76da",
+      "upstreamBytes": 92398
+    },
+    {
+      "sourceRecordId": "T28n1556",
+      "canonWitnessId": "T1556",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1556.xml",
+      "upstreamGitBlobSha1": "8ce6d86c26a84801d5100e2aca1c955d9cf46559",
+      "upstreamBytes": 26259
+    },
+    {
+      "sourceRecordId": "T28n1557",
+      "canonWitnessId": "T1557",
+      "volume": "T28",
+      "upstreamPath": "T/T28/T28n1557.xml",
+      "upstreamGitBlobSha1": "07a8a9d49e21c8663302cdae1c9b2135209f0973",
+      "upstreamBytes": 59349
+    }
+  ]
+}

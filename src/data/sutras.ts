@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.4.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.5.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -33,7 +33,7 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
   readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
   segments: SutraSegment[];
 };
@@ -291,6 +291,34 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "traditional_collective_authored_abhidharma_commentary_with_translation") {
     return "来源保存“五百大阿罗汉等造、玄奘译”的传统集体归属与翻译题记；平台将其作为《发智论》的独立广释作品，不把传统题记冒充无争议的现代作者事实，也不改写成佛陀逐字亲说。";
   }
+  if (file.sourceRole === "traditional_attributed_partial_old_translation_witness") {
+    return "来源保存《大毘婆沙论》旧译现存六十卷；研究指出原译一百卷后来残缺。平台把它作为既有作品的部分旧译见证，不冒充完整译本，并保留翻译协作范围争议。";
+  }
+  if (file.sourceRole === "traditional_attributed_abridged_vibhasa_recension_with_disputed_translation_history") {
+    return "来源保存传统尸陀槃尼撰、僧伽跋澄译题记；研究把本书视为《大毘婆沙论》节要或非全译版本，且译出、修订责任有争议。平台登记独立节要／版本作品。";
+  }
+  if (file.sourceRole === "title_attributed_abhidharma_treatise_with_translation") {
+    return "舍利弗归属见于论书题名，来源正文只明确保存汉译责任；平台把题名归属、译者和现代作者判断分层，不改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "traditional_disputed_authored_abhidharma_treatise_with_translation") {
+    return "来源保留婆须蜜造与译者传统题记，现代人名与书目研究仍质疑相关世友身份及作者判断；平台并列呈现，不把传统署名当作已裁决事实。";
+  }
+  if (file.sourceRole === "traditional_authored_abhidharma_treatise_with_lost_translator") {
+    return "来源保留传统论师题记并明确标为失译；平台不补造译者，也不把论书改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "traditionally_attributed_abhidharma_root_treatise_translation") {
+    return "来源保留安世高译的传统题记；现代研究对归属判断并非完全一致。平台同时保存同本异译证据和署名限定语，不把传统署名冒充定论。";
+  }
+  if (([
+    "traditional_authored_abhidharma_root_treatise_with_translation",
+    "traditional_authored_expanded_abhidharma_commentary_with_translation",
+    "traditional_authored_abhidharma_expansion_with_translation",
+    "traditional_authored_abhidharma_manual_with_translation",
+    "traditional_authored_abhidharma_commentary_with_translation",
+    "abhidharma_root_treatise_translation",
+  ] as string[]).includes(file.sourceRole ?? "")) {
+    return "来源分开保存根本论、扩释、增广、注释或入门论书责任与汉译责任；平台依据书目证据建立关系，但不把不同作品、译本或论师撰述改写成佛陀逐字亲说。";
+  }
   return undefined;
 };
 
@@ -322,7 +350,9 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
               ? "短本见证 · 完整来源记录"
           : file.sourceRole === "partial_translation_witness"
             ? "节译见证 · 完整来源记录"
-            : "局部见证 · 完整来源记录"
+            : file.sourceRole === "traditional_attributed_partial_old_translation_witness"
+              ? "残存旧译见证 · 完整来源记录"
+              : "局部见证 · 完整来源记录"
       : file.sourceRole === "compiled_canonical_witness"
         ? "合部见证 · 完整原文"
         : "完整原文 · 行段试行",

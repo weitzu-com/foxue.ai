@@ -1,0 +1,881 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.5.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.4.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t28-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T28; T28 source-record closure",
+  "workOverrides": {
+    "gbcr:work:abhidharma-mahavibhasa": {
+      "bibliographicRelations": [
+        {
+          "type": "partial_old_translation_witness_verified",
+          "groupId": "maha-vibhasa-chinese-t1545-t1546",
+          "label": "《大毘婆沙论》玄奘译与残存旧译见证",
+          "evidence": "DILA 将 T1546 与 T1545 列为相关经典；CBC@ 所录研究进一步指出 T1546 的原本与 T1545 所译版本大体相同，旧译原为一百卷，兵乱后只存六十卷。平台把 T1546 归入既有《大毘婆沙论》作品，但标成完整来源文件中的部分作品见证，不冒充完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T1545",
+              "T1546"
+            ]
+          }
+        },
+        {
+          "type": "abridged_recension_relation_verified",
+          "groupId": "maha-vibhasa-abridgment-t1547",
+          "label": "《鞞婆沙论》与《大毘婆沙论》的节要／版本关系",
+          "evidence": "权威人名资料将 T1547 说明为尸陀槃尼节抄的《大毘婆沙论》，CBC@ 又记录其并非全译且译出、修订责任存在多种学术判断。平台把它作为独立节要／版本作品与《大毘婆沙论》关联，不强行并入完整作品，也不把传统题记改写成无争议的现代定论。",
+          "externalIds": {
+            "cbeta": [
+              "T1545",
+              "T1547"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:prakaranapada": {
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_components_and_commentary_verified",
+          "groupId": "pancavastuka-t1541-t1557",
+          "label": "《五事论》同本异译、品类足组件与《五事毘婆沙》注释关系",
+          "evidence": "梵文断片与对读研究把 T1556、T1557 确认为 Pañcavastuka《五事论》的两种汉译，并对应 T1541〈五法品〉、T1542〈辩五事品〉；T1555 正文自称解释世友所制《五事论》。平台合并 T1556/T1557 的根本作品，保留 T1541/T1542 为《品类足论》中的组件，并把 T1555 登记为独立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1541(五法品)",
+              "T1542(辩五事品)",
+              "T1555",
+              "T1556",
+              "T1557"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T28",
+    "title": "大正藏 T28 毘昙部固定来源记录",
+    "sourceRecordDenominator": 12,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 12,
+    "controlledSourceRecords": 12,
+    "newSourceBytes": 14447693,
+    "newStableSegments": 85917,
+    "newFolios": 3081,
+    "verifiedSameWorkExpressions": 2,
+    "verifiedPartialWorkWitnesses": 1,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 11,
+    "newPartialSourceWitnesses": 1,
+    "relationAnnotatedRecords": 8,
+    "attributionBoundaryRecords": 12,
+    "newWorks": 10,
+    "controlledWorks": 11,
+    "workCountingDecision": "T28 的 12 份来源记录登记为 12 个表达或见证、11 个批次内作品。T1546 是既有《大毘婆沙论》作品的残存旧译见证；T1556/T1557 是《五事论》同一作品的两个表达；T1547–T1555 各自登记为九个独立论书、节要、扩释或注释作品。因此本批新增十个作品，而不是十二个；所有论书均不标为佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_work_expression_partial_translation_commentary_and_attribution_boundaries_recorded",
+    "existingControlledRecords": [
+      "T1541",
+      "T1542",
+      "T1545"
+    ],
+    "editionOrRecensionGroups": [
+      "maha-vibhasa-abridgment-t1547"
+    ],
+    "verifiedTranslationGroups": [
+      "pancavastuka-t1541-t1557"
+    ],
+    "rootTreatiseCommentaryGroups": [
+      "abhidharma-hrdaya-family-t1550-t1552",
+      "pancavastuka-t1541-t1557"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1547→T1545（节要／版本作品，不强制作品合并）",
+      "T1551/T1552→T1550（扩释、增广作品，不作为同一作品译本）"
+    ],
+    "partialWorkWitnesses": [
+      "T1546"
+    ],
+    "sourceRoles": {
+      "abhidharma_root_treatise_translation": [
+        "T1556"
+      ],
+      "title_attributed_abhidharma_treatise_with_translation": [
+        "T1548"
+      ],
+      "traditional_attributed_abridged_vibhasa_recension_with_disputed_translation_history": [
+        "T1547"
+      ],
+      "traditional_attributed_partial_old_translation_witness": [
+        "T1546"
+      ],
+      "traditional_authored_abhidharma_commentary_with_translation": [
+        "T1555"
+      ],
+      "traditional_authored_abhidharma_expansion_with_translation": [
+        "T1552"
+      ],
+      "traditional_authored_abhidharma_manual_with_translation": [
+        "T1554"
+      ],
+      "traditional_authored_abhidharma_root_treatise_with_translation": [
+        "T1550"
+      ],
+      "traditional_authored_abhidharma_treatise_with_lost_translator": [
+        "T1553"
+      ],
+      "traditional_authored_expanded_abhidharma_commentary_with_translation": [
+        "T1551"
+      ],
+      "traditional_disputed_authored_abhidharma_treatise_with_translation": [
+        "T1549"
+      ],
+      "traditionally_attributed_abhidharma_root_treatise_translation": [
+        "T1557"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap only records translation-era and derivative-text asymmetry. T1556/T1557 demonstrates that verified same-work translations can have extremely low surface overlap; no work, authorship or translation decision is made by thresholds alone.",
+      "pairs": [
+        {
+          "pair": [
+            "T1545",
+            "T1546"
+          ],
+          "normalizedCharacters": [
+            1375885,
+            589759
+          ],
+          "fiveGramContainmentOfShorter": 0.072327,
+          "fiveGramJaccard": 0.024111
+        },
+        {
+          "pair": [
+            "T1545",
+            "T1547"
+          ],
+          "normalizedCharacters": [
+            1375885,
+            153966
+          ],
+          "fiveGramContainmentOfShorter": 0.023524,
+          "fiveGramJaccard": 0.002713
+        },
+        {
+          "pair": [
+            "T1546",
+            "T1547"
+          ],
+          "normalizedCharacters": [
+            589759,
+            153966
+          ],
+          "fiveGramContainmentOfShorter": 0.044833,
+          "fiveGramJaccard": 0.009605
+        },
+        {
+          "pair": [
+            "T1550",
+            "T1551"
+          ],
+          "normalizedCharacters": [
+            29844,
+            46963
+          ],
+          "fiveGramContainmentOfShorter": 0.112564,
+          "fiveGramJaccard": 0.045281
+        },
+        {
+          "pair": [
+            "T1550",
+            "T1552"
+          ],
+          "normalizedCharacters": [
+            29844,
+            125784
+          ],
+          "fiveGramContainmentOfShorter": 0.126597,
+          "fiveGramJaccard": 0.024961
+        },
+        {
+          "pair": [
+            "T1551",
+            "T1552"
+          ],
+          "normalizedCharacters": [
+            46963,
+            125784
+          ],
+          "fiveGramContainmentOfShorter": 0.114156,
+          "fiveGramJaccard": 0.032501
+        },
+        {
+          "pair": [
+            "T1555",
+            "T1556"
+          ],
+          "normalizedCharacters": [
+            9280,
+            3351
+          ],
+          "fiveGramContainmentOfShorter": 0.005757,
+          "fiveGramJaccard": 0.001398
+        },
+        {
+          "pair": [
+            "T1555",
+            "T1557"
+          ],
+          "normalizedCharacters": [
+            9280,
+            4392
+          ],
+          "fiveGramContainmentOfShorter": 0.000778,
+          "fiveGramJaccard": 0.000239
+        },
+        {
+          "pair": [
+            "T1556",
+            "T1557"
+          ],
+          "normalizedCharacters": [
+            3351,
+            4392
+          ],
+          "fiveGramContainmentOfShorter": 0.003958,
+          "fiveGramJaccard": 0.001661
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T28",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000068",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000051",
+      "https://dazangthings.nz/cbc/text/1348/",
+      "https://dazangthings.nz/cbc/text/1346/",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002925",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003998",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002676",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003489",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000069",
+      "https://cbc.dila.edu.tw/cbc/text/1347/",
+      "https://buddhism.lib.ntu.edu.tw/search/search_detail.jsp?seq=339205",
+      "https://www.jstage.jst.go.jp/article/ibk1952/32/1/32_1_473/_pdf",
+      "https://researchmap.jp/tanakayousay/published_papers/45959542/attachment_file.pdf",
+      "https://media.dhalbi.com/publ/journ10/wbc_j10.pdf",
+      "https://ora.ox.ac.uk/objects/uuid:eacf5f0c-8632-4087-ab4f-23f67b30247d/files/mb2e0e26865aa8b01047145704c8056dd"
+    ],
+    "caveat": "T28 是毘昙部论书集合，不是佛说经集合。平台完整保存固定来源，同时区分根本论、旧译残存见证、节要或版本、同本异译、独立扩释、注释作品、传统作者题记、失译与现代归属争议；题名、目录位置、传统题记或机器相似度都不能单独证明作品相同、作者确定或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1546",
+      "slug": "taisho-t1546",
+      "workId": "gbcr:work:abhidharma-mahavibhasa",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "阿毘达磨大毘婆沙论（Abhidharma Mahāvibhāṣā）",
+      "sourceRole": "traditional_attributed_partial_old_translation_witness",
+      "bibliographicRelations": [
+        {
+          "type": "partial_old_translation_witness_verified",
+          "groupId": "maha-vibhasa-chinese-t1545-t1546",
+          "label": "《大毘婆沙论》玄奘译与残存旧译见证",
+          "evidence": "DILA 将 T1546 与 T1545 列为相关经典；CBC@ 所录研究进一步指出 T1546 的原本与 T1545 所译版本大体相同，旧译原为一百卷，兵乱后只存六十卷。平台把 T1546 归入既有《大毘婆沙论》作品，但标成完整来源文件中的部分作品见证，不冒充完整译本。",
+          "externalIds": {
+            "cbeta": [
+              "T1545",
+              "T1546"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1546.xml",
+      "upstreamPath": "T/T28/T28n1546.xml",
+      "upstreamGitBlobSha1": "5ddb0a22cb320ee68cb231f68280255772054872",
+      "upstreamBytes": 5304522,
+      "upstreamSha256": "9b963ed51ba055f0090a96c48f67f8bfb1e9bd9632d4590f512a14e101d4d9a7",
+      "localBytes": 5304523,
+      "localSha256": "84112fd632129c3d439e531eb60499eb2c9379d841777ddab5e39ebf796de63c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "阿毘曇毘婆沙論",
+        "alternateTitle": "阿毘曇毘婆沙論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1546",
+        "translator": "迦旃延子造 · 五百羅漢釋 · 北涼 · 浮陀跋摩共道泰等譯",
+        "summary": "60卷。固定来源完整保存现存六十卷与稳定锚点；研究资料指出旧译原为一百卷，现存文本只是《大毘婆沙论》的部分旧译见证，因此与 T1545 共用作品标识但不计作完整译本。传统造论、解释与译者题记照录，翻译协作范围保留争议。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1546_001"
+      },
+      "verification": {
+        "segments": 35724,
+        "folios": 1278,
+        "juanRange": [
+          1,
+          60
+        ],
+        "anchors": [
+          "T1546.001.0001a02",
+          "T1546.060.0415a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1547",
+      "slug": "taisho-t1547",
+      "workId": "gbcr:work:vibhasa-abridgment-sitapani",
+      "workIdentityStatus": "verified_distinct_abridged_recension_work",
+      "workTitle": "鞞婆沙论（Vibhāṣā abridgment/recension）",
+      "sourceRole": "traditional_attributed_abridged_vibhasa_recension_with_disputed_translation_history",
+      "bibliographicRelations": [
+        {
+          "type": "abridged_recension_relation_verified",
+          "groupId": "maha-vibhasa-abridgment-t1547",
+          "label": "《鞞婆沙论》与《大毘婆沙论》的节要／版本关系",
+          "evidence": "权威人名资料将 T1547 说明为尸陀槃尼节抄的《大毘婆沙论》，CBC@ 又记录其并非全译且译出、修订责任存在多种学术判断。平台把它作为独立节要／版本作品与《大毘婆沙论》关联，不强行并入完整作品，也不把传统题记改写成无争议的现代定论。",
+          "externalIds": {
+            "cbeta": [
+              "T1545",
+              "T1547"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1547.xml",
+      "upstreamPath": "T/T28/T28n1547.xml",
+      "upstreamGitBlobSha1": "2903b6c883fc0b25454eec5c465ad95b554ab5fd",
+      "upstreamBytes": 1608479,
+      "upstreamSha256": "4965063231f53360f8b581b7ba5f30a6b8c28b524a40b5c77b13ef5e455014de",
+      "localBytes": 1608480,
+      "localSha256": "ed00b8ddfbcd9cf1b1bdbbd7c4118383bbd4e82306aa8536ab500354bc70047d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鞞婆沙論",
+        "alternateTitle": "鞞婆沙論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1547",
+        "translator": "尸陀槃尼撰 · 符秦 · 僧伽跋澄譯",
+        "summary": "14卷。完整保存十四卷固定来源与稳定锚点；权威资料把它描述为《大毘婆沙论》的节抄或非全译版本，且译出、修订责任有多种判断。平台登记为独立节要／版本作品并建立关系，不凭题名并入 T1545。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1547_001"
+      },
+      "verification": {
+        "segments": 9304,
+        "folios": 333,
+        "juanRange": [
+          1,
+          14
+        ],
+        "anchors": [
+          "T1547.001.0416a02",
+          "T1547.014.0523b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1548",
+      "slug": "taisho-t1548",
+      "workId": "gbcr:work:sariputrabhidharma",
+      "workIdentityStatus": "verified_distinct_abhidharma_work",
+      "workTitle": "舍利弗阿毘昙论（Śāriputrābhidharma）",
+      "sourceRole": "title_attributed_abhidharma_treatise_with_translation",
+      "localPath": "data/corpus/cbeta/T28n1548.xml",
+      "upstreamPath": "T/T28/T28n1548.xml",
+      "upstreamGitBlobSha1": "fc4a1cee4fe0fe966c6db254f23cd191a2146268",
+      "upstreamBytes": 3009695,
+      "upstreamSha256": "84566014a6bca40fb176ed47a134db2e449ecb8b244efa5995df94b25ca1798e",
+      "localBytes": 3009696,
+      "localSha256": "cad22a98a65dddad6ff29763bdaceb974907c172044a6a01a5976a1355787550",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "舍利弗阿毘曇論",
+        "alternateTitle": "舍利弗阿毘曇論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1548",
+        "translator": "姚秦 · 曇摩耶舍共曇摩崛多等譯",
+        "summary": "30卷。完整保存三十卷固定来源与稳定锚点；题名中的舍利弗归属与汉译责任分层记录，不把论书题名当作佛陀逐字亲说或现代可证作者事实。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1548_001"
+      },
+      "verification": {
+        "segments": 16762,
+        "folios": 603,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1548.001.0525a02",
+          "T1548.030.0719a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1549",
+      "slug": "taisho-t1549",
+      "workId": "gbcr:work:vasumitra-samgraha-t1549",
+      "workIdentityStatus": "verified_distinct_abhidharma_work",
+      "workTitle": "尊婆须蜜菩萨所集论（Vasumitra collection）",
+      "sourceRole": "traditional_disputed_authored_abhidharma_treatise_with_translation",
+      "localPath": "data/corpus/cbeta/T28n1549.xml",
+      "upstreamPath": "T/T28/T28n1549.xml",
+      "upstreamGitBlobSha1": "e1dbc0f37f641cdfb48c203c0289ddcf365f25e5",
+      "upstreamBytes": 1503877,
+      "upstreamSha256": "3e912fc0471f3fea781cb5614c8a98a09d2e8bfa6f174de53adb055c2fbab544",
+      "localBytes": 1503878,
+      "localSha256": "e345e3b1d066f14515ce5c8945d7130795632f8ad9a03bbf6b950f859f2da543",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "尊婆須蜜菩薩所集論",
+        "alternateTitle": "尊婆須蜜菩薩所集論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1549",
+        "translator": "尊婆須蜜造 · 符秦 · 僧伽跋澄等譯",
+        "summary": "10卷。完整保存十卷固定来源与稳定锚点；传统题记归于婆须蜜并记僧伽跋澄等译，现代人名资料指出相关世友身份与作者判断仍待考证，平台明确保留这一不确定性。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1549_001"
+      },
+      "verification": {
+        "segments": 7555,
+        "folios": 270,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1549.001.0721a02",
+          "T1549.010.0808a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1550",
+      "slug": "taisho-t1550",
+      "workId": "gbcr:work:abhidharma-hrdaya",
+      "workIdentityStatus": "verified_distinct_root_treatise_work",
+      "workTitle": "阿毘昙心论（Abhidharmahṛdaya）",
+      "sourceRole": "traditional_authored_abhidharma_root_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_treatise_expansion_commentary_family_verified",
+          "groupId": "abhidharma-hrdaya-family-t1550-t1552",
+          "label": "《阿毘曇心论》根本论、优波扇多扩释与法救增广体系",
+          "evidence": "T1551 题记明确区分法胜论与优波扇多释；T1552 正文及研究资料说明其以法胜《阿毘曇心论》为基础增广。三部共享论书谱系，但分别形成根本论、扩释与增广作品，平台建立关系而不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1550",
+              "T1551",
+              "T1552"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1550.xml",
+      "upstreamPath": "T/T28/T28n1550.xml",
+      "upstreamGitBlobSha1": "c82d801369b1fff658556e0ce688651793b74dd9",
+      "upstreamBytes": 364349,
+      "upstreamSha256": "1a8731e769535a11044d44a59340434432226931e109db390b12993204730394",
+      "localBytes": 364350,
+      "localSha256": "e7955005505562d9c8228a5ca7a805bd21eacf5fce2c4cae93287f666fbc4094",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘曇心論",
+        "alternateTitle": "阿毘曇心論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1550",
+        "translator": "尊者法勝造 · 晉 · 僧迦提婆共慧遠等譯",
+        "summary": "4卷。完整保存四卷固定来源与稳定锚点；登记为心论体系根本作品，与 T1551、T1552 建立扩释、增广关系而不合并。传统法胜造与译者题记照录。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1550_001"
+      },
+      "verification": {
+        "segments": 2111,
+        "folios": 77,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1550.001.0809a02",
+          "T1550.004.0833b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1551",
+      "slug": "taisho-t1551",
+      "workId": "gbcr:work:abhidharma-hrdaya-commentary-upasanta",
+      "workIdentityStatus": "verified_distinct_expanded_commentary_work",
+      "workTitle": "阿毘昙心论经（Upaśānta's expanded Abhidharmahṛdaya commentary）",
+      "sourceRole": "traditional_authored_expanded_abhidharma_commentary_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_treatise_expansion_commentary_family_verified",
+          "groupId": "abhidharma-hrdaya-family-t1550-t1552",
+          "label": "《阿毘曇心论》根本论、优波扇多扩释与法救增广体系",
+          "evidence": "T1551 题记明确区分法胜论与优波扇多释；T1552 正文及研究资料说明其以法胜《阿毘曇心论》为基础增广。三部共享论书谱系，但分别形成根本论、扩释与增广作品，平台建立关系而不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1550",
+              "T1551",
+              "T1552"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1551.xml",
+      "upstreamPath": "T/T28/T28n1551.xml",
+      "upstreamGitBlobSha1": "a1919212187023cf2b4d3b9401346fd8d5dfd29c",
+      "upstreamBytes": 479794,
+      "upstreamSha256": "b777fac3107f2119d1ad27114adae1ff7f6bca6e3366d9a51f4b0617ce0b1341",
+      "localBytes": 479795,
+      "localSha256": "147314250bfdf153ed14932672d2a43f0c4dc825c86e3889f80f77c5aeb892d1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘曇心論經",
+        "alternateTitle": "阿毘曇心論經",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1551",
+        "translator": "法勝論 · 優波扇多釋 · 高齊 · 那連提耶舍譯",
+        "summary": "6卷。完整保存六卷固定来源与稳定锚点；题记明确区分法胜根本论、优波扇多释与那连提耶舍译，故登记为独立扩释作品，不作为 T1550 的第二完整译本。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1551_001"
+      },
+      "verification": {
+        "segments": 3113,
+        "folios": 113,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1551.001.0833b08",
+          "T1551.006.0869b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1552",
+      "slug": "taisho-t1552",
+      "workId": "gbcr:work:samyuktabhidharma-hrdaya",
+      "workIdentityStatus": "verified_distinct_expanded_abhidharma_work",
+      "workTitle": "杂阿毘昙心论（Saṃyuktābhidharmahṛdaya）",
+      "sourceRole": "traditional_authored_abhidharma_expansion_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_treatise_expansion_commentary_family_verified",
+          "groupId": "abhidharma-hrdaya-family-t1550-t1552",
+          "label": "《阿毘曇心论》根本论、优波扇多扩释与法救增广体系",
+          "evidence": "T1551 题记明确区分法胜论与优波扇多释；T1552 正文及研究资料说明其以法胜《阿毘曇心论》为基础增广。三部共享论书谱系，但分别形成根本论、扩释与增广作品，平台建立关系而不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1550",
+              "T1551",
+              "T1552"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1552.xml",
+      "upstreamPath": "T/T28/T28n1552.xml",
+      "upstreamGitBlobSha1": "37599b0237be7085cc975ea740be70d23a8b388e",
+      "upstreamBytes": 1625230,
+      "upstreamSha256": "deddddd5149ea5d1248426393a0f8939adf804ec7936cb7be7104e49cf1bd5fb",
+      "localBytes": 1625231,
+      "localSha256": "5f47319c361bb8de3d73f5f547ce3d2b40c16bd1275039ad5efeb90ab898bb62",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雜阿毘曇心論",
+        "alternateTitle": "雜阿毘曇心論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1552",
+        "translator": "尊者法救造 · 宋 · 僧伽跋摩等譯",
+        "summary": "11卷。完整保存十一卷固定来源与稳定锚点；正文和研究资料均显示其在《阿毘昙心论》基础上增广，平台登记为独立作品而非同一作品译本。传统法救造与译者题记照录。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1552_001"
+      },
+      "verification": {
+        "segments": 8292,
+        "folios": 296,
+        "juanRange": [
+          1,
+          11
+        ],
+        "anchors": [
+          "T1552.001.0869c02",
+          "T1552.011.0965c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1553",
+      "slug": "taisho-t1553",
+      "workId": "gbcr:work:abhidharma-amrtarasa",
+      "workIdentityStatus": "verified_distinct_abhidharma_work",
+      "workTitle": "阿毘昙甘露味论（Abhidharmāmṛtarasa）",
+      "sourceRole": "traditional_authored_abhidharma_treatise_with_lost_translator",
+      "localPath": "data/corpus/cbeta/T28n1553.xml",
+      "upstreamPath": "T/T28/T28n1553.xml",
+      "upstreamGitBlobSha1": "48be21a064e821de03527768ba84b8135f7bfe09",
+      "upstreamBytes": 234506,
+      "upstreamSha256": "e8cb175c2d744aee8786391a675e261a63f254e880ece6a43251872481e3b892",
+      "localBytes": 234507,
+      "localSha256": "7576fe0b8e7ffbe13380902196d7acbde7b05c410dd71cdd44410fed0826c337",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘曇甘露味論",
+        "alternateTitle": "阿毘曇甘露味論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1553",
+        "translator": "尊者瞿沙造 · 失譯",
+        "summary": "2卷。完整保存二卷固定来源与稳定锚点；传统瞿沙造与失译状态照录，作者、译者与作品类型分层呈现，不把论书归为佛陀逐字亲说。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1553_001"
+      },
+      "verification": {
+        "segments": 1260,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1553.001.0966a02",
+          "T1553.002.0980b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1554",
+      "slug": "taisho-t1554",
+      "workId": "gbcr:work:abhidharmavatara",
+      "workIdentityStatus": "verified_distinct_abhidharma_work",
+      "workTitle": "入阿毘达磨论（Abhidharmāvatāra）",
+      "sourceRole": "traditional_authored_abhidharma_manual_with_translation",
+      "localPath": "data/corpus/cbeta/T28n1554.xml",
+      "upstreamPath": "T/T28/T28n1554.xml",
+      "upstreamGitBlobSha1": "1654c1f7e5e15cad8bbc43a0f5c2f1ab17a78347",
+      "upstreamBytes": 139235,
+      "upstreamSha256": "57c97fa828be44c145b06a2c3e2326bd5d844944744a9147e31e5f440d711539",
+      "localBytes": 139236,
+      "localSha256": "d8880ff94a7e519c4a23f76b57fefc7a71c105faeeac45231ccc1cbb2b3de978",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "入阿毘達磨論",
+        "alternateTitle": "入阿毘達磨論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1554",
+        "translator": "塞建陀羅造 · 唐 · 玄奘譯",
+        "summary": "2卷。完整保存二卷固定来源与稳定锚点；传统塞建陀罗造与玄奘译题记照录，登记为独立阿毘达磨入门论书，不以部类位置推定佛陀亲说。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1554_001"
+      },
+      "verification": {
+        "segments": 749,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1554.001.0980b21",
+          "T1554.002.0989a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1555",
+      "slug": "taisho-t1555",
+      "workId": "gbcr:work:pancavastuka-vibhasa",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "五事毘婆沙论（Pañcavastukavibhāṣā）",
+      "sourceRole": "traditional_authored_abhidharma_commentary_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_components_and_commentary_verified",
+          "groupId": "pancavastuka-t1541-t1557",
+          "label": "《五事论》同本异译、品类足组件与《五事毘婆沙》注释关系",
+          "evidence": "梵文断片与对读研究把 T1556、T1557 确认为 Pañcavastuka《五事论》的两种汉译，并对应 T1541〈五法品〉、T1542〈辩五事品〉；T1555 正文自称解释世友所制《五事论》。平台合并 T1556/T1557 的根本作品，保留 T1541/T1542 为《品类足论》中的组件，并把 T1555 登记为独立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1541(五法品)",
+              "T1542(辩五事品)",
+              "T1555",
+              "T1556",
+              "T1557"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1555.xml",
+      "upstreamPath": "T/T28/T28n1555.xml",
+      "upstreamGitBlobSha1": "1657145ac027622bd8f4f989e19b53f11f8e76da",
+      "upstreamBytes": 92398,
+      "upstreamSha256": "854634bfb85232758d2d6fa627c99f13edd9710ead7e6c6be5fab51dc9119af3",
+      "localBytes": 92399,
+      "localSha256": "7ccd4d1984a5cde936638fa337af6ef1ce8a6977c3881c8021190d5cd35cd040",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "五事毘婆沙論",
+        "alternateTitle": "五事毘婆沙論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1555",
+        "translator": "尊者法救造 · 唐 · 玄奘譯",
+        "summary": "2卷。完整保存二卷固定来源与稳定锚点；正文自称解释世友所制《五事论》，因此登记为独立注释作品，与 T1556/T1557 根本论表达建立关系但不合并。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1555_001"
+      },
+      "verification": {
+        "segments": 555,
+        "folios": 20,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1555.001.0989a21",
+          "T1555.002.0995b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1556",
+      "slug": "taisho-t1556",
+      "workId": "gbcr:work:pancavastuka",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "五事论（Pañcavastuka）",
+      "sourceRole": "abhidharma_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_components_and_commentary_verified",
+          "groupId": "pancavastuka-t1541-t1557",
+          "label": "《五事论》同本异译、品类足组件与《五事毘婆沙》注释关系",
+          "evidence": "梵文断片与对读研究把 T1556、T1557 确认为 Pañcavastuka《五事论》的两种汉译，并对应 T1541〈五法品〉、T1542〈辩五事品〉；T1555 正文自称解释世友所制《五事论》。平台合并 T1556/T1557 的根本作品，保留 T1541/T1542 为《品类足论》中的组件，并把 T1555 登记为独立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1541(五法品)",
+              "T1542(辩五事品)",
+              "T1555",
+              "T1556",
+              "T1557"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1556.xml",
+      "upstreamPath": "T/T28/T28n1556.xml",
+      "upstreamGitBlobSha1": "8ce6d86c26a84801d5100e2aca1c955d9cf46559",
+      "upstreamBytes": 26259,
+      "upstreamSha256": "2134869c05d8340410dbb92ba48f20a5163bd07d71d4a3172d1f9b081e079bd0",
+      "localBytes": 26260,
+      "localSha256": "f86710b7c252d00371599271d3eb02e7fed96db839f0cc60336d574074c4d162",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "薩婆多宗五事論",
+        "alternateTitle": "薩婆多宗五事論",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1556",
+        "translator": "唐 · 法成譯",
+        "summary": "1卷。完整保存一卷固定来源与稳定锚点；梵文断片及对读研究确认其与 T1557 为《五事论》同本异译，并对应 T1541/T1542 的五事组件。平台按一个根本作品、两个表达计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1556_001"
+      },
+      "verification": {
+        "segments": 204,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1556.001.0995c02",
+          "T1556.001.0998a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1557",
+      "slug": "taisho-t1557",
+      "workId": "gbcr:work:pancavastuka",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "五事论（Pañcavastuka）",
+      "sourceRole": "traditionally_attributed_abhidharma_root_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translations_components_and_commentary_verified",
+          "groupId": "pancavastuka-t1541-t1557",
+          "label": "《五事论》同本异译、品类足组件与《五事毘婆沙》注释关系",
+          "evidence": "梵文断片与对读研究把 T1556、T1557 确认为 Pañcavastuka《五事论》的两种汉译，并对应 T1541〈五法品〉、T1542〈辩五事品〉；T1555 正文自称解释世友所制《五事论》。平台合并 T1556/T1557 的根本作品，保留 T1541/T1542 为《品类足论》中的组件，并把 T1555 登记为独立注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1541(五法品)",
+              "T1542(辩五事品)",
+              "T1555",
+              "T1556",
+              "T1557"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T28n1557.xml",
+      "upstreamPath": "T/T28/T28n1557.xml",
+      "upstreamGitBlobSha1": "07a8a9d49e21c8663302cdae1c9b2135209f0973",
+      "upstreamBytes": 59349,
+      "upstreamSha256": "0456b95fa0199cf495daa1e9ca331c4b268c790d0bdf1ca94c7a38fd89b1ebe1",
+      "localBytes": 59350,
+      "localSha256": "b4b55aa92cfc7460a6044f04cca71f0cb517015bce460d6c7039352ecc3cf3ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘曇五法行經",
+        "alternateTitle": "阿毘曇五法行經",
+        "tradition": "汉传佛教 · 毘昙部",
+        "language": "汉文",
+        "canonRef": "大正藏 T28, no. 1557",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。完整保存一卷固定来源与稳定锚点；研究确认其与 T1556 为《五事论》同本异译。安世高译为传统且获得部分语言证据支持的归属，但现代研究判断并非完全一致，平台保留限定语。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1557_001"
+      },
+      "verification": {
+        "segments": 288,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1557.001.0998a08",
+          "T1557.001.1001b06"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
