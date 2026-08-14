@@ -185,7 +185,13 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT24SourceRecords.verifiedEditionWitnesses} 份 a/b 版本见证共享作品实体，
               {snapshot.candidateInventory.chineseT24SourceRecords.verifiedSameWorkExpressions} 份异译表达共享作品实体，
               {snapshot.candidateInventory.chineseT24SourceRecords.attributionBoundaryRecords} 份明确保留失译、无署名、造说责任或传统译者归属争议；
-              不把部派、共同译者、目录位置或机器相似度冒充同一作品或佛陀逐字亲说
+              T25 释经论部固定来源已完成 {snapshot.candidateInventory.chineseT25SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT25SourceRecords.denominator}（{snapshot.candidateInventory.chineseT25SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT25SourceRecords.fullSourceTexts} 份均为完整来源文本，
+              {snapshot.candidateInventory.chineseT25SourceRecords.verifiedSameWorkExpressions} 份同本异译表达共享作品实体，
+              {snapshot.candidateInventory.chineseT25SourceRecords.verifiedEditionWitnesses} 份 a/b 传本见证共享作品实体，
+              {snapshot.candidateInventory.chineseT25SourceRecords.attributionBoundaryRecords} 份全部明确标注为论书、译者缺名、失译或传统作者归属争议；
+              不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a
@@ -251,6 +257,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T24 的 59 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T25 的 15 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

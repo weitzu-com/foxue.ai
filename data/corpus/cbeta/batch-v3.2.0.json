@@ -1,0 +1,1206 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.2.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.1.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T25; T25 source-record closure",
+  "workOverrides": {
+    "gbcr:work:maha-prajnaparamita-t0223": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "maha-prajnaparamita-t0223-t1509",
+          "label": "《摩诃般若波罗蜜经》与《大智度论》经论关系",
+          "evidence": "大正藏在 T1509 题首明确标注参照 T0223；《大智度论》是对大品般若传统的巨型论释。平台把根本经与论书连接，但绝不把论书计作佛陀逐字亲说经文；龙树传统归属与罗什参与程度另行保留争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0223",
+              "T1509"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:vajracchedika-prajnaparamita": {
+      "bibliographicRelations": [
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T25",
+    "title": "大正藏 T25 释经论部固定来源记录",
+    "sourceRecordDenominator": 15,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 15,
+    "controlledSourceRecords": 15,
+    "newSourceBytes": 20558857,
+    "newStableSegments": 77880,
+    "newFolios": 2816,
+    "verifiedSameWorkExpressions": 4,
+    "verifiedEditionWitnesses": 2,
+    "provisionalRecords": 9,
+    "newFullSourceTexts": 15,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 14,
+    "attributionBoundaryRecords": 15,
+    "newWorks": 12,
+    "controlledWorks": 12,
+    "workCountingDecision": "T25 共 15 条固定来源记录。T1505/T1506 与 T1511/T1513 各确认为同一作品的两个汉译表达，T1510a/b 确认为同一无著论书的两个传本见证；其余 9 条保持独立书目实体，共新增 12 个作品。T1513/T1514、T1517/T1518 分别按根本颂—复注关系保留两个作品；T1509、T1512 的传统作者归属不冒充现代定论。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_work_expression_witness_commentary_authorship_and_embedded_root_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "asanga-vajracchedika-commentary-t1510a-b"
+    ],
+    "verifiedTranslationGroups": [
+      "tridharmakasastra-t1505-t1506",
+      "vasubandhu-vajracchedika-commentary-t1511-t1513"
+    ],
+    "rootTextCommentaryGroups": [
+      "maha-prajnaparamita-t0223-t1509",
+      "asanga-verses-vasubandhu-commentary-t1513-t1514",
+      "prajnaparamita-samgraha-t1517-t1518"
+    ],
+    "candidateRelationsNotMerged": [
+      "agama-exegesis-t1505-t1508",
+      "vajracchedika-exegesis-t0235-t1515"
+    ],
+    "partialWorkWitnesses": [],
+    "authoredTreatises": [
+      "T1505",
+      "T1510a",
+      "T1510b",
+      "T1511",
+      "T1513",
+      "T1514",
+      "T1515",
+      "T1516",
+      "T1517",
+      "T1518"
+    ],
+    "translatedTreatisesWithoutNamedAuthor": [
+      "T1506",
+      "T1508"
+    ],
+    "lostTranslationTreatises": [
+      "T1507"
+    ],
+    "contestedAuthorshipTreatises": [
+      "T1509"
+    ],
+    "contestedOriginTreatises": [
+      "T1512"
+    ],
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison documents recension, embedded root text and exegesis evidence; low lexical overlap does not negate authority-supported same-work translations, and high overlap never decides work identity alone.",
+      "pairs": [
+        {
+          "pair": [
+            "T1505",
+            "T1506"
+          ],
+          "normalizedCharacters": [
+            19500,
+            20344
+          ],
+          "fiveGramContainmentOfShorter": 0.02084,
+          "fiveGramJaccard": 0.010358
+        },
+        {
+          "pair": [
+            "T1510a",
+            "T1510b"
+          ],
+          "normalizedCharacters": [
+            13470,
+            19901
+          ],
+          "fiveGramContainmentOfShorter": 0.70639,
+          "fiveGramJaccard": 0.450657
+        },
+        {
+          "pair": [
+            "T1511",
+            "T1513"
+          ],
+          "normalizedCharacters": [
+            20886,
+            12157
+          ],
+          "fiveGramContainmentOfShorter": 0.017843,
+          "fiveGramJaccard": 0.007588
+        },
+        {
+          "pair": [
+            "T1513",
+            "T1514"
+          ],
+          "normalizedCharacters": [
+            12157,
+            1616
+          ],
+          "fiveGramContainmentOfShorter": 0.729713,
+          "fiveGramJaccard": 0.096246
+        },
+        {
+          "pair": [
+            "T1511",
+            "T1512"
+          ],
+          "normalizedCharacters": [
+            20886,
+            110563
+          ],
+          "fiveGramContainmentOfShorter": 0.271917,
+          "fiveGramJaccard": 0.03933
+        },
+        {
+          "pair": [
+            "T1517",
+            "T1518"
+          ],
+          "normalizedCharacters": [
+            15815,
+            1211
+          ],
+          "fiveGramContainmentOfShorter": 0.777872,
+          "fiveGramJaccard": 0.063487
+        },
+        {
+          "pair": [
+            "T1510a",
+            "T1514"
+          ],
+          "normalizedCharacters": [
+            13470,
+            1616
+          ],
+          "fiveGramContainmentOfShorter": 0.002497,
+          "fiveGramJaccard": 0.000293
+        },
+        {
+          "pair": [
+            "T1510b",
+            "T1514"
+          ],
+          "normalizedCharacters": [
+            19901,
+            1616
+          ],
+          "fiveGramContainmentOfShorter": 0.003745,
+          "fiveGramJaccard": 0.000354
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T25",
+      "https://cbetaonline.dila.edu.tw/zh/T1505_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1506_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1509_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1510a_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1510b_001",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001762",
+      "https://www.chibs.edu.tw/ch_html/hkbj/05/hkbj0504.htm",
+      "https://cir.nii.ac.jp/crid/1390009224880757632",
+      "https://cbetaonline.dila.edu.tw/zh/T1517_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1518_001"
+    ],
+    "caveat": "T25 是释经论部，不是单纯佛说经集合。平台完整保存固定来源及传统题记，同时区分根本经、论颂、论释、复注、同本异译和传本见证；《大智度论》《金刚仙论》的传统作者归属与现代争论并列呈现。任何论书都不因大藏经位置、题名、传统作者或机器相似度而被标成佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1505",
+      "slug": "taisho-t1505",
+      "workId": "gbcr:work:tridharmakasastra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "三法度论（Tridharmakaśāstra）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tridharmakasastra-t1505-t1506",
+          "label": "Tridharmakaśāstra／《三法度论》汉译组",
+          "evidence": "大正藏把 T1505 与 T1506 互列为对应文本；目录学与佛教文献研究明确称二者为同本异译。平台共享一个作品实体，保留《四阿鋡暮抄解》二卷与《三法度论》三卷的译者、结构和措辞差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506"
+            ]
+          }
+        },
+        {
+          "type": "agama_exegesis_family_candidate_unmerged",
+          "groupId": "agama-exegesis-t1505-t1508",
+          "label": "阿含论释与口解文本家族",
+          "evidence": "T1505–T1508 均解释阿含、三法或十二因缘，但只有 T1505/T1506 有同本异译证据；T1507《分别功德论》与 T1508《阿含口解十二因缘经》保持独立作品，不因目录邻接或题材相近归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506",
+              "T1507",
+              "T1508"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1505.xml",
+      "upstreamPath": "T/T25/T25n1505.xml",
+      "upstreamGitBlobSha1": "389c844df1c79fcfcd5792ac647fa4a655db8df7",
+      "upstreamBytes": 423837,
+      "upstreamSha256": "c9b51cf1b5034b0d10c53a2ae95ca4360e7edc465d4c2db9fc2d2ca5a0a1696b",
+      "localBytes": 423838,
+      "localSha256": "3c4e977f27ad0cda534f62e1d8b793359d2e87ddb2698d75b2e56bfb18e7d41c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四阿鋡暮抄解",
+        "alternateTitle": "四阿鋡暮抄解",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1505",
+        "translator": "婆素跋陀造 · 符秦 · 鳩摩羅佛提等譯",
+        "summary": "2卷。本站完整保存 T1505 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1505_001"
+      },
+      "verification": {
+        "segments": 1228,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1505.001.0001a02",
+          "T1505.002.0015b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1506",
+      "slug": "taisho-t1506",
+      "workId": "gbcr:work:tridharmakasastra",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "三法度论（Tridharmakaśāstra）",
+      "sourceRole": "translated_exegetical_treatise_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "tridharmakasastra-t1505-t1506",
+          "label": "Tridharmakaśāstra／《三法度论》汉译组",
+          "evidence": "大正藏把 T1505 与 T1506 互列为对应文本；目录学与佛教文献研究明确称二者为同本异译。平台共享一个作品实体，保留《四阿鋡暮抄解》二卷与《三法度论》三卷的译者、结构和措辞差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506"
+            ]
+          }
+        },
+        {
+          "type": "agama_exegesis_family_candidate_unmerged",
+          "groupId": "agama-exegesis-t1505-t1508",
+          "label": "阿含论释与口解文本家族",
+          "evidence": "T1505–T1508 均解释阿含、三法或十二因缘，但只有 T1505/T1506 有同本异译证据；T1507《分别功德论》与 T1508《阿含口解十二因缘经》保持独立作品，不因目录邻接或题材相近归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506",
+              "T1507",
+              "T1508"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1506.xml",
+      "upstreamPath": "T/T25/T25n1506.xml",
+      "upstreamGitBlobSha1": "a9beaf7ec8c755d983bc77a563faffb5679eba24",
+      "upstreamBytes": 280293,
+      "upstreamSha256": "6ad4133c2658e1fb1cecedb53417287e7df81588a9dc565b881784cac3a4daed",
+      "localBytes": 280294,
+      "localSha256": "68d5959c516cf412b15527336727895d0dbb817bb201f93fa169cfa71973813d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三法度論",
+        "alternateTitle": "三法度論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1506",
+        "translator": "東晉 · 僧伽提婆譯",
+        "summary": "3卷。本站完整保存 T1506 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存译者但未载论书作者，平台不从相邻文本补造作者；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1506_001"
+      },
+      "verification": {
+        "segments": 1254,
+        "folios": 44,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1506.001.0015c02",
+          "T1506.003.0030a16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1507",
+      "slug": "taisho-t1507",
+      "workId": "gbcr:work:taisho-t1507",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "lost_translation_exegetical_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "agama_exegesis_family_candidate_unmerged",
+          "groupId": "agama-exegesis-t1505-t1508",
+          "label": "阿含论释与口解文本家族",
+          "evidence": "T1505–T1508 均解释阿含、三法或十二因缘，但只有 T1505/T1506 有同本异译证据；T1507《分别功德论》与 T1508《阿含口解十二因缘经》保持独立作品，不因目录邻接或题材相近归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506",
+              "T1507",
+              "T1508"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1507.xml",
+      "upstreamPath": "T/T25/T25n1507.xml",
+      "upstreamGitBlobSha1": "efd9e0b1d7aa45bc4085f096256d0ff11e4f69f5",
+      "upstreamBytes": 429212,
+      "upstreamSha256": "1b8e11d93b0de28269d415020f0dc2f88cca1c9108878f06811a63b20e81f90e",
+      "localBytes": 429213,
+      "localSha256": "1eca536926a2612c5675d7944fbc9944d9dca8f63d50f51c21f819eae802205c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "分別功德論",
+        "alternateTitle": "分別功德論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1507",
+        "translator": "失译；附后汉录",
+        "summary": "5卷。本站完整保存 T1507 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录仅保留失译与经录归属，平台不补造作者、译者或印度原本；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1507_001"
+      },
+      "verification": {
+        "segments": 1965,
+        "folios": 72,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1507.001.0030a19",
+          "T1507.005.0052c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1508",
+      "slug": "taisho-t1508",
+      "workId": "gbcr:work:taisho-t1508",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_exegetical_treatise_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "agama_exegesis_family_candidate_unmerged",
+          "groupId": "agama-exegesis-t1505-t1508",
+          "label": "阿含论释与口解文本家族",
+          "evidence": "T1505–T1508 均解释阿含、三法或十二因缘，但只有 T1505/T1506 有同本异译证据；T1507《分别功德论》与 T1508《阿含口解十二因缘经》保持独立作品，不因目录邻接或题材相近归并。",
+          "externalIds": {
+            "cbeta": [
+              "T1505",
+              "T1506",
+              "T1507",
+              "T1508"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1508.xml",
+      "upstreamPath": "T/T25/T25n1508.xml",
+      "upstreamGitBlobSha1": "b6ad7e8703eb76b99f0e3ac244055d55ff0f4ada",
+      "upstreamBytes": 45432,
+      "upstreamSha256": "c0f884be0fd62ec8b81bf0609ebb8fd7a10d357155a1fc46b00ae0de8b9044c4",
+      "localBytes": 45433,
+      "localSha256": "913d33c3d68b1a3a9835c5d71dd65724caa3f2178895f04125d48e889c11b786",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿含口解十二因緣經",
+        "alternateTitle": "阿含口解十二因緣經",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1508",
+        "translator": "後漢 · 安玄共嚴佛調譯",
+        "summary": "1卷。本站完整保存 T1508 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存译者但未载论书作者，平台不从相邻文本补造作者；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1508_001"
+      },
+      "verification": {
+        "segments": 203,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1508.001.0053a02",
+          "T1508.001.0055b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1509",
+      "slug": "taisho-t1509",
+      "workId": "gbcr:work:taisho-t1509",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_exegetical_treatise_with_contested_authorship",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "maha-prajnaparamita-t0223-t1509",
+          "label": "《摩诃般若波罗蜜经》与《大智度论》经论关系",
+          "evidence": "大正藏在 T1509 题首明确标注参照 T0223；《大智度论》是对大品般若传统的巨型论释。平台把根本经与论书连接，但绝不把论书计作佛陀逐字亲说经文；龙树传统归属与罗什参与程度另行保留争议。",
+          "externalIds": {
+            "cbeta": [
+              "T0223",
+              "T1509"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1509.xml",
+      "upstreamPath": "T/T25/T25n1509.xml",
+      "upstreamGitBlobSha1": "741cbdf37d4ccdab499340850b5e7e620c70f40c",
+      "upstreamBytes": 17156542,
+      "upstreamSha256": "acb44c9632123b8ce2382bdc4e5203baf126a78b1c957b0e34af6fedf4279fb0",
+      "localBytes": 17156543,
+      "localSha256": "e66d6728dff98f8a62cb9a3e7663935c70613b8b33a61c66df3e24a022ad0596",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大智度論",
+        "alternateTitle": "大智度論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1509",
+        "translator": "龍樹菩薩造 · 後秦 · 鳩摩羅什譯",
+        "summary": "100卷。本站完整保存 T1509 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存龙树造、鸠摩罗什译的传统题记，同时公开现代研究对作者及罗什参与程度的争论；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1509_001"
+      },
+      "verification": {
+        "segments": 59798,
+        "folios": 2161,
+        "juanRange": [
+          1,
+          100
+        ],
+        "anchors": [
+          "T1509.001.0057a02",
+          "T1509.100.0756c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1510a",
+      "slug": "taisho-t1510a",
+      "workId": "gbcr:work:asanga-vajracchedika-commentary",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "金刚般若论（无著释本）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "asanga-vajracchedika-commentary-t1510a-b",
+          "label": "无著《金刚般若论》T1510 a/b 异本见证",
+          "evidence": "T1510a/b 共享基础经号、无著造与达磨笈多译题记；大正藏校勘记称二卷丽本与宋元明三卷本相当而内容大异。平台共享一个作品实体，同时保留两套卷次与异文系统为不同传本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1510a",
+              "T1510b"
+            ]
+          }
+        },
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1510a.xml",
+      "upstreamPath": "T/T25/T25n1510a.xml",
+      "upstreamGitBlobSha1": "77b246357f417b9d2fb49612ea1bd7f350bb1ed4",
+      "upstreamBytes": 88019,
+      "upstreamSha256": "60e7f9910268a7e45eb1aec84034ddd018c79edfe85e638a577ac8f25239d84f",
+      "localBytes": 88020,
+      "localSha256": "d1cf0874778d693c58d88030503d63aae7f779ad52d3c946390cb036530f4567",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若論",
+        "alternateTitle": "金剛般若論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1510a",
+        "translator": "無著菩薩造 · 隋 · 達磨笈多譯",
+        "summary": "2卷。本站完整保存 T1510a 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1510a_001"
+      },
+      "verification": {
+        "segments": 806,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1510a.001.0757a02",
+          "T1510a.002.0766a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1510b",
+      "slug": "taisho-t1510b",
+      "workId": "gbcr:work:asanga-vajracchedika-commentary",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "金刚般若论（无著释本）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "asanga-vajracchedika-commentary-t1510a-b",
+          "label": "无著《金刚般若论》T1510 a/b 异本见证",
+          "evidence": "T1510a/b 共享基础经号、无著造与达磨笈多译题记；大正藏校勘记称二卷丽本与宋元明三卷本相当而内容大异。平台共享一个作品实体，同时保留两套卷次与异文系统为不同传本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1510a",
+              "T1510b"
+            ]
+          }
+        },
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1510b.xml",
+      "upstreamPath": "T/T25/T25n1510b.xml",
+      "upstreamGitBlobSha1": "6c4338b5e6f4a0ee88e7887102f9ab652c7c1aee",
+      "upstreamBytes": 141178,
+      "upstreamSha256": "56d8d820bc8535b86410501c0dd227f94643e32654b6af2e8eb5b0a85cfd28a9",
+      "localBytes": 141179,
+      "localSha256": "f21daa07e21edcaef8ae7dd9f14096feefec46c1166c5958568471ff6a406809",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經論",
+        "alternateTitle": "金剛般若波羅蜜經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1510b",
+        "translator": "無著菩薩造 · 隋 · 達磨笈多譯",
+        "summary": "3卷。本站完整保存 T1510b 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1510b_001"
+      },
+      "verification": {
+        "segments": 1287,
+        "folios": 46,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1510b.001.0766b02",
+          "T1510b.003.0781a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1511",
+      "slug": "taisho-t1511",
+      "workId": "gbcr:work:vasubandhu-vajracchedika-commentary",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "金刚般若论释（世亲释）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vasubandhu-vajracchedika-commentary-t1511-t1513",
+          "label": "世亲《金刚般若论释》汉译组",
+          "evidence": "大正藏把 T1511 与 T1513 互列；佛教文献研究明确指出菩提流支译《论》与义净译《论释》为同本异译。平台共享一个世亲论释作品实体，保留两种汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1511",
+              "T1513"
+            ]
+          }
+        },
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1511.xml",
+      "upstreamPath": "T/T25/T25n1511.xml",
+      "upstreamGitBlobSha1": "679ff017b5788752c63c38d7cafe08313b9b5f65",
+      "upstreamBytes": 181869,
+      "upstreamSha256": "6f16b2692216d01d410b0c7563903b5657652a1485dabd0743760393929e6b5b",
+      "localBytes": 181870,
+      "localSha256": "562b9c3cfdaf7eb41e9ed7d6bc4bc272faacc4a8286936cb39b5b44c7717a61e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經論",
+        "alternateTitle": "金剛般若波羅蜜經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1511",
+        "translator": "天親菩薩造 · 元魏 · 菩提流支譯",
+        "summary": "3卷。本站完整保存 T1511 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1511_001"
+      },
+      "verification": {
+        "segments": 1390,
+        "folios": 51,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1511.001.0781b02",
+          "T1511.003.0797b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1512",
+      "slug": "taisho-t1512",
+      "workId": "gbcr:work:taisho-t1512",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_exegetical_treatise_with_contested_origin",
+      "bibliographicRelations": [
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1512.xml",
+      "upstreamPath": "T/T25/T25n1512.xml",
+      "upstreamGitBlobSha1": "5afc86405f29a87aa43be3a51a512de95155109f",
+      "upstreamBytes": 1394150,
+      "upstreamSha256": "f6d993bad9f8f5f9c0a2004867e8a0cf11eeba998c3ca52324221911933622f5",
+      "localBytes": 1394151,
+      "localSha256": "2d19d5597e8758d721d0ea99664e4aeea06920c7316fbf198f4986e8e09251cc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛仙論",
+        "alternateTitle": "金剛仙論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1512",
+        "translator": "世親菩薩造 · 金剛仙論師釋 · 元魏 · 菩提流支譯",
+        "summary": "10卷。本站完整保存 T1512 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存世亲造、金刚仙释、菩提流支译的传统题记，同时保留古代经疏已见的非印度原作质疑；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1512_001"
+      },
+      "verification": {
+        "segments": 6673,
+        "folios": 239,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1512.001.0798a02",
+          "T1512.010.0874c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1513",
+      "slug": "taisho-t1513",
+      "workId": "gbcr:work:vasubandhu-vajracchedika-commentary",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "金刚般若论释（世亲释）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vasubandhu-vajracchedika-commentary-t1511-t1513",
+          "label": "世亲《金刚般若论释》汉译组",
+          "evidence": "大正藏把 T1511 与 T1513 互列；佛教文献研究明确指出菩提流支译《论》与义净译《论释》为同本异译。平台共享一个世亲论释作品实体，保留两种汉译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1511",
+              "T1513"
+            ]
+          }
+        },
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "asanga-verses-vasubandhu-commentary-t1513-t1514",
+          "label": "无著论颂与世亲论释根本颂—复注关系",
+          "evidence": "T1513 题记明确为无著造颂、世亲释，T1514 为同一义净译系的独立论颂；五字片段比较显示独立论颂约 73.0% 可在论释中定位。平台把根本颂与复注分成两个作品，并记录内嵌关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1513",
+              "T1514"
+            ]
+          }
+        },
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1513.xml",
+      "upstreamPath": "T/T25/T25n1513.xml",
+      "upstreamGitBlobSha1": "93fa19f757f1402e927010eb0037b85ccdc33972",
+      "upstreamBytes": 113538,
+      "upstreamSha256": "16224d4f59d3bd1032809d38e0d8e322f870e5c34a718f1aecee259b024b011a",
+      "localBytes": 113539,
+      "localSha256": "1b6b2bc825e6cfa3c67c82c41feda44bc4eb7a49f522bfd80f2c4c9ab258f851",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "能斷金剛般若波羅蜜多經論釋",
+        "alternateTitle": "能斷金剛般若波羅蜜多經論釋",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1513",
+        "translator": "無著菩薩造頌 · 世親菩薩釋 · 唐 · 義淨譯",
+        "summary": "3卷。本站完整保存 T1513 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1513_001"
+      },
+      "verification": {
+        "segments": 837,
+        "folios": 31,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1513.001.0875a02",
+          "T1513.003.0884c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1514",
+      "slug": "taisho-t1514",
+      "workId": "gbcr:work:taisho-t1514",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "asanga-verses-vasubandhu-commentary-t1513-t1514",
+          "label": "无著论颂与世亲论释根本颂—复注关系",
+          "evidence": "T1513 题记明确为无著造颂、世亲释，T1514 为同一义净译系的独立论颂；五字片段比较显示独立论颂约 73.0% 可在论释中定位。平台把根本颂与复注分成两个作品，并记录内嵌关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1513",
+              "T1514"
+            ]
+          }
+        },
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1514.xml",
+      "upstreamPath": "T/T25/T25n1514.xml",
+      "upstreamGitBlobSha1": "550afb45a9bdb6ac5d54ac45ad152f6843b4aa4f",
+      "upstreamBytes": 24563,
+      "upstreamSha256": "931c8452843a99975a0c7db29eb40f22b0abb7cb43e5b2a720cd10e34e9ffccf",
+      "localBytes": 24564,
+      "localSha256": "4d20d5a8bf616c7627cd84a914b4db0192a78b01261c18cdde03073969ad25c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "能斷金剛般若波羅蜜多經論頌",
+        "alternateTitle": "能斷金剛般若波羅蜜多經論頌",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1514",
+        "translator": "無著菩薩造 · 唐 · 義淨譯",
+        "summary": "1卷。本站完整保存 T1514 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1514_001"
+      },
+      "verification": {
+        "segments": 160,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1514.001.0885a02",
+          "T1514.001.0886c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1515",
+      "slug": "taisho-t1515",
+      "workId": "gbcr:work:taisho-t1515",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "sutra_exegesis_family_candidate_unmerged",
+          "groupId": "vajracchedika-exegesis-t0235-t1515",
+          "label": "Vajracchedikā／《金刚经》印度论释家族",
+          "evidence": "T1510a/b、T1511、T1512、T1513、T1514、T1515 均围绕《金刚经》形成根本颂、论、释与复注层；共同所释经典不等于同一论书，平台连接到 T0235–T0239 汉译组而不合并各论作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0235",
+              "T0236a",
+              "T0236b",
+              "T0237",
+              "T0238",
+              "T0239",
+              "T1510a",
+              "T1510b",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1515"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1515.xml",
+      "upstreamPath": "T/T25/T25n1515.xml",
+      "upstreamGitBlobSha1": "b662558a621bfe0d2c223b17f839fbb6e34aec7a",
+      "upstreamBytes": 111638,
+      "upstreamSha256": "eba57ccdb6c59390eef40c2455af6a05d8f1885fb94b209dd6b5c778719f5d72",
+      "localBytes": 111639,
+      "localSha256": "ef5da3f9478a5eeb59ab6ab1f763928804a1d88f4f8f65446806a52e76cbbc6c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若波羅蜜經破取著不壞假名論",
+        "alternateTitle": "金剛般若波羅蜜經破取著不壞假名論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1515",
+        "translator": "功德施菩薩造 · 唐 · 地婆訶羅等譯",
+        "summary": "2卷。本站完整保存 T1515 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1515_001"
+      },
+      "verification": {
+        "segments": 900,
+        "folios": 33,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1515.001.0887a02",
+          "T1515.002.0897b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1516",
+      "slug": "taisho-t1516",
+      "workId": "gbcr:work:taisho-t1516",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "localPath": "data/corpus/cbeta/T25n1516.xml",
+      "upstreamPath": "T/T25/T25n1516.xml",
+      "upstreamGitBlobSha1": "020151af7c76561e068ce689de4b5d34e835b158",
+      "upstreamBytes": 32325,
+      "upstreamSha256": "992db4addb406b1c5dbe1a5ba04df2a442933ff8ad66633e72e0d5baa3f3a259",
+      "localBytes": 32326,
+      "localSha256": "3241d1e631378417448dbda62d518c75d7a10f5a08ed339fe60b849367a367be",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "聖佛母般若波羅蜜多九頌精義論",
+        "alternateTitle": "聖佛母般若波羅蜜多九頌精義論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1516",
+        "translator": "勝德赤衣菩薩造 · 宋 · 法護等譯",
+        "summary": "2卷。本站完整保存 T1516 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1516_001"
+      },
+      "verification": {
+        "segments": 229,
+        "folios": 9,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1516.001.0898a02",
+          "T1516.002.0900b30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1517",
+      "slug": "taisho-t1517",
+      "workId": "gbcr:work:taisho-t1517",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "prajnaparamita-samgraha-t1517-t1518",
+          "label": "《佛母般若圆集要义论》根本论与释论关系",
+          "evidence": "T1517 题记明确由三宝尊解释大域龙所造本论，且大正藏与经录互列 T1517/T1518；五字片段比较显示 T1518 根本文本约 77.8% 可在 T1517 释论中定位。平台保持根本论与释论两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1517",
+              "T1518"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1517.xml",
+      "upstreamPath": "T/T25/T25n1517.xml",
+      "upstreamGitBlobSha1": "487799790ecf90bdc7c17d08be913278ceb807b6",
+      "upstreamBytes": 119728,
+      "upstreamSha256": "a5573fb1297ac1537b507b9a5a928bcbc6a4da0c2c56e605cbbc7d2f18c9b7f6",
+      "localBytes": 119729,
+      "localSha256": "dd5c5462364de8b250c14f189df492ecda056e574ad93a4017542eb631d9f447",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛母般若波羅蜜多圓集要義釋論",
+        "alternateTitle": "佛母般若波羅蜜多圓集要義釋論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1517",
+        "translator": "三寶尊菩薩造 · 大域龍菩薩造本論 · 宋 · 施護等譯",
+        "summary": "4卷。本站完整保存 T1517 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1517_001"
+      },
+      "verification": {
+        "segments": 1030,
+        "folios": 39,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1517.001.0900c03",
+          "T1517.004.0912c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1518",
+      "slug": "taisho-t1518",
+      "workId": "gbcr:work:taisho-t1518",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "prajnaparamita-samgraha-t1517-t1518",
+          "label": "《佛母般若圆集要义论》根本论与释论关系",
+          "evidence": "T1517 题记明确由三宝尊解释大域龙所造本论，且大正藏与经录互列 T1517/T1518；五字片段比较显示 T1518 根本文本约 77.8% 可在 T1517 释论中定位。平台保持根本论与释论两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1517",
+              "T1518"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T25n1518.xml",
+      "upstreamPath": "T/T25/T25n1518.xml",
+      "upstreamGitBlobSha1": "8310c5775b27364f1993ac1c60cdd9c73392e211",
+      "upstreamBytes": 16533,
+      "upstreamSha256": "8a0a89b9dc6c4d87d4c7e467d73df1652c5a27422f7443da17ef84fc37b4742c",
+      "localBytes": 16534,
+      "localSha256": "499da8632472cd48b2d56ff669312840bcef7cb3cd838af64846c898763ab458",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛母般若波羅蜜多圓集要義論",
+        "alternateTitle": "佛母般若波羅蜜多圓集要義論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T25, no. 1518",
+        "translator": "大域龍菩薩造 · 宋 · 施護等譯",
+        "summary": "1卷。本站完整保存 T1518 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者、释者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本与根本经论关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1518_001"
+      },
+      "verification": {
+        "segments": 120,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1518.001.0912c06",
+          "T1518.001.0914a10"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

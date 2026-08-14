@@ -4,8 +4,8 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
-const outputVersion = "3.1.0";
-const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v3.1.0.json");
+const outputVersion = "3.2.0";
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v3.2.0.json");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -25,7 +25,8 @@ const t21BatchPath = resolve(root, "data/corpus/cbeta/batch-v2.8.0.json");
 const t22BatchPath = resolve(root, "data/corpus/cbeta/batch-v2.9.0.json");
 const t23BatchPath = resolve(root, "data/corpus/cbeta/batch-v3.0.0.json");
 const t24BatchPath = resolve(root, "data/corpus/cbeta/batch-v3.1.0.json");
-const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v1.2.0.json");
+const t25BatchPath = resolve(root, "data/corpus/cbeta/batch-v3.2.0.json");
+const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v1.3.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const t18InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json");
 const t19InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json");
@@ -34,6 +35,7 @@ const t21InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t21-inventory-v0.
 const t22InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t22-inventory-v0.1.0.json");
 const t23InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json");
 const t24InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json");
+const t25InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const agamaBatch = JSON.parse(await readFile(agamaBatchPath, "utf8"));
@@ -55,6 +57,7 @@ const t21Batch = JSON.parse(await readFile(t21BatchPath, "utf8"));
 const t22Batch = JSON.parse(await readFile(t22BatchPath, "utf8"));
 const t23Batch = JSON.parse(await readFile(t23BatchPath, "utf8"));
 const t24Batch = JSON.parse(await readFile(t24BatchPath, "utf8"));
+const t25Batch = JSON.parse(await readFile(t25BatchPath, "utf8"));
 const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
 const inventoryRaw = await readFile(inventoryPath, "utf8");
 const inventory = JSON.parse(inventoryRaw);
@@ -72,6 +75,8 @@ const t23InventoryRaw = await readFile(t23InventoryPath, "utf8");
 const t23Inventory = JSON.parse(t23InventoryRaw);
 const t24InventoryRaw = await readFile(t24InventoryPath, "utf8");
 const t24Inventory = JSON.parse(t24InventoryRaw);
+const t25InventoryRaw = await readFile(t25InventoryPath, "utf8");
+const t25Inventory = JSON.parse(t25InventoryRaw);
 const previousRegistry = JSON.parse(await readFile(previousRegistryPath, "utf8"));
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const requireUnique = (values, label) => {
@@ -116,6 +121,9 @@ const cbetaT23SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
 );
 const cbetaT24SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
   (subset) => subset.id === "taisho_vinaya_t24",
+);
+const cbetaT25SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
+  (subset) => subset.id === "taisho_sutra_commentary_t25",
 );
 if (
   inventory.source.commit !== catalog.source.commit ||
@@ -181,6 +189,14 @@ if (
 ) {
   throw new Error("T24 律部逐文件清单与来源快照不一致");
 }
+if (
+  t25Inventory.source.commit !== catalog.source.commit ||
+  t25Inventory.totals.records !== cbetaT25SubsetSnapshot?.candidateRecordCount ||
+  t25Inventory.totals.upstreamBytes !== cbetaT25SubsetSnapshot?.candidateBytes ||
+  sha256(t25InventoryRaw) !== cbetaT25SubsetSnapshot?.inventorySha256
+) {
+  throw new Error("T25 释经论部逐文件清单与来源快照不一致");
+}
 const inventoryByPath = new Map(inventory.records.map((record) => [record.upstreamPath, record]));
 const t18InventoryByPath = new Map(t18Inventory.records.map((record) => [record.upstreamPath, record]));
 const t19InventoryByPath = new Map(t19Inventory.records.map((record) => [record.upstreamPath, record]));
@@ -189,6 +205,7 @@ const t21InventoryByPath = new Map(t21Inventory.records.map((record) => [record.
 const t22InventoryByPath = new Map(t22Inventory.records.map((record) => [record.upstreamPath, record]));
 const t23InventoryByPath = new Map(t23Inventory.records.map((record) => [record.upstreamPath, record]));
 const t24InventoryByPath = new Map(t24Inventory.records.map((record) => [record.upstreamPath, record]));
+const t25InventoryByPath = new Map(t25Inventory.records.map((record) => [record.upstreamPath, record]));
 
 const files = [];
 const worksById = new Map();
@@ -283,14 +300,14 @@ const manifest = {
 
 const cbetaCandidateSubsets = snapshots.sources
   .find((source) => source.id === "cbeta_xml_p5")
-  ?.candidateSubsets?.filter((subset) => ["taisho_chinese_sutra_t01_t17", "taisho_esoteric_t18", "taisho_esoteric_t19", "taisho_esoteric_t20", "taisho_esoteric_t21", "taisho_vinaya_t22", "taisho_vinaya_t23", "taisho_vinaya_t24"].includes(subset.id));
-if (cbetaCandidateSubsets?.length !== 8) throw new Error("缺少汉译经藏、T18–T21 密教部或 T22–T24 律部候选子集快照");
+  ?.candidateSubsets?.filter((subset) => ["taisho_chinese_sutra_t01_t17", "taisho_esoteric_t18", "taisho_esoteric_t19", "taisho_esoteric_t20", "taisho_esoteric_t21", "taisho_vinaya_t22", "taisho_vinaya_t23", "taisho_vinaya_t24", "taisho_sutra_commentary_t25"].includes(subset.id));
+if (cbetaCandidateSubsets?.length !== 9) throw new Error("缺少汉译经藏、T18–T21 密教部、T22–T24 律部或 T25 释经论部候选子集快照");
 const controlledSubsetFiles = files
   .flatMap(sourceUnits)
-  .filter((file) => /^T\/T(0[1-9]|1[0-9]|2[0-4])\//.test(file.upstreamPath));
+  .filter((file) => /^T\/T(0[1-9]|1[0-9]|2[0-5])\//.test(file.upstreamPath));
 const controlledSubsetRecords = controlledSubsetFiles.length;
 for (const file of controlledSubsetFiles) {
-  const inventoryRecord = inventoryByPath.get(file.upstreamPath) ?? t18InventoryByPath.get(file.upstreamPath) ?? t19InventoryByPath.get(file.upstreamPath) ?? t20InventoryByPath.get(file.upstreamPath) ?? t21InventoryByPath.get(file.upstreamPath) ?? t22InventoryByPath.get(file.upstreamPath) ?? t23InventoryByPath.get(file.upstreamPath) ?? t24InventoryByPath.get(file.upstreamPath);
+  const inventoryRecord = inventoryByPath.get(file.upstreamPath) ?? t18InventoryByPath.get(file.upstreamPath) ?? t19InventoryByPath.get(file.upstreamPath) ?? t20InventoryByPath.get(file.upstreamPath) ?? t21InventoryByPath.get(file.upstreamPath) ?? t22InventoryByPath.get(file.upstreamPath) ?? t23InventoryByPath.get(file.upstreamPath) ?? t24InventoryByPath.get(file.upstreamPath) ?? t25InventoryByPath.get(file.upstreamPath);
   if (
     !inventoryRecord ||
     inventoryRecord.upstreamGitBlobSha1 !== file.upstreamGitBlobSha1 ||
@@ -366,8 +383,11 @@ const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id
       t24SourceRecordDenominator: t24Batch.collection.sourceRecordDenominator,
       t24ControlledSourceRecords: t24Batch.collection.controlledSourceRecords,
       t24SourceRecordPercentage: 100,
+      t25SourceRecordDenominator: t25Batch.collection.sourceRecordDenominator,
+      t25ControlledSourceRecords: t25Batch.collection.controlledSourceRecords,
+      t25SourceRecordPercentage: 100,
       denominatorWorks: null,
-      denominatorNote: "1,582 是大正藏 T01–T24 八个固定候选子集中的来源记录，不是去重后的全球作品数。T01–T17 已完成 881/881，T18 完成 76/76，T19 完成 126/126，T20 完成 184/184，T21 完成 228/228，T22 完成 15/15，T23 完成 13/13，T24 完成 59/59。T18–T21 密教部与 T22–T24 律部分别保留译经、仪轨、论造、编集、广律、戒本、羯磨、解释书、事部组件、疑伪归属、异译与版本边界；目录部类、同一部派、题名或机器相似度不等于同一作品或佛陀逐字亲说归属。"
+      denominatorNote: "1,597 是大正藏 T01–T25 九个固定候选子集中的来源记录，不是去重后的全球作品数。T01–T17 已完成 881/881，T18 完成 76/76，T19 完成 126/126，T20 完成 184/184，T21 完成 228/228，T22 完成 15/15，T23 完成 13/13，T24 完成 59/59，T25 完成 15/15。T18–T21 密教部、T22–T24 律部与 T25 释经论部分别保留译经、仪轨、论造、编集、广律、戒本、羯磨、根本经论、复注、疑伪归属、异译与版本边界；目录部类、传统作者、题名或机器相似度不等于同一作品或佛陀逐字亲说归属。"
     }
   : family);
 const registry = {
@@ -381,11 +401,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v3.1.0.json\n${sha256(snapshotRaw)}  source-snapshots-v1.2.0.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n${sha256(t18InventoryRaw)}  cbeta-taisho-t18-inventory-v0.1.0.json\n${sha256(t19InventoryRaw)}  cbeta-taisho-t19-inventory-v0.1.0.json\n${sha256(t20InventoryRaw)}  cbeta-taisho-t20-inventory-v0.1.0.json\n${sha256(t21InventoryRaw)}  cbeta-taisho-t21-inventory-v0.1.0.json\n${sha256(t22InventoryRaw)}  cbeta-taisho-t22-inventory-v0.1.0.json\n${sha256(t23InventoryRaw)}  cbeta-taisho-t23-inventory-v0.1.0.json\n${sha256(t24InventoryRaw)}  cbeta-taisho-t24-inventory-v0.1.0.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v3.2.0.json\n${sha256(snapshotRaw)}  source-snapshots-v1.3.0.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n${sha256(t18InventoryRaw)}  cbeta-taisho-t18-inventory-v0.1.0.json\n${sha256(t19InventoryRaw)}  cbeta-taisho-t19-inventory-v0.1.0.json\n${sha256(t20InventoryRaw)}  cbeta-taisho-t20-inventory-v0.1.0.json\n${sha256(t21InventoryRaw)}  cbeta-taisho-t21-inventory-v0.1.0.json\n${sha256(t22InventoryRaw)}  cbeta-taisho-t22-inventory-v0.1.0.json\n${sha256(t23InventoryRaw)}  cbeta-taisho-t23-inventory-v0.1.0.json\n${sha256(t24InventoryRaw)}  cbeta-taisho-t24-inventory-v0.1.0.json\n${sha256(t25InventoryRaw)}  cbeta-taisho-t25-inventory-v0.1.0.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v3.1.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-cbeta-v3.1.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-cbeta-v3.1.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v3.2.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-cbeta-v3.2.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-cbeta-v3.2.0.sha256"), checksumRaw],
 ];
 const expressionCount = works.reduce((sum, work) => sum + work.expressions.length, 0);
 const segmentCount = works.flatMap((work) => work.expressions).reduce((sum, expression) => sum + expression.stableSegments, 0);

@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.1.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.2.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -254,6 +254,21 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "unattributed_vinaya_text") {
     return "来源题记未载作者或译者；即使同作品另一版本有传统署名，平台也不把该署名自动转移到本见证。";
+  }
+  if (file.sourceRole === "authored_exegetical_treatise_with_translation") {
+    return "来源并列保存论师造、颂、释或本论责任与汉译责任；平台将论书、根本文本、复注和译本分层，不把论师撰述改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_exegetical_treatise_without_named_author") {
+    return "来源保存汉译者题记，但未载论书作者；平台保留作者未知状态，不因译者、题材或目录邻接补造作者及佛陀亲说归属。";
+  }
+  if (file.sourceRole === "lost_translation_exegetical_treatise") {
+    return "来源目录题记为失译的论释文本；平台保留译者未知状态，不补造作者、译者或佛陀逐字亲说归属。";
+  }
+  if (file.sourceRole === "traditional_attributed_exegetical_treatise_with_contested_authorship") {
+    return "来源保留传统作者题记，同时公开现代研究对作者、译者参与程度或成书层次的争议；平台不把传统署名当作已经裁决的现代事实。";
+  }
+  if (file.sourceRole === "traditional_attributed_exegetical_treatise_with_contested_origin") {
+    return "来源保留传统作者与解释者题记，同时公开真伪或成书来源争议；平台只确认本次文本见证，不把传统署名当作已经裁决的现代事实。";
   }
   return undefined;
 };
