@@ -1,0 +1,1354 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.7.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.6.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t40-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T40; T40 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T40",
+    "title": "大正藏 T40 四分律、菩萨戒及经论疏部固定来源记录",
+    "sourceRecordDenominator": 17,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 17,
+    "controlledSourceRecords": 17,
+    "newSourceBytes": 13266426,
+    "newStableSegments": 71478,
+    "newFolios": 2581,
+    "newJuans": 44,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 17,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 17,
+    "attributionBoundaryRecords": 17,
+    "newWorks": 17,
+    "controlledWorks": 17,
+    "workCountingDecision": "T40 的 17 份来源记录登记为 17 个完整表达和 17 个独立律学或经论疏作品。T1804/T1805 保持行事钞—再注释层级；T1806/T1807 保持含注戒本与戒本疏边界；T1808–T1810 按通用、僧众、尼众羯磨范围分开；T1811–T1815 保持五部梵网菩萨戒疏异作；T1817 仅释般若末后一颂；T1820 保存节要与补注的复合责任。所有记录均不标作根本律、根本经、论本表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_vinaya_root_manual_precept_karman_gender_scope_treatise_commentary_revision_abridgment_supplement_and_subcommentary_boundaries_recorded",
+    "existingControlledRecords": [
+      "T0389",
+      "T1428",
+      "T1429",
+      "T1430",
+      "T1432",
+      "T1433",
+      "T1434",
+      "T1484",
+      "T1510a",
+      "T1511",
+      "T1512",
+      "T1513",
+      "T1514",
+      "T1519",
+      "T1524",
+      "T1529"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [
+      "dharmaguptaka-practice-t1428-t1804-t1805",
+      "dharmaguptaka-bhiksu-precept-t1429-t1430-t1806-t1807",
+      "dharmaguptaka-karman-t1432-t1434-t1808-t1810",
+      "brahma-net-precept-exegesis-t1484-t1811-t1815"
+    ],
+    "rootTreatiseCommentaryGroups": [
+      "diamond-treatise-exegesis-t1511-t1816",
+      "diamond-final-verse-t1510a-t1514-t1817",
+      "lotus-treatise-exegesis-t1519-t1818",
+      "rebirth-treatise-exegesis-t1524-t1819",
+      "bequeathed-teaching-t0389-t1529-t1820"
+    ],
+    "subcommentaryGroups": [
+      "dharmaguptaka-practice-subcommentary-t1804-t1805"
+    ],
+    "scopeBoundaryGroups": [
+      "dharmaguptaka-bhiksu-precept-t1429-t1430-t1806-t1807",
+      "dharmaguptaka-karman-scope-t1808-t1810",
+      "tiantai-precept-commentary-t1811-t1812"
+    ],
+    "relatedDistinctWorkGroups": [
+      "dharmaguptaka-karman-scope-t1808-t1810",
+      "brahma-net-precept-exegesis-t1484-t1811-t1815",
+      "diamond-final-verse-t1510a-t1514-t1817",
+      "bequeathed-teaching-t0389-t1529-t1820"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1428↔T1804↔T1805（根本广律、行事钞与资持记再注释分层保存）",
+      "T1429/T1430↔T1806/T1807（戒本、含注戒本与戒本疏分层保存）",
+      "T1432–T1434↔T1808–T1810（羯磨根本资料与通用、僧众、尼众编集按范围分层）",
+      "T1484↔T1811–T1815（梵网菩萨戒根本经与五部东亚戒疏保持异作）",
+      "T1511↔T1816；T1510a–T1514↔T1817（完整般若论书群、会释与末后一颂范围分层）",
+      "T1519↔T1818，T1524↔T1819（法华、净土论本与东亚论疏分层）",
+      "T0389/T1529↔T1820（根经、论本与净源节要、袾宏补注的复合编辑责任分层）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "silla_authored_precept_commentary": [
+        "T1814"
+      ],
+      "silla_compiled_precept_commentary": [
+        "T1815"
+      ],
+      "sinitic_abridged_supplemented_treatise_commentary": [
+        "T1820"
+      ],
+      "sinitic_annotated_bhiksu_precept_text": [
+        "T1806"
+      ],
+      "sinitic_authored_bhiksu_precept_commentary": [
+        "T1807"
+      ],
+      "sinitic_authored_precept_commentary": [
+        "T1813"
+      ],
+      "sinitic_authored_treatise_commentary": [
+        "T1816",
+        "T1818",
+        "T1819"
+      ],
+      "sinitic_authored_verse_commentary": [
+        "T1817"
+      ],
+      "sinitic_authored_vinaya_subcommentary": [
+        "T1805"
+      ],
+      "sinitic_compiled_monk_karman_manual": [
+        "T1809"
+      ],
+      "sinitic_compiled_nun_karman_manual": [
+        "T1810"
+      ],
+      "sinitic_compiled_vinaya_karman_manual": [
+        "T1808"
+      ],
+      "sinitic_compiled_vinaya_practice_manual": [
+        "T1804"
+      ],
+      "sinitic_revised_precept_commentary": [
+        "T1812"
+      ],
+      "sinitic_taught_precept_commentary_record": [
+        "T1811"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation, revision and exegetical dependence; it cannot merge a root vinaya, precept text, karman source, treatise, practice manual, gender-scoped manual, direct commentary, revised commentary, abridgment, supplement or subcommentary.",
+      "pairs": [
+        {
+          "pair": [
+            "T1804",
+            "T1805"
+          ],
+          "normalizedCharacters": [
+            231907,
+            388976
+          ],
+          "fiveGramContainmentOfShorter": 0.019247,
+          "fiveGramJaccard": 0.007112
+        },
+        {
+          "pair": [
+            "T1806",
+            "T1807"
+          ],
+          "normalizedCharacters": [
+            42234,
+            40867
+          ],
+          "fiveGramContainmentOfShorter": 0.022305,
+          "fiveGramJaccard": 0.010831
+        },
+        {
+          "pair": [
+            "T1808",
+            "T1809"
+          ],
+          "normalizedCharacters": [
+            14711,
+            29521
+          ],
+          "fiveGramContainmentOfShorter": 0.293856,
+          "fiveGramJaccard": 0.134658
+        },
+        {
+          "pair": [
+            "T1808",
+            "T1810"
+          ],
+          "normalizedCharacters": [
+            14711,
+            25294
+          ],
+          "fiveGramContainmentOfShorter": 0.250387,
+          "fiveGramJaccard": 0.110438
+        },
+        {
+          "pair": [
+            "T1809",
+            "T1810"
+          ],
+          "normalizedCharacters": [
+            29521,
+            25294
+          ],
+          "fiveGramContainmentOfShorter": 0.812885,
+          "fiveGramJaccard": 0.668912
+        },
+        {
+          "pair": [
+            "T1811",
+            "T1812"
+          ],
+          "normalizedCharacters": [
+            25460,
+            31694
+          ],
+          "fiveGramContainmentOfShorter": 0.027539,
+          "fiveGramJaccard": 0.012473
+        },
+        {
+          "pair": [
+            "T1811",
+            "T1813"
+          ],
+          "normalizedCharacters": [
+            25460,
+            77619
+          ],
+          "fiveGramContainmentOfShorter": 0.005483,
+          "fiveGramJaccard": 0.001373
+        },
+        {
+          "pair": [
+            "T1813",
+            "T1814"
+          ],
+          "normalizedCharacters": [
+            77619,
+            48614
+          ],
+          "fiveGramContainmentOfShorter": 0.023688,
+          "fiveGramJaccard": 0.00911
+        },
+        {
+          "pair": [
+            "T1813",
+            "T1815"
+          ],
+          "normalizedCharacters": [
+            77619,
+            41321
+          ],
+          "fiveGramContainmentOfShorter": 0.040583,
+          "fiveGramJaccard": 0.014476
+        },
+        {
+          "pair": [
+            "T1814",
+            "T1815"
+          ],
+          "normalizedCharacters": [
+            48614,
+            41321
+          ],
+          "fiveGramContainmentOfShorter": 0.042143,
+          "fiveGramJaccard": 0.020132
+        },
+        {
+          "pair": [
+            "T1816",
+            "T1817"
+          ],
+          "normalizedCharacters": [
+            86178,
+            1256
+          ],
+          "fiveGramContainmentOfShorter": 0.004013,
+          "fiveGramJaccard": 0.000059
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T40",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002804",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002815",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002789",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002777",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002799",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002821",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002348",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002439",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000995",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000978",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000980",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000972",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001608",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002142",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000900",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003294",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001094"
+    ],
+    "caveat": "T40 是律疏与经论疏集合，不是佛说经集合。平台完整保存固定来源，同时区分根本律、戒本、羯磨、论本、行事钞、含注本、男女众范围、直接疏、删补本、再注释、末后一颂、节要与补注；目录部类、共同根本典籍、相近题名、同作者、仪式套语、传统责任题记或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1804",
+      "slug": "taisho-t1804",
+      "workId": "gbcr:work:dharmaguptaka-vinaya-xingshi-chao-daoxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "四分律刪繁補闕行事鈔",
+      "sourceRole": "sinitic_compiled_vinaya_practice_manual",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_root_practice_manual_and_subcommentary_distinct",
+          "groupId": "dharmaguptaka-practice-t1428-t1804-t1805",
+          "label": "《四分律》、道宣《行事钞》与元照《资持记》",
+          "evidence": "DILA T1804 关联 T1428 与 T1805，T1805 关联 T1428 与 T1804。根本广律、律学行事钞和对行事钞的资持记分为三层作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1804",
+              "T1805"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_manual_and_subcommentary_distinct",
+          "groupId": "dharmaguptaka-practice-subcommentary-t1804-t1805",
+          "label": "道宣《四分律行事钞》与元照《资持记》",
+          "evidence": "T1805 以 T1804 为直接解释对象；引用相同律文与科判不能把宋代再注释并入唐代行事钞。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1804",
+              "T1805"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1804.xml",
+      "upstreamPath": "T/T40/T40n1804.xml",
+      "upstreamGitBlobSha1": "451cceffe64216526c5fbbae84ebaaa058844d89",
+      "upstreamBytes": 1706278,
+      "upstreamSha256": "2e96d9ba564c03ad2ff96ae11b6920531cc42223577e8fb8e79e42d373113922",
+      "localBytes": 1706279,
+      "localSha256": "eb5da77902b43cfb373bc5afce6be824a63d53595c13608ee5b670b3f3bc0b8c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律刪繁補闕行事鈔",
+        "alternateTitle": "四分律刪繁補闕行事鈔",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1804",
+        "translator": "唐 · 道宣撰",
+        "summary": "3卷。道宣《四分律删繁补阙行事钞》完整来源。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1804_001"
+      },
+      "verification": {
+        "segments": 13392,
+        "folios": 469,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1804.001.0001a02",
+          "T1804.003.0156c30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1805",
+      "slug": "taisho-t1805",
+      "workId": "gbcr:work:dharmaguptaka-vinaya-zichi-ji-yuanzhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "四分律行事鈔資持記",
+      "sourceRole": "sinitic_authored_vinaya_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_root_practice_manual_and_subcommentary_distinct",
+          "groupId": "dharmaguptaka-practice-t1428-t1804-t1805",
+          "label": "《四分律》、道宣《行事钞》与元照《资持记》",
+          "evidence": "DILA T1804 关联 T1428 与 T1805，T1805 关联 T1428 与 T1804。根本广律、律学行事钞和对行事钞的资持记分为三层作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1804",
+              "T1805"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_manual_and_subcommentary_distinct",
+          "groupId": "dharmaguptaka-practice-subcommentary-t1804-t1805",
+          "label": "道宣《四分律行事钞》与元照《资持记》",
+          "evidence": "T1805 以 T1804 为直接解释对象；引用相同律文与科判不能把宋代再注释并入唐代行事钞。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1804",
+              "T1805"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1805.xml",
+      "upstreamPath": "T/T40/T40n1805.xml",
+      "upstreamGitBlobSha1": "689b17b8af049ea1524460ff6b23d98256761116",
+      "upstreamBytes": 3107130,
+      "upstreamSha256": "8eb108d2dff31d62cdeee1871fedb24f98124ab7c58cc3714302988054b2fb7b",
+      "localBytes": 3107131,
+      "localSha256": "a7a7c1d92c011b8b2c975b59162bf9a3697b253970939e49f3a50885d8f19ab8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律行事鈔資持記",
+        "alternateTitle": "四分律行事鈔資持記",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1805",
+        "translator": "宋 · 元照撰",
+        "summary": "3卷。元照《四分律行事钞资持记》再注释完整来源。传统责任题记：宋 元照撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1805_001"
+      },
+      "verification": {
+        "segments": 22993,
+        "folios": 812,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1805.001.0157a02",
+          "T1805.003.0428a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1806",
+      "slug": "taisho-t1806",
+      "workId": "gbcr:work:dharmaguptaka-bhiksu-precept-annotated-daoxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "四分律比丘含注戒本",
+      "sourceRole": "sinitic_annotated_bhiksu_precept_text",
+      "bibliographicRelations": [
+        {
+          "type": "bhiksu_precept_roots_and_commentaries_distinct",
+          "groupId": "dharmaguptaka-bhiksu-precept-t1429-t1430-t1806-t1807",
+          "label": "四分律比丘戒本及道宣含注本、定宾疏",
+          "evidence": "DILA T1806、T1807 均关联 T1429 与 T1430。戒本、含注戒本和戒本疏在文本功能与作者责任上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1429",
+              "T1430",
+              "T1806",
+              "T1807"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1806.xml",
+      "upstreamPath": "T/T40/T40n1806.xml",
+      "upstreamGitBlobSha1": "0fe3690ed26c79fd6be8f7faa6dd2f39a0e8beae",
+      "upstreamBytes": 463763,
+      "upstreamSha256": "902b36033a3d59e03263d811ae1d7140e87baa24da59ded2066546fb1036f44e",
+      "localBytes": 463764,
+      "localSha256": "a763076f2fae56674de52ddb41bc7a26cc1a782f2a534ddc67382468a0b8565e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律比丘含注戒本",
+        "alternateTitle": "四分律比丘含注戒本",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1806",
+        "translator": "唐 · 道宣述",
+        "summary": "3卷。道宣《四分律比丘含注戒本》完整来源。传统责任题记：唐 道宣述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1806_001"
+      },
+      "verification": {
+        "segments": 2962,
+        "folios": 105,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1806.001.0429a02",
+          "T1806.003.0463a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1807",
+      "slug": "taisho-t1807",
+      "workId": "gbcr:work:dharmaguptaka-bhiksu-precept-shu-dingbin",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "四分比丘戒本疏",
+      "sourceRole": "sinitic_authored_bhiksu_precept_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "bhiksu_precept_roots_and_commentaries_distinct",
+          "groupId": "dharmaguptaka-bhiksu-precept-t1429-t1430-t1806-t1807",
+          "label": "四分律比丘戒本及道宣含注本、定宾疏",
+          "evidence": "DILA T1806、T1807 均关联 T1429 与 T1430。戒本、含注戒本和戒本疏在文本功能与作者责任上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1429",
+              "T1430",
+              "T1806",
+              "T1807"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1807.xml",
+      "upstreamPath": "T/T40/T40n1807.xml",
+      "upstreamGitBlobSha1": "547d440ccfc788d00da3fb04df13162dce31ffd6",
+      "upstreamBytes": 243934,
+      "upstreamSha256": "70859be02ca5226763a2c6e9874fec58bbb6a3a9f952f1955ee8f6fd2ceb8e80",
+      "localBytes": 243935,
+      "localSha256": "a948ce476244864ee2de81684cb3232669a0d8c18e8f8a345bcbded8064d3cb2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分比丘戒本疏",
+        "alternateTitle": "四分比丘戒本疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1807",
+        "translator": "唐 · 定賓撰",
+        "summary": "2卷。定宾《四分比丘戒本疏》完整来源。传统责任题记：唐 定賓撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1807_001"
+      },
+      "verification": {
+        "segments": 2396,
+        "folios": 86,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1807.001.0463a17",
+          "T1807.002.0491a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1808",
+      "slug": "taisho-t1808",
+      "workId": "gbcr:work:dharmaguptaka-suiji-karman-daoxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "四分律刪補隨機羯磨",
+      "sourceRole": "sinitic_compiled_vinaya_karman_manual",
+      "bibliographicRelations": [
+        {
+          "type": "karman_roots_and_gender_scoped_manuals_distinct",
+          "groupId": "dharmaguptaka-karman-t1432-t1434-t1808-t1810",
+          "label": "四分律羯磨根本资料与道宣、怀素三部羯磨编集",
+          "evidence": "DILA 将 T1808 关联 T1432–T1434，将 T1809 关联 T1432/T1433/T1808，将 T1810 关联 T1432/T1808。通用、僧众与尼众适用范围及编集责任不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434",
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        },
+        {
+          "type": "general_monk_nun_karman_scope_distinct",
+          "groupId": "dharmaguptaka-karman-scope-t1808-t1810",
+          "label": "道宣《随机羯磨》与怀素《僧羯磨》《尼羯磨》",
+          "evidence": "三部编集共享四分律羯磨传统，但通用删补、僧众和尼众范围不可互换；相似仪式语句不是同一作品证明。",
+          "externalIds": {
+            "cbeta": [
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1808.xml",
+      "upstreamPath": "T/T40/T40n1808.xml",
+      "upstreamGitBlobSha1": "edf3acec42fe0720dbf55274e1aff8f4a6416e6a",
+      "upstreamBytes": 746737,
+      "upstreamSha256": "411b256aff030edf4f700cfb6d4a7f5dc88c992e284dbbed717f0a0dd9812c26",
+      "localBytes": 746738,
+      "localSha256": "9feae5fa029b0e164267d00e170f97b659338446b4c7c658001c5b3d66d406db",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律刪補隨機羯磨",
+        "alternateTitle": "四分律刪補隨機羯磨",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1808",
+        "translator": "唐 · 道宣集",
+        "summary": "2卷。道宣《四分律删补随机羯磨》完整来源。传统责任题记：唐 道宣集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1808_001"
+      },
+      "verification": {
+        "segments": 1053,
+        "folios": 59,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1808.001.0492a02",
+          "T1808.002.0511b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1809",
+      "slug": "taisho-t1809",
+      "workId": "gbcr:work:dharmaguptaka-monk-karman-huaisu",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "僧羯磨",
+      "sourceRole": "sinitic_compiled_monk_karman_manual",
+      "bibliographicRelations": [
+        {
+          "type": "karman_roots_and_gender_scoped_manuals_distinct",
+          "groupId": "dharmaguptaka-karman-t1432-t1434-t1808-t1810",
+          "label": "四分律羯磨根本资料与道宣、怀素三部羯磨编集",
+          "evidence": "DILA 将 T1808 关联 T1432–T1434，将 T1809 关联 T1432/T1433/T1808，将 T1810 关联 T1432/T1808。通用、僧众与尼众适用范围及编集责任不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434",
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        },
+        {
+          "type": "general_monk_nun_karman_scope_distinct",
+          "groupId": "dharmaguptaka-karman-scope-t1808-t1810",
+          "label": "道宣《随机羯磨》与怀素《僧羯磨》《尼羯磨》",
+          "evidence": "三部编集共享四分律羯磨传统，但通用删补、僧众和尼众范围不可互换；相似仪式语句不是同一作品证明。",
+          "externalIds": {
+            "cbeta": [
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1809.xml",
+      "upstreamPath": "T/T40/T40n1809.xml",
+      "upstreamGitBlobSha1": "53fac1bf87811e181491cd258253e7d608f88abe",
+      "upstreamBytes": 517307,
+      "upstreamSha256": "178b017a71833fb626d158b60c8c6cc3f7d6a40a4970cf07ffd25b62632c8e86",
+      "localBytes": 517308,
+      "localSha256": "66b9a84a58bdd8398a21f21080644116e9585d5e12fe955a327b365dbcbd8963",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "僧羯磨",
+        "alternateTitle": "僧羯磨",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1809",
+        "translator": "唐 · 懷素集",
+        "summary": "3卷。怀素《僧羯磨》完整来源。传统责任题记：唐 懷素集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1809_001"
+      },
+      "verification": {
+        "segments": 1933,
+        "folios": 83,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1809.001.0511b04",
+          "T1809.003.0538b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1810",
+      "slug": "taisho-t1810",
+      "workId": "gbcr:work:dharmaguptaka-nun-karman-huaisu",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "尼羯磨",
+      "sourceRole": "sinitic_compiled_nun_karman_manual",
+      "bibliographicRelations": [
+        {
+          "type": "karman_roots_and_gender_scoped_manuals_distinct",
+          "groupId": "dharmaguptaka-karman-t1432-t1434-t1808-t1810",
+          "label": "四分律羯磨根本资料与道宣、怀素三部羯磨编集",
+          "evidence": "DILA 将 T1808 关联 T1432–T1434，将 T1809 关联 T1432/T1433/T1808，将 T1810 关联 T1432/T1808。通用、僧众与尼众适用范围及编集责任不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434",
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        },
+        {
+          "type": "general_monk_nun_karman_scope_distinct",
+          "groupId": "dharmaguptaka-karman-scope-t1808-t1810",
+          "label": "道宣《随机羯磨》与怀素《僧羯磨》《尼羯磨》",
+          "evidence": "三部编集共享四分律羯磨传统，但通用删补、僧众和尼众范围不可互换；相似仪式语句不是同一作品证明。",
+          "externalIds": {
+            "cbeta": [
+              "T1808",
+              "T1809",
+              "T1810"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1810.xml",
+      "upstreamPath": "T/T40/T40n1810.xml",
+      "upstreamGitBlobSha1": "e467ef42193d07e9b9b78dcffb04080a366a8f30",
+      "upstreamBytes": 464400,
+      "upstreamSha256": "1386a66e6f672206034241813fbdae07bc0f839c32429b3c162bbd4a50f983e2",
+      "localBytes": 464401,
+      "localSha256": "5f77744ce17f97c9b4549c05815f5395defc03ee7ceff665e608034032a580bf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "尼羯磨",
+        "alternateTitle": "尼羯磨",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1810",
+        "translator": "唐 · 懷素集",
+        "summary": "3卷。怀素《尼羯磨》完整来源。传统责任题记：唐 懷素集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1810_001"
+      },
+      "verification": {
+        "segments": 1674,
+        "folios": 71,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1810.001.0538b03",
+          "T1810.003.0561c30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1811",
+      "slug": "taisho-t1811",
+      "workId": "gbcr:work:brahma-net-bodhisattva-precept-yishu-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "菩薩戒義疏",
+      "sourceRole": "sinitic_taught_precept_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_brahma_net_bodhisattva_precepts_distinct",
+          "groupId": "brahma-net-precept-exegesis-t1484-t1811-t1815",
+          "label": "《梵网经》菩萨戒与五部东亚戒疏",
+          "evidence": "DILA T1811–T1815 均关联 T1484。智顗说本、明旷删补本、法藏疏、义寂疏与太贤古迹记在作者、结构和传承上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812",
+              "T1813",
+              "T1814",
+              "T1815"
+            ]
+          }
+        },
+        {
+          "type": "tiantai_precept_commentary_and_revision_distinct",
+          "groupId": "tiantai-precept-commentary-t1811-t1812",
+          "label": "智顗说、灌顶记《菩萨戒义疏》与明旷删补《天台菩萨戒疏》",
+          "evidence": "T1812 责任题记明确为明旷删补；即使承用天台戒疏传统，也作为具有独立删补责任与文本边界的作品保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1811.xml",
+      "upstreamPath": "T/T40/T40n1811.xml",
+      "upstreamGitBlobSha1": "f88d40276596e91ccdd2f5083d9d91af5587826e",
+      "upstreamBytes": 309208,
+      "upstreamSha256": "bc17bbda7db1d13b6bdabd69cbd89712676fd8a84819a3801bbf287e95b2789d",
+      "localBytes": 309209,
+      "localSha256": "304f13cd951638a37191c3eddd4cf2e60ed58e20827b9de8f93d2c731990ec16",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒義疏",
+        "alternateTitle": "菩薩戒義疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1811",
+        "translator": "隋 · 智顗說 · 灌頂記",
+        "summary": "2卷。智顗说、灌顶记《菩萨戒义疏》完整来源。传统责任题记：隋 智顗說 灌頂記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1811_001"
+      },
+      "verification": {
+        "segments": 1502,
+        "folios": 54,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1811.001.0563a03",
+          "T1811.002.0580b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1812",
+      "slug": "taisho-t1812",
+      "workId": "gbcr:work:tiantai-bodhisattva-precept-shu-mingkuang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "天台菩薩戒疏",
+      "sourceRole": "sinitic_revised_precept_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_brahma_net_bodhisattva_precepts_distinct",
+          "groupId": "brahma-net-precept-exegesis-t1484-t1811-t1815",
+          "label": "《梵网经》菩萨戒与五部东亚戒疏",
+          "evidence": "DILA T1811–T1815 均关联 T1484。智顗说本、明旷删补本、法藏疏、义寂疏与太贤古迹记在作者、结构和传承上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812",
+              "T1813",
+              "T1814",
+              "T1815"
+            ]
+          }
+        },
+        {
+          "type": "tiantai_precept_commentary_and_revision_distinct",
+          "groupId": "tiantai-precept-commentary-t1811-t1812",
+          "label": "智顗说、灌顶记《菩萨戒义疏》与明旷删补《天台菩萨戒疏》",
+          "evidence": "T1812 责任题记明确为明旷删补；即使承用天台戒疏传统，也作为具有独立删补责任与文本边界的作品保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1812.xml",
+      "upstreamPath": "T/T40/T40n1812.xml",
+      "upstreamGitBlobSha1": "0a28b0d35d8453e91b0939d2d62ed4fabfb001ee",
+      "upstreamBytes": 199349,
+      "upstreamSha256": "08c51130230c413ab5e40102ea6cf124d26d78fb35982ed775f3a3fcf3b96ba4",
+      "localBytes": 199350,
+      "localSha256": "d63d6d51bb45bb9c30a133962c4fcbf0bab09dd6c2e2e1a75ecd21d165a31d18",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台菩薩戒疏",
+        "alternateTitle": "天台菩薩戒疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1812",
+        "translator": "唐 · 明曠刪補",
+        "summary": "3卷。明旷删补《天台菩萨戒疏》完整来源。传统责任题记：唐 明曠刪補。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1812_001"
+      },
+      "verification": {
+        "segments": 1878,
+        "folios": 68,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1812.001.0580b04",
+          "T1812.003.0602a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1813",
+      "slug": "taisho-t1813",
+      "workId": "gbcr:work:brahma-net-precept-shu-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "梵網經菩薩戒本疏",
+      "sourceRole": "sinitic_authored_precept_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_brahma_net_bodhisattva_precepts_distinct",
+          "groupId": "brahma-net-precept-exegesis-t1484-t1811-t1815",
+          "label": "《梵网经》菩萨戒与五部东亚戒疏",
+          "evidence": "DILA T1811–T1815 均关联 T1484。智顗说本、明旷删补本、法藏疏、义寂疏与太贤古迹记在作者、结构和传承上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812",
+              "T1813",
+              "T1814",
+              "T1815"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1813.xml",
+      "upstreamPath": "T/T40/T40n1813.xml",
+      "upstreamGitBlobSha1": "7ad5d46e0df7db303f923624afb614bd372969e1",
+      "upstreamBytes": 711007,
+      "upstreamSha256": "ac223bce2478b3cc04d7eb53958ca0a653fef75b8f940ea5fafd69bdcdefd507",
+      "localBytes": 711008,
+      "localSha256": "ef798687a55b896c722d4106b1facef5dc9d2f444826975a46c307769ba744aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵網經菩薩戒本疏",
+        "alternateTitle": "梵網經菩薩戒本疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1813",
+        "translator": "唐 · 法藏撰",
+        "summary": "6卷。法藏《梵网经菩萨戒本疏》完整来源。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1813_001"
+      },
+      "verification": {
+        "segments": 4609,
+        "folios": 164,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1813.001.0602a22",
+          "T1813.006.0655b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1814",
+      "slug": "taisho-t1814",
+      "workId": "gbcr:work:bodhisattva-precept-shu-ui-jeok",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "菩薩戒本疏",
+      "sourceRole": "silla_authored_precept_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_brahma_net_bodhisattva_precepts_distinct",
+          "groupId": "brahma-net-precept-exegesis-t1484-t1811-t1815",
+          "label": "《梵网经》菩萨戒与五部东亚戒疏",
+          "evidence": "DILA T1811–T1815 均关联 T1484。智顗说本、明旷删补本、法藏疏、义寂疏与太贤古迹记在作者、结构和传承上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812",
+              "T1813",
+              "T1814",
+              "T1815"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1814.xml",
+      "upstreamPath": "T/T40/T40n1814.xml",
+      "upstreamGitBlobSha1": "63202d0de5f01790a2bbb02206ceebf505c49018",
+      "upstreamBytes": 282696,
+      "upstreamSha256": "625d7d5a551268dcee3c40e5c6e81068825f1b727f1c4c950b5fb08e1ccb3529",
+      "localBytes": 282697,
+      "localSha256": "37f0fbca9a5f870946fe64f66ff06ec9f142cd35993d93f0c2d81f662cce7ac6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒本疏",
+        "alternateTitle": "菩薩戒本疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1814",
+        "translator": "新羅 · 義寂述",
+        "summary": "2卷。新罗义寂《菩萨戒本疏》完整来源。传统责任题记：新羅 義寂述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1814_001"
+      },
+      "verification": {
+        "segments": 2891,
+        "folios": 102,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1814.001.0656a02",
+          "T1814.002.0689b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1815",
+      "slug": "taisho-t1815",
+      "workId": "gbcr:work:brahma-net-gojeok-gi-taehyeon",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "梵網經古迹記",
+      "sourceRole": "silla_compiled_precept_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_brahma_net_bodhisattva_precepts_distinct",
+          "groupId": "brahma-net-precept-exegesis-t1484-t1811-t1815",
+          "label": "《梵网经》菩萨戒与五部东亚戒疏",
+          "evidence": "DILA T1811–T1815 均关联 T1484。智顗说本、明旷删补本、法藏疏、义寂疏与太贤古迹记在作者、结构和传承上不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1484",
+              "T1811",
+              "T1812",
+              "T1813",
+              "T1814",
+              "T1815"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1815.xml",
+      "upstreamPath": "T/T40/T40n1815.xml",
+      "upstreamGitBlobSha1": "99d7b48df64e7e2d5838b9163057335303265b49",
+      "upstreamBytes": 257109,
+      "upstreamSha256": "c9ec9e931e6222350d6bbfebe6bac59ba88337132d1965659ebba0918ba1e205",
+      "localBytes": 257110,
+      "localSha256": "a2cd17f5d92b2ecd1df2b93e6f10d926de3bf22e7e1abbf8ebe1d4a0d1cf2337",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵網經古迹記",
+        "alternateTitle": "梵網經古迹記",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1815",
+        "translator": "新羅 · 太賢集",
+        "summary": "2卷。新罗太贤《梵网经古迹记》完整来源。传统责任题记：新羅 太賢集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1815_001"
+      },
+      "verification": {
+        "segments": 2506,
+        "folios": 88,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1815.001.0689b08",
+          "T1815.002.0718a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1816",
+      "slug": "taisho-t1816",
+      "workId": "gbcr:work:diamond-prajna-treatise-huishi-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛般若論會釋",
+      "sourceRole": "sinitic_authored_treatise_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_diamond_prajna_treatise_distinct",
+          "groupId": "diamond-treatise-exegesis-t1511-t1816",
+          "label": "《金刚般若波罗蜜经论》与窥基《会释》",
+          "evidence": "DILA T1816 关联 T1511。三卷会释是独立论疏，不是论本的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1511",
+              "T1816"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1816.xml",
+      "upstreamPath": "T/T40/T40n1816.xml",
+      "upstreamGitBlobSha1": "b5f04b53c37fbc0457a7872795935aa27e7e7d9f",
+      "upstreamBytes": 2793615,
+      "upstreamSha256": "868ae2a17ec53c309ae641343b44dc0aa94ad1129940bea669c869ef0c12b6fc",
+      "localBytes": 2793616,
+      "localSha256": "cc4acec7f9fba5b9b6a40d2978bc93f121794851a042ebd8bced80cb3ff0bfb1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛般若論會釋",
+        "alternateTitle": "金剛般若論會釋",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1816",
+        "translator": "唐 · 窺基撰",
+        "summary": "3卷。窥基《金刚般若论会释》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1816_001"
+      },
+      "verification": {
+        "segments": 5298,
+        "folios": 195,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1816.001.0719a02",
+          "T1816.003.0783a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1817",
+      "slug": "taisho-t1817",
+      "workId": "gbcr:work:diamond-prajna-final-verse-zanshu-yijing",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "略明般若末後一頌讚述",
+      "sourceRole": "sinitic_authored_verse_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_diamond_prajna_final_verse_distinct",
+          "groupId": "diamond-final-verse-t1510a-t1514-t1817",
+          "label": "金刚般若论书群与义净《末后一颂赞述》",
+          "evidence": "DILA T1817 关联 T1510a、T1511、T1512、T1513、T1514；其范围仅为末后一颂，不能并入任一完整论本或其他论疏。",
+          "externalIds": {
+            "cbeta": [
+              "T1510a",
+              "T1511",
+              "T1512",
+              "T1513",
+              "T1514",
+              "T1817"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1817.xml",
+      "upstreamPath": "T/T40/T40n1817.xml",
+      "upstreamGitBlobSha1": "a78cba96fe3023d217947ca70ff06237c0271de0",
+      "upstreamBytes": 27775,
+      "upstreamSha256": "6e82e728ebf2da3fce1a58b773dea77349f0397fed93e6c8dfdff2f6c2c650d2",
+      "localBytes": 27776,
+      "localSha256": "0688d4417950f2789b2db7b08c6447448a2f37d378b24785b3f83ce8b90e2cc5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "略明般若末後一頌讚述",
+        "alternateTitle": "略明般若末後一頌讚述",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1817",
+        "translator": "唐 · 義淨述",
+        "summary": "1卷。义净《略明般若末后一颂赞述》完整来源。传统责任题记：唐 義淨述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1817_001"
+      },
+      "verification": {
+        "segments": 100,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1817.001.0783a10",
+          "T1817.001.0784a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1818",
+      "slug": "taisho-t1818",
+      "workId": "gbcr:work:lotus-treatise-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華論疏",
+      "sourceRole": "sinitic_authored_treatise_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_lotus_treatise_distinct",
+          "groupId": "lotus-treatise-exegesis-t1519-t1818",
+          "label": "《妙法莲华经忧波提舍》与吉藏《法华论疏》",
+          "evidence": "DILA T1818 关联 T1519。三卷疏是独立解释作品，不是世亲论本表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1519",
+              "T1818"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1818.xml",
+      "upstreamPath": "T/T40/T40n1818.xml",
+      "upstreamGitBlobSha1": "e3dfb8cc40ddd62f9fda4796a189583a9f447957",
+      "upstreamBytes": 875655,
+      "upstreamSha256": "32280b150308cd5c813c81034883cc89107f6d47f159beee88d2a64b7efcfb6d",
+      "localBytes": 875656,
+      "localSha256": "96679106605178a7ae646f8f26b0575b895e2a7aa3504c1fbd782983101ea77f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華論疏",
+        "alternateTitle": "法華論疏",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1818",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。吉藏《法华论疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1818_001"
+      },
+      "verification": {
+        "segments": 3579,
+        "folios": 126,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1818.001.0785a02",
+          "T1818.003.0826a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1819",
+      "slug": "taisho-t1819",
+      "workId": "gbcr:work:rebirth-treatise-commentary-tanluan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "無量壽經優婆提舍願生偈註",
+      "sourceRole": "sinitic_authored_treatise_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_rebirth_treatise_distinct",
+          "groupId": "rebirth-treatise-exegesis-t1524-t1819",
+          "label": "《无量寿经优波提舍》与昙鸾《往生论注》",
+          "evidence": "DILA T1819 关联 T1524。二卷注解是独立净土论疏，不与论本或无量寿经译本合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1524",
+              "T1819"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1819.xml",
+      "upstreamPath": "T/T40/T40n1819.xml",
+      "upstreamGitBlobSha1": "9284b2c9d9804db1149b371c98f613fff6354224",
+      "upstreamBytes": 298092,
+      "upstreamSha256": "154ab6c97e7456a27021b0f8fbdf1396e4f108ad4c151e919a5d7a972a1064b8",
+      "localBytes": 298093,
+      "localSha256": "1e15f6b63e92e2e4ed9d57c86d0141145be6c404a1bdae33ffefdbf8a03610c1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量壽經優婆提舍願生偈註",
+        "alternateTitle": "無量壽經優婆提舍願生偈註",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1819",
+        "translator": "北魏 · 曇鸞註解",
+        "summary": "2卷。昙鸾《无量寿经优婆提舍愿生偈注》完整来源。传统责任题记：北魏 曇鸞註解。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1819_001"
+      },
+      "verification": {
+        "segments": 1589,
+        "folios": 56,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1819.001.0826a23",
+          "T1819.002.0844b33"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1820",
+      "slug": "taisho-t1820",
+      "workId": "gbcr:work:bequeathed-teaching-treatise-shu-jieyao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "佛遺教經論疏節要",
+      "sourceRole": "sinitic_abridged_supplemented_treatise_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "sutra_treatise_abridgment_and_supplement_distinct",
+          "groupId": "bequeathed-teaching-t0389-t1529-t1820",
+          "label": "《佛遗教经》、遗教经论与净源节要、袾宏补注本",
+          "evidence": "DILA T1820 同时关联 T0389 与 T1529。其责任题记明确包含宋代节要和明代补注，须与根经、论本及原疏层级分开。",
+          "externalIds": {
+            "cbeta": [
+              "T0389",
+              "T1529",
+              "T1820"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T40n1820.xml",
+      "upstreamPath": "T/T40/T40n1820.xml",
+      "upstreamGitBlobSha1": "bf816b013d0e565e86acba294f62628e7e40fbe1",
+      "upstreamBytes": 262371,
+      "upstreamSha256": "06703f3145d98335cdcf36ed2083b7f0a2d11f626d4807582dd0cf6fe2fe9253",
+      "localBytes": 262372,
+      "localSha256": "e6de5567f1d266f2f4e9b186f7dd71b3bb1ea408b12d85b1375dbd5a531207a9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛遺教經論疏節要",
+        "alternateTitle": "佛遺教經論疏節要",
+        "tradition": "汉传佛教 · 律疏与经论疏部 · 四分律、菩萨戒、般若、法华、净土及遗教",
+        "language": "汉文",
+        "canonRef": "大正藏 T40, no. 1820",
+        "translator": "宋 · 淨源節要 · 明 · 袾宏補註",
+        "summary": "1卷。净源节要、袾宏补注《佛遗教经论疏节要》完整来源。传统责任题记：宋 淨源節要 明 袾宏補註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1820_001"
+      },
+      "verification": {
+        "segments": 1123,
+        "folios": 39,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1820.001.0844c02",
+          "T1820.001.0857b22"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

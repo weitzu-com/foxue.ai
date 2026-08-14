@@ -269,6 +269,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT39SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT39SourceRecords.controlledWorks} 个独立作品；14 组根经—注疏、3 组直接注释—再注释与 4 组相关异作边界均已记录，
               T1796 的全经疏和 T1797 仅释第七卷供养次第法的范围差异、T1799 所连《首楞严经》的成书争议均不被抹平；
+              T40 四分律、菩萨戒及经论疏部固定来源已完成 {snapshot.candidateInventory.chineseT40SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT40SourceRecords.denominator}（{snapshot.candidateInventory.chineseT40SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT40SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT40SourceRecords.controlledWorks} 个独立作品；4 组根本律或戒本—律疏、5 组论本—论疏、1 组行事钞—再注释与 3 组适用范围边界均已记录，
+              T1808–T1810 的通用、僧众、尼众羯磨范围和 T1820 的节要、补注复合责任保持可审计；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -455,6 +460,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T39 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t40-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T40 的 17 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

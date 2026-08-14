@@ -125,12 +125,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1940,
-    registeredExpressions: 2158,
-    fullSourceTextWorks: 1913,
-    fullSourceTextExpressions: 2115,
-    stableSegments: 3674712,
-    structureVerifiedWorks: 1940,
+    registeredWorks: 1957,
+    registeredExpressions: 2175,
+    fullSourceTextWorks: 1930,
+    fullSourceTextExpressions: 2132,
+    stableSegments: 3746190,
+    structureVerifiedWorks: 1957,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -164,11 +164,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1883,
-    controlled: 1883,
+    denominator: 1900,
+    controlled: 1900,
     percentage: 100,
-    sourceBytes: 590849383,
-    controlledBytes: 590849383,
+    sourceBytes: 604115809,
+    controlledBytes: 604115809,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -188,6 +188,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t37InventorySha256: "7b66418c7d6b711a3ed9b2b9c0f0317c9278ba5de9b647151a6b7b8613df15e2",
     t38InventorySha256: "d19c39a8cbf41f9cc14293f439046a71ece59d5412087389cb4301e136b78359",
     t39InventorySha256: "7c71afa40dfe62b4c02367357445bf865f31a4456a20e01ea3737d2626451550",
+    t40InventorySha256: "9476e7abcbc6ee6b90a6fc4be109e75a4ee4acf63b896e9754dafb52308b0abe",
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -542,6 +543,26 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     subcommentaryGroups: 3,
     relatedDistinctWorkGroups: 4,
   });
+  expect(coverage.candidateInventory.chineseT40SourceRecords).toMatchObject({
+    denominator: 17,
+    controlled: 17,
+    percentage: 100,
+    fullSourceTexts: 17,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedPartialWorkWitnesses: 0,
+    verifiedSplitWorkWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 17,
+    relationAnnotatedRecords: 17,
+    newWorks: 17,
+    controlledWorks: 17,
+    rootVinayaCommentaryGroups: 4,
+    rootTreatiseCommentaryGroups: 5,
+    subcommentaryGroups: 1,
+    scopeBoundaryGroups: 3,
+    relatedDistinctWorkGroups: 4,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -587,6 +608,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseNirvanaMedicineMaitreyaVimalakirtiCommentaryT38BoundaryAudit: expect.stringContaining("batch-v4.5.0.json"),
     chineseGoldenLightLankavataraEsotericCommentaryT39Inventory: expect.stringContaining("cbeta-taisho-t39-inventory-v0.1.0.json"),
     chineseGoldenLightLankavataraEsotericCommentaryT39BoundaryAudit: expect.stringContaining("batch-v4.6.0.json"),
+    chineseVinayaBodhisattvaPreceptTreatiseCommentaryT40Inventory: expect.stringContaining("cbeta-taisho-t40-inventory-v0.1.0.json"),
+    chineseVinayaBodhisattvaPreceptTreatiseCommentaryT40BoundaryAudit: expect.stringContaining("batch-v4.7.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -2063,6 +2086,61 @@ test("汉译 T39 金光明、楞伽及显密经疏完整受控并保持再注释
 
   const sitemap = await readSitemaps(request);
   for (const id of Array.from({ length: 21 }, (_, index) => 1783 + index)) {
+    expect(sitemap).toContain(`/jingzang/taisho-t${id}/`);
+  }
+});
+
+test("汉译 T40 四分律、菩萨戒及经论疏完整受控并保持再注释、男女众范围与复合责任边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1805/001-0157a");
+  await expect(page.getByRole("heading", { level: 1, name: "四分律行事鈔資持記" })).toBeVisible();
+  await expect(page.getByText(/《四分律》、道宣《行事钞》与元照《资持记》/)).toBeVisible();
+  await expect(page.getByText(/根本广律、律学行事钞和对行事钞的资持记分为三层作品/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1809/001-0511b");
+  await expect(page.getByRole("heading", { level: 1, name: "僧羯磨" })).toBeVisible();
+  await expect(page.getByText(/通用、僧众与尼众适用范围及编集责任不同/)).toBeVisible();
+  await expect(page.getByText(/相似仪式语句不是同一作品证明/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1812/001-0580b");
+  await expect(page.getByRole("heading", { level: 1, name: "天台菩薩戒疏" })).toBeVisible();
+  await expect(page.getByText(/责任题记明确为明旷删补/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1817/001-0783a");
+  await expect(page.getByRole("heading", { level: 1, name: "略明般若末後一頌讚述" })).toBeVisible();
+  await expect(page.getByText(/其范围仅为末后一颂/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1820/001-0844c");
+  await expect(page.getByRole("heading", { level: 1, name: "佛遺教經論疏節要" })).toBeVisible();
+  await expect(page.getByText(/责任题记明确包含宋代节要和明代补注/)).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t1804/003-0156c",
+    "/jingzang/taisho-t1806/003-0463a",
+    "/jingzang/taisho-t1810/003-0561c",
+    "/jingzang/taisho-t1815/002-0718a",
+    "/jingzang/taisho-t1819/002-0844b",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT40SourceRecords).toMatchObject({
+    denominator: 17,
+    controlled: 17,
+    percentage: 100,
+    fullSourceTexts: 17,
+    partialSourceWitnesses: 0,
+    relationAnnotatedRecords: 17,
+    attributionBoundaryRecords: 17,
+    newWorks: 17,
+    controlledWorks: 17,
+    rootVinayaCommentaryGroups: 4,
+    rootTreatiseCommentaryGroups: 5,
+    subcommentaryGroups: 1,
+    scopeBoundaryGroups: 3,
+    relatedDistinctWorkGroups: 4,
+  });
+
+  const sitemap = await readSitemaps(request);
+  for (const id of Array.from({ length: 17 }, (_, index) => 1804 + index)) {
     expect(sitemap).toContain(`/jingzang/taisho-t${id}/`);
   }
 });
