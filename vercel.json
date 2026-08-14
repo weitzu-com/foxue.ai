@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=6144 pnpm run build",
   "cleanUrls": true
 }
