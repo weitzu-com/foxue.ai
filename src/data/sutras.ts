@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.9.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v4.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -318,6 +318,27 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
     "abhidharma_root_treatise_translation",
   ] as string[]).includes(file.sourceRole ?? "")) {
     return "来源分开保存根本论、扩释、增广、注释或入门论书责任与汉译责任；平台依据书目证据建立关系，但不把不同作品、译本或论师撰述改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_authored_sutra_commentary") {
+    return "来源题记明确为东亚论师所撰经疏；平台将根本经与本注疏建立可审计关系并保持两个作品实体，不把注疏改写成经文表达或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_authored_doctrinal_exposition") {
+    return "来源题记明确为东亚作者的教义玄释或宗要；即使围绕经义展开，平台仍将其作为独立撰述，不冒充根本经正文或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_taught_commentary_record") {
+    return "来源传统题记使用“说”等讲授责任；平台保留讲说与记录层次，不把后世讲疏简化为亲笔作品、经文表达或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_commentary_with_editorial_redaction") {
+    return "来源并列保存注疏撰述与后世治定责任；平台呈现两层责任并连接相关再注释，不把治定本冒充根本经或单一无争议作者文本。";
+  }
+  if (file.sourceRole === "sinitic_authored_subcommentary") {
+    return "本记录解释另一部注疏，是独立再注释作品；平台同时连接根本经、直接注疏与再注释，不把三层文本相互合并或改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_coauthored_sutra_commentary") {
+    return "来源题记保存两位东亚注释者的共同责任；平台不删减共同署名，也不把合注本当作根本经的另一表达或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "sinitic_taught_doctrinal_exposition_record") {
+    return "来源保存后世讲说形成的教义玄释记录；平台区分讲说者、记录传统、根本经与后续再注释，不据宗派传承改写为佛陀逐字亲说。";
   }
   return undefined;
 };
