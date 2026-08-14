@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.6.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.7.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -214,7 +214,7 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
     return "来源题记明确为撰、述、集、造或说的密教文本；平台保留编撰或传授责任，不改写成佛陀亲说。";
   }
   if (file.sourceRole === "attributed_authored_compiled_or_transmitted_esoteric_text") {
-    return "来源题记明确为撰、述、集、记或请来的密教文本；平台保留编撰、记录或传承责任，不改写成佛陀亲说。";
+    return "来源题记或题名明确为撰、述、集、记、注、校、请来或口受的密教文本；平台保留编撰、校注、记录或传承责任，不改写成佛陀亲说。";
   }
   if (file.sourceRole === "traditional_attributed_translation_with_contested_history") {
     return "来源保留传统译者题记，但现代研究对成书与翻译史存在争议；平台只确认本次文本见证，不把传统署名当作已裁决事实。";

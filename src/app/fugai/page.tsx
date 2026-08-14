@@ -156,7 +156,13 @@ export default function CoveragePage() {
               其中 {snapshot.candidateInventory.chineseT19SourceRecords.fullSourceTexts} 份登记为完整作品来源全文、
               {snapshot.candidateInventory.chineseT19SourceRecords.partialSourceWitnesses} 份保持局部作品见证，
               {snapshot.candidateInventory.chineseT19SourceRecords.verifiedEditionWitnesses} 份版本见证共享作品实体；
-              T0946 的原始卷号 1、2、4、5 按来源保留，不擅自重排，也不把密教部目录位置冒充佛陀亲说
+              T0946 的原始卷号 1、2、4、5 按来源保留；
+              T20 密教部固定来源已完成 {snapshot.candidateInventory.chineseT20SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT20SourceRecords.denominator}（{snapshot.candidateInventory.chineseT20SourceRecords.percentage}%），
+              其中 {snapshot.candidateInventory.chineseT20SourceRecords.fullSourceTexts} 份登记为完整作品来源全文、
+              {snapshot.candidateInventory.chineseT20SourceRecords.partialSourceWitnesses} 份保持品、分或真言组件的局部作品见证，
+              {snapshot.candidateInventory.chineseT20SourceRecords.verifiedEditionWitnesses} 份版本见证共享作品实体；
+              译、失译、无署名、注、校、请来与口受角色分别标注，不把密教部目录位置冒充佛陀亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a
@@ -182,6 +188,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T19 的 126 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t20-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T20 的 184 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
