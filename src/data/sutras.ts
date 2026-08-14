@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v2.8.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v2.9.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -221,6 +221,15 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   }
   if (file.sourceRole === "unattributed_esoteric_text_or_ritual") {
     return "来源题记未载作者或译者；平台保留匿名文本或仪轨边界，不补造译者、印度来源或佛陀亲说归属。";
+  }
+  if (file.sourceRole === "translated_vinaya_canonical_record") {
+    return "来源目录将本记录署为翻译的律部文本；平台保留广律、戒本或羯磨的文本类型与译者题记，但不据律部位置、部派归属或正文重合自动声称为同一作品或佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_and_compiled_vinaya_text") {
+    return "来源同时保存古代译者题记与后世编集责任；平台并列呈现译、集两层责任，不把编集本简化为单一译经，也不据相似正文自动归并作品。";
+  }
+  if (file.sourceRole === "compiled_or_recorded_vinaya_text") {
+    return "来源题记明确为后世所集或所录的律部文本；平台保留编集、辑录责任与完整来源，不将其改写成独立古译或佛陀逐字亲说。";
   }
   return undefined;
 };

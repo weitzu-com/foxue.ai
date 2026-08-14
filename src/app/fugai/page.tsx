@@ -167,7 +167,12 @@ export default function CoveragePage() {
               其中 {snapshot.candidateInventory.chineseT21SourceRecords.fullSourceTexts} 份登记为完整作品来源全文、
               {snapshot.candidateInventory.chineseT21SourceRecords.partialSourceWitnesses} 份保持法品、仪轨品或大教王经组件的局部作品见证，
               {snapshot.candidateInventory.chineseT21SourceRecords.verifiedEditionWitnesses} 份版本见证共享作品实体；
-              译、失译、无署名、撰、述、集、记、造、译解、请来与将来角色分别标注，不把密教部目录位置冒充佛陀亲说
+              译、失译、无署名、撰、述、集、记、造、译解、请来与将来角色分别标注；
+              T22 律部固定来源已完成 {snapshot.candidateInventory.chineseT22SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT22SourceRecords.denominator}（{snapshot.candidateInventory.chineseT22SourceRecords.percentage}%），
+              15 份均为完整来源全文，{snapshot.candidateInventory.chineseT22SourceRecords.verifiedEditionWitnesses} 份同号版本见证共享作品实体，
+              {snapshot.candidateInventory.chineseT22SourceRecords.attributionBoundaryRecords} 份保留“集”“录”或译后编集责任；
+              广律、戒本与羯磨文本分层登记，不把部派、目录位置或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
             <a
@@ -209,6 +214,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T21 的 228 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t22-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T22 的 15 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

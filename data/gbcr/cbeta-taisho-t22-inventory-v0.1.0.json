@@ -1,0 +1,143 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_vinaya_t22",
+    "label": "大正藏 T22 律部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T22 目录下、文件名卷号一致的 T22n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "律部含完整部派律、比丘戒本、比丘尼戒本、羯磨本、后世编集本与同号版本见证；来源文件数不是去重作品数，也不是全球佛典分母。"
+  },
+  "totals": {
+    "records": 15,
+    "upstreamBytes": 24063535,
+    "candidatePathSha256": "ec74e95a96d7c9b6a16ab96ec1f6787bafdf2e3aeaf30b667a3f310dc395b0a6"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T22n1421",
+      "canonWitnessId": "T1421",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1421.xml",
+      "upstreamGitBlobSha1": "903c920fee2606e3a3e8e76e83b05d6c6d13667b",
+      "upstreamBytes": 4050492
+    },
+    {
+      "sourceRecordId": "T22n1422a",
+      "canonWitnessId": "T1422a",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1422a.xml",
+      "upstreamGitBlobSha1": "06b8012d041c6f1e2aced4e773f2b8c4f710bf40",
+      "upstreamBytes": 93960
+    },
+    {
+      "sourceRecordId": "T22n1422b",
+      "canonWitnessId": "T1422b",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1422b.xml",
+      "upstreamGitBlobSha1": "58085907e9b53d19501deb0f794aa961c8dec308",
+      "upstreamBytes": 61676
+    },
+    {
+      "sourceRecordId": "T22n1423",
+      "canonWitnessId": "T1423",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1423.xml",
+      "upstreamGitBlobSha1": "f7df3454e4e704c4f5f9b6aba6837b2d6d844ad5",
+      "upstreamBytes": 117839
+    },
+    {
+      "sourceRecordId": "T22n1424",
+      "canonWitnessId": "T1424",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1424.xml",
+      "upstreamGitBlobSha1": "56bf33b799c7f117e705695c58034a541e8e987d",
+      "upstreamBytes": 283901
+    },
+    {
+      "sourceRecordId": "T22n1425",
+      "canonWitnessId": "T1425",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1425.xml",
+      "upstreamGitBlobSha1": "df52a0ab8f656b1d20a50b459f03878681b74ee0",
+      "upstreamBytes": 8150865
+    },
+    {
+      "sourceRecordId": "T22n1426",
+      "canonWitnessId": "T1426",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1426.xml",
+      "upstreamGitBlobSha1": "a67367be3611c77649bac02b226bf3b866a81d3c",
+      "upstreamBytes": 186808
+    },
+    {
+      "sourceRecordId": "T22n1427",
+      "canonWitnessId": "T1427",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1427.xml",
+      "upstreamGitBlobSha1": "bbbe3433a76789b398ac3818809cb735c96b88ce",
+      "upstreamBytes": 436602
+    },
+    {
+      "sourceRecordId": "T22n1428",
+      "canonWitnessId": "T1428",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1428.xml",
+      "upstreamGitBlobSha1": "e876d11fb34b8ee09a9675ac3c9f90ea093ae629",
+      "upstreamBytes": 9252713
+    },
+    {
+      "sourceRecordId": "T22n1429",
+      "canonWitnessId": "T1429",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1429.xml",
+      "upstreamGitBlobSha1": "c158218a4cc24403a17654ad6a71ac7f4eb3910b",
+      "upstreamBytes": 206820
+    },
+    {
+      "sourceRecordId": "T22n1430",
+      "canonWitnessId": "T1430",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1430.xml",
+      "upstreamGitBlobSha1": "e8ac98911b276b4ecf70ab09e569ca8b7d1eeeee",
+      "upstreamBytes": 128987
+    },
+    {
+      "sourceRecordId": "T22n1431",
+      "canonWitnessId": "T1431",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1431.xml",
+      "upstreamGitBlobSha1": "1be7378959dcfda3ac1c77deeb5beba46325d478",
+      "upstreamBytes": 300310
+    },
+    {
+      "sourceRecordId": "T22n1432",
+      "canonWitnessId": "T1432",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1432.xml",
+      "upstreamGitBlobSha1": "74f911baa2a7dde08b35fa71b16876ca629f3571",
+      "upstreamBytes": 202941
+    },
+    {
+      "sourceRecordId": "T22n1433",
+      "canonWitnessId": "T1433",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1433.xml",
+      "upstreamGitBlobSha1": "a4116e4dba0dcff01962c743371e91ccc8906a2f",
+      "upstreamBytes": 411407
+    },
+    {
+      "sourceRecordId": "T22n1434",
+      "canonWitnessId": "T1434",
+      "volume": "T22",
+      "upstreamPath": "T/T22/T22n1434.xml",
+      "upstreamGitBlobSha1": "b2b72443265771fd2e68f3411bc3761265ef23da",
+      "upstreamBytes": 178214
+    }
+  ]
+}

@@ -1,0 +1,1195 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "2.9.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v2.8.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t22-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T22; T22 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T22",
+    "title": "大正藏 T22 律部固定来源记录",
+    "sourceRecordDenominator": 15,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 15,
+    "controlledSourceRecords": 15,
+    "newSourceBytes": 24063535,
+    "newStableSegments": 91307,
+    "newFolios": 3301,
+    "verifiedEditionWitnesses": 2,
+    "provisionalRecords": 13,
+    "newFullSourceTexts": 15,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 15,
+    "attributionBoundaryRecords": 4,
+    "newWorks": 14,
+    "controlledWorks": 14,
+    "workCountingDecision": "T22 共 15 条固定来源记录。T1422 a/b 按同一基础经号、译者题记、核心题名与正文证据归入 1 个作品并保留 2 个版本见证，其余 13 条暂按独立书目实体登记，共新增 14 个作品；广律、戒本、羯磨本、跨经号高相似传本及后世编集关系只作分层候选，不自动归并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_edition_attribution_vinaya_component_and_recension_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "t1422-edition-recension-witnesses"
+    ],
+    "candidateRelationsNotMerged": [
+      "mahisasaka-vinaya-t1421-t1424",
+      "mahasamghika-vinaya-t1425-t1427",
+      "dharmaguptaka-vinaya-t1428-t1434",
+      "dharmaguptaka-bhiksu-pratimoksa-t1429-t1430",
+      "dharmaguptaka-karmavacana-t1432-t1434"
+    ],
+    "partialWorkWitnesses": [],
+    "translatedRecords": [
+      "T1421",
+      "T1422a",
+      "T1422b",
+      "T1425",
+      "T1426",
+      "T1427",
+      "T1428",
+      "T1430",
+      "T1432",
+      "T1433",
+      "T1434"
+    ],
+    "translatedAndCompiledRecords": [
+      "T1429",
+      "T1431"
+    ],
+    "compiledOrRecordedRecords": [
+      "T1423",
+      "T1424"
+    ],
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison records component or recension evidence but never decides cross-number work identity by itself.",
+      "pairs": [
+        {
+          "pair": [
+            "T1422a",
+            "T1422b"
+          ],
+          "normalizedCharacters": [
+            7777,
+            6340
+          ],
+          "fiveGramContainmentOfShorter": 0.30517,
+          "fiveGramJaccard": 0.154806
+        },
+        {
+          "pair": [
+            "T1429",
+            "T1430"
+          ],
+          "normalizedCharacters": [
+            9033,
+            8788
+          ],
+          "fiveGramContainmentOfShorter": 0.667144,
+          "fiveGramJaccard": 0.478926
+        },
+        {
+          "pair": [
+            "T1432",
+            "T1433"
+          ],
+          "normalizedCharacters": [
+            12107,
+            14971
+          ],
+          "fiveGramContainmentOfShorter": 0.652384,
+          "fiveGramJaccard": 0.398532
+        },
+        {
+          "pair": [
+            "T1421",
+            "T1422a"
+          ],
+          "normalizedCharacters": [
+            270534,
+            7777
+          ],
+          "fiveGramContainmentOfShorter": 0.698483,
+          "fiveGramJaccard": 0.02008
+        },
+        {
+          "pair": [
+            "T1421",
+            "T1422b"
+          ],
+          "normalizedCharacters": [
+            270534,
+            6340
+          ],
+          "fiveGramContainmentOfShorter": 0.163516,
+          "fiveGramJaccard": 0.003646
+        },
+        {
+          "pair": [
+            "T1421",
+            "T1423"
+          ],
+          "normalizedCharacters": [
+            270534,
+            10243
+          ],
+          "fiveGramContainmentOfShorter": 0.78134,
+          "fiveGramJaccard": 0.026407
+        },
+        {
+          "pair": [
+            "T1421",
+            "T1424"
+          ],
+          "normalizedCharacters": [
+            270534,
+            9343
+          ],
+          "fiveGramContainmentOfShorter": 0.397466,
+          "fiveGramJaccard": 0.011953
+        },
+        {
+          "pair": [
+            "T1425",
+            "T1426"
+          ],
+          "normalizedCharacters": [
+            452848,
+            8065
+          ],
+          "fiveGramContainmentOfShorter": 0.470689,
+          "fiveGramJaccard": 0.008587
+        },
+        {
+          "pair": [
+            "T1425",
+            "T1427"
+          ],
+          "normalizedCharacters": [
+            452848,
+            11175
+          ],
+          "fiveGramContainmentOfShorter": 0.588127,
+          "fiveGramJaccard": 0.013012
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1429"
+          ],
+          "normalizedCharacters": [
+            604615,
+            9033
+          ],
+          "fiveGramContainmentOfShorter": 0.671169,
+          "fiveGramJaccard": 0.01306
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1430"
+          ],
+          "normalizedCharacters": [
+            604615,
+            8788
+          ],
+          "fiveGramContainmentOfShorter": 0.500875,
+          "fiveGramJaccard": 0.009168
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1431"
+          ],
+          "normalizedCharacters": [
+            604615,
+            11654
+          ],
+          "fiveGramContainmentOfShorter": 0.731401,
+          "fiveGramJaccard": 0.016656
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1432"
+          ],
+          "normalizedCharacters": [
+            604615,
+            12107
+          ],
+          "fiveGramContainmentOfShorter": 0.490678,
+          "fiveGramJaccard": 0.007978
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1433"
+          ],
+          "normalizedCharacters": [
+            604615,
+            14971
+          ],
+          "fiveGramContainmentOfShorter": 0.468437,
+          "fiveGramJaccard": 0.009792
+        },
+        {
+          "pair": [
+            "T1428",
+            "T1434"
+          ],
+          "normalizedCharacters": [
+            604615,
+            7834
+          ],
+          "fiveGramContainmentOfShorter": 0.492186,
+          "fiveGramJaccard": 0.006345
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T22",
+      "https://cbetaonline.dila.edu.tw/zh/T1422a_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1429_001",
+      "https://cbetaonline.dila.edu.tw/zh/T1432_001"
+    ],
+    "caveat": "T22 同时容纳完整部派律、比丘与比丘尼戒本、羯磨文本、同号版本及后世编集或辑录本。平台完整保存固定来源，但不把同一部派、目录邻接、篇章结构、题名相似或机器文本重合单独当成同一作品、独立翻译或佛陀逐字亲说的证明。"
+  },
+  "files": [
+    {
+      "id": "T1421",
+      "slug": "taisho-t1421",
+      "workId": "gbcr:work:taisho-t1421",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahisasaka-vinaya-t1421-t1424",
+          "label": "弥沙塞部五分律、戒本与羯磨文本家族",
+          "evidence": "T1421 是三十卷部派广律，T1422 a/b 是同号比丘戒本版本，T1423 为明徽所集比丘尼戒本，T1424 为爱同所录羯磨本；部派、结构与片段重合支持组件家族，不支持把五份记录合成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1421",
+              "T1422a",
+              "T1422b",
+              "T1423",
+              "T1424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1421.xml",
+      "upstreamPath": "T/T22/T22n1421.xml",
+      "upstreamGitBlobSha1": "903c920fee2606e3a3e8e76e83b05d6c6d13667b",
+      "upstreamBytes": 4050492,
+      "upstreamSha256": "3f0aca37b89ff2fd57ff4363f9d38bb190e0dad14f058711dfc71ac727809825",
+      "localBytes": 4050493,
+      "localSha256": "4690b7425efa4601fb93613b610926a76b964366faa83cab23eed4ac8dcf4aa0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "彌沙塞部和醯五分律",
+        "alternateTitle": "彌沙塞部和醯五分律",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1421",
+        "translator": "劉宋 · 佛陀什共竺道生等譯",
+        "summary": "30卷。本站完整保存 T1421 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1421_001"
+      },
+      "verification": {
+        "segments": 16634,
+        "folios": 598,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1421.001.0001a02",
+          "T1421.030.0194b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1422a",
+      "slug": "taisho-t1422a",
+      "workId": "gbcr:work:taisho-t1422-edition-group",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t1422-edition-recension-witnesses",
+          "label": "弥沙塞五分戒本 T1422 a/b 版本见证",
+          "evidence": "同一基础经号、佛陀什等译题记与比丘戒本核心题名一致；较短本五字片段覆盖 30.5%，共享作品实体并保留独立版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1422a",
+              "T1422b"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahisasaka-vinaya-t1421-t1424",
+          "label": "弥沙塞部五分律、戒本与羯磨文本家族",
+          "evidence": "T1421 是三十卷部派广律，T1422 a/b 是同号比丘戒本版本，T1423 为明徽所集比丘尼戒本，T1424 为爱同所录羯磨本；部派、结构与片段重合支持组件家族，不支持把五份记录合成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1421",
+              "T1422a",
+              "T1422b",
+              "T1423",
+              "T1424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1422a.xml",
+      "upstreamPath": "T/T22/T22n1422a.xml",
+      "upstreamGitBlobSha1": "06b8012d041c6f1e2aced4e773f2b8c4f710bf40",
+      "upstreamBytes": 93960,
+      "upstreamSha256": "0421ddab36767d8fb30a95311bacfa0ee5c84cc0595e951c29fac977f0ee26cd",
+      "localBytes": 93961,
+      "localSha256": "f335e1a54b52189351a705c8e32e2de0a761b36832988e45bcb2117987cfbf65",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "彌沙塞五分戒本",
+        "alternateTitle": "彌沙塞五分戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1422a",
+        "translator": "劉宋 · 佛陀什等譯",
+        "summary": "1卷。本站完整保存 T1422a 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1422a_001"
+      },
+      "verification": {
+        "segments": 503,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1422a.001.0194c02",
+          "T1422a.001.0200b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1422b",
+      "slug": "taisho-t1422b",
+      "workId": "gbcr:work:taisho-t1422-edition-group",
+      "workIdentityStatus": "verified_edition_witness",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "t1422-edition-recension-witnesses",
+          "label": "弥沙塞五分戒本 T1422 a/b 版本见证",
+          "evidence": "同一基础经号、佛陀什等译题记与比丘戒本核心题名一致；较短本五字片段覆盖 30.5%，共享作品实体并保留独立版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T1422a",
+              "T1422b"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahisasaka-vinaya-t1421-t1424",
+          "label": "弥沙塞部五分律、戒本与羯磨文本家族",
+          "evidence": "T1421 是三十卷部派广律，T1422 a/b 是同号比丘戒本版本，T1423 为明徽所集比丘尼戒本，T1424 为爱同所录羯磨本；部派、结构与片段重合支持组件家族，不支持把五份记录合成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1421",
+              "T1422a",
+              "T1422b",
+              "T1423",
+              "T1424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1422b.xml",
+      "upstreamPath": "T/T22/T22n1422b.xml",
+      "upstreamGitBlobSha1": "58085907e9b53d19501deb0f794aa961c8dec308",
+      "upstreamBytes": 61676,
+      "upstreamSha256": "65d26ce0dd9a5762ecfa974000037de9d248314ac2becefca1b1333a992259eb",
+      "localBytes": 61677,
+      "localSha256": "02dde99b5d28e00238ea880cfb91a75a73bc012a92b2e49d59d59bd16dcfcce7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "五分戒本",
+        "alternateTitle": "五分戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1422b",
+        "translator": "劉宋 · 佛陀什等譯",
+        "summary": "1卷。本站完整保存 T1422b 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1422b_001"
+      },
+      "verification": {
+        "segments": 526,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1422b.001.0200b15",
+          "T1422b.001.0206b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1423",
+      "slug": "taisho-t1423",
+      "workId": "gbcr:work:taisho-t1423",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "compiled_or_recorded_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahisasaka-vinaya-t1421-t1424",
+          "label": "弥沙塞部五分律、戒本与羯磨文本家族",
+          "evidence": "T1421 是三十卷部派广律，T1422 a/b 是同号比丘戒本版本，T1423 为明徽所集比丘尼戒本，T1424 为爱同所录羯磨本；部派、结构与片段重合支持组件家族，不支持把五份记录合成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1421",
+              "T1422a",
+              "T1422b",
+              "T1423",
+              "T1424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1423.xml",
+      "upstreamPath": "T/T22/T22n1423.xml",
+      "upstreamGitBlobSha1": "f7df3454e4e704c4f5f9b6aba6837b2d6d844ad5",
+      "upstreamBytes": 117839,
+      "upstreamSha256": "a51f9c86a30048b71af1713a5df1ea71688fb0085606f2663d2a295cbb45f3d0",
+      "localBytes": 117840,
+      "localSha256": "47e54e9aaa124e0909e319905e1dffda1ef8b186ddcc5aecc8cec8cb8af5e4a1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "五分比丘尼戒本",
+        "alternateTitle": "五分比丘尼戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1423",
+        "translator": "梁 · 明徽集",
+        "summary": "1卷。本站完整保存 T1423 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为集或录，平台保留后世编集、辑录与部派传承角色，不改写成匿名译经或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1423_001"
+      },
+      "verification": {
+        "segments": 654,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1423.001.0206b22",
+          "T1423.001.0214a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1424",
+      "slug": "taisho-t1424",
+      "workId": "gbcr:work:taisho-t1424",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "compiled_or_recorded_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahisasaka-vinaya-t1421-t1424",
+          "label": "弥沙塞部五分律、戒本与羯磨文本家族",
+          "evidence": "T1421 是三十卷部派广律，T1422 a/b 是同号比丘戒本版本，T1423 为明徽所集比丘尼戒本，T1424 为爱同所录羯磨本；部派、结构与片段重合支持组件家族，不支持把五份记录合成一个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1421",
+              "T1422a",
+              "T1422b",
+              "T1423",
+              "T1424"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1424.xml",
+      "upstreamPath": "T/T22/T22n1424.xml",
+      "upstreamGitBlobSha1": "56bf33b799c7f117e705695c58034a541e8e987d",
+      "upstreamBytes": 283901,
+      "upstreamSha256": "5adc040055f06d4d1336d54fc89e7bfac17b648052f9c4e5094d94dc400dcfd6",
+      "localBytes": 283902,
+      "localSha256": "ef3156c3d7d774ba9ecd9f0ffe0c5e40ccd10a157c0cd1d41e4d285f3e012774",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "彌沙塞羯磨本",
+        "alternateTitle": "彌沙塞羯磨本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1424",
+        "translator": "唐 · 愛同錄",
+        "summary": "1卷。本站完整保存 T1424 的固定 CBETA TEI 来源记录与可校验页栏行锚点；题记明确为集或录，平台保留后世编集、辑录与部派传承角色，不改写成匿名译经或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1424_001"
+      },
+      "verification": {
+        "segments": 689,
+        "folios": 37,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1424.001.0214a16",
+          "T1424.001.0226a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1425",
+      "slug": "taisho-t1425",
+      "workId": "gbcr:work:taisho-t1425",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahasamghika-vinaya-t1425-t1427",
+          "label": "摩诃僧祇律与僧尼戒本家族",
+          "evidence": "四十卷广律、比丘戒本与比丘尼戒本分别保留；戒本对广律五字片段覆盖为 47.1% 与 58.8%，可证明紧密文本关系但不等于同一书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1425",
+              "T1426",
+              "T1427"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1425.xml",
+      "upstreamPath": "T/T22/T22n1425.xml",
+      "upstreamGitBlobSha1": "df52a0ab8f656b1d20a50b459f03878681b74ee0",
+      "upstreamBytes": 8150865,
+      "upstreamSha256": "97835b7750f7940d3abbea8edb7a742abc4e52e1e649fae4a05501c19f0849b3",
+      "localBytes": 8150866,
+      "localSha256": "44035d5858d018dc0cc71c589e664760f8ca697c6bc4d45cbd246d44d15d3b89",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶僧祇律",
+        "alternateTitle": "摩訶僧祇律",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1425",
+        "translator": "東晉 · 佛陀跋陀羅共法顯譯",
+        "summary": "40卷。本站完整保存 T1425 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1425_001"
+      },
+      "verification": {
+        "segments": 27734,
+        "folios": 993,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T1425.001.0227a02",
+          "T1425.040.0549a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1426",
+      "slug": "taisho-t1426",
+      "workId": "gbcr:work:taisho-t1426",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahasamghika-vinaya-t1425-t1427",
+          "label": "摩诃僧祇律与僧尼戒本家族",
+          "evidence": "四十卷广律、比丘戒本与比丘尼戒本分别保留；戒本对广律五字片段覆盖为 47.1% 与 58.8%，可证明紧密文本关系但不等于同一书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1425",
+              "T1426",
+              "T1427"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1426.xml",
+      "upstreamPath": "T/T22/T22n1426.xml",
+      "upstreamGitBlobSha1": "a67367be3611c77649bac02b226bf3b866a81d3c",
+      "upstreamBytes": 186808,
+      "upstreamSha256": "f0aa5bf62d74e268cae5c2d81211f2b3dfd5698d42ad513ff449e59d2a8a5929",
+      "localBytes": 186809,
+      "localSha256": "028e031bfc653fdd18853bf47a57950bbd0d492c87b24d847b1096a0922fdce4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶僧祇律大比丘戒本",
+        "alternateTitle": "摩訶僧祇律大比丘戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1426",
+        "translator": "東晉 · 佛陀跋陀羅譯",
+        "summary": "1卷。本站完整保存 T1426 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1426_001"
+      },
+      "verification": {
+        "segments": 614,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1426.001.0549a06",
+          "T1426.001.0556a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1427",
+      "slug": "taisho-t1427",
+      "workId": "gbcr:work:taisho-t1427",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "mahasamghika-vinaya-t1425-t1427",
+          "label": "摩诃僧祇律与僧尼戒本家族",
+          "evidence": "四十卷广律、比丘戒本与比丘尼戒本分别保留；戒本对广律五字片段覆盖为 47.1% 与 58.8%，可证明紧密文本关系但不等于同一书目作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1425",
+              "T1426",
+              "T1427"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1427.xml",
+      "upstreamPath": "T/T22/T22n1427.xml",
+      "upstreamGitBlobSha1": "bbbe3433a76789b398ac3818809cb735c96b88ce",
+      "upstreamBytes": 436602,
+      "upstreamSha256": "8bedef6dd4033723a1a1cf1ec753ff33aec2df01668e2465daaf0646cf1ed17f",
+      "localBytes": 436603,
+      "localSha256": "30ac7ab82119b5c72bfb102d0ff6fcc05dce93bb9a101d98639a91aa68c0a367",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶僧祇比丘尼戒本",
+        "alternateTitle": "摩訶僧祇比丘尼戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1427",
+        "translator": "東晉 · 法顯共覺賢譯",
+        "summary": "1卷。本站完整保存 T1427 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1427_001"
+      },
+      "verification": {
+        "segments": 840,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1427.001.0556a22",
+          "T1427.001.0566c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1428",
+      "slug": "taisho-t1428",
+      "workId": "gbcr:work:taisho-t1428",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1428.xml",
+      "upstreamPath": "T/T22/T22n1428.xml",
+      "upstreamGitBlobSha1": "e876d11fb34b8ee09a9675ac3c9f90ea093ae629",
+      "upstreamBytes": 9252713,
+      "upstreamSha256": "e268b48d6149b3ddb8171cb509371ba9a297613e99f2933f6c576c7ffe23963f",
+      "localBytes": 9252714,
+      "localSha256": "ed110b2696f51f9ab05bd48e83645a0806742d9a2f029f695797d87557fdb908",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律",
+        "alternateTitle": "四分律",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1428",
+        "translator": "姚秦 · 佛陀耶舍共竺佛念等譯",
+        "summary": "60卷。本站完整保存 T1428 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1428_001"
+      },
+      "verification": {
+        "segments": 38483,
+        "folios": 1380,
+        "juanRange": [
+          1,
+          60
+        ],
+        "anchors": [
+          "T1428.001.0567a02",
+          "T1428.060.1014b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1429",
+      "slug": "taisho-t1429",
+      "workId": "gbcr:work:taisho-t1429",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_and_compiled_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        },
+        {
+          "type": "same_tradition_pratimoksa_recension_candidate_unmerged",
+          "groupId": "dharmaguptaka-bhiksu-pratimoksa-t1429-t1430",
+          "label": "四分律比丘戒本 T1429/T1430 传本候选",
+          "evidence": "两者均署佛陀耶舍译且较短本五字片段覆盖 66.7%，但经号独立，T1429 另载怀素集序；缺少跨经号版本裁决前保留为候选关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1429",
+              "T1430"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1429.xml",
+      "upstreamPath": "T/T22/T22n1429.xml",
+      "upstreamGitBlobSha1": "c158218a4cc24403a17654ad6a71ac7f4eb3910b",
+      "upstreamBytes": 206820,
+      "upstreamSha256": "a546aa2435a0555e6f12884395328e229182d8ac78550fde033e33c02ce1d89f",
+      "localBytes": 206821,
+      "localSha256": "fd6757ca77762804554196f2cf57b9e152521035493e9f10a0dd0487a0c0a6d4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分律比丘戒本",
+        "alternateTitle": "四分律比丘戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1429",
+        "translator": "後秦 · 佛陀耶舍譯；西太原寺沙門懷素集",
+        "summary": "1卷。本站完整保存 T1429 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留佛陀耶舍译题记，正文序同时明确记载怀素集；平台并列保存翻译与后世编集责任，不把编集本降格为无差别译本；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1429_001"
+      },
+      "verification": {
+        "segments": 693,
+        "folios": 25,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1429.001.1015a02",
+          "T1429.001.1023a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1430",
+      "slug": "taisho-t1430",
+      "workId": "gbcr:work:taisho-t1430",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        },
+        {
+          "type": "same_tradition_pratimoksa_recension_candidate_unmerged",
+          "groupId": "dharmaguptaka-bhiksu-pratimoksa-t1429-t1430",
+          "label": "四分律比丘戒本 T1429/T1430 传本候选",
+          "evidence": "两者均署佛陀耶舍译且较短本五字片段覆盖 66.7%，但经号独立，T1429 另载怀素集序；缺少跨经号版本裁决前保留为候选关系。",
+          "externalIds": {
+            "cbeta": [
+              "T1429",
+              "T1430"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1430.xml",
+      "upstreamPath": "T/T22/T22n1430.xml",
+      "upstreamGitBlobSha1": "e8ac98911b276b4ecf70ab09e569ca8b7d1eeeee",
+      "upstreamBytes": 128987,
+      "upstreamSha256": "0b9e0917155f30791fb4f22c33f4c7e128f14a1d92bbb1d2ed9ed6585f87c033",
+      "localBytes": 128988,
+      "localSha256": "cf9c72d9906e504bec533320a97948c3176ae000fa0e034a6723c08f0a1b55c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分僧戒本",
+        "alternateTitle": "四分僧戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1430",
+        "translator": "後秦 · 佛陀耶舍譯",
+        "summary": "1卷。本站完整保存 T1430 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1430_001"
+      },
+      "verification": {
+        "segments": 661,
+        "folios": 24,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1430.001.1023a14",
+          "T1430.001.1030c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1431",
+      "slug": "taisho-t1431",
+      "workId": "gbcr:work:taisho-t1431",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_and_compiled_vinaya_text",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1431.xml",
+      "upstreamPath": "T/T22/T22n1431.xml",
+      "upstreamGitBlobSha1": "1be7378959dcfda3ac1c77deeb5beba46325d478",
+      "upstreamBytes": 300310,
+      "upstreamSha256": "653cbe4722302266727b0572422f2d61f8bc694f56d1f0448e35a8d40ca469f7",
+      "localBytes": 300311,
+      "localSha256": "15c37f709dedad60444004aedec0946224931c2ddc3672e1934acf5004b2ba83",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分比丘尼戒本",
+        "alternateTitle": "四分比丘尼戒本",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1431",
+        "translator": "後秦 · 佛陀耶舍譯；西太原寺沙門懷素集",
+        "summary": "1卷。本站完整保存 T1431 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保留佛陀耶舍译题记，正文序同时明确记载怀素集；平台并列保存翻译与后世编集责任，不把编集本降格为无差别译本；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1431_001"
+      },
+      "verification": {
+        "segments": 879,
+        "folios": 32,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1431.001.1030c13",
+          "T1431.001.1041a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1432",
+      "slug": "taisho-t1432",
+      "workId": "gbcr:work:taisho-t1432",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        },
+        {
+          "type": "karmavacana_translation_or_recension_candidate_unmerged",
+          "groupId": "dharmaguptaka-karmavacana-t1432-t1434",
+          "label": "昙无德律部羯磨传本候选",
+          "evidence": "T1432 与 T1433 分署康僧铠、昙谛译，较短本五字片段覆盖 65.2%；T1434 只载比丘尼羯磨法。三者范围与译传边界不同，不据相似度强制合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1432.xml",
+      "upstreamPath": "T/T22/T22n1432.xml",
+      "upstreamGitBlobSha1": "74f911baa2a7dde08b35fa71b16876ca629f3571",
+      "upstreamBytes": 202941,
+      "upstreamSha256": "35b56136fab23792ae324f6130d3b9dae6ff782db9552859020f800908dc41cd",
+      "localBytes": 202942,
+      "localSha256": "67fd84d354886f18a76f37db3d4a1eace38fa4718e2445463a9e0162583bee3c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "曇無德律部雜羯磨",
+        "alternateTitle": "曇無德律部雜羯磨",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1432",
+        "translator": "曹魏 · 康僧鎧譯",
+        "summary": "1卷。本站完整保存 T1432 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1432_001"
+      },
+      "verification": {
+        "segments": 816,
+        "folios": 32,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1432.001.1041a22",
+          "T1432.001.1051b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1433",
+      "slug": "taisho-t1433",
+      "workId": "gbcr:work:taisho-t1433",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        },
+        {
+          "type": "karmavacana_translation_or_recension_candidate_unmerged",
+          "groupId": "dharmaguptaka-karmavacana-t1432-t1434",
+          "label": "昙无德律部羯磨传本候选",
+          "evidence": "T1432 与 T1433 分署康僧铠、昙谛译，较短本五字片段覆盖 65.2%；T1434 只载比丘尼羯磨法。三者范围与译传边界不同，不据相似度强制合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1433.xml",
+      "upstreamPath": "T/T22/T22n1433.xml",
+      "upstreamGitBlobSha1": "a4116e4dba0dcff01962c743371e91ccc8906a2f",
+      "upstreamBytes": 411407,
+      "upstreamSha256": "955411fb660d280696ba8e29b9a486754d35a5489c8ba14ef5bb21721a759cf3",
+      "localBytes": 411408,
+      "localSha256": "9a3ad918af707299712552e6e6c77b5a5ec0ea9e12b9b22103b16e4346433cf1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "羯磨",
+        "alternateTitle": "羯磨",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1433",
+        "translator": "曹魏 · 曇諦譯",
+        "summary": "1卷。本站完整保存 T1433 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1433_001"
+      },
+      "verification": {
+        "segments": 1045,
+        "folios": 43,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1433.001.1051b22",
+          "T1433.001.1065b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1434",
+      "slug": "taisho-t1434",
+      "workId": "gbcr:work:taisho-t1434",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_vinaya_canonical_record",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_collection_component_family_candidate_unmerged",
+          "groupId": "dharmaguptaka-vinaya-t1428-t1434",
+          "label": "四分律、戒本与羯磨文本家族",
+          "evidence": "六十卷《四分律》与僧尼戒本、两种僧尼羯磨及比丘尼羯磨法分别登记；共同部派归属、篇章结构和正文重合只证明组件或传本家族，不自动归并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1428",
+              "T1429",
+              "T1430",
+              "T1431",
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        },
+        {
+          "type": "karmavacana_translation_or_recension_candidate_unmerged",
+          "groupId": "dharmaguptaka-karmavacana-t1432-t1434",
+          "label": "昙无德律部羯磨传本候选",
+          "evidence": "T1432 与 T1433 分署康僧铠、昙谛译，较短本五字片段覆盖 65.2%；T1434 只载比丘尼羯磨法。三者范围与译传边界不同，不据相似度强制合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1432",
+              "T1433",
+              "T1434"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T22n1434.xml",
+      "upstreamPath": "T/T22/T22n1434.xml",
+      "upstreamGitBlobSha1": "b2b72443265771fd2e68f3411bc3761265ef23da",
+      "upstreamBytes": 178214,
+      "upstreamSha256": "cb7da51b4cb0c22a52a602e23a5ffb9ee29a92f01b667ea77aeac1263458ef44",
+      "localBytes": 178215,
+      "localSha256": "99f4ab0b892134599cb02284f9b18c75f30f5aa7c6c19c4afcd603e98f8c6932",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四分比丘尼羯磨法",
+        "alternateTitle": "四分比丘尼羯磨法",
+        "tradition": "漢傳佛教 · 律部",
+        "language": "漢文",
+        "canonRef": "大正藏 T22, no. 1434",
+        "translator": "劉宋 · 求那跋摩譯",
+        "summary": "1卷。本站完整保存 T1434 的固定 CBETA TEI 来源记录与可校验页栏行锚点；目录署为翻译；律部位置、同一部派或与广律正文重合只能证明律藏关系，不能单独证明同一书目作品或佛陀逐字亲说；物理记录、作品、表达、版本见证与广律组件关系分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1434_001"
+      },
+      "verification": {
+        "segments": 536,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1434.001.1065b13",
+          "T1434.001.1072a20"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
