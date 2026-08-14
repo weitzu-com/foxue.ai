@@ -221,6 +221,12 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT30SourceRecords.partialSourceWitnesses} 份部分作品见证，
               映射为 {snapshot.candidateInventory.chineseT30SourceRecords.controlledWorks} 个作品；T1582/T1583 作为原十卷文本的两个分离部分见证共享作品，
               T1567、T1570、T1580、T1584 保持部分译本或组成部分边界，T1581 与 T1582/T1583 的异译或汉地改编争议不自动合并；
+              T31 瑜伽部固定来源已完成 {snapshot.candidateInventory.chineseT31SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT31SourceRecords.denominator}（{snapshot.candidateInventory.chineseT31SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT31SourceRecords.fullSourceTexts} 份均为完整来源文件，映射为
+              {snapshot.candidateInventory.chineseT31SourceRecords.controlledWorks} 个作品；其中
+              {snapshot.candidateInventory.chineseT31SourceRecords.verifiedSameWorkExpressions} 份同作品异译或异本表达共享作品实体；
+              《唯识三十颂》《唯识二十论》《摄大乘论》《成业论》《观所缘缘论》等异译分组可复算，根本论、释论、合糅注释与《瑜伽师地论》独立流通组成部分保持边界，真谛名下译作、讲录或汉地编成争议公开保留；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -335,6 +341,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T30 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t31-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T31 的 43 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
