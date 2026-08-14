@@ -117,12 +117,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1065,
-    registeredExpressions: 1233,
-    fullSourceTextWorks: 1062,
-    fullSourceTextExpressions: 1217,
-    stableSegments: 1923689,
-    structureVerifiedWorks: 1065,
+    registeredWorks: 1186,
+    registeredExpressions: 1358,
+    fullSourceTextWorks: 1177,
+    fullSourceTextExpressions: 1336,
+    stableSegments: 1980374,
+    structureVerifiedWorks: 1186,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -156,11 +156,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 957,
-    controlled: 957,
+    denominator: 1083,
+    controlled: 1083,
     percentage: 100,
-    sourceBytes: 270336625,
-    controlledBytes: 270336625,
+    sourceBytes: 289225904,
+    controlledBytes: 289225904,
     bytePercentage: 100,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
@@ -232,9 +232,20 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     verifiedEditionWitnesses: 9,
     attributionBoundaryRecords: 25,
   });
+  expect(coverage.candidateInventory.chineseT19SourceRecords).toMatchObject({
+    denominator: 126,
+    controlled: 126,
+    percentage: 100,
+    fullSourceTexts: 120,
+    partialSourceWitnesses: 6,
+    verifiedEditionWitnesses: 8,
+    attributionBoundaryRecords: 25,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
+    chineseEsotericT19Inventory: expect.stringContaining("cbeta-taisho-t19-inventory-v0.1.0.json"),
+    chineseEsotericT19BoundaryAudit: expect.stringContaining("batch-v2.6.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -815,6 +826,31 @@ test("汉译 T18 密教部完整受控并区分版本、局部见证与佛说归
   expect(sitemap).toContain("/jingzang/taisho-t0848/007-0055a");
   expect(sitemap).toContain("/jingzang/taisho-t0893c/003-0692a");
   expect(sitemap).toContain("/jingzang/taisho-t0917/001-0942b");
+});
+
+test("汉译 T19 密教部完整受控并保留版本、组件、争议署名与原始卷号", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t0924a/001-0029b");
+  await expect(page.getByText(/《药师如来念诵仪轨》T0924 A\/B 版本见证组/)).toBeVisible();
+  await expect(page.getByText(/不据题名或部类自动声称为佛陀逐字亲说/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0946/004-0165c");
+  await expect(page.getByRole("heading", { level: 1, name: "大佛頂廣聚陀羅尼經" })).toBeVisible();
+  await expect(page.getByText(/题记未载作者或译者/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t0983b/001-0441b");
+  await expect(page.getByText("局部见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/撰、述、集、记或请来/)).toBeVisible();
+
+  await page.goto("/jingzang/lengyanjing/001-0105b");
+  await expect(page.getByText(/现代研究对成书与翻译史存在争议/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1027b/001-0735a");
+  await expect(page.getByText(/《金刚光焰止风雨陀罗尼经》T1027 a\/b 版本见证组/)).toBeVisible();
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/taisho-t0924b/001-0030b");
+  expect(sitemap).toContain("/jingzang/taisho-t0983b/001-0441b");
+  expect(sitemap).toContain("/jingzang/taisho-t1029/001-0744a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
