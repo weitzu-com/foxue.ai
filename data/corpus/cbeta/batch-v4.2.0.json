@@ -1,0 +1,493 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.2.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.1.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t35-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T35; T35 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T35",
+    "title": "大正藏 T35 华严经疏部固定来源记录",
+    "sourceRecordDenominator": 5,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 5,
+    "controlledSourceRecords": 5,
+    "newSourceBytes": 11056559,
+    "newStableSegments": 82994,
+    "newFolios": 2938,
+    "newJuans": 87,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 5,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 5,
+    "attributionBoundaryRecords": 5,
+    "newWorks": 5,
+    "controlledWorks": 5,
+    "workCountingDecision": "T35 的 5 份来源记录登记为 5 个完整表达和 5 个独立华严经疏作品。T1731–T1734 关联 T0278 六十卷本，但游意、搜玄、探玄与纲目体例不同；T1733、T1734 虽同为法藏作品仍保持独立；T1735 关联 T0279 八十卷本，并与 T36 的 T1736 形成疏—再注释关系。所有记录均不标作根本经表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_root_translation_commentary_outline_same_author_and_subcommentary_boundaries_recorded",
+    "existingControlledRecords": [
+      "T0278",
+      "T0279"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+      "eighty-fascicle-huayan-t0279-t1735-t1736"
+    ],
+    "subcommentaryGroups": [
+      "eighty-fascicle-huayan-t0279-t1735-t1736"
+    ],
+    "relatedDistinctWorkGroups": [
+      "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+      "huayan-commentaries-t1732-t1733",
+      "fazang-huayan-t1733-t1734"
+    ],
+    "candidateRelationsNotMerged": [
+      "T0278↔T1731–T1734（六十卷根本经与四部不同体例的游意、经疏及纲目分层保存）",
+      "T1732↔T1733（智俨搜玄记与法藏探玄记共享根经但为两个注疏作品）",
+      "T1733↔T1734（法藏同作者的探玄记与文义纲目保持两个作品）",
+      "T0279↔T1735（八十卷根本经与澄观疏分列作品）",
+      "T1735↔T1736（澄观疏与下一卷随疏演义钞为注释—再注释关系）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_doctrinal_exposition": [
+        "T1731"
+      ],
+      "sinitic_authored_doctrinal_outline": [
+        "T1734"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1732",
+        "T1733",
+        "T1735"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation and exegetical dependence; it cannot merge root translations, doctrinal expositions, direct commentaries, outlines or subcommentaries.",
+      "pairs": [
+        {
+          "pair": [
+            "T1731",
+            "T1732"
+          ],
+          "normalizedCharacters": [
+            18093,
+            130326
+          ],
+          "fiveGramContainmentOfShorter": 0.001632,
+          "fiveGramJaccard": 0.000196
+        },
+        {
+          "pair": [
+            "T1732",
+            "T1733"
+          ],
+          "normalizedCharacters": [
+            130326,
+            541624
+          ],
+          "fiveGramContainmentOfShorter": 0.06002,
+          "fiveGramJaccard": 0.011522
+        },
+        {
+          "pair": [
+            "T1733",
+            "T1734"
+          ],
+          "normalizedCharacters": [
+            541624,
+            13602
+          ],
+          "fiveGramContainmentOfShorter": 0.356798,
+          "fiveGramJaccard": 0.008983
+        },
+        {
+          "pair": [
+            "T1733",
+            "T1735"
+          ],
+          "normalizedCharacters": [
+            541624,
+            641934
+          ],
+          "fiveGramContainmentOfShorter": 0.060013,
+          "fiveGramJaccard": 0.028191
+        },
+        {
+          "pair": [
+            "T1734",
+            "T1735"
+          ],
+          "normalizedCharacters": [
+            13602,
+            641934
+          ],
+          "fiveGramContainmentOfShorter": 0.055681,
+          "fiveGramJaccard": 0.001175
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T35",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001372",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001373",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001435",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001392",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001417",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001420",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001411",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001409",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000329",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001304",
+      "https://authority.dila.edu.tw/person/search.php?aid=A002450",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001755"
+    ],
+    "caveat": "T35 是华严经疏部，不是佛说经集合。平台完整保存固定来源，同时区分 T0278 六十卷译本、T0279 八十卷译本、游意、直接注疏、纲目和再注释；共同根经、师承、同作者、传统责任题记、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1731",
+      "slug": "taisho-t1731",
+      "workId": "gbcr:work:huayan-youyi-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "華嚴遊意",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_sixty_fascicle_avatamsaka_distinct",
+          "groupId": "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+          "label": "六十卷本《大方广佛华严经》与四部游意、搜玄、探玄及纲目",
+          "evidence": "DILA T0278、T1731、T1732、T1733、T1734 规范记录互相标示相关经典。四部汉地撰述共享六十卷本解释对象，但作者、体例、规模和结构不同；根本经、教义游意、经疏与纲目保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1731",
+              "T1732",
+              "T1733",
+              "T1734"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T35n1731.xml",
+      "upstreamPath": "T/T35/T35n1731.xml",
+      "upstreamGitBlobSha1": "d34d583b55a9ed168842391625166d93f3a7fefc",
+      "upstreamBytes": 319789,
+      "upstreamSha256": "defac291b8bc77af7e269a57c6ab44a06a9ffcf399a26c2a5136156bc4b5ef80",
+      "localBytes": 319790,
+      "localSha256": "b2d6c935c48e983712640294cb4d68ca36fc577afecf5208a1a9703239017a88",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴遊意",
+        "alternateTitle": "華嚴遊意",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T35, no. 1731",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。吉藏《华严游意》教义阐释完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1731_001"
+      },
+      "verification": {
+        "segments": 1089,
+        "folios": 38,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1731.001.0001a02",
+          "T1731.001.0013b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1732",
+      "slug": "taisho-t1732",
+      "workId": "gbcr:work:huayan-souxuan-fenqi-tongzhi-fanggui-zhiyan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣佛華嚴經搜玄分齊通智方軌",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_sixty_fascicle_avatamsaka_distinct",
+          "groupId": "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+          "label": "六十卷本《大方广佛华严经》与四部游意、搜玄、探玄及纲目",
+          "evidence": "DILA T0278、T1731、T1732、T1733、T1734 规范记录互相标示相关经典。四部汉地撰述共享六十卷本解释对象，但作者、体例、规模和结构不同；根本经、教义游意、经疏与纲目保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1731",
+              "T1732",
+              "T1733",
+              "T1734"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_on_same_canonical_translation_distinct",
+          "groupId": "huayan-commentaries-t1732-t1733",
+          "label": "智俨《搜玄记》与法藏《探玄记》",
+          "evidence": "T1732 与 T1733 都解释 T0278，但分别题为智俨述、法藏述，卷数、组织和正文均不同；师承或共同根经不能据以合并为同一注疏作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1732",
+              "T1733"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T35n1732.xml",
+      "upstreamPath": "T/T35/T35n1732.xml",
+      "upstreamGitBlobSha1": "7cbf7524ff6537c129edd775f72eed1b3a711dc5",
+      "upstreamBytes": 820887,
+      "upstreamSha256": "67b1594d9ff8fe2458da6b85bab7780222ba94a8d2f5c76eec24e7ac96daee28",
+      "localBytes": 820888,
+      "localSha256": "2a0f21c4e2c6f61ef0a60b13cb8c4a8dee99ba10af88899d7511960ee4158902",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經搜玄分齊通智方軌",
+        "alternateTitle": "大方廣佛華嚴經搜玄分齊通智方軌",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T35, no. 1732",
+        "translator": "唐 · 智儼述",
+        "summary": "5卷。智俨《搜玄分齐通智方轨》完整来源。传统责任题记：唐 智儼述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1732_001"
+      },
+      "verification": {
+        "segments": 8021,
+        "folios": 281,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1732.001.0013b21",
+          "T1732.005.0106b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1733",
+      "slug": "taisho-t1733",
+      "workId": "gbcr:work:huayan-tanxuan-ji-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "華嚴經探玄記",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_sixty_fascicle_avatamsaka_distinct",
+          "groupId": "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+          "label": "六十卷本《大方广佛华严经》与四部游意、搜玄、探玄及纲目",
+          "evidence": "DILA T0278、T1731、T1732、T1733、T1734 规范记录互相标示相关经典。四部汉地撰述共享六十卷本解释对象，但作者、体例、规模和结构不同；根本经、教义游意、经疏与纲目保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1731",
+              "T1732",
+              "T1733",
+              "T1734"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_on_same_canonical_translation_distinct",
+          "groupId": "huayan-commentaries-t1732-t1733",
+          "label": "智俨《搜玄记》与法藏《探玄记》",
+          "evidence": "T1732 与 T1733 都解释 T0278，但分别题为智俨述、法藏述，卷数、组织和正文均不同；师承或共同根经不能据以合并为同一注疏作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1732",
+              "T1733"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_and_outline_by_same_author_distinct",
+          "groupId": "fazang-huayan-t1733-t1734",
+          "label": "法藏《华严经探玄记》与《花严经文义纲目》",
+          "evidence": "DILA 的法藏著作记录分别列出 T1733 与 T1734；二十卷探玄记与一卷文义纲目虽同作者、同根经，体例与范围不同，保持两个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1733",
+              "T1734"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T35n1733.xml",
+      "upstreamPath": "T/T35/T35n1733.xml",
+      "upstreamGitBlobSha1": "9e0eaed8c2cd6cf7f6cdf8e21fa26c1de6514bde",
+      "upstreamBytes": 5216018,
+      "upstreamSha256": "5c43936406597674773d8c6ed958eeec11992ea59ae3e7eb61ec8150c52f4ddc",
+      "localBytes": 5216019,
+      "localSha256": "98d7ff50e918d74e999698bb4436124efdf9644399fa7864f7c5700ad4ab96de",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經探玄記",
+        "alternateTitle": "華嚴經探玄記",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T35, no. 1733",
+        "translator": "唐 · 法藏述",
+        "summary": "20卷。法藏《华严经探玄记》完整来源。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1733_001"
+      },
+      "verification": {
+        "segments": 33423,
+        "folios": 1168,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1733.001.0107a02",
+          "T1733.020.0492b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1734",
+      "slug": "taisho-t1734",
+      "workId": "gbcr:work:huayan-wenyi-gangmu-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "花嚴經文義綱目",
+      "sourceRole": "sinitic_authored_doctrinal_outline",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_sixty_fascicle_avatamsaka_distinct",
+          "groupId": "sixty-fascicle-huayan-exegesis-t0278-t1731-t1734",
+          "label": "六十卷本《大方广佛华严经》与四部游意、搜玄、探玄及纲目",
+          "evidence": "DILA T0278、T1731、T1732、T1733、T1734 规范记录互相标示相关经典。四部汉地撰述共享六十卷本解释对象，但作者、体例、规模和结构不同；根本经、教义游意、经疏与纲目保持五个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1731",
+              "T1732",
+              "T1733",
+              "T1734"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_and_outline_by_same_author_distinct",
+          "groupId": "fazang-huayan-t1733-t1734",
+          "label": "法藏《华严经探玄记》与《花严经文义纲目》",
+          "evidence": "DILA 的法藏著作记录分别列出 T1733 与 T1734；二十卷探玄记与一卷文义纲目虽同作者、同根经，体例与范围不同，保持两个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0278",
+              "T1733",
+              "T1734"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T35n1734.xml",
+      "upstreamPath": "T/T35/T35n1734.xml",
+      "upstreamGitBlobSha1": "39e1703be3bbc2a39fe4c5ab8ba9ec5c6883f6d3",
+      "upstreamBytes": 157564,
+      "upstreamSha256": "48539d90e3ad968cdb4c1c6b13eb895cce642717dee6b10e377994d7ce290230",
+      "localBytes": 157565,
+      "localSha256": "07ecfe8d7d8fb1b9d6956e3433348686489383f44e9bbf47c2ee4dc4a7a868c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "花嚴經文義綱目",
+        "alternateTitle": "花嚴經文義綱目",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T35, no. 1734",
+        "translator": "唐 · 法藏撰",
+        "summary": "1卷。法藏《花严经文义纲目》完整来源。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1734_001"
+      },
+      "verification": {
+        "segments": 802,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1734.001.0492b18",
+          "T1734.001.0501c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1735",
+      "slug": "taisho-t1735",
+      "workId": "gbcr:work:huayan-jing-shu-chengguan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣佛華嚴經疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_and_subcommentary_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-t0279-t1735-t1736",
+          "label": "八十卷本《大方广佛华严经》、澄观疏与随疏演义钞",
+          "evidence": "DILA T1735 规范记录明确关联 T0279 与 T1736；T1735 是对八十卷本的独立经疏，T1736 是下一卷所收的独立演义钞。根本经、疏与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T35n1735.xml",
+      "upstreamPath": "T/T35/T35n1735.xml",
+      "upstreamGitBlobSha1": "0781e26c559580c8a2c0718e075da248b3b17310",
+      "upstreamBytes": 4542301,
+      "upstreamSha256": "af13eb21c1040db60221ba56202735380e91d79fbcd21a29d424824d8cfd30e6",
+      "localBytes": 4542302,
+      "localSha256": "7889c14077c732240b28a0b5f609199f95e57ceab2cf8e55d6247f716d5ba229",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經疏",
+        "alternateTitle": "大方廣佛華嚴經疏",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T35, no. 1735",
+        "translator": "唐 · 澄觀撰",
+        "summary": "60卷。澄观《大方广佛华严经疏》完整来源。传统责任题记：唐 澄觀撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1735_001"
+      },
+      "verification": {
+        "segments": 39659,
+        "folios": 1422,
+        "juanRange": [
+          1,
+          60
+        ],
+        "anchors": [
+          "T1735.001.0503a02",
+          "T1735.060.0963a03"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
