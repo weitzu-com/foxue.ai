@@ -117,12 +117,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1363,
-    registeredExpressions: 1542,
-    fullSourceTextWorks: 1349,
-    fullSourceTextExpressions: 1515,
-    stableSegments: 2056901,
-    structureVerifiedWorks: 1363,
+    registeredWorks: 1585,
+    registeredExpressions: 1770,
+    fullSourceTextWorks: 1565,
+    fullSourceTextExpressions: 1737,
+    stableSegments: 2135243,
+    structureVerifiedWorks: 1585,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -156,11 +156,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1267,
-    controlled: 1267,
+    denominator: 1495,
+    controlled: 1495,
     percentage: 100,
-    sourceBytes: 313446280,
-    controlledBytes: 313446280,
+    sourceBytes: 334710326,
+    controlledBytes: 334710326,
     bytePercentage: 100,
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
@@ -250,6 +250,15 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     verifiedEditionWitnesses: 14,
     attributionBoundaryRecords: 28,
   });
+  expect(coverage.candidateInventory.chineseT21SourceRecords).toMatchObject({
+    denominator: 228,
+    controlled: 228,
+    percentage: 100,
+    fullSourceTexts: 222,
+    partialSourceWitnesses: 6,
+    verifiedEditionWitnesses: 12,
+    attributionBoundaryRecords: 58,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -257,6 +266,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseEsotericT19BoundaryAudit: expect.stringContaining("batch-v2.6.0.json"),
     chineseEsotericT20Inventory: expect.stringContaining("cbeta-taisho-t20-inventory-v0.1.0.json"),
     chineseEsotericT20BoundaryAudit: expect.stringContaining("batch-v2.7.0.json"),
+    chineseEsotericT21Inventory: expect.stringContaining("cbeta-taisho-t21-inventory-v0.1.0.json"),
+    chineseEsotericT21BoundaryAudit: expect.stringContaining("batch-v2.8.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -892,6 +903,36 @@ test("汉译 T20 密教部完整受控并保留版本、组件、注校与口受
   expect(sitemap).toContain("/jingzang/taisho-t1057a/001-0083b");
   expect(sitemap).toContain("/jingzang/taisho-t1120b/001-0520b");
   expect(sitemap).toContain("/jingzang/taisho-t1198/001-0940a");
+});
+
+test("汉译 T21 密教部完整受控并保留版本、品分、论造与译解边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1222a/001-0102a");
+  await expect(page.getByText(/圣迦抳忿怒金刚童子成就仪轨经 T1222 a\/b 版本见证/)).toBeVisible();
+  await expect(page.getByText(/不据题名或部类自动声称为佛陀逐字亲说/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1276/001-0325c");
+  await expect(page.getByText("局部见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "文殊師利菩薩根本大教王經金翅鳥王品" })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1361/001-0878b");
+  await expect(page.getByRole("heading", { level: 1, name: "六門陀羅尼經論" })).toBeVisible();
+  await expect(page.getByText(/造、将来或译解/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1383/001-0904b");
+  await expect(page.getByText(/宿命智陀罗尼经题名候选/)).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1419/001-0936a");
+  await expect(page.getByRole("heading", { level: 1, name: "佛說造像量度經解" })).toBeVisible();
+  await expect(page.getByText("清 · 工布查布譯解", { exact: true })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1420/001-0956b");
+  await expect(page.getByRole("heading", { level: 1, name: "龍樹五明論" })).toBeVisible();
+  await expect(page.getByText("题名载龙树传统归属", { exact: true })).toBeVisible();
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/taisho-t1222a/001-0102a");
+  expect(sitemap).toContain("/jingzang/taisho-t1276/001-0325c");
+  expect(sitemap).toContain("/jingzang/taisho-t1420/002-0968c");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

@@ -59,24 +59,24 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v3.8.0.sha256`。
+1. 核对 `data/gbcr/checksums-v3.9.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
-3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot`、`pnpm verify:cbeta:t19-snapshot` 与 `pnpm verify:cbeta:t20-snapshot`，复算 T18 的 76 条、T19 的 126 条、T20 的 184 条来源记录、字节数和 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
-4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、1,542 个文本表达或见证（其中 1,515 个完整全文记录）、1,267 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部站内文本的轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。
+3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot`、`pnpm verify:cbeta:t19-snapshot`、`pnpm verify:cbeta:t20-snapshot` 与 `pnpm verify:cbeta:t21-snapshot`，复算 T18 的 76 条、T19 的 126 条、T20 的 184 条、T21 的 228 条来源记录、字节数和 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
+4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、1,770 个文本表达或见证（其中 1,737 个完整全文记录）、1,495 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部站内文本的轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 1,515 个受控完整全文记录、27 个节译、后分、节本、短本、残篇、组件或局部见证与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 1,737 个受控完整全文记录、33 个节译、后分、节本、短本、残篇、组件或局部见证与覆盖登记册。
 
 Vercel 恢复顺序：
 
 1. 新建 Next.js 项目并连接恢复后的 Git 仓库；
 2. 生产分支设为 `main`，Node 设为 22.x；
 3. 设置 `NEXT_PUBLIC_SITE_URL=https://foxue.ai`；经藏边缘层尚未恢复时不要设置 `CORPUS_ASSET_BASE_URL`，网站会使用仓库内受控原文；
-4. 部署后验证 `/api/health`、`/api/v1/corpus/coverage`、`/fugai`、`/shenjiao` 的 80 项只读裁决队列与 P0/P1 筛选、汉文代表页、T18 的 T0848/T0917 及版本见证 T0893a/T0893c、T19 的 T0924A/T0983B/T1027b、T0945 争议署名边界与 T0946 原始卷号 1/2/4/5、T20 的 T1057a/T1111/T1120B/T1156B/T1185B、巴利《法句经》首尾锚点、《长部》DN1/DN34、《中部》MN1/MN152、《相应部》SN1/SN56、《增支部》AN1/AN11，以及《小部》的 KP、SNP、JA 与后期文本代表锚点；
+4. 部署后验证 `/api/health`、`/api/v1/corpus/coverage`、`/fugai`、`/shenjiao` 的 80 项只读裁决队列与 P0/P1 筛选、汉文代表页、T18 的 T0848/T0917 及版本见证 T0893a/T0893c、T19 的 T0924A/T0983B/T1027b、T0945 争议署名边界与 T0946 原始卷号 1/2/4/5、T20 的 T1057a/T1111/T1120B/T1156B/T1185B、T21 的 T1222a/T1276/T1361/T1383/T1419/T1420、巴利《法句经》首尾锚点、《长部》DN1/DN34、《中部》MN1/MN152、《相应部》SN1/SN56、《增支部》AN1/AN11，以及《小部》的 KP、SNP、JA 与后期文本代表锚点；
 5. 通过后再切换 DNS，失败则保留原站或静态维护页。
 
 ### 5.1 恢复经藏对象存储与只读边缘层
