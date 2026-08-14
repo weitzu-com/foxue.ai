@@ -1,0 +1,790 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.3.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.2.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t36-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T36; T36 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T36",
+    "title": "大正藏 T36 华严经疏部固定来源记录",
+    "sourceRecordDenominator": 8,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 8,
+    "controlledSourceRecords": 8,
+    "newSourceBytes": 14520834,
+    "newStableSegments": 91748,
+    "newFolios": 3288,
+    "newJuans": 140,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 8,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 8,
+    "attributionBoundaryRecords": 8,
+    "newWorks": 8,
+    "controlledWorks": 8,
+    "workCountingDecision": "T36 的 8 份来源记录登记为 8 个完整表达和 8 个独立华严经疏作品。T1736–T1743 均关联 T0279 八十卷本，其中 T1736 与已受控 T1735 形成疏—再注释关系；澄观 T1736–T1738、李通玄 T1739–T1741 即使同作者、同根经，仍因体例、范围与依赖层级不同保持独立。T1742 观门骨目与 T1743 宫廷讲义也分别计作作品。所有记录均不标作根本经表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_root_translation_commentary_outline_same_author_and_subcommentary_boundaries_recorded",
+    "existingControlledRecords": [
+      "T0279",
+      "T1735"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+      "eighty-fascicle-huayan-t0279-t1735-t1736"
+    ],
+    "subcommentaryGroups": [
+      "eighty-fascicle-huayan-t0279-t1735-t1736"
+    ],
+    "relatedDistinctWorkGroups": [
+      "chengguan-huayan-t1735-t1738",
+      "li-tongxuan-huayan-t1739-t1741"
+    ],
+    "candidateRelationsNotMerged": [
+      "T0279↔T1736–T1743（八十卷根本经与八部不同体例、不同作者的疏钞论义分层保存）",
+      "T1735↔T1736（澄观疏与随疏演义钞为注释—再注释关系）",
+      "T1736↔T1737↔T1738（澄观同作者的演义钞、略策与颂释章保持三个作品）",
+      "T1739↔T1740↔T1741（李通玄同作者的经论、卷意与决疑论保持三个作品）",
+      "T1742↔T1743（湛然观门骨目与静居宫廷讲义同根经但为两个作品）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_court_lecture": [
+        "T1743"
+      ],
+      "sinitic_authored_doctrinal_outline": [
+        "T1737",
+        "T1740"
+      ],
+      "sinitic_authored_doctrinal_treatise": [
+        "T1741"
+      ],
+      "sinitic_authored_practice_outline": [
+        "T1742"
+      ],
+      "sinitic_authored_subcommentary": [
+        "T1736"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1739"
+      ],
+      "sinitic_authored_verse_exposition": [
+        "T1738"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation and exegetical dependence; it cannot merge root translations, direct commentaries, subcommentaries, outlines, doctrinal treatises, practice digests or lecture texts.",
+      "pairs": [
+        {
+          "pair": [
+            "T1736",
+            "T1737"
+          ],
+          "normalizedCharacters": [
+            978955,
+            12091
+          ],
+          "fiveGramContainmentOfShorter": 0.087739,
+          "fiveGramJaccard": 0.001114
+        },
+        {
+          "pair": [
+            "T1736",
+            "T1738"
+          ],
+          "normalizedCharacters": [
+            978955,
+            13867
+          ],
+          "fiveGramContainmentOfShorter": 0.071429,
+          "fiveGramJaccard": 0.000987
+        },
+        {
+          "pair": [
+            "T1737",
+            "T1738"
+          ],
+          "normalizedCharacters": [
+            12091,
+            13867
+          ],
+          "fiveGramContainmentOfShorter": 0.039905,
+          "fiveGramJaccard": 0.019466
+        },
+        {
+          "pair": [
+            "T1739",
+            "T1740"
+          ],
+          "normalizedCharacters": [
+            412553,
+            2942
+          ],
+          "fiveGramContainmentOfShorter": 0.021269,
+          "fiveGramJaccard": 0.000168
+        },
+        {
+          "pair": [
+            "T1739",
+            "T1741"
+          ],
+          "normalizedCharacters": [
+            412553,
+            55170
+          ],
+          "fiveGramContainmentOfShorter": 0.095306,
+          "fiveGramJaccard": 0.012136
+        },
+        {
+          "pair": [
+            "T1740",
+            "T1741"
+          ],
+          "normalizedCharacters": [
+            2942,
+            55170
+          ],
+          "fiveGramContainmentOfShorter": 0.006625,
+          "fiveGramJaccard": 0.000348
+        },
+        {
+          "pair": [
+            "T1742",
+            "T1743"
+          ],
+          "normalizedCharacters": [
+            21080,
+            2655
+          ],
+          "fiveGramContainmentOfShorter": 0.024342,
+          "fiveGramJaccard": 0.002728
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T36",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001373",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001411",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001409",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001391",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001400",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001390",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001376",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001387",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001436",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000724",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001755",
+      "https://authority.dila.edu.tw/person/search.php?aid=A000517",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001307",
+      "https://authority.dila.edu.tw/person/search.php?aid=A001835"
+    ],
+    "caveat": "T36 是华严经疏部，不是佛说经集合。平台完整保存固定来源，同时区分 T0279 八十卷译本、T1735 直接注疏、T1736 再注释、略策、颂释章、经论、卷意、决疑论、观门骨目和宫廷讲义；共同根经、同作者、传统责任题记、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1736",
+      "slug": "taisho-t1736",
+      "workId": "gbcr:work:huayan-suishu-yanyi-chao-chengguan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣佛華嚴經隨疏演義鈔",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_subcommentary_outline_and_verse_exposition_by_same_author_distinct",
+          "groupId": "chengguan-huayan-t1735-t1738",
+          "label": "澄观《华严经疏》《随疏演义钞》《大华严经略策》与《七处九会颂释章》",
+          "evidence": "DILA 分别登记 T1735–T1738，并给出独立规范码。四部虽同为澄观撰述并围绕 T0279，但六十卷疏、九十卷演义钞、一卷略策和一卷颂释章的体例、范围与依赖层级不同，保持四个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738"
+            ]
+          }
+        },
+        {
+          "type": "commentary_and_subcommentary_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-t0279-t1735-t1736",
+          "label": "八十卷本《大方广佛华严经》、澄观疏与随疏演义钞",
+          "evidence": "DILA T1735 与 T1736 规范记录互相标示相关经典；T1735 是对八十卷本的独立经疏，T1736 是依疏展开的独立演义钞。根本经、疏与再注释分层登记。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1736.xml",
+      "upstreamPath": "T/T36/T36n1736.xml",
+      "upstreamGitBlobSha1": "59d7bfeb9a3207d08cc3b1c0683abd93fbfbac3d",
+      "upstreamBytes": 11478219,
+      "upstreamSha256": "88ad257c0db4ab6432c4bdb558814c7fd8e5ba04303040071d4a52024eb5ee96",
+      "localBytes": 11478220,
+      "localSha256": "6e52e2091e5d5da6c6543a81be40de352f8bb19c198b2a4b6415fbb98541891c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經隨疏演義鈔",
+        "alternateTitle": "大方廣佛華嚴經隨疏演義鈔",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1736",
+        "translator": "唐 · 澄觀述",
+        "summary": "90卷。澄观《大方广佛华严经随疏演义钞》再注释完整来源。传统责任题记：唐 澄觀述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1736_001"
+      },
+      "verification": {
+        "segments": 60299,
+        "folios": 2154,
+        "juanRange": [
+          1,
+          90
+        ],
+        "anchors": [
+          "T1736.001.0001a02",
+          "T1736.090.0701a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1737",
+      "slug": "taisho-t1737",
+      "workId": "gbcr:work:da-huayan-jing-luece-chengguan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大華嚴經略策",
+      "sourceRole": "sinitic_authored_doctrinal_outline",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_subcommentary_outline_and_verse_exposition_by_same_author_distinct",
+          "groupId": "chengguan-huayan-t1735-t1738",
+          "label": "澄观《华严经疏》《随疏演义钞》《大华严经略策》与《七处九会颂释章》",
+          "evidence": "DILA 分别登记 T1735–T1738，并给出独立规范码。四部虽同为澄观撰述并围绕 T0279，但六十卷疏、九十卷演义钞、一卷略策和一卷颂释章的体例、范围与依赖层级不同，保持四个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1737.xml",
+      "upstreamPath": "T/T36/T36n1737.xml",
+      "upstreamGitBlobSha1": "c925a8f72b937e4e084ff81f430f74d5ba0e050d",
+      "upstreamBytes": 92759,
+      "upstreamSha256": "87cbbeef69a416244ac37a6d397b4cc4efb6490fdabd58521354b064a94a69c1",
+      "localBytes": 92760,
+      "localSha256": "ad2fb1c9035d9a040149b71e36d54b33f51c73ca923f6b9acf4dbd2fe18f3088",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大華嚴經略策",
+        "alternateTitle": "大華嚴經略策",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1737",
+        "translator": "唐 · 澄觀述",
+        "summary": "1卷。澄观《大华严经略策》完整来源。传统责任题记：唐 澄觀述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1737_001"
+      },
+      "verification": {
+        "segments": 728,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1737.001.0701b02",
+          "T1737.001.0709c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1738",
+      "slug": "taisho-t1738",
+      "workId": "gbcr:work:xin-yi-huayan-qi-chu-jiu-hui-song-shi-zhang-chengguan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "新譯華嚴經七處九會頌釋章",
+      "sourceRole": "sinitic_authored_verse_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_subcommentary_outline_and_verse_exposition_by_same_author_distinct",
+          "groupId": "chengguan-huayan-t1735-t1738",
+          "label": "澄观《华严经疏》《随疏演义钞》《大华严经略策》与《七处九会颂释章》",
+          "evidence": "DILA 分别登记 T1735–T1738，并给出独立规范码。四部虽同为澄观撰述并围绕 T0279，但六十卷疏、九十卷演义钞、一卷略策和一卷颂释章的体例、范围与依赖层级不同，保持四个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1738.xml",
+      "upstreamPath": "T/T36/T36n1738.xml",
+      "upstreamGitBlobSha1": "e079e6d8b49678b2d95f75ba1785ff516722da23",
+      "upstreamBytes": 79276,
+      "upstreamSha256": "caed0e541d18b2b3dfb85856b89d056e2d291ba87d0d0e7f082d5b1b596ecf47",
+      "localBytes": 79277,
+      "localSha256": "737fac214044fe7fbc94e4688d5884e6d2561836f14107182d37900c5786a920",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "新譯華嚴經七處九會頌釋章",
+        "alternateTitle": "新譯華嚴經七處九會頌釋章",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1738",
+        "translator": "唐 · 澄觀述",
+        "summary": "1卷。澄观《新译华严经七处九会颂释章》完整来源。传统责任题记：唐 澄觀述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1738_001"
+      },
+      "verification": {
+        "segments": 836,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1738.001.0709c11",
+          "T1738.001.0719b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1739",
+      "slug": "taisho-t1739",
+      "workId": "gbcr:work:xin-huayan-jing-lun-li-tongxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "新華嚴經論",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_outline_and_doctrinal_treatise_by_same_author_distinct",
+          "groupId": "li-tongxuan-huayan-t1739-t1741",
+          "label": "李通玄《新华严经论》《卷卷大意略叙》与《修行次第决疑论》",
+          "evidence": "DILA 分别登记 T1739、T1740、T1741，并给出独立规范码和篇幅。三部虽同作者且都关联 T0279，但四十卷经论、一卷卷意与四卷决疑论体例不同，保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1739",
+              "T1740",
+              "T1741"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1739.xml",
+      "upstreamPath": "T/T36/T36n1739.xml",
+      "upstreamGitBlobSha1": "70f6879bf8d0c7e8937d9a3e91c36e92c5a18b05",
+      "upstreamBytes": 2197803,
+      "upstreamSha256": "91e80447fd27d48ff7bd8ec452e3f8038249aa8874cdb32220ae7984e9dc44ec",
+      "localBytes": 2197804,
+      "localSha256": "83985b825907efc08aed62ff340910c48d28ecd68067f3123013426a4a60a913",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "新華嚴經論",
+        "alternateTitle": "新華嚴經論",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1739",
+        "translator": "唐 · 李通玄撰",
+        "summary": "40卷。李通玄《新华严经论》完整来源。传统责任题记：唐 李通玄撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1739_001"
+      },
+      "verification": {
+        "segments": 24892,
+        "folios": 898,
+        "juanRange": [
+          1,
+          40
+        ],
+        "anchors": [
+          "T1739.001.0721a02",
+          "T1739.040.1008b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1740",
+      "slug": "taisho-t1740",
+      "workId": "gbcr:work:huayan-jing-juan-juan-dayi-li-tongxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣佛華嚴經中卷卷大意略敘",
+      "sourceRole": "sinitic_authored_doctrinal_outline",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_outline_and_doctrinal_treatise_by_same_author_distinct",
+          "groupId": "li-tongxuan-huayan-t1739-t1741",
+          "label": "李通玄《新华严经论》《卷卷大意略叙》与《修行次第决疑论》",
+          "evidence": "DILA 分别登记 T1739、T1740、T1741，并给出独立规范码和篇幅。三部虽同作者且都关联 T0279，但四十卷经论、一卷卷意与四卷决疑论体例不同，保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1739",
+              "T1740",
+              "T1741"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1740.xml",
+      "upstreamPath": "T/T36/T36n1740.xml",
+      "upstreamGitBlobSha1": "0af08b85c72267e2a83c808c20e86101ec363f8e",
+      "upstreamBytes": 32591,
+      "upstreamSha256": "fc615c62d2b1576b7491798b75e13e74ecad3a26db00085367ac65ccb79281dd",
+      "localBytes": 32592,
+      "localSha256": "9fa95e7cc7229d3054d1b217ccb40fea79b296ec08da3d5b0fe8289cc20b53fa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經中卷卷大意略敘",
+        "alternateTitle": "大方廣佛華嚴經中卷卷大意略敘",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1740",
+        "translator": "唐 · 李通玄造",
+        "summary": "1卷。李通玄《大方广佛华严经中卷卷大意略叙》完整来源。传统责任题记：唐 李通玄造。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1740_001"
+      },
+      "verification": {
+        "segments": 252,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1740.001.1008c02",
+          "T1740.001.1011b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1741",
+      "slug": "taisho-t1741",
+      "workId": "gbcr:work:lueshi-xin-huayan-xiuxing-jueyi-lun-li-tongxuan",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "略釋新華嚴經修行次第決疑論",
+      "sourceRole": "sinitic_authored_doctrinal_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        },
+        {
+          "type": "related_commentary_outline_and_doctrinal_treatise_by_same_author_distinct",
+          "groupId": "li-tongxuan-huayan-t1739-t1741",
+          "label": "李通玄《新华严经论》《卷卷大意略叙》与《修行次第决疑论》",
+          "evidence": "DILA 分别登记 T1739、T1740、T1741，并给出独立规范码和篇幅。三部虽同作者且都关联 T0279，但四十卷经论、一卷卷意与四卷决疑论体例不同，保持三个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1739",
+              "T1740",
+              "T1741"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1741.xml",
+      "upstreamPath": "T/T36/T36n1741.xml",
+      "upstreamGitBlobSha1": "bd1f2dc1151f6c6d1322eabb9dfee2eb60601350",
+      "upstreamBytes": 297476,
+      "upstreamSha256": "a4b8385dbc2f309fa5ebf206d11ba39b448d75d1ef4d47d41feb51e8f96f5010",
+      "localBytes": 297477,
+      "localSha256": "d25c0fad0c1e834b6c30a35f12101abc51ae2979d3acd2d69e2c2de1b6a06a5d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "略釋新華嚴經修行次第決疑論",
+        "alternateTitle": "略釋新華嚴經修行次第決疑論",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1741",
+        "translator": "唐 · 李通玄撰",
+        "summary": "4卷。李通玄《略释新华严经修行次第决疑论》完整来源。传统责任题记：唐 李通玄撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1741_001"
+      },
+      "verification": {
+        "segments": 3292,
+        "folios": 117,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1741.001.1011c02",
+          "T1741.004.1049c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1742",
+      "slug": "taisho-t1742",
+      "workId": "gbcr:work:huayan-yuanxing-guanmen-gumu-zhanran",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大方廣佛華嚴經願行觀門骨目",
+      "sourceRole": "sinitic_authored_practice_outline",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1742.xml",
+      "upstreamPath": "T/T36/T36n1742.xml",
+      "upstreamGitBlobSha1": "2a0eadf1da007af4edbe0cee3a2f8ff462eeebb0",
+      "upstreamBytes": 316304,
+      "upstreamSha256": "c9477f742372cdc17f87bc147996e69a1e83ecfd4ce9564a42dee9a0ff1286af",
+      "localBytes": 316305,
+      "localSha256": "b25087500445d86f950f06efb62ca6a9acf64da401de40a52c8bd53e8c2941b7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經願行觀門骨目",
+        "alternateTitle": "大方廣佛華嚴經願行觀門骨目",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1742",
+        "translator": "唐 · 湛然撰",
+        "summary": "2卷。湛然《大方广佛华严经愿行观门骨目》完整来源。传统责任题记：唐 湛然撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1742_001"
+      },
+      "verification": {
+        "segments": 1283,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1742.001.1049c17",
+          "T1742.002.1064c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1743",
+      "slug": "taisho-t1743",
+      "workId": "gbcr:work:linde-dian-huayan-xuanyi-jingju",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "皇帝降誕日於麟德殿講大方廣佛華嚴經玄義一部",
+      "sourceRole": "sinitic_authored_court_lecture",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_and_doctrinal_expositions_on_eighty_fascicle_avatamsaka_distinct",
+          "groupId": "eighty-fascicle-huayan-exegesis-t0279-t1735-t1743",
+          "label": "八十卷本《大方广佛华严经》与 T1735–T1743 九部疏、钞、论、纲目及讲义",
+          "evidence": "DILA T1735–T1743 规范记录均把 T0279 标为相关经典，其中 T1736 还明确关联 T1735。共享根经、正文引文或相邻经号只证明诠释关系；根本经、直接注疏、再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义保持十个作品实体。",
+          "externalIds": {
+            "cbeta": [
+              "T0279",
+              "T1735",
+              "T1736",
+              "T1737",
+              "T1738",
+              "T1739",
+              "T1740",
+              "T1741",
+              "T1742",
+              "T1743"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T36n1743.xml",
+      "upstreamPath": "T/T36/T36n1743.xml",
+      "upstreamGitBlobSha1": "e5b73f2deff4162e784f4fdae292ad8060b3cc53",
+      "upstreamBytes": 26406,
+      "upstreamSha256": "b7b07e8a33d5f8aef3ea39e9d19a99c944e2124f970b4d3b30c40d5b21545b01",
+      "localBytes": 26407,
+      "localSha256": "2421e7a536cc033b95b1aac8454269fc90d33d58aa73fc0ffd7ed381e1c0cdd2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "皇帝降誕日於麟德殿講大方廣佛華嚴經玄義一部",
+        "alternateTitle": "皇帝降誕日於麟德殿講大方廣佛華嚴經玄義一部",
+        "tradition": "汉传佛教 · 经疏部 · 华严",
+        "language": "汉文",
+        "canonRef": "大正藏 T36, no. 1743",
+        "translator": "唐 · 靜居撰",
+        "summary": "1卷。静居麟德殿《华严经玄义》讲义完整来源。传统责任题记：唐 靜居撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1743_001"
+      },
+      "verification": {
+        "segments": 166,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1743.001.1064c20",
+          "T1743.001.1066c12"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

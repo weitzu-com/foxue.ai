@@ -1,0 +1,88 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "d8f490484131832ad046947dfa690483434ce5d7"
+  },
+  "subset": {
+    "id": "taisho_huayan_commentary_t36",
+    "label": "大正藏 T36 华严经疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T36 目录下、文件名卷号一致的 T36n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T36 的 8 份来源记录是围绕八十卷本《大方广佛华严经》及澄观疏形成的再注释、略策、章释、论、卷意、决疑论、观门骨目与宫廷讲义；根本经、直接注释、再注释、同作者异作和不同体例必须分层计量，不能把经疏目录位置或同根经关系误作佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 8,
+    "upstreamBytes": 14520834,
+    "candidatePathSha256": "c166cf1f1620a4ada75c6a5a18e7d03fff817417abf515a966188365a97f5986"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T36n1736",
+      "canonWitnessId": "T1736",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1736.xml",
+      "upstreamGitBlobSha1": "59d7bfeb9a3207d08cc3b1c0683abd93fbfbac3d",
+      "upstreamBytes": 11478219
+    },
+    {
+      "sourceRecordId": "T36n1737",
+      "canonWitnessId": "T1737",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1737.xml",
+      "upstreamGitBlobSha1": "c925a8f72b937e4e084ff81f430f74d5ba0e050d",
+      "upstreamBytes": 92759
+    },
+    {
+      "sourceRecordId": "T36n1738",
+      "canonWitnessId": "T1738",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1738.xml",
+      "upstreamGitBlobSha1": "e079e6d8b49678b2d95f75ba1785ff516722da23",
+      "upstreamBytes": 79276
+    },
+    {
+      "sourceRecordId": "T36n1739",
+      "canonWitnessId": "T1739",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1739.xml",
+      "upstreamGitBlobSha1": "70f6879bf8d0c7e8937d9a3e91c36e92c5a18b05",
+      "upstreamBytes": 2197803
+    },
+    {
+      "sourceRecordId": "T36n1740",
+      "canonWitnessId": "T1740",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1740.xml",
+      "upstreamGitBlobSha1": "0af08b85c72267e2a83c808c20e86101ec363f8e",
+      "upstreamBytes": 32591
+    },
+    {
+      "sourceRecordId": "T36n1741",
+      "canonWitnessId": "T1741",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1741.xml",
+      "upstreamGitBlobSha1": "bd1f2dc1151f6c6d1322eabb9dfee2eb60601350",
+      "upstreamBytes": 297476
+    },
+    {
+      "sourceRecordId": "T36n1742",
+      "canonWitnessId": "T1742",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1742.xml",
+      "upstreamGitBlobSha1": "2a0eadf1da007af4edbe0cee3a2f8ff462eeebb0",
+      "upstreamBytes": 316304
+    },
+    {
+      "sourceRecordId": "T36n1743",
+      "canonWitnessId": "T1743",
+      "volume": "T36",
+      "upstreamPath": "T/T36/T36n1743.xml",
+      "upstreamGitBlobSha1": "e5b73f2deff4162e784f4fdae292ad8060b3cc53",
+      "upstreamBytes": 26406
+    }
+  ]
+}

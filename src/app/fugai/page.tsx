@@ -249,6 +249,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT35SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT35SourceRecords.controlledWorks} 个独立作品；T1731–T1734 分别以游意、搜玄、探玄与纲目关联六十卷本 T0278，
               T1735 关联八十卷本 T0279，并与下一卷 T1736 保持疏—再注释边界；
+              T36 华严经疏部固定来源已完成 {snapshot.candidateInventory.chineseT36SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT36SourceRecords.denominator}（{snapshot.candidateInventory.chineseT36SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT36SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT36SourceRecords.controlledWorks} 个独立作品；T1736 明确作为 T1735 的再注释，
+              澄观 T1736–T1738 与李通玄 T1739–T1741 均按同作者异作分列，T1742 观门骨目与 T1743 宫廷讲义也保持独立；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -403,6 +408,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T35 的 5 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t36-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T36 的 8 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
