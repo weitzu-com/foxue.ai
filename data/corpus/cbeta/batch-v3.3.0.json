@@ -1,0 +1,1992 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.3.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.2.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t26-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T26; T26 source-record closure",
+  "workOverrides": {
+    "gbcr:work:saddharma-pundarika-t0262": {
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_root_commentary_group_verified",
+          "groupId": "lotus-upadesa-t1519-t1520",
+          "label": "《法华论》两种汉译与《法华经》根本经关系",
+          "evidence": "目录规范资料把 T1519 与 T1520 登记为同一印度论书的两种汉译，并共同连接《妙法莲华经》汉译组。平台共享一个论书作品实体，保留两译的译者、卷次和措辞，同时不把论书计作佛陀逐字亲说经文。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0264",
+              "T1519",
+              "T1520"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:dasabhumi": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dasabhumi-commentaries-t1521-t1522",
+          "label": "Daśabhūmika／《十地经》论释家族",
+          "evidence": "T1521《十住毘婆沙论》与 T1522《十地经论》都解释十地传统，但作者、结构和传承不同。平台分别建立作品，并共同连接 T0286/T0287《十地经》汉译组。",
+          "externalIds": {
+            "cbeta": [
+              "T0286",
+              "T0287",
+              "T1521",
+              "T1522"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:kashyapa-parivarta": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "kasyapaparivarta-t0352-t1523",
+          "label": "Kāśyapaparivarta／《大迦叶问经》与《大宝积经论》",
+          "evidence": "T1523 正文围绕迦叶问法展开，书目研究把它放在 Kāśyapaparivarta 论释传统。平台连接 T0352 的作品实体，不把它误并入整部合编《大宝积经》T0310。",
+          "externalIds": {
+            "cbeta": [
+              "T0352",
+              "T1523"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:larger-sukhavati-vyuha-t0360": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "larger-sukhavati-t1524",
+          "label": "Larger Sukhāvatīvyūha／《无量寿经》与往生论",
+          "evidence": "T1524 是世亲传统《无量寿经优波提舍》，平台连接 T0360/T0363 同一根本经作品；经与论保持两个作品，论师归属不扩张为佛陀说法。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T0363",
+              "T1524"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0349": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "maitreya-vow-t0349-t1525",
+          "label": "《弥勒菩萨所问本愿经》与经论关系",
+          "evidence": "T1525 与 T0349 共享弥勒本愿问答的书目关系。平台登记根本经—论释连接，但在缺少足够同一性证据时不与其他弥勒经或论书合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0349",
+              "T1525"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:mahaparinirvana-t0374": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "mahaparinirvana-commentaries-t1527-t1528",
+          "label": "Mahāparinirvāṇa／《涅槃经》两种不同论释",
+          "evidence": "T1527 与 T1528 都连接 T0374/T0375《大般涅槃经》作品，但不是同一论书：前者是独立《涅槃论》，后者专释本有今无偈。平台保留两个论书作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0374",
+              "T0375",
+              "T1527",
+              "T1528"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0389": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_with_contested_origin",
+          "groupId": "bequeathed-teaching-t0389-t1529",
+          "label": "《佛遗教经》与《遗教经论》关系及来源争议",
+          "evidence": "T1529 大量嵌入 T0389 根本文，机器五字片段包含率超过 84%；目录保留世亲造、真谛译传统题记，现代书目研究则认为它很可能是汉地撰述。平台并列呈现，不把传统归属冒充定论。",
+          "externalIds": {
+            "cbeta": [
+              "T0389",
+              "T1529"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0680": {
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "buddhabhumi-t0680-t1530",
+          "label": "Buddhabhūmisūtra／《佛地经》与《佛地经论》",
+          "evidence": "T1530 逐段解释 T0680，机器五字片段包含率超过 90%。平台把根本经与亲光等造论分成两个作品，并记录高置信内嵌根本文关系。",
+          "externalIds": {
+            "cbeta": [
+              "T0680",
+              "T1530"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:gaya-sirsa-sutra": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "gaya-sirsa-t0464-t1531",
+          "label": "Gayāśīrṣasūtra／《文殊师利问菩提经》与经论",
+          "evidence": "T1531 连接 T0464 所属 Gayāśīrṣasūtra 汉译作品。平台分别计算根本经表达与世亲传统论释表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0464",
+              "T1531"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:brahma-visesa-cinti-pariprccha": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "brahma-visesa-cinti-t1532",
+          "label": "Brahmaviśeṣacintiparipṛcchā／《思益梵天所问经》与经论",
+          "evidence": "T1532 连接 T0585/T0586/T0587 同一根本经汉译组。共同所释经典只建立关系，不把不同经译或论书合成单一文本。",
+          "externalIds": {
+            "cbeta": [
+              "T0585",
+              "T0586",
+              "T0587",
+              "T1532"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0109": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dharmacakra-t1533",
+          "label": "Dharmacakrapravartana／转法轮经与论释家族",
+          "evidence": "T1533 解释转法轮经传统；T0109 与 T0110 当前仍是两个独立受控作品。平台同时连接二者为候选经论家族，不凭题名直接完成根本经同一性合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0109",
+              "T0110",
+              "T1533"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0110": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dharmacakra-t1533",
+          "label": "Dharmacakrapravartana／转法轮经与论释家族",
+          "evidence": "T1533 解释转法轮经传统；T0109 与 T0110 当前仍是两个独立受控作品。平台同时连接二者为候选经论家族，不凭题名直接完成根本经同一性合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0109",
+              "T0110",
+              "T1533"
+            ]
+          }
+        }
+      ]
+    },
+    "gbcr:work:taisho-t0774": {
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_with_anonymous_epitome",
+          "groupId": "mahayana-four-dharmas-t0774-t1535",
+          "label": "《大乘四法经》与敦煌无署名释题",
+          "evidence": "T1535 是连接 T0774 的短篇敦煌释题/撮要。文件题记无作者，正文提到世亲本释不足以证明本篇由世亲撰写；平台把它登记为无署名汉地释文，不补造印度作者。",
+          "externalIds": {
+            "cbeta": [
+              "T0774",
+              "T1535"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T26",
+    "title": "大正藏 T26 释经论与毘昙部固定来源记录",
+    "sourceRecordDenominator": 26,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 26,
+    "controlledSourceRecords": 26,
+    "newSourceBytes": 14495358,
+    "newStableSegments": 88216,
+    "newFolios": 3213,
+    "verifiedSameWorkExpressions": 6,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 20,
+    "newFullSourceTexts": 26,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 26,
+    "attributionBoundaryRecords": 26,
+    "newWorks": 23,
+    "controlledWorks": 23,
+    "workCountingDecision": "T26 共 26 条完整固定来源记录。T1519/T1520、T1541/T1542、T1543/T1544 各确认为一个作品的两个汉译表达，共 3 个共享作品组；其余 20 条保持独立，共新增 23 个作品。T1521/T1522、T1527/T1528 虽共同解释同一根本经仍是不同论书。T1529、T1535、T1537 的来源或作者争议单独公开。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_work_expression_commentary_recension_and_attribution_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "jnanaprasthana-t1543-t1544"
+    ],
+    "verifiedTranslationGroups": [
+      "lotus-upadesa-t1519-t1520",
+      "prakaranapada-t1541-t1542",
+      "jnanaprasthana-t1543-t1544"
+    ],
+    "rootTextCommentaryGroups": [
+      "lotus-upadesa-t1519-t1520",
+      "dasabhumi-commentaries-t1521-t1522",
+      "kasyapaparivarta-t0352-t1523",
+      "larger-sukhavati-t1524",
+      "maitreya-vow-t0349-t1525",
+      "ratnacuda-four-dharmas-t1526",
+      "mahaparinirvana-commentaries-t1527-t1528",
+      "bequeathed-teaching-t0389-t1529",
+      "buddhabhumi-t0680-t1530",
+      "gaya-sirsa-t0464-t1531",
+      "brahma-visesa-cinti-t1532",
+      "dharmacakra-t1533",
+      "three-completions-t1534",
+      "mahayana-four-dharmas-t0774-t1535"
+    ],
+    "candidateRelationsNotMerged": [
+      "dasabhumi-commentaries-t1521-t1522",
+      "dharmacakra-t1533",
+      "sarvastivada-six-feet-and-body-t1536-t1544"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "anonymous_dunhuang_exegetical_epitome": [
+        "T1535"
+      ],
+      "authored_abhidharma_with_translation": [
+        "T1539",
+        "T1540",
+        "T1541",
+        "T1542",
+        "T1543",
+        "T1544"
+      ],
+      "authored_exegetical_treatise_with_translation": [
+        "T1519",
+        "T1520",
+        "T1521",
+        "T1522",
+        "T1524",
+        "T1526",
+        "T1527",
+        "T1528",
+        "T1530",
+        "T1531",
+        "T1532",
+        "T1533"
+      ],
+      "traditional_attributed_abhidharma_with_contested_authorship": [
+        "T1537"
+      ],
+      "traditional_attributed_exegetical_treatise_with_contested_origin": [
+        "T1529"
+      ],
+      "traditional_taught_abhidharma_with_translation": [
+        "T1536"
+      ],
+      "translated_abhidharma_without_named_author": [
+        "T1538"
+      ],
+      "translated_exegetical_treatise_without_named_author": [
+        "T1523",
+        "T1525",
+        "T1534"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine comparison documents translation, recension and embedded-root evidence; low overlap does not negate authority-supported same-work translations, and high overlap never decides work identity alone.",
+      "pairs": [
+        {
+          "pair": [
+            "T1519",
+            "T1520"
+          ],
+          "normalizedCharacters": [
+            12864,
+            11588
+          ],
+          "fiveGramContainmentOfShorter": 0.635821,
+          "fiveGramJaccard": 0.435768
+        },
+        {
+          "pair": [
+            "T1541",
+            "T1542"
+          ],
+          "normalizedCharacters": [
+            87339,
+            111341
+          ],
+          "fiveGramContainmentOfShorter": 0.118462,
+          "fiveGramJaccard": 0.062887
+        },
+        {
+          "pair": [
+            "T1543",
+            "T1544"
+          ],
+          "normalizedCharacters": [
+            208322,
+            163303
+          ],
+          "fiveGramContainmentOfShorter": 0.073624,
+          "fiveGramJaccard": 0.035332
+        },
+        {
+          "pair": [
+            "T1521",
+            "T1522"
+          ],
+          "normalizedCharacters": [
+            128631,
+            108877
+          ],
+          "fiveGramContainmentOfShorter": 0.010431,
+          "fiveGramJaccard": 0.004326
+        },
+        {
+          "pair": [
+            "T1527",
+            "T1528"
+          ],
+          "normalizedCharacters": [
+            4612,
+            2628
+          ],
+          "fiveGramContainmentOfShorter": 0.000779,
+          "fiveGramJaccard": 0.000289
+        },
+        {
+          "pair": [
+            "T1536",
+            "T1537"
+          ],
+          "normalizedCharacters": [
+            121923,
+            85220
+          ],
+          "fiveGramContainmentOfShorter": 0.076857,
+          "fiveGramJaccard": 0.031688
+        },
+        {
+          "pair": [
+            "T1539",
+            "T1540"
+          ],
+          "normalizedCharacters": [
+            118883,
+            16340
+          ],
+          "fiveGramContainmentOfShorter": 0.011307,
+          "fiveGramJaccard": 0.002436
+        },
+        {
+          "pair": [
+            "T1529",
+            "T0389"
+          ],
+          "normalizedCharacters": [
+            11603,
+            2421
+          ],
+          "fiveGramContainmentOfShorter": 0.849372,
+          "fiveGramJaccard": 0.197702
+        },
+        {
+          "pair": [
+            "T1530",
+            "T0680"
+          ],
+          "normalizedCharacters": [
+            51727,
+            3899
+          ],
+          "fiveGramContainmentOfShorter": 0.896132,
+          "fiveGramJaccard": 0.0626
+        },
+        {
+          "pair": [
+            "T1531",
+            "T0464"
+          ],
+          "normalizedCharacters": [
+            12832,
+            2991
+          ],
+          "fiveGramContainmentOfShorter": 0.288914,
+          "fiveGramJaccard": 0.077633
+        },
+        {
+          "pair": [
+            "T1522",
+            "T0286"
+          ],
+          "normalizedCharacters": [
+            108877,
+            45969
+          ],
+          "fiveGramContainmentOfShorter": 0.219027,
+          "fiveGramJaccard": 0.077362
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T26",
+      "https://www.gaya.org.tw/library/manage/guide/genrule.pdf",
+      "https://dazangthings.nz/cbc/text/918/",
+      "https://buddhism.lib.ntu.edu.tw/DLMBS/en/search/search_detail.jsp?seq=669123",
+      "https://www.fuyan.org.tw/download/journal/fbs/FBS_vol17-1.pdf",
+      "https://dazangthings.nz/cbc/text/914/",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002775",
+      "https://deerpark.app/cbeta/T1535",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000244",
+      "https://deerpark.app/cbeta/T1526",
+      "https://kabc.dongguk.edu/content/pop_seoji?dataId=ABC_IT_K0568",
+      "https://buddhism.lib.ntu.edu.tw/FULLTEXT/JR-AN/an122300.pdf"
+    ],
+    "caveat": "T26 是释经论与毘昙部，不是单纯佛说经集合。平台完整保存固定来源和传统题记，同时区分根本经、论书、同本异译、异传、后期历史分类、无署名汉地释文和争议作者。任何论书都不因大藏经位置、传统题记、题名或机器相似度而被标成佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1519",
+      "slug": "taisho-t1519",
+      "workId": "gbcr:work:lotus-sutra-upadesa",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "法华经论（Saddharmapuṇḍarīkopadeśa）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_root_commentary_group_verified",
+          "groupId": "lotus-upadesa-t1519-t1520",
+          "label": "《法华论》两种汉译与《法华经》根本经关系",
+          "evidence": "目录规范资料把 T1519 与 T1520 登记为同一印度论书的两种汉译，并共同连接《妙法莲华经》汉译组。平台共享一个论书作品实体，保留两译的译者、卷次和措辞，同时不把论书计作佛陀逐字亲说经文。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0264",
+              "T1519",
+              "T1520"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1519.xml",
+      "upstreamPath": "T/T26/T26n1519.xml",
+      "upstreamGitBlobSha1": "19c4501a5e96359041a60ce3f1d7ad4205ddb9be",
+      "upstreamBytes": 116751,
+      "upstreamSha256": "b3b8bb200aee0ddfc4df6c6da3d685e1c6a88c711505883abba3ced036d6268d",
+      "localBytes": 116752,
+      "localSha256": "89cda87e5b5c7f4ed2072edabb40193118b2caacdf7e3b7314b78ef3435913b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經憂波提舍",
+        "alternateTitle": "妙法蓮華經憂波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1519",
+        "translator": "大乘論師婆藪槃豆釋 · 後魏 · 菩提留支共曇林等譯",
+        "summary": "2卷。本站完整保存 T1519 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1519_001"
+      },
+      "verification": {
+        "segments": 832,
+        "folios": 30,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1519.001.0001a02",
+          "T1519.002.0010b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1520",
+      "slug": "taisho-t1520",
+      "workId": "gbcr:work:lotus-sutra-upadesa",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "法华经论（Saddharmapuṇḍarīkopadeśa）",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_and_root_commentary_group_verified",
+          "groupId": "lotus-upadesa-t1519-t1520",
+          "label": "《法华论》两种汉译与《法华经》根本经关系",
+          "evidence": "目录规范资料把 T1519 与 T1520 登记为同一印度论书的两种汉译，并共同连接《妙法莲华经》汉译组。平台共享一个论书作品实体，保留两译的译者、卷次和措辞，同时不把论书计作佛陀逐字亲说经文。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T0264",
+              "T1519",
+              "T1520"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1520.xml",
+      "upstreamPath": "T/T26/T26n1520.xml",
+      "upstreamGitBlobSha1": "0888d3548be10f4f8c4b29d279c5d7566b2e5974",
+      "upstreamBytes": 453460,
+      "upstreamSha256": "9795f7d9fc9b198eceaa58309ea4fa25773e367851979eeafede3a8af6c7169c",
+      "localBytes": 453461,
+      "localSha256": "5f42c757d83f0c19002eac6df80c350ace0fcf3c8e691bb58248be747f2e150f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經論優波提舍",
+        "alternateTitle": "妙法蓮華經論優波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1520",
+        "translator": "婆藪般豆菩薩造 · 元魏 · 勒那摩提共僧朗等譯",
+        "summary": "1卷。本站完整保存 T1520 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1520_001"
+      },
+      "verification": {
+        "segments": 710,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1520.001.0010c02",
+          "T1520.001.0020a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1521",
+      "slug": "taisho-t1521",
+      "workId": "gbcr:work:taisho-t1521",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dasabhumi-commentaries-t1521-t1522",
+          "label": "Daśabhūmika／《十地经》论释家族",
+          "evidence": "T1521《十住毘婆沙论》与 T1522《十地经论》都解释十地传统，但作者、结构和传承不同。平台分别建立作品，并共同连接 T0286/T0287《十地经》汉译组。",
+          "externalIds": {
+            "cbeta": [
+              "T0286",
+              "T0287",
+              "T1521",
+              "T1522"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1521.xml",
+      "upstreamPath": "T/T26/T26n1521.xml",
+      "upstreamGitBlobSha1": "0d35dac5fa0fff65579dfd6e45e27f3906ebea1c",
+      "upstreamBytes": 1786033,
+      "upstreamSha256": "b2b15bba913355cd4896418243f229d7229a1f141bfb5f6e605111566e4292e8",
+      "localBytes": 1786034,
+      "localSha256": "b8f9547f3a163a0e245116374dcdcfeb04b3ea4ba7510153d466a83833b2322d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十住毘婆沙論",
+        "alternateTitle": "十住毘婆沙論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1521",
+        "translator": "聖者龍樹造 · 後秦 · 鳩摩羅什譯",
+        "summary": "17卷。本站完整保存 T1521 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1521_001"
+      },
+      "verification": {
+        "segments": 8852,
+        "folios": 320,
+        "juanRange": [
+          1,
+          17
+        ],
+        "anchors": [
+          "T1521.001.0020a04",
+          "T1521.017.0122b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1522",
+      "slug": "taisho-t1522",
+      "workId": "gbcr:work:taisho-t1522",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dasabhumi-commentaries-t1521-t1522",
+          "label": "Daśabhūmika／《十地经》论释家族",
+          "evidence": "T1521《十住毘婆沙论》与 T1522《十地经论》都解释十地传统，但作者、结构和传承不同。平台分别建立作品，并共同连接 T0286/T0287《十地经》汉译组。",
+          "externalIds": {
+            "cbeta": [
+              "T0286",
+              "T0287",
+              "T1521",
+              "T1522"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1522.xml",
+      "upstreamPath": "T/T26/T26n1522.xml",
+      "upstreamGitBlobSha1": "ba3face5d8647b4af6395fd2512b57ace923d7e7",
+      "upstreamBytes": 1021359,
+      "upstreamSha256": "c4fcc9b22d57113e2b3daccdb525a847b253d8d84c4bda6812aeb7091dfeb73a",
+      "localBytes": 1021360,
+      "localSha256": "b527ae1f769ab6a9cba37221bd3ec3c53dc9b848bff6e206ddbe10fd40714c5e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十地經論",
+        "alternateTitle": "十地經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1522",
+        "translator": "天親菩薩造 · 後魏 · 菩提流支等譯",
+        "summary": "12卷。本站完整保存 T1522 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1522_001"
+      },
+      "verification": {
+        "segments": 6954,
+        "folios": 251,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1522.001.0123a01",
+          "T1522.012.0203b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1523",
+      "slug": "taisho-t1523",
+      "workId": "gbcr:work:taisho-t1523",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_exegetical_treatise_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "kasyapaparivarta-t0352-t1523",
+          "label": "Kāśyapaparivarta／《大迦叶问经》与《大宝积经论》",
+          "evidence": "T1523 正文围绕迦叶问法展开，书目研究把它放在 Kāśyapaparivarta 论释传统。平台连接 T0352 的作品实体，不把它误并入整部合编《大宝积经》T0310。",
+          "externalIds": {
+            "cbeta": [
+              "T0352",
+              "T1523"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1523.xml",
+      "upstreamPath": "T/T26/T26n1523.xml",
+      "upstreamGitBlobSha1": "4660bd7e7d207d1f9b49a062b1e8474b90f6d513",
+      "upstreamBytes": 364467,
+      "upstreamSha256": "774d077ffe483e8ae6fc26b7fdb324a4107750b54ad8bec15242e33aab9932fd",
+      "localBytes": 364468,
+      "localSha256": "f24d84ef125b3e5e57e11e0cc2f61c4415f4ddcade5eab9f299a596281848264",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大寶積經論",
+        "alternateTitle": "大寶積經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1523",
+        "translator": "後魏 · 菩提流支譯",
+        "summary": "4卷。本站完整保存 T1523 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存译者但未载论书作者，平台不从题名、相邻目录或后世传统补造作者；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1523_001"
+      },
+      "verification": {
+        "segments": 2320,
+        "folios": 83,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1523.001.0204a02",
+          "T1523.004.0230c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1524",
+      "slug": "taisho-t1524",
+      "workId": "gbcr:work:taisho-t1524",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "larger-sukhavati-t1524",
+          "label": "Larger Sukhāvatīvyūha／《无量寿经》与往生论",
+          "evidence": "T1524 是世亲传统《无量寿经优波提舍》，平台连接 T0360/T0363 同一根本经作品；经与论保持两个作品，论师归属不扩张为佛陀说法。",
+          "externalIds": {
+            "cbeta": [
+              "T0360",
+              "T0363",
+              "T1524"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1524.xml",
+      "upstreamPath": "T/T26/T26n1524.xml",
+      "upstreamGitBlobSha1": "dfd7c1c07b4669ab939805a65174ce515f76db15",
+      "upstreamBytes": 42957,
+      "upstreamSha256": "3553eb315a982748d1fdc052c15c1637cda796f08c9deed0901333485d02f479",
+      "localBytes": 42958,
+      "localSha256": "6572c7677a7ddd2cb719ce97b76d1d61e1868c3d5739a387836325ec0bb5abef",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "無量壽經優波提舍",
+        "alternateTitle": "無量壽經優波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1524",
+        "translator": "婆藪槃豆菩薩造 · 元魏 · 菩提流支譯",
+        "summary": "1卷。本站完整保存 T1524 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1524_001"
+      },
+      "verification": {
+        "segments": 220,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1524.001.0230c12",
+          "T1524.001.0233a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1525",
+      "slug": "taisho-t1525",
+      "workId": "gbcr:work:taisho-t1525",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_exegetical_treatise_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "maitreya-vow-t0349-t1525",
+          "label": "《弥勒菩萨所问本愿经》与经论关系",
+          "evidence": "T1525 与 T0349 共享弥勒本愿问答的书目关系。平台登记根本经—论释连接，但在缺少足够同一性证据时不与其他弥勒经或论书合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0349",
+              "T1525"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1525.xml",
+      "upstreamPath": "T/T26/T26n1525.xml",
+      "upstreamGitBlobSha1": "7aed11244ad660f7a3a6ebfcfeda596818d20b77",
+      "upstreamBytes": 471880,
+      "upstreamSha256": "d11fdca303368839030536361c515dfdcb1e86be1b92d9f23941337ad2017f37",
+      "localBytes": 471881,
+      "localSha256": "b22c739de1227157ad168343dcb4a578f51ea498cc920e7aac21021d833ce62e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "彌勒菩薩所問經論",
+        "alternateTitle": "彌勒菩薩所問經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1525",
+        "translator": "後魏 · 菩提流支譯",
+        "summary": "9卷。本站完整保存 T1525 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存译者但未载论书作者，平台不从题名、相邻目录或后世传统补造作者；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1525_001"
+      },
+      "verification": {
+        "segments": 3500,
+        "folios": 130,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T1525.001.0233b02",
+          "T1525.009.0273c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1526",
+      "slug": "taisho-t1526",
+      "workId": "gbcr:work:taisho-t1526",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_recorded",
+          "groupId": "ratnacuda-four-dharmas-t1526",
+          "label": "宝髻经四法根本文与论释结构",
+          "evidence": "T1526 题名、序文与正文表明其解释宝髻经四法段落；目前没有足够证据把所释片段绑定到一个独立、完整的受控根本经记录，故只记录内嵌根本文—论释结构。",
+          "externalIds": {
+            "cbeta": [
+              "T1526"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1526.xml",
+      "upstreamPath": "T/T26/T26n1526.xml",
+      "upstreamGitBlobSha1": "36ae8e6803f579334f93896c2e7a2822fa2e3171",
+      "upstreamBytes": 56555,
+      "upstreamSha256": "bd16b0c47833493cdf17341eb0d7269b3c22489509d8ce4feb910d4e3c9e9f46",
+      "localBytes": 56556,
+      "localSha256": "32a5f1a890ef76046eef9f04d25f16b68c6f866bd870bafdbccf197775301c0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶髻經四法憂波提舍",
+        "alternateTitle": "寶髻經四法憂波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1526",
+        "translator": "天親菩薩造 · 元魏 · 毘目智仙譯",
+        "summary": "1卷。本站完整保存 T1526 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1526_001"
+      },
+      "verification": {
+        "segments": 330,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1526.001.0273c19",
+          "T1526.001.0277c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1527",
+      "slug": "taisho-t1527",
+      "workId": "gbcr:work:taisho-t1527",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "mahaparinirvana-commentaries-t1527-t1528",
+          "label": "Mahāparinirvāṇa／《涅槃经》两种不同论释",
+          "evidence": "T1527 与 T1528 都连接 T0374/T0375《大般涅槃经》作品，但不是同一论书：前者是独立《涅槃论》，后者专释本有今无偈。平台保留两个论书作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0374",
+              "T0375",
+              "T1527",
+              "T1528"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1527.xml",
+      "upstreamPath": "T/T26/T26n1527.xml",
+      "upstreamGitBlobSha1": "e66c1ff655c623f04e02cde372dfe2d3f255ca23",
+      "upstreamBytes": 46055,
+      "upstreamSha256": "9d4fb236e963572af68886a1548dca163f290d9f9d5722fd86622f5080818c2f",
+      "localBytes": 46056,
+      "localSha256": "d04c49fcc5e91bcfd1d217835c6b25fc899691b89e01c0f54088d43b9974f24e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "涅槃論",
+        "alternateTitle": "涅槃論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1527",
+        "translator": "婆藪槃豆作 · 元魏 · 達磨菩提譯",
+        "summary": "1卷。本站完整保存 T1527 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1527_001"
+      },
+      "verification": {
+        "segments": 287,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1527.001.0277c06",
+          "T1527.001.0281a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1528",
+      "slug": "taisho-t1528",
+      "workId": "gbcr:work:taisho-t1528",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "mahaparinirvana-commentaries-t1527-t1528",
+          "label": "Mahāparinirvāṇa／《涅槃经》两种不同论释",
+          "evidence": "T1527 与 T1528 都连接 T0374/T0375《大般涅槃经》作品，但不是同一论书：前者是独立《涅槃论》，后者专释本有今无偈。平台保留两个论书作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0374",
+              "T0375",
+              "T1527",
+              "T1528"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1528.xml",
+      "upstreamPath": "T/T26/T26n1528.xml",
+      "upstreamGitBlobSha1": "edcd3ea09d2b28458cd354487aa25f3ff2cd17f5",
+      "upstreamBytes": 22645,
+      "upstreamSha256": "6360128186476a27649d3c23e82ef8abe6235e3268c3daf83ae3a7d0453462b5",
+      "localBytes": 22646,
+      "localSha256": "f7740d6bf75754399c7708fdd784f73bc7c92c15ace665184d3059e5dce5dae9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "涅槃經本有今無偈論",
+        "alternateTitle": "涅槃經本有今無偈論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1528",
+        "translator": "天親菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。本站完整保存 T1528 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1528_001"
+      },
+      "verification": {
+        "segments": 164,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1528.001.0281a06",
+          "T1528.001.0282c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1529",
+      "slug": "taisho-t1529",
+      "workId": "gbcr:work:taisho-t1529",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_exegetical_treatise_with_contested_origin",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_with_contested_origin",
+          "groupId": "bequeathed-teaching-t0389-t1529",
+          "label": "《佛遗教经》与《遗教经论》关系及来源争议",
+          "evidence": "T1529 大量嵌入 T0389 根本文，机器五字片段包含率超过 84%；目录保留世亲造、真谛译传统题记，现代书目研究则认为它很可能是汉地撰述。平台并列呈现，不把传统归属冒充定论。",
+          "externalIds": {
+            "cbeta": [
+              "T0389",
+              "T1529"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1529.xml",
+      "upstreamPath": "T/T26/T26n1529.xml",
+      "upstreamGitBlobSha1": "85f6012e59eeeb42c8c971eb43f7f47d178063bd",
+      "upstreamBytes": 115633,
+      "upstreamSha256": "f31e5d42153d0d0643a9b6c13b3d48737126eb00df6ecfd5852c85a67f3d851e",
+      "localBytes": 115634,
+      "localSha256": "8cca74baedf718a72d369b952618152fe167d6f98cbdb99d6de5e28d20af8df0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "遺教經論",
+        "alternateTitle": "遺教經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1529",
+        "translator": "天親菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。本站完整保存 T1529 固定 CBETA TEI 来源记录与可校验页栏行锚点；目录保存世亲造、真谛译传统题记，同时公开现代书目研究认为本论很可能为汉地撰述的证据；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1529_001"
+      },
+      "verification": {
+        "segments": 720,
+        "folios": 25,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1529.001.0283a02",
+          "T1529.001.0291a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1530",
+      "slug": "taisho-t1530",
+      "workId": "gbcr:work:taisho-t1530",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_verified",
+          "groupId": "buddhabhumi-t0680-t1530",
+          "label": "Buddhabhūmisūtra／《佛地经》与《佛地经论》",
+          "evidence": "T1530 逐段解释 T0680，机器五字片段包含率超过 90%。平台把根本经与亲光等造论分成两个作品，并记录高置信内嵌根本文关系。",
+          "externalIds": {
+            "cbeta": [
+              "T0680",
+              "T1530"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1530.xml",
+      "upstreamPath": "T/T26/T26n1530.xml",
+      "upstreamGitBlobSha1": "5c73ad5acb46b9e435d7eeaf6975cc94f216152a",
+      "upstreamBytes": 416550,
+      "upstreamSha256": "3f9ef1e4a432617bd496ae8bf8bd34c18f189ead591714c3d26a9ce9fdf7c6a6",
+      "localBytes": 416551,
+      "localSha256": "3584fb18ed07209389222412f1210bea2429b28f66bcf697e7c33ad227f7ea8a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛地經論",
+        "alternateTitle": "佛地經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1530",
+        "translator": "親光菩薩等造 · 唐 · 玄奘譯",
+        "summary": "7卷。本站完整保存 T1530 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1530_001"
+      },
+      "verification": {
+        "segments": 3167,
+        "folios": 114,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1530.001.0291b02",
+          "T1530.007.0328a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1531",
+      "slug": "taisho-t1531",
+      "workId": "gbcr:work:taisho-t1531",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "gaya-sirsa-t0464-t1531",
+          "label": "Gayāśīrṣasūtra／《文殊师利问菩提经》与经论",
+          "evidence": "T1531 连接 T0464 所属 Gayāśīrṣasūtra 汉译作品。平台分别计算根本经表达与世亲传统论释表达。",
+          "externalIds": {
+            "cbeta": [
+              "T0464",
+              "T1531"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1531.xml",
+      "upstreamPath": "T/T26/T26n1531.xml",
+      "upstreamGitBlobSha1": "6843d0344df5e7f2732122ef5e666a7ef986d136",
+      "upstreamBytes": 109392,
+      "upstreamSha256": "63dcc627886e09fe1587890c5d44d983a63eee9df7cde4b3819db2720ca2062c",
+      "localBytes": 109393,
+      "localSha256": "4f7ab0a427f6a02a4c74fd7f5aadd17531d1765231217cf23dbf98f3c6443865",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊師利菩薩問菩提經論",
+        "alternateTitle": "文殊師利菩薩問菩提經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1531",
+        "translator": "天親菩薩造 · 元魏 · 菩提流支譯",
+        "summary": "2卷。本站完整保存 T1531 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1531_001"
+      },
+      "verification": {
+        "segments": 790,
+        "folios": 29,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1531.001.0328a09",
+          "T1531.002.0337a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1532",
+      "slug": "taisho-t1532",
+      "workId": "gbcr:work:taisho-t1532",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_verified",
+          "groupId": "brahma-visesa-cinti-t1532",
+          "label": "Brahmaviśeṣacintiparipṛcchā／《思益梵天所问经》与经论",
+          "evidence": "T1532 连接 T0585/T0586/T0587 同一根本经汉译组。共同所释经典只建立关系，不把不同经译或论书合成单一文本。",
+          "externalIds": {
+            "cbeta": [
+              "T0585",
+              "T0586",
+              "T0587",
+              "T1532"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1532.xml",
+      "upstreamPath": "T/T26/T26n1532.xml",
+      "upstreamGitBlobSha1": "673eca13bc10314ff58a23128c8df8f22a4e45bc",
+      "upstreamBytes": 335365,
+      "upstreamSha256": "38fd780dcf325f84e4f947c4b616f69024aaf2f440b83b21a23c295ac71c9605",
+      "localBytes": 335366,
+      "localSha256": "1f773d27465f0a71ff09ade6af979e16a08728175f320b9b18403c2c983a3f40",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝思惟梵天所問經論",
+        "alternateTitle": "勝思惟梵天所問經論",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1532",
+        "translator": "天親菩薩造 · 後魏 · 菩提流支譯",
+        "summary": "4卷。本站完整保存 T1532 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1532_001"
+      },
+      "verification": {
+        "segments": 1587,
+        "folios": 58,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1532.001.0337a22",
+          "T1532.004.0355b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1533",
+      "slug": "taisho-t1533",
+      "workId": "gbcr:work:taisho-t1533",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_exegetical_treatise_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_family_candidate_unmerged",
+          "groupId": "dharmacakra-t1533",
+          "label": "Dharmacakrapravartana／转法轮经与论释家族",
+          "evidence": "T1533 解释转法轮经传统；T0109 与 T0110 当前仍是两个独立受控作品。平台同时连接二者为候选经论家族，不凭题名直接完成根本经同一性合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0109",
+              "T0110",
+              "T1533"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1533.xml",
+      "upstreamPath": "T/T26/T26n1533.xml",
+      "upstreamGitBlobSha1": "709a8437c140d6dfd8f2ae9ee29f643de900c012",
+      "upstreamBytes": 44194,
+      "upstreamSha256": "79629c4ccb9eed9c3ac7697c2d8c21dfe65140f0d8e8f7a063bdc7f8bd25cdb0",
+      "localBytes": 44195,
+      "localSha256": "e333f8277b0123f9c3f926383722ca8cfe7cb9f4c6192d713d58b263964b2e34",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "轉法輪經憂波提舍",
+        "alternateTitle": "轉法輪經憂波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1533",
+        "translator": "天親菩薩造 · 元魏 · 毘目智仙譯",
+        "summary": "1卷。本站完整保存 T1533 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论书作者与汉译责任，不把论师撰述扩张成佛陀逐字亲说；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1533_001"
+      },
+      "verification": {
+        "segments": 278,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1533.001.0355c02",
+          "T1533.001.0358c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1534",
+      "slug": "taisho-t1534",
+      "workId": "gbcr:work:taisho-t1534",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_exegetical_treatise_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "embedded_root_text_commentary_relation_recorded",
+          "groupId": "three-completions-t1534",
+          "label": "《三具足经》根本文与论释结构",
+          "evidence": "T1534 题记只载毘目智仙译，未载论书作者；所释《三具足经》尚未安全绑定到独立受控根本经记录。平台保留内嵌根本文结构，并拒绝从相邻目录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T1534"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1534.xml",
+      "upstreamPath": "T/T26/T26n1534.xml",
+      "upstreamGitBlobSha1": "fccf88b413b4003066fe536dcd1619ac4cd8545d",
+      "upstreamBytes": 90557,
+      "upstreamSha256": "ac705763ce9d6c14e715eb4e5caed62fe790d3bb1f1966c335634ee7b65f07b2",
+      "localBytes": 90558,
+      "localSha256": "60a96dc659f0409737cbfb3530d82cdec0fe7f7b220625a813c133f34275bf61",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三具足經憂波提舍",
+        "alternateTitle": "三具足經憂波提舍",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1534",
+        "translator": "元魏 · 毘目智仙譯",
+        "summary": "1卷。本站完整保存 T1534 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存译者但未载论书作者，平台不从题名、相邻目录或后世传统补造作者；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1534_001"
+      },
+      "verification": {
+        "segments": 494,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1534.001.0359a02",
+          "T1534.001.0364c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1535",
+      "slug": "taisho-t1535",
+      "workId": "gbcr:work:taisho-t1535",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "anonymous_dunhuang_exegetical_epitome",
+      "bibliographicRelations": [
+        {
+          "type": "root_sutra_commentary_relation_with_anonymous_epitome",
+          "groupId": "mahayana-four-dharmas-t0774-t1535",
+          "label": "《大乘四法经》与敦煌无署名释题",
+          "evidence": "T1535 是连接 T0774 的短篇敦煌释题/撮要。文件题记无作者，正文提到世亲本释不足以证明本篇由世亲撰写；平台把它登记为无署名汉地释文，不补造印度作者。",
+          "externalIds": {
+            "cbeta": [
+              "T0774",
+              "T1535"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1535.xml",
+      "upstreamPath": "T/T26/T26n1535.xml",
+      "upstreamGitBlobSha1": "5bdd614f8d7546beaf0605119bb899e9d6face78",
+      "upstreamBytes": 9209,
+      "upstreamSha256": "058631029da127a101ae82d8175bd5837d9ec8c708c0b727d8017ad1413bdbbf",
+      "localBytes": 9210,
+      "localSha256": "70b188f59804ba5669f753aded2d62ead1b06b0668637f91adc17546f77237e3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘四法經釋",
+        "alternateTitle": "大乘四法經釋",
+        "tradition": "漢傳佛教 · 釋經論部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1535",
+        "translator": "敦煌遗书 · 无署名",
+        "summary": "1卷。本站完整保存 T1535 固定 CBETA TEI 来源记录与可校验页栏行锚点；来源题记没有作者或译者，正文提及世亲本释不等于本篇由世亲撰写，平台不补造归属；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1535_001"
+      },
+      "verification": {
+        "segments": 58,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1535.001.0364c09",
+          "T1535.001.0365b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1536",
+      "slug": "taisho-t1536",
+      "workId": "gbcr:work:taisho-t1536",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_taught_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1536.xml",
+      "upstreamPath": "T/T26/T26n1536.xml",
+      "upstreamGitBlobSha1": "80b4284dab06a06bb78af5e3a8bcecd1a39ac194",
+      "upstreamBytes": 934451,
+      "upstreamSha256": "586583144a810336b94ae6172c9b37a4e55384bf664836e800457706b6b5cbfd",
+      "localBytes": 934452,
+      "localSha256": "5bcf9ce96fa79926892c3464ccdab8c1ccec7255b77187ad75932f0ad7ad84aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨集異門足論",
+        "alternateTitle": "阿毘達磨集異門足論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1536",
+        "translator": "尊者舍利子說 · 唐 · 玄奘譯",
+        "summary": "20卷。本站完整保存 T1536 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记保存舍利子说、玄奘译的传统责任陈述，‘说’与现代意义的作者身份分层记录；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1536_001"
+      },
+      "verification": {
+        "segments": 7465,
+        "folios": 273,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1536.001.0367a02",
+          "T1536.020.0453b19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1537",
+      "slug": "taisho-t1537",
+      "workId": "gbcr:work:taisho-t1537",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "traditional_attributed_abhidharma_with_contested_authorship",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1537.xml",
+      "upstreamPath": "T/T26/T26n1537.xml",
+      "upstreamGitBlobSha1": "b55659f1cebdb7510cf8fe1c7fbd61678e1666a0",
+      "upstreamBytes": 735303,
+      "upstreamSha256": "574d735322cf23e8db6b8a273ad4f66962e0964767a005813bc8ac1ba437f826",
+      "localBytes": 735304,
+      "localSha256": "9b959baf73e45afd21eedce3efa74846caeab9eece2a766a324b3a7740679565",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨法蘊足論",
+        "alternateTitle": "阿毘達磨法蘊足論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1537",
+        "translator": "尊者大目乾連造 · 唐 · 玄奘譯",
+        "summary": "12卷。本站完整保存 T1537 固定 CBETA TEI 来源记录与可校验页栏行锚点；汉译题记归于大目乾连，梵藏传统另有舍利子归属，平台并列保存相互冲突的作者传统；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1537_001"
+      },
+      "verification": {
+        "segments": 5225,
+        "folios": 191,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1537.001.0453b22",
+          "T1537.012.0514a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1538",
+      "slug": "taisho-t1538",
+      "workId": "gbcr:work:taisho-t1538",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "translated_abhidharma_without_named_author",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1538.xml",
+      "upstreamPath": "T/T26/T26n1538.xml",
+      "upstreamGitBlobSha1": "054b8aa204a098a7fcddf4fd8cee0cb1cb08cd29",
+      "upstreamBytes": 178902,
+      "upstreamSha256": "03cba71753a01efaada2b2630a9e5592ad8bc2054cb566a1d294e7dba46c41aa",
+      "localBytes": 178903,
+      "localSha256": "cc5108b535a3cae8fdefc166f657c3578385a244010c96e35311c4502ba66f71",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "施設論",
+        "alternateTitle": "施設論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1538",
+        "translator": "宋 · 法護等譯",
+        "summary": "7卷。本站完整保存 T1538 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记仅载法护等译而未载作者，平台不从‘六足一身’分类或相邻文本补造作者；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1538_001"
+      },
+      "verification": {
+        "segments": 1334,
+        "folios": 54,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1538.001.0514a13",
+          "T1538.007.0529c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1539",
+      "slug": "taisho-t1539",
+      "workId": "gbcr:work:taisho-t1539",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1539.xml",
+      "upstreamPath": "T/T26/T26n1539.xml",
+      "upstreamGitBlobSha1": "2d717e5742ce0bae3e5ccc4fad1b005acfd3d5cb",
+      "upstreamBytes": 762894,
+      "upstreamSha256": "84ba4c4cf070a9b9f71dbf183a593260ec6186ca6caa6fa5de79b3aacc6a2fd1",
+      "localBytes": 762895,
+      "localSha256": "596390923cceae2c3b75145104b5785d9bb8cfa4b5944d2ee577fb1de72c5fdf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨識身足論",
+        "alternateTitle": "阿毘達磨識身足論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1539",
+        "translator": "提婆設摩造 · 唐 · 玄奘譯",
+        "summary": "16卷。本站完整保存 T1539 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1539_001"
+      },
+      "verification": {
+        "segments": 7184,
+        "folios": 262,
+        "juanRange": [
+          1,
+          16
+        ],
+        "anchors": [
+          "T1539.001.0531a02",
+          "T1539.016.0614b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1540",
+      "slug": "taisho-t1540",
+      "workId": "gbcr:work:taisho-t1540",
+      "workIdentityStatus": "provisional_canon_record",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1540.xml",
+      "upstreamPath": "T/T26/T26n1540.xml",
+      "upstreamGitBlobSha1": "134ffe5e05c39d4749debf7b8b484b1314bc3a4c",
+      "upstreamBytes": 139944,
+      "upstreamSha256": "fda8a087e44f248d1ae751fb291b1f14f7dcb5a1103219a658a7317580b7bfe9",
+      "localBytes": 139945,
+      "localSha256": "c8c0bc085ebc0d23e0338004127cad31203ec3983dce509404411b4866bbeafc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨界身足論",
+        "alternateTitle": "阿毘達磨界身足論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1540",
+        "translator": "尊者世友造 · 唐 · 玄奘譯",
+        "summary": "3卷。本站完整保存 T1540 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1540_001"
+      },
+      "verification": {
+        "segments": 1000,
+        "folios": 37,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1540.001.0614b04",
+          "T1540.003.0625c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1541",
+      "slug": "taisho-t1541",
+      "workId": "gbcr:work:prakaranapada",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "品类足论（Prakaraṇapāda）",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "prakaranapada-t1541-t1542",
+          "label": "Prakaraṇapāda／《品类足论》两种汉译",
+          "evidence": "书目资料明确把 T1541《众事分阿毗昙论》与 T1542《阿毗达磨品类足论》列为同本异译。平台共享一个作品实体，保留求那跋陀罗/菩提耶舍译与玄奘译两个完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1541",
+              "T1542"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1541.xml",
+      "upstreamPath": "T/T26/T26n1541.xml",
+      "upstreamGitBlobSha1": "b3918e407654754bc33c245a23515beb00b065d4",
+      "upstreamBytes": 725342,
+      "upstreamSha256": "c7f5baf8ac5e15292458412adee934a075665e5bac31d20887fdd3e20a950bf1",
+      "localBytes": 725343,
+      "localSha256": "a248a08a0f547e5da6eba467f78520f96aace57bc8985dfb0ffcd4550669195b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "眾事分阿毘曇論",
+        "alternateTitle": "眾事分阿毘曇論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1541",
+        "translator": "尊者世友造 · 宋 · 求那跋陀羅共菩提耶舍譯",
+        "summary": "12卷。本站完整保存 T1541 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1541_001"
+      },
+      "verification": {
+        "segments": 5638,
+        "folios": 198,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1541.001.0627a02",
+          "T1541.012.0692b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1542",
+      "slug": "taisho-t1542",
+      "workId": "gbcr:work:prakaranapada",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "品类足论（Prakaraṇapāda）",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "prakaranapada-t1541-t1542",
+          "label": "Prakaraṇapāda／《品类足论》两种汉译",
+          "evidence": "书目资料明确把 T1541《众事分阿毗昙论》与 T1542《阿毗达磨品类足论》列为同本异译。平台共享一个作品实体，保留求那跋陀罗/菩提耶舍译与玄奘译两个完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1541",
+              "T1542"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1542.xml",
+      "upstreamPath": "T/T26/T26n1542.xml",
+      "upstreamGitBlobSha1": "193c6e7908e74219cfab0ddb69432cbd951160b8",
+      "upstreamBytes": 757012,
+      "upstreamSha256": "a39e630bdf7626b03ecbda7412031cb5d5dd4f414b988559245d775d1e85a11d",
+      "localBytes": 757013,
+      "localSha256": "55cdd58ba71f90378ec4073bd1d3cbbb24dc87d5f01a984c2c9b9da516cd5e86",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨品類足論",
+        "alternateTitle": "阿毘達磨品類足論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1542",
+        "translator": "尊者世友造 · 唐 · 玄奘譯",
+        "summary": "18卷。本站完整保存 T1542 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1542_001"
+      },
+      "verification": {
+        "segments": 6698,
+        "folios": 243,
+        "juanRange": [
+          1,
+          18
+        ],
+        "anchors": [
+          "T1542.001.0692b17",
+          "T1542.018.0770a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1543",
+      "slug": "taisho-t1543",
+      "workId": "gbcr:work:jnanaprasthana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "发智论（Jñānaprasthāna）",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_recension_group_verified",
+          "groupId": "jnanaprasthana-t1543-t1544",
+          "label": "Jñānaprasthāna／《发智论》两种汉译与异传",
+          "evidence": "比较研究把 T1543《阿毗昙八犍度论》与 T1544《阿毗达磨发智论》确认为同一基础作品的两种汉译，同时指出两者可能反映不同传承层。平台共享作品实体，但明确保留译本与传承差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1543.xml",
+      "upstreamPath": "T/T26/T26n1543.xml",
+      "upstreamGitBlobSha1": "3e93b5b17ca3bace95c98f395c20854014c4e91e",
+      "upstreamBytes": 2809146,
+      "upstreamSha256": "ac306d256823771056e5c8eb5a55fcd1b647304269236e0407fccc1bb09c3a20",
+      "localBytes": 2809147,
+      "localSha256": "66a702e65758da9f4e530856391acd04ba8f953e114d3f82d33dbb02a49456bf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘曇八犍度論",
+        "alternateTitle": "阿毘曇八犍度論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1543",
+        "translator": "迦栴延子造 · 符秦 · 僧伽提婆共竺佛念譯",
+        "summary": "30卷。本站完整保存 T1543 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1543_001"
+      },
+      "verification": {
+        "segments": 12581,
+        "folios": 461,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1543.001.0771a02",
+          "T1543.030.0917b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1544",
+      "slug": "taisho-t1544",
+      "workId": "gbcr:work:jnanaprasthana",
+      "workIdentityStatus": "verified_same_work_expression",
+      "workTitle": "发智论（Jñānaprasthāna）",
+      "sourceRole": "authored_abhidharma_with_translation",
+      "bibliographicRelations": [
+        {
+          "type": "abhidharma_historical_collection_family_unmerged",
+          "groupId": "sarvastivada-six-feet-and-body-t1536-t1544",
+          "label": "说一切有部“六足一身”阿毗达磨文献家族",
+          "evidence": "T1536–T1544 属说一切有部阿毗达磨历史文献群。‘六足一身’是后期形成的分类模型，不是作品同一性的证明；除有独立证据的 T1541/T1542 与 T1543/T1544 两组外，各书保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1536",
+              "T1537",
+              "T1538",
+              "T1539",
+              "T1540",
+              "T1541",
+              "T1542",
+              "T1543",
+              "T1544"
+            ]
+          }
+        },
+        {
+          "type": "same_work_translation_recension_group_verified",
+          "groupId": "jnanaprasthana-t1543-t1544",
+          "label": "Jñānaprasthāna／《发智论》两种汉译与异传",
+          "evidence": "比较研究把 T1543《阿毗昙八犍度论》与 T1544《阿毗达磨发智论》确认为同一基础作品的两种汉译，同时指出两者可能反映不同传承层。平台共享作品实体，但明确保留译本与传承差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1543",
+              "T1544"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T26n1544.xml",
+      "upstreamPath": "T/T26/T26n1544.xml",
+      "upstreamGitBlobSha1": "2da2c2855a4a5f4f5a2c18e492db58843c495cc7",
+      "upstreamBytes": 1949302,
+      "upstreamSha256": "49bcd0bfdbeeb0998402bfe48426fc1f4959e9b8d2b333139f08e19f98a50cfe",
+      "localBytes": 1949303,
+      "localSha256": "83c35f47798be584285cdebaa05db88782e7e6c219775d9ccc419f964336978d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿毘達磨發智論",
+        "alternateTitle": "阿毘達磨發智論",
+        "tradition": "漢傳佛教 · 毘曇部",
+        "language": "漢文",
+        "canonRef": "大正藏 T26, no. 1544",
+        "translator": "迦多衍尼子造 · 唐 · 玄奘譯",
+        "summary": "20卷。本站完整保存 T1544 固定 CBETA TEI 来源记录与可校验页栏行锚点；题记分开保存论师与译者责任；历史分类、作品身份、译本与传承层保持可审计边界；物理记录、作品、译本、传本、根本经论关系与责任归属分层计数。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1544_001"
+      },
+      "verification": {
+        "segments": 9828,
+        "folios": 356,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1544.001.0918a02",
+          "T1544.020.1031c29"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

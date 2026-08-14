@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const inputs = {
   base: "data/gbcr/registry-v2.1.0.json",
-  snapshots: "data/gbcr/source-snapshots-v1.3.0.json",
+  snapshots: "data/gbcr/source-snapshots-v1.4.0.json",
   inventory: "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
   t18Inventory: "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json",
   t19Inventory: "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json",
@@ -15,6 +15,7 @@ const inputs = {
   t23Inventory: "data/gbcr/cbeta-taisho-t23-inventory-v0.1.0.json",
   t24Inventory: "data/gbcr/cbeta-taisho-t24-inventory-v0.1.0.json",
   t25Inventory: "data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json",
+  t26Inventory: "data/gbcr/cbeta-taisho-t26-inventory-v0.1.0.json",
   dergeInventory: "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json",
   rights84000: "data/gbcr/84000-rights-policy-v0.3.0.json",
   sanskritEvidence: "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json",
@@ -42,10 +43,11 @@ const inputs = {
   cbetaT22Batch: "data/corpus/cbeta/batch-v2.9.0.json",
   cbetaT23Batch: "data/corpus/cbeta/batch-v3.0.0.json",
   cbetaT24Batch: "data/corpus/cbeta/batch-v3.1.0.json",
-  cbetaBatch: "data/corpus/cbeta/batch-v3.2.0.json",
-  cbetaCatalog: "data/corpus/cbeta/catalog-v3.2.0.json",
-  cbetaManifest: "data/corpus/cbeta/manifest-v3.2.0.json",
-  cbetaRegistry: "data/gbcr/registry-cbeta-v3.2.0.json",
+  cbetaT25Batch: "data/corpus/cbeta/batch-v3.2.0.json",
+  cbetaBatch: "data/corpus/cbeta/batch-v3.3.0.json",
+  cbetaCatalog: "data/corpus/cbeta/catalog-v3.3.0.json",
+  cbetaManifest: "data/corpus/cbeta/manifest-v3.3.0.json",
+  cbetaRegistry: "data/gbcr/registry-cbeta-v3.3.0.json",
   dhammapadaBatch: "data/corpus/suttacentral/batch-v0.7.0.json",
   dhammapadaManifest: "data/corpus/suttacentral/manifest-v0.7.0.json",
   dighaBatch: "data/corpus/suttacentral/dn-batch-v0.8.0.json",
@@ -94,6 +96,7 @@ const cbetaT21Batch = JSON.parse(rawById.cbetaT21Batch);
 const cbetaT22Batch = JSON.parse(rawById.cbetaT22Batch);
 const cbetaT23Batch = JSON.parse(rawById.cbetaT23Batch);
 const cbetaT24Batch = JSON.parse(rawById.cbetaT24Batch);
+const cbetaT25Batch = JSON.parse(rawById.cbetaT25Batch);
 const cbetaBatch = JSON.parse(rawById.cbetaBatch);
 const cbetaCatalog = JSON.parse(rawById.cbetaCatalog);
 const cbetaManifest = JSON.parse(rawById.cbetaManifest);
@@ -114,8 +117,8 @@ const vinayaBatch = JSON.parse(rawById.vinayaBatch);
 const vinayaManifest = JSON.parse(rawById.vinayaManifest);
 const abhidhammaBatch = JSON.parse(rawById.abhidhammaBatch);
 const abhidhammaManifest = JSON.parse(rawById.abhidhammaManifest);
-const outputPath = resolve(root, "data/gbcr/registry-v4.3.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v4.3.0.sha256");
+const outputPath = resolve(root, "data/gbcr/registry-v4.4.0.json");
+const checksumPath = resolve(root, "data/gbcr/checksums-v4.4.0.sha256");
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
 if (
@@ -355,33 +358,48 @@ if (
   cbetaT24Batch.collection.newWorks !== 56
 ) throw new Error("CBETA T24 固定批次统计不一致");
 if (
-  cbetaBatch.version !== "3.2.0" || cbetaBatch.files.length !== 15 ||
-  cbetaBatch.collection.sourceRecordDenominator !== 15 ||
-  cbetaBatch.collection.previouslyControlledSourceRecords !== 0 ||
-  cbetaBatch.collection.controlledSourceRecords !== 15 ||
-  cbetaBatch.collection.newSourceBytes !== 20558857 ||
-  cbetaBatch.collection.newStableSegments !== 77880 ||
-  cbetaBatch.collection.newFolios !== 2816 ||
-  cbetaBatch.collection.newFullSourceTexts !== 15 ||
-  cbetaBatch.collection.newPartialSourceWitnesses !== 0 ||
-  cbetaBatch.collection.verifiedSameWorkExpressions !== 4 ||
-  cbetaBatch.collection.verifiedEditionWitnesses !== 2 ||
-  cbetaBatch.collection.provisionalRecords !== 9 ||
-  cbetaBatch.collection.newWorks !== 12 ||
-  cbetaCatalog.files.length !== 1583 || cbetaManifest.files.length !== 1583 ||
-  cbetaRegistry.registry.version !== "3.2.0" || cbetaRegistry.works.length !== 1391 ||
-  cbetaRegistry.works.flatMap((work) => work.expressions).length !== 1583
+  cbetaT25Batch.version !== "3.2.0" || cbetaT25Batch.files.length !== 15 ||
+  cbetaT25Batch.collection.sourceRecordDenominator !== 15 ||
+  cbetaT25Batch.collection.previouslyControlledSourceRecords !== 0 ||
+  cbetaT25Batch.collection.controlledSourceRecords !== 15 ||
+  cbetaT25Batch.collection.newSourceBytes !== 20558857 ||
+  cbetaT25Batch.collection.newStableSegments !== 77880 ||
+  cbetaT25Batch.collection.newFolios !== 2816 ||
+  cbetaT25Batch.collection.newFullSourceTexts !== 15 ||
+  cbetaT25Batch.collection.newPartialSourceWitnesses !== 0 ||
+  cbetaT25Batch.collection.verifiedSameWorkExpressions !== 4 ||
+  cbetaT25Batch.collection.verifiedEditionWitnesses !== 2 ||
+  cbetaT25Batch.collection.provisionalRecords !== 9 ||
+  cbetaT25Batch.collection.newWorks !== 12
 ) throw new Error("CBETA T25 固定批次、目录、清单或登记册统计不一致");
+if (
+  cbetaBatch.version !== "3.3.0" || cbetaBatch.files.length !== 26 ||
+  cbetaBatch.collection.sourceRecordDenominator !== 26 ||
+  cbetaBatch.collection.previouslyControlledSourceRecords !== 0 ||
+  cbetaBatch.collection.controlledSourceRecords !== 26 ||
+  cbetaBatch.collection.newSourceBytes !== 14495358 ||
+  cbetaBatch.collection.newStableSegments !== 88216 ||
+  cbetaBatch.collection.newFolios !== 3213 ||
+  cbetaBatch.collection.newFullSourceTexts !== 26 ||
+  cbetaBatch.collection.newPartialSourceWitnesses !== 0 ||
+  cbetaBatch.collection.verifiedSameWorkExpressions !== 6 ||
+  cbetaBatch.collection.verifiedEditionWitnesses !== 0 ||
+  cbetaBatch.collection.provisionalRecords !== 20 ||
+  cbetaBatch.collection.newWorks !== 23 ||
+  cbetaCatalog.files.length !== 1609 || cbetaManifest.files.length !== 1609 ||
+  cbetaRegistry.registry.version !== "3.3.0" || cbetaRegistry.works.length !== 1414 ||
+  cbetaRegistry.works.flatMap((work) => work.expressions).length !== 1609
+) throw new Error("CBETA T26 固定批次、目录、清单或登记册统计不一致");
 
 const cbetaFamily = cbetaRegistry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 if (
-  cbetaFamily?.controlledExpressionRecords !== 1597 ||
-  cbetaFamily?.controlledExpressionBytes !== 417968736
+  cbetaFamily?.controlledExpressionRecords !== 1623 ||
+  cbetaFamily?.controlledExpressionBytes !== 432464094
 ) throw new Error("CBETA 汉译经藏受控来源记录统计不一致");
 const dergeSource = snapshots.sources.find((source) => source.id === "bdrc_derge_kangyur");
 const rktsSource = snapshots.sources.find((source) => source.id === "rkts_kangyur_catalogs");
 if (
-  snapshots.version !== "1.3.0" || snapshots.denominatorReady !== false ||
+  snapshots.version !== "1.4.0" || snapshots.denominatorReady !== false ||
   dergeSource?.candidateRecordCount !== 1114 ||
   dergeInventory.totals?.topLevelCatalogRecords !== 1122 ||
   dergeInventory.totals?.topLevelExpressionRecords !== 1114 ||
@@ -912,7 +930,7 @@ const sourceSnapshots = [
 
 const registry = {
   ...base,
-  registry: { ...base.registry, version: "4.3.0", publishedAt: "2026-08-14" },
+  registry: { ...base.registry, version: "4.4.0", publishedAt: "2026-08-14" },
   sourceFamilies,
   sourceSnapshots,
   crossCatalogAlignmentAudit: {
@@ -1064,6 +1082,18 @@ const registry = {
     caveat: cbetaT24Batch.boundaryAudit.caveat,
   },
   cbetaT25BoundaryAudit: {
+    version: cbetaT25Batch.version,
+    status: cbetaT25Batch.boundaryAudit.status,
+    file: inputs.cbetaT25Batch,
+    sha256: sha256(rawById.cbetaT25Batch),
+    ...cbetaT25Batch.collection,
+    editionOrRecensionGroups: cbetaT25Batch.boundaryAudit.editionOrRecensionGroups,
+    verifiedTranslationGroups: cbetaT25Batch.boundaryAudit.verifiedTranslationGroups,
+    rootTextCommentaryGroups: cbetaT25Batch.boundaryAudit.rootTextCommentaryGroups,
+    candidateRelationsNotMerged: cbetaT25Batch.boundaryAudit.candidateRelationsNotMerged,
+    caveat: cbetaT25Batch.boundaryAudit.caveat,
+  },
+  cbetaT26BoundaryAudit: {
     version: cbetaBatch.version,
     status: cbetaBatch.boundaryAudit.status,
     file: inputs.cbetaBatch,
@@ -1078,22 +1108,22 @@ const registry = {
   works: [...nonCbetaWorks, ...indicWorks, ...vinayaWorks, ...abhidhammaWorks, ...cbetaWorks],
 };
 if (
-  registry.works.length !== 1680 ||
-  registry.works.flatMap((work) => work.expressions).length !== 1872 ||
+  registry.works.length !== 1703 ||
+  registry.works.flatMap((work) => work.expressions).length !== 1898 ||
   new Set(registry.works.map((work) => work.id)).size !== registry.works.length
-) throw new Error("跨语种登记册 v4.3.0 作品或文本表达统计不一致");
+) throw new Error("跨语种登记册 v4.4.0 作品或文本表达统计不一致");
 const registryRaw = `${JSON.stringify(registry, null, 2)}\n`;
 const checksumRaw = [
-  `${sha256(registryRaw)}  registry-v4.3.0.json`,
+  `${sha256(registryRaw)}  registry-v4.4.0.json`,
   ...entries.slice(1).map(([, relativePath, raw]) => `${sha256(raw)}  ${relativePath.split("/").at(-1)}`),
 ].join("\n") + "\n";
 
 if (process.argv.includes("--verify")) {
-  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v4.3.0.json 不可复现");
-  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v4.3.0.sha256 不可复现");
-  console.log("跨语种登记册 v4.3.0 可复现：T25 释经论部 15/15 固定来源已完成异译、传本、根本经论与作者归属边界审计；全球作品分母保持未知。");
+  if (await readFile(outputPath, "utf8") !== registryRaw) throw new Error("registry-v4.4.0.json 不可复现");
+  if (await readFile(checksumPath, "utf8") !== checksumRaw) throw new Error("checksums-v4.4.0.sha256 不可复现");
+  console.log("跨语种登记册 v4.4.0 可复现：T26 释经论与毘昙部 26/26 固定来源已完成异译、异传、根本经论与作者归属边界审计；全球作品分母保持未知。");
 } else {
   await writeFile(outputPath, registryRaw, "utf8");
   await writeFile(checksumPath, checksumRaw, "utf8");
-  console.log("跨语种登记册 v4.3.0 已生成：新增 T25 释经论部 12 个作品、15 个表达或见证；传统作者与机器相似度不冒充现代作品同一性。");
+  console.log("跨语种登记册 v4.4.0 已生成：新增 T26 释经论与毘昙部 23 个作品、26 个表达；传统作者、历史分类与机器相似度不冒充现代作品同一性。");
 }

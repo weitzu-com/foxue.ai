@@ -63,8 +63,8 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
 const cbetaSources = archivedPaths.filter((path) =>
   /^data\/corpus\/cbeta\/T[0-9A-Za-z]+\.xml$/.test(path),
 );
-if (cbetaSources.length !== 1597) {
-  throw new Error(`保存包应包含 1,597 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
+if (cbetaSources.length !== 1623) {
+  throw new Error(`保存包应包含 1,623 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
 }
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
@@ -227,6 +227,10 @@ const requiredPaths = [
   "data/gbcr/cbeta-taisho-t25-inventory-v0.1.0.json",
   "data/gbcr/registry-cbeta-v3.2.0.json",
   "data/gbcr/registry-v4.3.0.json",
+  "data/gbcr/source-snapshots-v1.4.0.json",
+  "data/gbcr/cbeta-taisho-t26-inventory-v0.1.0.json",
+  "data/gbcr/registry-cbeta-v3.3.0.json",
+  "data/gbcr/registry-v4.4.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -285,6 +289,8 @@ const requiredPaths = [
   "data/gbcr/checksums-v4.2.0.sha256",
   "data/gbcr/checksums-cbeta-v3.2.0.sha256",
   "data/gbcr/checksums-v4.3.0.sha256",
+  "data/gbcr/checksums-cbeta-v3.3.0.sha256",
+  "data/gbcr/checksums-v4.4.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -351,6 +357,9 @@ const requiredPaths = [
   "data/corpus/cbeta/batch-v3.2.0.json",
   "data/corpus/cbeta/catalog-v3.2.0.json",
   "data/corpus/cbeta/manifest-v3.2.0.json",
+  "data/corpus/cbeta/batch-v3.3.0.json",
+  "data/corpus/cbeta/catalog-v3.3.0.json",
+  "data/corpus/cbeta/manifest-v3.3.0.json",
   "data/corpus/suttacentral/NOTICE.md",
   "data/corpus/suttacentral/batch-v0.7.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",
@@ -450,6 +459,9 @@ const requiredPaths = [
   "scripts/snapshot-cbeta-t25.mjs",
   "scripts/audit-cbeta-t25.mjs",
   "scripts/build-cbeta-catalog-v3.2.mjs",
+  "scripts/snapshot-cbeta-t26.mjs",
+  "scripts/audit-cbeta-t26.mjs",
+  "scripts/build-cbeta-catalog-v3.3.mjs",
   "scripts/build-corpus-catalog.mjs",
   "scripts/build-suttacentral-catalog.mjs",
   "scripts/build-suttacentral-dn-catalog.mjs",

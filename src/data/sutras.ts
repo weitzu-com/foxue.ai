@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.2.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.3.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -268,7 +268,25 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
     return "来源保留传统作者题记，同时公开现代研究对作者、译者参与程度或成书层次的争议；平台不把传统署名当作已经裁决的现代事实。";
   }
   if (file.sourceRole === "traditional_attributed_exegetical_treatise_with_contested_origin") {
+    if (file.id === "T1529") {
+      return "来源保留世亲造、真谛译的传统题记，同时公开现代书目研究认为现存《遗教经论》很可能是汉地撰述；平台并列呈现，不把传统署名当作已经裁决的现代事实。";
+    }
     return "来源保留传统作者与解释者题记，同时公开真伪或成书来源争议；平台只确认本次文本见证，不把传统署名当作已经裁决的现代事实。";
+  }
+  if (file.sourceRole === "anonymous_dunhuang_exegetical_epitome") {
+    return "来源题记没有作者或译者；正文提及世亲本释不足以证明本篇由世亲撰写，平台保留敦煌无署名释题身份。";
+  }
+  if (file.sourceRole === "traditional_taught_abhidharma_with_translation") {
+    return "来源保存舍利子说、玄奘译的传统题记；平台把传统说者、现代作者概念与汉译责任分层，不改写成佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "traditional_attributed_abhidharma_with_contested_authorship") {
+    return "汉译题记归于大目乾连，梵藏传统另有舍利子归属；平台公开冲突作者传统，不替学术研究擅自裁决。";
+  }
+  if (file.sourceRole === "translated_abhidharma_without_named_author") {
+    return "来源只保存法护等译而未载作者；平台不从“六足一身”历史分类、题名或相邻目录补造作者。";
+  }
+  if (file.sourceRole === "authored_abhidharma_with_translation") {
+    return "来源分开保存论师与汉译者责任；作品、译本、可能的异传层与后期“六足一身”分类分别记录，不把论书改写成佛陀逐字亲说。";
   }
   return undefined;
 };
