@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v5.2.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v2.2.0.json";
+import registryDocument from "../../data/gbcr/registry-v5.3.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v2.3.0.json";
 
 type Expression = {
   id: string;
@@ -217,6 +217,12 @@ export function buildCoverageSnapshot() {
   const chineseT34Controlled = "t34ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t34ControlledSourceRecords ?? null
     : null;
+  const chineseT35Denominator = "t35SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t35SourceRecordDenominator ?? null
+    : null;
+  const chineseT35Controlled = "t35ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t35ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -308,6 +314,11 @@ export function buildCoverageSnapshot() {
   const chineseT34SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_sutra_commentary_t34",
+      ) ?? null
+    : null;
+  const chineseT35SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_huayan_commentary_t35",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -535,8 +546,9 @@ export function buildCoverageSnapshot() {
         t32InventorySha256: chineseT32SubsetInventory?.inventorySha256 ?? null,
         t33InventorySha256: chineseT33SubsetInventory?.inventorySha256 ?? null,
         t34InventorySha256: chineseT34SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T34 十八个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T34 释经论、毘昙、中观、瑜伽、论集、经疏部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、部分作品见证、组成部分、节略与分离见证、同本异译、异本、音写、失译、汉地撰成、讲说记录、章节注释、合注、治定本、再注释与归属争议。",
+        t35InventorySha256: chineseT35SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T35 十九个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T35 释经论、毘昙、中观、瑜伽、论集、经疏分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、部分作品见证、组成部分、节略与分离见证、同本异译、异本、音写、失译、汉地撰成、游意、纲目、讲说记录、章节注释、合注、治定本、再注释与归属争议。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -917,6 +929,28 @@ export function buildCoverageSnapshot() {
         relatedDistinctWorkGroups: corpusRegistry.cbetaT34BoundaryAudit.relatedDistinctWorkGroups.length,
         unit: "CBETA 固定提交大正藏 T34 经疏部来源记录",
         caveat: corpusRegistry.cbetaT34BoundaryAudit.caveat,
+      },
+      chineseT35SourceRecords: {
+        denominator: chineseT35Denominator,
+        controlled: chineseT35Controlled,
+        percentage: chineseT35Denominator && chineseT35Controlled !== null
+          ? Number(((chineseT35Controlled / chineseT35Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT35BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT35BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT35BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT35BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedSplitWorkWitnesses: corpusRegistry.cbetaT35BoundaryAudit.verifiedSplitWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT35BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT35BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT35BoundaryAudit.relationAnnotatedRecords,
+        newWorks: corpusRegistry.cbetaT35BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT35BoundaryAudit.controlledWorks,
+        rootTreatiseCommentaryGroups: corpusRegistry.cbetaT35BoundaryAudit.rootTreatiseCommentaryGroups.length,
+        subcommentaryGroups: corpusRegistry.cbetaT35BoundaryAudit.subcommentaryGroups.length,
+        relatedDistinctWorkGroups: corpusRegistry.cbetaT35BoundaryAudit.relatedDistinctWorkGroups.length,
+        unit: "CBETA 固定提交大正藏 T35 华严经疏部来源记录",
+        caveat: corpusRegistry.cbetaT35BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

@@ -1,0 +1,64 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "f997ce7eb685b43e0d3c4cc76e25a74a578a3508"
+  },
+  "subset": {
+    "id": "taisho_huayan_commentary_t35",
+    "label": "大正藏 T35 华严经疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T35 目录下、文件名卷号一致的 T35n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T35 的 5 份来源记录是围绕六十卷本与八十卷本《大方广佛华严经》形成的游意、搜玄、探玄、纲目与经疏；根本经、教义阐释、直接注释、同作者异作及下一卷再注释必须分层计量，不能把经疏目录位置误作佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 5,
+    "upstreamBytes": 11056559,
+    "candidatePathSha256": "b49b9c5d9eccb861be1065b15d505b894d279a95db8cf087d2a497bc634c6432"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T35n1731",
+      "canonWitnessId": "T1731",
+      "volume": "T35",
+      "upstreamPath": "T/T35/T35n1731.xml",
+      "upstreamGitBlobSha1": "d34d583b55a9ed168842391625166d93f3a7fefc",
+      "upstreamBytes": 319789
+    },
+    {
+      "sourceRecordId": "T35n1732",
+      "canonWitnessId": "T1732",
+      "volume": "T35",
+      "upstreamPath": "T/T35/T35n1732.xml",
+      "upstreamGitBlobSha1": "7cbf7524ff6537c129edd775f72eed1b3a711dc5",
+      "upstreamBytes": 820887
+    },
+    {
+      "sourceRecordId": "T35n1733",
+      "canonWitnessId": "T1733",
+      "volume": "T35",
+      "upstreamPath": "T/T35/T35n1733.xml",
+      "upstreamGitBlobSha1": "9e0eaed8c2cd6cf7f6cdf8e21fa26c1de6514bde",
+      "upstreamBytes": 5216018
+    },
+    {
+      "sourceRecordId": "T35n1734",
+      "canonWitnessId": "T1734",
+      "volume": "T35",
+      "upstreamPath": "T/T35/T35n1734.xml",
+      "upstreamGitBlobSha1": "39e1703be3bbc2a39fe4c5ab8ba9ec5c6883f6d3",
+      "upstreamBytes": 157564
+    },
+    {
+      "sourceRecordId": "T35n1735",
+      "canonWitnessId": "T1735",
+      "volume": "T35",
+      "upstreamPath": "T/T35/T35n1735.xml",
+      "upstreamGitBlobSha1": "0781e26c559580c8a2c0718e075da248b3b17310",
+      "upstreamBytes": 4542301
+    }
+  ]
+}
