@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExternalLink, Scale, UsersRound } from "lucide-react";
+import { ExternalLink, Scale, Send, UsersRound } from "lucide-react";
 import queueDocument from "../../../data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json";
 import { ReviewQueueWorkbench, type ReviewQueueItem } from "./review-queue-workbench";
 
@@ -56,6 +56,14 @@ export default function ReviewQueuePage() {
         <div>
           <p>复核者必须分别记录支持证据与反证。若两份独立结论一致，可进入版本化裁决；若不一致，必须由第三位仲裁者处理。</p>
           <p>当前页面不收集登录、批注或裁决。正式复核记录必须进入可追踪的仓库历史，绑定复核者、时间、引用来源和逐对象权利边界。</p>
+          <div className="review-governance__actions">
+            <a href="https://github.com/weitzu-com/foxue.ai/issues/new?template=han-pali-review.yml" target="_blank" rel="noreferrer">
+              提交具名复核意见 <Send aria-hidden="true" size={14} />
+            </a>
+            <a href="https://github.com/weitzu-com/foxue.ai/blob/main/docs/HAN_PALI_REVIEW_PROTOCOL.md" target="_blank" rel="noreferrer">
+              阅读完整复核协议 <ExternalLink aria-hidden="true" size={14} />
+            </a>
+          </div>
         </div>
       </section>
     </main>

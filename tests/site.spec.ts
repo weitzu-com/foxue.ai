@@ -349,6 +349,10 @@ test("汉巴作品审校台优先呈现反证并保持真人双重复核边界",
   await page.getByRole("searchbox", { name: "检索 80 项证据" }).fill("MN 1");
   await expect(page.locator(".review-case").first()).toContainText("MN1");
   await expect(page.getByText("AI 可整理证据，但不能署名为真人复核者")).toBeVisible();
+  await expect(page.getByRole("link", { name: /提交具名复核意见/ })).toHaveAttribute(
+    "href",
+    "https://github.com/weitzu-com/foxue.ai/issues/new?template=han-pali-review.yml",
+  );
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);

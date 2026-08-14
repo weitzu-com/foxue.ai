@@ -1614,6 +1614,8 @@ a {
 .review-governance > div { z-index: 1; }
 .review-governance > div p { margin: 0; color: #efdcd7; font-size: 0.78rem; line-height: 1.95; }
 .review-governance > div p + p { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / 25%); }
+.review-governance__actions { display: flex; flex-wrap: wrap; gap: 10px 23px; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgb(255 255 255 / 25%); }
+.review-governance__actions a { display: inline-flex; align-items: center; gap: 7px; color: #fffdf7; font-size: 0.68rem; font-weight: 700; }
 
 /* Error */
 .not-found { min-height: 70vh; padding-block: 100px; text-align: center; }

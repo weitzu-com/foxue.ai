@@ -1,0 +1,133 @@
+name: 汉—巴作品关系复核
+description: 为 GBCR 汉—巴未决队列提交一份具名、可复核的独立意见；提交不会自动改变作品数。
+title: "[汉巴复核] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢参与作品边界复核。请先阅读 [汉—巴作品关系复核协议](https://github.com/weitzu-com/foxue.ai/blob/main/docs/HAN_PALI_REVIEW_PROTOCOL.md)。
+
+        此表单提交的是一份公开复核意见，不是最终裁决。AI 可以协助整理材料，但不能代替你署名、判断或满足双人复核门槛。
+
+  - type: input
+    id: evidence_edge_id
+    attributes:
+      label: 证据边 ID
+      description: 从审校台展开“证据身份与复核清单”后复制，例如 gbcr:parallel:0a465257c6ab8373。
+      placeholder: gbcr:parallel:...
+    validations:
+      required: true
+
+  - type: input
+    id: relation_pair
+    attributes:
+      label: 巴利—汉译关系对
+      description: 写明两端标识与题名。
+      placeholder: MN 1 ↔ MA 106 / T0026《中阿含经》
+    validations:
+      required: true
+
+  - type: textarea
+    id: reviewer_identity
+    attributes:
+      label: 复核者身份、能力与独立性
+      description: 说明可直接核对的语言、版本学或研究背景；可附 ORCID/机构。说明是否已阅读其他复核意见，以及你如何保持独立判断。
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_scope
+    attributes:
+      label: 底本、版本与精确范围
+      description: 分别列出两端使用的底本、版本、经号、卷页或稳定段落链接，并判断是整经、合集组件、节译、残片还是引用。
+    validations:
+      required: true
+
+  - type: textarea
+    id: internal_comparison
+    attributes:
+      label: 文本内部比较
+      description: 比较首尾、地点、人物、叙事框架、章节结构、教义次序、重复模式与显著增删。请给出可核对定位。
+    validations:
+      required: true
+
+  - type: textarea
+    id: supporting_evidence
+    attributes:
+      label: 最强支持证据
+      description: 说明为何支持你的关系判断，并给出原文定位、稳定链接或书目页码。
+    validations:
+      required: true
+
+  - type: textarea
+    id: counterevidence
+    attributes:
+      label: 最强反证与范围限制
+      description: 即使你倾向同一作品，也必须列出最强反证、差异或不确定性；若未找到，请说明检索范围。
+    validations:
+      required: true
+
+  - type: textarea
+    id: research_citations
+    attributes:
+      label: 现代研究或权威目录来源
+      description: 至少提供一项可公开核对的研究、目录或校勘成果；包括作者、题名、年份、页码/条目和链接或 DOI。若确实没有，应明确建议保持未决。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: proposed_outcome
+    attributes:
+      label: 建议结论
+      description: 单份意见不会直接改变登记册。
+      options:
+        - unresolved_more_evidence_required
+        - same_work_different_expression
+        - text_family_relation_only
+        - component_relation_only
+        - partial_parallel_only
+        - citation_or_mention_only
+        - rejected_not_parallel
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: 置信度
+      options:
+        - 低——重要证据缺失，应保持未决
+        - 中——结论较合理，但仍有实质不确定性
+        - 高——范围与反证均已充分核对
+    validations:
+      required: true
+
+  - type: textarea
+    id: rights_boundary
+    attributes:
+      label: 权利与引用边界
+      description: 分别说明原文、转写、译文和元数据的来源与许可；不要粘贴无权再发布的长篇正文。
+    validations:
+      required: true
+
+  - type: textarea
+    id: conflict_of_interest
+    attributes:
+      label: 利益冲突披露
+      description: 说明与项目、版本、译文、出版者、另一复核者或相关机构的关系；没有则写“无已知利益冲突”。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: 复核声明
+      options:
+        - label: 我本人对这份复核意见负责；AI 未代替我署名或作出最终判断。
+          required: true
+        - label: 我同时记录了支持证据与反证，没有只根据题名、编号或现成关系类型判断。
+          required: true
+        - label: 我理解此提交不是最终裁决，不会自动合并 Work、断言逐段等同或改变全球分母。
+          required: true
+        - label: 我同意此意见、修订记录和公开署名被长期保存，以便复核、引用和纠错。
+          required: true
