@@ -1,0 +1,1481 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "3.7.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v3.6.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t30-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T30; T30 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T30",
+    "title": "大正藏 T30 中觀部、瑜伽部固定來源記錄",
+    "sourceRecordDenominator": 21,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 21,
+    "controlledSourceRecords": 21,
+    "newSourceBytes": 13938106,
+    "newStableSegments": 88664,
+    "newFolios": 3222,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 6,
+    "verifiedSplitWorkWitnesses": 2,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 15,
+    "newPartialSourceWitnesses": 6,
+    "relationAnnotatedRecords": 20,
+    "attributionBoundaryRecords": 21,
+    "newWorks": 20,
+    "controlledWorks": 20,
+    "workCountingDecision": "T30 的 21 份來源記錄登記為 21 個表達或見證、20 個批次內作品。T1582/T1583 原屬同一十卷文本而後分離，共享一個作品標識；T1567、T1570、T1580、T1582、T1583、T1584 是六個部分作品見證。中觀根本頌、各家釋論、《瑜伽師地論》整部、注釋與組成部分保持作品邊界，所有論書均不標為佛陀逐字親說。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_commentary_component_split_witness_and_partial_translation_boundaries_recorded",
+    "existingControlledRecords": [],
+    "editionOrRecensionGroups": [
+      "bodhisattva-good-precepts-t1582-t1583"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "mmk-chinese-commentaries-t1564-t1567",
+      "aryadeva-sataka-catuhsataka-t1569-t1572",
+      "yogacarabhumi-t1579-t1584"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1581↔T1582/T1583（同底本異譯或漢地改編仍有爭議，暫不合併作品）",
+      "T1569↔T1570（《百論》與《四百論》關係密切但不據題名與局部平行合併作品）"
+    ],
+    "partialWorkWitnesses": [
+      "T1567",
+      "T1570",
+      "T1580",
+      "T1582",
+      "T1583",
+      "T1584"
+    ],
+    "sourceRoles": {
+      "traditional_attributed_composite_yogacara_treatise_translation": [
+        "T1579"
+      ],
+      "traditional_authored_abridged_yogacara_commentary_translation": [
+        "T1580"
+      ],
+      "traditional_authored_commentary_translation": [
+        "T1571"
+      ],
+      "traditional_authored_ethics_treatise_translation": [
+        "T1577"
+      ],
+      "traditional_authored_madhyamaka_treatise_translation": [
+        "T1568",
+        "T1578"
+      ],
+      "traditional_authored_mmk_commentary_translation": [
+        "T1566"
+      ],
+      "traditional_authored_partial_mmk_commentary_translation": [
+        "T1567"
+      ],
+      "traditional_authored_partial_root_verse_work_translation": [
+        "T1570"
+      ],
+      "traditional_authored_root_verses_with_commentary_translation": [
+        "T1564",
+        "T1569"
+      ],
+      "traditional_authored_selective_mmk_exposition_translation": [
+        "T1565"
+      ],
+      "traditional_authored_short_treatise_translation": [
+        "T1572",
+        "T1573",
+        "T1574",
+        "T1575",
+        "T1576"
+      ],
+      "traditional_translated_bodhisattvabhumi_component": [
+        "T1581"
+      ],
+      "traditional_translated_or_revised_split_bodhisattvabhumi_related_witness": [
+        "T1582",
+        "T1583"
+      ],
+      "translated_partial_viniscayasamgrahani_witness": [
+        "T1584"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Machine overlap only records embedded root verses or lexical continuity; work, authorship, completeness and translation decisions require independent bibliographic evidence.",
+      "pairs": [
+        {
+          "pair": [
+            "T1564",
+            "T1565"
+          ],
+          "normalizedCharacters": [
+            43769,
+            14112
+          ],
+          "fiveGramContainmentOfShorter": 0.006576,
+          "fiveGramJaccard": 0.001619
+        },
+        {
+          "pair": [
+            "T1564",
+            "T1566"
+          ],
+          "normalizedCharacters": [
+            43769,
+            111852
+          ],
+          "fiveGramContainmentOfShorter": 0.043401,
+          "fiveGramJaccard": 0.012622
+        },
+        {
+          "pair": [
+            "T1564",
+            "T1567"
+          ],
+          "normalizedCharacters": [
+            43769,
+            25909
+          ],
+          "fiveGramContainmentOfShorter": 0.025349,
+          "fiveGramJaccard": 0.009626
+        },
+        {
+          "pair": [
+            "T1570",
+            "T1571"
+          ],
+          "normalizedCharacters": [
+            4179,
+            85801
+          ],
+          "fiveGramContainmentOfShorter": 0.725504,
+          "fiveGramJaccard": 0.036421
+        },
+        {
+          "pair": [
+            "T1579",
+            "T1580"
+          ],
+          "normalizedCharacters": [
+            822182,
+            7189
+          ],
+          "fiveGramContainmentOfShorter": 0.096004,
+          "fiveGramJaccard": 0.000903
+        },
+        {
+          "pair": [
+            "T1579",
+            "T1581"
+          ],
+          "normalizedCharacters": [
+            822182,
+            96495
+          ],
+          "fiveGramContainmentOfShorter": 0.055901,
+          "fiveGramJaccard": 0.005811
+        },
+        {
+          "pair": [
+            "T1581",
+            "T1582"
+          ],
+          "normalizedCharacters": [
+            96495,
+            78165
+          ],
+          "fiveGramContainmentOfShorter": 0.037707,
+          "fiveGramJaccard": 0.017764
+        },
+        {
+          "pair": [
+            "T1582",
+            "T1583"
+          ],
+          "normalizedCharacters": [
+            78165,
+            6430
+          ],
+          "fiveGramContainmentOfShorter": 0.044513,
+          "fiveGramJaccard": 0.003455
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T30",
+      "https://www.jstage.jst.go.jp/article/ibk/65/3/65_1205/_pdf",
+      "https://academic.oup.com/reference/62340/reference-article-abstract/554138929",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004104",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001282",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001283",
+      "https://www.jstage.jst.go.jp/article/ibk1952/2/2/2_2_751/_pdf/-char/ja",
+      "https://www.jstage.jst.go.jp/article/ibk1952/17/1/17_1_445/_pdf",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002099",
+      "https://buddhistinformatics.dila.edu.tw/ybh2008/",
+      "https://ybh.dila.edu.tw/mapping.html",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003830",
+      "https://frogbear.org/wp-content/uploads/2023/03/2.5.1_xuanzang_eng_oa-v2.pdf",
+      "https://dazangthings.nz/cbc/text/1771/",
+      "https://dazangthings.nz/cbc/text/1774/",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001902"
+    ],
+    "caveat": "T30 是中觀與瑜伽行派論書集合，不是佛說經集合。平台完整保存固定來源，同時區分根本頌、釋論、略釋、僅存前半或後半的譯本、整部複合論、獨立流通的組成部分、分離來源見證、傳統作者題記與異譯或改編爭議；題名、同一傳統作者、目錄鄰接或機器相似度都不能單獨證明作品相同、作者確定、文本完整或佛陀逐字親說。"
+  },
+  "files": [
+    {
+      "id": "T1564",
+      "slug": "taisho-t1564",
+      "workId": "gbcr:work:madhyamaka-sastra-pingala",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "中論（Madhyamakaśāstra，含《根本中頌》與青目釋）",
+      "sourceRole": "traditional_authored_root_verses_with_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mulamadhyamakakarika_commentary_family_verified_distinct_works",
+          "groupId": "mmk-chinese-commentaries-t1564-t1567",
+          "label": "《根本中頌》四種漢譯釋論的作品邊界",
+          "evidence": "同行評審研究與 DILA 經錄把 T1564 青目《中論》、T1566 清辨《般若燈論釋》、T1567 安慧《大乘中觀釋論》連到《根本中頌》，但它們是不同注釋作品；T1565 只解釋歸敬頌與核心義，不是全二十七品注釋。T1567 固定來源只到第十品，故作部分作品見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1565",
+              "T1566",
+              "T1567"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1564.xml",
+      "upstreamPath": "T/T30/T30n1564.xml",
+      "upstreamGitBlobSha1": "6e7349edf2b65f98fd6e52b0b74afaabe399ec8a",
+      "upstreamBytes": 709118,
+      "upstreamSha256": "8d96f1e0bf0a737cfdc74a8c83937f3382be7d2d383f459aca559a3373714e4c",
+      "localBytes": 709119,
+      "localSha256": "8a56279c34970a0acecdfa0b0fee76ca82e06c5e34682ef4ca650a878416f9c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中論",
+        "alternateTitle": "中論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1564",
+        "translator": "龍樹菩薩造 · 梵志青目釋 · 姚秦 · 鳩摩羅什譯",
+        "summary": "4卷。固定來源完整保存四卷、二十七品與穩定錨點；龍樹根本頌嵌於青目釋中，故登記為青目注釋作品的漢譯表達，不把其中根本頌另重複計作一份完整表達。傳統造、釋、譯題記照錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1564_001"
+      },
+      "verification": {
+        "segments": 3271,
+        "folios": 118,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1564.001.0001a02",
+          "T1564.004.0039c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1565",
+      "slug": "taisho-t1565",
+      "workId": "gbcr:work:shunzhonglun-asanga",
+      "workIdentityStatus": "verified_distinct_selective_exposition_work",
+      "workTitle": "順中論（無著對《根本中頌》的選擇性解說）",
+      "sourceRole": "traditional_authored_selective_mmk_exposition_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mulamadhyamakakarika_commentary_family_verified_distinct_works",
+          "groupId": "mmk-chinese-commentaries-t1564-t1567",
+          "label": "《根本中頌》四種漢譯釋論的作品邊界",
+          "evidence": "同行評審研究與 DILA 經錄把 T1564 青目《中論》、T1566 清辨《般若燈論釋》、T1567 安慧《大乘中觀釋論》連到《根本中頌》，但它們是不同注釋作品；T1565 只解釋歸敬頌與核心義，不是全二十七品注釋。T1567 固定來源只到第十品，故作部分作品見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1565",
+              "T1566",
+              "T1567"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1565.xml",
+      "upstreamPath": "T/T30/T30n1565.xml",
+      "upstreamGitBlobSha1": "700c41db2826bc4aba960da89d1abd82019571cc",
+      "upstreamBytes": 134720,
+      "upstreamSha256": "4df89195cdc3cfa80cf39a94764158fa19576e3dd01dc5c7dbb990dae9c7068d",
+      "localBytes": 134721,
+      "localSha256": "00e063d98869cb5477f5937643c58ff5361e2fc3b73ad7919f7633aea50b5e8f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "順中論",
+        "alternateTitle": "順中論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1565",
+        "translator": "龍樹菩薩造 · 無著菩薩釋 · 元魏 · 瞿曇般若流支譯",
+        "summary": "2卷。固定來源完整保存兩卷與穩定錨點；本論集中解釋《根本中頌》歸敬頌、八不與般若義，不冒充二十七品逐品全注。傳統龍樹造、無著釋、般若流支譯題記照錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1565_001"
+      },
+      "verification": {
+        "segments": 940,
+        "folios": 34,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1565.001.0039c04",
+          "T1565.002.0050b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1566",
+      "slug": "taisho-t1566",
+      "workId": "gbcr:work:prajnapradipa-bhaviveka",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "般若燈論釋（Prajñāpradīpa）",
+      "sourceRole": "traditional_authored_mmk_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mulamadhyamakakarika_commentary_family_verified_distinct_works",
+          "groupId": "mmk-chinese-commentaries-t1564-t1567",
+          "label": "《根本中頌》四種漢譯釋論的作品邊界",
+          "evidence": "同行評審研究與 DILA 經錄把 T1564 青目《中論》、T1566 清辨《般若燈論釋》、T1567 安慧《大乘中觀釋論》連到《根本中頌》，但它們是不同注釋作品；T1565 只解釋歸敬頌與核心義，不是全二十七品注釋。T1567 固定來源只到第十品，故作部分作品見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1565",
+              "T1566",
+              "T1567"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_distinct_madhyamaka_works",
+          "groupId": "bhaviveka-distinct-works-t1566-t1578",
+          "label": "清辨《般若燈論釋》與《大乘掌珍論》不同作品",
+          "evidence": "T1566 是《根本中頌》注釋，T1578 是獨立《掌珍論》；共同傳統作者只建立作者候選關係，不構成作品合併依據。",
+          "externalIds": {
+            "cbeta": [
+              "T1566",
+              "T1578"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1566.xml",
+      "upstreamPath": "T/T30/T30n1566.xml",
+      "upstreamGitBlobSha1": "b70af9576111acc2c60aea57478383bc6a0cd0db",
+      "upstreamBytes": 923220,
+      "upstreamSha256": "f06197d0c3b5f2bff30daed9a22830dc035915c92c3b9f8aaf7fe9e43b6a5782",
+      "localBytes": 923221,
+      "localSha256": "f26d00e686ac075dbc0bf7f6ac975ef311cd4e22891f141db141473e3f519d50",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "般若燈論釋",
+        "alternateTitle": "般若燈論釋",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1566",
+        "translator": "偈本龍樹菩薩 · 釋論分別明菩薩 · 唐 · 波羅頗蜜多羅譯",
+        "summary": "15卷。固定來源完整保存十五卷與穩定錨點；登記為清辨對《根本中頌》的獨立注釋作品，與 T1564、T1567 不合併。根本頌作者、釋者與譯者題記按來源分層保存。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1566_001"
+      },
+      "verification": {
+        "segments": 7369,
+        "folios": 267,
+        "juanRange": [
+          1,
+          15
+        ],
+        "anchors": [
+          "T1566.001.0050c02",
+          "T1566.015.0136a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1567",
+      "slug": "taisho-t1567",
+      "workId": "gbcr:work:mmk-commentary-sthiramati",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "大乘中觀釋論（安慧《根本中頌》注）",
+      "sourceRole": "traditional_authored_partial_mmk_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "mulamadhyamakakarika_commentary_family_verified_distinct_works",
+          "groupId": "mmk-chinese-commentaries-t1564-t1567",
+          "label": "《根本中頌》四種漢譯釋論的作品邊界",
+          "evidence": "同行評審研究與 DILA 經錄把 T1564 青目《中論》、T1566 清辨《般若燈論釋》、T1567 安慧《大乘中觀釋論》連到《根本中頌》，但它們是不同注釋作品；T1565 只解釋歸敬頌與核心義，不是全二十七品注釋。T1567 固定來源只到第十品，故作部分作品見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1565",
+              "T1566",
+              "T1567"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1567.xml",
+      "upstreamPath": "T/T30/T30n1567.xml",
+      "upstreamGitBlobSha1": "2b30d9e949ced9f95ba7c63ffb5cef7fce88c199",
+      "upstreamBytes": 232315,
+      "upstreamSha256": "c5e47e2106536277ad1507ec2d3c9ba0e2a0cd7e46f217051ad216a28dfbf169",
+      "localBytes": 232316,
+      "localSha256": "7525bbb717a0583986ea95f66b44f128f4329b61361d5ad109f5126349e798ad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "大乘中觀釋論(第1卷-第9卷)",
+        "alternateTitle": "大乘中觀釋論(第1卷-第9卷)",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1567",
+        "translator": "安慧菩薩造 · 宋 · 惟淨等譯",
+        "summary": "9卷。來源文件完整保存前九卷與穩定錨點，但正文止於第十品；高麗藏目錄另記卷十至十八，現有研究也視其為安慧二十七品注釋。平台因此標作完整來源文件中的部分作品見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1567_001"
+      },
+      "verification": {
+        "segments": 1959,
+        "folios": 74,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T1567.001.0136a04",
+          "T1567.009.0158c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1568",
+      "slug": "taisho-t1568",
+      "workId": "gbcr:work:dvadasamukha-sastra",
+      "workIdentityStatus": "verified_distinct_treatise_work",
+      "workTitle": "十二門論（*Dvādaśamukhaśāstra）",
+      "sourceRole": "traditional_authored_madhyamaka_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_nagarjuna_attribution_distinct_treatises",
+          "groupId": "nagarjuna-short-treatises-t1568-t1576",
+          "label": "龍樹傳統歸屬的不同短論",
+          "evidence": "DILA 經錄分別登記《十二門論》《壹輸盧迦論》《大乘破有論》《六十頌如理論》《大乘二十頌論》，其中《六十頌如理論》可與梵藏 Yuktisastika 對應。平台保存每部傳統責任題記與跨藏線索，但不把共同署名當成同一作品或無爭議的現代作者事實。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1573",
+              "T1574",
+              "T1575",
+              "T1576"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1568.xml",
+      "upstreamPath": "T/T30/T30n1568.xml",
+      "upstreamGitBlobSha1": "2c2085846e535b6f4682d127c69ce7e88aa93aa9",
+      "upstreamBytes": 185207,
+      "upstreamSha256": "848c973f9e34170424046316d3de4db78703bc723eb68bd750fea173f38ca2e1",
+      "localBytes": 185208,
+      "localSha256": "78c3a76bab817a0fcfda2c0a011ac1efe29066aeab35e7974cda114f79cc1e09",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十二門論",
+        "alternateTitle": "十二門論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1568",
+        "translator": "龍樹菩薩造 · 姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。固定來源完整保存一卷、十二門與穩定錨點；作為獨立中觀論書登記。僅存漢譯且作者歸屬有現代研究空間，平台保存傳統龍樹造、鳩摩羅什譯題記而不改寫為無爭議事實。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1568_001"
+      },
+      "verification": {
+        "segments": 741,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1568.001.0159a02",
+          "T1568.001.0167c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1569",
+      "slug": "taisho-t1569",
+      "workId": "gbcr:work:sataka-sastra-aryadeva-vasu",
+      "workIdentityStatus": "verified_distinct_root_and_commentary_work",
+      "workTitle": "百論（Śataśāstra，提婆本頌與婆藪釋）",
+      "sourceRole": "traditional_authored_root_verses_with_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "aryadeva_treatise_root_and_commentary_family_verified",
+          "groupId": "aryadeva-sataka-catuhsataka-t1569-t1572",
+          "label": "提婆《百論》《四百論》後半、護法釋與《百字論》邊界",
+          "evidence": "DILA 經錄將 T1570 與 T1571 明確列為本、釋關係；研究確認 T1570 只保存《四百論》後八品，T1571 是護法對該後半的注釋。T1569《百論》與《四百論》密切相關但作品同一性仍有研究爭論；T1572《百字論》另立作品。平台不因同一傳統作者或題名相近而合併。",
+          "externalIds": {
+            "cbeta": [
+              "T1569",
+              "T1570",
+              "T1571",
+              "T1572"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1569.xml",
+      "upstreamPath": "T/T30/T30n1569.xml",
+      "upstreamGitBlobSha1": "3830e4bb9a6457f2f55bdd0de23c69f5090618dd",
+      "upstreamBytes": 241563,
+      "upstreamSha256": "6a3a7b72c52cbf77d0491b29523ea34304f2f02916d0571f2cd0f8a7e23f72d9",
+      "localBytes": 241564,
+      "localSha256": "340651dfb1f0d59478b07b4fb0f4af06e62a264b0f385929ae91a4fbb6a13a64",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "百論",
+        "alternateTitle": "百論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1569",
+        "translator": "提婆菩薩造 · 婆藪開士釋 · 姚秦 · 鳩摩羅什譯",
+        "summary": "2卷。固定來源完整保存兩卷與穩定錨點；按提婆本頌、婆藪釋的複合注釋作品登記。其與《四百論》關係密切但同一性仍有研究爭論，故不與 T1570 合併。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1569_001"
+      },
+      "verification": {
+        "segments": 1247,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1569.001.0167c10",
+          "T1569.002.0182a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1570",
+      "slug": "taisho-t1570",
+      "workId": "gbcr:work:catuhsataka-aryadeva",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "四百論（Catuḥśataka）",
+      "sourceRole": "traditional_authored_partial_root_verse_work_translation",
+      "bibliographicRelations": [
+        {
+          "type": "aryadeva_treatise_root_and_commentary_family_verified",
+          "groupId": "aryadeva-sataka-catuhsataka-t1569-t1572",
+          "label": "提婆《百論》《四百論》後半、護法釋與《百字論》邊界",
+          "evidence": "DILA 經錄將 T1570 與 T1571 明確列為本、釋關係；研究確認 T1570 只保存《四百論》後八品，T1571 是護法對該後半的注釋。T1569《百論》與《四百論》密切相關但作品同一性仍有研究爭論；T1572《百字論》另立作品。平台不因同一傳統作者或題名相近而合併。",
+          "externalIds": {
+            "cbeta": [
+              "T1569",
+              "T1570",
+              "T1571",
+              "T1572"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1570.xml",
+      "upstreamPath": "T/T30/T30n1570.xml",
+      "upstreamGitBlobSha1": "08f059bf983bdc96b22b5513d4c38da3ada17f28",
+      "upstreamBytes": 95910,
+      "upstreamSha256": "743cb6c6671d7cd83d2e10c4e4292e971a5eb21c322cfdb15fe3e6f63ccfe33f",
+      "localBytes": 95911,
+      "localSha256": "352b9a431886ebc31abbb2c38054ea77ed93712d8ffe24a91720b754438bc8e9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "廣百論本",
+        "alternateTitle": "廣百論本",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1570",
+        "translator": "聖天菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。來源文件完整保存一卷本頌與穩定錨點，但學術目錄與研究確認漢譯只覆蓋《四百論》後八品。平台因此登記為《四百論》的部分作品見證，不冒充十六品全本。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1570_001"
+      },
+      "verification": {
+        "segments": 416,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1570.001.0182a20",
+          "T1570.001.0187a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1571",
+      "slug": "taisho-t1571",
+      "workId": "gbcr:work:catuhsataka-commentary-dharmapala",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "大乘廣百論釋論（護法《四百論》後半釋）",
+      "sourceRole": "traditional_authored_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "aryadeva_treatise_root_and_commentary_family_verified",
+          "groupId": "aryadeva-sataka-catuhsataka-t1569-t1572",
+          "label": "提婆《百論》《四百論》後半、護法釋與《百字論》邊界",
+          "evidence": "DILA 經錄將 T1570 與 T1571 明確列為本、釋關係；研究確認 T1570 只保存《四百論》後八品，T1571 是護法對該後半的注釋。T1569《百論》與《四百論》密切相關但作品同一性仍有研究爭論；T1572《百字論》另立作品。平台不因同一傳統作者或題名相近而合併。",
+          "externalIds": {
+            "cbeta": [
+              "T1569",
+              "T1570",
+              "T1571",
+              "T1572"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1571.xml",
+      "upstreamPath": "T/T30/T30n1571.xml",
+      "upstreamGitBlobSha1": "a546612297c0cce3532a527d3dfb0834e5e26ceb",
+      "upstreamBytes": 696309,
+      "upstreamSha256": "0f223b226919d6d7a6c8c188584fe1d66bd43f3215a70302d4a471202453ff22",
+      "localBytes": 696310,
+      "localSha256": "66e5cba6ef4df9970e4b907828d31d0f637ac9b39a93983e2d61d268f55373b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘廣百論釋論",
+        "alternateTitle": "大乘廣百論釋論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1571",
+        "translator": "聖天菩薩本 · 護法菩薩釋 · 唐 · 玄奘譯",
+        "summary": "10卷。固定來源完整保存十卷與穩定錨點；護法釋論以《四百論》後半本頌為根本，機器對讀亦顯示大量嵌入，但注釋本身是獨立作品，不與 T1570 合併。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1571_001"
+      },
+      "verification": {
+        "segments": 5471,
+        "folios": 200,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1571.001.0187a05",
+          "T1571.010.0250b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1572",
+      "slug": "taisho-t1572",
+      "workId": "gbcr:work:aksarasataka-aryadeva",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "百字論（Akṣaraśataka）",
+      "sourceRole": "traditional_authored_short_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "aryadeva_treatise_root_and_commentary_family_verified",
+          "groupId": "aryadeva-sataka-catuhsataka-t1569-t1572",
+          "label": "提婆《百論》《四百論》後半、護法釋與《百字論》邊界",
+          "evidence": "DILA 經錄將 T1570 與 T1571 明確列為本、釋關係；研究確認 T1570 只保存《四百論》後八品，T1571 是護法對該後半的注釋。T1569《百論》與《四百論》密切相關但作品同一性仍有研究爭論；T1572《百字論》另立作品。平台不因同一傳統作者或題名相近而合併。",
+          "externalIds": {
+            "cbeta": [
+              "T1569",
+              "T1570",
+              "T1571",
+              "T1572"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1572.xml",
+      "upstreamPath": "T/T30/T30n1572.xml",
+      "upstreamGitBlobSha1": "f65bc7125e3b527b78f53b03ab1f0e7632ea5ab9",
+      "upstreamBytes": 40167,
+      "upstreamSha256": "25f9fe2d637361976adee755d7683cf502f62e287bbc883df5f197b44aca7f89",
+      "localBytes": 40168,
+      "localSha256": "3c5748b41a36555378d37386e1e09fc7fe87ca27e54e2bdd87a86500dba4a1c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "百字論",
+        "alternateTitle": "百字論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1572",
+        "translator": "提婆菩薩造 · 後魏 · 菩提流支譯",
+        "summary": "1卷。固定來源完整保存一卷與穩定錨點；登記為提婆傳統歸屬的獨立短論，不因《百論》《廣百論》題名與作者相近而合併。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1572_001"
+      },
+      "verification": {
+        "segments": 223,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1572.001.0250b05",
+          "T1572.001.0252c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1573",
+      "slug": "taisho-t1573",
+      "workId": "gbcr:work:ekasloka-sastra",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "壹輸盧迦論（*Ekaślokaśāstra）",
+      "sourceRole": "traditional_authored_short_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_nagarjuna_attribution_distinct_treatises",
+          "groupId": "nagarjuna-short-treatises-t1568-t1576",
+          "label": "龍樹傳統歸屬的不同短論",
+          "evidence": "DILA 經錄分別登記《十二門論》《壹輸盧迦論》《大乘破有論》《六十頌如理論》《大乘二十頌論》，其中《六十頌如理論》可與梵藏 Yuktisastika 對應。平台保存每部傳統責任題記與跨藏線索，但不把共同署名當成同一作品或無爭議的現代作者事實。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1573",
+              "T1574",
+              "T1575",
+              "T1576"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1573.xml",
+      "upstreamPath": "T/T30/T30n1573.xml",
+      "upstreamGitBlobSha1": "e967f6778c6e5088aa856da46a456ce802ee7acb",
+      "upstreamBytes": 15476,
+      "upstreamSha256": "5918cd339bb04e939c40637d7c7d9eac5099fd247170d3a7677fbc62d1aeb8ff",
+      "localBytes": 15477,
+      "localSha256": "248ddc67801c77d98f5fb1d567d762cf201917e224a160f5c40888edc6ab6533",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "壹輸盧迦論",
+        "alternateTitle": "壹輸盧迦論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1573",
+        "translator": "龍樹菩薩造 · 後魏 · 瞿曇般若留支譯",
+        "summary": "1卷。固定來源完整保存一卷短論與穩定錨點；獨立登記作品，傳統龍樹造與般若流支譯題記照錄，共同作者題記不作作品合併依據。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1573_001"
+      },
+      "verification": {
+        "segments": 82,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1573.001.0253a02",
+          "T1573.001.0253c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1574",
+      "slug": "taisho-t1574",
+      "workId": "gbcr:work:bhavasankranti-sastra",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "大乘破有論（Bhavasaṅkrāntiśāstra）",
+      "sourceRole": "traditional_authored_short_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_nagarjuna_attribution_distinct_treatises",
+          "groupId": "nagarjuna-short-treatises-t1568-t1576",
+          "label": "龍樹傳統歸屬的不同短論",
+          "evidence": "DILA 經錄分別登記《十二門論》《壹輸盧迦論》《大乘破有論》《六十頌如理論》《大乘二十頌論》，其中《六十頌如理論》可與梵藏 Yuktisastika 對應。平台保存每部傳統責任題記與跨藏線索，但不把共同署名當成同一作品或無爭議的現代作者事實。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1573",
+              "T1574",
+              "T1575",
+              "T1576"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1574.xml",
+      "upstreamPath": "T/T30/T30n1574.xml",
+      "upstreamGitBlobSha1": "b44cc13fad1a592784e6863fa751d16236299330",
+      "upstreamBytes": 7995,
+      "upstreamSha256": "5d42c94ff05b4afc487388ecafc086ee6bc6373f833bc1f0342dc32bdec956f5",
+      "localBytes": 7996,
+      "localSha256": "29085fe2abf9e502731dd2b0db7a7e4505ef0aed049d91d8c4ddbf69edeb1750",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘破有論",
+        "alternateTitle": "大乘破有論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1574",
+        "translator": "龍樹菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。固定來源完整保存一卷與穩定錨點；DILA 經錄提供梵藏題名與藏經對號，平台作獨立論書登記，傳統龍樹造、施護譯題記照錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1574_001"
+      },
+      "verification": {
+        "segments": 40,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1574.001.0254a02",
+          "T1574.001.0254b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1575",
+      "slug": "taisho-t1575",
+      "workId": "gbcr:work:yuktisastika-nagarjuna",
+      "workIdentityStatus": "verified_cross_canon_treatise_work",
+      "workTitle": "六十頌如理論（Yuktiṣaṣṭikākārikā）",
+      "sourceRole": "traditional_authored_short_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_nagarjuna_attribution_distinct_treatises",
+          "groupId": "nagarjuna-short-treatises-t1568-t1576",
+          "label": "龍樹傳統歸屬的不同短論",
+          "evidence": "DILA 經錄分別登記《十二門論》《壹輸盧迦論》《大乘破有論》《六十頌如理論》《大乘二十頌論》，其中《六十頌如理論》可與梵藏 Yuktisastika 對應。平台保存每部傳統責任題記與跨藏線索，但不把共同署名當成同一作品或無爭議的現代作者事實。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1573",
+              "T1574",
+              "T1575",
+              "T1576"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1575.xml",
+      "upstreamPath": "T/T30/T30n1575.xml",
+      "upstreamGitBlobSha1": "485bc0214c3e22a697b389bf8de7cb8714177e81",
+      "upstreamBytes": 20581,
+      "upstreamSha256": "48a13763111583767a5b70fc0a0571a625cab6e893cd71d9d009a43e741303a8",
+      "localBytes": 20582,
+      "localSha256": "f75af98a64c0e24d490bcd61f12134243b8db3b414ed38c1c364db4a0619f08a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "六十頌如理論",
+        "alternateTitle": "六十頌如理論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1575",
+        "translator": "龍樹菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。固定來源完整保存一卷與穩定錨點；DILA 經錄提供 Yuktiṣaṣṭikākārikā 梵題及德格、北京等藏譯對號，平台登記為獨立跨藏作品的漢譯表達。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1575_001"
+      },
+      "verification": {
+        "segments": 141,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1575.001.0254b16",
+          "T1575.001.0256a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1576",
+      "slug": "taisho-t1576",
+      "workId": "gbcr:work:mahayana-vimsaka",
+      "workIdentityStatus": "verified_distinct_short_treatise_work",
+      "workTitle": "大乘二十頌論（Mahāyānaviṃśikā）",
+      "sourceRole": "traditional_authored_short_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_nagarjuna_attribution_distinct_treatises",
+          "groupId": "nagarjuna-short-treatises-t1568-t1576",
+          "label": "龍樹傳統歸屬的不同短論",
+          "evidence": "DILA 經錄分別登記《十二門論》《壹輸盧迦論》《大乘破有論》《六十頌如理論》《大乘二十頌論》，其中《六十頌如理論》可與梵藏 Yuktisastika 對應。平台保存每部傳統責任題記與跨藏線索，但不把共同署名當成同一作品或無爭議的現代作者事實。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1573",
+              "T1574",
+              "T1575",
+              "T1576"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1576.xml",
+      "upstreamPath": "T/T30/T30n1576.xml",
+      "upstreamGitBlobSha1": "a97992af4aec6a8361f907a71997c027ec655559",
+      "upstreamBytes": 11542,
+      "upstreamSha256": "283924c12132f83369a74260b648a4541f6a79a6e1e1d7af55258555c6bcd1bd",
+      "localBytes": 11543,
+      "localSha256": "a0de8e36d86729197b51dab3e905cccab8179d2ebfcdf67d3648b758adf43784",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘二十頌論",
+        "alternateTitle": "大乘二十頌論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1576",
+        "translator": "龍樹菩薩造 · 宋 · 施護譯",
+        "summary": "1卷。固定來源完整保存一卷二十頌與穩定錨點；獨立登記作品並照錄傳統龍樹造、施護譯題記，不與其他龍樹短論合併。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1576_001"
+      },
+      "verification": {
+        "segments": 54,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1576.001.0256a16",
+          "T1576.001.0256c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1577",
+      "slug": "taisho-t1577",
+      "workId": "gbcr:work:mahapurusa-sastra",
+      "workIdentityStatus": "verified_distinct_treatise_work",
+      "workTitle": "大丈夫論（Mahāpuruṣaśāstra）",
+      "sourceRole": "traditional_authored_ethics_treatise_translation",
+      "localPath": "data/corpus/cbeta/T30n1577.xml",
+      "upstreamPath": "T/T30/T30n1577.xml",
+      "upstreamGitBlobSha1": "5300046c6081a3e1a62bc286b432dee604b7003e",
+      "upstreamBytes": 181784,
+      "upstreamSha256": "64f6754f6176cfa16cea1e5ff96414eed2286f5849944225ce2570a8f0ccb429",
+      "localBytes": 181785,
+      "localSha256": "b8d891232df90d7c1fe4bbc2b48c664721726b0de5f0274755999add93348735",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大丈夫論",
+        "alternateTitle": "大丈夫論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1577",
+        "translator": "提婆羅菩薩造 · 北涼 · 道泰譯",
+        "summary": "2卷。固定來源完整保存兩卷與穩定錨點；依來源責任題記作獨立菩薩行論書登記。提婆羅不因漢字相近而自動等同提婆，平台不作無證據的人物或作品合併。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1577_001"
+      },
+      "verification": {
+        "segments": 989,
+        "folios": 36,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1577.001.0256c15",
+          "T1577.002.0268a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1578",
+      "slug": "taisho-t1578",
+      "workId": "gbcr:work:karatalaratna-bhaviveka",
+      "workIdentityStatus": "verified_distinct_treatise_work",
+      "workTitle": "大乘掌珍論（*Karatalaratna）",
+      "sourceRole": "traditional_authored_madhyamaka_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_distinct_madhyamaka_works",
+          "groupId": "bhaviveka-distinct-works-t1566-t1578",
+          "label": "清辨《般若燈論釋》與《大乘掌珍論》不同作品",
+          "evidence": "T1566 是《根本中頌》注釋，T1578 是獨立《掌珍論》；共同傳統作者只建立作者候選關係，不構成作品合併依據。",
+          "externalIds": {
+            "cbeta": [
+              "T1566",
+              "T1578"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1578.xml",
+      "upstreamPath": "T/T30/T30n1578.xml",
+      "upstreamGitBlobSha1": "505554c9e242380e98688368c947f290e9da092b",
+      "upstreamBytes": 107111,
+      "upstreamSha256": "c6ea2a09e007e4d0fbab8a35ae82a2dc9e822e2151435baa9c3f8d13e370c144",
+      "localBytes": 107112,
+      "localSha256": "08caa568127e19e0fd92b65f555846ab4d9b502ac78d6d821dcb08cafad9b73d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘掌珍論",
+        "alternateTitle": "大乘掌珍論",
+        "tradition": "漢傳佛教 · 中觀部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1578",
+        "translator": "清辯菩薩造 · 唐 · 玄奘譯",
+        "summary": "2卷。固定來源完整保存兩卷與穩定錨點；登記為清辨的獨立中觀論書，與其《般若燈論釋》建立作者與學派關係但不合併作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1578_001"
+      },
+      "verification": {
+        "segments": 881,
+        "folios": 33,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1578.001.0268a24",
+          "T1578.002.0278b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1579",
+      "slug": "taisho-t1579",
+      "workId": "gbcr:work:yogacarabhumi",
+      "workIdentityStatus": "verified_composite_treatise_work",
+      "workTitle": "瑜伽師地論（Yogācārabhūmi）",
+      "sourceRole": "traditional_attributed_composite_yogacara_treatise_translation",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1579.xml",
+      "upstreamPath": "T/T30/T30n1579.xml",
+      "upstreamGitBlobSha1": "bbb30e37f7dbf4d36a61aa06ec919f56cb39b01d",
+      "upstreamBytes": 7361520,
+      "upstreamSha256": "7bec4151b23fbfa6ebda6941e27bc99c9fbd3d379150263080e9bdb34989b282",
+      "localBytes": 7361521,
+      "localSha256": "75f9639cc2d26ccfb3a4a72c86a99706cd20476cbd2cd4fe0041e38c4a0689a4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "瑜伽師地論",
+        "alternateTitle": "瑜伽師地論",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1579",
+        "translator": "彌勒菩薩說 · 唐 · 玄奘譯",
+        "summary": "100卷。固定來源完整保存一百卷、五分十七地與穩定錨點；作為複合瑜伽行百科論書登記，並連接注釋、菩薩地異譯與抉擇分部分譯。傳統彌勒說、玄奘譯題記照錄，不標作佛陀逐字親說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1579_001"
+      },
+      "verification": {
+        "segments": 51893,
+        "folios": 1876,
+        "juanRange": [
+          1,
+          100
+        ],
+        "anchors": [
+          "T1579.001.0279a02",
+          "T1579.100.0882a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1580",
+      "slug": "taisho-t1580",
+      "workId": "gbcr:work:yogacarabhumi-vyakhya",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "瑜伽師地論釋（*Yogācārabhūmivyākhyā）",
+      "sourceRole": "traditional_authored_abridged_yogacara_commentary_translation",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1580.xml",
+      "upstreamPath": "T/T30/T30n1580.xml",
+      "upstreamGitBlobSha1": "fea46283fdcf2b3d2855a694821ddea1e478a014",
+      "upstreamBytes": 53145,
+      "upstreamSha256": "1b7261de895cdfacd96edcfdebd22c56251222e08149945d59f4fca8446d991b",
+      "localBytes": 53146,
+      "localSha256": "ab26e668a52e51511070b6e27c0564a4190b3fe3d2f04ce3bdc9913254857af5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "瑜伽師地論釋",
+        "alternateTitle": "瑜伽師地論釋",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1580",
+        "translator": "最勝子等造 · 唐 · 玄奘譯",
+        "summary": "1卷。來源文件完整保存一卷與穩定錨點；法鼓文理學院對照表標為略本，開放學術研究也稱其為更完整注釋的漢文略譯。平台因此計為注釋作品的部分見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1580_001"
+      },
+      "verification": {
+        "segments": 437,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1580.001.0883a02",
+          "T1580.001.0888a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1581",
+      "slug": "taisho-t1581",
+      "workId": "gbcr:work:bodhisattvabhumi",
+      "workIdentityStatus": "verified_component_work_translation",
+      "workTitle": "菩薩地（Bodhisattvabhūmi）",
+      "sourceRole": "traditional_translated_bodhisattvabhumi_component",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        },
+        {
+          "type": "alternate_translation_or_chinese_revision_candidate_unmerged",
+          "groupId": "bodhisattvabhumi-t1581-t1583",
+          "label": "《菩薩地持經》與《菩薩善戒經》異譯或改編爭議",
+          "evidence": "CBC@ 彙錄的研究對 T1581 與 T1582/T1583 有兩種主要判斷：同一底本異譯，或以 T1581 為基礎的漢地改編。兩者內容與結構高度相關，但開篇、戒條、術語與編排存在差異；在獨立裁決前平台保留兩個作品實體，只記候選關係。",
+          "externalIds": {
+            "cbeta": [
+              "T1581",
+              "T1582",
+              "T1583"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1581.xml",
+      "upstreamPath": "T/T30/T30n1581.xml",
+      "upstreamGitBlobSha1": "4bdbc5273bec2107a195f25ca9caf458f5f6130d",
+      "upstreamBytes": 1823256,
+      "upstreamSha256": "7b4527e61cabd1d766c83247749fc685d7b0120617f3dedba0570453a2d23d60",
+      "localBytes": 1823257,
+      "localSha256": "6df11f044af15948126671d10f6767f3fce92fcc6024c98ff7c6b89c798ee563",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩地持經",
+        "alternateTitle": "菩薩地持經",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1581",
+        "translator": "北涼 · 曇無讖譯",
+        "summary": "10卷。固定來源完整保存十卷與穩定錨點；《菩薩地》雖是《瑜伽師地論》本地分的組成部分，也以獨立文本流通，故作組成作品的完整漢譯表達登記。與 T1582/T1583 的異譯或改編關係保留待裁決。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1581_001"
+      },
+      "verification": {
+        "segments": 5976,
+        "folios": 222,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1581.001.0888a06",
+          "T1581.010.0959b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1582",
+      "slug": "taisho-t1582",
+      "workId": "gbcr:work:bodhisattva-good-precepts-recension",
+      "workIdentityStatus": "verified_split_partial_work_witness",
+      "workTitle": "菩薩善戒經（十卷合體）",
+      "sourceRole": "traditional_translated_or_revised_split_bodhisattvabhumi_related_witness",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        },
+        {
+          "type": "split_partial_witnesses_of_one_recension_verified",
+          "groupId": "bodhisattva-good-precepts-t1582-t1583",
+          "label": "《菩薩善戒經》九卷本與分離受戒法",
+          "evidence": "CBC@ 彙錄的經錄與研究證據指出，T1582 九卷與 T1583 一卷原為同一十卷文本，後因受戒法部分常被單獨使用而分離；平台以一個作品、兩個部分見證計數，並保留兩個大正藏經號和各自閱讀入口。",
+          "externalIds": {
+            "cbeta": [
+              "T1582",
+              "T1583"
+            ]
+          }
+        },
+        {
+          "type": "alternate_translation_or_chinese_revision_candidate_unmerged",
+          "groupId": "bodhisattvabhumi-t1581-t1583",
+          "label": "《菩薩地持經》與《菩薩善戒經》異譯或改編爭議",
+          "evidence": "CBC@ 彙錄的研究對 T1581 與 T1582/T1583 有兩種主要判斷：同一底本異譯，或以 T1581 為基礎的漢地改編。兩者內容與結構高度相關，但開篇、戒條、術語與編排存在差異；在獨立裁決前平台保留兩個作品實體，只記候選關係。",
+          "externalIds": {
+            "cbeta": [
+              "T1581",
+              "T1582",
+              "T1583"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1582.xml",
+      "upstreamPath": "T/T30/T30n1582.xml",
+      "upstreamGitBlobSha1": "cc68be8a41dcd3de2278ba63899715e87d4d390e",
+      "upstreamBytes": 832673,
+      "upstreamSha256": "11733f0aea519f521b40e31f83a7e73bf4b40037032c57f5189c850d38cce253",
+      "localBytes": 832674,
+      "localSha256": "8f9be28ce9722003f86719b965a549d96956cfcd5ab029e2c3a513ca4a7dfc2e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "菩薩善戒經",
+        "alternateTitle": "菩薩善戒經",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1582",
+        "translator": "劉宋 · 求那跋摩譯",
+        "summary": "9卷。來源文件完整保存九卷與穩定錨點，但經錄與研究指出它原與今 T1583 一卷合成十卷文本。平台保留獨立經號和入口，兩者共享作品標識；單獨 T1582 不冒充完整十卷作品。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1582_001"
+      },
+      "verification": {
+        "segments": 4654,
+        "folios": 168,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T1582.001.0960a02",
+          "T1582.009.1013c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1583",
+      "slug": "taisho-t1583",
+      "workId": "gbcr:work:bodhisattva-good-precepts-recension",
+      "workIdentityStatus": "verified_split_partial_work_witness",
+      "workTitle": "菩薩善戒經（十卷合體）",
+      "sourceRole": "traditional_translated_or_revised_split_bodhisattvabhumi_related_witness",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        },
+        {
+          "type": "split_partial_witnesses_of_one_recension_verified",
+          "groupId": "bodhisattva-good-precepts-t1582-t1583",
+          "label": "《菩薩善戒經》九卷本與分離受戒法",
+          "evidence": "CBC@ 彙錄的經錄與研究證據指出，T1582 九卷與 T1583 一卷原為同一十卷文本，後因受戒法部分常被單獨使用而分離；平台以一個作品、兩個部分見證計數，並保留兩個大正藏經號和各自閱讀入口。",
+          "externalIds": {
+            "cbeta": [
+              "T1582",
+              "T1583"
+            ]
+          }
+        },
+        {
+          "type": "alternate_translation_or_chinese_revision_candidate_unmerged",
+          "groupId": "bodhisattvabhumi-t1581-t1583",
+          "label": "《菩薩地持經》與《菩薩善戒經》異譯或改編爭議",
+          "evidence": "CBC@ 彙錄的研究對 T1581 與 T1582/T1583 有兩種主要判斷：同一底本異譯，或以 T1581 為基礎的漢地改編。兩者內容與結構高度相關，但開篇、戒條、術語與編排存在差異；在獨立裁決前平台保留兩個作品實體，只記候選關係。",
+          "externalIds": {
+            "cbeta": [
+              "T1581",
+              "T1582",
+              "T1583"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1583.xml",
+      "upstreamPath": "T/T30/T30n1583.xml",
+      "upstreamGitBlobSha1": "96c4e0332690d77505f920af5d1c43cb18853b17",
+      "upstreamBytes": 62050,
+      "upstreamSha256": "562c1ed4f49b41c73c238848e6c51cf8bc9e1934e2c364ea42e9dd2853dba95f",
+      "localBytes": 62051,
+      "localSha256": "ae01b7fd77e8d478ae85c146c88007ce1e7314741b28cc3a010b96c69c37a069",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "菩薩善戒經",
+        "alternateTitle": "菩薩善戒經",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1583",
+        "translator": "劉宋 · 求那跋摩譯",
+        "summary": "1卷。來源文件完整保存一卷受戒法與穩定錨點；研究指出它原屬 T1582 十卷合體，因頻繁單獨使用而分離。平台計為同一作品的部分見證，不另增作品，也不隱去其獨立流通史。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1583_001"
+      },
+      "verification": {
+        "segments": 404,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1583.001.1013c19",
+          "T1583.001.1018b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1584",
+      "slug": "taisho-t1584",
+      "workId": "gbcr:work:viniscayasamgrahani",
+      "workIdentityStatus": "verified_partial_work_witness",
+      "workTitle": "攝抉擇分（Viniścayasaṃgrahaṇī）",
+      "sourceRole": "translated_partial_viniscayasamgrahani_witness",
+      "bibliographicRelations": [
+        {
+          "type": "yogacarabhumi_whole_commentary_component_and_partial_translation_family_verified",
+          "groupId": "yogacarabhumi-t1579-t1584",
+          "label": "《瑜伽師地論》整部、略釋與組成部分漢譯關係",
+          "evidence": "法鼓文理學院《瑜伽師地論》資料庫把 T1579、T1581–T1584 列為漢譯對照本，把 T1580 列為注釋本；其科判將 T1581/T1582/T1583 對應菩薩地，DILA 經錄把 T1584 對應到 T1579 卷五十一至五十七。平台分列整部論、注釋作品、菩薩地作品與抉擇分部分見證。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1580",
+              "T1581",
+              "T1582",
+              "T1583",
+              "T1584"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T30n1584.xml",
+      "upstreamPath": "T/T30/T30n1584.xml",
+      "upstreamGitBlobSha1": "4308eb0baf13bcc37397b2f588cd411571701fcb",
+      "upstreamBytes": 202444,
+      "upstreamSha256": "fdfa2e2e7bcd21bd33d34a74072f818decddc741a9592b74d3ed105758ace929",
+      "localBytes": 202445,
+      "localSha256": "d28320c299441ae4ec7670f42d7fddbf65060a0850b324d75587b414ebada7b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "presentation": {
+        "title": "決定藏論",
+        "alternateTitle": "決定藏論",
+        "tradition": "漢傳佛教 · 瑜伽部",
+        "language": "漢文",
+        "canonRef": "大正藏 T30, no. 1584",
+        "translator": "梁 · 真諦譯",
+        "summary": "3卷。來源文件完整保存三卷與穩定錨點；DILA 經錄逐卷對應 T1579 卷五十一至五十七，即攝抉擇分開頭的五識身相應地與意地，而非整個攝抉擇分。平台標作部分作品見證。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1584_001"
+      },
+      "verification": {
+        "segments": 1476,
+        "folios": 54,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1584.001.1018b20",
+          "T1584.003.1035b25"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

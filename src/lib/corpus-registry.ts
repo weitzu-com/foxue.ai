@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v4.7.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.7.0.json";
+import registryDocument from "../../data/gbcr/registry-v4.8.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v1.8.0.json";
 
 type Expression = {
   id: string;
@@ -187,6 +187,12 @@ export function buildCoverageSnapshot() {
   const chineseT29Controlled = "t29ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t29ControlledSourceRecords ?? null
     : null;
+  const chineseT30Denominator = "t30SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t30SourceRecordDenominator ?? null
+    : null;
+  const chineseT30Controlled = "t30ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t30ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -253,6 +259,11 @@ export function buildCoverageSnapshot() {
   const chineseT29SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_abhidharma_t29",
+      ) ?? null
+    : null;
+  const chineseT30SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_madhyamaka_yogacara_t30",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -475,8 +486,9 @@ export function buildCoverageSnapshot() {
         t27InventorySha256: chineseT27SubsetInventory?.inventorySha256 ?? null,
         t28InventorySha256: chineseT28SubsetInventory?.inventorySha256 ?? null,
         t29InventorySha256: chineseT29SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T29 十三个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T29 释经论、毘昙部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、自释、注疏节本、广论、略论、同本异译、失译与归属争议。",
+        t30InventorySha256: chineseT30SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T30 十四个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T30 释经论、毘昙、中观、瑜伽部分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、组成部分、节略与分离见证、同本异译、失译与归属争议。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -758,6 +770,25 @@ export function buildCoverageSnapshot() {
         controlledWorks: corpusRegistry.cbetaT29BoundaryAudit.controlledWorks,
         unit: "CBETA 固定提交大正藏 T29 毘昙部来源记录",
         caveat: corpusRegistry.cbetaT29BoundaryAudit.caveat,
+      },
+      chineseT30SourceRecords: {
+        denominator: chineseT30Denominator,
+        controlled: chineseT30Controlled,
+        percentage: chineseT30Denominator && chineseT30Controlled !== null
+          ? Number(((chineseT30Controlled / chineseT30Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT30BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT30BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT30BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT30BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedSplitWorkWitnesses: corpusRegistry.cbetaT30BoundaryAudit.verifiedSplitWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT30BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT30BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT30BoundaryAudit.relationAnnotatedRecords,
+        newWorks: corpusRegistry.cbetaT30BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT30BoundaryAudit.controlledWorks,
+        unit: "CBETA 固定提交大正藏 T30 中观与瑜伽部来源记录",
+        caveat: corpusRegistry.cbetaT30BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

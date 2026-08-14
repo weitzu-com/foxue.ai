@@ -1,0 +1,191 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9"
+  },
+  "subset": {
+    "id": "taisho_madhyamaka_yogacara_t30",
+    "label": "大正藏 T30 中觀部、瑜伽部固定來源記錄",
+    "inclusionRule": "固定 Git tree 中 T/T30 目錄下、文件名卷號一致的 T30n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T30 的 21 份來源記錄包含根本頌、釋論、節略注釋、僅存前半的譯本、整部瑜伽論、獨立流通的組成部分、異譯或改編爭議，以及原屬同一十卷文本而後分離的兩份來源；來源文件、表達、作品、組成部分、完整作品見證與傳統作者題記必須分層計量。"
+  },
+  "totals": {
+    "records": 21,
+    "upstreamBytes": 13938106,
+    "candidatePathSha256": "329b2dd6712952a97782404cfb0aac19861ba088d5365d5fb47db28a211ecf77"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T30n1564",
+      "canonWitnessId": "T1564",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1564.xml",
+      "upstreamGitBlobSha1": "6e7349edf2b65f98fd6e52b0b74afaabe399ec8a",
+      "upstreamBytes": 709118
+    },
+    {
+      "sourceRecordId": "T30n1565",
+      "canonWitnessId": "T1565",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1565.xml",
+      "upstreamGitBlobSha1": "700c41db2826bc4aba960da89d1abd82019571cc",
+      "upstreamBytes": 134720
+    },
+    {
+      "sourceRecordId": "T30n1566",
+      "canonWitnessId": "T1566",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1566.xml",
+      "upstreamGitBlobSha1": "b70af9576111acc2c60aea57478383bc6a0cd0db",
+      "upstreamBytes": 923220
+    },
+    {
+      "sourceRecordId": "T30n1567",
+      "canonWitnessId": "T1567",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1567.xml",
+      "upstreamGitBlobSha1": "2b30d9e949ced9f95ba7c63ffb5cef7fce88c199",
+      "upstreamBytes": 232315
+    },
+    {
+      "sourceRecordId": "T30n1568",
+      "canonWitnessId": "T1568",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1568.xml",
+      "upstreamGitBlobSha1": "2c2085846e535b6f4682d127c69ce7e88aa93aa9",
+      "upstreamBytes": 185207
+    },
+    {
+      "sourceRecordId": "T30n1569",
+      "canonWitnessId": "T1569",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1569.xml",
+      "upstreamGitBlobSha1": "3830e4bb9a6457f2f55bdd0de23c69f5090618dd",
+      "upstreamBytes": 241563
+    },
+    {
+      "sourceRecordId": "T30n1570",
+      "canonWitnessId": "T1570",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1570.xml",
+      "upstreamGitBlobSha1": "08f059bf983bdc96b22b5513d4c38da3ada17f28",
+      "upstreamBytes": 95910
+    },
+    {
+      "sourceRecordId": "T30n1571",
+      "canonWitnessId": "T1571",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1571.xml",
+      "upstreamGitBlobSha1": "a546612297c0cce3532a527d3dfb0834e5e26ceb",
+      "upstreamBytes": 696309
+    },
+    {
+      "sourceRecordId": "T30n1572",
+      "canonWitnessId": "T1572",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1572.xml",
+      "upstreamGitBlobSha1": "f65bc7125e3b527b78f53b03ab1f0e7632ea5ab9",
+      "upstreamBytes": 40167
+    },
+    {
+      "sourceRecordId": "T30n1573",
+      "canonWitnessId": "T1573",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1573.xml",
+      "upstreamGitBlobSha1": "e967f6778c6e5088aa856da46a456ce802ee7acb",
+      "upstreamBytes": 15476
+    },
+    {
+      "sourceRecordId": "T30n1574",
+      "canonWitnessId": "T1574",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1574.xml",
+      "upstreamGitBlobSha1": "b44cc13fad1a592784e6863fa751d16236299330",
+      "upstreamBytes": 7995
+    },
+    {
+      "sourceRecordId": "T30n1575",
+      "canonWitnessId": "T1575",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1575.xml",
+      "upstreamGitBlobSha1": "485bc0214c3e22a697b389bf8de7cb8714177e81",
+      "upstreamBytes": 20581
+    },
+    {
+      "sourceRecordId": "T30n1576",
+      "canonWitnessId": "T1576",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1576.xml",
+      "upstreamGitBlobSha1": "a97992af4aec6a8361f907a71997c027ec655559",
+      "upstreamBytes": 11542
+    },
+    {
+      "sourceRecordId": "T30n1577",
+      "canonWitnessId": "T1577",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1577.xml",
+      "upstreamGitBlobSha1": "5300046c6081a3e1a62bc286b432dee604b7003e",
+      "upstreamBytes": 181784
+    },
+    {
+      "sourceRecordId": "T30n1578",
+      "canonWitnessId": "T1578",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1578.xml",
+      "upstreamGitBlobSha1": "505554c9e242380e98688368c947f290e9da092b",
+      "upstreamBytes": 107111
+    },
+    {
+      "sourceRecordId": "T30n1579",
+      "canonWitnessId": "T1579",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1579.xml",
+      "upstreamGitBlobSha1": "bbb30e37f7dbf4d36a61aa06ec919f56cb39b01d",
+      "upstreamBytes": 7361520
+    },
+    {
+      "sourceRecordId": "T30n1580",
+      "canonWitnessId": "T1580",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1580.xml",
+      "upstreamGitBlobSha1": "fea46283fdcf2b3d2855a694821ddea1e478a014",
+      "upstreamBytes": 53145
+    },
+    {
+      "sourceRecordId": "T30n1581",
+      "canonWitnessId": "T1581",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1581.xml",
+      "upstreamGitBlobSha1": "4bdbc5273bec2107a195f25ca9caf458f5f6130d",
+      "upstreamBytes": 1823256
+    },
+    {
+      "sourceRecordId": "T30n1582",
+      "canonWitnessId": "T1582",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1582.xml",
+      "upstreamGitBlobSha1": "cc68be8a41dcd3de2278ba63899715e87d4d390e",
+      "upstreamBytes": 832673
+    },
+    {
+      "sourceRecordId": "T30n1583",
+      "canonWitnessId": "T1583",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1583.xml",
+      "upstreamGitBlobSha1": "96c4e0332690d77505f920af5d1c43cb18853b17",
+      "upstreamBytes": 62050
+    },
+    {
+      "sourceRecordId": "T30n1584",
+      "canonWitnessId": "T1584",
+      "volume": "T30",
+      "upstreamPath": "T/T30/T30n1584.xml",
+      "upstreamGitBlobSha1": "4308eb0baf13bcc37397b2f588cd411571701fcb",
+      "upstreamBytes": 202444
+    }
+  ]
+}
