@@ -227,6 +227,12 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT31SourceRecords.controlledWorks} 个作品；其中
               {snapshot.candidateInventory.chineseT31SourceRecords.verifiedSameWorkExpressions} 份同作品异译或异本表达共享作品实体；
               《唯识三十颂》《唯识二十论》《摄大乘论》《成业论》《观所缘缘论》等异译分组可复算，根本论、释论、合糅注释与《瑜伽师地论》独立流通组成部分保持边界，真谛名下译作、讲录或汉地编成争议公开保留；
+              T32 论集部固定来源已完成 {snapshot.candidateInventory.chineseT32SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT32SourceRecords.denominator}（{snapshot.candidateInventory.chineseT32SourceRecords.percentage}%），
+              其中 {snapshot.candidateInventory.chineseT32SourceRecords.fullSourceTexts} 份完整作品来源、
+              {snapshot.candidateInventory.chineseT32SourceRecords.partialSourceWitnesses} 份部分作品见证，映射为
+              {snapshot.candidateInventory.chineseT32SourceRecords.controlledWorks} 个作品；《因明正理门论》《缘生论》《大乘起信论》《那先比丘经》《亲友书》与《三身赞》的同作品表达共享实体，
+              T1677 因第 4 偈末句缺文保留为部分作品见证，论书、经证汇编、赞颂、仪轨、汉地撰成及“佛说”题名按逐份证据分层；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -349,6 +355,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T31 的 43 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t32-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T32 的 66 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
