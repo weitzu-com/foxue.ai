@@ -1,4 +1,4 @@
-import catalog from "../../data/corpus/cbeta/catalog-v3.6.0.json";
+import catalog from "../../data/corpus/cbeta/catalog-v3.7.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -155,9 +155,9 @@ const curatedSutras: Sutra[] = [
 
 const curatedBySlug = new Map(curatedSutras.map((sutra) => [sutra.slug, sutra]));
 
-const cbetaRelations = (file: (typeof catalog.files)[number]) =>
+const cbetaRelations = (file: (typeof catalog.files)[number]): Array<{ label: string; evidence: string }> =>
   "bibliographicRelations" in file && Array.isArray(file.bibliographicRelations)
-    ? file.bibliographicRelations
+    ? file.bibliographicRelations as Array<{ label: string; evidence: string }>
     : [];
 
 const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {

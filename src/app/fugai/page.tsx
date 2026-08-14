@@ -215,6 +215,12 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT29SourceRecords.partialSourceWitnesses} 份部分作品见证，
               映射为 {snapshot.candidateInventory.chineseT29SourceRecords.controlledWorks} 个作品；T1558/T1559 按《俱舍论释》同本异译共享作品，
               T1560 保留为独立本颂，T1561 标为安慧注疏的极端节本见证，T1562/T1563 保持广论与略论两个相关作品；
+              T30 中观与瑜伽部固定来源已完成 {snapshot.candidateInventory.chineseT30SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT30SourceRecords.denominator}（{snapshot.candidateInventory.chineseT30SourceRecords.percentage}%），
+              其中 {snapshot.candidateInventory.chineseT30SourceRecords.fullSourceTexts} 份完整作品来源、
+              {snapshot.candidateInventory.chineseT30SourceRecords.partialSourceWitnesses} 份部分作品见证，
+              映射为 {snapshot.candidateInventory.chineseT30SourceRecords.controlledWorks} 个作品；T1582/T1583 作为原十卷文本的两个分离部分见证共享作品，
+              T1567、T1570、T1580、T1584 保持部分译本或组成部分边界，T1581 与 T1582/T1583 的异译或汉地改编争议不自动合并；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -321,6 +327,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T29 的 6 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t30-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T30 的 21 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
