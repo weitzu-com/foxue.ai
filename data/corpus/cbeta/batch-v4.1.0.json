@@ -1,0 +1,1115 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.1.0",
+  "publishedAt": "2026-08-14",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.0.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t34-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T34; T34 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T34",
+    "title": "大正藏 T34 经疏部固定来源记录",
+    "sourceRecordDenominator": 13,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 13,
+    "controlledSourceRecords": 13,
+    "newSourceBytes": 13196188,
+    "newStableSegments": 86768,
+    "newFolios": 3058,
+    "newJuans": 70,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 13,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 13,
+    "attributionBoundaryRecords": 13,
+    "newWorks": 13,
+    "controlledWorks": 13,
+    "workCountingDecision": "T34 的 13 份来源记录登记为 13 个完整表达和 13 个独立经疏作品。T1719、T1724、T1727、T1729 分别作为 T1718、T1723、T1726、T1728 的再注释；T1720–T1722 是吉藏同释《法华经》但体例不同的三部作品；T1726–T1729 只解释 T0262 第二十五品，不能冒充整部《法华经》的表达；T1730 是对来源身份仍有争议的 T0273 所作独立论释。所有记录均不标作根本经表达或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_commentary_subcommentary_chapter_root_text_and_authorship_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "lotus-exegesis-t1718-t1725",
+      "lotus-guanyin-chapter-t1726-t1729",
+      "vajrasamadhi-t0273-t1730"
+    ],
+    "subcommentaryGroups": [
+      "lotus-wenju-t1718-t1719",
+      "lotus-xuanzan-t1723-t1724",
+      "guanyin-xuanyi-t1726-t1727",
+      "guanyin-yishu-t1728-t1729"
+    ],
+    "relatedDistinctWorkGroups": [
+      "lotus-exegesis-t1718-t1725",
+      "jizang-lotus-t1720-t1722",
+      "lotus-guanyin-chapter-t1726-t1729"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1718↔T1719（《法华文句》与《文句记》为注释—再注释关系）",
+      "T1720–T1722（吉藏同释《法华经》的玄论、义疏与游意保持三个作品）",
+      "T1723↔T1724（《法华玄赞》与《玄赞义决》为注释—再注释关系）",
+      "T1718–T1725（共同解释《法华经》不构成同一注释作品）",
+      "T1726↔T1727（《观音玄义》与《观音玄义记》为讲说记录—再注释关系）",
+      "T1728↔T1729（《观音义疏》与《观音义疏记》为讲说记录—再注释关系）",
+      "T1726–T1729（共同解释普门品，玄义、义疏及两部记保持四个作品）",
+      "T0273↔T1730（根本经来源争议与元晓论释的作品责任分层保存）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_doctrinal_exposition": [
+        "T1720",
+        "T1722",
+        "T1725"
+      ],
+      "sinitic_authored_subcommentary": [
+        "T1719",
+        "T1724",
+        "T1727",
+        "T1729"
+      ],
+      "sinitic_authored_sutra_commentary": [
+        "T1721",
+        "T1723",
+        "T1730"
+      ],
+      "sinitic_taught_commentary_record": [
+        "T1718",
+        "T1726",
+        "T1728"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records quotation and exegetical dependence; it cannot merge root texts, direct commentaries, doctrinal expositions or subcommentaries.",
+      "pairs": [
+        {
+          "pair": [
+            "T1718",
+            "T1719"
+          ],
+          "normalizedCharacters": [
+            207412,
+            294338
+          ],
+          "fiveGramContainmentOfShorter": 0.018285,
+          "fiveGramJaccard": 0.007517
+        },
+        {
+          "pair": [
+            "T1720",
+            "T1721"
+          ],
+          "normalizedCharacters": [
+            132507,
+            266532
+          ],
+          "fiveGramContainmentOfShorter": 0.03697,
+          "fiveGramJaccard": 0.012441
+        },
+        {
+          "pair": [
+            "T1720",
+            "T1722"
+          ],
+          "normalizedCharacters": [
+            132507,
+            25007
+          ],
+          "fiveGramContainmentOfShorter": 0.080647,
+          "fiveGramJaccard": 0.012996
+        },
+        {
+          "pair": [
+            "T1723",
+            "T1724"
+          ],
+          "normalizedCharacters": [
+            275600,
+            22613
+          ],
+          "fiveGramContainmentOfShorter": 0.045668,
+          "fiveGramJaccard": 0.003599
+        },
+        {
+          "pair": [
+            "T1725",
+            "T1720"
+          ],
+          "normalizedCharacters": [
+            7643,
+            132507
+          ],
+          "fiveGramContainmentOfShorter": 0.035821,
+          "fiveGramJaccard": 0.001992
+        },
+        {
+          "pair": [
+            "T1726",
+            "T1727"
+          ],
+          "normalizedCharacters": [
+            22367,
+            42956
+          ],
+          "fiveGramContainmentOfShorter": 0.018928,
+          "fiveGramJaccard": 0.006479
+        },
+        {
+          "pair": [
+            "T1726",
+            "T1728"
+          ],
+          "normalizedCharacters": [
+            22367,
+            21683
+          ],
+          "fiveGramContainmentOfShorter": 0.009002,
+          "fiveGramJaccard": 0.004446
+        },
+        {
+          "pair": [
+            "T1728",
+            "T1729"
+          ],
+          "normalizedCharacters": [
+            21683,
+            36071
+          ],
+          "fiveGramContainmentOfShorter": 0.015019,
+          "fiveGramJaccard": 0.005635
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T34",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002222",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002227",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000871",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000879",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000884",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001253",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001254",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001750",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001751",
+      "https://www.jstage.jst.go.jp/article/ibk/69/3/69_1156/_article",
+      "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001320677"
+    ],
+    "caveat": "T34 是经疏部，不是佛说经集合。平台完整保存固定来源，同时区分整部根本经、单一章节、直接注释、教义阐释、讲说记录与再注释；共同经题、共同作者、传统责任题记、正文引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1718",
+      "slug": "taisho-t1718",
+      "workId": "gbcr:work:lotus-sutra-wenju-zhiyi",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "妙法蓮華經文句",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-wenju-t1718-t1719",
+          "label": "智顗《妙法莲华经文句》与湛然《法华文句记》",
+          "evidence": "DILA T1718、T1719 规范记录互相连接，T1719 是承接 T1718 文句层的独立再注释，不是《法华经》正文表达，也不是 T1718 的另一版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1718",
+              "T1719"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1718.xml",
+      "upstreamPath": "T/T34/T34n1718.xml",
+      "upstreamGitBlobSha1": "a7df82816e267667ad5b55f9dbb340d485d10d5e",
+      "upstreamBytes": 1777916,
+      "upstreamSha256": "5ab256ba17fa2c3dfeddf4b7c6aaa69225d4e19951ea2d237831725eed4cb5d0",
+      "localBytes": 1777917,
+      "localSha256": "0adf009a231a7c6d742253b93f82172db6dee88722ec790e3de6dcbc714b2b47",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經文句",
+        "alternateTitle": "妙法蓮華經文句",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1718",
+        "translator": "隋 · 智顗說",
+        "summary": "10卷。传统题记为智顗说的逐文法华经注释完整来源。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1718_001"
+      },
+      "verification": {
+        "segments": 12816,
+        "folios": 451,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1718.001.0001a01",
+          "T1718.010.0149a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1719",
+      "slug": "taisho-t1719",
+      "workId": "gbcr:work:lotus-wenju-ji-zhanran",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華文句記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-wenju-t1718-t1719",
+          "label": "智顗《妙法莲华经文句》与湛然《法华文句记》",
+          "evidence": "DILA T1718、T1719 规范记录互相连接，T1719 是承接 T1718 文句层的独立再注释，不是《法华经》正文表达，也不是 T1718 的另一版本。",
+          "externalIds": {
+            "cbeta": [
+              "T1718",
+              "T1719"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1719.xml",
+      "upstreamPath": "T/T34/T34n1719.xml",
+      "upstreamGitBlobSha1": "81e80ae80965070e6a7ed7bb2dc95e94f656d597",
+      "upstreamBytes": 1855159,
+      "upstreamSha256": "669771c4156ae7a0bf4da0a7a492427fb919ba85e1d28e064c50264554e030e1",
+      "localBytes": 1855160,
+      "localSha256": "170b3d05e963fd46b6daf62256dca64c567e3649ef30a2a11411e38a267165fb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華文句記",
+        "alternateTitle": "法華文句記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1719",
+        "translator": "唐 · 湛然述",
+        "summary": "10卷。湛然《法华文句记》再注释完整来源。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1719_001"
+      },
+      "verification": {
+        "segments": 18083,
+        "folios": 636,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1719.001.0151a02",
+          "T1719.010.0360a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1720",
+      "slug": "taisho-t1720",
+      "workId": "gbcr:work:lotus-sutra-xuanlun-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華玄論",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_author_distinct",
+          "groupId": "jizang-lotus-t1720-t1722",
+          "label": "吉藏《法华玄论》《法华义疏》《法华游意》",
+          "evidence": "三部作品作者相同且同释《法华经》，但玄论、逐文义疏与游意的体例、范围和结构不同；同行研究分别列举并比较这些著作，不能按作者与题名合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1720",
+              "T1721",
+              "T1722"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1720.xml",
+      "upstreamPath": "T/T34/T34n1720.xml",
+      "upstreamGitBlobSha1": "8778054263ce270d4a34b5849f5d5c92bd9edaa0",
+      "upstreamBytes": 793342,
+      "upstreamSha256": "67985310bb7c01642ec1471c5e6501faa269122167476fdae8a4bc981a2fa305",
+      "localBytes": 793343,
+      "localSha256": "ba47e3e4e3c617e8b44961ac25025984741057f8ec0628d716b305c818a9f30c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華玄論",
+        "alternateTitle": "法華玄論",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1720",
+        "translator": "隋 · 吉藏撰",
+        "summary": "10卷。吉藏《法华玄论》教义阐释完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1720_001"
+      },
+      "verification": {
+        "segments": 7781,
+        "folios": 276,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1720.001.0361a02",
+          "T1720.010.0450c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1721",
+      "slug": "taisho-t1721",
+      "workId": "gbcr:work:lotus-sutra-yishu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華義疏",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_author_distinct",
+          "groupId": "jizang-lotus-t1720-t1722",
+          "label": "吉藏《法华玄论》《法华义疏》《法华游意》",
+          "evidence": "三部作品作者相同且同释《法华经》，但玄论、逐文义疏与游意的体例、范围和结构不同；同行研究分别列举并比较这些著作，不能按作者与题名合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1720",
+              "T1721",
+              "T1722"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1721.xml",
+      "upstreamPath": "T/T34/T34n1721.xml",
+      "upstreamGitBlobSha1": "5ea33078a320f2717ce9c555751f9b759203745a",
+      "upstreamBytes": 3117647,
+      "upstreamSha256": "132eaed070139c0e18f4634f33fbfc3aa035a31102896cde443761dac16845ab",
+      "localBytes": 3117648,
+      "localSha256": "6818e144994ac496259dfe7ce2b6809f20ea2d51b4748d29a2e590a98057f8c9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華義疏",
+        "alternateTitle": "法華義疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1721",
+        "translator": "隋 · 吉藏撰",
+        "summary": "12卷。吉藏《法华义疏》经文注释完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1721_001"
+      },
+      "verification": {
+        "segments": 15621,
+        "folios": 556,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1721.001.0451a02",
+          "T1721.012.0633b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1722",
+      "slug": "taisho-t1722",
+      "workId": "gbcr:work:lotus-sutra-youyi-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華遊意",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "related_commentaries_by_same_author_distinct",
+          "groupId": "jizang-lotus-t1720-t1722",
+          "label": "吉藏《法华玄论》《法华义疏》《法华游意》",
+          "evidence": "三部作品作者相同且同释《法华经》，但玄论、逐文义疏与游意的体例、范围和结构不同；同行研究分别列举并比较这些著作，不能按作者与题名合并。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1720",
+              "T1721",
+              "T1722"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1722.xml",
+      "upstreamPath": "T/T34/T34n1722.xml",
+      "upstreamGitBlobSha1": "b9f161bb0f60ed40fd8d14490402681f3cf69965",
+      "upstreamBytes": 491592,
+      "upstreamSha256": "ffecac5188c7f9c38d55f959814dc27aaa327bd5da61d8bb166a6a69c18b8cec",
+      "localBytes": 491593,
+      "localSha256": "bcd684523ea99565d0c96bfd69fbdb471527180f1405eedbeb058a26dbc1c5c4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華遊意",
+        "alternateTitle": "法華遊意",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1722",
+        "translator": "隋 · 吉藏造",
+        "summary": "1卷。吉藏《法华游意》教义阐释完整来源。传统责任题记：隋 吉藏造。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1722_001"
+      },
+      "verification": {
+        "segments": 1454,
+        "folios": 51,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1722.001.0633b08",
+          "T1722.001.0650a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1723",
+      "slug": "taisho-t1723",
+      "workId": "gbcr:work:lotus-sutra-xuanzan-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "妙法蓮華經玄贊",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-xuanzan-t1723-t1724",
+          "label": "窺基《妙法莲华经玄赞》与慧沼《法华玄赞义决》",
+          "evidence": "DILA T1723 与 T1724 规范记录互相连接；《义决》解释《玄赞》，两者分别是注释与再注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1723",
+              "T1724"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1723.xml",
+      "upstreamPath": "T/T34/T34n1723.xml",
+      "upstreamGitBlobSha1": "254937851cc5c29ca96051d9380798570f56d335",
+      "upstreamBytes": 2918104,
+      "upstreamSha256": "d794a4a55b139e84bffc5bd7f380dc02538a569ae1f077e5dce358a3a23138ee",
+      "localBytes": 2918105,
+      "localSha256": "14d23d0ed830f6fade0bb939aff71ef3b7287480f73411115488005e0870fb4e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "妙法蓮華經玄贊",
+        "alternateTitle": "妙法蓮華經玄贊",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1723",
+        "translator": "唐 · 窺基撰",
+        "summary": "10卷。窺基《妙法莲华经玄赞》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1723_001"
+      },
+      "verification": {
+        "segments": 17902,
+        "folios": 618,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1723.001.0651a02",
+          "T1723.010.0854b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1724",
+      "slug": "taisho-t1724",
+      "workId": "gbcr:work:lotus-xuanzan-yijue-huizhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華玄贊義決",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "lotus-xuanzan-t1723-t1724",
+          "label": "窺基《妙法莲华经玄赞》与慧沼《法华玄赞义决》",
+          "evidence": "DILA T1723 与 T1724 规范记录互相连接；《义决》解释《玄赞》，两者分别是注释与再注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1723",
+              "T1724"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1724.xml",
+      "upstreamPath": "T/T34/T34n1724.xml",
+      "upstreamGitBlobSha1": "bc86c52ec0440a6dd89bd94df1e8792b473087f0",
+      "upstreamBytes": 659536,
+      "upstreamSha256": "41ecad9ffe53f77cd22129bfdaab86eb947a711b43537e4da621754ccbbde38e",
+      "localBytes": 659537,
+      "localSha256": "d507346c0a997b38fd45fa0674425924abd57b7a317e24b535cf0639b192ed21",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華玄贊義決",
+        "alternateTitle": "法華玄贊義決",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1724",
+        "translator": "唐 · 慧沼撰",
+        "summary": "1卷。慧沼《法华玄赞义决》再注释完整来源。传统责任题记：唐 慧沼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1724_001"
+      },
+      "verification": {
+        "segments": 1340,
+        "folios": 49,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1724.001.0854c02",
+          "T1724.001.0870c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1725",
+      "slug": "taisho-t1725",
+      "workId": "gbcr:work:lotus-sutra-zongyao-wonhyo",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "法華宗要",
+      "sourceRole": "sinitic_authored_doctrinal_exposition",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_sutra_commentary_exposition_and_subcommentary_distinct",
+          "groupId": "lotus-exegesis-t1718-t1725",
+          "label": "《法华经》文句、玄论、义疏、游意、玄赞、宗要与再注释",
+          "evidence": "DILA 的 T0262 规范记录逐项关联 T1718–T1725；这些文本共享《妙法莲华经》解释对象，却由不同作者、体例和注释层形成，根本经、直接注释、教义阐释和再注释保持独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1718",
+              "T1719",
+              "T1720",
+              "T1721",
+              "T1722",
+              "T1723",
+              "T1724",
+              "T1725"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1725.xml",
+      "upstreamPath": "T/T34/T34n1725.xml",
+      "upstreamGitBlobSha1": "83b86045a5478a7253ce3d86fe24f7679360c54e",
+      "upstreamBytes": 60936,
+      "upstreamSha256": "fdb79cdcc1cb26d7a231fefb636c53f20b370367a2f8769b11f0969126fb05a4",
+      "localBytes": 60937,
+      "localSha256": "1b41b2885076fc7668fc9f1752bc4f8b98b28628d14fbe271fda2f11b4b217c1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華宗要",
+        "alternateTitle": "法華宗要",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1725",
+        "translator": "新羅 · 元曉撰",
+        "summary": "1卷。元晓《法华宗要》教义宗要完整来源。传统责任题记：新羅 元曉撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1725_001"
+      },
+      "verification": {
+        "segments": 447,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1725.001.0870c06",
+          "T1725.001.0875c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1726",
+      "slug": "taisho-t1726",
+      "workId": "gbcr:work:guanyin-xuanyi-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀音玄義",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_chapter_verified",
+          "groupId": "lotus-guanyin-chapter-t1726-t1729",
+          "label": "《法华经·观世音菩萨普门品》的玄义、义疏与两部记",
+          "evidence": "DILA 把 T1726、T1728 的解释对象明确标为 T0262 第二十五品，并分别连接 T1727、T1729。章节、两部直接疏释和两部再注释保持五个层次，不把章节注释冒充整部经的新译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1726",
+              "T1727",
+              "T1728",
+              "T1729"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "guanyin-xuanyi-t1726-t1727",
+          "label": "智顗、灌顶《观音玄义》与知礼《观音玄义记》",
+          "evidence": "T1727 的题名、卷首和 DILA 关系都明确其为 T1726《观音玄义》的记；讲说记录与宋代再注释分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1726",
+              "T1727"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1726.xml",
+      "upstreamPath": "T/T34/T34n1726.xml",
+      "upstreamGitBlobSha1": "0c350f5a9f34a896b9640a29fbd6efe2ed53365e",
+      "upstreamBytes": 125487,
+      "upstreamSha256": "84f04580fd672005382804ad2947bff3b075947081535dfc9580425a94f63953",
+      "localBytes": 125488,
+      "localSha256": "1ecf0975232fe6899bbe7d096e50fd6b9754af5685508992becb7b67a7083bdd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀音玄義",
+        "alternateTitle": "觀音玄義",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1726",
+        "translator": "隋 · 智顗說．灌頂記",
+        "summary": "2卷。智顗说、灌顶记的《观音玄义》完整来源。传统责任题记：隋 智顗說．灌頂記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1726_001"
+      },
+      "verification": {
+        "segments": 1308,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1726.001.0877a03",
+          "T1726.002.0892a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1727",
+      "slug": "taisho-t1727",
+      "workId": "gbcr:work:guanyin-xuanyi-ji-zhili",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀音玄義記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_chapter_verified",
+          "groupId": "lotus-guanyin-chapter-t1726-t1729",
+          "label": "《法华经·观世音菩萨普门品》的玄义、义疏与两部记",
+          "evidence": "DILA 把 T1726、T1728 的解释对象明确标为 T0262 第二十五品，并分别连接 T1727、T1729。章节、两部直接疏释和两部再注释保持五个层次，不把章节注释冒充整部经的新译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1726",
+              "T1727",
+              "T1728",
+              "T1729"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "guanyin-xuanyi-t1726-t1727",
+          "label": "智顗、灌顶《观音玄义》与知礼《观音玄义记》",
+          "evidence": "T1727 的题名、卷首和 DILA 关系都明确其为 T1726《观音玄义》的记；讲说记录与宋代再注释分列作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1726",
+              "T1727"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1727.xml",
+      "upstreamPath": "T/T34/T34n1727.xml",
+      "upstreamGitBlobSha1": "2aa080677ce616a6ace18b469139396d7385a0d5",
+      "upstreamBytes": 294284,
+      "upstreamSha256": "286d2f727c6dbe04f6a086dead5e9ee241ec398159c05b3a1710270a4cc6cabb",
+      "localBytes": 294285,
+      "localSha256": "eef40b5b439cc98f798b97a595d97c5b30221c233ecaab841aeead588c774eeb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀音玄義記",
+        "alternateTitle": "觀音玄義記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1727",
+        "translator": "宋 · 知禮述",
+        "summary": "4卷。知礼《观音玄义记》再注释完整来源。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1727_001"
+      },
+      "verification": {
+        "segments": 2523,
+        "folios": 90,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1727.001.0892a12",
+          "T1727.004.0921a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1728",
+      "slug": "taisho-t1728",
+      "workId": "gbcr:work:guanyin-yishu-zhiyi-guanding",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀音義疏",
+      "sourceRole": "sinitic_taught_commentary_record",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_chapter_verified",
+          "groupId": "lotus-guanyin-chapter-t1726-t1729",
+          "label": "《法华经·观世音菩萨普门品》的玄义、义疏与两部记",
+          "evidence": "DILA 把 T1726、T1728 的解释对象明确标为 T0262 第二十五品，并分别连接 T1727、T1729。章节、两部直接疏释和两部再注释保持五个层次，不把章节注释冒充整部经的新译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1726",
+              "T1727",
+              "T1728",
+              "T1729"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "guanyin-yishu-t1728-t1729",
+          "label": "智顗、灌顶《观音义疏》与知礼《观音义疏记》",
+          "evidence": "T1729 的题名、卷首和 DILA 关系都明确其为 T1728《观音义疏》的记；两层文本及责任题记独立保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1728",
+              "T1729"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1728.xml",
+      "upstreamPath": "T/T34/T34n1728.xml",
+      "upstreamGitBlobSha1": "17c1442841fd55d8af52a7592b2423fe69ae5948",
+      "upstreamBytes": 433074,
+      "upstreamSha256": "d1ffc36c32cca8f6da3ee279a927494689707fc3d8b7bde21770f48f31f6fc84",
+      "localBytes": 433075,
+      "localSha256": "0ca54adc8461a9d4fa44d18077afd679e6c711d05f79d220f51a78c1d32dfea0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀音義疏",
+        "alternateTitle": "觀音義疏",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1728",
+        "translator": "隋 · 智顗說．灌頂記",
+        "summary": "2卷。智顗说、灌顶记的《观音义疏》完整来源。传统责任题记：隋 智顗說．灌頂記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1728_001"
+      },
+      "verification": {
+        "segments": 1280,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1728.001.0921a23",
+          "T1728.002.0936a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1729",
+      "slug": "taisho-t1729",
+      "workId": "gbcr:work:guanyin-yishu-ji-zhili",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "觀音義疏記",
+      "sourceRole": "sinitic_authored_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_canonical_chapter_verified",
+          "groupId": "lotus-guanyin-chapter-t1726-t1729",
+          "label": "《法华经·观世音菩萨普门品》的玄义、义疏与两部记",
+          "evidence": "DILA 把 T1726、T1728 的解释对象明确标为 T0262 第二十五品，并分别连接 T1727、T1729。章节、两部直接疏释和两部再注释保持五个层次，不把章节注释冒充整部经的新译本。",
+          "externalIds": {
+            "cbeta": [
+              "T0262",
+              "T1726",
+              "T1727",
+              "T1728",
+              "T1729"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_commentary_verified",
+          "groupId": "guanyin-yishu-t1728-t1729",
+          "label": "智顗、灌顶《观音义疏》与知礼《观音义疏记》",
+          "evidence": "T1729 的题名、卷首和 DILA 关系都明确其为 T1728《观音义疏》的记；两层文本及责任题记独立保存。",
+          "externalIds": {
+            "cbeta": [
+              "T1728",
+              "T1729"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1729.xml",
+      "upstreamPath": "T/T34/T34n1729.xml",
+      "upstreamGitBlobSha1": "5164d6386b0b5d0764fa348424e05fd70f4c52a0",
+      "upstreamBytes": 257547,
+      "upstreamSha256": "198701948b924004eae8fd03dde40b57aa95f1c61ee3ed7273908db602bc36f1",
+      "localBytes": 257548,
+      "localSha256": "35e60abc7b1c1a162f3cb93045d22b2ddb7de197cffc723c6c29b22e09642084",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀音義疏記",
+        "alternateTitle": "觀音義疏記",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1729",
+        "translator": "宋 · 知禮述",
+        "summary": "4卷。知礼《观音义疏记》再注释完整来源。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1729_001"
+      },
+      "verification": {
+        "segments": 2125,
+        "folios": 77,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1729.001.0936a04",
+          "T1729.004.0960b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1730",
+      "slug": "taisho-t1730",
+      "workId": "gbcr:work:vajrasamadhi-sutra-commentary-wonhyo",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "金剛三昧經論",
+      "sourceRole": "sinitic_authored_sutra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_disputed_origin_canonical_work_verified",
+          "groupId": "vajrasamadhi-t0273-t1730",
+          "label": "《金刚三昧经》与元晓《金刚三昧经论》",
+          "evidence": "DILA T1730 规范记录明确关联 T0273。平台把元晓的论登记为独立注释作品，同时继承 T0273 已公开的失译题记与东亚本土成书争议，不用注释关系反推根本经为无争议印度译本或佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T0273",
+              "T1730"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T34n1730.xml",
+      "upstreamPath": "T/T34/T34n1730.xml",
+      "upstreamGitBlobSha1": "1770e86d7de56fca782c5bc3363d0b42abc5687c",
+      "upstreamBytes": 411564,
+      "upstreamSha256": "d906204eaa02202873a35e09cb73fc4f0faba0ae6b564ff066bc9ef9419c59e7",
+      "localBytes": 411565,
+      "localSha256": "df9bc78bb7e2ceacc5fce0bc82de2b3c6375a45a7968d5b81bef199173bb1335",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛三昧經論",
+        "alternateTitle": "金剛三昧經論",
+        "tradition": "汉传佛教 · 经疏部",
+        "language": "汉文",
+        "canonRef": "大正藏 T34, no. 1730",
+        "translator": "新羅 · 元曉述",
+        "summary": "3卷。元晓《金刚三昧经论》独立注释作品完整来源。传统责任题记：新羅 元曉述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1730_001"
+      },
+      "verification": {
+        "segments": 4088,
+        "folios": 144,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1730.001.0961a02",
+          "T1730.003.1008a07"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
