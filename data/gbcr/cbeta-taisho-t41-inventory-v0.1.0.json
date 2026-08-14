@@ -1,0 +1,48 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "1cca22b31b60b7811cf112f1ec7fe22664c39a7f"
+  },
+  "subset": {
+    "id": "taisho_abhidharma_kosa_commentary_t41",
+    "label": "大正藏 T41 俱舍论注疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T41 目录下、文件名卷号一致的 T41n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T41 的 3 份来源记录是普光《俱舍论记》、法宝《俱舍论疏》和圆晖《俱舍论颂疏》三部唐代阿毘达磨注疏；前两部直接解释玄奘译《阿毘达磨俱舍论》T1558，后一部兼依 T1558 与世亲《俱舍论本颂》T1560。共同根本论书、三十卷规模、题名或正文引文不能把不同作者、不同注释结构和不同解释范围误作同一作品、论本表达或佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 3,
+    "upstreamBytes": 16077486,
+    "candidatePathSha256": "ae08333c33ddb32fbba6d2a1d3f57fb3059da28103625ac257c9a99b61720594"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T41n1821",
+      "canonWitnessId": "T1821",
+      "volume": "T41",
+      "upstreamPath": "T/T41/T41n1821.xml",
+      "upstreamGitBlobSha1": "d4510488b1bd2450792048e11b4c93e91d76333d",
+      "upstreamBytes": 6446053
+    },
+    {
+      "sourceRecordId": "T41n1822",
+      "canonWitnessId": "T1822",
+      "volume": "T41",
+      "upstreamPath": "T/T41/T41n1822.xml",
+      "upstreamGitBlobSha1": "66001c777c701476b3345c519033f75a9d585201",
+      "upstreamBytes": 7577561
+    },
+    {
+      "sourceRecordId": "T41n1823",
+      "canonWitnessId": "T1823",
+      "volume": "T41",
+      "upstreamPath": "T/T41/T41n1823.xml",
+      "upstreamGitBlobSha1": "48a99eff8058cd7524fd25337c3f7918296779b3",
+      "upstreamBytes": 2053872
+    }
+  ]
+}

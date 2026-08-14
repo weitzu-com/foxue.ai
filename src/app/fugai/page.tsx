@@ -274,6 +274,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT40SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT40SourceRecords.controlledWorks} 个独立作品；4 组根本律或戒本—律疏、5 组论本—论疏、1 组行事钞—再注释与 3 组适用范围边界均已记录，
               T1808–T1810 的通用、僧众、尼众羯磨范围和 T1820 的节要、补注复合责任保持可审计；
+              T41 俱舍论注疏部固定来源已完成 {snapshot.candidateInventory.chineseT41SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT41SourceRecords.denominator}（{snapshot.candidateInventory.chineseT41SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT41SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT41SourceRecords.controlledWorks} 个独立作品；2 组根本论—论疏、1 组平行注疏异作与 1 组通论疏—颂疏范围边界均已记录，
+              普光、法宝与圆晖三部三十卷唐疏不因共同解释 T1558、T1560 或共享俱舍术语而合并；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -468,6 +473,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T40 的 17 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t41-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T41 的 3 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
