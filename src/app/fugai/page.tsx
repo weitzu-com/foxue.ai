@@ -238,6 +238,12 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT33SourceRecords.fullSourceTexts} 份均为完整来源并映射为
               {snapshot.candidateInventory.chineseT33SourceRecords.controlledWorks} 个独立注疏作品；《金刚经》《仁王经》《心经》《法华经》等根本经与直接注疏保持作品边界，
               T1702、T1706、T1713、T1717 四部再注释另立作品并连接所释注疏，撰述、讲说记录、合注与治定责任均公开保留；
+              T34 经疏部固定来源已完成 {snapshot.candidateInventory.chineseT34SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT34SourceRecords.denominator}（{snapshot.candidateInventory.chineseT34SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT34SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT34SourceRecords.controlledWorks} 个独立作品；《法华文句》与《文句记》、《法华玄赞》与《玄赞义决》、
+              《观音玄义》与《玄义记》、《观音义疏》与《义疏记》均按注释—再注释分层，T1726–T1729 只解释《法华经》第二十五品，
+              T1730 与来源身份仍有争议的 T0273 保持根本经—论释边界；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -376,6 +382,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T33 的 25 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t34-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T34 的 13 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

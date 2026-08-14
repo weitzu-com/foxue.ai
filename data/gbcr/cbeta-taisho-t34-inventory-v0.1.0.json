@@ -1,0 +1,128 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-14",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "797dffe3e6ff6e1e4c6d53be64c4a12f0373e354"
+  },
+  "subset": {
+    "id": "taisho_sutra_commentary_t34",
+    "label": "大正藏 T34 经疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T34 目录下、文件名卷号一致的 T34n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T34 的 13 份来源记录是《法华经》《观世音菩萨普门品》与《金刚三昧经》的文句、玄论、义疏、游意、玄赞、宗要、论及再注释；根本经、章节、直接注释、教义阐释、讲说记录和再注释必须分层计量，不能把经疏目录位置误作佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 13,
+    "upstreamBytes": 13196188,
+    "candidatePathSha256": "6e863b2ddfc06572bffc8beb04c151c73dd21923f8353cba354ae6a8d557d83b"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T34n1718",
+      "canonWitnessId": "T1718",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1718.xml",
+      "upstreamGitBlobSha1": "a7df82816e267667ad5b55f9dbb340d485d10d5e",
+      "upstreamBytes": 1777916
+    },
+    {
+      "sourceRecordId": "T34n1719",
+      "canonWitnessId": "T1719",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1719.xml",
+      "upstreamGitBlobSha1": "81e80ae80965070e6a7ed7bb2dc95e94f656d597",
+      "upstreamBytes": 1855159
+    },
+    {
+      "sourceRecordId": "T34n1720",
+      "canonWitnessId": "T1720",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1720.xml",
+      "upstreamGitBlobSha1": "8778054263ce270d4a34b5849f5d5c92bd9edaa0",
+      "upstreamBytes": 793342
+    },
+    {
+      "sourceRecordId": "T34n1721",
+      "canonWitnessId": "T1721",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1721.xml",
+      "upstreamGitBlobSha1": "5ea33078a320f2717ce9c555751f9b759203745a",
+      "upstreamBytes": 3117647
+    },
+    {
+      "sourceRecordId": "T34n1722",
+      "canonWitnessId": "T1722",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1722.xml",
+      "upstreamGitBlobSha1": "b9f161bb0f60ed40fd8d14490402681f3cf69965",
+      "upstreamBytes": 491592
+    },
+    {
+      "sourceRecordId": "T34n1723",
+      "canonWitnessId": "T1723",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1723.xml",
+      "upstreamGitBlobSha1": "254937851cc5c29ca96051d9380798570f56d335",
+      "upstreamBytes": 2918104
+    },
+    {
+      "sourceRecordId": "T34n1724",
+      "canonWitnessId": "T1724",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1724.xml",
+      "upstreamGitBlobSha1": "bc86c52ec0440a6dd89bd94df1e8792b473087f0",
+      "upstreamBytes": 659536
+    },
+    {
+      "sourceRecordId": "T34n1725",
+      "canonWitnessId": "T1725",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1725.xml",
+      "upstreamGitBlobSha1": "83b86045a5478a7253ce3d86fe24f7679360c54e",
+      "upstreamBytes": 60936
+    },
+    {
+      "sourceRecordId": "T34n1726",
+      "canonWitnessId": "T1726",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1726.xml",
+      "upstreamGitBlobSha1": "0c350f5a9f34a896b9640a29fbd6efe2ed53365e",
+      "upstreamBytes": 125487
+    },
+    {
+      "sourceRecordId": "T34n1727",
+      "canonWitnessId": "T1727",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1727.xml",
+      "upstreamGitBlobSha1": "2aa080677ce616a6ace18b469139396d7385a0d5",
+      "upstreamBytes": 294284
+    },
+    {
+      "sourceRecordId": "T34n1728",
+      "canonWitnessId": "T1728",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1728.xml",
+      "upstreamGitBlobSha1": "17c1442841fd55d8af52a7592b2423fe69ae5948",
+      "upstreamBytes": 433074
+    },
+    {
+      "sourceRecordId": "T34n1729",
+      "canonWitnessId": "T1729",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1729.xml",
+      "upstreamGitBlobSha1": "5164d6386b0b5d0764fa348424e05fd70f4c52a0",
+      "upstreamBytes": 257547
+    },
+    {
+      "sourceRecordId": "T34n1730",
+      "canonWitnessId": "T1730",
+      "volume": "T34",
+      "upstreamPath": "T/T34/T34n1730.xml",
+      "upstreamGitBlobSha1": "1770e86d7de56fca782c5bc3363d0b42abc5687c",
+      "upstreamBytes": 411564
+    }
+  ]
+}
