@@ -349,6 +349,13 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT55SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT55SourceRecords.controlledWorks} 个独立作品；2 组同数字经号、4 组续录或略出、3 组材料复用、2 组同编者目录与
               {snapshot.candidateInventory.chineseT55SourceRecords.relatedDistinctWorkGroups} 组相关异作边界均已记录，全部作为佛教知识史原典而非佛陀逐字亲说；
+              T85 古逸部与疑似部固定来源已完成 {snapshot.candidateInventory.chineseT85SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT85SourceRecords.denominator}（{snapshot.candidateInventory.chineseT85SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT85SourceRecords.fullSourceTexts} 份完整来源先保留为
+              {snapshot.candidateInventory.chineseT85SourceRecords.provisionalRecords} 个暂定作品；
+              {snapshot.candidateInventory.chineseT85SourceRecords.suspectedTextRecords} 份疑似部记录、
+              {snapshot.candidateInventory.chineseT85SourceRecords.buddhistCulturalReferenceRecords} 份佛教文化资料、3 组 A/B 同号异作、9 组同题边界和 4 组残存卷序均可复核，
+              在写本校勘完成前不自动归并，也不把任何一份标成佛陀逐字亲说；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -663,6 +670,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T55 的 42 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t85-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T85 的 192 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

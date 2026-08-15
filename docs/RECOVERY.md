@@ -59,17 +59,17 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v6.13.0.sha256` 与 `data/gbcr/checksums-cbeta-v4.22.0.sha256`。
+1. 核对 `data/gbcr/checksums-v6.14.0.sha256` 与 `data/gbcr/checksums-cbeta-v4.23.0.sha256`。
 2. 运行 `pnpm verify:corpus`，验证登记册结构、来源提交、权利状态和统计纪律。
-3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot` 至 `pnpm verify:cbeta:t55-snapshot`，复算 T18–T55 各卷固定来源记录、字节数与 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
-4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:cbeta:t55-snapshot`、`pnpm audit:cbeta:t55`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、2,554 个文本表达或见证（其中 2,511 个完整全文表达或版本见证）、2,279 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部由汉巴关系表实际引用的站内文本轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。T54 的 9 份外教参照文本必须保持可读但不得进入佛教经典或佛陀亲说覆盖分子；T55 的 42 份佛教目录学原典必须保持可读但不得标成佛陀逐字亲说。
+3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot` 至 `pnpm verify:cbeta:t55-snapshot`，再运行 `pnpm verify:cbeta:t85-snapshot`，复算 T18–T55 与 T85 各固定来源记录、字节数和 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
+4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:cbeta:t85-snapshot`、`pnpm audit:cbeta:t85`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、2,746 个文本表达或见证（其中 2,703 个完整全文表达或版本见证）、2,471 个 CBETA TEI 来源资产、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部由汉巴关系表实际引用的站内文本轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。T54 的 9 份外教参照文本不得进入佛教经典或佛陀亲说覆盖分子；T55 的 42 份目录学原典及 T85 的 192 份古逸与疑似部记录必须保持可读，但均不得标成佛陀逐字亲说。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 2,511 个受控完整全文表达或版本见证、43 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文见证与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 2,703 个受控完整全文表达或版本见证、43 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文见证与覆盖登记册。
 
 Vercel 恢复顺序：
 
@@ -97,7 +97,7 @@ Vercel 恢复顺序：
    另需验证 T50 的 T2040–T2065（含 T2047a/b）首尾版页；T2047a/b 必须保持同一规范作品下的两种完整版本见证，T2040/T2041、T2042–T2045、T2052/T2053、T2059–T2062 及 T2063–T2065 的传记范围、续编、史料复用与相关异作边界不得因共同人物、题名、编纂系列或文本重叠而误并，T2044 的失译责任和 T2057/T2064 的未署名责任不得被推定补写。
    另需验证 T51 的 T2066–T2101 首尾版页；T2067/T2068 两部法华史传、T2076/T2077 灯录本编—续修、T2078–T2080 契嵩伴随著作、T2098–T2100 清凉山方志续修必须保持相关且独立，T2068 的僧詳/僧祥目录责任标签应并列保存，T2070、T2075、T2086、T2091、T2094 的未署名责任不得被推定补写。
    同时验证 T52 的 T2102–T2120 首尾版页；T2102/T2103 护法总集本编—广集、T2104/T2105 佛道论衡本编—续集、T2106/T2107 道宣感通录、T2109/T2110 法琳护法论、T2078–T2080/T2115 契嵩跨卷伴随著作必须保持相关且独立。T2103/T2104 的显著材料重叠只能记录为来源复用，T2113 的神清撰—慧宝注责任必须分层，T2119 不得因题名含玄奘而补造总集编者。
-   另需验证 T53 的 T2121/T2122、T54 的 T2123/T2128/T2133A/B/T2139/T2144 与 T55 的 T2145/T2154/T2168A/B/T2174A/B/T2184 首尾版页。T2168A/B 即使共享 DILA 基础号也必须保持两个作品，T2174B 与 T2162、T2175 的未署名责任不得推定补写，全部 42 份 T55 佛教目录学原典不得标成佛陀逐字亲说。
+   另需验证 T53 的 T2121/T2122、T54 的 T2123/T2128/T2133A/B/T2139/T2144、T55 的 T2145/T2154/T2168A/B/T2174A/B/T2184，以及 T85 的 T2732/T2764A/B/T2830A/B/T2865/T2917A/B/T2920 首尾版页。T2168A/B 即使共享 DILA 基础号也必须保持两个作品，T2174B 与 T2162、T2175 的未署名责任不得推定补写；T2764A/B、T2830A/B、T2917A/B 和九组同题记录在写本校勘前不得自动合并；全部 T55 与 T85 记录不得标成佛陀逐字亲说。
 5. 通过后再切换 DNS，失败则保留原站或静态维护页。
 
 ### 5.1 恢复经藏对象存储与只读边缘层
@@ -105,7 +105,7 @@ Vercel 恢复顺序：
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
-2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.13.0-2b8ab8d5e4fe-eac6c24781dd-6329d36fada1`，应复现 2,554 个表达、177,103 个阅读单元、5,034,716 个稳定行段、189,248 个不可变正文对象、1,994,551,416 个正文对象字节，以及含清单与指针在内的 189,250 个上传对象、2,062,571,018 个上传字节；版本清单 SHA-256 应为 `f90d5a07add6321713982fad2a242859e47c9a46424c7eaf5d5ec50f051bb690`；
+2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.14.0-2b8ab8d5e4fe-eac6c24781dd-27228131027b`，应复现 2,746 个表达、181,632 个阅读单元、5,159,332 个稳定行段、194,161 个不可变正文对象、2,037,591,412 个正文对象字节，以及含清单与指针在内的 194,163 个上传对象、2,107,410,419 个上传字节；版本清单 SHA-256 应为 `027b1d12c6fab28949621b7b2f7ae49ddd521bc018c56553cbc515bb81f1e1b3`；
 3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
 4. 运行 `pnpm cloudflare:types:check` 与 `pnpm cloudflare:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 部署只读 Worker；
 5. 将 `canon.foxue.ai` 绑定到 Worker，验证 `/health`、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；
