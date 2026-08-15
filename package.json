@@ -279,9 +279,11 @@
     "cloudflare:types": "wrangler types infra/corpus-edge/worker-configuration.d.ts --config infra/corpus-edge/wrangler.jsonc",
     "cloudflare:types:check": "wrangler types infra/corpus-edge/worker-configuration.d.ts --config infra/corpus-edge/wrangler.jsonc --check",
     "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
+    "cloudflare:bootstrap:check": "wrangler deploy --config infra/corpus-edge/wrangler.bootstrap.jsonc --dry-run --outdir artifacts/worker-bootstrap-dry-run",
+    "verify:cloudflare-edge": "NODE_USE_ENV_PROXY=1 node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",
@@ -298,6 +300,6 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.0",
     "typescript": "5.9.3",
-    "wrangler": "4.120.1"
+    "wrangler": "4.123.0"
   }
 }

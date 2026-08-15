@@ -22,6 +22,7 @@
 /playwright-report
 /artifacts
 /infra/corpus-edge/artifacts/
+**/.wrangler/
 *.tsbuildinfo
 next-env.d.ts
 

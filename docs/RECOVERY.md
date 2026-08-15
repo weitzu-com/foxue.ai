@@ -105,11 +105,13 @@ Vercel 恢复顺序：
 
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
+截至 2026-08-16 的生产事实必须与目标状态分开记录：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health` 和 `v1/latest.json` 均已从公网验证；Worker 当前运行 `infra/corpus-edge/wrangler.bootstrap.jsonc`，`storage=bootstrap`、`preservationReady=false`，`/ready` 返回 503。Cloudflare 账户仍未完成 R2 首次订阅，因此私有桶和 262,905 个上传对象尚未存在。Vercel 生产环境不得设置 `CORPUS_ASSET_BASE_URL`，直到 `/ready` 返回 200 且代表性不可变对象逐哈希通过。
+
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
 2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb`，应复现 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变正文对象、2,763,263,069 个不可变对象字节，以及含清单与指针在内的 262,905 个上传对象、2,860,962,092 个上传字节；版本清单 SHA-256 应为 `2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182`；
 3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
-4. 运行 `pnpm cloudflare:types:check` 与 `pnpm cloudflare:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 部署只读 Worker；
-5. 将 `canon.foxue.ai` 绑定到 Worker，验证 `/health`、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；
+4. 运行 `pnpm cloudflare:types:check`、`pnpm cloudflare:check` 与 `pnpm cloudflare:bootstrap:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 把现有 bootstrap 版本升级为带 R2 绑定的只读 Worker；
+5. 保持 `canon.foxue.ai` 绑定不变，验证 `/health` 与 `/ready` 均为 200、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；再运行 `pnpm verify:cloudflare-edge`；
 6. 边缘层全部通过后，才在网站生产环境设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 并重新部署；
 7. 若 R2、Worker 或自定义域名失败，移除该环境变量即可回到本地受控原文，不改变稳定段落 ID 或公开网址。
 
@@ -117,11 +119,11 @@ Vercel 恢复顺序：
 
 ## 6. 恢复域名、DNS 与 TLS
 
-当前域名由 Cloudflare Registrar 管理，启用注册锁、自动续费与 DNSSEC。恢复时：
+当前域名由 Cloudflare Registrar 管理；2026-08-16 的 API 审计确认注册锁与自动续费开启、到期时间为 2028-08-05，DNSSEC 为 active（ECDSAP256SHA256 / SHA-256）。apex 与 `www` 以 DNS-only 指向 Vercel，这是避免双重 CDN、缓存冲突与安全信号损失的有意设计；`canon` 是独立 Cloudflare Worker 自定义域名并由 Cloudflare 代理。恢复时：
 
 1. 先确认组织控制的注册邮箱、双因素认证和继任人权限；
 2. 核对 apex 与 `www` 指向生产托管目标；
-3. 启用代理前先验证平台域名所有权和 TLS；
+3. 不给 Vercel 的 apex 与 `www` 擅自开启 Cloudflare 代理；若未来更换托管架构，先在独立主机名验证域名所有权、缓存、真实客户端信号和 TLS，再决定是否代理；
 4. DNSSEC 迁移必须按“新 DNSKEY → 新 DS → 验证 → 移除旧 DS”的顺序，避免签名中断；
 5. 用独立解析器核对 DS、DNSKEY、A/CNAME 与 HTTPS；
 6. 不在本仓库记录账户邮箱、恢复码、API 令牌或付款信息。
@@ -141,6 +143,7 @@ Vercel 恢复顺序：
 ## 8. 恢复演练
 
 - 每次主分支构建：生成保存包并验证 Git bundle。
+- 每日：由 `cloudflare-edge-health.yml` 从公网核对权威 DNS、Worker、发行指针、清单哈希、只读门禁与就绪状态。
 - 每季度：在全新临时环境从保存包恢复、构建并运行测试。
 - 每半年：导出 DNS、账户与对象存储清单，验证异地副本可读。
 - 每年：由未参与日常维护的人执行完整接管演练，记录用时、失败点与改进项。

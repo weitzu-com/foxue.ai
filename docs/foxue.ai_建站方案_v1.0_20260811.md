@@ -2980,12 +2980,28 @@ foxue.ai 不追求：
 - 覆盖页与 `/api/v1/corpus/coverage` 新增 `dergeKangyurFullTextWitness`，公开显示 1,122/1,122、102 卷、851 个链接作品候选、298,719,357 字节、458,913 行段和 66,397 阅读单元。全球作品、全文、翻译、权利和质量分母继续为 `null`，所以“全球收录 99%”仍不可发布；
 - 经藏目录已从一次渲染全部记录改为首屏 60 项、继续加载；支持经名、D/T 编号、EWTS 题名、译者等书目元数据检索，并按汉文、藏文、巴利、梵文与俗语筛选。界面明确标注这不是全文语义检索，避免把一个前端过滤框伪装成 AI 检索能力；
 - 藏文目录页和版页阅读器已经支持 `bo-Tibt`、函/版页导航、稳定锚点、来源、权利、书目关系边界和归属边界。D1 首锚点可由 `/jingzang/derge-kangyur-d0001#D1.001.0001b01.01` 确定性落到 `/jingzang/derge-kangyur-d0001/001-0001b#D1.001.0001b01.01`；
-- 不可变发布包为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d39f2db5229c`，含 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变对象与 2,763,263,069 个不可变对象字节。加上版本清单与最后更新的指针后，上传计划为 262,905 个对象、2,860,962,092 字节；清单 SHA-256 为 `35cc65a05ff0167229793f9e08d4ca23d7215a5ba99a812edbb9c0fc0a1afa9e`；
+- 不可变发布包为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb`，含 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变对象与 2,763,263,069 个不可变对象字节。加上版本清单与最后更新的指针后，上传计划为 262,905 个对象、2,860,962,092 字节；清单 SHA-256 为 `2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182`；
 - 离线审计不依赖 Esukhia 仍在线：它核验仓库内每个切片的字节数与 SHA-256、逐卷重组摘要、README 权利证据、第 103 卷参考目录、首尾稳定锚点、版页数和聚合统计。生产构建已成功预生成 3,889 个静态页面，并生成 7 个站点地图分片；德格阅读、目录检索和覆盖 API 的定向 Playwright 测试均通过；
 - 百年保存包现在强制包含 1,223 个德格正文切片、参考目录、上游 README、NOTICE、清单、目录、批次、GBCR v6.15、来源快照 v4.5、校验和、解析器、构建器和离线校验器。历史 v6.14 与更早版本永久保留，未来修订通过新增版本表达，不覆盖过去证据；
-- Cloudflare R2/Worker 对象布局、只读 API、ETag 与最后更新指针已经生成并通过本地校验，但当前维护环境没有 Cloudflare 发布认证，`canon.foxue.ai` 也尚无可验证 DNS 记录。因此本里程碑只声明“可发布、可恢复”，不谎称边缘语料服务已经上线；网站继续安全回退到仓库内受控原文。
+- Cloudflare R2/Worker 对象布局、只读 API、ETag 与最后更新指针已经生成并通过本地校验。`canon.foxue.ai` 的 bootstrap Worker 随后已上线，但 R2 尚未首次订阅和播种；因此网站继续安全回退到仓库内受控原文，不把“边缘入口存活”冒充“不可变对象已经归档”。
 
 本里程碑把一个重要分子做实，却没有制造全球分母。下一阶段按同一证据门槛推进多版本藏文目录对齐、T85 写本复核、合法可固定的新语料、全文索引、母语 QA 与双人独立作品裁决；只有全球分母、逐对象权利、完整性和质量同时闭合，99% 才从愿景变成可发布指标。
+
+---
+
+## 实施进展：Cloudflare 经藏边缘入口与诚实 bootstrap 状态
+
+截至 2026-08-16，Cloudflare 经藏边缘控制面已经从“可发布代码”推进为可公开验证的服务，同时严格保留对象存储未完成的边界。
+
+- Cloudflare 账户 API 已确认 `foxue.ai` 区域 active，权威 nameserver 为 `dilbert.ns.cloudflare.com` 与 `ullis.ns.cloudflare.com`。apex 与 `www` 保持 DNS-only 指向 Vercel，遵循 Vercel 不建议叠加第三方反向代理的最新官方指引，避免双重 CDN、缓存冲突和安全信号丢失；
+- `foxue-ai-corpus-edge` Worker 已部署，最终加固版本的 Cloudflare 部署 ID 为 `bbcd06b424024afda3a05aa97ab14580`；自定义域名 `canon.foxue.ai` 与独立 TLS 证书已绑定，公网响应头确认由 Cloudflare 边缘提供；
+- [`https://canon.foxue.ai/health`](https://canon.foxue.ai/health) 返回 200，公开当前发行 ID、清单 SHA-256、只读状态和 `storage=bootstrap`；[`/ready`](https://canon.foxue.ai/ready) 返回 503 与 `preservationReady=false`，因此任何监控、发布器或维护者都不能把入口存活误判为 R2 已就绪；
+- [`v1/latest.json`](https://canon.foxue.ai/v1/latest.json) 返回当前内容寻址发行指针并只允许 `https://foxue.ai` 跨域读取。完整清单与正文对象在 bootstrap 状态返回 503 和 `Retry-After`，不返回虚构内容；写请求返回 405；
+- Worker 同时保留 `wrangler.bootstrap.jsonc` 和带 R2 绑定的 `wrangler.jsonc`。两种配置均以 Wrangler 4.123.0、当前兼容日期、自动生成绑定类型、结构化错误日志、Logs 与 1% Traces 完成打包和本地运行验证；
+- `.github/workflows/cloudflare-edge-health.yml` 每日从独立 GitHub runner 核对 Cloudflare 权威 DNS、TLS/Worker、发行 ID、清单哈希、安全头、CORS、只读门禁和 `/ready` 语义。R2 完成播种后必须把巡检升级为 `REQUIRE_READY=true`；
+- Cloudflare API 明确返回 `Please enable R2 through the Cloudflare Dashboard`。官方说明首次启用必须完成 R2 subscription checkout；在该账户未完成此计费动作前，不创建虚假存储桶、不设置 Vercel 的 `CORPUS_ASSET_BASE_URL`，生产阅读继续使用仓库内受控原文。
+
+这一状态使 Cloudflare DNS 与 Worker 自动解析目标真实达成，又不越过付费订阅和完整对象写入的证据边界。下一门槛仍是：完成 R2 首次订阅、上传 262,903 个不可变对象、逐对象复核、最后原子写入两份元对象，使 `/ready` 由 503 变为 200，再启用网站的边缘语料变量。
 
 ---
 
