@@ -131,12 +131,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2186,
-    registeredExpressions: 2404,
-    fullSourceTextWorks: 2159,
-    fullSourceTextExpressions: 2361,
-    stableSegments: 4507204,
-    structureVerifiedWorks: 2186,
+    registeredWorks: 2212,
+    registeredExpressions: 2431,
+    fullSourceTextWorks: 2185,
+    fullSourceTextExpressions: 2388,
+    stableSegments: 4594639,
+    structureVerifiedWorks: 2212,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -170,11 +170,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 2129,
-    controlled: 2129,
+    denominator: 2156,
+    controlled: 2156,
     percentage: 100,
-    sourceBytes: 710890831,
-    controlledBytes: 710890831,
+    sourceBytes: 730370304,
+    controlledBytes: 730370304,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -188,6 +188,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t47InventorySha256: "aa093ac59f8c91e8d8c6c5fc4e2dcc3d4b7b862b17a8e00a167dbc540e79a8f4",
     t48InventorySha256: "ad95ac51f6e32b0b0c5073306f7211b8a3bc800459a764125707c1653fa4002b",
     t49InventorySha256: "0f92e34f3ba4576e21c2ae4112c1930006cd301ec972ba3fe12e42c40f5fb1f4",
+    t50InventorySha256: "66cfbfc0a258c4f893dec14577d0d62c891176686066e26643abba92851df7ad",
     t30InventorySha256: "dda6b9612df5cb08b0900eca6a76726aa421c1a6c92923d612add7b3fccc2839",
     t31InventorySha256: "9efd4f5897ef47c36e5310b9263dfa515483fa6c713433555a899e12a63566ca",
     t32InventorySha256: "7f4aae2c0ab97ffdf872ec72705acf05f9ef6dcd0d42f12e9756c9465ca670f7",
@@ -782,6 +783,34 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     catalogResponsibilityBoundaryGroups: 1,
     relatedDistinctWorkGroups: 7,
   });
+  expect(coverage.candidateInventory.chineseT50SourceRecords).toMatchObject({
+    denominator: 27,
+    controlled: 27,
+    percentage: 100,
+    fullSourceTexts: 27,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedPartialWorkWitnesses: 0,
+    verifiedSplitWorkWitnesses: 0,
+    verifiedEditionWitnesses: 2,
+    attributionBoundaryRecords: 27,
+    relationAnnotatedRecords: 27,
+    unsignedResponsibilityRecords: 2,
+    lostTranslatorResponsibilityRecords: 1,
+    newWorks: 26,
+    controlledWorks: 26,
+    rootVinayaCommentaryGroups: 0,
+    rootTreatiseCommentaryGroups: 0,
+    rootEditionBoundaryGroups: 1,
+    editionOrRecensionGroups: 1,
+    subcommentaryGroups: 0,
+    sameNumberBoundaryGroups: 1,
+    layeredAttributionGroups: 2,
+    scopeBoundaryGroups: 6,
+    continuationBoundaryGroups: 1,
+    sourceReuseBoundaryGroups: 2,
+    relatedDistinctWorkGroups: 9,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -847,6 +876,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseChanKoansTreatisesRulesT48BoundaryAudit: expect.stringContaining("batch-v4.15.0.json"),
     chineseBuddhistHistoriesSectarianRecordsT49Inventory: expect.stringContaining("cbeta-taisho-t49-inventory-v0.1.0.json"),
     chineseBuddhistHistoriesSectarianRecordsT49BoundaryAudit: expect.stringContaining("batch-v4.16.0.json"),
+    chineseBuddhistBiographiesHagiographiesT50Inventory: expect.stringContaining("cbeta-taisho-t50-inventory-v0.1.0.json"),
+    chineseBuddhistBiographiesHagiographiesT50BoundaryAudit: expect.stringContaining("batch-v4.17.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -2838,6 +2869,83 @@ test("汉译 T49 十四部结集、部派论书与佛教史传完整受控且保
   const sitemap = await readSitemaps(request);
   const t49Slugs = Array.from({ length: 14 }, (_, index) => `taisho-t${2026 + index}`);
   for (const slug of t49Slugs) expect(sitemap).toContain(`/jingzang/${slug}/`);
+});
+
+test("汉译 T50 二十七份佛传与僧尼史传完整受控且保留龙树传双版本边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t2047a/001-0184a");
+  await expect(page.getByRole("heading", { level: 1, name: "龍樹菩薩傳" })).toBeVisible();
+  await expect(page.getByText(/姚秦 · 鳩摩羅什譯/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2047b/001-0185b");
+  await expect(page.getByRole("heading", { level: 1, name: "龍樹菩薩傳" })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2057/001-0294c");
+  await expect(page.getByRole("heading", { level: 1, name: "大唐青龍寺三朝供奉大德行狀" })).toBeVisible();
+  await expect(page.getByText("传统责任题记未署名").first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2064/001-0948b");
+  await expect(page.getByRole("heading", { level: 1, name: "神僧傳" })).toBeVisible();
+  await expect(page.getByText("传统责任题记未署名").first()).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t2040/001-0001a", "/jingzang/taisho-t2040/005-0084b",
+    "/jingzang/taisho-t2041/001-0084b", "/jingzang/taisho-t2041/001-0099a",
+    "/jingzang/taisho-t2042/001-0099a", "/jingzang/taisho-t2042/007-0131a",
+    "/jingzang/taisho-t2043/001-0131b", "/jingzang/taisho-t2043/010-0170a",
+    "/jingzang/taisho-t2044/001-0170a", "/jingzang/taisho-t2044/001-0172a",
+    "/jingzang/taisho-t2045/001-0172a", "/jingzang/taisho-t2045/001-0183a",
+    "/jingzang/taisho-t2046/001-0183a", "/jingzang/taisho-t2046/001-0184a",
+    "/jingzang/taisho-t2047a/001-0184a", "/jingzang/taisho-t2047a/001-0185b",
+    "/jingzang/taisho-t2047b/001-0185b", "/jingzang/taisho-t2047b/001-0186c",
+    "/jingzang/taisho-t2048/001-0186c", "/jingzang/taisho-t2048/001-0188a",
+    "/jingzang/taisho-t2049/001-0188a", "/jingzang/taisho-t2049/001-0191a",
+    "/jingzang/taisho-t2050/001-0191a", "/jingzang/taisho-t2050/001-0198a",
+    "/jingzang/taisho-t2051/001-0198a", "/jingzang/taisho-t2051/003-0213b",
+    "/jingzang/taisho-t2052/001-0214a", "/jingzang/taisho-t2052/001-0220c",
+    "/jingzang/taisho-t2053/001-0220c", "/jingzang/taisho-t2053/010-0280a",
+    "/jingzang/taisho-t2054/001-0280a", "/jingzang/taisho-t2054/001-0289c",
+    "/jingzang/taisho-t2055/001-0290a", "/jingzang/taisho-t2055/001-0292a",
+    "/jingzang/taisho-t2056/001-0292b", "/jingzang/taisho-t2056/001-0294c",
+    "/jingzang/taisho-t2057/001-0294c", "/jingzang/taisho-t2057/001-0296a",
+    "/jingzang/taisho-t2058/001-0297a", "/jingzang/taisho-t2058/006-0322b",
+    "/jingzang/taisho-t2059/001-0322c", "/jingzang/taisho-t2059/014-0423a",
+    "/jingzang/taisho-t2060/001-0425a", "/jingzang/taisho-t2060/030-0707a",
+    "/jingzang/taisho-t2061/001-0709a", "/jingzang/taisho-t2061/030-0900a",
+    "/jingzang/taisho-t2062/001-0901a", "/jingzang/taisho-t2062/008-0934a",
+    "/jingzang/taisho-t2063/001-0934a", "/jingzang/taisho-t2063/004-0948a",
+    "/jingzang/taisho-t2064/001-0948b", "/jingzang/taisho-t2064/009-1015a",
+    "/jingzang/taisho-t2065/001-1015a", "/jingzang/taisho-t2065/002-1023a",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT50SourceRecords).toMatchObject({
+    denominator: 27,
+    controlled: 27,
+    percentage: 100,
+    fullSourceTexts: 27,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 2,
+    relationAnnotatedRecords: 27,
+    attributionBoundaryRecords: 27,
+    unsignedResponsibilityRecords: 2,
+    lostTranslatorResponsibilityRecords: 1,
+    newWorks: 26,
+    controlledWorks: 26,
+    rootEditionBoundaryGroups: 1,
+    editionOrRecensionGroups: 1,
+    sameNumberBoundaryGroups: 1,
+    layeredAttributionGroups: 2,
+    scopeBoundaryGroups: 6,
+    continuationBoundaryGroups: 1,
+    sourceReuseBoundaryGroups: 2,
+    relatedDistinctWorkGroups: 9,
+  });
+
+  const sitemap = await readSitemaps(request);
+  const t50Slugs = Array.from({ length: 26 }, (_, index) => 2040 + index).flatMap((id) =>
+    id === 2047 ? ["taisho-t2047a", "taisho-t2047b"] : [`taisho-t${id}`]);
+  expect(t50Slugs).toHaveLength(27);
+  for (const slug of t50Slugs) expect(sitemap).toContain(`/jingzang/${slug}/`);
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

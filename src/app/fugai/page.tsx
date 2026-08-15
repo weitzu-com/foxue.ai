@@ -318,6 +318,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT49SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT49SourceRecords.controlledWorks} 个独立作品；3 组主题范围、1 组本编—续集、1 组目录责任标签冲突与 7 组相关异作边界均已记录，
               三部部派论书、五部中国佛教史传与《三国遗事》不因共同主题、史料复用、编年结构或责任目录标签而误合并；
+              T50 佛传、论师传与僧尼史传固定来源已完成 {snapshot.candidateInventory.chineseT50SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT50SourceRecords.denominator}（{snapshot.candidateInventory.chineseT50SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT50SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT50SourceRecords.controlledWorks} 个作品；T2047a/b 作为同一《龙树菩萨传》的 2 个完整版本见证，
+              6 组范围、1 组续修、2 组史料复用与 9 组相关异作边界均已记录，历代高僧传、比丘尼传、神僧传与海东高僧传不因人物、体裁、续修或史料重叠而误合并；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -584,6 +589,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T49 的 14 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t50-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T50 的 27 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

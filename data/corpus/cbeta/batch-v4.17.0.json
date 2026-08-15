@@ -1,0 +1,2279 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.17.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.16.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t50-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T50; T50 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T50",
+    "title": "大正藏 T50 佛传、论师与僧尼史传固定来源记录",
+    "sourceRecordDenominator": 27,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 27,
+    "controlledSourceRecords": 27,
+    "newSourceBytes": 19479473,
+    "newStableSegments": 87435,
+    "newFolios": 3162,
+    "newJuans": 152,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 2,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 27,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 27,
+    "attributionBoundaryRecords": 27,
+    "unsignedResponsibilityRecords": 2,
+    "lostTranslatorResponsibilityRecords": 1,
+    "newWorks": 26,
+    "controlledWorks": 26,
+    "workCountingDecision": "T50 的 27 份固定来源记录登记为 27 个完整表达或版本见证和 26 个作品。T2047a/b 共享题名、传统译者、DILA 基础号 CA0002117 与 CBC 作品入口，正文高度重合，归为《龙树菩萨传》一个作品的两个完整版本见证；其余 25 条按独立佛传、论师传、行状、付法传承或僧尼传集建模。阿育王长短叙事、玄奘行状与传记、历代高僧传续修及《神僧传》史料复用只建立关系，不据主题、人物、相邻经号或机器重叠自动合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_biographical_subject_same_work_edition_responsibility_continuation_gender_regional_and_source_reuse_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [
+      "nagarjuna-biography-t2047a-b"
+    ],
+    "editionOrRecensionGroups": [
+      "nagarjuna-biography-t2047a-b"
+    ],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [
+      "nagarjuna-biography-t2047a-b"
+    ],
+    "layeredAttributionGroups": [
+      "east-asian-monk-biographies-t2050-t2057",
+      "specialized-collective-biographies-t2063-t2065"
+    ],
+    "scopeBoundaryGroups": [
+      "buddha-genealogies-t2040-t2041",
+      "ashoka-narratives-t2042-t2045",
+      "indian-master-biographies-t2046-t2049",
+      "east-asian-monk-biographies-t2050-t2057",
+      "transmission-collective-biographies-t2058-t2065",
+      "specialized-collective-biographies-t2063-t2065"
+    ],
+    "continuationBoundaryGroups": [
+      "high-monk-series-t2059-t2062"
+    ],
+    "sourceReuseBoundaryGroups": [
+      "xuanzang-biographies-t2052-t2053",
+      "collective-biography-reuse-t2059-t2061-t2064"
+    ],
+    "relatedDistinctWorkGroups": [
+      "buddha-genealogies-t2040-t2041",
+      "ashoka-narratives-t2042-t2045",
+      "indian-master-biographies-t2046-t2049",
+      "east-asian-monk-biographies-t2050-t2057",
+      "xuanzang-biographies-t2052-t2053",
+      "transmission-collective-biographies-t2058-t2065",
+      "high-monk-series-t2059-t2062",
+      "collective-biography-reuse-t2059-t2061-t2064",
+      "specialized-collective-biographies-t2063-t2065"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2040/T2041 同编释迦谱系，但作者、卷数、结构、DILA 作品号不同，五字组包含度约 0.090468",
+      "T2042/T2043 是相关的阿育王长篇汉译传统，DILA 作品号不同且五字组包含度约 0.016720；T2044/T2045 的譬喻和坏目因缘范围另立",
+      "T2046、T2048、T2049 传述不同印度论师；只有 T2047a/b 满足同作品版本见证证据链",
+      "T2052/T2053 共享玄奘生平资料且包含度约 0.206132，但一卷行状与十卷传记的作者、编纂层、范围和 DILA 作品号不同",
+      "T2059–T2062 构成历代高僧传续修系列，但作者、时代、题名、卷数和 DILA 作品号不同，相互正文包含度均低于 0.006",
+      "T2064 对 T2059–T2061 的五字组包含度约 0.168946–0.203935，记录选录和史料复用，不把神异主题汇编并回任一高僧传",
+      "T2063、T2064、T2065 分别按性别、神异主题与高丽地域组织，传记体裁相同不构成作品同一",
+      "T2044 标为失译；T2057 与 T2064 题记未署名，均不从相邻作品、后世目录或共享材料补造责任者"
+    ],
+    "partialWorkWitnesses": [],
+    "editionWitnesses": [
+      "T2047a",
+      "T2047b"
+    ],
+    "sourceRoles": {
+      "goryeo_compiled_korean_high_monk_biographies": [
+        "T2065"
+      ],
+      "kumarajiva_traditional_translation_nagarjuna_biography_edition_witness": [
+        "T2047a",
+        "T2047b"
+      ],
+      "liang_compiled_buddha_biographical_genealogy": [
+        "T2040"
+      ],
+      "liang_compiled_buddhist_nun_biographies": [
+        "T2063"
+      ],
+      "liang_compiled_high_monk_biographies": [
+        "T2059"
+      ],
+      "lost_translator_ashoka_parable": [
+        "T2044"
+      ],
+      "ming_compiled_high_monk_biographies": [
+        "T2062"
+      ],
+      "silla_fazang_individual_biography": [
+        "T2054"
+      ],
+      "song_compiled_high_monk_biographies": [
+        "T2061"
+      ],
+      "sui_zhiyi_individual_biography": [
+        "T2050"
+      ],
+      "tang_amoghavajra_acts": [
+        "T2056"
+      ],
+      "tang_compiled_buddha_biographical_genealogy": [
+        "T2041"
+      ],
+      "tang_compiled_continuation_high_monk_biographies": [
+        "T2060"
+      ],
+      "tang_falin_individual_biography": [
+        "T2051"
+      ],
+      "tang_subhakarasimha_acts": [
+        "T2055"
+      ],
+      "tang_xuanzang_full_biography": [
+        "T2053"
+      ],
+      "tang_xuanzang_short_acts": [
+        "T2052"
+      ],
+      "translated_aryadeva_biography": [
+        "T2048"
+      ],
+      "translated_ashoka_eye_episode": [
+        "T2045"
+      ],
+      "translated_ashoka_scripture_narrative": [
+        "T2043"
+      ],
+      "translated_asokarajavadana_biography": [
+        "T2042"
+      ],
+      "translated_asvaghosa_biography": [
+        "T2046"
+      ],
+      "translated_dharma_transmission_lineage": [
+        "T2058"
+      ],
+      "translated_vasubandhu_biography": [
+        "T2049"
+      ],
+      "unattributed_amoghavajra_related_acts": [
+        "T2057"
+      ],
+      "unattributed_miracle_monk_anthology": [
+        "T2064"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records version关系、共享生平资料、续修与史料复用；只有题名、责任、目录权威、共同作品入口和正文证据链合取时才合并作品。",
+      "pairs": [
+        {
+          "pair": [
+            "T2040",
+            "T2041"
+          ],
+          "normalizedCharacters": [
+            112368,
+            19017
+          ],
+          "fiveGramContainmentOfShorter": 0.090468,
+          "fiveGramJaccard": 0.014101
+        },
+        {
+          "pair": [
+            "T2042",
+            "T2043"
+          ],
+          "normalizedCharacters": [
+            44485,
+            48911
+          ],
+          "fiveGramContainmentOfShorter": 0.01672,
+          "fiveGramJaccard": 0.008288
+        },
+        {
+          "pair": [
+            "T2042",
+            "T2044"
+          ],
+          "normalizedCharacters": [
+            44485,
+            2796
+          ],
+          "fiveGramContainmentOfShorter": 0.001087,
+          "fiveGramJaccard": 0.000066
+        },
+        {
+          "pair": [
+            "T2042",
+            "T2045"
+          ],
+          "normalizedCharacters": [
+            44485,
+            11552
+          ],
+          "fiveGramContainmentOfShorter": 0.000956,
+          "fiveGramJaccard": 0.000204
+        },
+        {
+          "pair": [
+            "T2043",
+            "T2044"
+          ],
+          "normalizedCharacters": [
+            48911,
+            2796
+          ],
+          "fiveGramContainmentOfShorter": 0.000724,
+          "fiveGramJaccard": 0.000043
+        },
+        {
+          "pair": [
+            "T2043",
+            "T2045"
+          ],
+          "normalizedCharacters": [
+            48911,
+            11552
+          ],
+          "fiveGramContainmentOfShorter": 0.000608,
+          "fiveGramJaccard": 0.000126
+        },
+        {
+          "pair": [
+            "T2044",
+            "T2045"
+          ],
+          "normalizedCharacters": [
+            2796,
+            11552
+          ],
+          "fiveGramContainmentOfShorter": 0.000724,
+          "fiveGramJaccard": 0.00014
+        },
+        {
+          "pair": [
+            "T2047a",
+            "T2047b"
+          ],
+          "normalizedCharacters": [
+            1781,
+            1641
+          ],
+          "fiveGramContainmentOfShorter": 0.61896,
+          "fiveGramJaccard": 0.422018
+        },
+        {
+          "pair": [
+            "T2052",
+            "T2053"
+          ],
+          "normalizedCharacters": [
+            9703,
+            80016
+          ],
+          "fiveGramContainmentOfShorter": 0.206132,
+          "fiveGramJaccard": 0.023247
+        },
+        {
+          "pair": [
+            "T2059",
+            "T2060"
+          ],
+          "normalizedCharacters": [
+            134838,
+            381530
+          ],
+          "fiveGramContainmentOfShorter": 0.005117,
+          "fiveGramJaccard": 0.00133
+        },
+        {
+          "pair": [
+            "T2059",
+            "T2061"
+          ],
+          "normalizedCharacters": [
+            134838,
+            264200
+          ],
+          "fiveGramContainmentOfShorter": 0.002744,
+          "fiveGramJaccard": 0.000933
+        },
+        {
+          "pair": [
+            "T2060",
+            "T2061"
+          ],
+          "normalizedCharacters": [
+            381530,
+            264200
+          ],
+          "fiveGramContainmentOfShorter": 0.002742,
+          "fiveGramJaccard": 0.001113
+        },
+        {
+          "pair": [
+            "T2061",
+            "T2062"
+          ],
+          "normalizedCharacters": [
+            264200,
+            45948
+          ],
+          "fiveGramContainmentOfShorter": 0.002761,
+          "fiveGramJaccard": 0.000408
+        },
+        {
+          "pair": [
+            "T2059",
+            "T2063"
+          ],
+          "normalizedCharacters": [
+            134838,
+            19040
+          ],
+          "fiveGramContainmentOfShorter": 0.009091,
+          "fiveGramJaccard": 0.001104
+        },
+        {
+          "pair": [
+            "T2059",
+            "T2064"
+          ],
+          "normalizedCharacters": [
+            134838,
+            93745
+          ],
+          "fiveGramContainmentOfShorter": 0.203935,
+          "fiveGramJaccard": 0.092158
+        },
+        {
+          "pair": [
+            "T2060",
+            "T2064"
+          ],
+          "normalizedCharacters": [
+            381530,
+            93745
+          ],
+          "fiveGramContainmentOfShorter": 0.169042,
+          "fiveGramJaccard": 0.034703
+        },
+        {
+          "pair": [
+            "T2061",
+            "T2064"
+          ],
+          "normalizedCharacters": [
+            264200,
+            93745
+          ],
+          "fiveGramContainmentOfShorter": 0.168946,
+          "fiveGramJaccard": 0.047133
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T50",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003119",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003126",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000076",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000073",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000074",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000075",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002157",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002117a",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002117b",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003224",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002416",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003250",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000934",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003659",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000566",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000955",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002914",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000355",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001492",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001120",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001136",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001137",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001140",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001141",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000300",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002948",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001142",
+      "https://dazangthings.nz/cbc/text/1465/"
+    ],
+    "caveat": "T50 是佛传、阿育王叙事、印度论师传、东亚高僧行状、付法传承与僧尼传记合集，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI、校勘和传统责任题记，同时分离人物对象、作品、表达、a/b 版本见证、行状与长传、本编与续修、性别与地域范围、失译与未署名、选录与史料复用；相邻经号、共同人物、体裁、传统译者、后世引用或机器相似度都不能单独证明作品相同或责任无争议。"
+  },
+  "files": [
+    {
+      "id": "T2040",
+      "slug": "taisho-t2040",
+      "workId": "gbcr:work:taisho-t2040-buddha-biographical-genealogy",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "釋迦譜",
+      "sourceRole": "liang_compiled_buddha_biographical_genealogy",
+      "bibliographicRelations": [
+        {
+          "type": "buddha_biographical_genealogies_scope_distinct",
+          "groupId": "buddha-genealogies-t2040-t2041",
+          "label": "《释迦谱》与《释迦氏谱》作品边界",
+          "evidence": "T2040 与 T2041 都编述释迦世系与生平，但分别由梁僧祐和唐道宣撰，卷数、结构、内容范围及 DILA 作品号 CA0003119/CA0003126 不同；五字组较短一方包含度约 0.090468，只建立主题与资料关系，不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2040",
+              "T2041"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003119"
+      },
+      "localPath": "data/corpus/cbeta/T50n2040.xml",
+      "upstreamPath": "T/T50/T50n2040.xml",
+      "upstreamGitBlobSha1": "82cb54165ecec9711a629e555da9ad426b1e7191",
+      "upstreamBytes": 1494019,
+      "upstreamSha256": "44b07d424086cc805071e7671bbb17bf9076349771c890869884cf0d55939504",
+      "localBytes": 1494020,
+      "localSha256": "ac595282f885b11ec31b397f8602773020346e87895b7241e6ae07216667cfb7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋迦譜",
+        "alternateTitle": "釋迦譜",
+        "tradition": "汉传佛教 · 佛传谱系",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2040",
+        "translator": "梁 · 僧祐撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：梁 僧祐撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2040_001"
+      },
+      "verification": {
+        "segments": 7075,
+        "folios": 254,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2040.001.0001a02",
+          "T2040.005.0084b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2041",
+      "slug": "taisho-t2041",
+      "workId": "gbcr:work:taisho-t2041-buddha-biographical-genealogy",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "釋迦氏譜",
+      "sourceRole": "tang_compiled_buddha_biographical_genealogy",
+      "bibliographicRelations": [
+        {
+          "type": "buddha_biographical_genealogies_scope_distinct",
+          "groupId": "buddha-genealogies-t2040-t2041",
+          "label": "《释迦谱》与《释迦氏谱》作品边界",
+          "evidence": "T2040 与 T2041 都编述释迦世系与生平，但分别由梁僧祐和唐道宣撰，卷数、结构、内容范围及 DILA 作品号 CA0003119/CA0003126 不同；五字组较短一方包含度约 0.090468，只建立主题与资料关系，不合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2040",
+              "T2041"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003126"
+      },
+      "localPath": "data/corpus/cbeta/T50n2041.xml",
+      "upstreamPath": "T/T50/T50n2041.xml",
+      "upstreamGitBlobSha1": "e9edbe8f10a4311bfbc83e7de797e91179e7dd33",
+      "upstreamBytes": 325424,
+      "upstreamSha256": "2393747a969f9bd5e95a4b622c6ec42b0d14ef46cacd4e43e7bc3b619905a1d6",
+      "localBytes": 325425,
+      "localSha256": "2fcba036aa98022c14b3e09c58651b07fa56c659eb50dc5265a5779921fbfa68",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋迦氏譜",
+        "alternateTitle": "釋迦氏譜",
+        "tradition": "汉传佛教 · 佛传谱系",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2041",
+        "translator": "唐 · 道宣撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2041_001"
+      },
+      "verification": {
+        "segments": 1260,
+        "folios": 45,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2041.001.0084b14",
+          "T2041.001.0099a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2042",
+      "slug": "taisho-t2042",
+      "workId": "gbcr:work:taisho-t2042-ashoka-narrative",
+      "workIdentityStatus": "verified_distinct_related_ashoka_translation",
+      "workTitle": "阿育王傳",
+      "sourceRole": "translated_asokarajavadana_biography",
+      "bibliographicRelations": [
+        {
+          "type": "ashoka_narrative_translation_and_episode_scope_distinct",
+          "groupId": "ashoka-narratives-t2042-t2045",
+          "label": "阿育王传记、经译与譬喻因缘作品边界",
+          "evidence": "T2042《阿育王传》与 T2043《阿育王经》是相关而不同的完整汉译传统，T2044/T2045 是题名与范围独立的譬喻、坏目因缘记录。四个 DILA 作品号、责任题记、卷数和正文范围不同；两部长本五字组包含度仅约 0.016720。",
+          "externalIds": {
+            "cbeta": [
+              "T2042",
+              "T2043",
+              "T2044",
+              "T2045"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000076"
+      },
+      "localPath": "data/corpus/cbeta/T50n2042.xml",
+      "upstreamPath": "T/T50/T50n2042.xml",
+      "upstreamGitBlobSha1": "6b33798ce5800453a9de05d3f2c6c67fe85718a2",
+      "upstreamBytes": 690537,
+      "upstreamSha256": "38b9eabff180907538d4d45fd16c96199660953a72614594060e099fbf0820f7",
+      "localBytes": 690538,
+      "localSha256": "fecc3320ffd08671ff20cf2b4452baef2c2b60bfb5afbb492779e3cf2af2af19",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿育王傳",
+        "alternateTitle": "阿育王傳",
+        "tradition": "汉传佛教 · 阿育王传记与因缘",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2042",
+        "translator": "西晉 · 安法欽譯",
+        "summary": "7卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：西晉 安法欽譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2042_001"
+      },
+      "verification": {
+        "segments": 2780,
+        "folios": 102,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T2042.001.0099a11",
+          "T2042.007.0131a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2043",
+      "slug": "taisho-t2043",
+      "workId": "gbcr:work:taisho-t2043-ashoka-narrative",
+      "workIdentityStatus": "verified_distinct_related_ashoka_translation",
+      "workTitle": "阿育王經",
+      "sourceRole": "translated_ashoka_scripture_narrative",
+      "bibliographicRelations": [
+        {
+          "type": "ashoka_narrative_translation_and_episode_scope_distinct",
+          "groupId": "ashoka-narratives-t2042-t2045",
+          "label": "阿育王传记、经译与譬喻因缘作品边界",
+          "evidence": "T2042《阿育王传》与 T2043《阿育王经》是相关而不同的完整汉译传统，T2044/T2045 是题名与范围独立的譬喻、坏目因缘记录。四个 DILA 作品号、责任题记、卷数和正文范围不同；两部长本五字组包含度仅约 0.016720。",
+          "externalIds": {
+            "cbeta": [
+              "T2042",
+              "T2043",
+              "T2044",
+              "T2045"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000073"
+      },
+      "localPath": "data/corpus/cbeta/T50n2043.xml",
+      "upstreamPath": "T/T50/T50n2043.xml",
+      "upstreamGitBlobSha1": "d279baaca2ed892eaa3293207d1c6ad34ac943c6",
+      "upstreamBytes": 590477,
+      "upstreamSha256": "1af8184ae75c12519392568f4d8c86ed5a3c4804a8abeb41efb2b335fb0c1ac0",
+      "localBytes": 590478,
+      "localSha256": "7cddf098d23da320281be96fd05a273a241cc50f2f71da9ad5b5d2f729f38a45",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿育王經",
+        "alternateTitle": "阿育王經",
+        "tradition": "汉传佛教 · 阿育王传记与因缘",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2043",
+        "translator": "梁 · 僧伽婆羅譯",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：梁 僧伽婆羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2043_001"
+      },
+      "verification": {
+        "segments": 3335,
+        "folios": 125,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2043.001.0131b02",
+          "T2043.010.0170a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2044",
+      "slug": "taisho-t2044",
+      "workId": "gbcr:work:taisho-t2044-ashoka-narrative",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "天尊說阿育王譬喻經",
+      "sourceRole": "lost_translator_ashoka_parable",
+      "bibliographicRelations": [
+        {
+          "type": "ashoka_narrative_translation_and_episode_scope_distinct",
+          "groupId": "ashoka-narratives-t2042-t2045",
+          "label": "阿育王传记、经译与譬喻因缘作品边界",
+          "evidence": "T2042《阿育王传》与 T2043《阿育王经》是相关而不同的完整汉译传统，T2044/T2045 是题名与范围独立的譬喻、坏目因缘记录。四个 DILA 作品号、责任题记、卷数和正文范围不同；两部长本五字组包含度仅约 0.016720。",
+          "externalIds": {
+            "cbeta": [
+              "T2042",
+              "T2043",
+              "T2044",
+              "T2045"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000074"
+      },
+      "localPath": "data/corpus/cbeta/T50n2044.xml",
+      "upstreamPath": "T/T50/T50n2044.xml",
+      "upstreamGitBlobSha1": "0ce1b5aab9d6c11d910bd0ce967e5dbe1c6f1f7e",
+      "upstreamBytes": 80532,
+      "upstreamSha256": "c6336c99dfc63326f40f48f0aa7125a6296657deaab068cf9e5ef741577fe9b1",
+      "localBytes": 80533,
+      "localSha256": "2d5ffdbe77835809b0cd3ee5e99fbc67f6292c5ecd4974cacd41dca9a4ba0c5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天尊說阿育王譬喻經",
+        "alternateTitle": "天尊說阿育王譬喻經",
+        "tradition": "汉传佛教 · 阿育王传记与因缘",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2044",
+        "translator": "失譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2044_001"
+      },
+      "verification": {
+        "segments": 176,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2044.001.0170a11",
+          "T2044.001.0172a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2045",
+      "slug": "taisho-t2045",
+      "workId": "gbcr:work:taisho-t2045-ashoka-narrative",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "阿育王息壞目因緣經",
+      "sourceRole": "translated_ashoka_eye_episode",
+      "bibliographicRelations": [
+        {
+          "type": "ashoka_narrative_translation_and_episode_scope_distinct",
+          "groupId": "ashoka-narratives-t2042-t2045",
+          "label": "阿育王传记、经译与譬喻因缘作品边界",
+          "evidence": "T2042《阿育王传》与 T2043《阿育王经》是相关而不同的完整汉译传统，T2044/T2045 是题名与范围独立的譬喻、坏目因缘记录。四个 DILA 作品号、责任题记、卷数和正文范围不同；两部长本五字组包含度仅约 0.016720。",
+          "externalIds": {
+            "cbeta": [
+              "T2042",
+              "T2043",
+              "T2044",
+              "T2045"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000075"
+      },
+      "localPath": "data/corpus/cbeta/T50n2045.xml",
+      "upstreamPath": "T/T50/T50n2045.xml",
+      "upstreamGitBlobSha1": "291f4771ca15a0c8f8278ad6f28c4055d5ef3523",
+      "upstreamBytes": 257358,
+      "upstreamSha256": "d70779dcd40e869342c327683bf49075c0eb5772a8f47918b4771b019bef3276",
+      "localBytes": 257359,
+      "localSha256": "83032d415db98980be2cf32a47d4dd2ea3d98d1a8241b03eaa3584a65978a5f0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "阿育王息壞目因緣經",
+        "alternateTitle": "阿育王息壞目因緣經",
+        "tradition": "汉传佛教 · 阿育王传记与因缘",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2045",
+        "translator": "符秦 · 曇摩難提譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：符秦 曇摩難提譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2045_001"
+      },
+      "verification": {
+        "segments": 952,
+        "folios": 34,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2045.001.0172a16",
+          "T2045.001.0183a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2046",
+      "slug": "taisho-t2046",
+      "workId": "gbcr:work:taisho-t2046-indian-master-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "馬鳴菩薩傳",
+      "sourceRole": "translated_asvaghosa_biography",
+      "bibliographicRelations": [
+        {
+          "type": "indian_master_biographies_person_scope_distinct",
+          "groupId": "indian-master-biographies-t2046-t2049",
+          "label": "马鸣、龙树、提婆与婆薮槃豆传记人物边界",
+          "evidence": "T2046–T2049 分别传述马鸣、龙树、提婆与婆薮槃豆。人物、题名和 DILA 作品号不同，不能因同属印度论师传或共享传统译者而合并；唯 T2047a/b 另依同基础权威号与正文证据归为同一作品的两个版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T2046",
+              "T2047a",
+              "T2047b",
+              "T2048",
+              "T2049"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002157"
+      },
+      "localPath": "data/corpus/cbeta/T50n2046.xml",
+      "upstreamPath": "T/T50/T50n2046.xml",
+      "upstreamGitBlobSha1": "525b616757581ece1dcfa0d9169f75e73ef5f0c7",
+      "upstreamBytes": 20420,
+      "upstreamSha256": "1ffb77243a82527507c28bfc9a854b346568c0ce1ed3ae770f0032bb4763bcf1",
+      "localBytes": 20421,
+      "localSha256": "6892dc69e01d6c68896ec378d7457ea0cf4b7a7286fb783b0f02d0c0b6b5e088",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "馬鳴菩薩傳",
+        "alternateTitle": "馬鳴菩薩傳",
+        "tradition": "汉传佛教 · 印度论师传",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2046",
+        "translator": "後秦 · 鳩摩羅什譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：後秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2046_001"
+      },
+      "verification": {
+        "segments": 77,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2046.001.0183a22",
+          "T2046.001.0184a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2047a",
+      "slug": "taisho-t2047a",
+      "workId": "gbcr:work:nagarjuna-biography-t2047",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "龍樹菩薩傳",
+      "sourceRole": "kumarajiva_traditional_translation_nagarjuna_biography_edition_witness",
+      "bibliographicRelations": [
+        {
+          "type": "indian_master_biographies_person_scope_distinct",
+          "groupId": "indian-master-biographies-t2046-t2049",
+          "label": "马鸣、龙树、提婆与婆薮槃豆传记人物边界",
+          "evidence": "T2046–T2049 分别传述马鸣、龙树、提婆与婆薮槃豆。人物、题名和 DILA 作品号不同，不能因同属印度论师传或共享传统译者而合并；唯 T2047a/b 另依同基础权威号与正文证据归为同一作品的两个版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T2046",
+              "T2047a",
+              "T2047b",
+              "T2048",
+              "T2049"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "nagarjuna-biography-t2047a-b",
+          "label": "《龙树菩萨传》T2047a/b 版本见证",
+          "evidence": "两份 TEI 的核心题名、鸠摩罗什传统译者与基础经号相同；DILA 分配 CA0002117a/b 并指向同一 CBC 作品入口，五字组较短一方包含度约 0.618960、Jaccard 约 0.422018。平台共享作品实体，同时保留两个完整版本见证、独立来源校验与阅读路线。",
+          "externalIds": {
+            "cbeta": [
+              "T2047a",
+              "T2047b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002117a"
+      },
+      "localPath": "data/corpus/cbeta/T50n2047a.xml",
+      "upstreamPath": "T/T50/T50n2047a.xml",
+      "upstreamGitBlobSha1": "683946052b9315eb29f1e106072f37e31b3f4613",
+      "upstreamBytes": 14377,
+      "upstreamSha256": "5ccc65d48bb651baeb447484d653c9791fc42bbf70a450fd6063f0636db0d33b",
+      "localBytes": 14378,
+      "localSha256": "aee63f20c19918cc3180113458f372cf6ebc1aff0ccb362b5b750470eb65d836",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍樹菩薩傳",
+        "alternateTitle": "龍樹菩薩傳",
+        "tradition": "汉传佛教 · 印度论师传",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2047a",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为同一《龙树菩萨传》作品的独立完整版本见证建模，不标成佛陀逐字亲说。传统责任题记：姚秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2047a_001"
+      },
+      "verification": {
+        "segments": 108,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2047a.001.0184a15",
+          "T2047a.001.0185b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2047b",
+      "slug": "taisho-t2047b",
+      "workId": "gbcr:work:nagarjuna-biography-t2047",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "龍樹菩薩傳",
+      "sourceRole": "kumarajiva_traditional_translation_nagarjuna_biography_edition_witness",
+      "bibliographicRelations": [
+        {
+          "type": "indian_master_biographies_person_scope_distinct",
+          "groupId": "indian-master-biographies-t2046-t2049",
+          "label": "马鸣、龙树、提婆与婆薮槃豆传记人物边界",
+          "evidence": "T2046–T2049 分别传述马鸣、龙树、提婆与婆薮槃豆。人物、题名和 DILA 作品号不同，不能因同属印度论师传或共享传统译者而合并；唯 T2047a/b 另依同基础权威号与正文证据归为同一作品的两个版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T2046",
+              "T2047a",
+              "T2047b",
+              "T2048",
+              "T2049"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_or_recension_group_verified",
+          "groupId": "nagarjuna-biography-t2047a-b",
+          "label": "《龙树菩萨传》T2047a/b 版本见证",
+          "evidence": "两份 TEI 的核心题名、鸠摩罗什传统译者与基础经号相同；DILA 分配 CA0002117a/b 并指向同一 CBC 作品入口，五字组较短一方包含度约 0.618960、Jaccard 约 0.422018。平台共享作品实体，同时保留两个完整版本见证、独立来源校验与阅读路线。",
+          "externalIds": {
+            "cbeta": [
+              "T2047a",
+              "T2047b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002117b"
+      },
+      "localPath": "data/corpus/cbeta/T50n2047b.xml",
+      "upstreamPath": "T/T50/T50n2047b.xml",
+      "upstreamGitBlobSha1": "afebf86e0efd2d280a1d27de9ace6338f6400ae5",
+      "upstreamBytes": 47312,
+      "upstreamSha256": "c0b5b6f91cca36ba310b792b855feed5e3ef2b3c417013c6e94367749cb32859",
+      "localBytes": 47313,
+      "localSha256": "451dd7c1a82204ef36d2c00ca518d9f452c5c69e18ac4fdf1b61838bc99b4970",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍樹菩薩傳",
+        "alternateTitle": "龍樹菩薩傳",
+        "tradition": "汉传佛教 · 印度论师传",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2047b",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为同一《龙树菩萨传》作品的独立完整版本见证建模，不标成佛陀逐字亲说。传统责任题记：姚秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2047b_001"
+      },
+      "verification": {
+        "segments": 106,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2047b.001.0185b10",
+          "T2047b.001.0186c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2048",
+      "slug": "taisho-t2048",
+      "workId": "gbcr:work:taisho-t2048-indian-master-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "提婆菩薩傳",
+      "sourceRole": "translated_aryadeva_biography",
+      "bibliographicRelations": [
+        {
+          "type": "indian_master_biographies_person_scope_distinct",
+          "groupId": "indian-master-biographies-t2046-t2049",
+          "label": "马鸣、龙树、提婆与婆薮槃豆传记人物边界",
+          "evidence": "T2046–T2049 分别传述马鸣、龙树、提婆与婆薮槃豆。人物、题名和 DILA 作品号不同，不能因同属印度论师传或共享传统译者而合并；唯 T2047a/b 另依同基础权威号与正文证据归为同一作品的两个版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T2046",
+              "T2047a",
+              "T2047b",
+              "T2048",
+              "T2049"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003224"
+      },
+      "localPath": "data/corpus/cbeta/T50n2048.xml",
+      "upstreamPath": "T/T50/T50n2048.xml",
+      "upstreamGitBlobSha1": "cda42b64cdd16cc533b66ea49ca5807bb4c27eb0",
+      "upstreamBytes": 52437,
+      "upstreamSha256": "dbe0cdfbe00900e4d4195292395fe1e9d63ad4faf2e99ab7bfa07ac8d76769ec",
+      "localBytes": 52438,
+      "localSha256": "47d59e9e773196259d2b1eb86274ee2918f30e7981efe34cb81c31c2256f800c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "提婆菩薩傳",
+        "alternateTitle": "提婆菩薩傳",
+        "tradition": "汉传佛教 · 印度论师传",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2048",
+        "translator": "姚秦 · 鳩摩羅什譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：姚秦 鳩摩羅什譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2048_001"
+      },
+      "verification": {
+        "segments": 113,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2048.001.0186c07",
+          "T2048.001.0188a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2049",
+      "slug": "taisho-t2049",
+      "workId": "gbcr:work:taisho-t2049-indian-master-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "婆藪槃豆法師傳",
+      "sourceRole": "translated_vasubandhu_biography",
+      "bibliographicRelations": [
+        {
+          "type": "indian_master_biographies_person_scope_distinct",
+          "groupId": "indian-master-biographies-t2046-t2049",
+          "label": "马鸣、龙树、提婆与婆薮槃豆传记人物边界",
+          "evidence": "T2046–T2049 分别传述马鸣、龙树、提婆与婆薮槃豆。人物、题名和 DILA 作品号不同，不能因同属印度论师传或共享传统译者而合并；唯 T2047a/b 另依同基础权威号与正文证据归为同一作品的两个版本见证。",
+          "externalIds": {
+            "cbeta": [
+              "T2046",
+              "T2047a",
+              "T2047b",
+              "T2048",
+              "T2049"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002416"
+      },
+      "localPath": "data/corpus/cbeta/T50n2049.xml",
+      "upstreamPath": "T/T50/T50n2049.xml",
+      "upstreamGitBlobSha1": "4ab6ad85938264f36282492de6f5ce284f036d07",
+      "upstreamBytes": 98582,
+      "upstreamSha256": "73cc94df078b1c35c86bfe1551bfb551067bf00f4a7088d3f2e053971eee5823",
+      "localBytes": 98583,
+      "localSha256": "b3860f6e6a492c680bb6ca6f0dfe589efde6eab46e1127dd1b5aac5c56cc936f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "婆藪槃豆法師傳",
+        "alternateTitle": "婆藪槃豆法師傳",
+        "tradition": "汉传佛教 · 印度论师传",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2049",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2049_001"
+      },
+      "verification": {
+        "segments": 272,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2049.001.0188a06",
+          "T2049.001.0191a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2050",
+      "slug": "taisho-t2050",
+      "workId": "gbcr:work:taisho-t2050-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "隋天台智者大師別傳",
+      "sourceRole": "sui_zhiyi_individual_biography",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003250"
+      },
+      "localPath": "data/corpus/cbeta/T50n2050.xml",
+      "upstreamPath": "T/T50/T50n2050.xml",
+      "upstreamGitBlobSha1": "2e53d7f752a619abda4aa1aa3854f0f2a17e5f67",
+      "upstreamBytes": 56791,
+      "upstreamSha256": "1e83517fb70dcf2cfd86a0793848472733c2899e641ca80bf30c5e6ee9ee1ef8",
+      "localBytes": 56792,
+      "localSha256": "fe666f65c9540e2b366275c9f4df82e7ed227a944b096c7ad71cc64e15202371",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "隋天台智者大師別傳",
+        "alternateTitle": "隋天台智者大師別傳",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2050",
+        "translator": "隋 · 灌頂撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：隋 灌頂撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2050_001"
+      },
+      "verification": {
+        "segments": 590,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2050.001.0191a20",
+          "T2050.001.0198a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2051",
+      "slug": "taisho-t2051",
+      "workId": "gbcr:work:taisho-t2051-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "唐護法沙門法琳別傳",
+      "sourceRole": "tang_falin_individual_biography",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000934"
+      },
+      "localPath": "data/corpus/cbeta/T50n2051.xml",
+      "upstreamPath": "T/T50/T50n2051.xml",
+      "upstreamGitBlobSha1": "d99ee30788a0c23a583cbc1e57b0d2a314db4cc2",
+      "upstreamBytes": 144931,
+      "upstreamSha256": "e08eddb8328b63d12d8c5e17138e9ae8f79b8cc878819f22f8fcb34f72bb3a70",
+      "localBytes": 144932,
+      "localSha256": "f9836303a9428c057462cb467c3d0dd7833598b836fac0ac8da39b03cc7e83d2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唐護法沙門法琳別傳",
+        "alternateTitle": "唐護法沙門法琳別傳",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2051",
+        "translator": "唐 · 彥琮撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 彥琮撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2051_001"
+      },
+      "verification": {
+        "segments": 1322,
+        "folios": 48,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2051.001.0198a04",
+          "T2051.003.0213b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2052",
+      "slug": "taisho-t2052",
+      "workId": "gbcr:work:taisho-t2052-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_short_biographical_acts",
+      "workTitle": "大唐故三藏玄奘法師行狀",
+      "sourceRole": "tang_xuanzang_short_acts",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        },
+        {
+          "type": "short_acts_and_full_biography_scope_distinct",
+          "groupId": "xuanzang-biographies-t2052-t2053",
+          "label": "玄奘行状与十卷传记范围边界",
+          "evidence": "T2052《行状》一卷、冥详撰，T2053《大慈恩寺三藏法师传》十卷、慧立本与彦悰笺；五字组较短一方包含度约 0.206132，说明共享生平资料但不消除题名、作者、体量、编纂层和 DILA 作品号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2052",
+              "T2053"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003659"
+      },
+      "localPath": "data/corpus/cbeta/T50n2052.xml",
+      "upstreamPath": "T/T50/T50n2052.xml",
+      "upstreamGitBlobSha1": "8a522164f86cf0085e6a54e31ee213d90ba6390a",
+      "upstreamBytes": 114531,
+      "upstreamSha256": "7826627f813f8d2bc5f0cf0ab49231e5d2e85f7576b0641a13f0906ddd838e44",
+      "localBytes": 114532,
+      "localSha256": "55c21e94ca118ac85d2331a9d88bd0e8978c8762ab77126d3774880caee0bf35",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐故三藏玄奘法師行狀",
+        "alternateTitle": "大唐故三藏玄奘法師行狀",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2052",
+        "translator": "唐 · 冥詳撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 冥詳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2052_001"
+      },
+      "verification": {
+        "segments": 581,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2052.001.0214a02",
+          "T2052.001.0220c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2053",
+      "slug": "taisho-t2053",
+      "workId": "gbcr:work:taisho-t2053-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_full_biography",
+      "workTitle": "大唐大慈恩寺三藏法師傳",
+      "sourceRole": "tang_xuanzang_full_biography",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        },
+        {
+          "type": "short_acts_and_full_biography_scope_distinct",
+          "groupId": "xuanzang-biographies-t2052-t2053",
+          "label": "玄奘行状与十卷传记范围边界",
+          "evidence": "T2052《行状》一卷、冥详撰，T2053《大慈恩寺三藏法师传》十卷、慧立本与彦悰笺；五字组较短一方包含度约 0.206132，说明共享生平资料但不消除题名、作者、体量、编纂层和 DILA 作品号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2052",
+              "T2053"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000566"
+      },
+      "localPath": "data/corpus/cbeta/T50n2053.xml",
+      "upstreamPath": "T/T50/T50n2053.xml",
+      "upstreamGitBlobSha1": "73ace73b3f91dfb1381265a13b47ed2e0b8abb40",
+      "upstreamBytes": 1812896,
+      "upstreamSha256": "d8ec4012b5b5a7b47843589a2fae9df1be372ddcf53ae03cb29e47c7cd27f031",
+      "localBytes": 1812897,
+      "localSha256": "28938c92fd4dcfd2a9c3ce9828e8f76b30316f8f80a0109f85a32fc30986f60a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐大慈恩寺三藏法師傳",
+        "alternateTitle": "大唐大慈恩寺三藏法師傳",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2053",
+        "translator": "唐 · 慧立本．彥悰箋",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 慧立本．彥悰箋。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2053_001"
+      },
+      "verification": {
+        "segments": 5065,
+        "folios": 185,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2053.001.0220c05",
+          "T2053.010.0280a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2054",
+      "slug": "taisho-t2054",
+      "workId": "gbcr:work:taisho-t2054-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "唐大薦福寺故寺主翻經大德法藏和尚傳",
+      "sourceRole": "silla_fazang_individual_biography",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000955"
+      },
+      "localPath": "data/corpus/cbeta/T50n2054.xml",
+      "upstreamPath": "T/T50/T50n2054.xml",
+      "upstreamGitBlobSha1": "1223c25dbf385f2d149d00ddd2803d4f345f6e7f",
+      "upstreamBytes": 100143,
+      "upstreamSha256": "9efc0c2c18824c4784e5431099f953afe30beb16d214c39892508cc926f55288",
+      "localBytes": 100144,
+      "localSha256": "51d6e758a0d367688d84369502d5dd9fa76e976c6c7be120085f92b407ed56d8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唐大薦福寺故寺主翻經大德法藏和尚傳",
+        "alternateTitle": "唐大薦福寺故寺主翻經大德法藏和尚傳",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2054",
+        "translator": "新羅 · 崔致遠撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：新羅 崔致遠撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2054_001"
+      },
+      "verification": {
+        "segments": 819,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2054.001.0280a09",
+          "T2054.001.0289c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2055",
+      "slug": "taisho-t2055",
+      "workId": "gbcr:work:taisho-t2055-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "玄宗朝翻經三藏善無畏贈鴻臚卿行狀",
+      "sourceRole": "tang_subhakarasimha_acts",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002914"
+      },
+      "localPath": "data/corpus/cbeta/T50n2055.xml",
+      "upstreamPath": "T/T50/T50n2055.xml",
+      "upstreamGitBlobSha1": "33b0ad02040e50317284e227fd88c9e1dafe1753",
+      "upstreamBytes": 23729,
+      "upstreamSha256": "5ce0665b5770abb94e13e9d533bfd9c24d6c6300bdc701218e462f6e60a05c49",
+      "localBytes": 23730,
+      "localSha256": "576d31650eec1ffee378316f42e3b8dabcea56b9aff0cc2d7feda4cfecd84ba9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "玄宗朝翻經三藏善無畏贈鴻臚卿行狀",
+        "alternateTitle": "玄宗朝翻經三藏善無畏贈鴻臚卿行狀",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2055",
+        "translator": "唐 · 李華撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 李華撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2055_001"
+      },
+      "verification": {
+        "segments": 195,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2055.001.0290a02",
+          "T2055.001.0292a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2056",
+      "slug": "taisho-t2056",
+      "workId": "gbcr:work:taisho-t2056-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "大唐故大德贈司空大辨正廣智不空三藏行狀",
+      "sourceRole": "tang_amoghavajra_acts",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000355"
+      },
+      "localPath": "data/corpus/cbeta/T50n2056.xml",
+      "upstreamPath": "T/T50/T50n2056.xml",
+      "upstreamGitBlobSha1": "24cb21c885abae86f1d18f1c25b30a6421219db4",
+      "upstreamBytes": 27140,
+      "upstreamSha256": "1cbd737638e1db58b4d561c3140089fcb8d8fa883307e73f62e28dfb825924b8",
+      "localBytes": 27141,
+      "localSha256": "77ceeb3206b3a0ae9efcbd5abfe4ff26253021a5341876927c04c67d0717da6c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐故大德贈司空大辨正廣智不空三藏行狀",
+        "alternateTitle": "大唐故大德贈司空大辨正廣智不空三藏行狀",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2056",
+        "translator": "唐 · 趙遷撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 趙遷撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2056_001"
+      },
+      "verification": {
+        "segments": 214,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2056.001.0292b02",
+          "T2056.001.0294c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2057",
+      "slug": "taisho-t2057",
+      "workId": "gbcr:work:taisho-t2057-east-asian-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "大唐青龍寺三朝供奉大德行狀",
+      "sourceRole": "unattributed_amoghavajra_related_acts",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_individual_monk_biographies_scope_distinct",
+          "groupId": "east-asian-monk-biographies-t2050-t2057",
+          "label": "智者、法琳、玄奘、法藏、善无畏与不空史传边界",
+          "evidence": "T2050–T2057 记录不同人物、作者、时代和寺院网络；即使共享行状、别传体例或史料，八个完整记录仍按各自题名、责任题记、全文范围与 DILA 作品号建模。T2057 传统责任题记未署名，不从相邻记录补造作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2050",
+              "T2051",
+              "T2052",
+              "T2053",
+              "T2054",
+              "T2055",
+              "T2056",
+              "T2057"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001492"
+      },
+      "localPath": "data/corpus/cbeta/T50n2057.xml",
+      "upstreamPath": "T/T50/T50n2057.xml",
+      "upstreamGitBlobSha1": "282c0083a8968116d9d74f3b46b2089473faeaa9",
+      "upstreamBytes": 13624,
+      "upstreamSha256": "20b63c5e33c3d7a86c3d0c6dd71e8e33ae448b84eae520067c16928b910dd52a",
+      "localBytes": 13625,
+      "localSha256": "b6b7a93f639b174f373135262526a3310e1df9fad0c8c190557d53b235f0dd1f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐青龍寺三朝供奉大德行狀",
+        "alternateTitle": "大唐青龍寺三朝供奉大德行狀",
+        "tradition": "东亚佛教 · 高僧别传与行状",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2057",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2057_001"
+      },
+      "verification": {
+        "segments": 114,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2057.001.0294c16",
+          "T2057.001.0296a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2058",
+      "slug": "taisho-t2058",
+      "workId": "gbcr:work:taisho-t2058-dharma-transmission-lineage",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "付法藏因緣傳",
+      "sourceRole": "translated_dharma_transmission_lineage",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001120"
+      },
+      "localPath": "data/corpus/cbeta/T50n2058.xml",
+      "upstreamPath": "T/T50/T50n2058.xml",
+      "upstreamGitBlobSha1": "458bb74c47e77e17350ed70175b14f25e682262e",
+      "upstreamBytes": 434978,
+      "upstreamSha256": "160f1667fb3e3199f73f6a018892dcfd04d3af6c3ce2d8fd27135a8671d168a7",
+      "localBytes": 434979,
+      "localSha256": "d29b96b85796627bc8210874dc4badd524ed1fc2da45e556300d288e1bc1e21d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "付法藏因緣傳",
+        "alternateTitle": "付法藏因緣傳",
+        "tradition": "汉传佛教 · 付法传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2058",
+        "translator": "元魏 · 吉迦夜共曇曜譯",
+        "summary": "6卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：元魏 吉迦夜共曇曜譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2058_001"
+      },
+      "verification": {
+        "segments": 2215,
+        "folios": 82,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T2058.001.0297a02",
+          "T2058.006.0322b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2059",
+      "slug": "taisho-t2059",
+      "workId": "gbcr:work:taisho-t2059-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_high_monk_base_compilation",
+      "workTitle": "高僧傳",
+      "sourceRole": "liang_compiled_high_monk_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "high_monk_biography_series_and_continuations_distinct",
+          "groupId": "high-monk-series-t2059-t2062",
+          "label": "《高僧传》历代本编、续编与后代汇编边界",
+          "evidence": "T2059《高僧传》、T2060《续高僧传》、T2061《宋高僧传》与 T2062《大明高僧传》形成历代续修系列，但由不同作者在不同时代编纂，卷数与收录范围不同；相互五字组包含度均低于 0.006，续修关系不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062"
+            ]
+          }
+        },
+        {
+          "type": "collective_biography_source_reuse_without_work_merge",
+          "groupId": "collective-biography-reuse-t2059-t2061-t2064",
+          "label": "《神僧传》对历代高僧传资料复用边界",
+          "evidence": "T2064《神僧传》与 T2059–T2061 共享人物和传记材料，五字组较短一方包含度约 0.203935、0.169042、0.168946；这证明选录与史料复用，不足以覆盖《神僧传》的神异选编范围、未署名责任和独立 DILA 作品号。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2064"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001136"
+      },
+      "localPath": "data/corpus/cbeta/T50n2059.xml",
+      "upstreamPath": "T/T50/T50n2059.xml",
+      "upstreamGitBlobSha1": "a72625f4b08a661c1edea3d85fefc3f920f9c76f",
+      "upstreamBytes": 2790666,
+      "upstreamSha256": "06513c592cd7032d48c9448c855ad8cd392f597f14378c285bdc02bef92ab3d2",
+      "localBytes": 2790667,
+      "localSha256": "07ea1454ae993af1a2e2e4089117b67db15e47a3f6ad214d695feeb1ec974231",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "高僧傳",
+        "alternateTitle": "高僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2059",
+        "translator": "梁 · 慧皎撰",
+        "summary": "14卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：梁 慧皎撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2059_001"
+      },
+      "verification": {
+        "segments": 8687,
+        "folios": 311,
+        "juanRange": [
+          1,
+          14
+        ],
+        "anchors": [
+          "T2059.001.0322c02",
+          "T2059.014.0423a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2060",
+      "slug": "taisho-t2060",
+      "workId": "gbcr:work:taisho-t2060-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_high_monk_continuation",
+      "workTitle": "續高僧傳",
+      "sourceRole": "tang_compiled_continuation_high_monk_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "high_monk_biography_series_and_continuations_distinct",
+          "groupId": "high-monk-series-t2059-t2062",
+          "label": "《高僧传》历代本编、续编与后代汇编边界",
+          "evidence": "T2059《高僧传》、T2060《续高僧传》、T2061《宋高僧传》与 T2062《大明高僧传》形成历代续修系列，但由不同作者在不同时代编纂，卷数与收录范围不同；相互五字组包含度均低于 0.006，续修关系不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062"
+            ]
+          }
+        },
+        {
+          "type": "collective_biography_source_reuse_without_work_merge",
+          "groupId": "collective-biography-reuse-t2059-t2061-t2064",
+          "label": "《神僧传》对历代高僧传资料复用边界",
+          "evidence": "T2064《神僧传》与 T2059–T2061 共享人物和传记材料，五字组较短一方包含度约 0.203935、0.169042、0.168946；这证明选录与史料复用，不足以覆盖《神僧传》的神异选编范围、未署名责任和独立 DILA 作品号。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2064"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001137"
+      },
+      "localPath": "data/corpus/cbeta/T50n2060.xml",
+      "upstreamPath": "T/T50/T50n2060.xml",
+      "upstreamGitBlobSha1": "abc95ce0916debbb8f2835d04b002b7e8e99298a",
+      "upstreamBytes": 6603935,
+      "upstreamSha256": "c95ab2ec549dd7fac969270833615f7944356554bc9fbf348f128c86e1c9ebf6",
+      "localBytes": 6603936,
+      "localSha256": "d13bc0dcfbeb2264164dfa18975970279324535613ec603b74464ce55b6279db",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "續高僧傳",
+        "alternateTitle": "續高僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2060",
+        "translator": "唐 · 道宣撰",
+        "summary": "30卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2060_001"
+      },
+      "verification": {
+        "segments": 24380,
+        "folios": 869,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T2060.001.0425a02",
+          "T2060.030.0707a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2061",
+      "slug": "taisho-t2061",
+      "workId": "gbcr:work:taisho-t2061-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_dynastic_high_monk_compilation",
+      "workTitle": "宋高僧傳",
+      "sourceRole": "song_compiled_high_monk_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "high_monk_biography_series_and_continuations_distinct",
+          "groupId": "high-monk-series-t2059-t2062",
+          "label": "《高僧传》历代本编、续编与后代汇编边界",
+          "evidence": "T2059《高僧传》、T2060《续高僧传》、T2061《宋高僧传》与 T2062《大明高僧传》形成历代续修系列，但由不同作者在不同时代编纂，卷数与收录范围不同；相互五字组包含度均低于 0.006，续修关系不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062"
+            ]
+          }
+        },
+        {
+          "type": "collective_biography_source_reuse_without_work_merge",
+          "groupId": "collective-biography-reuse-t2059-t2061-t2064",
+          "label": "《神僧传》对历代高僧传资料复用边界",
+          "evidence": "T2064《神僧传》与 T2059–T2061 共享人物和传记材料，五字组较短一方包含度约 0.203935、0.169042、0.168946；这证明选录与史料复用，不足以覆盖《神僧传》的神异选编范围、未署名责任和独立 DILA 作品号。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2064"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001140"
+      },
+      "localPath": "data/corpus/cbeta/T50n2061.xml",
+      "upstreamPath": "T/T50/T50n2061.xml",
+      "upstreamGitBlobSha1": "02c95a4e978003197142b5acbbe0bd8c3d4bab90",
+      "upstreamBytes": 2202562,
+      "upstreamSha256": "bf0418b000957e025fdb488c495b94b6e8c88ba721b7755fa0890921a3dacef7",
+      "localBytes": 2202563,
+      "localSha256": "9211b014f2115f1b50b3cba5299be8cd91a82091529327b117b461c590b1835d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "宋高僧傳",
+        "alternateTitle": "宋高僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2061",
+        "translator": "宋 · 贊寧等撰",
+        "summary": "30卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 贊寧等撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2061_001"
+      },
+      "verification": {
+        "segments": 16481,
+        "folios": 594,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T2061.001.0709a02",
+          "T2061.030.0900a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2062",
+      "slug": "taisho-t2062",
+      "workId": "gbcr:work:taisho-t2062-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_dynastic_high_monk_compilation",
+      "workTitle": "大明高僧傳",
+      "sourceRole": "ming_compiled_high_monk_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "high_monk_biography_series_and_continuations_distinct",
+          "groupId": "high-monk-series-t2059-t2062",
+          "label": "《高僧传》历代本编、续编与后代汇编边界",
+          "evidence": "T2059《高僧传》、T2060《续高僧传》、T2061《宋高僧传》与 T2062《大明高僧传》形成历代续修系列，但由不同作者在不同时代编纂，卷数与收录范围不同；相互五字组包含度均低于 0.006，续修关系不等于同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001141"
+      },
+      "localPath": "data/corpus/cbeta/T50n2062.xml",
+      "upstreamPath": "T/T50/T50n2062.xml",
+      "upstreamGitBlobSha1": "6953b9404fbfb63534515a5d0015d2cc98dee052",
+      "upstreamBytes": 276398,
+      "upstreamSha256": "76bb4003a9875e4fbb3cf79a2329ece4f42fea9aa2e450ea862b6fa7d55a2349",
+      "localBytes": 276399,
+      "localSha256": "52df64160752700cf0329f74a40f429ccb72d32b4c20de7874a6047f6e209618",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大明高僧傳",
+        "alternateTitle": "大明高僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2062",
+        "translator": "明 · 如惺撰",
+        "summary": "8卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：明 如惺撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2062_001"
+      },
+      "verification": {
+        "segments": 2858,
+        "folios": 104,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T2062.001.0901a01",
+          "T2062.008.0934a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2063",
+      "slug": "taisho-t2063",
+      "workId": "gbcr:work:taisho-t2063-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_gender_scoped_collective_biography",
+      "workTitle": "比丘尼傳",
+      "sourceRole": "liang_compiled_buddhist_nun_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "gender_miracle_and_regional_collective_biographies_distinct",
+          "groupId": "specialized-collective-biographies-t2063-t2065",
+          "label": "比丘尼、神僧与海东高僧专门传集边界",
+          "evidence": "T2063 以比丘尼为收录范围，T2064 以神异僧传为主题，T2065 以高丽海东佛教为地域范围；三者对象、编者状态、地域、全文和 DILA 作品号均不同，不能因共同传记体裁合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000300"
+      },
+      "localPath": "data/corpus/cbeta/T50n2063.xml",
+      "upstreamPath": "T/T50/T50n2063.xml",
+      "upstreamGitBlobSha1": "6ba1ac43bee3b2bbc70a3d15f2de38c254f0803f",
+      "upstreamBytes": 572142,
+      "upstreamSha256": "b09ca2dd6f253c7ac10c3b4938417dd92cd9ed7f0154c366f2be887e86c3bf96",
+      "localBytes": 572143,
+      "localSha256": "ad1326e03ca143c0424804c0128ffb52f5ac5f789bef6609b8ba5e14cd53b7ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "比丘尼傳",
+        "alternateTitle": "比丘尼傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2063",
+        "translator": "梁 · 寶唱撰",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：梁 寶唱撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2063_001"
+      },
+      "verification": {
+        "segments": 1192,
+        "folios": 46,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T2063.001.0934a20",
+          "T2063.004.0948a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2064",
+      "slug": "taisho-t2064",
+      "workId": "gbcr:work:taisho-t2064-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_unattributed_miracle_monk_anthology",
+      "workTitle": "神僧傳",
+      "sourceRole": "unattributed_miracle_monk_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "collective_biography_source_reuse_without_work_merge",
+          "groupId": "collective-biography-reuse-t2059-t2061-t2064",
+          "label": "《神僧传》对历代高僧传资料复用边界",
+          "evidence": "T2064《神僧传》与 T2059–T2061 共享人物和传记材料，五字组较短一方包含度约 0.203935、0.169042、0.168946；这证明选录与史料复用，不足以覆盖《神僧传》的神异选编范围、未署名责任和独立 DILA 作品号。",
+          "externalIds": {
+            "cbeta": [
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2064"
+            ]
+          }
+        },
+        {
+          "type": "gender_miracle_and_regional_collective_biographies_distinct",
+          "groupId": "specialized-collective-biographies-t2063-t2065",
+          "label": "比丘尼、神僧与海东高僧专门传集边界",
+          "evidence": "T2063 以比丘尼为收录范围，T2064 以神异僧传为主题，T2065 以高丽海东佛教为地域范围；三者对象、编者状态、地域、全文和 DILA 作品号均不同，不能因共同传记体裁合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002948"
+      },
+      "localPath": "data/corpus/cbeta/T50n2064.xml",
+      "upstreamPath": "T/T50/T50n2064.xml",
+      "upstreamGitBlobSha1": "a4497803b51465b2766dab19aa83d80bbddd2a38",
+      "upstreamBytes": 540312,
+      "upstreamSha256": "eed547da3e466cca39e49f2545572e7baeb5148f3950622d80f983cf94300363",
+      "localBytes": 540313,
+      "localSha256": "a19a9d797108e95f5cc648d8f5a36a3d203bd5e36db16381f2cee7fa0d63fe59",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "神僧傳",
+        "alternateTitle": "神僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2064",
+        "translator": "传统责任题记未署名",
+        "summary": "9卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2064_001"
+      },
+      "verification": {
+        "segments": 5792,
+        "folios": 208,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T2064.001.0948b01",
+          "T2064.009.1015a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2065",
+      "slug": "taisho-t2065",
+      "workId": "gbcr:work:taisho-t2065-collective-monastic-biography",
+      "workIdentityStatus": "verified_distinct_regional_collective_biography",
+      "workTitle": "海東高僧傳",
+      "sourceRole": "goryeo_compiled_korean_high_monk_biographies",
+      "bibliographicRelations": [
+        {
+          "type": "dharma_transmission_and_collective_biographies_scope_distinct",
+          "groupId": "transmission-collective-biographies-t2058-t2065",
+          "label": "付法传承与历代僧尼合集作品边界",
+          "evidence": "T2058 是汉译付法因缘传，T2059–T2065 是时代、地域、性别或神异主题各异的僧尼传记合集。相邻经号与人物资料交叉只构成研究关系，八个题名、责任题记、范围和 DILA 作品号保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2058",
+              "T2059",
+              "T2060",
+              "T2061",
+              "T2062",
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        },
+        {
+          "type": "gender_miracle_and_regional_collective_biographies_distinct",
+          "groupId": "specialized-collective-biographies-t2063-t2065",
+          "label": "比丘尼、神僧与海东高僧专门传集边界",
+          "evidence": "T2063 以比丘尼为收录范围，T2064 以神异僧传为主题，T2065 以高丽海东佛教为地域范围；三者对象、编者状态、地域、全文和 DILA 作品号均不同，不能因共同传记体裁合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2063",
+              "T2064",
+              "T2065"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001142"
+      },
+      "localPath": "data/corpus/cbeta/T50n2065.xml",
+      "upstreamPath": "T/T50/T50n2065.xml",
+      "upstreamGitBlobSha1": "9f8ba65144267772d4d492c52c453be2ee2292e9",
+      "upstreamBytes": 93220,
+      "upstreamSha256": "35fe759e34e1043fda5ab6b09814ac6e0f2894bafb11214acf7b4e85f30ac35e",
+      "localBytes": 93221,
+      "localSha256": "8e09b5b64cdc280f714b4a2879741cdd75eb337075a4a47d1fc7f3c820cc52f7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "海東高僧傳",
+        "alternateTitle": "海東高僧傳",
+        "tradition": "东亚佛教 · 僧尼传记合集",
+        "language": "汉文",
+        "canonRef": "大正藏 T50, no. 2065",
+        "translator": "高麗 · 覺訓撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教传记、行状、传承或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：高麗 覺訓撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2065_001"
+      },
+      "verification": {
+        "segments": 676,
+        "folios": 26,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2065.001.1015a23",
+          "T2065.002.1023a06"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
