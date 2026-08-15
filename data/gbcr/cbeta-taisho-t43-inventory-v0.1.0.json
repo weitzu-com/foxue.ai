@@ -1,0 +1,72 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "85bd0982dfaf0d132a3a87dad555cab5571a6d9f"
+  },
+  "subset": {
+    "id": "taisho_yogacara_commentaries_t43",
+    "label": "大正藏 T43 瑜伽论疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T43 目录下、文件名卷号一致的 T43n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T43 的 6 份来源记录是窺基《瑜伽师地论略纂》《成唯识论述记》《成唯识论掌中枢要》《唯识二十论述记》、惠沼《成唯识论了义灯》和智周《成唯识论演秘》六部汉地唯识论疏。它们分别连接 T1579、T1585、T1590 与 T1830；直接注疏、枢要、再注释、同作者异作和不同根本论必须分层。共同唯识传统、师承、作者、题名或正文引文不能把六部作品误作根本论表达、彼此同作或佛陀逐字亲说。"
+  },
+  "totals": {
+    "records": 6,
+    "upstreamBytes": 10412626,
+    "candidatePathSha256": "10cf4d2404ab0eb6ff5a278f2437e66e59f5974b426a4c802abfa2da93d675c8"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T43n1829",
+      "canonWitnessId": "T1829",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1829.xml",
+      "upstreamGitBlobSha1": "8f26499929cdace59985b056ef66b5c5d96c74d1",
+      "upstreamBytes": 2019199
+    },
+    {
+      "sourceRecordId": "T43n1830",
+      "canonWitnessId": "T1830",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1830.xml",
+      "upstreamGitBlobSha1": "928b6d81a6e0e0ced45c6c609bbb6876876ad0d5",
+      "upstreamBytes": 4089495
+    },
+    {
+      "sourceRecordId": "T43n1831",
+      "canonWitnessId": "T1831",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1831.xml",
+      "upstreamGitBlobSha1": "3dc29360fc8c31b20b16ca6a9f74f946a5f49d7b",
+      "upstreamBytes": 569452
+    },
+    {
+      "sourceRecordId": "T43n1832",
+      "canonWitnessId": "T1832",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1832.xml",
+      "upstreamGitBlobSha1": "accafebf7a48c1b5ccd60e1a6eb8906b90b30ecf",
+      "upstreamBytes": 1391960
+    },
+    {
+      "sourceRecordId": "T43n1833",
+      "canonWitnessId": "T1833",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1833.xml",
+      "upstreamGitBlobSha1": "1486df9f2104909039268c89eb1c4ab718ced643",
+      "upstreamBytes": 1952999
+    },
+    {
+      "sourceRecordId": "T43n1834",
+      "canonWitnessId": "T1834",
+      "volume": "T43",
+      "upstreamPath": "T/T43/T43n1834.xml",
+      "upstreamGitBlobSha1": "18d3a4e215711b4d3a2724df8cb6b028003a01b1",
+      "upstreamBytes": 389521
+    }
+  ]
+}

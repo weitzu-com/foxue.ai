@@ -1,0 +1,802 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.10.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.9.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t43-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T43; T43 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T43",
+    "title": "大正藏 T43 瑜伽论疏部固定来源记录",
+    "sourceRecordDenominator": 6,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 6,
+    "controlledSourceRecords": 6,
+    "newSourceBytes": 10412626,
+    "newStableSegments": 87263,
+    "newFolios": 3049,
+    "newJuans": 44,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 6,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 6,
+    "attributionBoundaryRecords": 6,
+    "newWorks": 6,
+    "controlledWorks": 6,
+    "workCountingDecision": "T43 的 6 份来源记录登记为 6 个完整表达和 6 个独立汉地唯识论疏作品。T1829、T1830/T1831/T1832、T1834 分别连接 T1579、T1585、T1590；T1832、T1833 又分别连接 T1830 的再注释层。共同作者、唯识传统、根本论或述记不能消除作者责任、体例、篇幅、解释层级与全文边界。六者均不标作根本论的同作品表达、印度论本或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_yogacara_root_treatise_commentary_subcommentary_parallel_commentary_author_and_scope_boundaries_recorded",
+    "existingControlledRecords": [
+      "T1579",
+      "T1585",
+      "T1590"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "yogacarabhumi-abridged-commentary-t1579-t1829",
+      "cheng-weishi-lun-commentaries-t1585-t1830-t1831-t1832",
+      "vimsatika-commentary-t1590-t1834"
+    ],
+    "subcommentaryGroups": [
+      "cheng-weishi-lun-shuji-subcommentary-t1830-t1832",
+      "cheng-weishi-lun-shuji-subcommentary-t1830-t1833"
+    ],
+    "scopeBoundaryGroups": [
+      "cheng-weishi-lun-commentary-scope-t1830-t1831"
+    ],
+    "relatedDistinctWorkGroups": [
+      "kuiji-cheng-weishi-commentaries-t1830-t1831",
+      "cheng-weishi-shuji-parallel-subcommentaries-t1832-t1833",
+      "kuiji-yogacara-commentaries-t1829-t1830-t1831-t1834"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1579↔T1829、T1585↔T1830/T1831/T1832、T1590↔T1834（三种根本论与汉地直接论疏分层保存）",
+      "T1830↔T1832/T1833（窺基述记与惠沼、智周再注释按作者和解释层级分层）",
+      "T1830↔T1831（共同窺基作者责任和 T1585 根本论不消除述记与枢要的体例及范围差异）",
+      "T1829↔T1830↔T1831↔T1834（共同窺基作者责任和唯识传统不构成同一作品）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_cheng_weishi_lun_commentary": [
+        "T1830"
+      ],
+      "sinitic_authored_cheng_weishi_lun_commentary_and_subcommentary": [
+        "T1832"
+      ],
+      "sinitic_authored_cheng_weishi_lun_essential_commentary": [
+        "T1831"
+      ],
+      "sinitic_authored_cheng_weishi_lun_subcommentary": [
+        "T1833"
+      ],
+      "sinitic_authored_vimsatika_commentary": [
+        "T1834"
+      ],
+      "sinitic_authored_yogacarabhumi_abridged_commentary": [
+        "T1829"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records shared technical vocabulary, quotation and exegetical dependence; it cannot merge three root treatises, six commentaries, two subcommentary layers or works with different authors and scope.",
+      "pairs": [
+        {
+          "pair": [
+            "T1829",
+            "T1830"
+          ],
+          "normalizedCharacters": [
+            315604,
+            489719
+          ],
+          "fiveGramContainmentOfShorter": 0.01519,
+          "fiveGramJaccard": 0.006052
+        },
+        {
+          "pair": [
+            "T1829",
+            "T1831"
+          ],
+          "normalizedCharacters": [
+            315604,
+            67769
+          ],
+          "fiveGramContainmentOfShorter": 0.020394,
+          "fiveGramJaccard": 0.003621
+        },
+        {
+          "pair": [
+            "T1829",
+            "T1832"
+          ],
+          "normalizedCharacters": [
+            315604,
+            206622
+          ],
+          "fiveGramContainmentOfShorter": 0.012254,
+          "fiveGramJaccard": 0.004853
+        },
+        {
+          "pair": [
+            "T1829",
+            "T1833"
+          ],
+          "normalizedCharacters": [
+            315604,
+            219428
+          ],
+          "fiveGramContainmentOfShorter": 0.012492,
+          "fiveGramJaccard": 0.005143
+        },
+        {
+          "pair": [
+            "T1829",
+            "T1834"
+          ],
+          "normalizedCharacters": [
+            315604,
+            42740
+          ],
+          "fiveGramContainmentOfShorter": 0.007698,
+          "fiveGramJaccard": 0.000905
+        },
+        {
+          "pair": [
+            "T1830",
+            "T1831"
+          ],
+          "normalizedCharacters": [
+            489719,
+            67769
+          ],
+          "fiveGramContainmentOfShorter": 0.035717,
+          "fiveGramJaccard": 0.004431
+        },
+        {
+          "pair": [
+            "T1830",
+            "T1832"
+          ],
+          "normalizedCharacters": [
+            489719,
+            206622
+          ],
+          "fiveGramContainmentOfShorter": 0.031569,
+          "fiveGramJaccard": 0.009528
+        },
+        {
+          "pair": [
+            "T1830",
+            "T1833"
+          ],
+          "normalizedCharacters": [
+            489719,
+            219428
+          ],
+          "fiveGramContainmentOfShorter": 0.035962,
+          "fiveGramJaccard": 0.011372
+        },
+        {
+          "pair": [
+            "T1830",
+            "T1834"
+          ],
+          "normalizedCharacters": [
+            489719,
+            42740
+          ],
+          "fiveGramContainmentOfShorter": 0.056992,
+          "fiveGramJaccard": 0.004594
+        },
+        {
+          "pair": [
+            "T1831",
+            "T1832"
+          ],
+          "normalizedCharacters": [
+            67769,
+            206622
+          ],
+          "fiveGramContainmentOfShorter": 0.023312,
+          "fiveGramJaccard": 0.005823
+        },
+        {
+          "pair": [
+            "T1831",
+            "T1833"
+          ],
+          "normalizedCharacters": [
+            67769,
+            219428
+          ],
+          "fiveGramContainmentOfShorter": 0.023557,
+          "fiveGramJaccard": 0.005602
+        },
+        {
+          "pair": [
+            "T1831",
+            "T1834"
+          ],
+          "normalizedCharacters": [
+            67769,
+            42740
+          ],
+          "fiveGramContainmentOfShorter": 0.013347,
+          "fiveGramJaccard": 0.00513
+        },
+        {
+          "pair": [
+            "T1832",
+            "T1833"
+          ],
+          "normalizedCharacters": [
+            206622,
+            219428
+          ],
+          "fiveGramContainmentOfShorter": 0.016105,
+          "fiveGramJaccard": 0.007854
+        },
+        {
+          "pair": [
+            "T1832",
+            "T1834"
+          ],
+          "normalizedCharacters": [
+            206622,
+            42740
+          ],
+          "fiveGramContainmentOfShorter": 0.009449,
+          "fiveGramJaccard": 0.001607
+        },
+        {
+          "pair": [
+            "T1833",
+            "T1834"
+          ],
+          "normalizedCharacters": [
+            219428,
+            42740
+          ],
+          "fiveGramContainmentOfShorter": 0.020552,
+          "fiveGramJaccard": 0.003318
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T43",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003829",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003828",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000452",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000463",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000462",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000456",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000466",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003317",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003318"
+    ],
+    "caveat": "T43 是汉地瑜伽行派论疏集合，不是佛说经或印度根本论集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分 T1579、T1585、T1590 三种根本论、窺基直接论疏、惠沼和智周再注释，以及同作者异作与述记/枢要范围；共同术语、师承、作者、根本论、传统责任题记或机器相似度都不能单独证明作品相同、作者无争议、文本已成批校本或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1829",
+      "slug": "taisho-t1829",
+      "workId": "gbcr:work:yogacarabhumi-luezuan-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "瑜伽師地論略纂",
+      "sourceRole": "sinitic_authored_yogacarabhumi_abridged_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "abridged_commentary_on_yogacarabhumi_distinct",
+          "groupId": "yogacarabhumi-abridged-commentary-t1579-t1829",
+          "label": "《瑜伽师地论》与窺基《瑜伽师地论略纂》",
+          "evidence": "DILA 权威记录将 T1829 关联到 T1579。十六卷略纂具有窺基作者责任、选择性解释结构和完整来源边界，不是百卷根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1829"
+            ]
+          }
+        },
+        {
+          "type": "kuiji_yogacara_commentaries_related_distinct",
+          "groupId": "kuiji-yogacara-commentaries-t1829-t1830-t1831-t1834",
+          "label": "窺基的四部瑜伽行派论疏",
+          "evidence": "T1829、T1830、T1831、T1834 均署窺基，但分别解释 T1579、T1585、T1590，并采用略纂、述记、枢要等不同体例；共同作者和唯识传统只构成相关证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1585",
+              "T1590",
+              "T1829",
+              "T1830",
+              "T1831",
+              "T1834"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1829.xml",
+      "upstreamPath": "T/T43/T43n1829.xml",
+      "upstreamGitBlobSha1": "8f26499929cdace59985b056ef66b5c5d96c74d1",
+      "upstreamBytes": 2019199,
+      "upstreamSha256": "f0015e94c6e81f14125d90a78307bd0d272921426749f240818f43c9bf07eb2d",
+      "localBytes": 2019200,
+      "localSha256": "92fd651eae61371fb363cf931c8e54dd17d601f7f0b72a194ff2e2a3027131ac",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "瑜伽師地論略纂",
+        "alternateTitle": "瑜伽師地論略纂",
+        "tradition": "汉传佛教 · 瑜伽论疏部 · 瑜伽师地论略纂",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1829",
+        "translator": "唐 · 窺基撰",
+        "summary": "16卷。窺基《瑜伽师地论略纂》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1829_001"
+      },
+      "verification": {
+        "segments": 19736,
+        "folios": 695,
+        "juanRange": [
+          1,
+          16
+        ],
+        "anchors": [
+          "T1829.001.0001a02",
+          "T1829.016.0228b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1830",
+      "slug": "taisho-t1830",
+      "workId": "gbcr:work:cheng-weishi-lun-shuji-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "成唯識論述記",
+      "sourceRole": "sinitic_authored_cheng_weishi_lun_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_cheng_weishi_lun_distinct",
+          "groupId": "cheng-weishi-lun-commentaries-t1585-t1830-t1831-t1832",
+          "label": "《成唯识论》与《述记》《掌中枢要》《了义灯》",
+          "evidence": "DILA 权威记录将 T1830、T1831、T1832 关联到 T1585；三书的作者责任、体例、篇幅、解释层级和全文边界不同，均不是根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831",
+              "T1832"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_cheng_weishi_lun_shuji_distinct",
+          "groupId": "cheng-weishi-lun-shuji-subcommentary-t1830-t1832",
+          "label": "《成唯识论述记》与惠沼《成唯识论了义灯》",
+          "evidence": "DILA 同时将 T1832 关联到 T1585 与 T1830。了义灯保留惠沼责任、七卷组织和独立正文，是对根本论及述记传统的再解释，不是 T1830 的同作品表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1832"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_cheng_weishi_lun_shuji_distinct",
+          "groupId": "cheng-weishi-lun-shuji-subcommentary-t1830-t1833",
+          "label": "《成唯识论述记》与智周《成唯识论演秘》",
+          "evidence": "DILA 将 T1833 关联到 T1830。演秘保留智周责任、七卷组织和独立正文，是对述记的再注释，不是窺基述记的同作品表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1830",
+              "T1833"
+            ]
+          }
+        },
+        {
+          "type": "full_commentary_and_essential_companion_scope_distinct",
+          "groupId": "cheng-weishi-lun-commentary-scope-t1830-t1831",
+          "label": "《成唯识论述记》与《成唯识论掌中枢要》的解释范围",
+          "evidence": "T1830 以十卷述记逐层解释 T1585，T1831 以两卷掌中枢要提举宗要；共同作者和根本论不能消除体例、篇幅与解释范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831"
+            ]
+          }
+        },
+        {
+          "type": "same_author_same_root_commentaries_distinct",
+          "groupId": "kuiji-cheng-weishi-commentaries-t1830-t1831",
+          "label": "窺基《成唯识论述记》与《掌中枢要》",
+          "evidence": "两书同署窺基并解释 T1585，但题名、十卷与两卷规模、结构和全文锚点不同，保持两个相关但不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831"
+            ]
+          }
+        },
+        {
+          "type": "kuiji_yogacara_commentaries_related_distinct",
+          "groupId": "kuiji-yogacara-commentaries-t1829-t1830-t1831-t1834",
+          "label": "窺基的四部瑜伽行派论疏",
+          "evidence": "T1829、T1830、T1831、T1834 均署窺基，但分别解释 T1579、T1585、T1590，并采用略纂、述记、枢要等不同体例；共同作者和唯识传统只构成相关证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1585",
+              "T1590",
+              "T1829",
+              "T1830",
+              "T1831",
+              "T1834"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1830.xml",
+      "upstreamPath": "T/T43/T43n1830.xml",
+      "upstreamGitBlobSha1": "928b6d81a6e0e0ced45c6c609bbb6876876ad0d5",
+      "upstreamBytes": 4089495,
+      "upstreamSha256": "c903df2a38668ecd666d3799c5874d965cb67992cffc2c3a463b43a1c32f950d",
+      "localBytes": 4089496,
+      "localSha256": "10196a98d71badd782dd92ec452f15e69de30713a2ce037bf309efe6130d498a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識論述記",
+        "alternateTitle": "成唯識論述記",
+        "tradition": "汉传佛教 · 唯识论疏部 · 成唯识论述记",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1830",
+        "translator": "唐 · 窺基撰",
+        "summary": "10卷。窺基《成唯识论述记》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1830_001"
+      },
+      "verification": {
+        "segments": 32740,
+        "folios": 1139,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1830.001.0229a02",
+          "T1830.010.0606c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1831",
+      "slug": "taisho-t1831",
+      "workId": "gbcr:work:cheng-weishi-lun-zhangzhong-shuyao-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "成唯識論掌中樞要",
+      "sourceRole": "sinitic_authored_cheng_weishi_lun_essential_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_cheng_weishi_lun_distinct",
+          "groupId": "cheng-weishi-lun-commentaries-t1585-t1830-t1831-t1832",
+          "label": "《成唯识论》与《述记》《掌中枢要》《了义灯》",
+          "evidence": "DILA 权威记录将 T1830、T1831、T1832 关联到 T1585；三书的作者责任、体例、篇幅、解释层级和全文边界不同，均不是根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831",
+              "T1832"
+            ]
+          }
+        },
+        {
+          "type": "full_commentary_and_essential_companion_scope_distinct",
+          "groupId": "cheng-weishi-lun-commentary-scope-t1830-t1831",
+          "label": "《成唯识论述记》与《成唯识论掌中枢要》的解释范围",
+          "evidence": "T1830 以十卷述记逐层解释 T1585，T1831 以两卷掌中枢要提举宗要；共同作者和根本论不能消除体例、篇幅与解释范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831"
+            ]
+          }
+        },
+        {
+          "type": "same_author_same_root_commentaries_distinct",
+          "groupId": "kuiji-cheng-weishi-commentaries-t1830-t1831",
+          "label": "窺基《成唯识论述记》与《掌中枢要》",
+          "evidence": "两书同署窺基并解释 T1585，但题名、十卷与两卷规模、结构和全文锚点不同，保持两个相关但不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831"
+            ]
+          }
+        },
+        {
+          "type": "kuiji_yogacara_commentaries_related_distinct",
+          "groupId": "kuiji-yogacara-commentaries-t1829-t1830-t1831-t1834",
+          "label": "窺基的四部瑜伽行派论疏",
+          "evidence": "T1829、T1830、T1831、T1834 均署窺基，但分别解释 T1579、T1585、T1590，并采用略纂、述记、枢要等不同体例；共同作者和唯识传统只构成相关证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1585",
+              "T1590",
+              "T1829",
+              "T1830",
+              "T1831",
+              "T1834"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1831.xml",
+      "upstreamPath": "T/T43/T43n1831.xml",
+      "upstreamGitBlobSha1": "3dc29360fc8c31b20b16ca6a9f74f946a5f49d7b",
+      "upstreamBytes": 569452,
+      "upstreamSha256": "38428c0b570afd2568d20bf373bf085de8e7f1549ca9eeb8ef849b1e9db6c895",
+      "localBytes": 569453,
+      "localSha256": "619a8fb8b68d4b2bbae75cd166f09446d75d1dddd25615f47e494934ffa761b7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識論掌中樞要",
+        "alternateTitle": "成唯識論掌中樞要",
+        "tradition": "汉传佛教 · 唯识论疏部 · 成唯识论枢要",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1831",
+        "translator": "唐 · 窺基撰",
+        "summary": "2卷。窺基《成唯识论掌中枢要》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1831_001"
+      },
+      "verification": {
+        "segments": 4441,
+        "folios": 155,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1831.001.0607a01",
+          "T1831.002.0658a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1832",
+      "slug": "taisho-t1832",
+      "workId": "gbcr:work:cheng-weishi-lun-liaoyi-deng-huizhao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "成唯識論了義燈",
+      "sourceRole": "sinitic_authored_cheng_weishi_lun_commentary_and_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_cheng_weishi_lun_distinct",
+          "groupId": "cheng-weishi-lun-commentaries-t1585-t1830-t1831-t1832",
+          "label": "《成唯识论》与《述记》《掌中枢要》《了义灯》",
+          "evidence": "DILA 权威记录将 T1830、T1831、T1832 关联到 T1585；三书的作者责任、体例、篇幅、解释层级和全文边界不同，均不是根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1831",
+              "T1832"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_cheng_weishi_lun_shuji_distinct",
+          "groupId": "cheng-weishi-lun-shuji-subcommentary-t1830-t1832",
+          "label": "《成唯识论述记》与惠沼《成唯识论了义灯》",
+          "evidence": "DILA 同时将 T1832 关联到 T1585 与 T1830。了义灯保留惠沼责任、七卷组织和独立正文，是对根本论及述记传统的再解释，不是 T1830 的同作品表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1585",
+              "T1830",
+              "T1832"
+            ]
+          }
+        },
+        {
+          "type": "parallel_subcommentaries_distinct",
+          "groupId": "cheng-weishi-shuji-parallel-subcommentaries-t1832-t1833",
+          "label": "惠沼《了义灯》与智周《演秘》",
+          "evidence": "两书同处成唯识论述记解释传统，但分别署惠沼、智周，具有独立组织和全文边界；共同师承与术语不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1830",
+              "T1832",
+              "T1833"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1832.xml",
+      "upstreamPath": "T/T43/T43n1832.xml",
+      "upstreamGitBlobSha1": "accafebf7a48c1b5ccd60e1a6eb8906b90b30ecf",
+      "upstreamBytes": 1391960,
+      "upstreamSha256": "87dcc0fcd83ba78d49273bdfc74428cbacb7fee818e911f385dd47376021c639",
+      "localBytes": 1391961,
+      "localSha256": "e81f89e51db0156e42d8fd1933b830d51a9c0932bd36fa75546803fc87bc20b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識論了義燈",
+        "alternateTitle": "成唯識論了義燈",
+        "tradition": "汉传佛教 · 唯识论疏部 · 成唯识论再注释",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1832",
+        "translator": "唐 · 惠沼述",
+        "summary": "7卷。惠沼《成唯识论了义灯》完整来源。传统责任题记：唐 惠沼述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1832_001"
+      },
+      "verification": {
+        "segments": 13137,
+        "folios": 458,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1832.001.0659a02",
+          "T1832.007.0810b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1833",
+      "slug": "taisho-t1833",
+      "workId": "gbcr:work:cheng-weishi-lun-yanmi-zhizhou",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "成唯識論演祕",
+      "sourceRole": "sinitic_authored_cheng_weishi_lun_subcommentary",
+      "bibliographicRelations": [
+        {
+          "type": "subcommentary_on_cheng_weishi_lun_shuji_distinct",
+          "groupId": "cheng-weishi-lun-shuji-subcommentary-t1830-t1833",
+          "label": "《成唯识论述记》与智周《成唯识论演秘》",
+          "evidence": "DILA 将 T1833 关联到 T1830。演秘保留智周责任、七卷组织和独立正文，是对述记的再注释，不是窺基述记的同作品表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1830",
+              "T1833"
+            ]
+          }
+        },
+        {
+          "type": "parallel_subcommentaries_distinct",
+          "groupId": "cheng-weishi-shuji-parallel-subcommentaries-t1832-t1833",
+          "label": "惠沼《了义灯》与智周《演秘》",
+          "evidence": "两书同处成唯识论述记解释传统，但分别署惠沼、智周，具有独立组织和全文边界；共同师承与术语不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1830",
+              "T1832",
+              "T1833"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1833.xml",
+      "upstreamPath": "T/T43/T43n1833.xml",
+      "upstreamGitBlobSha1": "1486df9f2104909039268c89eb1c4ab718ced643",
+      "upstreamBytes": 1952999,
+      "upstreamSha256": "58a6d6e025dafe8c705af43e44066f560029509771f769a292567426b10987d7",
+      "localBytes": 1953000,
+      "localSha256": "b99498c318d555711d356baba38c87b2d6b3e01eec75382375a56a63b3bd5dfc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "成唯識論演祕",
+        "alternateTitle": "成唯識論演祕",
+        "tradition": "汉传佛教 · 唯识论疏部 · 成唯识论述记再注释",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1833",
+        "translator": "唐 · 智周撰",
+        "summary": "7卷。智周《成唯识论演秘》完整来源。传统责任题记：唐 智周撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1833_001"
+      },
+      "verification": {
+        "segments": 14504,
+        "folios": 507,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1833.001.0811a03",
+          "T1833.007.0978c03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1834",
+      "slug": "taisho-t1834",
+      "workId": "gbcr:work:vimsatika-shuji-kuiji",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "唯識二十論述記",
+      "sourceRole": "sinitic_authored_vimsatika_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_vimsatika_distinct",
+          "groupId": "vimsatika-commentary-t1590-t1834",
+          "label": "《唯识二十论》与窺基《唯识二十论述记》",
+          "evidence": "DILA 权威记录将 T1834 关联到玄奘译 T1590。两卷述记具有窺基责任和独立解释结构，不是世亲根本论或其玄奘译表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1590",
+              "T1834"
+            ]
+          }
+        },
+        {
+          "type": "kuiji_yogacara_commentaries_related_distinct",
+          "groupId": "kuiji-yogacara-commentaries-t1829-t1830-t1831-t1834",
+          "label": "窺基的四部瑜伽行派论疏",
+          "evidence": "T1829、T1830、T1831、T1834 均署窺基，但分别解释 T1579、T1585、T1590，并采用略纂、述记、枢要等不同体例；共同作者和唯识传统只构成相关证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1585",
+              "T1590",
+              "T1829",
+              "T1830",
+              "T1831",
+              "T1834"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T43n1834.xml",
+      "upstreamPath": "T/T43/T43n1834.xml",
+      "upstreamGitBlobSha1": "18d3a4e215711b4d3a2724df8cb6b028003a01b1",
+      "upstreamBytes": 389521,
+      "upstreamSha256": "06aaf5366d6f456c495793b84ddbbbd9f45d3a2edb5f9392b91bb7a91422c6d9",
+      "localBytes": 389522,
+      "localSha256": "e41c72267ef58da2e750f513363ec3df47c572e246abc5fce390ec4ff66de4d5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唯識二十論述記",
+        "alternateTitle": "唯識二十論述記",
+        "tradition": "汉传佛教 · 唯识论疏部 · 唯识二十论述记",
+        "language": "汉文",
+        "canonRef": "大正藏 T43, no. 1834",
+        "translator": "唐 · 窺基撰",
+        "summary": "2卷。窺基《唯识二十论述记》完整来源。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1834_001"
+      },
+      "verification": {
+        "segments": 2705,
+        "folios": 95,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1834.001.0978c06",
+          "T1834.002.1009c18"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
