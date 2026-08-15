@@ -304,6 +304,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT46SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT46SourceRecords.controlledWorks} 个独立作品；3 组根本著作—注疏、2 组仪轨层级、7 组同作者或文类范围与 6 组相关异作边界均已记录，
               《摩诃止观》与辅行诸疏、法华三昧仪轨群，以及文本高度重叠的 T1945/T1946 金光明忏仪都保持相关而独立；
+              T47 净土论著、礼赞仪轨与禅宗语录固定来源已完成 {snapshot.candidateInventory.chineseT47SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT47SourceRecords.denominator}（{snapshot.candidateInventory.chineseT47SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT47SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT47SourceRecords.controlledWorks} 个独立作品；5 组同数字经号、4 组同作者责任、3 组文类范围与 12 组相关异作边界均已记录，
+              T1986A/B、T1987A/B 即使文本高度重叠也因题名、编校责任、全文范围与权威号不同而保持相关且独立；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -546,6 +551,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T46 的 46 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t47-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T47 的 49 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
