@@ -4,8 +4,8 @@ import { resolve } from "node:path";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
 
 const root = process.cwd();
-const outputVersion = "4.11.0";
-const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v4.11.0.json");
+const outputVersion = "4.12.0";
+const catalogPath = resolve(root, "data/corpus/cbeta/catalog-v4.12.0.json");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -45,7 +45,8 @@ const t41BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.8.0.json");
 const t42BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.9.0.json");
 const t43BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.10.0.json");
 const t44BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.11.0.json");
-const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v3.2.0.json");
+const t45BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.12.0.json");
+const snapshotPath = resolve(root, "data/gbcr/source-snapshots-v3.3.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const t18InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json");
 const t19InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json");
@@ -74,6 +75,7 @@ const t41InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t41-inventory-v0.
 const t42InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t42-inventory-v0.1.0.json");
 const t43InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t43-inventory-v0.1.0.json");
 const t44InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t44-inventory-v0.1.0.json");
+const t45InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t45-inventory-v0.1.0.json");
 const previousRegistryPath = resolve(root, "data/gbcr/registry-v0.1.0.json");
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const agamaBatch = JSON.parse(await readFile(agamaBatchPath, "utf8"));
@@ -115,6 +117,7 @@ const t41Batch = JSON.parse(await readFile(t41BatchPath, "utf8"));
 const t42Batch = JSON.parse(await readFile(t42BatchPath, "utf8"));
 const t43Batch = JSON.parse(await readFile(t43BatchPath, "utf8"));
 const t44Batch = JSON.parse(await readFile(t44BatchPath, "utf8"));
+const t45Batch = JSON.parse(await readFile(t45BatchPath, "utf8"));
 const snapshots = JSON.parse(await readFile(snapshotPath, "utf8"));
 const inventoryRaw = await readFile(inventoryPath, "utf8");
 const inventory = JSON.parse(inventoryRaw);
@@ -172,6 +175,8 @@ const t43InventoryRaw = await readFile(t43InventoryPath, "utf8");
 const t43Inventory = JSON.parse(t43InventoryRaw);
 const t44InventoryRaw = await readFile(t44InventoryPath, "utf8");
 const t44Inventory = JSON.parse(t44InventoryRaw);
+const t45InventoryRaw = await readFile(t45InventoryPath, "utf8");
+const t45Inventory = JSON.parse(t45InventoryRaw);
 const previousRegistry = JSON.parse(await readFile(previousRegistryPath, "utf8"));
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const requireUnique = (values, label) => {
@@ -276,6 +281,9 @@ const cbetaT43SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
 );
 const cbetaT44SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
   (subset) => subset.id === "taisho_treatise_logic_awakening_commentaries_t44",
+);
+const cbetaT45SubsetSnapshot = cbetaSnapshotSource.candidateSubsets.find(
+  (subset) => subset.id === "taisho_east_asian_schools_vinaya_rituals_t45",
 );
 if (
   inventory.source.commit !== catalog.source.commit ||
@@ -501,6 +509,14 @@ if (
 ) {
   throw new Error("T44 论疏、因明与大乘义章逐文件清单与来源快照不一致");
 }
+if (
+  t45Inventory.source.commit !== catalog.source.commit ||
+  t45Inventory.totals.records !== cbetaT45SubsetSnapshot?.candidateRecordCount ||
+  t45Inventory.totals.upstreamBytes !== cbetaT45SubsetSnapshot?.candidateBytes ||
+  sha256(t45InventoryRaw) !== cbetaT45SubsetSnapshot?.inventorySha256
+) {
+  throw new Error("T45 三论、法相、华严、律仪与忏法逐文件清单与来源快照不一致");
+}
 const inventoryByPath = new Map(inventory.records.map((record) => [record.upstreamPath, record]));
 const t18InventoryByPath = new Map(t18Inventory.records.map((record) => [record.upstreamPath, record]));
 const t19InventoryByPath = new Map(t19Inventory.records.map((record) => [record.upstreamPath, record]));
@@ -529,6 +545,7 @@ const t41InventoryByPath = new Map(t41Inventory.records.map((record) => [record.
 const t42InventoryByPath = new Map(t42Inventory.records.map((record) => [record.upstreamPath, record]));
 const t43InventoryByPath = new Map(t43Inventory.records.map((record) => [record.upstreamPath, record]));
 const t44InventoryByPath = new Map(t44Inventory.records.map((record) => [record.upstreamPath, record]));
+const t45InventoryByPath = new Map(t45Inventory.records.map((record) => [record.upstreamPath, record]));
 
 const files = [];
 const worksById = new Map();
@@ -623,14 +640,14 @@ const manifest = {
 
 const cbetaCandidateSubsets = snapshots.sources
   .find((source) => source.id === "cbeta_xml_p5")
-  ?.candidateSubsets?.filter((subset) => ["taisho_chinese_sutra_t01_t17", "taisho_esoteric_t18", "taisho_esoteric_t19", "taisho_esoteric_t20", "taisho_esoteric_t21", "taisho_vinaya_t22", "taisho_vinaya_t23", "taisho_vinaya_t24", "taisho_sutra_commentary_t25", "taisho_sutra_commentary_abhidharma_t26", "taisho_abhidharma_commentary_t27", "taisho_abhidharma_t28", "taisho_abhidharma_t29", "taisho_madhyamaka_yogacara_t30", "taisho_yogacara_t31", "taisho_sastra_t32", "taisho_sutra_commentary_t33", "taisho_sutra_commentary_t34", "taisho_huayan_commentary_t35", "taisho_huayan_commentary_t36", "taisho_pure_land_nirvana_commentary_t37", "taisho_nirvana_medicine_buddha_maitreya_vimalakirti_commentary_t38", "taisho_golden_light_lankavatara_esoteric_commentary_t39", "taisho_vinaya_bodhisattva_precept_treatise_commentary_t40", "taisho_abhidharma_kosa_commentary_t41", "taisho_madhyamaka_and_yogacara_commentaries_t42", "taisho_yogacara_commentaries_t43", "taisho_treatise_logic_awakening_commentaries_t44"].includes(subset.id));
-if (cbetaCandidateSubsets?.length !== 28) throw new Error("缺少汉译经藏、T18–T21 密教部、T22–T24 律部或 T25–T44 释经论、毘昙、中观、瑜伽、因明、诸宗、经疏与律疏部候选子集快照");
+  ?.candidateSubsets?.filter((subset) => ["taisho_chinese_sutra_t01_t17", "taisho_esoteric_t18", "taisho_esoteric_t19", "taisho_esoteric_t20", "taisho_esoteric_t21", "taisho_vinaya_t22", "taisho_vinaya_t23", "taisho_vinaya_t24", "taisho_sutra_commentary_t25", "taisho_sutra_commentary_abhidharma_t26", "taisho_abhidharma_commentary_t27", "taisho_abhidharma_t28", "taisho_abhidharma_t29", "taisho_madhyamaka_yogacara_t30", "taisho_yogacara_t31", "taisho_sastra_t32", "taisho_sutra_commentary_t33", "taisho_sutra_commentary_t34", "taisho_huayan_commentary_t35", "taisho_huayan_commentary_t36", "taisho_pure_land_nirvana_commentary_t37", "taisho_nirvana_medicine_buddha_maitreya_vimalakirti_commentary_t38", "taisho_golden_light_lankavatara_esoteric_commentary_t39", "taisho_vinaya_bodhisattva_precept_treatise_commentary_t40", "taisho_abhidharma_kosa_commentary_t41", "taisho_madhyamaka_and_yogacara_commentaries_t42", "taisho_yogacara_commentaries_t43", "taisho_treatise_logic_awakening_commentaries_t44", "taisho_east_asian_schools_vinaya_rituals_t45"].includes(subset.id));
+if (cbetaCandidateSubsets?.length !== 29) throw new Error("缺少汉译经藏、T18–T21 密教部、T22–T24 律部或 T25–T45 释经论、毘昙、中观、瑜伽、诸宗、华严、律仪与忏法候选子集快照");
 const controlledSubsetFiles = files
   .flatMap(sourceUnits)
-  .filter((file) => /^T\/T(0[1-9]|[12][0-9]|3[0-9]|4[0-4])\//.test(file.upstreamPath));
+  .filter((file) => /^T\/T(0[1-9]|[12][0-9]|3[0-9]|4[0-5])\//.test(file.upstreamPath));
 const controlledSubsetRecords = controlledSubsetFiles.length;
 for (const file of controlledSubsetFiles) {
-  const inventoryRecord = inventoryByPath.get(file.upstreamPath) ?? t18InventoryByPath.get(file.upstreamPath) ?? t19InventoryByPath.get(file.upstreamPath) ?? t20InventoryByPath.get(file.upstreamPath) ?? t21InventoryByPath.get(file.upstreamPath) ?? t22InventoryByPath.get(file.upstreamPath) ?? t23InventoryByPath.get(file.upstreamPath) ?? t24InventoryByPath.get(file.upstreamPath) ?? t25InventoryByPath.get(file.upstreamPath) ?? t26InventoryByPath.get(file.upstreamPath) ?? t27InventoryByPath.get(file.upstreamPath) ?? t28InventoryByPath.get(file.upstreamPath) ?? t29InventoryByPath.get(file.upstreamPath) ?? t30InventoryByPath.get(file.upstreamPath) ?? t31InventoryByPath.get(file.upstreamPath) ?? t32InventoryByPath.get(file.upstreamPath) ?? t33InventoryByPath.get(file.upstreamPath) ?? t34InventoryByPath.get(file.upstreamPath) ?? t35InventoryByPath.get(file.upstreamPath) ?? t36InventoryByPath.get(file.upstreamPath) ?? t37InventoryByPath.get(file.upstreamPath) ?? t38InventoryByPath.get(file.upstreamPath) ?? t39InventoryByPath.get(file.upstreamPath) ?? t40InventoryByPath.get(file.upstreamPath) ?? t41InventoryByPath.get(file.upstreamPath) ?? t42InventoryByPath.get(file.upstreamPath) ?? t43InventoryByPath.get(file.upstreamPath) ?? t44InventoryByPath.get(file.upstreamPath);
+  const inventoryRecord = inventoryByPath.get(file.upstreamPath) ?? t18InventoryByPath.get(file.upstreamPath) ?? t19InventoryByPath.get(file.upstreamPath) ?? t20InventoryByPath.get(file.upstreamPath) ?? t21InventoryByPath.get(file.upstreamPath) ?? t22InventoryByPath.get(file.upstreamPath) ?? t23InventoryByPath.get(file.upstreamPath) ?? t24InventoryByPath.get(file.upstreamPath) ?? t25InventoryByPath.get(file.upstreamPath) ?? t26InventoryByPath.get(file.upstreamPath) ?? t27InventoryByPath.get(file.upstreamPath) ?? t28InventoryByPath.get(file.upstreamPath) ?? t29InventoryByPath.get(file.upstreamPath) ?? t30InventoryByPath.get(file.upstreamPath) ?? t31InventoryByPath.get(file.upstreamPath) ?? t32InventoryByPath.get(file.upstreamPath) ?? t33InventoryByPath.get(file.upstreamPath) ?? t34InventoryByPath.get(file.upstreamPath) ?? t35InventoryByPath.get(file.upstreamPath) ?? t36InventoryByPath.get(file.upstreamPath) ?? t37InventoryByPath.get(file.upstreamPath) ?? t38InventoryByPath.get(file.upstreamPath) ?? t39InventoryByPath.get(file.upstreamPath) ?? t40InventoryByPath.get(file.upstreamPath) ?? t41InventoryByPath.get(file.upstreamPath) ?? t42InventoryByPath.get(file.upstreamPath) ?? t43InventoryByPath.get(file.upstreamPath) ?? t44InventoryByPath.get(file.upstreamPath) ?? t45InventoryByPath.get(file.upstreamPath);
   if (
     !inventoryRecord ||
     inventoryRecord.upstreamGitBlobSha1 !== file.upstreamGitBlobSha1 ||
@@ -766,8 +783,11 @@ const sourceFamilies = previousRegistry.sourceFamilies.map((family) => family.id
       t44SourceRecordDenominator: t44Batch.collection.sourceRecordDenominator,
       t44ControlledSourceRecords: t44Batch.collection.controlledSourceRecords,
       t44SourceRecordPercentage: 100,
+      t45SourceRecordDenominator: t45Batch.collection.sourceRecordDenominator,
+      t45ControlledSourceRecords: t45Batch.collection.controlledSourceRecords,
+      t45SourceRecordPercentage: 100,
       denominatorWorks: null,
-      denominatorNote: "1,931 是大正藏 T01–T44 二十八个固定候选子集中的来源记录，不是去重后的全球作品数。T01–T17 已完成 881/881，T18 完成 76/76，T19 完成 126/126，T20 完成 184/184，T21 完成 228/228，T22 完成 15/15，T23 完成 13/13，T24 完成 59/59，T25 完成 15/15，T26 完成 26/26，T27 完成 1/1，T28 完成 12/12，T29 完成 6/6，T30 完成 21/21，T31 完成 43/43，T32 完成 66/66，T33 完成 25/25，T34 完成 13/13，T35 完成 5/5，T36 完成 8/8，T37 完成 21/21，T38 完成 18/18，T39 完成 21/21，T40 完成 17/17，T41 完成 3/3，T42 完成 5/5，T43 完成 6/6，T44 完成 17/17。T18–T21 密教部、T22–T24 律部、T25–T44 释经论、毘昙、中观、瑜伽、因明、诸宗、经疏与律疏分别保留译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、部分作品见证、组成部分、节略与分离见证、同本异译、音写、失译、汉地撰成、经疏、律学行事钞、含注戒本、男女众羯磨、删补本、再注释、末后一颂、节要、补注、同根本论平行注疏、宗致义记、述记、枢要、同根本论再注释、复合责任题记、根本译本边界、伴随著作范围、综合义章与同作者异作边界；目录部类、传统作者、题名或机器相似度不等于同一作品或佛陀逐字亲说归属。"
+      denominatorNote: "1,992 是大正藏 T01–T45 二十九个固定候选子集中的来源记录，不是去重后的全球作品数。T01–T17 已完成 881/881，T18–T44 各卷固定子集均已闭合，T45 完成 61/61。T18–T21 密教部、T22–T24 律部、T25–T45 释经论、毘昙、中观、瑜伽、诸宗、华严、律仪与忏法分别保留译经、仪轨、论造、广律、戒本、羯磨、根本颂、释论、注疏、再注释、同经号文本、复合责任、同作者异作、集撰与无署名边界；目录部类、传统作者、题名、引文或机器相似度不等于同一作品或佛陀逐字亲说归属。"
     }
   : family);
 const registry = {
@@ -781,11 +801,11 @@ const serialize = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const manifestRaw = serialize(manifest);
 const registryRaw = serialize(registry);
 const snapshotRaw = await readFile(snapshotPath, "utf8");
-const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v4.11.0.json\n${sha256(snapshotRaw)}  source-snapshots-v3.2.0.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n${sha256(t18InventoryRaw)}  cbeta-taisho-t18-inventory-v0.1.0.json\n${sha256(t19InventoryRaw)}  cbeta-taisho-t19-inventory-v0.1.0.json\n${sha256(t20InventoryRaw)}  cbeta-taisho-t20-inventory-v0.1.0.json\n${sha256(t21InventoryRaw)}  cbeta-taisho-t21-inventory-v0.1.0.json\n${sha256(t22InventoryRaw)}  cbeta-taisho-t22-inventory-v0.1.0.json\n${sha256(t23InventoryRaw)}  cbeta-taisho-t23-inventory-v0.1.0.json\n${sha256(t24InventoryRaw)}  cbeta-taisho-t24-inventory-v0.1.0.json\n${sha256(t25InventoryRaw)}  cbeta-taisho-t25-inventory-v0.1.0.json\n${sha256(t26InventoryRaw)}  cbeta-taisho-t26-inventory-v0.1.0.json\n${sha256(t27InventoryRaw)}  cbeta-taisho-t27-inventory-v0.1.0.json\n${sha256(t28InventoryRaw)}  cbeta-taisho-t28-inventory-v0.1.0.json\n${sha256(t29InventoryRaw)}  cbeta-taisho-t29-inventory-v0.1.0.json\n${sha256(t30InventoryRaw)}  cbeta-taisho-t30-inventory-v0.1.0.json\n${sha256(t31InventoryRaw)}  cbeta-taisho-t31-inventory-v0.1.0.json\n${sha256(t32InventoryRaw)}  cbeta-taisho-t32-inventory-v0.1.0.json\n${sha256(t33InventoryRaw)}  cbeta-taisho-t33-inventory-v0.1.0.json\n${sha256(t34InventoryRaw)}  cbeta-taisho-t34-inventory-v0.1.0.json\n${sha256(t35InventoryRaw)}  cbeta-taisho-t35-inventory-v0.1.0.json\n${sha256(t36InventoryRaw)}  cbeta-taisho-t36-inventory-v0.1.0.json\n${sha256(t37InventoryRaw)}  cbeta-taisho-t37-inventory-v0.1.0.json\n${sha256(t38InventoryRaw)}  cbeta-taisho-t38-inventory-v0.1.0.json\n${sha256(t39InventoryRaw)}  cbeta-taisho-t39-inventory-v0.1.0.json\n${sha256(t40InventoryRaw)}  cbeta-taisho-t40-inventory-v0.1.0.json\n${sha256(t41InventoryRaw)}  cbeta-taisho-t41-inventory-v0.1.0.json\n${sha256(t42InventoryRaw)}  cbeta-taisho-t42-inventory-v0.1.0.json\n${sha256(t43InventoryRaw)}  cbeta-taisho-t43-inventory-v0.1.0.json\n${sha256(t44InventoryRaw)}  cbeta-taisho-t44-inventory-v0.1.0.json\n`;
+const checksumRaw = `${sha256(registryRaw)}  registry-cbeta-v4.12.0.json\n${sha256(snapshotRaw)}  source-snapshots-v3.3.0.json\n${sha256(inventoryRaw)}  cbeta-taisho-sutra-inventory-v0.2.1.json\n${sha256(t18InventoryRaw)}  cbeta-taisho-t18-inventory-v0.1.0.json\n${sha256(t19InventoryRaw)}  cbeta-taisho-t19-inventory-v0.1.0.json\n${sha256(t20InventoryRaw)}  cbeta-taisho-t20-inventory-v0.1.0.json\n${sha256(t21InventoryRaw)}  cbeta-taisho-t21-inventory-v0.1.0.json\n${sha256(t22InventoryRaw)}  cbeta-taisho-t22-inventory-v0.1.0.json\n${sha256(t23InventoryRaw)}  cbeta-taisho-t23-inventory-v0.1.0.json\n${sha256(t24InventoryRaw)}  cbeta-taisho-t24-inventory-v0.1.0.json\n${sha256(t25InventoryRaw)}  cbeta-taisho-t25-inventory-v0.1.0.json\n${sha256(t26InventoryRaw)}  cbeta-taisho-t26-inventory-v0.1.0.json\n${sha256(t27InventoryRaw)}  cbeta-taisho-t27-inventory-v0.1.0.json\n${sha256(t28InventoryRaw)}  cbeta-taisho-t28-inventory-v0.1.0.json\n${sha256(t29InventoryRaw)}  cbeta-taisho-t29-inventory-v0.1.0.json\n${sha256(t30InventoryRaw)}  cbeta-taisho-t30-inventory-v0.1.0.json\n${sha256(t31InventoryRaw)}  cbeta-taisho-t31-inventory-v0.1.0.json\n${sha256(t32InventoryRaw)}  cbeta-taisho-t32-inventory-v0.1.0.json\n${sha256(t33InventoryRaw)}  cbeta-taisho-t33-inventory-v0.1.0.json\n${sha256(t34InventoryRaw)}  cbeta-taisho-t34-inventory-v0.1.0.json\n${sha256(t35InventoryRaw)}  cbeta-taisho-t35-inventory-v0.1.0.json\n${sha256(t36InventoryRaw)}  cbeta-taisho-t36-inventory-v0.1.0.json\n${sha256(t37InventoryRaw)}  cbeta-taisho-t37-inventory-v0.1.0.json\n${sha256(t38InventoryRaw)}  cbeta-taisho-t38-inventory-v0.1.0.json\n${sha256(t39InventoryRaw)}  cbeta-taisho-t39-inventory-v0.1.0.json\n${sha256(t40InventoryRaw)}  cbeta-taisho-t40-inventory-v0.1.0.json\n${sha256(t41InventoryRaw)}  cbeta-taisho-t41-inventory-v0.1.0.json\n${sha256(t42InventoryRaw)}  cbeta-taisho-t42-inventory-v0.1.0.json\n${sha256(t43InventoryRaw)}  cbeta-taisho-t43-inventory-v0.1.0.json\n${sha256(t44InventoryRaw)}  cbeta-taisho-t44-inventory-v0.1.0.json\n${sha256(t45InventoryRaw)}  cbeta-taisho-t45-inventory-v0.1.0.json\n`;
 const outputs = [
-  [resolve(root, "data/corpus/cbeta/manifest-v4.11.0.json"), manifestRaw],
-  [resolve(root, "data/gbcr/registry-cbeta-v4.11.0.json"), registryRaw],
-  [resolve(root, "data/gbcr/checksums-cbeta-v4.11.0.sha256"), checksumRaw],
+  [resolve(root, "data/corpus/cbeta/manifest-v4.12.0.json"), manifestRaw],
+  [resolve(root, "data/gbcr/registry-cbeta-v4.12.0.json"), registryRaw],
+  [resolve(root, "data/gbcr/checksums-cbeta-v4.12.0.sha256"), checksumRaw],
 ];
 const expressionCount = works.reduce((sum, work) => sum + work.expressions.length, 0);
 const segmentCount = works.flatMap((work) => work.expressions).reduce((sum, expression) => sum + expression.stableSegments, 0);

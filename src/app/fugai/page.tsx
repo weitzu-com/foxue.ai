@@ -294,6 +294,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT44SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT44SourceRecords.controlledWorks} 个独立作品；7 组根本论—论疏、2 组根本译本、1 组再注释、3 组伴随著作范围与 6 组相关异作边界均已记录，
               T1836 的复合责任题记、T1848 的再注释层级和 T1851 的综合义章身份都不被压平；
+              T45 三论、法相、华严、律仪与忏法固定来源已完成 {snapshot.candidateInventory.chineseT45SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT45SourceRecords.denominator}（{snapshot.candidateInventory.chineseT45SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT45SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT45SourceRecords.controlledWorks} 个独立作品；《肇论》根本论—两疏、2 组同经号边界、1 组法界图—集注、5 组复合责任与 7 组同作者范围边界均已记录，
+              T1879a/b、T1887A/B、金师子章两种注释和集撰或无署名忏法都保持独立、可审计；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -520,6 +525,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T44 的 17 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t45-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T45 的 61 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
