@@ -1,0 +1,1769 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.19.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.18.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t52-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T52; T52 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T52",
+    "title": "大正藏 T52 护法论辩、三教交涉、感通录与表制文书固定来源记录",
+    "sourceRecordDenominator": 19,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 19,
+    "controlledSourceRecords": 19,
+    "newSourceBytes": 18836743,
+    "newStableSegments": 70393,
+    "newFolios": 2654,
+    "newJuans": 124,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 19,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 19,
+    "attributionBoundaryRecords": 19,
+    "unsignedResponsibilityRecords": 1,
+    "lostTranslatorResponsibilityRecords": 0,
+    "newWorks": 19,
+    "controlledWorks": 19,
+    "workCountingDecision": "T52 的 19 份固定来源记录登记为 19 个完整表达和 19 个独立作品。DILA 返回 19 个不同 CA 作品号，CBC 也给出 19 个不同作品入口；弘明集续编、佛道论衡续集、道宣与法琳伴随著作、契嵩跨卷作品、玄奘和不空表制文书只建立关系，不据共同作者、中心人物、续集题名、汇编篇章或护法主题自动合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_apologetic_debate_revelation_memorial_compilation_responsibility_continuation_and_cross_volume_boundaries_recorded",
+    "existingControlledRecords": [
+      "T2078",
+      "T2079",
+      "T2080",
+      "T2081",
+      "T2087"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [],
+    "editionOrRecensionGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [],
+    "layeredAttributionGroups": [
+      "multi-author-compilations-t2102-t2103-t2108-t2120",
+      "monastic-court-documents-t2108-t2119-t2120"
+    ],
+    "scopeBoundaryGroups": [
+      "east-asian-apologetic-treatises-t2109-t2118",
+      "monastic-court-documents-t2108-t2119-t2120"
+    ],
+    "continuationBoundaryGroups": [
+      "hongming-anthology-series-t2102-t2103",
+      "buddhist-daoist-debate-series-t2104-t2105"
+    ],
+    "sourceReuseBoundaryGroups": [
+      "hongming-anthology-series-t2102-t2103",
+      "buddhist-daoist-debate-series-t2104-t2105",
+      "guang-hongming-lunheng-source-reuse-t2103-t2104"
+    ],
+    "sameAuthorCompanionWorkGroups": [
+      "daoxuan-miracle-revelation-records-t2106-t2107",
+      "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+      "falin-apologetic-treatises-t2109-t2110",
+      "qisong-cross-volume-works-t2078-t2080-t2115"
+    ],
+    "crossVolumeRelationGroups": [
+      "qisong-cross-volume-works-t2078-t2080-t2115",
+      "xuanzang-travel-and-memorial-records-t2087-t2119",
+      "bukong-lineage-and-court-documents-t2081-t2120"
+    ],
+    "relatedDistinctWorkGroups": [
+      "hongming-anthology-series-t2102-t2103",
+      "buddhist-daoist-debate-series-t2104-t2105",
+      "daoxuan-miracle-revelation-records-t2106-t2107",
+      "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+      "guang-hongming-lunheng-source-reuse-t2103-t2104",
+      "falin-apologetic-treatises-t2109-t2110",
+      "east-asian-apologetic-treatises-t2109-t2118",
+      "multi-author-compilations-t2102-t2103-t2108-t2120",
+      "monastic-court-documents-t2108-t2119-t2120",
+      "qisong-cross-volume-works-t2078-t2080-t2115",
+      "xuanzang-travel-and-memorial-records-t2087-t2119",
+      "bukong-lineage-and-court-documents-t2081-t2120"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2102/T2103 是护法总集本编—广集关系；编者、时代、篇目范围、结构和两个权威作品入口保持分立",
+      "T2104/T2105 是佛道论衡本编—续集关系；道宣与智昇责任、卷数和作品号不同",
+      "T2103/T2104 的五字组对较短文本包含度约 0.341951，显著材料复用不消除文集与论衡的不同编纂范围和两个作品号",
+      "T2103、T2104、T2106、T2107 同属道宣责任脉络但为四部不同文类作品；T2106/T2107 的三宝汇编与个人感通范围不等同",
+      "T2109/T2110 同为法琳护法著作，但两卷破邪论与八卷辩正论保持两部作品",
+      "T2102、T2103、T2108、T2120 的总集编者与篇内作者、臣僧或朝廷原责任分层保存",
+      "T2115 与 T2078–T2080 同属契嵩，却是文集、史记、谱系图和宗论四个跨卷独立作品",
+      "T2119 传统责任题记、DILA 与 CBC 均未署总集责任，不因题名含玄奘而推定玄奘为编者",
+      "T2119 与 T2087 共享玄奘人物、T2120 与 T2081 共享不空相关语境，都只建立跨文类关系"
+    ],
+    "partialWorkWitnesses": [],
+    "editionWitnesses": [],
+    "sourceRoles": {
+      "daoxuan_expanded_buddhist_apologetic_anthology": [
+        "T2103"
+      ],
+      "daoxuan_personal_revelation_record": [
+        "T2107"
+      ],
+      "daoxuan_three_jewels_miracle_compilation": [
+        "T2106"
+      ],
+      "east_asian_buddhist_apologetic_anthology": [
+        "T2102"
+      ],
+      "east_asian_buddhist_apologetic_or_three_teachings_treatise": [
+        "T2111",
+        "T2112",
+        "T2114",
+        "T2116",
+        "T2117",
+        "T2118"
+      ],
+      "east_asian_buddhist_daoist_debate_chronicle": [
+        "T2104"
+      ],
+      "falin_buddhist_apologetic_treatise": [
+        "T2109"
+      ],
+      "falin_extended_buddhist_apologetic_treatise": [
+        "T2110"
+      ],
+      "qisong_buddhist_literary_collection": [
+        "T2115"
+      ],
+      "shenqing_huibao_authored_annotated_apologetic_record": [
+        "T2113"
+      ],
+      "unattributed_xuanzang_court_memorial_collection": [
+        "T2119"
+      ],
+      "yanzong_monastic_court_ritual_document_compilation": [
+        "T2108"
+      ],
+      "yuanzhao_bukong_court_document_compilation": [
+        "T2120"
+      ],
+      "zhisheng_buddhist_daoist_debate_continuation": [
+        "T2105"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records continuation, source reuse, common authors or document formulae; distinct DILA/CBC work entries, title, responsibility, genre and scope prevent automatic work merge.",
+      "pairs": [
+        {
+          "pair": [
+            "T2102",
+            "T2103"
+          ],
+          "normalizedCharacters": [
+            129622,
+            360042
+          ],
+          "fiveGramContainmentOfShorter": 0.015786,
+          "fiveGramJaccard": 0.004164
+        },
+        {
+          "pair": [
+            "T2104",
+            "T2105"
+          ],
+          "normalizedCharacters": [
+            47795,
+            8842
+          ],
+          "fiveGramContainmentOfShorter": 0.073368,
+          "fiveGramJaccard": 0.011515
+        },
+        {
+          "pair": [
+            "T2106",
+            "T2107"
+          ],
+          "normalizedCharacters": [
+            43815,
+            10322
+          ],
+          "fiveGramContainmentOfShorter": 0.002627,
+          "fiveGramJaccard": 0.000507
+        },
+        {
+          "pair": [
+            "T2103",
+            "T2104"
+          ],
+          "normalizedCharacters": [
+            360042,
+            47795
+          ],
+          "fiveGramContainmentOfShorter": 0.341951,
+          "fiveGramJaccard": 0.041971
+        },
+        {
+          "pair": [
+            "T2103",
+            "T2106"
+          ],
+          "normalizedCharacters": [
+            360042,
+            43815
+          ],
+          "fiveGramContainmentOfShorter": 0.020667,
+          "fiveGramJaccard": 0.002274
+        },
+        {
+          "pair": [
+            "T2104",
+            "T2106"
+          ],
+          "normalizedCharacters": [
+            47795,
+            43815
+          ],
+          "fiveGramContainmentOfShorter": 0.002234,
+          "fiveGramJaccard": 0.001074
+        },
+        {
+          "pair": [
+            "T2109",
+            "T2110"
+          ],
+          "normalizedCharacters": [
+            19950,
+            75081
+          ],
+          "fiveGramContainmentOfShorter": 0.008147,
+          "fiveGramJaccard": 0.001733
+        },
+        {
+          "pair": [
+            "T2111",
+            "T2112"
+          ],
+          "normalizedCharacters": [
+            11953,
+            15996
+          ],
+          "fiveGramContainmentOfShorter": 0.000255,
+          "fiveGramJaccard": 0.000109
+        },
+        {
+          "pair": [
+            "T2114",
+            "T2115"
+          ],
+          "normalizedCharacters": [
+            14232,
+            143857
+          ],
+          "fiveGramContainmentOfShorter": 0.014335,
+          "fiveGramJaccard": 0.001321
+        },
+        {
+          "pair": [
+            "T2116",
+            "T2117"
+          ],
+          "normalizedCharacters": [
+            42428,
+            18806
+          ],
+          "fiveGramContainmentOfShorter": 0.002061,
+          "fiveGramJaccard": 0.000634
+        },
+        {
+          "pair": [
+            "T2116",
+            "T2118"
+          ],
+          "normalizedCharacters": [
+            42428,
+            12388
+          ],
+          "fiveGramContainmentOfShorter": 0.012876,
+          "fiveGramJaccard": 0.002932
+        },
+        {
+          "pair": [
+            "T2117",
+            "T2118"
+          ],
+          "normalizedCharacters": [
+            18806,
+            12388
+          ],
+          "fiveGramContainmentOfShorter": 0.001968,
+          "fiveGramJaccard": 0.000784
+        },
+        {
+          "pair": [
+            "T2108",
+            "T2119"
+          ],
+          "normalizedCharacters": [
+            42831,
+            12438
+          ],
+          "fiveGramContainmentOfShorter": 0.001274,
+          "fiveGramJaccard": 0.000295
+        },
+        {
+          "pair": [
+            "T2108",
+            "T2120"
+          ],
+          "normalizedCharacters": [
+            42831,
+            40003
+          ],
+          "fiveGramContainmentOfShorter": 0.001147,
+          "fiveGramJaccard": 0.000519
+        },
+        {
+          "pair": [
+            "T2119",
+            "T2120"
+          ],
+          "normalizedCharacters": [
+            12438,
+            40003
+          ],
+          "fiveGramContainmentOfShorter": 0.003397,
+          "fiveGramJaccard": 0.000909
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T52",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001338",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001290",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001501",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003647",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001505",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000740",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001504",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002420",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000316",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003064",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004046",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000289",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001343",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003217",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000314",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002718",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003531",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003661",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000322",
+      "https://dazangthings.nz/cbc/text/1226/",
+      "https://dazangthings.nz/cbc/text/1222/",
+      "https://dazangthings.nz/cbc/text/1224/",
+      "https://dazangthings.nz/cbc/text/1235/",
+      "https://dazangthings.nz/cbc/text/1239/",
+      "https://dazangthings.nz/cbc/text/1225/",
+      "https://dazangthings.nz/cbc/text/1232/",
+      "https://dazangthings.nz/cbc/text/1223/",
+      "https://dazangthings.nz/cbc/text/1230/",
+      "https://dazangthings.nz/cbc/text/1228/",
+      "https://dazangthings.nz/cbc/text/1234/",
+      "https://dazangthings.nz/cbc/text/1231/",
+      "https://dazangthings.nz/cbc/text/1227/",
+      "https://dazangthings.nz/cbc/text/1229/",
+      "https://dazangthings.nz/cbc/text/1240/",
+      "https://dazangthings.nz/cbc/text/1236/",
+      "https://dazangthings.nz/cbc/text/1237/",
+      "https://dazangthings.nz/cbc/text/1233/",
+      "https://dazangthings.nz/cbc/text/1238/"
+    ],
+    "caveat": "T52 是汉地护法文集、佛道与三教论辩、感通录、个人文集及朝廷表制文书的集合，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI、校勘、总集与篇内责任层级，同时分离作品、表达、续编、伴随著作、跨卷人物关系和未署名责任；相邻经号、共同作者、续集题名、论敌、人物、制度语境或机器相似度都不能单独证明作品相同。"
+  },
+  "files": [
+    {
+      "id": "T2102",
+      "slug": "taisho-t2102",
+      "workId": "gbcr:work:taisho-t2102-buddhist-apologetic-anthology",
+      "workIdentityStatus": "verified_distinct_multi_author_compilation",
+      "workTitle": "弘明集",
+      "sourceRole": "east_asian_buddhist_apologetic_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_anthology_continuation_distinct",
+          "groupId": "hongming-anthology-series-t2102-t2103",
+          "label": "《弘明集》与《广弘明集》续编边界",
+          "evidence": "T2102 为僧祐编十四卷早期护法文集，T2103 为道宣编三十卷广集；后者承续并扩展护法文献传统，但编者、时代、篇目范围、结构及 DILA/CBC 作品入口不同。篇章复用或续编题名不构成同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103"
+            ]
+          }
+        },
+        {
+          "type": "layered_compilation_responsibility_distinct",
+          "groupId": "multi-author-compilations-t2102-t2103-t2108-t2120",
+          "label": "多作者篇章、编者与表制原责任分层",
+          "evidence": "T2102、T2103、T2108 与 T2120 都由编者汇集多位作者、臣僧或朝廷的原始篇章。平台分别保留 TEI 的总集责任与篇内原责任，不把编者等同于全部篇章作者，也不因汇编结构合并四部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103",
+              "T2108",
+              "T2120"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001338",
+        "cbcText": "1226"
+      },
+      "localPath": "data/corpus/cbeta/T52n2102.xml",
+      "upstreamPath": "T/T52/T52n2102.xml",
+      "upstreamGitBlobSha1": "ff9c8e30b9a064c3bff38511bce9ca6fdd108201",
+      "upstreamBytes": 2866629,
+      "upstreamSha256": "822dd8741e103f6f7500312e4eac334d4721d105a25f15aef651f27e55f2dd25",
+      "localBytes": 2866630,
+      "localSha256": "08d4e43b01e3ca6c50975306d9ec8d85494214eb293f13160e7c79c3c9360d2f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "弘明集",
+        "alternateTitle": "弘明集",
+        "tradition": "汉传佛教 · 护法文集",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2102",
+        "translator": "梁 · 僧祐撰",
+        "summary": "14卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：梁 僧祐撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2102_001"
+      },
+      "verification": {
+        "segments": 8090,
+        "folios": 294,
+        "juanRange": [
+          1,
+          14
+        ],
+        "anchors": [
+          "T2102.001.0001a02",
+          "T2102.014.0096b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2103",
+      "slug": "taisho-t2103",
+      "workId": "gbcr:work:taisho-t2103-buddhist-apologetic-anthology",
+      "workIdentityStatus": "verified_distinct_continuation_and_multi_author_compilation",
+      "workTitle": "廣弘明集",
+      "sourceRole": "daoxuan_expanded_buddhist_apologetic_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_anthology_continuation_distinct",
+          "groupId": "hongming-anthology-series-t2102-t2103",
+          "label": "《弘明集》与《广弘明集》续编边界",
+          "evidence": "T2102 为僧祐编十四卷早期护法文集，T2103 为道宣编三十卷广集；后者承续并扩展护法文献传统，但编者、时代、篇目范围、结构及 DILA/CBC 作品入口不同。篇章复用或续编题名不构成同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+          "label": "道宣护法文集、佛道论衡与感通录伴随著作边界",
+          "evidence": "T2103、T2104、T2106、T2107 均与道宣责任相关，却分别是护法文集、佛道论衡史料、三宝感通汇编与个人感通录；共同作者不能消除四个独立作品、文类和范围。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104",
+              "T2106",
+              "T2107"
+            ]
+          }
+        },
+        {
+          "type": "anthology_source_reuse_distinct",
+          "groupId": "guang-hongming-lunheng-source-reuse-t2103-t2104",
+          "label": "《广弘明集》与《集古今佛道论衡》显著材料复用边界",
+          "evidence": "两部道宣责任著作的规范化正文五字组对较短 T2104 的包含度约 0.341951，显示显著共同材料或引文；但题名、文集与论衡编纂范围、卷数及 DILA/CBC 作品入口不同。重叠只登记为可复核的材料复用，不自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104"
+            ]
+          }
+        },
+        {
+          "type": "layered_compilation_responsibility_distinct",
+          "groupId": "multi-author-compilations-t2102-t2103-t2108-t2120",
+          "label": "多作者篇章、编者与表制原责任分层",
+          "evidence": "T2102、T2103、T2108 与 T2120 都由编者汇集多位作者、臣僧或朝廷的原始篇章。平台分别保留 TEI 的总集责任与篇内原责任，不把编者等同于全部篇章作者，也不因汇编结构合并四部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103",
+              "T2108",
+              "T2120"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001290",
+        "cbcText": "1222"
+      },
+      "localPath": "data/corpus/cbeta/T52n2103.xml",
+      "upstreamPath": "T/T52/T52n2103.xml",
+      "upstreamGitBlobSha1": "0b7c8608826f45035f511fb4d0096b1dd4083485",
+      "upstreamBytes": 6967572,
+      "upstreamSha256": "7de7ace8ca96a502cdd443f07c79688f78d253a07eecf848f24155c97ce0a327",
+      "localBytes": 6967573,
+      "localSha256": "b06e033af420216adf9d36dadec95d873193d3e599beee19919803238a939ddf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廣弘明集",
+        "alternateTitle": "廣弘明集",
+        "tradition": "汉传佛教 · 护法文集",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2103",
+        "translator": "唐 · 道宣撰",
+        "summary": "30卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2103_001"
+      },
+      "verification": {
+        "segments": 22512,
+        "folios": 816,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T2103.001.0097a02",
+          "T2103.030.0361a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2104",
+      "slug": "taisho-t2104",
+      "workId": "gbcr:work:taisho-t2104-buddhist-daoist-debate-chronicle",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "集古今佛道論衡",
+      "sourceRole": "east_asian_buddhist_daoist_debate_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_daoist_debate_continuation_distinct",
+          "groupId": "buddhist-daoist-debate-series-t2104-t2105",
+          "label": "《集古今佛道论衡》与续集边界",
+          "evidence": "T2104 为道宣编四卷佛道论衡史料，T2105 为智昇续编一卷；续集继承议题和体例，却有不同编者、范围、年代与独立权威作品号，必须作为相关异作保存。",
+          "externalIds": {
+            "cbeta": [
+              "T2104",
+              "T2105"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+          "label": "道宣护法文集、佛道论衡与感通录伴随著作边界",
+          "evidence": "T2103、T2104、T2106、T2107 均与道宣责任相关，却分别是护法文集、佛道论衡史料、三宝感通汇编与个人感通录；共同作者不能消除四个独立作品、文类和范围。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104",
+              "T2106",
+              "T2107"
+            ]
+          }
+        },
+        {
+          "type": "anthology_source_reuse_distinct",
+          "groupId": "guang-hongming-lunheng-source-reuse-t2103-t2104",
+          "label": "《广弘明集》与《集古今佛道论衡》显著材料复用边界",
+          "evidence": "两部道宣责任著作的规范化正文五字组对较短 T2104 的包含度约 0.341951，显示显著共同材料或引文；但题名、文集与论衡编纂范围、卷数及 DILA/CBC 作品入口不同。重叠只登记为可复核的材料复用，不自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001501",
+        "cbcText": "1224"
+      },
+      "localPath": "data/corpus/cbeta/T52n2104.xml",
+      "upstreamPath": "T/T52/T52n2104.xml",
+      "upstreamGitBlobSha1": "731dbbf545ab91776c7037770bfcdd7dae291c4f",
+      "upstreamBytes": 1092344,
+      "upstreamSha256": "6032cbf4aa3abaf897cf1d7c3e40b5ea2b209fd2ff6b18582572aa93278f3b14",
+      "localBytes": 1092345,
+      "localSha256": "b4fae709fb0c964206daf03f0512d9fdb41909dc7ab227210a51061d48a93e2a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集古今佛道論衡",
+        "alternateTitle": "集古今佛道論衡",
+        "tradition": "汉传佛教 · 佛道论衡",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2104",
+        "translator": "唐 · 道宣撰",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2104_001"
+      },
+      "verification": {
+        "segments": 2920,
+        "folios": 107,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T2104.001.0363a02",
+          "T2104.004.0397b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2105",
+      "slug": "taisho-t2105",
+      "workId": "gbcr:work:taisho-t2105-buddhist-daoist-debate-chronicle",
+      "workIdentityStatus": "verified_distinct_continuation_work",
+      "workTitle": "續集古今佛道論衡",
+      "sourceRole": "zhisheng_buddhist_daoist_debate_continuation",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_daoist_debate_continuation_distinct",
+          "groupId": "buddhist-daoist-debate-series-t2104-t2105",
+          "label": "《集古今佛道论衡》与续集边界",
+          "evidence": "T2104 为道宣编四卷佛道论衡史料，T2105 为智昇续编一卷；续集继承议题和体例，却有不同编者、范围、年代与独立权威作品号，必须作为相关异作保存。",
+          "externalIds": {
+            "cbeta": [
+              "T2104",
+              "T2105"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003647",
+        "cbcText": "1235"
+      },
+      "localPath": "data/corpus/cbeta/T52n2105.xml",
+      "upstreamPath": "T/T52/T52n2105.xml",
+      "upstreamGitBlobSha1": "16377c69bf114281461ab3f0ae2a796e132a4b68",
+      "upstreamBytes": 150567,
+      "upstreamSha256": "7ac5b3c0bf582103e1b16a5d88c0f3d9232d82204f136df88f14a2fac3f276d5",
+      "localBytes": 150568,
+      "localSha256": "730986c918831eed633a781138801527dc9e9afca40798c71375df371f81ce80",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "續集古今佛道論衡",
+        "alternateTitle": "續集古今佛道論衡",
+        "tradition": "汉传佛教 · 佛道论衡",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2105",
+        "translator": "唐 · 智昇撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 智昇撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2105_001"
+      },
+      "verification": {
+        "segments": 564,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2105.001.0397b20",
+          "T2105.001.0404a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2106",
+      "slug": "taisho-t2106",
+      "workId": "gbcr:work:taisho-t2106-buddhist-miracle-revelation-record",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "集神州三寶感通錄",
+      "sourceRole": "daoxuan_three_jewels_miracle_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_revelation_records_distinct",
+          "groupId": "daoxuan-miracle-revelation-records-t2106-t2107",
+          "label": "道宣三宝感通录与个人感通录范围边界",
+          "evidence": "T2106 汇集神州三宝感通事迹，T2107 记录道宣律师个人感通叙事；两者同属道宣责任脉络并共享感通语汇，但对象、结构、卷数、题名及权威入口不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2106",
+              "T2107"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+          "label": "道宣护法文集、佛道论衡与感通录伴随著作边界",
+          "evidence": "T2103、T2104、T2106、T2107 均与道宣责任相关，却分别是护法文集、佛道论衡史料、三宝感通汇编与个人感通录；共同作者不能消除四个独立作品、文类和范围。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104",
+              "T2106",
+              "T2107"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001505",
+        "cbcText": "1239"
+      },
+      "localPath": "data/corpus/cbeta/T52n2106.xml",
+      "upstreamPath": "T/T52/T52n2106.xml",
+      "upstreamGitBlobSha1": "86dac3cf4f954b4a028837ed01970c341890428c",
+      "upstreamBytes": 961122,
+      "upstreamSha256": "d86535d38b842fb17f5b0e8e35b886eb289bf756862386bd08a14dfcbec8ee81",
+      "localBytes": 961123,
+      "localSha256": "bd81d55fbdd197a517e111028219d26889840ad8d7ccf2dd6189239730c2c9d1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集神州三寶感通錄",
+        "alternateTitle": "集神州三寶感通錄",
+        "tradition": "汉传佛教 · 三宝与感通录",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2106",
+        "translator": "唐 · 道宣撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2106_001"
+      },
+      "verification": {
+        "segments": 2685,
+        "folios": 95,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2106.001.0404a07",
+          "T2106.003.0435a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2107",
+      "slug": "taisho-t2107",
+      "workId": "gbcr:work:taisho-t2107-buddhist-miracle-revelation-record",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "道宣律師感通錄",
+      "sourceRole": "daoxuan_personal_revelation_record",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_revelation_records_distinct",
+          "groupId": "daoxuan-miracle-revelation-records-t2106-t2107",
+          "label": "道宣三宝感通录与个人感通录范围边界",
+          "evidence": "T2106 汇集神州三宝感通事迹，T2107 记录道宣律师个人感通叙事；两者同属道宣责任脉络并共享感通语汇，但对象、结构、卷数、题名及权威入口不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2106",
+              "T2107"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "daoxuan-t52-companion-works-t2103-t2104-t2106-t2107",
+          "label": "道宣护法文集、佛道论衡与感通录伴随著作边界",
+          "evidence": "T2103、T2104、T2106、T2107 均与道宣责任相关，却分别是护法文集、佛道论衡史料、三宝感通汇编与个人感通录；共同作者不能消除四个独立作品、文类和范围。",
+          "externalIds": {
+            "cbeta": [
+              "T2103",
+              "T2104",
+              "T2106",
+              "T2107"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000740",
+        "cbcText": "1225"
+      },
+      "localPath": "data/corpus/cbeta/T52n2107.xml",
+      "upstreamPath": "T/T52/T52n2107.xml",
+      "upstreamGitBlobSha1": "4c87a41116a74f62a6d1fe6f65c6683f1270f38c",
+      "upstreamBytes": 65286,
+      "upstreamSha256": "a7cfca461b8130f5aa87071957e8e47ce63e3a1ae7304d2272fe87698b79dee8",
+      "localBytes": 65287,
+      "localSha256": "d71bb0b937fff19569942161652a97b81751709901b165ee8786b879e9541360",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "道宣律師感通錄",
+        "alternateTitle": "道宣律師感通錄",
+        "tradition": "汉传佛教 · 三宝与感通录",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2107",
+        "translator": "唐 · 道宣撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2107_001"
+      },
+      "verification": {
+        "segments": 634,
+        "folios": 23,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2107.001.0435a22",
+          "T2107.001.0442b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2108",
+      "slug": "taisho-t2108",
+      "workId": "gbcr:work:taisho-t2108-monastic-court-ritual-documents",
+      "workIdentityStatus": "verified_distinct_layered_compilation_responsibility",
+      "workTitle": "集沙門不應拜俗等事",
+      "sourceRole": "yanzong_monastic_court_ritual_document_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "layered_compilation_responsibility_distinct",
+          "groupId": "multi-author-compilations-t2102-t2103-t2108-t2120",
+          "label": "多作者篇章、编者与表制原责任分层",
+          "evidence": "T2102、T2103、T2108 与 T2120 都由编者汇集多位作者、臣僧或朝廷的原始篇章。平台分别保留 TEI 的总集责任与篇内原责任，不把编者等同于全部篇章作者，也不因汇编结构合并四部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103",
+              "T2108",
+              "T2120"
+            ]
+          }
+        },
+        {
+          "type": "court_memorial_collections_scope_distinct",
+          "groupId": "monastic-court-documents-t2108-t2119-t2120",
+          "label": "沙门礼制、玄奘上表与不空表制文书范围边界",
+          "evidence": "T2108 汇集沙门不拜王者等礼制争论，T2119 保存玄奘相关上表而总集责任未署名，T2120 由圆照汇集不空及代宗朝表制。三者人物、时代、制度议题、编纂责任、卷数和权威入口不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2108",
+              "T2119",
+              "T2120"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001504",
+        "cbcText": "1232"
+      },
+      "localPath": "data/corpus/cbeta/T52n2108.xml",
+      "upstreamPath": "T/T52/T52n2108.xml",
+      "upstreamGitBlobSha1": "219cec429868f4a4ba0ce960ece8a62d4145a624",
+      "upstreamBytes": 728661,
+      "upstreamSha256": "7db8e62191fd635d4914c881933dee20ada9e3a996d0e850dcc8fdfa0bc68c0d",
+      "localBytes": 728662,
+      "localSha256": "49d3707980e59dca59bd2db6ae9e77bdd55f178dda186d8cff4557b5e66dff7c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集沙門不應拜俗等事",
+        "alternateTitle": "集沙門不應拜俗等事",
+        "tradition": "汉传佛教 · 沙门礼制文书",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2108",
+        "translator": "唐 · 彥悰纂錄",
+        "summary": "6卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 彥悰纂錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2108_001"
+      },
+      "verification": {
+        "segments": 2655,
+        "folios": 101,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T2108.001.0443a02",
+          "T2108.006.0474c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2109",
+      "slug": "taisho-t2109",
+      "workId": "gbcr:work:taisho-t2109-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "破邪論",
+      "sourceRole": "falin_buddhist_apologetic_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_apologetic_treatises_distinct",
+          "groupId": "falin-apologetic-treatises-t2109-t2110",
+          "label": "法琳《破邪论》与《辩正论》伴随著作边界",
+          "evidence": "T2109 两卷《破邪论》与 T2110 八卷《辩正论》同为法琳护法著作，但题名、篇章结构、论证范围、卷数以及 DILA/CBC 作品入口不同；相同作者、论敌或论证材料不证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110"
+            ]
+          }
+        },
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002420",
+        "cbcText": "1223"
+      },
+      "localPath": "data/corpus/cbeta/T52n2109.xml",
+      "upstreamPath": "T/T52/T52n2109.xml",
+      "upstreamGitBlobSha1": "a1179d31ae0935f28b734e25c20dad2527f4fcc2",
+      "upstreamBytes": 571311,
+      "upstreamSha256": "386a87b0c5dd7e92c87eb2b0b1047977be074d58e9da789b4b6aa732011ae68f",
+      "localBytes": 571312,
+      "localSha256": "f6d9da814cea33e330323a5012b6ae287bac9c83e4a47a2e6013c578138088d1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "破邪論",
+        "alternateTitle": "破邪論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2109",
+        "translator": "唐 · 法琳撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 法琳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2109_001"
+      },
+      "verification": {
+        "segments": 1225,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2109.001.0474c12",
+          "T2109.002.0489c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2110",
+      "slug": "taisho-t2110",
+      "workId": "gbcr:work:taisho-t2110-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "辯正論",
+      "sourceRole": "falin_extended_buddhist_apologetic_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_apologetic_treatises_distinct",
+          "groupId": "falin-apologetic-treatises-t2109-t2110",
+          "label": "法琳《破邪论》与《辩正论》伴随著作边界",
+          "evidence": "T2109 两卷《破邪论》与 T2110 八卷《辩正论》同为法琳护法著作，但题名、篇章结构、论证范围、卷数以及 DILA/CBC 作品入口不同；相同作者、论敌或论证材料不证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110"
+            ]
+          }
+        },
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000316",
+        "cbcText": "1230"
+      },
+      "localPath": "data/corpus/cbeta/T52n2110.xml",
+      "upstreamPath": "T/T52/T52n2110.xml",
+      "upstreamGitBlobSha1": "db61837823b2addf2d823b0cfce2277eeacdc6f6",
+      "upstreamBytes": 1791014,
+      "upstreamSha256": "aa7745e17d1c30e18f4cff69c3c1e6f2ab0be906f66f8dd50599bca2c5ae576a",
+      "localBytes": 1791015,
+      "localSha256": "c9dc08b7b0a335ff0617ac2d5a542ab497318d28b2f6f8536e2bf3481ce3e550",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "辯正論",
+        "alternateTitle": "辯正論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2110",
+        "translator": "唐 · 法琳撰",
+        "summary": "8卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 法琳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2110_001"
+      },
+      "verification": {
+        "segments": 4796,
+        "folios": 187,
+        "juanRange": [
+          1,
+          8
+        ],
+        "anchors": [
+          "T2110.001.0489c13",
+          "T2110.008.0550c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2111",
+      "slug": "taisho-t2111",
+      "workId": "gbcr:work:taisho-t2111-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "十門辯惑論",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003064",
+        "cbcText": "1228"
+      },
+      "localPath": "data/corpus/cbeta/T52n2111.xml",
+      "upstreamPath": "T/T52/T52n2111.xml",
+      "upstreamGitBlobSha1": "314311261784df969d6ab295fc4a84e55c96fe1d",
+      "upstreamBytes": 225743,
+      "upstreamSha256": "b666c1e07ab504a6275ab67cfb41c99ee12db95d378a3ac02354d7158151a0ab",
+      "localBytes": 225744,
+      "localSha256": "8a1689f097c326ee24f4e3e1da5714d9178c115aa32000361c51e48ffa641152",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十門辯惑論",
+        "alternateTitle": "十門辯惑論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2111",
+        "translator": "唐 · 復禮撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 復禮撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2111_001"
+      },
+      "verification": {
+        "segments": 735,
+        "folios": 28,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2111.001.0551a02",
+          "T2111.003.0559b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2112",
+      "slug": "taisho-t2112",
+      "workId": "gbcr:work:taisho-t2112-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "甄正論",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0004046",
+        "cbcText": "1234"
+      },
+      "localPath": "data/corpus/cbeta/T52n2112.xml",
+      "upstreamPath": "T/T52/T52n2112.xml",
+      "upstreamGitBlobSha1": "1f91c557c42283b89eda08dfbf7cf40d77e10101",
+      "upstreamBytes": 493110,
+      "upstreamSha256": "09427be4a1a53b588e15e6fefbba05db7d7f67fe2b80ac71625495a2c3d630d3",
+      "localBytes": 493111,
+      "localSha256": "273b22a4138278315f0ac0043e4125cea83733509c3a2df017df920e45d7126f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "甄正論",
+        "alternateTitle": "甄正論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2112",
+        "translator": "唐 · 玄嶷撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 玄嶷撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2112_001"
+      },
+      "verification": {
+        "segments": 995,
+        "folios": 39,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2112.001.0559c02",
+          "T2112.003.0571c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2113",
+      "slug": "taisho-t2113",
+      "workId": "gbcr:work:taisho-t2113-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_composite_author_commentator_responsibility",
+      "workTitle": "北山錄",
+      "sourceRole": "shenqing_huibao_authored_annotated_apologetic_record",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000289",
+        "cbcText": "1231"
+      },
+      "localPath": "data/corpus/cbeta/T52n2113.xml",
+      "upstreamPath": "T/T52/T52n2113.xml",
+      "upstreamGitBlobSha1": "59031318deeebd2cecbadf8122e3c2ae241bed7c",
+      "upstreamBytes": 697961,
+      "upstreamSha256": "0f87c81625254bcb64477fd9fd8ab1e646450d73993d3ab7d90ee5b5c0a45f5a",
+      "localBytes": 697962,
+      "localSha256": "085c4d978f0014c9ab7273440c723c24cf4f3bef72ca470721b1c618704083c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "北山錄",
+        "alternateTitle": "北山錄",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2113",
+        "translator": "唐 · 神清撰．慧寶注",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 神清撰．慧寶注。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2113_001"
+      },
+      "verification": {
+        "segments": 4053,
+        "folios": 200,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2113.001.0573a03",
+          "T2113.010.0636c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2114",
+      "slug": "taisho-t2114",
+      "workId": "gbcr:work:taisho-t2114-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "護法論",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001343",
+        "cbcText": "1227"
+      },
+      "localPath": "data/corpus/cbeta/T52n2114.xml",
+      "upstreamPath": "T/T52/T52n2114.xml",
+      "upstreamGitBlobSha1": "7f57b29d529230ef38f32c431628b1c5cd08d36c",
+      "upstreamBytes": 80515,
+      "upstreamSha256": "9e61a60b97f29d0380855faa6c0e445afbcb8009f55a58cd35edde3d4ea6c0ac",
+      "localBytes": 80516,
+      "localSha256": "0f46d1218a6281e061af9323f736e780eb7685f05a6b555c064b4955e9f48583",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "護法論",
+        "alternateTitle": "護法論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2114",
+        "translator": "宋 · 張商英述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：宋 張商英述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2114_001"
+      },
+      "verification": {
+        "segments": 851,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2114.001.0637a02",
+          "T2114.001.0646c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2115",
+      "slug": "taisho-t2115",
+      "workId": "gbcr:work:taisho-t2115-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_cross_volume_same_author_companion_work",
+      "workTitle": "鐔津文集",
+      "sourceRole": "qisong_buddhist_literary_collection",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        },
+        {
+          "type": "same_author_cross_volume_companion_distinct",
+          "groupId": "qisong-cross-volume-works-t2078-t2080-t2115",
+          "label": "契嵩传法正宗三书与《镡津文集》跨卷伴随著作边界",
+          "evidence": "T2115《镡津文集》与 T2078–T2080 的传法正宗记、定祖图、宗论同属契嵩责任脉络，但文集、史记、谱系图与宗论的编纂单位、范围及权威作品号各自独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2115"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003217",
+        "cbcText": "1229"
+      },
+      "localPath": "data/corpus/cbeta/T52n2115.xml",
+      "upstreamPath": "T/T52/T52n2115.xml",
+      "upstreamGitBlobSha1": "93b2f1c57dc8949a8582bf4d0b8b275eef3788e4",
+      "upstreamBytes": 845336,
+      "upstreamSha256": "2827489624dc5e71c3d8315448aa9ab1832196617b3f4981203e40f6f6b30a17",
+      "localBytes": 845337,
+      "localSha256": "0386eb4adc554b00925a725c7933597f39de575a243413793555330d92b749ba",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鐔津文集",
+        "alternateTitle": "鐔津文集",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2115",
+        "translator": "宋 · 契嵩撰",
+        "summary": "19卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：宋 契嵩撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2115_001"
+      },
+      "verification": {
+        "segments": 8928,
+        "folios": 326,
+        "juanRange": [
+          1,
+          19
+        ],
+        "anchors": [
+          "T2115.001.0646c24",
+          "T2115.019.0750c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2116",
+      "slug": "taisho-t2116",
+      "workId": "gbcr:work:taisho-t2116-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "辯偽錄",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000314",
+        "cbcText": "1240"
+      },
+      "localPath": "data/corpus/cbeta/T52n2116.xml",
+      "upstreamPath": "T/T52/T52n2116.xml",
+      "upstreamGitBlobSha1": "4b6fae2b2a1baa6e4b1011b087e02950e9c228e7",
+      "upstreamBytes": 247073,
+      "upstreamSha256": "07af1d4392576cd8c640dbfc23c1dabf6b359c192a6c97b4db5a453aee935302",
+      "localBytes": 247074,
+      "localSha256": "7edd5ab942e636341e860b48ef95eb11e47d382a2d092cc9a242dee05d8f7475",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "辯偽錄",
+        "alternateTitle": "辯偽錄",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2116",
+        "translator": "元 · 祥邁撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：元 祥邁撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2116_001"
+      },
+      "verification": {
+        "segments": 2591,
+        "folios": 94,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2116.001.0751a04",
+          "T2116.005.0781a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2117",
+      "slug": "taisho-t2117",
+      "workId": "gbcr:work:taisho-t2117-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "三教平心論",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002718",
+        "cbcText": "1236"
+      },
+      "localPath": "data/corpus/cbeta/T52n2117.xml",
+      "upstreamPath": "T/T52/T52n2117.xml",
+      "upstreamGitBlobSha1": "23d47bcfa1c57f27cb2edcaa90a7da2178154a9a",
+      "upstreamBytes": 104307,
+      "upstreamSha256": "02850c15eab28a11bfaaed4b558f800b1db65e35754792982edf249e615309e1",
+      "localBytes": 104308,
+      "localSha256": "0a4e86d4f300edb5e6d274c11c3bd175d6cb97dc1812246863ab8b6c385e5832",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三教平心論",
+        "alternateTitle": "三教平心論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2117",
+        "translator": "元 · 劉謐撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：元 劉謐撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2117_001"
+      },
+      "verification": {
+        "segments": 1148,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2117.001.0781a22",
+          "T2117.002.0794b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2118",
+      "slug": "taisho-t2118",
+      "workId": "gbcr:work:taisho-t2118-buddhist-apologetic-treatise",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "折疑論",
+      "sourceRole": "east_asian_buddhist_apologetic_or_three_teachings_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "apologetic_treatise_scope_distinct",
+          "groupId": "east-asian-apologetic-treatises-t2109-t2118",
+          "label": "唐宋元护法与三教论辩著作范围边界",
+          "evidence": "T2109–T2118 横跨破邪、辩正、辩惑、甄正、北山录、护法论、个人文集、辩伪、三教平心与折疑等不同作品。作者、时代、体裁、对象、范围与十个权威入口不同，护法或三教论辩主题只能建立关联。",
+          "externalIds": {
+            "cbeta": [
+              "T2109",
+              "T2110",
+              "T2111",
+              "T2112",
+              "T2113",
+              "T2114",
+              "T2115",
+              "T2116",
+              "T2117",
+              "T2118"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003531",
+        "cbcText": "1237"
+      },
+      "localPath": "data/corpus/cbeta/T52n2118.xml",
+      "upstreamPath": "T/T52/T52n2118.xml",
+      "upstreamGitBlobSha1": "1a63d6eb279e336c7837afec60add4eb17966a9c",
+      "upstreamBytes": 264176,
+      "upstreamSha256": "0a3e463dfc0b8a4fa56af65a66ddc19ee1b4a0f55e8837232ba4951631c5f457",
+      "localBytes": 264177,
+      "localSha256": "e4647d32ff3c398be1738d9443b224d75bd0c83ee46f0faa225441e05d7cdf20",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "折疑論",
+        "alternateTitle": "折疑論",
+        "tradition": "东亚佛教 · 护法与三教论辩",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2118",
+        "translator": "師子比丘述註",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：師子比丘述註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2118_001"
+      },
+      "verification": {
+        "segments": 1348,
+        "folios": 74,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2118.001.0794b18",
+          "T2118.005.0817c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2119",
+      "slug": "taisho-t2119",
+      "workId": "gbcr:work:taisho-t2119-buddhist-court-memorial-collection",
+      "workIdentityStatus": "verified_distinct_unsigned_compilation_responsibility",
+      "workTitle": "寺沙門玄奘上表記",
+      "sourceRole": "unattributed_xuanzang_court_memorial_collection",
+      "bibliographicRelations": [
+        {
+          "type": "court_memorial_collections_scope_distinct",
+          "groupId": "monastic-court-documents-t2108-t2119-t2120",
+          "label": "沙门礼制、玄奘上表与不空表制文书范围边界",
+          "evidence": "T2108 汇集沙门不拜王者等礼制争论，T2119 保存玄奘相关上表而总集责任未署名，T2120 由圆照汇集不空及代宗朝表制。三者人物、时代、制度议题、编纂责任、卷数和权威入口不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2108",
+              "T2119",
+              "T2120"
+            ]
+          }
+        },
+        {
+          "type": "central_figure_cross_genre_distinct",
+          "groupId": "xuanzang-travel-and-memorial-records-t2087-t2119",
+          "label": "玄奘西域地理编纂与上表文书跨文类边界",
+          "evidence": "T2087《大唐西域记》是玄奘口述、辩机编次的地理记录，T2119 是玄奘相关上表汇集且总集责任未署名；共同中心人物不构成相同作品或作者归属。",
+          "externalIds": {
+            "cbeta": [
+              "T2087",
+              "T2119"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003661",
+        "cbcText": "1233"
+      },
+      "localPath": "data/corpus/cbeta/T52n2119.xml",
+      "upstreamPath": "T/T52/T52n2119.xml",
+      "upstreamGitBlobSha1": "83e48bfd645993054af80c9f674de0e7763c9193",
+      "upstreamBytes": 172366,
+      "upstreamSha256": "ccd1e4dbe7adb511b9cd443ba019a2724073f26c449a41c8e0ed576c21f04540",
+      "localBytes": 172367,
+      "localSha256": "577662884a86fde1cb11c79f053f4b636899bb78d469e989823dd6d2e403d1b5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寺沙門玄奘上表記",
+        "alternateTitle": "寺沙門玄奘上表記",
+        "tradition": "汉传佛教 · 表制文书",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2119",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2119_001"
+      },
+      "verification": {
+        "segments": 755,
+        "folios": 27,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2119.001.0818a02",
+          "T2119.001.0826c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2120",
+      "slug": "taisho-t2120",
+      "workId": "gbcr:work:taisho-t2120-buddhist-court-memorial-collection",
+      "workIdentityStatus": "verified_distinct_layered_compilation_responsibility",
+      "workTitle": "代宗朝贈司空大辨正廣智三藏和上表制集",
+      "sourceRole": "yuanzhao_bukong_court_document_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "layered_compilation_responsibility_distinct",
+          "groupId": "multi-author-compilations-t2102-t2103-t2108-t2120",
+          "label": "多作者篇章、编者与表制原责任分层",
+          "evidence": "T2102、T2103、T2108 与 T2120 都由编者汇集多位作者、臣僧或朝廷的原始篇章。平台分别保留 TEI 的总集责任与篇内原责任，不把编者等同于全部篇章作者，也不因汇编结构合并四部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2102",
+              "T2103",
+              "T2108",
+              "T2120"
+            ]
+          }
+        },
+        {
+          "type": "court_memorial_collections_scope_distinct",
+          "groupId": "monastic-court-documents-t2108-t2119-t2120",
+          "label": "沙门礼制、玄奘上表与不空表制文书范围边界",
+          "evidence": "T2108 汇集沙门不拜王者等礼制争论，T2119 保存玄奘相关上表而总集责任未署名，T2120 由圆照汇集不空及代宗朝表制。三者人物、时代、制度议题、编纂责任、卷数和权威入口不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2108",
+              "T2119",
+              "T2120"
+            ]
+          }
+        },
+        {
+          "type": "central_figure_cross_genre_distinct",
+          "groupId": "bukong-lineage-and-court-documents-t2081-t2120",
+          "label": "不空师资付法记录与代宗朝表制文书跨文类边界",
+          "evidence": "T2081 保存两部大法师资付法记，T2120 汇集不空及其弟子与朝廷往来表制；人物和密教史背景相关，但文类、责任、范围与权威作品号不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2081",
+              "T2120"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000322",
+        "cbcText": "1238"
+      },
+      "localPath": "data/corpus/cbeta/T52n2120.xml",
+      "upstreamPath": "T/T52/T52n2120.xml",
+      "upstreamGitBlobSha1": "6ea8dc0319abd3215b3093152bc0c2da23b4cbc3",
+      "upstreamBytes": 511650,
+      "upstreamSha256": "0bdb8dc388043c61e6ebf238c41ac2ebe0483477651fa945a02dcc395521249d",
+      "localBytes": 511651,
+      "localSha256": "edf560d282d15f4f3797c6705234a36e1b13a4a5641cf20ddf61448f0a443ab1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "代宗朝贈司空大辨正廣智三藏和上表制集",
+        "alternateTitle": "代宗朝贈司空大辨正廣智三藏和上表制集",
+        "tradition": "汉传佛教 · 表制文书",
+        "language": "汉文",
+        "canonRef": "大正藏 T52, no. 2120",
+        "translator": "唐 · 圓照集",
+        "summary": "6卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立护法文集、佛道论衡、感通录、论著、个人文集或表制文书建模，不标成佛陀逐字亲说。传统责任题记：唐 圓照集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2120_001"
+      },
+      "verification": {
+        "segments": 2908,
+        "folios": 104,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T2120.001.0826c14",
+          "T2120.006.0860c15"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

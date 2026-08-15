@@ -328,6 +328,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT51SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT51SourceRecords.controlledWorks} 个独立作品；10 组范围、2 组续修、5 组史料复用、1 组同作者伴随著作与 13 组相关异作边界均已记录，
               五部未署名文本也不从相邻目录、共享故事、信仰对象或地理范围补造责任者；
+              T52 护法论辩、三教交涉、感通录与表制文书固定来源已完成 {snapshot.candidateInventory.chineseT52SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT52SourceRecords.denominator}（{snapshot.candidateInventory.chineseT52SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT52SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT52SourceRecords.controlledWorks} 个独立作品；2 组续编、3 组材料复用、4 组同作者伴随著作、3 组跨卷关系与 12 组相关异作边界均已记录，
+              T2103/T2104 的显著正文重叠不触发自动合并，T2119 也不因题名含玄奘而补造编者；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -610,6 +615,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T51 的 36 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t52-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T52 的 19 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
