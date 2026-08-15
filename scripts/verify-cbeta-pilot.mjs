@@ -5,13 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v4.17.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v4.18.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v6.8.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v6.9.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.17.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.18.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {

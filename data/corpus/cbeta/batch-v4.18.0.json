@@ -1,0 +1,2948 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.18.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.17.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t51-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T51; T51 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T51",
+    "title": "大正藏 T51 求法传、感应传、灯录、游记与佛教方志固定来源记录",
+    "sourceRecordDenominator": 36,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 36,
+    "controlledSourceRecords": 36,
+    "newSourceBytes": 17025589,
+    "newStableSegments": 96503,
+    "newFolios": 3518,
+    "newJuans": 168,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 36,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 36,
+    "attributionBoundaryRecords": 36,
+    "unsignedResponsibilityRecords": 5,
+    "lostTranslatorResponsibilityRecords": 0,
+    "newWorks": 36,
+    "controlledWorks": 36,
+    "workCountingDecision": "T51 的 36 份固定来源记录登记为 36 个完整表达和 36 个独立作品。DILA 返回 36 个不同 CA 作品号，CBC 也给出 36 个不同作品入口；法华与往生传、华严感应、灯录续修、契嵩伴随著作、冥报故事、西域行记、寺塔记录与清凉山方志只建立关系，不据主题、作者、续修题名、地域或机器重叠自动合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_devotional_lineage_travel_gazetteer_responsibility_continuation_and_source_reuse_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [],
+    "editionOrRecensionGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [],
+    "layeredAttributionGroups": [
+      "lotus-devotion-biographies-t2067-t2068",
+      "travel-geography-records-t2085-t2091"
+    ],
+    "scopeBoundaryGroups": [
+      "pilgrimage-biographies-t2066-t2085-t2089",
+      "lotus-devotion-biographies-t2067-t2068",
+      "lineage-traditions-t2069-t2075-t2081",
+      "pure-land-rebirth-anthologies-t2070-t2072",
+      "huayan-devotion-biographies-t2073-t2074",
+      "transmission-histories-t2075-t2081",
+      "karmic-response-anthologies-t2082-t2084",
+      "travel-geography-records-t2085-t2091",
+      "temple-records-t2092-t2094",
+      "sacred-mountain-gazetteers-t2095-t2101"
+    ],
+    "continuationBoundaryGroups": [
+      "transmission-lamp-series-t2076-t2077",
+      "qingliang-gazetteer-series-t2098-t2100"
+    ],
+    "sourceReuseBoundaryGroups": [
+      "lotus-devotion-biographies-t2067-t2068",
+      "pure-land-rebirth-anthologies-t2070-t2072",
+      "huayan-devotion-biographies-t2073-t2074",
+      "karmic-response-anthologies-t2082-t2084",
+      "qingliang-gazetteer-series-t2098-t2100"
+    ],
+    "sameAuthorCompanionWorkGroups": [
+      "qisong-companion-works-t2078-t2080"
+    ],
+    "relatedDistinctWorkGroups": [
+      "pilgrimage-biographies-t2066-t2085-t2089",
+      "lotus-devotion-biographies-t2067-t2068",
+      "lineage-traditions-t2069-t2075-t2081",
+      "pure-land-rebirth-anthologies-t2070-t2072",
+      "huayan-devotion-biographies-t2073-t2074",
+      "transmission-histories-t2075-t2081",
+      "transmission-lamp-series-t2076-t2077",
+      "qisong-companion-works-t2078-t2080",
+      "karmic-response-anthologies-t2082-t2084",
+      "travel-geography-records-t2085-t2091",
+      "temple-records-t2092-t2094",
+      "sacred-mountain-gazetteers-t2095-t2101",
+      "qingliang-gazetteer-series-t2098-t2100"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2067/T2068 同为十卷法华史传且五字组包含度约 0.147774，但题名、责任、结构与 DILA/CBC 作品入口不同；T2068 的僧詳/僧祥标签差异并列保留",
+      "T2070–T2072 跨时代汇编净土往生故事，最高五字组包含度约 0.032554；史料复用不消除题名、作者状态、范围和三个作品号",
+      "T2073/T2074 同属华严信仰史传且包含度约 0.019690，但五卷经传与一卷感应传保持两部作品",
+      "T2076/T2077 是灯录本编—续修关系且包含度约 0.026718；T2078/T2079 的记—图包含度约 0.260212，T2078–T2080 仍按契嵩同作者的记、图、论三部伴随著作分立",
+      "T2082–T2084 共享冥报与感应故事只记录材料复用，不把三种选录体系合并",
+      "T2085–T2091 的个人行记、官方编纂、方志、法灭记录与敦煌抄录文类不同；T2087/T2089 复合责任逐层保存",
+      "T2092–T2094 记录不同都城寺院，地域、责任与范围独立",
+      "T2098–T2100 构成古、广、续清凉传序列，但三个时代、作者、卷数和作品入口保持分立",
+      "T2070、T2075、T2086、T2091、T2094 传统责任题记未署名，不从相邻目录、共享故事或后世研究补造责任者"
+    ],
+    "partialWorkWitnesses": [],
+    "editionWitnesses": [],
+    "sourceRoles": {
+      "buddhist_travel_or_geography_record": [
+        "T2088"
+      ],
+      "east_asian_buddhist_sacred_mountain_gazetteer": [
+        "T2095",
+        "T2096",
+        "T2097",
+        "T2101"
+      ],
+      "east_asian_buddhist_temple_gazetteer": [
+        "T2092",
+        "T2093"
+      ],
+      "east_asian_devotional_biography": [
+        "T2067",
+        "T2068"
+      ],
+      "east_asian_dharma_transmission_history": [
+        "T2081"
+      ],
+      "east_asian_karmic_response_anthology": [
+        "T2082",
+        "T2083",
+        "T2084"
+      ],
+      "east_asian_sectarian_lineage_biography": [
+        "T2069"
+      ],
+      "facheng_translation_dharma_decline_record": [
+        "T2090"
+      ],
+      "faxian_pilgrimage_record": [
+        "T2085"
+      ],
+      "huayan_devotional_biography": [
+        "T2073",
+        "T2074"
+      ],
+      "huichao_yuanzhao_composite_travel_excerpt": [
+        "T2089"
+      ],
+      "ming_transmission_lamp_continuation": [
+        "T2077"
+      ],
+      "pilgrimage_monk_collective_biography": [
+        "T2066"
+      ],
+      "pure_land_rebirth_anthology": [
+        "T2070",
+        "T2071",
+        "T2072"
+      ],
+      "qisong_transmission_orthodoxy_chronicle": [
+        "T2078"
+      ],
+      "qisong_transmission_orthodoxy_lineage_diagram": [
+        "T2079"
+      ],
+      "qisong_transmission_orthodoxy_treatise": [
+        "T2080"
+      ],
+      "song_continuation_qingliang_gazetteer": [
+        "T2100"
+      ],
+      "song_expanded_qingliang_gazetteer": [
+        "T2099"
+      ],
+      "song_transmission_lamp_base_compilation": [
+        "T2076"
+      ],
+      "tang_old_qingliang_gazetteer": [
+        "T2098"
+      ],
+      "unattributed_chan_lineage_chronicle": [
+        "T2075"
+      ],
+      "unattributed_dunhuang_record": [
+        "T2091"
+      ],
+      "unattributed_huisheng_western_regions_record": [
+        "T2086"
+      ],
+      "unattributed_liang_capital_temple_record": [
+        "T2094"
+      ],
+      "xuanzang_bianji_composite_western_regions_record": [
+        "T2087"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records shared stories, continuation, companion works and source reuse; distinct DILA/CBC work entries, title, responsibility, genre and scope prevent automatic work merge.",
+      "pairs": [
+        {
+          "pair": [
+            "T2067",
+            "T2068"
+          ],
+          "normalizedCharacters": [
+            48908,
+            66766
+          ],
+          "fiveGramContainmentOfShorter": 0.147774,
+          "fiveGramJaccard": 0.067287
+        },
+        {
+          "pair": [
+            "T2070",
+            "T2071"
+          ],
+          "normalizedCharacters": [
+            5837,
+            25842
+          ],
+          "fiveGramContainmentOfShorter": 0.011255,
+          "fiveGramJaccard": 0.00207
+        },
+        {
+          "pair": [
+            "T2070",
+            "T2072"
+          ],
+          "normalizedCharacters": [
+            5837,
+            32300
+          ],
+          "fiveGramContainmentOfShorter": 0.032554,
+          "fiveGramJaccard": 0.00502
+        },
+        {
+          "pair": [
+            "T2071",
+            "T2072"
+          ],
+          "normalizedCharacters": [
+            25842,
+            32300
+          ],
+          "fiveGramContainmentOfShorter": 0.01701,
+          "fiveGramJaccard": 0.007651
+        },
+        {
+          "pair": [
+            "T2073",
+            "T2074"
+          ],
+          "normalizedCharacters": [
+            27317,
+            7220
+          ],
+          "fiveGramContainmentOfShorter": 0.01969,
+          "fiveGramJaccard": 0.004262
+        },
+        {
+          "pair": [
+            "T2075",
+            "T2076"
+          ],
+          "normalizedCharacters": [
+            25173,
+            358796
+          ],
+          "fiveGramContainmentOfShorter": 0.010112,
+          "fiveGramJaccard": 0.000707
+        },
+        {
+          "pair": [
+            "T2075",
+            "T2077"
+          ],
+          "normalizedCharacters": [
+            25173,
+            334873
+          ],
+          "fiveGramContainmentOfShorter": 0.005474,
+          "fiveGramJaccard": 0.000402
+        },
+        {
+          "pair": [
+            "T2076",
+            "T2077"
+          ],
+          "normalizedCharacters": [
+            358796,
+            334873
+          ],
+          "fiveGramContainmentOfShorter": 0.026718,
+          "fiveGramJaccard": 0.013173
+        },
+        {
+          "pair": [
+            "T2078",
+            "T2079"
+          ],
+          "normalizedCharacters": [
+            73177,
+            6300
+          ],
+          "fiveGramContainmentOfShorter": 0.260212,
+          "fiveGramJaccard": 0.022382
+        },
+        {
+          "pair": [
+            "T2078",
+            "T2080"
+          ],
+          "normalizedCharacters": [
+            73177,
+            13969
+          ],
+          "fiveGramContainmentOfShorter": 0.029116,
+          "fiveGramJaccard": 0.004994
+        },
+        {
+          "pair": [
+            "T2079",
+            "T2080"
+          ],
+          "normalizedCharacters": [
+            6300,
+            13969
+          ],
+          "fiveGramContainmentOfShorter": 0.040847,
+          "fiveGramJaccard": 0.012768
+        },
+        {
+          "pair": [
+            "T2082",
+            "T2083"
+          ],
+          "normalizedCharacters": [
+            19091,
+            33818
+          ],
+          "fiveGramContainmentOfShorter": 0.000579,
+          "fiveGramJaccard": 0.000213
+        },
+        {
+          "pair": [
+            "T2082",
+            "T2084"
+          ],
+          "normalizedCharacters": [
+            19091,
+            42085
+          ],
+          "fiveGramContainmentOfShorter": 0.008113,
+          "fiveGramJaccard": 0.002728
+        },
+        {
+          "pair": [
+            "T2083",
+            "T2084"
+          ],
+          "normalizedCharacters": [
+            33818,
+            42085
+          ],
+          "fiveGramContainmentOfShorter": 0.004453,
+          "fiveGramJaccard": 0.002078
+        },
+        {
+          "pair": [
+            "T2085",
+            "T2087"
+          ],
+          "normalizedCharacters": [
+            14054,
+            104635
+          ],
+          "fiveGramContainmentOfShorter": 0.003607,
+          "fiveGramJaccard": 0.000457
+        },
+        {
+          "pair": [
+            "T2086",
+            "T2087"
+          ],
+          "normalizedCharacters": [
+            936,
+            104635
+          ],
+          "fiveGramContainmentOfShorter": 0.003222,
+          "fiveGramJaccard": 0.000031
+        },
+        {
+          "pair": [
+            "T2089",
+            "T2091"
+          ],
+          "normalizedCharacters": [
+            27981,
+            909
+          ],
+          "fiveGramContainmentOfShorter": 0.001105,
+          "fiveGramJaccard": 0.000036
+        },
+        {
+          "pair": [
+            "T2092",
+            "T2093"
+          ],
+          "normalizedCharacters": [
+            30289,
+            1997
+          ],
+          "fiveGramContainmentOfShorter": 0.002009,
+          "fiveGramJaccard": 0.000125
+        },
+        {
+          "pair": [
+            "T2092",
+            "T2094"
+          ],
+          "normalizedCharacters": [
+            30289,
+            496
+          ],
+          "fiveGramContainmentOfShorter": 0.004098,
+          "fiveGramJaccard": 0.000066
+        },
+        {
+          "pair": [
+            "T2093",
+            "T2094"
+          ],
+          "normalizedCharacters": [
+            1997,
+            496
+          ],
+          "fiveGramContainmentOfShorter": 0.004098,
+          "fiveGramJaccard": 0.000807
+        },
+        {
+          "pair": [
+            "T2098",
+            "T2099"
+          ],
+          "normalizedCharacters": [
+            11537,
+            35818
+          ],
+          "fiveGramContainmentOfShorter": 0.007786,
+          "fiveGramJaccard": 0.001921
+        },
+        {
+          "pair": [
+            "T2098",
+            "T2100"
+          ],
+          "normalizedCharacters": [
+            11537,
+            11313
+          ],
+          "fiveGramContainmentOfShorter": 0.001603,
+          "fiveGramJaccard": 0.000795
+        },
+        {
+          "pair": [
+            "T2099",
+            "T2100"
+          ],
+          "normalizedCharacters": [
+            35818,
+            11313
+          ],
+          "fiveGramContainmentOfShorter": 0.00668,
+          "fiveGramJaccard": 0.001625
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T51",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000686",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001339",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000896",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003240",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003295",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001854",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003289",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001438",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001378",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002039",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001818",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003638",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000513",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000512",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000514",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002060",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002252",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003138",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002705",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000943",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003522",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000685",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003113",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003813",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003118",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000807",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002154",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002767",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002059",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002126",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003245",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002333",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002595",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002596",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002597",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000339",
+      "https://dazangthings.nz/cbc/text/32/",
+      "https://dazangthings.nz/cbc/text/33/",
+      "https://dazangthings.nz/cbc/text/49/",
+      "https://dazangthings.nz/cbc/text/46/",
+      "https://dazangthings.nz/cbc/text/31/",
+      "https://dazangthings.nz/cbc/text/53/",
+      "https://dazangthings.nz/cbc/text/37/",
+      "https://dazangthings.nz/cbc/text/52/",
+      "https://dazangthings.nz/cbc/text/35/",
+      "https://dazangthings.nz/cbc/text/41/",
+      "https://dazangthings.nz/cbc/text/64/",
+      "https://dazangthings.nz/cbc/text/59/",
+      "https://dazangthings.nz/cbc/text/47/",
+      "https://dazangthings.nz/cbc/text/34/",
+      "https://dazangthings.nz/cbc/text/30/",
+      "https://dazangthings.nz/cbc/text/62/",
+      "https://dazangthings.nz/cbc/text/58/",
+      "https://dazangthings.nz/cbc/text/48/",
+      "https://dazangthings.nz/cbc/text/50/",
+      "https://dazangthings.nz/cbc/text/36/",
+      "https://dazangthings.nz/cbc/text/60/",
+      "https://dazangthings.nz/cbc/text/42/",
+      "https://dazangthings.nz/cbc/text/38/",
+      "https://dazangthings.nz/cbc/text/51/",
+      "https://dazangthings.nz/cbc/text/43/",
+      "https://dazangthings.nz/cbc/text/61/",
+      "https://dazangthings.nz/cbc/text/39/",
+      "https://dazangthings.nz/cbc/text/57/",
+      "https://dazangthings.nz/cbc/text/44/",
+      "https://dazangthings.nz/cbc/text/54/",
+      "https://dazangthings.nz/cbc/text/56/",
+      "https://dazangthings.nz/cbc/text/63/",
+      "https://dazangthings.nz/cbc/text/29/",
+      "https://dazangthings.nz/cbc/text/45/",
+      "https://dazangthings.nz/cbc/text/55/",
+      "https://dazangthings.nz/cbc/text/40/"
+    ],
+    "caveat": "T51 是求法传、信仰感应传、宗派灯录、冥报故事、西域行记、寺塔记与佛教名山方志合集，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI、校勘与传统责任题记，同时分离物理记录、作品、表达、续修、伴随著作、复合责任、地域与史料复用；相邻经号、共同宗派、信仰对象、人物、地名、体裁、后世引用或机器相似度都不能单独证明作品相同或责任无争议。"
+  },
+  "files": [
+    {
+      "id": "T2066",
+      "slug": "taisho-t2066",
+      "workId": "gbcr:work:taisho-t2066-pilgrimage-monk-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "大唐西域求法高僧傳",
+      "sourceRole": "pilgrimage_monk_collective_biography",
+      "bibliographicRelations": [
+        {
+          "type": "pilgrimage_biography_scope_distinct",
+          "groupId": "pilgrimage-biographies-t2066-t2085-t2089",
+          "label": "求法高僧传、个人游记与游方抄本范围边界",
+          "evidence": "T2066 汇编多位赴西域求法高僧，T2085、T2086、T2087、T2089 分别保存法显、惠生、玄奘与慧超等人的行记或编纂记录；人物、时代、责任、体例、卷数及 DILA/CBC 作品入口不同，求法与旅行主题不能证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2066",
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2089"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000686",
+        "cbcText": "32"
+      },
+      "localPath": "data/corpus/cbeta/T51n2066.xml",
+      "upstreamPath": "T/T51/T51n2066.xml",
+      "upstreamGitBlobSha1": "7179ad88d155ec043982241758dbad623278b060",
+      "upstreamBytes": 369061,
+      "upstreamSha256": "88bb74d69b782689e0dc443bc1a1a3d1320f029482c33babff4a77092b50e34f",
+      "localBytes": 369062,
+      "localSha256": "8160f0aad739de91d61a29afa770415a6db34dad1db7cad84558f711b9a9eded",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐西域求法高僧傳",
+        "alternateTitle": "大唐西域求法高僧傳",
+        "tradition": "汉传佛教 · 求法高僧传",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2066",
+        "translator": "唐 · 義淨撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2066_001"
+      },
+      "verification": {
+        "segments": 973,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2066.001.0001a02",
+          "T2066.002.0012b12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2067",
+      "slug": "taisho-t2067",
+      "workId": "gbcr:work:taisho-t2067-devotional-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "弘贊法華傳",
+      "sourceRole": "east_asian_devotional_biography",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_devotional_biographies_distinct",
+          "groupId": "lotus-devotion-biographies-t2067-t2068",
+          "label": "两部法华传记作品与责任边界",
+          "evidence": "T2067《弘赞法华传》与 T2068《法华传记》均为十卷法华信仰史传，但题名、编纂者、结构和 DILA/CBC 作品入口不同；T2068 的 TEI 题记作“僧詳撰”，DILA 当前显示“僧祥”，平台并列保留而不静默归一。",
+          "externalIds": {
+            "cbeta": [
+              "T2067",
+              "T2068"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001339",
+        "cbcText": "33"
+      },
+      "localPath": "data/corpus/cbeta/T51n2067.xml",
+      "upstreamPath": "T/T51/T51n2067.xml",
+      "upstreamGitBlobSha1": "271771c1182c3dbc28a7b69b5fe597849f348cfc",
+      "upstreamBytes": 382894,
+      "upstreamSha256": "03bc479456a194f965cbc446402d1018c4b6e963143c737ba6cddd77ffd2b812",
+      "localBytes": 382895,
+      "localSha256": "c8c7a2c773aa1dc6198687cabe0caa58861101b6b7f9db5ac4ae5146b5e7e6d0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "弘贊法華傳",
+        "alternateTitle": "弘贊法華傳",
+        "tradition": "汉传佛教 · 经传与感应史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2067",
+        "translator": "唐 · 惠詳撰",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 惠詳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2067_001"
+      },
+      "verification": {
+        "segments": 3101,
+        "folios": 117,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2067.001.0012b15",
+          "T2067.010.0048b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2068",
+      "slug": "taisho-t2068",
+      "workId": "gbcr:work:taisho-t2068-devotional-biography",
+      "workIdentityStatus": "verified_distinct_responsibility_label_conflict",
+      "workTitle": "法華傳記",
+      "sourceRole": "east_asian_devotional_biography",
+      "bibliographicRelations": [
+        {
+          "type": "lotus_devotional_biographies_distinct",
+          "groupId": "lotus-devotion-biographies-t2067-t2068",
+          "label": "两部法华传记作品与责任边界",
+          "evidence": "T2067《弘赞法华传》与 T2068《法华传记》均为十卷法华信仰史传，但题名、编纂者、结构和 DILA/CBC 作品入口不同；T2068 的 TEI 题记作“僧詳撰”，DILA 当前显示“僧祥”，平台并列保留而不静默归一。",
+          "externalIds": {
+            "cbeta": [
+              "T2067",
+              "T2068"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000896",
+        "cbcText": "49"
+      },
+      "localPath": "data/corpus/cbeta/T51n2068.xml",
+      "upstreamPath": "T/T51/T51n2068.xml",
+      "upstreamGitBlobSha1": "789a4ade6fd9bfdcb92465195888c6c0089b7bd7",
+      "upstreamBytes": 913826,
+      "upstreamSha256": "90523a73e47eecdadfe08d6908547c9a2c2be1b5e66684b7279f2e6d7ff41cf5",
+      "localBytes": 913827,
+      "localSha256": "446397ca429d94d9b3e86fe5d6511170042f41f2c789989bd9fd3404e653955c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華傳記",
+        "alternateTitle": "法華傳記",
+        "tradition": "汉传佛教 · 经传与感应史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2068",
+        "translator": "唐 · 僧詳撰",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 僧詳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2068_001"
+      },
+      "verification": {
+        "segments": 4174,
+        "folios": 154,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2068.001.0048b20",
+          "T2068.010.0097a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2069",
+      "slug": "taisho-t2069",
+      "workId": "gbcr:work:taisho-t2069-sectarian-lineage-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "天台九祖傳",
+      "sourceRole": "east_asian_sectarian_lineage_biography",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_lineage_records_scope_distinct",
+          "groupId": "lineage-traditions-t2069-t2075-t2081",
+          "label": "天台九祖、禅宗法宝与密教师资付法记录边界",
+          "evidence": "T2069、T2075、T2081 分属天台祖师传、禅宗传法史与两部大法师资付法记；宗派、谱系对象、作者状态与作品权威入口均不同，不能因祖统结构或付法语汇合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2069",
+              "T2075",
+              "T2081"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003240",
+        "cbcText": "46"
+      },
+      "localPath": "data/corpus/cbeta/T51n2069.xml",
+      "upstreamPath": "T/T51/T51n2069.xml",
+      "upstreamGitBlobSha1": "cafa04897cdcc0c4cb82d832718068d0fd1ab0ca",
+      "upstreamBytes": 62168,
+      "upstreamSha256": "8eae6678d3c85ecac22a0f140f132d9bfefacf957d742b9048da59f3ec4ddfaa",
+      "localBytes": 62169,
+      "localSha256": "1c9ebb7c61b6b2df9ca4013f3397185c0bedddcf16a378accc9488dcf9be97a1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台九祖傳",
+        "alternateTitle": "天台九祖傳",
+        "tradition": "东亚佛教 · 祖师谱系",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2069",
+        "translator": "宋 · 士衡編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 士衡編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2069_001"
+      },
+      "verification": {
+        "segments": 582,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2069.001.0097a15",
+          "T2069.001.0103c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2070",
+      "slug": "taisho-t2070",
+      "workId": "gbcr:work:taisho-t2070-pure-land-rebirth-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "往生西方淨土瑞應傳",
+      "sourceRole": "pure_land_rebirth_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_rebirth_anthologies_distinct",
+          "groupId": "pure-land-rebirth-anthologies-t2070-t2072",
+          "label": "三部净土往生传集作品边界",
+          "evidence": "T2070《往生西方净土瑞应传》、T2071《净土往生传》、T2072《往生集》跨越不同年代、责任、卷数和收录范围；共享往生人物与故事属于史料复用证据，三个 DILA/CBC 作品入口保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2070",
+              "T2071",
+              "T2072"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003295",
+        "cbcText": "31"
+      },
+      "localPath": "data/corpus/cbeta/T51n2070.xml",
+      "upstreamPath": "T/T51/T51n2070.xml",
+      "upstreamGitBlobSha1": "decc7b624b2ea61ca7c1ff4ffa208aeabd9df32f",
+      "upstreamBytes": 105364,
+      "upstreamSha256": "fcc1739a5b7aea3698dec8337ea5ba0f2b7363cc46614d52202f25ff301cbf72",
+      "localBytes": 105365,
+      "localSha256": "5dadb0f9b1637f401ebe8352428b21e58e4e9fd694c872f9e5b172f9f44218e5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "往生西方淨土瑞應傳",
+        "alternateTitle": "往生西方淨土瑞應傳",
+        "tradition": "汉传佛教 · 净土往生传",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2070",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2070_001"
+      },
+      "verification": {
+        "segments": 390,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2070.001.0104a02",
+          "T2070.001.0108b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2071",
+      "slug": "taisho-t2071",
+      "workId": "gbcr:work:taisho-t2071-pure-land-rebirth-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "淨土往生傳",
+      "sourceRole": "pure_land_rebirth_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_rebirth_anthologies_distinct",
+          "groupId": "pure-land-rebirth-anthologies-t2070-t2072",
+          "label": "三部净土往生传集作品边界",
+          "evidence": "T2070《往生西方净土瑞应传》、T2071《净土往生传》、T2072《往生集》跨越不同年代、责任、卷数和收录范围；共享往生人物与故事属于史料复用证据，三个 DILA/CBC 作品入口保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2070",
+              "T2071",
+              "T2072"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001854",
+        "cbcText": "53"
+      },
+      "localPath": "data/corpus/cbeta/T51n2071.xml",
+      "upstreamPath": "T/T51/T51n2071.xml",
+      "upstreamGitBlobSha1": "1b4c6379afa16dca1477ae86004979b769812db6",
+      "upstreamBytes": 155745,
+      "upstreamSha256": "42feff5b1ea53d8f71b4d18b0abd0410d6a6cb1343b2ecfbdc7bb4f555536231",
+      "localBytes": 155746,
+      "localSha256": "45a0e757715be4c0c2213180ba060ee4782354f60bae4a833a341a920b2ea281",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土往生傳",
+        "alternateTitle": "淨土往生傳",
+        "tradition": "汉传佛教 · 净土往生传",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2071",
+        "translator": "宋 · 戒珠敘",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 戒珠敘。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2071_001"
+      },
+      "verification": {
+        "segments": 1558,
+        "folios": 57,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2071.001.0108b17",
+          "T2071.003.0126b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2072",
+      "slug": "taisho-t2072",
+      "workId": "gbcr:work:taisho-t2072-pure-land-rebirth-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "往生集",
+      "sourceRole": "pure_land_rebirth_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_rebirth_anthologies_distinct",
+          "groupId": "pure-land-rebirth-anthologies-t2070-t2072",
+          "label": "三部净土往生传集作品边界",
+          "evidence": "T2070《往生西方净土瑞应传》、T2071《净土往生传》、T2072《往生集》跨越不同年代、责任、卷数和收录范围；共享往生人物与故事属于史料复用证据，三个 DILA/CBC 作品入口保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2070",
+              "T2071",
+              "T2072"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003289",
+        "cbcText": "37"
+      },
+      "localPath": "data/corpus/cbeta/T51n2072.xml",
+      "upstreamPath": "T/T51/T51n2072.xml",
+      "upstreamGitBlobSha1": "b0de1044faaf3acb93588d9bd66ad27c1615d027",
+      "upstreamBytes": 222353,
+      "upstreamSha256": "61db08bbbc1a90a1c03334055bb42a8111c37200bb205ef10272dd75cd05da7e",
+      "localBytes": 222354,
+      "localSha256": "82b145be484ed8d8cc76c56bb72ae7a7e2d034a237b43ec957239f76a55ba93d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "往生集",
+        "alternateTitle": "往生集",
+        "tradition": "汉传佛教 · 净土往生传",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2072",
+        "translator": "明 · 袾宏輯",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：明 袾宏輯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2072_001"
+      },
+      "verification": {
+        "segments": 2292,
+        "folios": 83,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2072.001.0126b23",
+          "T2072.003.0153a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2073",
+      "slug": "taisho-t2073",
+      "workId": "gbcr:work:taisho-t2073-huayan-devotional-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "華嚴經傳記",
+      "sourceRole": "huayan_devotional_biography",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_devotional_biographies_distinct",
+          "groupId": "huayan-devotion-biographies-t2073-t2074",
+          "label": "华严经传记与感应传范围边界",
+          "evidence": "T2073 五卷《华严经传记》与 T2074 一卷《大方广佛华严经感应传》共享华严信仰材料，但题名、责任、体量、结构及 DILA/CBC 作品入口不同，建立关联而不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2073",
+              "T2074"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001438",
+        "cbcText": "52"
+      },
+      "localPath": "data/corpus/cbeta/T51n2073.xml",
+      "upstreamPath": "T/T51/T51n2073.xml",
+      "upstreamGitBlobSha1": "db4b079950a08fe45c5c5ae859a412239eb8c17c",
+      "upstreamBytes": 279442,
+      "upstreamSha256": "7c8c34870a1e280f53b8de535ffc85859c542fff8dc4b0487f93b77a6e3ff833",
+      "localBytes": 279443,
+      "localSha256": "835bc5ccf37aa3b60875ee2289c4d98e35f96adf5342a068735582f7bfe87cfb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經傳記",
+        "alternateTitle": "華嚴經傳記",
+        "tradition": "汉传佛教 · 华严经传与感应",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2073",
+        "translator": "唐 · 法藏集",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2073_001"
+      },
+      "verification": {
+        "segments": 1745,
+        "folios": 65,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2073.001.0153a08",
+          "T2073.005.0173a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2074",
+      "slug": "taisho-t2074",
+      "workId": "gbcr:work:taisho-t2074-huayan-devotional-biography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "大方廣佛華嚴經感應傳",
+      "sourceRole": "huayan_devotional_biography",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_devotional_biographies_distinct",
+          "groupId": "huayan-devotion-biographies-t2073-t2074",
+          "label": "华严经传记与感应传范围边界",
+          "evidence": "T2073 五卷《华严经传记》与 T2074 一卷《大方广佛华严经感应传》共享华严信仰材料，但题名、责任、体量、结构及 DILA/CBC 作品入口不同，建立关联而不合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2073",
+              "T2074"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001378",
+        "cbcText": "35"
+      },
+      "localPath": "data/corpus/cbeta/T51n2074.xml",
+      "upstreamPath": "T/T51/T51n2074.xml",
+      "upstreamGitBlobSha1": "0dc5628b1aec32b39c7023b8cd0cda5451a30da7",
+      "upstreamBytes": 102512,
+      "upstreamSha256": "4e6b4fd350bc17221af9c2a599581bda40ba96f0a8f8e27fff8a3213538421b8",
+      "localBytes": 102513,
+      "localSha256": "20949b2b6050520337d340b0a725e0944a80e5d1f0e5b2731e5eaa10d043f491",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大方廣佛華嚴經感應傳",
+        "alternateTitle": "大方廣佛華嚴經感應傳",
+        "tradition": "汉传佛教 · 华严经传与感应",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2074",
+        "translator": "唐 · 惠英撰．胡幽貞纂",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 惠英撰．胡幽貞纂。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2074_001"
+      },
+      "verification": {
+        "segments": 443,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2074.001.0173b02",
+          "T2074.001.0178b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2075",
+      "slug": "taisho-t2075",
+      "workId": "gbcr:work:taisho-t2075-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "曆代法寶記",
+      "sourceRole": "unattributed_chan_lineage_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_lineage_records_scope_distinct",
+          "groupId": "lineage-traditions-t2069-t2075-t2081",
+          "label": "天台九祖、禅宗法宝与密教师资付法记录边界",
+          "evidence": "T2069、T2075、T2081 分属天台祖师传、禅宗传法史与两部大法师资付法记；宗派、谱系对象、作者状态与作品权威入口均不同，不能因祖统结构或付法语汇合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2069",
+              "T2075",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002039",
+        "cbcText": "41"
+      },
+      "localPath": "data/corpus/cbeta/T51n2075.xml",
+      "upstreamPath": "T/T51/T51n2075.xml",
+      "upstreamGitBlobSha1": "a8c385b58d5a5c54693210dbc392df43e78caee7",
+      "upstreamBytes": 423606,
+      "upstreamSha256": "628ed9c65139d6ef2ad70d48019715f4d52d6298799b383dbf5c255e8dff8514",
+      "localBytes": 423607,
+      "localSha256": "a43da8496260b641db22392dc3b304c3be0099961bf88c9699db5064e3403536",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "曆代法寶記",
+        "alternateTitle": "曆代法寶記",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2075",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2075_001"
+      },
+      "verification": {
+        "segments": 1512,
+        "folios": 53,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2075.001.0179a02",
+          "T2075.001.0196b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2076",
+      "slug": "taisho-t2076",
+      "workId": "gbcr:work:taisho-t2076-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "景德傳燈錄",
+      "sourceRole": "song_transmission_lamp_base_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "transmission_lamp_continuation_distinct",
+          "groupId": "transmission-lamp-series-t2076-t2077",
+          "label": "《景德传灯录》与《续传灯录》续修边界",
+          "evidence": "T2077 明代《续传灯录》承续 T2076 宋代《景德传灯录》的灯录传统，但作者、时代、卷数、收录范围及 DILA/CBC 作品入口不同；续修关系不等于同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2076",
+              "T2077"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001818",
+        "cbcText": "64"
+      },
+      "localPath": "data/corpus/cbeta/T51n2076.xml",
+      "upstreamPath": "T/T51/T51n2076.xml",
+      "upstreamGitBlobSha1": "07df4172875ae8d4870c4a57a242760d8555fed7",
+      "upstreamBytes": 3653968,
+      "upstreamSha256": "384249c574c06ff00b2ec4d940c69def82d6ed5fa36f9c0b57156d0b237b261a",
+      "localBytes": 3653969,
+      "localSha256": "a56633c6e4eea87853383a6b02f8c811bb73ff9bd46f235e1daa4dd392022ecb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "景德傳燈錄",
+        "alternateTitle": "景德傳燈錄",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2076",
+        "translator": "宋 · 道原纂",
+        "summary": "30卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 道原纂。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2076_001"
+      },
+      "verification": {
+        "segments": 22617,
+        "folios": 825,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T2076.001.0196b09",
+          "T2076.030.0467a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2077",
+      "slug": "taisho-t2077",
+      "workId": "gbcr:work:taisho-t2077-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_continuation_work",
+      "workTitle": "續傳燈錄",
+      "sourceRole": "ming_transmission_lamp_continuation",
+      "bibliographicRelations": [
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "transmission_lamp_continuation_distinct",
+          "groupId": "transmission-lamp-series-t2076-t2077",
+          "label": "《景德传灯录》与《续传灯录》续修边界",
+          "evidence": "T2077 明代《续传灯录》承续 T2076 宋代《景德传灯录》的灯录传统，但作者、时代、卷数、收录范围及 DILA/CBC 作品入口不同；续修关系不等于同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2076",
+              "T2077"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003638",
+        "cbcText": "59"
+      },
+      "localPath": "data/corpus/cbeta/T51n2077.xml",
+      "upstreamPath": "T/T51/T51n2077.xml",
+      "upstreamGitBlobSha1": "f381d427cbf2dc8b34d2da094762036af28b44f3",
+      "upstreamBytes": 2181630,
+      "upstreamSha256": "67a7a914a60565469496d1bd937f9dad3966904c59562ee9979b2c03b53e115a",
+      "localBytes": 2181631,
+      "localSha256": "1382ae0aafe431bbae69c07e96aded75d81a02760fc301012656d9c41f3d7e19",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "續傳燈錄",
+        "alternateTitle": "續傳燈錄",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2077",
+        "translator": "明 · 居頂輯",
+        "summary": "36卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：明 居頂輯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2077_001"
+      },
+      "verification": {
+        "segments": 21071,
+        "folios": 763,
+        "juanRange": [
+          1,
+          36
+        ],
+        "anchors": [
+          "T2077.001.0469a02",
+          "T2077.036.0714c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2078",
+      "slug": "taisho-t2078",
+      "workId": "gbcr:work:taisho-t2078-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "傳法正宗記",
+      "sourceRole": "qisong_transmission_orthodoxy_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "qisong-companion-works-t2078-t2080",
+          "label": "契嵩传法正宗记、定祖图与宗论伴随著作边界",
+          "evidence": "T2078、T2079、T2080 同属契嵩责任脉络，但分别是九卷史记、一卷祖统图与二卷宗论；相同作者和论证目标只建立伴随著作关系，不能消除体例、范围和三个作品权威号。",
+          "externalIds": {
+            "cbeta": [
+              "T2078",
+              "T2079",
+              "T2080"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000513",
+        "cbcText": "47"
+      },
+      "localPath": "data/corpus/cbeta/T51n2078.xml",
+      "upstreamPath": "T/T51/T51n2078.xml",
+      "upstreamGitBlobSha1": "c99dcb9eeb48a94a81a852b29a3adb7368bdfd0e",
+      "upstreamBytes": 535983,
+      "upstreamSha256": "9de1a242e01c292f7c257740f0fe0fb7ff40748cebccef2c46df7d467c04c254",
+      "localBytes": 535984,
+      "localSha256": "79ba1592a8ba3a97cc465b8be563cd98bd315b17310d336a187384a1123dc2d3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "傳法正宗記",
+        "alternateTitle": "傳法正宗記",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2078",
+        "translator": "宋 · 契嵩編",
+        "summary": "9卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 契嵩編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2078_001"
+      },
+      "verification": {
+        "segments": 4637,
+        "folios": 167,
+        "juanRange": [
+          1,
+          9
+        ],
+        "anchors": [
+          "T2078.001.0715a03",
+          "T2078.009.0768c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2079",
+      "slug": "taisho-t2079",
+      "workId": "gbcr:work:taisho-t2079-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "傳法正宗定祖圖",
+      "sourceRole": "qisong_transmission_orthodoxy_lineage_diagram",
+      "bibliographicRelations": [
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "qisong-companion-works-t2078-t2080",
+          "label": "契嵩传法正宗记、定祖图与宗论伴随著作边界",
+          "evidence": "T2078、T2079、T2080 同属契嵩责任脉络，但分别是九卷史记、一卷祖统图与二卷宗论；相同作者和论证目标只建立伴随著作关系，不能消除体例、范围和三个作品权威号。",
+          "externalIds": {
+            "cbeta": [
+              "T2078",
+              "T2079",
+              "T2080"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000512",
+        "cbcText": "34"
+      },
+      "localPath": "data/corpus/cbeta/T51n2079.xml",
+      "upstreamPath": "T/T51/T51n2079.xml",
+      "upstreamGitBlobSha1": "759fe05a8700c7e6ba7a6032cb5190bd3377c53b",
+      "upstreamBytes": 45265,
+      "upstreamSha256": "5e893a08075cdc397ea9b76f4eafbedf69c0e87db7ab20ec4ed493509fdc7ba5",
+      "localBytes": 45266,
+      "localSha256": "1910d3ea0ed4a5175099ab2638a1d3b5f3cf6a33833d7f0880c8487485a97766",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "傳法正宗定祖圖",
+        "alternateTitle": "傳法正宗定祖圖",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2079",
+        "translator": "宋 · 契嵩撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 契嵩撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2079_001"
+      },
+      "verification": {
+        "segments": 405,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2079.001.0768c24",
+          "T2079.001.0773b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2080",
+      "slug": "taisho-t2080",
+      "workId": "gbcr:work:taisho-t2080-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_same_author_companion_work",
+      "workTitle": "傳法正宗論",
+      "sourceRole": "qisong_transmission_orthodoxy_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "same_author_companion_works_distinct",
+          "groupId": "qisong-companion-works-t2078-t2080",
+          "label": "契嵩传法正宗记、定祖图与宗论伴随著作边界",
+          "evidence": "T2078、T2079、T2080 同属契嵩责任脉络，但分别是九卷史记、一卷祖统图与二卷宗论；相同作者和论证目标只建立伴随著作关系，不能消除体例、范围和三个作品权威号。",
+          "externalIds": {
+            "cbeta": [
+              "T2078",
+              "T2079",
+              "T2080"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000514",
+        "cbcText": "30"
+      },
+      "localPath": "data/corpus/cbeta/T51n2080.xml",
+      "upstreamPath": "T/T51/T51n2080.xml",
+      "upstreamGitBlobSha1": "e54bbd8133203007cdbdb6d313605ac2961dece1",
+      "upstreamBytes": 105440,
+      "upstreamSha256": "474c8430500a84f670c28592ec4b769e187455e22014fb1792070e8e60c4e822",
+      "localBytes": 105441,
+      "localSha256": "9db85a412346ebaabd417ec587a75431f493f8561f328a5b725835277fc26b70",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "傳法正宗論",
+        "alternateTitle": "傳法正宗論",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2080",
+        "translator": "宋 · 契嵩編",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 契嵩編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2080_001"
+      },
+      "verification": {
+        "segments": 840,
+        "folios": 32,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2080.001.0773c02",
+          "T2080.002.0783c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2081",
+      "slug": "taisho-t2081",
+      "workId": "gbcr:work:taisho-t2081-dharma-transmission-history",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "兩部大法相承師資付法記",
+      "sourceRole": "east_asian_dharma_transmission_history",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_lineage_records_scope_distinct",
+          "groupId": "lineage-traditions-t2069-t2075-t2081",
+          "label": "天台九祖、禅宗法宝与密教师资付法记录边界",
+          "evidence": "T2069、T2075、T2081 分属天台祖师传、禅宗传法史与两部大法师资付法记；宗派、谱系对象、作者状态与作品权威入口均不同，不能因祖统结构或付法语汇合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2069",
+              "T2075",
+              "T2081"
+            ]
+          }
+        },
+        {
+          "type": "transmission_histories_genres_distinct",
+          "groupId": "transmission-histories-t2075-t2081",
+          "label": "灯录、传法史、祖图、宗论与师资记体例边界",
+          "evidence": "T2075–T2081 均涉及法脉或师资传承，却分别采用传灯录、续灯录、传法正宗记、定祖图、宗论与密教师资记等体例；题名、作者、时代、结构、宗派范围与 7 个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2075",
+              "T2076",
+              "T2077",
+              "T2078",
+              "T2079",
+              "T2080",
+              "T2081"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002060",
+        "cbcText": "62"
+      },
+      "localPath": "data/corpus/cbeta/T51n2081.xml",
+      "upstreamPath": "T/T51/T51n2081.xml",
+      "upstreamGitBlobSha1": "556235b51e22f6c8c8c58160769d221a8787b483",
+      "upstreamBytes": 168546,
+      "upstreamSha256": "7c8dccbdf9caba49b6a6e314068c7bcdd0b1f052fd2111658fd13c3044397106",
+      "localBytes": 168547,
+      "localSha256": "8c2cce08a0da22f7b0eb7fa7d87ed3a2da7579320c480b044cc820d79908e98b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "兩部大法相承師資付法記",
+        "alternateTitle": "兩部大法相承師資付法記",
+        "tradition": "东亚佛教 · 灯录与付法史",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2081",
+        "translator": "唐 · 海雲記",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 海雲記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2081_001"
+      },
+      "verification": {
+        "segments": 290,
+        "folios": 13,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2081.001.0783c11",
+          "T2081.002.0787b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2082",
+      "slug": "taisho-t2082",
+      "workId": "gbcr:work:taisho-t2082-karmic-response-anthology",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "冥報記",
+      "sourceRole": "east_asian_karmic_response_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "karmic_response_anthologies_source_reuse_distinct",
+          "groupId": "karmic-response-anthologies-t2082-t2084",
+          "label": "冥报、释门自镜与三宝感应录材料复用边界",
+          "evidence": "T2082–T2084 都汇集因果、冥报或三宝感应故事，可能复用人物与叙事，但作者、时代、选录原则、题名、卷数及 DILA/CBC 作品入口不同；共享故事不触发作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2082",
+              "T2083",
+              "T2084"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002252",
+        "cbcText": "58"
+      },
+      "localPath": "data/corpus/cbeta/T51n2082.xml",
+      "upstreamPath": "T/T51/T51n2082.xml",
+      "upstreamGitBlobSha1": "97a82205c8e07211a1dd8582decec2374a53e09b",
+      "upstreamBytes": 476086,
+      "upstreamSha256": "1c05827c814d53be6fe94a354719dd7bc2e2aa18ed57f455f95851438a5d4f6a",
+      "localBytes": 476087,
+      "localSha256": "86cd81c620c80ecd4682c723a3db6eeffcc74312fe9c3ff290359f19c3f6fb57",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "冥報記",
+        "alternateTitle": "冥報記",
+        "tradition": "东亚佛教 · 冥报与感应录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2082",
+        "translator": "唐 · 唐臨撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 唐臨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2082_001"
+      },
+      "verification": {
+        "segments": 1198,
+        "folios": 46,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2082.001.0787b24",
+          "T2082.003.0802a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2083",
+      "slug": "taisho-t2083",
+      "workId": "gbcr:work:taisho-t2083-karmic-response-anthology",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "釋門自鏡錄",
+      "sourceRole": "east_asian_karmic_response_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "karmic_response_anthologies_source_reuse_distinct",
+          "groupId": "karmic-response-anthologies-t2082-t2084",
+          "label": "冥报、释门自镜与三宝感应录材料复用边界",
+          "evidence": "T2082–T2084 都汇集因果、冥报或三宝感应故事，可能复用人物与叙事，但作者、时代、选录原则、题名、卷数及 DILA/CBC 作品入口不同；共享故事不触发作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2082",
+              "T2083",
+              "T2084"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003138",
+        "cbcText": "48"
+      },
+      "localPath": "data/corpus/cbeta/T51n2083.xml",
+      "upstreamPath": "T/T51/T51n2083.xml",
+      "upstreamGitBlobSha1": "9b00debb00f6e212c0136b611f96334088618078",
+      "upstreamBytes": 217647,
+      "upstreamSha256": "4fe658b0b9c79e88303f2e9dde19a626904d405d2a1b937a761990c5cc42d25c",
+      "localBytes": 217648,
+      "localSha256": "a80c5a27775e6864d131650f0b7cb094049b87750f7caa19ffa8f2f48d16f93a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋門自鏡錄",
+        "alternateTitle": "釋門自鏡錄",
+        "tradition": "东亚佛教 · 冥报与感应录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2083",
+        "translator": "唐 · 懷信述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 懷信述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2083_001"
+      },
+      "verification": {
+        "segments": 2044,
+        "folios": 74,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2083.001.0802a16",
+          "T2083.002.0826a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2084",
+      "slug": "taisho-t2084",
+      "workId": "gbcr:work:taisho-t2084-karmic-response-anthology",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "三寶感應要略錄",
+      "sourceRole": "east_asian_karmic_response_anthology",
+      "bibliographicRelations": [
+        {
+          "type": "karmic_response_anthologies_source_reuse_distinct",
+          "groupId": "karmic-response-anthologies-t2082-t2084",
+          "label": "冥报、释门自镜与三宝感应录材料复用边界",
+          "evidence": "T2082–T2084 都汇集因果、冥报或三宝感应故事，可能复用人物与叙事，但作者、时代、选录原则、题名、卷数及 DILA/CBC 作品入口不同；共享故事不触发作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2082",
+              "T2083",
+              "T2084"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002705",
+        "cbcText": "50"
+      },
+      "localPath": "data/corpus/cbeta/T51n2084.xml",
+      "upstreamPath": "T/T51/T51n2084.xml",
+      "upstreamGitBlobSha1": "4955215dcbf94a549a8c9ddfad023e241eb6b1e7",
+      "upstreamBytes": 338321,
+      "upstreamSha256": "e4f77548ca7015f65cc86c2953ca1e9cdc1e73aa2aa801f156aa1a74e44f9c84",
+      "localBytes": 338322,
+      "localSha256": "de984b37d66740d5f6f6d1cb09b6ff7a4057fc8dd31a489ea392844596715426",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三寶感應要略錄",
+        "alternateTitle": "三寶感應要略錄",
+        "tradition": "东亚佛教 · 冥报与感应录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2084",
+        "translator": "宋 · 非濁集",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 非濁集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2084_001"
+      },
+      "verification": {
+        "segments": 2605,
+        "folios": 94,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2084.001.0826a12",
+          "T2084.003.0856c11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2085",
+      "slug": "taisho-t2085",
+      "workId": "gbcr:work:taisho-t2085-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "高僧法顯傳",
+      "sourceRole": "faxian_pilgrimage_record",
+      "bibliographicRelations": [
+        {
+          "type": "pilgrimage_biography_scope_distinct",
+          "groupId": "pilgrimage-biographies-t2066-t2085-t2089",
+          "label": "求法高僧传、个人游记与游方抄本范围边界",
+          "evidence": "T2066 汇编多位赴西域求法高僧，T2085、T2086、T2087、T2089 分别保存法显、惠生、玄奘与慧超等人的行记或编纂记录；人物、时代、责任、体例、卷数及 DILA/CBC 作品入口不同，求法与旅行主题不能证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2066",
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2089"
+            ]
+          }
+        },
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000943",
+        "cbcText": "36"
+      },
+      "localPath": "data/corpus/cbeta/T51n2085.xml",
+      "upstreamPath": "T/T51/T51n2085.xml",
+      "upstreamGitBlobSha1": "80d0cb3a6ba9739dac7815082bb8f06ec819fc6b",
+      "upstreamBytes": 313613,
+      "upstreamSha256": "696f0b6343db16eb1c4deac1396305a8e424b1955fd15263132d0b8f4da138e1",
+      "localBytes": 313614,
+      "localSha256": "fe75b19ab26d989525d550c5635dfe08adb5127018601d3ddadc6565930cc8ba",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "高僧法顯傳",
+        "alternateTitle": "高僧法顯傳",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2085",
+        "translator": "東晉 · 法顯記",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：東晉 法顯記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2085_001"
+      },
+      "verification": {
+        "segments": 845,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2085.001.0857a02",
+          "T2085.001.0866c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2086",
+      "slug": "taisho-t2086",
+      "workId": "gbcr:work:taisho-t2086-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "北魏僧惠生使西域記",
+      "sourceRole": "unattributed_huisheng_western_regions_record",
+      "bibliographicRelations": [
+        {
+          "type": "pilgrimage_biography_scope_distinct",
+          "groupId": "pilgrimage-biographies-t2066-t2085-t2089",
+          "label": "求法高僧传、个人游记与游方抄本范围边界",
+          "evidence": "T2066 汇编多位赴西域求法高僧，T2085、T2086、T2087、T2089 分别保存法显、惠生、玄奘与慧超等人的行记或编纂记录；人物、时代、责任、体例、卷数及 DILA/CBC 作品入口不同，求法与旅行主题不能证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2066",
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2089"
+            ]
+          }
+        },
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003522",
+        "cbcText": "60"
+      },
+      "localPath": "data/corpus/cbeta/T51n2086.xml",
+      "upstreamPath": "T/T51/T51n2086.xml",
+      "upstreamGitBlobSha1": "08ee4c4beae31d67699391ea628cf80f8242eeb5",
+      "upstreamBytes": 8685,
+      "upstreamSha256": "a027b45ec02f6997d83d0843471b2f98394fdf4264aa2c90ffe6ade4c344ffad",
+      "localBytes": 8686,
+      "localSha256": "b67144c296ed8ed8f45898cb7a97a36ec9e14c5dabf5889a76c9d281876654a4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "北魏僧惠生使西域記",
+        "alternateTitle": "北魏僧惠生使西域記",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2086",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2086_001"
+      },
+      "verification": {
+        "segments": 58,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2086.001.0866c09",
+          "T2086.001.0867b09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2087",
+      "slug": "taisho-t2087",
+      "workId": "gbcr:work:taisho-t2087-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_composite_translation_and_compilation_responsibility",
+      "workTitle": "大唐西域記",
+      "sourceRole": "xuanzang_bianji_composite_western_regions_record",
+      "bibliographicRelations": [
+        {
+          "type": "pilgrimage_biography_scope_distinct",
+          "groupId": "pilgrimage-biographies-t2066-t2085-t2089",
+          "label": "求法高僧传、个人游记与游方抄本范围边界",
+          "evidence": "T2066 汇编多位赴西域求法高僧，T2085、T2086、T2087、T2089 分别保存法显、惠生、玄奘与慧超等人的行记或编纂记录；人物、时代、责任、体例、卷数及 DILA/CBC 作品入口不同，求法与旅行主题不能证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2066",
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2089"
+            ]
+          }
+        },
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000685",
+        "cbcText": "42"
+      },
+      "localPath": "data/corpus/cbeta/T51n2087.xml",
+      "upstreamPath": "T/T51/T51n2087.xml",
+      "upstreamGitBlobSha1": "9d3079429b4ffbc169af943b3fd354b941195118",
+      "upstreamBytes": 2596069,
+      "upstreamSha256": "0a123825559f7ae791be606cf52595c1719adefcddeeab64c166990f48fafc21",
+      "localBytes": 2596070,
+      "localSha256": "9f1cc1f5a3f8e6db9d8f37b5795480f1532324f698b76cc985f7312d74bcd2ad",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大唐西域記",
+        "alternateTitle": "大唐西域記",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2087",
+        "translator": "唐 · 玄奘譯．辯機撰",
+        "summary": "12卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 玄奘譯．辯機撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2087_001"
+      },
+      "verification": {
+        "segments": 6850,
+        "folios": 245,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T2087.001.0867b12",
+          "T2087.012.0947c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2088",
+      "slug": "taisho-t2088",
+      "workId": "gbcr:work:taisho-t2088-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "釋迦方志",
+      "sourceRole": "buddhist_travel_or_geography_record",
+      "bibliographicRelations": [
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003113",
+        "cbcText": "38"
+      },
+      "localPath": "data/corpus/cbeta/T51n2088.xml",
+      "upstreamPath": "T/T51/T51n2088.xml",
+      "upstreamGitBlobSha1": "6fc7b67f95aee5529d596e89df6c1bb28b5a3719",
+      "upstreamBytes": 569227,
+      "upstreamSha256": "0f4464b038850f53a6a22a54a4f93a0a19e75e8213923d71a5f968d979f2ae95",
+      "localBytes": 569228,
+      "localSha256": "2dd45048f595dca4970284c6acf73ea642b5625d5fa2fe70230dc2be5dc2261a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋迦方志",
+        "alternateTitle": "釋迦方志",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2088",
+        "translator": "唐 · 道宣撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2088_001"
+      },
+      "verification": {
+        "segments": 2322,
+        "folios": 83,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2088.001.0948a02",
+          "T2088.002.0975a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2089",
+      "slug": "taisho-t2089",
+      "workId": "gbcr:work:taisho-t2089-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_composite_authorship_responsibility",
+      "workTitle": "遊方記抄",
+      "sourceRole": "huichao_yuanzhao_composite_travel_excerpt",
+      "bibliographicRelations": [
+        {
+          "type": "pilgrimage_biography_scope_distinct",
+          "groupId": "pilgrimage-biographies-t2066-t2085-t2089",
+          "label": "求法高僧传、个人游记与游方抄本范围边界",
+          "evidence": "T2066 汇编多位赴西域求法高僧，T2085、T2086、T2087、T2089 分别保存法显、惠生、玄奘与慧超等人的行记或编纂记录；人物、时代、责任、体例、卷数及 DILA/CBC 作品入口不同，求法与旅行主题不能证明同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2066",
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2089"
+            ]
+          }
+        },
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003813",
+        "cbcText": "51"
+      },
+      "localPath": "data/corpus/cbeta/T51n2089.xml",
+      "upstreamPath": "T/T51/T51n2089.xml",
+      "upstreamGitBlobSha1": "10d5cd914d4253011ccb5f2a4bd2e33eed0a1a2b",
+      "upstreamBytes": 474190,
+      "upstreamSha256": "2faafbe6ee258621948b5ac7e8563169339ca313a24536116c4f3baddac0b168",
+      "localBytes": 474191,
+      "localSha256": "2fbe1e6b5cb0c861c6459325c2a10897dc2f3b780558843eeb24ca55b8ef4bfc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "遊方記抄",
+        "alternateTitle": "遊方記抄",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2089",
+        "translator": "新羅慧超唐圓照等撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：新羅慧超唐圓照等撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2089_001"
+      },
+      "verification": {
+        "segments": 1739,
+        "folios": 63,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2089.001.0975a08",
+          "T2089.001.0995c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2090",
+      "slug": "taisho-t2090",
+      "workId": "gbcr:work:taisho-t2090-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "釋迦牟尼如來像法滅盡之記",
+      "sourceRole": "facheng_translation_dharma_decline_record",
+      "bibliographicRelations": [
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003118",
+        "cbcText": "43"
+      },
+      "localPath": "data/corpus/cbeta/T51n2090.xml",
+      "upstreamPath": "T/T51/T51n2090.xml",
+      "upstreamGitBlobSha1": "f00b5f35bcfea2354e826fa364725dd58bd7bbed",
+      "upstreamBytes": 21171,
+      "upstreamSha256": "b54f55efe07b7f749e36d438d00d042a3c068913ae0b51f8ee65eff09e56f8e4",
+      "localBytes": 21172,
+      "localSha256": "ea9e61883d73cefda71f7915880197507b2b6488c9e5989f8e890c2923a02c48",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋迦牟尼如來像法滅盡之記",
+        "alternateTitle": "釋迦牟尼如來像法滅盡之記",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2090",
+        "translator": "唐 · 法成譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 法成譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2090_001"
+      },
+      "verification": {
+        "segments": 139,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2090.001.0996a02",
+          "T2090.001.0997b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2091",
+      "slug": "taisho-t2091",
+      "workId": "gbcr:work:taisho-t2091-pilgrimage-geography-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "燉煌錄",
+      "sourceRole": "unattributed_dunhuang_record",
+      "bibliographicRelations": [
+        {
+          "type": "travel_geography_and_dunhuang_records_scope_distinct",
+          "groupId": "travel-geography-records-t2085-t2091",
+          "label": "西域行记、佛国方志、法灭记录与敦煌录范围边界",
+          "evidence": "T2085–T2091 横跨个人求法记、使西域记、十二卷地理志、释迦方志、游方抄、像法灭尽记录与敦煌录。共同地理或敦煌保存语境不能越过责任、文类、范围及 7 个独立权威作品入口。",
+          "externalIds": {
+            "cbeta": [
+              "T2085",
+              "T2086",
+              "T2087",
+              "T2088",
+              "T2089",
+              "T2090",
+              "T2091"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000807",
+        "cbcText": "61"
+      },
+      "localPath": "data/corpus/cbeta/T51n2091.xml",
+      "upstreamPath": "T/T51/T51n2091.xml",
+      "upstreamGitBlobSha1": "733d87658770a06ca4decffc18ed7648444886bd",
+      "upstreamBytes": 9627,
+      "upstreamSha256": "7ecbc436e941b2b766e682e4a1eb569a4be9c9eeb3b0275e9b359add6fe1df79",
+      "localBytes": 9628,
+      "localSha256": "34a2876275e3b410703d9f1a21b009a8d4254ff65ed927daf82165bc81dfd57b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "燉煌錄",
+        "alternateTitle": "燉煌錄",
+        "tradition": "佛教史传 · 西域游记与地理记录",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2091",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2091_001"
+      },
+      "verification": {
+        "segments": 58,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2091.001.0997c02",
+          "T2091.001.0998b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2092",
+      "slug": "taisho-t2092",
+      "workId": "gbcr:work:taisho-t2092-temple-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "洛陽伽藍記",
+      "sourceRole": "east_asian_buddhist_temple_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "temple_records_regional_scope_distinct",
+          "groupId": "temple-records-t2092-t2094",
+          "label": "洛阳、长安寺塔与梁京寺院记录地域边界",
+          "evidence": "T2092《洛阳伽蓝记》、T2093《寺塔记》与 T2094《梁京寺记》分别记录不同都城、作者状态、时代和全文范围；寺院地理材料相近不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2092",
+              "T2093",
+              "T2094"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002154",
+        "cbcText": "39"
+      },
+      "localPath": "data/corpus/cbeta/T51n2092.xml",
+      "upstreamPath": "T/T51/T51n2092.xml",
+      "upstreamGitBlobSha1": "d4673e5ee88f580d81853524d4e47bd8fe3b4956",
+      "upstreamBytes": 1205407,
+      "upstreamSha256": "a94914967d213e729b16da8fc0fee952638ce6437f6cc2fdb56a0ab9bff61d14",
+      "localBytes": 1205408,
+      "localSha256": "01dc0dd6cb955d61e6f3357324292e48d63fb0f15338f39864348a46d4b2ba5d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "洛陽伽藍記",
+        "alternateTitle": "洛陽伽藍記",
+        "tradition": "东亚佛教 · 寺塔方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2092",
+        "translator": "元魏 · 楊衒之撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：元魏 楊衒之撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2092_001"
+      },
+      "verification": {
+        "segments": 1849,
+        "folios": 75,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2092.001.0999a02",
+          "T2092.005.1022b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2093",
+      "slug": "taisho-t2093",
+      "workId": "gbcr:work:taisho-t2093-temple-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "寺塔記",
+      "sourceRole": "east_asian_buddhist_temple_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "temple_records_regional_scope_distinct",
+          "groupId": "temple-records-t2092-t2094",
+          "label": "洛阳、长安寺塔与梁京寺院记录地域边界",
+          "evidence": "T2092《洛阳伽蓝记》、T2093《寺塔记》与 T2094《梁京寺记》分别记录不同都城、作者状态、时代和全文范围；寺院地理材料相近不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2092",
+              "T2093",
+              "T2094"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002767",
+        "cbcText": "57"
+      },
+      "localPath": "data/corpus/cbeta/T51n2093.xml",
+      "upstreamPath": "T/T51/T51n2093.xml",
+      "upstreamGitBlobSha1": "ee03d1be5c023bce7a7b4f1af184104d7554fa52",
+      "upstreamBytes": 17203,
+      "upstreamSha256": "6708415e8005b6679489c7370beb684fa70e4a3d225f1a0cefb90c202b953903",
+      "localBytes": 17204,
+      "localSha256": "570b3456fb65ee062e13cc3ef65968934856fd440db54263618baf9bee8e68d7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寺塔記",
+        "alternateTitle": "寺塔記",
+        "tradition": "东亚佛教 · 寺塔方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2093",
+        "translator": "唐 · 段成式撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 段成式撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2093_001"
+      },
+      "verification": {
+        "segments": 136,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2093.001.1022b21",
+          "T2093.001.1024a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2094",
+      "slug": "taisho-t2094",
+      "workId": "gbcr:work:taisho-t2094-temple-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "梁京寺記",
+      "sourceRole": "unattributed_liang_capital_temple_record",
+      "bibliographicRelations": [
+        {
+          "type": "temple_records_regional_scope_distinct",
+          "groupId": "temple-records-t2092-t2094",
+          "label": "洛阳、长安寺塔与梁京寺院记录地域边界",
+          "evidence": "T2092《洛阳伽蓝记》、T2093《寺塔记》与 T2094《梁京寺记》分别记录不同都城、作者状态、时代和全文范围；寺院地理材料相近不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2092",
+              "T2093",
+              "T2094"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002059",
+        "cbcText": "44"
+      },
+      "localPath": "data/corpus/cbeta/T51n2094.xml",
+      "upstreamPath": "T/T51/T51n2094.xml",
+      "upstreamGitBlobSha1": "2325941f5da816da34a2be2a51b27082dc7912f0",
+      "upstreamBytes": 7155,
+      "upstreamSha256": "76baa245cec963be57dd2786cfc1f4449afbabccfc9f9b3f229d93b531dad56b",
+      "localBytes": 7156,
+      "localSha256": "5aafd3bdcccd0d3422ab6db90ac6fc20153a606ff95e4b1ce7ad16aa5ed1136a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梁京寺記",
+        "alternateTitle": "梁京寺記",
+        "tradition": "东亚佛教 · 寺塔方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2094",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2094_001"
+      },
+      "verification": {
+        "segments": 40,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2094.001.1024a15",
+          "T2094.001.1024b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2095",
+      "slug": "taisho-t2095",
+      "workId": "gbcr:work:taisho-t2095-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "廬山記",
+      "sourceRole": "east_asian_buddhist_sacred_mountain_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002126",
+        "cbcText": "54"
+      },
+      "localPath": "data/corpus/cbeta/T51n2095.xml",
+      "upstreamPath": "T/T51/T51n2095.xml",
+      "upstreamGitBlobSha1": "bade72e2b93ca9e4a9c6da22766c4b233c9ecc3f",
+      "upstreamBytes": 264076,
+      "upstreamSha256": "c9e7867ce76b48ebd2545e073095729f26385b0fe32ebe0287b507be306bebd3",
+      "localBytes": 264077,
+      "localSha256": "b190fe216b1db83933f732854b421abfb100cc0b2481dfba7557cbb2dd180a3b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廬山記",
+        "alternateTitle": "廬山記",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2095",
+        "translator": "宋 · 陳舜俞撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 陳舜俞撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2095_001"
+      },
+      "verification": {
+        "segments": 2361,
+        "folios": 84,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2095.001.1024c02",
+          "T2095.005.1052a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2096",
+      "slug": "taisho-t2096",
+      "workId": "gbcr:work:taisho-t2096-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "天台山記",
+      "sourceRole": "east_asian_buddhist_sacred_mountain_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003245",
+        "cbcText": "56"
+      },
+      "localPath": "data/corpus/cbeta/T51n2096.xml",
+      "upstreamPath": "T/T51/T51n2096.xml",
+      "upstreamGitBlobSha1": "8b6a298e50f44c560da0b706f1ee1ff08bfd1b65",
+      "upstreamBytes": 37948,
+      "upstreamSha256": "e4ad156715f442cf6ccf57706b10de2d806d69dee064f4837e4332de7cfa2975",
+      "localBytes": 37949,
+      "localSha256": "4edf6ff8f8a03f9f97fb877ebd26ca53d0fe7efadc47752a020c9b74994d7ac7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台山記",
+        "alternateTitle": "天台山記",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2096",
+        "translator": "唐 · 徐靈府撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 徐靈府撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2096_001"
+      },
+      "verification": {
+        "segments": 309,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2096.001.1052a16",
+          "T2096.001.1055c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2097",
+      "slug": "taisho-t2097",
+      "workId": "gbcr:work:taisho-t2097-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "南嶽總勝集",
+      "sourceRole": "east_asian_buddhist_sacred_mountain_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002333",
+        "cbcText": "63"
+      },
+      "localPath": "data/corpus/cbeta/T51n2097.xml",
+      "upstreamPath": "T/T51/T51n2097.xml",
+      "upstreamGitBlobSha1": "27d51125eb76b4dba43810c748c1362697ea65dc",
+      "upstreamBytes": 338194,
+      "upstreamSha256": "0a83e8518ee7295cd8aafbf0f6a55056cb24ec590cd31cef0a89cd6f1006781d",
+      "localBytes": 338195,
+      "localSha256": "e0cdc15d504cc69990f1de39d62dd803de13f2c8d1fcbeee2105972a774866b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "南嶽總勝集",
+        "alternateTitle": "南嶽總勝集",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2097",
+        "translator": "宋 · 陳田夫撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 陳田夫撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2097_001"
+      },
+      "verification": {
+        "segments": 3192,
+        "folios": 113,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2097.001.1055c10",
+          "T2097.003.1092b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2098",
+      "slug": "taisho-t2098",
+      "workId": "gbcr:work:taisho-t2098-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_gazetteer_base_work",
+      "workTitle": "古清涼傳",
+      "sourceRole": "tang_old_qingliang_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        },
+        {
+          "type": "qingliang_gazetteer_series_continuations_distinct",
+          "groupId": "qingliang-gazetteer-series-t2098-t2100",
+          "label": "古、广、续清凉传续修边界",
+          "evidence": "T2098《古清凉传》、T2099《广清凉传》与 T2100《续清凉传》形成五台山方志的扩编续修序列，但由唐、宋不同作者编纂，卷数、时代、范围与三个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2098",
+              "T2099",
+              "T2100"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002595",
+        "cbcText": "29"
+      },
+      "localPath": "data/corpus/cbeta/T51n2098.xml",
+      "upstreamPath": "T/T51/T51n2098.xml",
+      "upstreamGitBlobSha1": "5488073515b5e5c95ddfcee346379096bf7f08fb",
+      "upstreamBytes": 74379,
+      "upstreamSha256": "f377d8c95a7aeca85040df678b671131e0c461f3c5f3a77473589750f4e62545",
+      "localBytes": 74380,
+      "localSha256": "28e8d28c96507c70bc2f7a87239ca87cf00a4d5f7440932fdf99aa23a2f8773c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "古清涼傳",
+        "alternateTitle": "古清涼傳",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2098",
+        "translator": "唐 · 慧祥撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：唐 慧祥撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2098_001"
+      },
+      "verification": {
+        "segments": 713,
+        "folios": 26,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2098.001.1092c02",
+          "T2098.002.1100c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2099",
+      "slug": "taisho-t2099",
+      "workId": "gbcr:work:taisho-t2099-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_gazetteer_expansion",
+      "workTitle": "廣清涼傳",
+      "sourceRole": "song_expanded_qingliang_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        },
+        {
+          "type": "qingliang_gazetteer_series_continuations_distinct",
+          "groupId": "qingliang-gazetteer-series-t2098-t2100",
+          "label": "古、广、续清凉传续修边界",
+          "evidence": "T2098《古清凉传》、T2099《广清凉传》与 T2100《续清凉传》形成五台山方志的扩编续修序列，但由唐、宋不同作者编纂，卷数、时代、范围与三个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2098",
+              "T2099",
+              "T2100"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002596",
+        "cbcText": "45"
+      },
+      "localPath": "data/corpus/cbeta/T51n2099.xml",
+      "upstreamPath": "T/T51/T51n2099.xml",
+      "upstreamGitBlobSha1": "d59a9b5f90f2b32b0b3927d6ced26d62c36ac05a",
+      "upstreamBytes": 220796,
+      "upstreamSha256": "08a090fa4735b14988444c92b1a17396e2cfd89a459ad64915ce988130d374fa",
+      "localBytes": 220797,
+      "localSha256": "1717cf206bf9325c9ff15aa0f2f6d9ee7695db071d55e4143a5bc72fe0ca31c2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廣清涼傳",
+        "alternateTitle": "廣清涼傳",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2099",
+        "translator": "宋 · 延一編",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 延一編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2099_001"
+      },
+      "verification": {
+        "segments": 2254,
+        "folios": 81,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2099.001.1101a02",
+          "T2099.003.1127a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2100",
+      "slug": "taisho-t2100",
+      "workId": "gbcr:work:taisho-t2100-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_gazetteer_continuation",
+      "workTitle": "續清涼傳",
+      "sourceRole": "song_continuation_qingliang_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        },
+        {
+          "type": "qingliang_gazetteer_series_continuations_distinct",
+          "groupId": "qingliang-gazetteer-series-t2098-t2100",
+          "label": "古、广、续清凉传续修边界",
+          "evidence": "T2098《古清凉传》、T2099《广清凉传》与 T2100《续清凉传》形成五台山方志的扩编续修序列，但由唐、宋不同作者编纂，卷数、时代、范围与三个权威作品入口均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2098",
+              "T2099",
+              "T2100"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002597",
+        "cbcText": "55"
+      },
+      "localPath": "data/corpus/cbeta/T51n2100.xml",
+      "upstreamPath": "T/T51/T51n2100.xml",
+      "upstreamGitBlobSha1": "59c0b7cdd94d4fa0f26a814bdb16b694ccf4acf1",
+      "upstreamBytes": 72199,
+      "upstreamSha256": "7ac867297763563c158587b9cf8a6d30c0274cbcf026f0f2d0ffa8a49d26c974",
+      "localBytes": 72200,
+      "localSha256": "693cc08afcf4357ac50220c3684259986214b045393e6cc12e773c3ba7272d27",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "續清涼傳",
+        "alternateTitle": "續清涼傳",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2100",
+        "translator": "宋 · 張商英述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：宋 張商英述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2100_001"
+      },
+      "verification": {
+        "segments": 700,
+        "folios": 26,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T2100.001.1127a06",
+          "T2100.002.1135a19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2101",
+      "slug": "taisho-t2101",
+      "workId": "gbcr:work:taisho-t2101-sacred-mountain-gazetteer",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "補陀洛迦山傳",
+      "sourceRole": "east_asian_buddhist_sacred_mountain_gazetteer",
+      "bibliographicRelations": [
+        {
+          "type": "sacred_mountain_gazetteers_regional_scope_distinct",
+          "groupId": "sacred-mountain-gazetteers-t2095-t2101",
+          "label": "庐山、天台、南岳、清凉与补陀洛迦山志地域边界",
+          "evidence": "T2095–T2101 分别围绕不同佛教名山或不同清凉山编纂层，作者、年代、地域、卷数和 DILA/CBC 作品入口不同；共同方志体裁不能把七部作品互相替代。",
+          "externalIds": {
+            "cbeta": [
+              "T2095",
+              "T2096",
+              "T2097",
+              "T2098",
+              "T2099",
+              "T2100",
+              "T2101"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000339",
+        "cbcText": "40"
+      },
+      "localPath": "data/corpus/cbeta/T51n2101.xml",
+      "upstreamPath": "T/T51/T51n2101.xml",
+      "upstreamGitBlobSha1": "c903533e5d52cca9a1d42fe1acd40559084f58d1",
+      "upstreamBytes": 55793,
+      "upstreamSha256": "de82091327c5eae5411ba0d0470750254a234dc72c0bf75a3edf60bb5514e8e1",
+      "localBytes": 55794,
+      "localSha256": "0bfc59b5cc34c6c8dd00c35baf76a40c8db37ff1d40ed5de4a48c3bb9ef80e1e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "補陀洛迦山傳",
+        "alternateTitle": "補陀洛迦山傳",
+        "tradition": "东亚佛教 · 名山方志",
+        "language": "汉文",
+        "canonRef": "大正藏 T51, no. 2101",
+        "translator": "元 · 盛熙明述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教史传、感应传、灯录、游记或方志建模，不标成佛陀逐字亲说。传统责任题记：元 盛熙明述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2101_001"
+      },
+      "verification": {
+        "segments": 461,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2101.001.1135a22",
+          "T2101.001.1140b21"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
