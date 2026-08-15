@@ -8,6 +8,7 @@ import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
 import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
+import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 
 export type SutraSegment = {
   id: string;
@@ -17,6 +18,7 @@ export type SutraSegment = {
   juan?: string;
   sourceLine?: string;
   page?: string;
+  sourcePage?: string;
 };
 
 export type Sutra = {
@@ -33,8 +35,8 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "目录样本";
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "目录样本";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio";
   segments: SutraSegment[];
 };
 
@@ -525,6 +527,23 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
   attributionNote: "本页保存上座部论藏文本；论藏属于佛教经典，不据此标作佛陀逐字亲说。",
   status: "完整原文 · 原生段落" as const,
   readerMode: "bilara-sutta" as const,
+  segments: [],
+}))).concat(dergeKangyurManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "Esukhia Digital Derge Kangyur",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "Public Domain；保留固定提交、版本边界与来源署名",
+  bibliographicNote: file.relationDecision,
+  attributionNote: "《甘珠尔》规范位置不自动证明每一项是佛陀逐字亲说；说者、作者、译者和编集责任等待逐条审计。",
+  status: "完整原文 · 德格版页" as const,
+  readerMode: "derge-folio" as const,
   segments: [],
 })));
 

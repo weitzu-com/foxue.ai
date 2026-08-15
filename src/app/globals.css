@@ -1206,6 +1206,15 @@ a {
 .library-content { padding: 52px 0 125px; }
 .library-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 27px; }
 .library-search { min-height: 46px; display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.78rem; }
+.library-toolbar--search { display: grid; grid-template-columns: minmax(280px, 1fr) auto; gap: 14px 28px; padding: 18px 0 22px; border-block: 1px solid var(--line-dark); }
+.library-toolbar--search > p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 0.68rem; }
+.library-toolbar--search > p strong { color: var(--cinnabar); font-family: var(--font-serif), serif; font-size: 1rem; }
+.library-search { padding: 0 13px; border-bottom: 1px solid var(--ink); }
+.library-search input { width: 100%; min-width: 0; height: 46px; border: 0; outline: 0; background: transparent; color: var(--ink); font: 0.82rem var(--font-sans), sans-serif; }
+.library-search input::placeholder { color: var(--muted); opacity: 0.78; }
+.library-filters { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
+.library-filters button { min-height: 36px; padding: 0 12px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font-size: 0.69rem; }
+.library-filters button[aria-pressed="true"] { border-color: var(--cinnabar); background: var(--cinnabar); color: #fffdf7; }
 .build-badge { padding: 5px 10px; border: 1px dashed var(--warning); color: var(--warning); font-size: 0.68rem; }
 .sutra-list { border-top: 1px solid var(--ink); }
 .sutra-row { display: grid; grid-template-columns: 54px 1fr 1.1fr 100px; gap: 22px; align-items: center; min-height: 190px; border-bottom: 1px solid var(--line); }
@@ -1220,6 +1229,11 @@ a {
 .sutra-row > a svg:first-child { grid-column: 1 / -1; width: 22px; color: var(--cinnabar); }
 .sutra-row > a svg:last-child { width: 14px; }
 .sutra-row > a:hover { border-color: var(--cinnabar); background: var(--paper); color: var(--cinnabar); }
+.library-empty { min-height: 260px; display: grid; place-items: center; align-content: center; gap: 16px; border-block: 1px solid var(--line); color: var(--muted); }
+.library-empty p { margin: 0; }
+.library-empty button, .library-load-more button { min-height: 42px; padding: 0 18px; border: 1px solid var(--cinnabar); background: transparent; color: var(--cinnabar); cursor: pointer; }
+.library-load-more { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 30px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 0.68rem; }
+.library-load-more button:hover, .library-empty button:hover { background: var(--cinnabar); color: #fffdf7; }
 .corpus-rules { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: 80px; margin-top: 100px; padding: 46px; background: var(--ink); color: #e9ede5; }
 .corpus-rules > div > svg { color: #e48270; }
 .corpus-rules .eyebrow { color: #e48270; }
@@ -1667,6 +1681,9 @@ a {
   .resilience-strip { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .site-footer__grid { grid-template-columns: 1fr; }
   .sutra-row { grid-template-columns: 42px 1fr 88px; padding-block: 25px; }
+  .library-toolbar--search { grid-template-columns: 1fr; }
+  .library-toolbar--search > p { grid-column: 1; }
+  .library-filters { justify-content: flex-start; }
   .sutra-row__summary { grid-column: 2; }
   .sutra-row > a { grid-column: 3; grid-row: 1 / span 2; }
   .corpus-rules { grid-template-columns: 1fr; gap: 35px; }
@@ -1720,6 +1737,8 @@ a {
   .hero-section { min-height: auto; padding-top: 50px; }
   .hero-kicker__line, .hero-kicker span:last-child { display: none; }
   .hero-copy h1 { margin-top: 30px; font-size: clamp(3.1rem, 17vw, 4.9rem); }
+  .library-filters button { flex: 1 1 auto; }
+  .library-load-more { flex-direction: column; }
   .hero-lead { font-size: 1rem; }
   .search-form { flex-direction: column; }
   .search-form input { width: 100%; }
@@ -1874,6 +1893,7 @@ a {
   .closing-vow .button-ghost { color: #fffdf7; }
   .reader-index-lead .button-primary { background: #8d3024; border-color: #8d3024; }
   .reader-index-lead .button-primary:hover { background: #79291f; border-color: #79291f; }
+  .library-filters button[aria-pressed="true"] { color: #101612; }
   .review-seal { background: var(--paper); }
   .review-case > article { box-shadow: 0 13px 38px rgb(0 0 0 / 15%); }
   .review-rationale { background: #242e27; }

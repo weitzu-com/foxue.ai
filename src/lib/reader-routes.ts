@@ -1,5 +1,6 @@
 const stableSegmentPattern = /^[^.]+\.([^.]+)\.(\d{4}[abc]\d{2})$/;
 const dhammapadaSegmentPattern = /^dhp(\d+):/;
+const dergeSegmentPattern = /^D\d+[a-z]?\.(\d{3})\.(\d{4}x?[ab])\d{2}\.\d{2}$/;
 const dhammapadaRanges = [
   [1, 20], [21, 32], [33, 43], [44, 59], [60, 75], [76, 89], [90, 99],
   [100, 115], [116, 128], [129, 145], [146, 156], [157, 166], [167, 178],
@@ -11,6 +12,8 @@ const dhammapadaRanges = [
 export function folioKeyFromSegmentId(segmentId: string) {
   const match = segmentId.match(stableSegmentPattern);
   if (match) return `${match[1]}-${match[2].slice(0, 5)}`;
+  const derge = segmentId.match(dergeSegmentPattern);
+  if (derge) return `${derge[1]}-${derge[2]}`;
   const dhammapada = segmentId.match(dhammapadaSegmentPattern);
   if (!dhammapada) return null;
   const verse = Number(dhammapada[1]);

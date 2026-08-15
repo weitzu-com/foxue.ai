@@ -31,6 +31,7 @@ const statusLabels: Record<string, string> = {
   fixed_edition_expression_snapshot_ready: "固定版本表达式快照已冻结",
   multi_edition_catalog_snapshots_ready_alignment_pending: "多版本目录已冻结，作品对齐中",
   catalog_and_file_snapshots_ready_file_rights_audited_alignment_pending: "逐文件权利已审计，作品对齐中",
+  multi_edition_catalog_snapshots_with_one_complete_public_domain_derge_text_witness: "多版本目录已冻结，并纳入一个完整公版德格全文见证",
   federated_sources_pending: "联邦来源待建",
 };
 
@@ -41,6 +42,7 @@ const sourceLabels: Record<string, string> = {
   dsbc_sanskrit_catalog: "DSBC · 梵文目录",
   gretil_sanskrit_buddhist_files: "GRETIL · 梵文文件",
   rkts_kangyur_catalogs: "rKTs · 多版本甘珠尔",
+  esukhia_derge_kangyur: "Esukhia · 德格甘珠尔全文",
 };
 
 const dimensionNotes: Record<string, string> = {
@@ -103,6 +105,20 @@ export default function CoveragePage() {
               <small>{source.denominatorCaveat}</small>
             </article>
           ))}
+          <article>
+            <span>德格甘珠尔固定全文见证</span>
+            <strong>
+              {snapshot.candidateInventory.dergeKangyurFullTextWitness.controlled}
+              <small> / {snapshot.candidateInventory.dergeKangyurFullTextWitness.denominator}</small>
+            </strong>
+            <p>
+              {snapshot.candidateInventory.dergeKangyurFullTextWitness.percentage}% 来源记录与全文受控；
+              {snapshot.candidateInventory.dergeKangyurFullTextWitness.volumes} 卷、
+              {snapshot.candidateInventory.dergeKangyurFullTextWitness.linkedWorkCandidates} 个 BDRC 链接作品候选、
+              {snapshot.candidateInventory.dergeKangyurFullTextWitness.stableSegments?.toLocaleString("zh-CN")} 个稳定行段。
+            </p>
+            <small>{snapshot.candidateInventory.dergeKangyurFullTextWitness.caveat}</small>
+          </article>
           <article>
             <span>漢譯經藏階段進度</span>
             <strong>

@@ -12,6 +12,7 @@ import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
 import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
+import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
   parseBilaraDhammapadaSources,
@@ -20,17 +21,25 @@ import {
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
+import { parseDergeSources } from "@/lib/derge-reading.mjs";
+
+type CorpusSourcePart = {
+  localPath: string;
+  volume?: string;
+  initialPage?: string;
+  initialLine?: string;
+};
 
 type CorpusManifestFile = {
   id: string;
   slug: string;
-  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
+  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
   localPath?: string;
-  sourceParts?: Array<{ localPath: string }>;
+  sourceParts?: CorpusSourcePart[];
   parserOptions?: BilaraSeriesParserOptions;
 };
 
-type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json";
+type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
 type BilaraSeriesParserOptions = {
   maxSegments?: number;
   collectionTitle?: string;
@@ -39,7 +48,7 @@ type BilaraSeriesParserOptions = {
   omitEmptySegments?: boolean;
 };
 
-const completeAssets: Record<string, { localPaths: string[]; canonId: string; parser: CorpusParser; parserOptions?: BilaraSeriesParserOptions }> = Object.fromEntries(
+const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: string; parser: CorpusParser; parserOptions?: BilaraSeriesParserOptions }> = Object.fromEntries(
   [
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
@@ -51,14 +60,15 @@ const completeAssets: Record<string, { localPaths: string[]; canonId: string; pa
     ...(indicRootManifest.files as CorpusManifestFile[]),
     ...(vinayaRootManifest.files as CorpusManifestFile[]),
     ...(abhidhammaRootManifest.files as CorpusManifestFile[]),
+    ...(dergeKangyurManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
     {
-      localPaths: (file.sourceParts ?? [{ localPath: file.localPath! }]).map((source) => {
+      sources: (file.sourceParts ?? [{ localPath: file.localPath! }]).map((source) => {
         if (!source.localPath.startsWith("data/corpus/")) {
           throw new Error(`语料路径越界：${source.localPath}`);
         }
-        return source.localPath.slice("data/corpus/".length);
+        return { ...source, localPath: source.localPath.slice("data/corpus/".length) };
       }),
       canonId: file.id,
       parser: file.parser ?? "cbeta_tei",
@@ -295,30 +305,37 @@ const loadEdgeFolio = cache(async (
 const loadCompleteReading = cache(async (slug: string) => {
   const asset = completeAssets[slug];
   if (!asset) return null;
-  const sourceParts = await Promise.all(asset.localPaths.map(readControlledCorpusAsset));
+  const sourceParts = await Promise.all(asset.sources.map((source) => readControlledCorpusAsset(source.localPath)));
   if (asset.parser === "bilara_root_json") {
     return parseBilaraDhammapadaSources(sourceParts.map((text, index) => ({
-      filename: asset.localPaths[index].split("/").at(-1),
+      filename: asset.sources[index].localPath.split("/").at(-1),
       text,
     })));
   }
   if (asset.parser === "bilara_single_root_json") {
     return parseBilaraSuttaSource({
-      filename: asset.localPaths[0].split("/").at(-1),
+      filename: asset.sources[0].localPath.split("/").at(-1),
       text: sourceParts[0],
     });
   }
   if (asset.parser === "bilara_collection_root_json") {
     return parseBilaraCollectionSources(sourceParts.map((text, index) => ({
-      filename: asset.localPaths[index].split("/").at(-1),
+      filename: asset.sources[index].localPath.split("/").at(-1),
       text,
     })));
   }
   if (asset.parser === "bilara_series_root_json") {
     return parseBilaraSeriesSources(sourceParts.map((text, index) => ({
-      filename: asset.localPaths[index].split("/").at(-1),
+      filename: asset.sources[index].localPath.split("/").at(-1),
       text,
     })), asset.parserOptions);
+  }
+  if (asset.parser === "derge_plain_text") {
+    return parseDergeSources(sourceParts.map((text, index) => ({
+      ...asset.sources[index],
+      filename: asset.sources[index].localPath.split("/").at(-1),
+      text,
+    })), { canonId: asset.canonId });
   }
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };
@@ -383,6 +400,15 @@ async function readControlledCorpusAsset(localPath: string) {
     /^(?:ds\/ds\d+\/ds\d+(?:\.\d+)+(?:-\d+)?|vb\/vb\d+(?:-\d+)?|dt\/dt\d+\/dt\d+(?:\.\d+)+(?:-\d+)?|pp\/pp\d+\/pp\d+(?:\.\d+)+(?:-\d+)?|kv\/kv\d+\/kv\d+(?:\.\d+)+(?:-\d+)?|ya\/ya\d+\/ya\d+(?:\.\d+)+(?:-\d+)?|patthana\/patthana\d+\/patthana\d+(?:\.\d+)+(?:-\d+)?)_root-pli-ms\.json$/.test(abhidhammaRelative)
   ) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "abhidhamma", abhidhammaRelative), "utf8");
+  }
+  const dergeMatch = localPath.match(
+    /^derge\/works\/(derge-kangyur-d\d{4}[a-z]?)\/(\d{3}\.txt)$/,
+  );
+  if (dergeMatch) {
+    return readFile(
+      join(root, "data", "corpus", "derge", "works", dergeMatch[1], dergeMatch[2]),
+      "utf8",
+    );
   }
   throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
 }

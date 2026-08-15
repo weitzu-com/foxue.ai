@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, BookOpenText, Database, Search } from "lucide-react";
+import { Database } from "lucide-react";
+import { LibraryCatalog } from "@/components/library-catalog";
 import { corpusPrinciples, sutras } from "@/data/sutras";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 
@@ -28,51 +28,13 @@ export default function LibraryPage() {
               <span><strong>{snapshot.localHoldings.fullSourceTextExpressions}</strong> 个完整文本</span>
               <span><strong>{snapshot.localHoldings.stableSegments}</strong> 个稳定行段</span>
             </div>
-            <p>{snapshot.localHoldings.registeredWorks} 部去重作品；同一经典的不同汉译分别保留。</p>
+            <p>{snapshot.localHoldings.registeredWorks} 个可追踪作品实体；不同版本与译本分开保留，跨传统去重持续审校。</p>
           </div>
         </div>
       </header>
 
       <div className="page-shell library-content">
-        <div className="library-toolbar">
-          <div className="library-search" aria-label="经藏筛选即将开放">
-            <Search aria-hidden="true" size={17} />
-            <span>精确与语义检索将在语料审计后开放</span>
-          </div>
-          <span className="build-badge">索引筹建中</span>
-        </div>
-
-        <div className="sutra-list">
-          {sutras.map((sutra, index) => (
-            <article className="sutra-row" key={sutra.slug}>
-              <div className="sutra-row__index">{String(index + 1).padStart(2, "0")}</div>
-              <div className="sutra-row__title">
-                <span>{sutra.tradition}</span>
-                <h2>{sutra.title}</h2>
-                <p>{sutra.alternateTitle} · {sutra.translator}</p>
-              </div>
-              <div className="sutra-row__summary">
-                <p>{sutra.summary}</p>
-                <div>
-                  <span>{sutra.canonRef}</span>
-                  <span>{sutra.status}</span>
-                </div>
-              </div>
-              <Link
-                href={`/jingzang/${sutra.slug}`}
-                aria-label={`阅读${sutra.title}`}
-                data-analytics-event="scripture_opened"
-                data-analytics-location="library"
-                data-analytics-content-id={sutra.canonRef}
-                data-analytics-label={sutra.title}
-              >
-                <BookOpenText aria-hidden="true" />
-                <span>阅读</span>
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            </article>
-          ))}
-        </div>
+        <LibraryCatalog sutras={sutras} />
 
         <section className="corpus-rules">
           <div>
