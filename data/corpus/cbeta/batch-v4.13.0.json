@@ -1,0 +1,3436 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.13.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.12.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t46-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T46; T46 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T46",
+    "title": "大正藏 T46 天台止观、教观、忏仪与显密汇编固定来源记录",
+    "sourceRecordDenominator": 46,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 46,
+    "controlledSourceRecords": 46,
+    "newSourceBytes": 12140911,
+    "newStableSegments": 86123,
+    "newFolios": 3099,
+    "newJuans": 110,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 46,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 46,
+    "attributionBoundaryRecords": 46,
+    "unsignedResponsibilityRecords": 4,
+    "newWorks": 46,
+    "controlledWorks": 46,
+    "workCountingDecision": "T46 的 46 份来源记录登记为 46 个完整表达和 46 个独立东亚著述作品。DILA 为每份记录分配不同权威号；T1911/T1912、T1920/T1921、T1927/T1928 的根本著作—注疏层，T1941–T1944 的法华三昧仪轨群，以及高重叠的 T1945/T1946 金光明忏仪均保持相关而独立。没有仅凭题名、作者、宗派、仪式功能、引文或文本重叠执行作品合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_tiantai_root_commentary_same_author_doctrine_history_ritual_unsigned_and_esoteric_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "mohe-zhiguan-root-commentary-t1911-t1914",
+      "guanxin-root-commentary-t1920-t1921",
+      "shibuer-men-root-commentary-t1927-t1928"
+    ],
+    "rootEditionBoundaryGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [],
+    "layeredAttributionGroups": [
+      "fahua-samadhi-rituals-t1941-t1944",
+      "golden-light-repentance-t1945-t1946"
+    ],
+    "scopeBoundaryGroups": [
+      "zhiyi-meditation-works-t1915-t1922",
+      "huisi-meditation-works-t1923-t1924-t1926",
+      "tiantai-doctrinal-manuals-t1925-t1932",
+      "tiantai-historical-doctrinal-works-t1933-t1939",
+      "zunshi-ritual-works-t1945-t1948-t1949-t1951",
+      "zhili-ritual-works-t1946-t1950",
+      "esoteric-compendia-t1953-t1956"
+    ],
+    "relatedDistinctWorkGroups": [
+      "mohe-zhiguan-root-commentary-t1911-t1914",
+      "guanxin-root-commentary-t1920-t1921",
+      "shibuer-men-root-commentary-t1927-t1928",
+      "tiantai-rituals-t1940-t1952",
+      "fahua-samadhi-rituals-t1941-t1944",
+      "golden-light-repentance-t1945-t1946"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1911↔T1912/T1913/T1914（《摩诃止观》根本著作与辅行、义例、大意分层）",
+      "T1920↔T1921、T1927↔T1928（根本著作与后出论疏分别建模）",
+      "T1941↔T1942/T1943/T1944（法华三昧根本忏仪、补助仪和未署名短仪分层）",
+      "T1945↔T1946（五字组较短一方包含度约 0.665972，但 DILA 权威号、责任和范围不同）",
+      "T1943、T1944、T1952、T1953 的 TEI 责任字段为空，按未署名记录，不据文体或传统推断作者",
+      "T1940–T1952 礼忏、礼赞与陀罗尼行法，以及 T1953–T1956 教义、碑铭和汇编均按文类与责任分层，不因功能或术语接近而合并"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_buddhist_inscription": [
+        "T1954"
+      ],
+      "sinitic_esoteric_doctrinal_compendium": [
+        "T1955"
+      ],
+      "sinitic_esoteric_rebirth_compendium": [
+        "T1956"
+      ],
+      "tiantai_biographical_teaching_record_collection": [
+        "T1937"
+      ],
+      "tiantai_doctrinal_work": [
+        "T1923",
+        "T1924",
+        "T1925",
+        "T1926",
+        "T1929",
+        "T1930",
+        "T1931",
+        "T1932"
+      ],
+      "tiantai_epistolary_doctrinal_collection": [
+        "T1936"
+      ],
+      "tiantai_fahua_samadhi_auxiliary_ritual": [
+        "T1942"
+      ],
+      "tiantai_fahua_samadhi_root_repentance_ritual": [
+        "T1941"
+      ],
+      "tiantai_golden_light_repentance_auxiliary_ritual": [
+        "T1945"
+      ],
+      "tiantai_golden_light_repentance_ritual": [
+        "T1946"
+      ],
+      "tiantai_guanxin_commentary": [
+        "T1921"
+      ],
+      "tiantai_guanxin_root_treatise": [
+        "T1920"
+      ],
+      "tiantai_historical_or_doctrinal_collection": [
+        "T1938",
+        "T1939"
+      ],
+      "tiantai_historical_record_collection": [
+        "T1934"
+      ],
+      "tiantai_meditation_or_exegetical_work": [
+        "T1913",
+        "T1914",
+        "T1915",
+        "T1916",
+        "T1917",
+        "T1918",
+        "T1919",
+        "T1922"
+      ],
+      "tiantai_mohe_zhiguan_direct_commentary": [
+        "T1912"
+      ],
+      "tiantai_mohe_zhiguan_root_treatise": [
+        "T1911"
+      ],
+      "tiantai_question_answer_collection": [
+        "T1935"
+      ],
+      "tiantai_ritual_or_liturgy": [
+        "T1940",
+        "T1947",
+        "T1948",
+        "T1949",
+        "T1950",
+        "T1951"
+      ],
+      "tiantai_shibuer_men_commentary": [
+        "T1928"
+      ],
+      "tiantai_shibuer_men_root_doctrinal_text": [
+        "T1927"
+      ],
+      "tiantai_vow_text": [
+        "T1933"
+      ],
+      "unsigned_sinitic_esoteric_doctrinal_work": [
+        "T1953"
+      ],
+      "unsigned_sinitic_mantra_ritual": [
+        "T1952"
+      ],
+      "unsigned_tiantai_fahua_liturgy": [
+        "T1944"
+      ],
+      "unsigned_tiantai_fahua_samadhi_auxiliary_ritual": [
+        "T1943"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records quotation, ritual reuse and exegetical dependence only; it cannot merge roots, commentaries, same-author works, auxiliary rites, unsigned liturgies or esoteric compilations.",
+      "pairs": [
+        {
+          "pair": [
+            "T1911",
+            "T1912"
+          ],
+          "normalizedCharacters": [
+            195033,
+            421038
+          ],
+          "fiveGramContainmentOfShorter": 0.026893,
+          "fiveGramJaccard": 0.008384
+        },
+        {
+          "pair": [
+            "T1911",
+            "T1913"
+          ],
+          "normalizedCharacters": [
+            195033,
+            17386
+          ],
+          "fiveGramContainmentOfShorter": 0.010875,
+          "fiveGramJaccard": 0.000925
+        },
+        {
+          "pair": [
+            "T1911",
+            "T1914"
+          ],
+          "normalizedCharacters": [
+            195033,
+            4170
+          ],
+          "fiveGramContainmentOfShorter": 0.042919,
+          "fiveGramJaccard": 0.000936
+        },
+        {
+          "pair": [
+            "T1912",
+            "T1913"
+          ],
+          "normalizedCharacters": [
+            421038,
+            17386
+          ],
+          "fiveGramContainmentOfShorter": 0.014423,
+          "fiveGramJaccard": 0.000576
+        },
+        {
+          "pair": [
+            "T1912",
+            "T1914"
+          ],
+          "normalizedCharacters": [
+            421038,
+            4170
+          ],
+          "fiveGramContainmentOfShorter": 0.026188,
+          "fiveGramJaccard": 0.000259
+        },
+        {
+          "pair": [
+            "T1913",
+            "T1914"
+          ],
+          "normalizedCharacters": [
+            17386,
+            4170
+          ],
+          "fiveGramContainmentOfShorter": 0.002425,
+          "fiveGramJaccard": 0.000469
+        },
+        {
+          "pair": [
+            "T1920",
+            "T1921"
+          ],
+          "normalizedCharacters": [
+            3112,
+            48639
+          ],
+          "fiveGramContainmentOfShorter": 0.35613,
+          "fiveGramJaccard": 0.021183
+        },
+        {
+          "pair": [
+            "T1923",
+            "T1924"
+          ],
+          "normalizedCharacters": [
+            18144,
+            33611
+          ],
+          "fiveGramContainmentOfShorter": 0.001788,
+          "fiveGramJaccard": 0.000638
+        },
+        {
+          "pair": [
+            "T1923",
+            "T1926"
+          ],
+          "normalizedCharacters": [
+            18144,
+            7053
+          ],
+          "fiveGramContainmentOfShorter": 0.017187,
+          "fiveGramJaccard": 0.004809
+        },
+        {
+          "pair": [
+            "T1924",
+            "T1926"
+          ],
+          "normalizedCharacters": [
+            33611,
+            7053
+          ],
+          "fiveGramContainmentOfShorter": 0.004783,
+          "fiveGramJaccard": 0.000843
+        },
+        {
+          "pair": [
+            "T1927",
+            "T1928"
+          ],
+          "normalizedCharacters": [
+            2749,
+            22421
+          ],
+          "fiveGramContainmentOfShorter": 0.106985,
+          "fiveGramJaccard": 0.011904
+        },
+        {
+          "pair": [
+            "T1941",
+            "T1942"
+          ],
+          "normalizedCharacters": [
+            7709,
+            584
+          ],
+          "fiveGramContainmentOfShorter": 0.118674,
+          "fiveGramJaccard": 0.009378
+        },
+        {
+          "pair": [
+            "T1941",
+            "T1943"
+          ],
+          "normalizedCharacters": [
+            7709,
+            78
+          ],
+          "fiveGramContainmentOfShorter": 0.157143,
+          "fiveGramJaccard": 0.001616
+        },
+        {
+          "pair": [
+            "T1941",
+            "T1944"
+          ],
+          "normalizedCharacters": [
+            7709,
+            416
+          ],
+          "fiveGramContainmentOfShorter": 0.194301,
+          "fiveGramJaccard": 0.010628
+        },
+        {
+          "pair": [
+            "T1942",
+            "T1943"
+          ],
+          "normalizedCharacters": [
+            584,
+            78
+          ],
+          "fiveGramContainmentOfShorter": 0.242857,
+          "fiveGramJaccard": 0.027157
+        },
+        {
+          "pair": [
+            "T1942",
+            "T1944"
+          ],
+          "normalizedCharacters": [
+            584,
+            416
+          ],
+          "fiveGramContainmentOfShorter": 0.028497,
+          "fiveGramJaccard": 0.011603
+        },
+        {
+          "pair": [
+            "T1943",
+            "T1944"
+          ],
+          "normalizedCharacters": [
+            78,
+            416
+          ],
+          "fiveGramContainmentOfShorter": 0.142857,
+          "fiveGramJaccard": 0.022422
+        },
+        {
+          "pair": [
+            "T1945",
+            "T1946"
+          ],
+          "normalizedCharacters": [
+            5433,
+            2241
+          ],
+          "fiveGramContainmentOfShorter": 0.665972,
+          "fiveGramJaccard": 0.220687
+        },
+        {
+          "pair": [
+            "T1955",
+            "T1956"
+          ],
+          "normalizedCharacters": [
+            20596,
+            8324
+          ],
+          "fiveGramContainmentOfShorter": 0.073238,
+          "fiveGramJaccard": 0.021887
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T46",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002279",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004078",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004083",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004074",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003610",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003109",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002095",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002834",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000404",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001235",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001236",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003142",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004126",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004075",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000918",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000837",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001919",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003036",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002824",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003236",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003242",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001610",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002332",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001299",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000956",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002832",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002830",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003237",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001565",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001008",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000903",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000905",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000902",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002027",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001768",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001793",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003123",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003253",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002601",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002563",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000489",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001268",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002477",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002259",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003549",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002210"
+    ],
+    "caveat": "T46 是天台止观、教观、宗史、忏仪与显密汇编集合，不是佛说经或单一印度根本文本集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分根本著作—注疏、同作者异作、法华三昧仪轨层、金光明忏仪复用、编纂责任和未署名作品；共同宗派、题名、作者、仪式功能、引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1911",
+      "slug": "taisho-t1911",
+      "workId": "gbcr:work:taisho-t1911-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_root_meditation_treatise",
+      "workTitle": "摩訶止觀",
+      "sourceRole": "tiantai_mohe_zhiguan_root_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "root_meditation_treatise_and_exegetical_works_distinct",
+          "groupId": "mohe-zhiguan-root-commentary-t1911-t1914",
+          "label": "《摩诃止观》与辅行、义例、大意的层级边界",
+          "evidence": "DILA 将 T1911《摩诃止观》与 T1912《止观辅行传弘决》互列相关，但分别赋予权威号；T1913、T1914 又有各自题名、责任与范围。根本止观、十卷辅行、义例和大意均是相关而独立的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1911",
+              "T1912",
+              "T1913",
+              "T1914"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1911.xml",
+      "upstreamPath": "T/T46/T46n1911.xml",
+      "upstreamGitBlobSha1": "34e04ceedb510e85be541ff06babd107c37e487a",
+      "upstreamBytes": 1471470,
+      "upstreamSha256": "ac10274a54334f0bb255bbf7a70dfda431a243bd8ccc55bb0627dd90b9db7c1c",
+      "localBytes": 1471471,
+      "localSha256": "c8f0a2af4057eb1d75253b7f0127d7b82d7af3a20f1c0da112ed6c4b2e5822c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩訶止觀",
+        "alternateTitle": "摩訶止觀",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1911",
+        "translator": "隋 · 智顗說",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1911_001"
+      },
+      "verification": {
+        "segments": 12095,
+        "folios": 426,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1911.001.0001a02",
+          "T1911.010.0140c19"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1912",
+      "slug": "taisho-t1912",
+      "workId": "gbcr:work:taisho-t1912-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_direct_commentary",
+      "workTitle": "止觀輔行傳弘決",
+      "sourceRole": "tiantai_mohe_zhiguan_direct_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "root_meditation_treatise_and_exegetical_works_distinct",
+          "groupId": "mohe-zhiguan-root-commentary-t1911-t1914",
+          "label": "《摩诃止观》与辅行、义例、大意的层级边界",
+          "evidence": "DILA 将 T1911《摩诃止观》与 T1912《止观辅行传弘决》互列相关，但分别赋予权威号；T1913、T1914 又有各自题名、责任与范围。根本止观、十卷辅行、义例和大意均是相关而独立的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1911",
+              "T1912",
+              "T1913",
+              "T1914"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1912.xml",
+      "upstreamPath": "T/T46/T46n1912.xml",
+      "upstreamGitBlobSha1": "b69bc453e8c8670595d70cf83c0275597957dd2c",
+      "upstreamBytes": 2868607,
+      "upstreamSha256": "00c6c4fd3327c03fc812a8c47caa294c174df8013e186a50f1de80bdc6d26a91",
+      "localBytes": 2868608,
+      "localSha256": "47063b17905736b1511a02158de5c6d0b0e89b531373b84d108384cfe526bce1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "止觀輔行傳弘決",
+        "alternateTitle": "止觀輔行傳弘決",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1912",
+        "translator": "唐 · 湛然述",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1912_001"
+      },
+      "verification": {
+        "segments": 26303,
+        "folios": 918,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1912.001.0141a02",
+          "T1912.010.0446c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1913",
+      "slug": "taisho-t1913",
+      "workId": "gbcr:work:taisho-t1913-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "止觀義例",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "root_meditation_treatise_and_exegetical_works_distinct",
+          "groupId": "mohe-zhiguan-root-commentary-t1911-t1914",
+          "label": "《摩诃止观》与辅行、义例、大意的层级边界",
+          "evidence": "DILA 将 T1911《摩诃止观》与 T1912《止观辅行传弘决》互列相关，但分别赋予权威号；T1913、T1914 又有各自题名、责任与范围。根本止观、十卷辅行、义例和大意均是相关而独立的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1911",
+              "T1912",
+              "T1913",
+              "T1914"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1913.xml",
+      "upstreamPath": "T/T46/T46n1913.xml",
+      "upstreamGitBlobSha1": "98a53753e3b4899fee719912661bb7cc2fcf17f1",
+      "upstreamBytes": 333837,
+      "upstreamSha256": "9aa235d5f2fb0a1b6f3523a4ddde49d4ac8d24478844e34ce3a7df67da0c03ee",
+      "localBytes": 333838,
+      "localSha256": "a7bd790b031d88ea89e8e8141c4bfdfbd70e537c34eac3c804e6dfd12347d691",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "止觀義例",
+        "alternateTitle": "止觀義例",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1913",
+        "translator": "唐 · 湛然述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1913_001"
+      },
+      "verification": {
+        "segments": 1047,
+        "folios": 38,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1913.001.0447a02",
+          "T1913.002.0459a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1914",
+      "slug": "taisho-t1914",
+      "workId": "gbcr:work:taisho-t1914-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "止觀大意",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "root_meditation_treatise_and_exegetical_works_distinct",
+          "groupId": "mohe-zhiguan-root-commentary-t1911-t1914",
+          "label": "《摩诃止观》与辅行、义例、大意的层级边界",
+          "evidence": "DILA 将 T1911《摩诃止观》与 T1912《止观辅行传弘决》互列相关，但分别赋予权威号；T1913、T1914 又有各自题名、责任与范围。根本止观、十卷辅行、义例和大意均是相关而独立的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1911",
+              "T1912",
+              "T1913",
+              "T1914"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1914.xml",
+      "upstreamPath": "T/T46/T46n1914.xml",
+      "upstreamGitBlobSha1": "750e43d14a7d3333b79eb7d4edfe179916218c77",
+      "upstreamBytes": 33444,
+      "upstreamSha256": "1177edfa18bdee0bb4a7db08187ca58e29aee165f7a1c21fb29a91f3fb01aef1",
+      "localBytes": 33445,
+      "localSha256": "6bcc119a6d3e7b3a7362c03fdce42aae917424c11912582eb544eec2ca89e1c5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "止觀大意",
+        "alternateTitle": "止觀大意",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1914",
+        "translator": "唐 · 湛然述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1914_001"
+      },
+      "verification": {
+        "segments": 252,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1914.001.0459a11",
+          "T1914.001.0462a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1915",
+      "slug": "taisho-t1915",
+      "workId": "gbcr:work:taisho-t1915-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "修習止觀坐禪法要",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1915.xml",
+      "upstreamPath": "T/T46/T46n1915.xml",
+      "upstreamGitBlobSha1": "918b0c4cda471b70a8f108752ad6b95b72342555",
+      "upstreamBytes": 120091,
+      "upstreamSha256": "3c5f3c980ef4b3dbb19cd8a4149ffbe9f8687f58278223081f18f16157c991a4",
+      "localBytes": 120092,
+      "localSha256": "79a9331e8996a2f983ad8d634c2b4435ba5325ba0d01a93945a925cb418bf1e6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "修習止觀坐禪法要",
+        "alternateTitle": "修習止觀坐禪法要",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1915",
+        "translator": "隋 · 智顗述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1915_001"
+      },
+      "verification": {
+        "segments": 1132,
+        "folios": 40,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1915.001.0462a04",
+          "T1915.001.0475a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1916",
+      "slug": "taisho-t1916",
+      "workId": "gbcr:work:taisho-t1916-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "釋禪波羅蜜次第法門",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1916.xml",
+      "upstreamPath": "T/T46/T46n1916.xml",
+      "upstreamGitBlobSha1": "bd1ccd5477e278ae6cd4d05de204607e5d4c8f72",
+      "upstreamBytes": 672994,
+      "upstreamSha256": "3bef5ba890ceb08001ab2595eb48c8b3892955e17f6870be187f696975b5b111",
+      "localBytes": 672995,
+      "localSha256": "78673451262793a30cd0edafb3a82fd80d6b32eaf0491791b51d90e0239064a5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋禪波羅蜜次第法門",
+        "alternateTitle": "釋禪波羅蜜次第法門",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1916",
+        "translator": "隋 · 智顗說",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1916_001"
+      },
+      "verification": {
+        "segments": 6356,
+        "folios": 229,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1916.001.0475a15",
+          "T1916.010.0548c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1917",
+      "slug": "taisho-t1917",
+      "workId": "gbcr:work:taisho-t1917-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "六妙法門",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1917.xml",
+      "upstreamPath": "T/T46/T46n1917.xml",
+      "upstreamGitBlobSha1": "112259a45a3fc77e731f1254bf9dd7496012ae14",
+      "upstreamBytes": 68144,
+      "upstreamSha256": "f0971e2b1b96a8925345efbb4cb0f15d454812fcbf179027320123f868515e97",
+      "localBytes": 68145,
+      "localSha256": "c294cbd3633c2c147fcefd56e8d1cc496fec8f4745fb5e30b77da78fe8583670",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "六妙法門",
+        "alternateTitle": "六妙法門",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1917",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1917_001"
+      },
+      "verification": {
+        "segments": 586,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1917.001.0549a02",
+          "T1917.001.0555c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1918",
+      "slug": "taisho-t1918",
+      "workId": "gbcr:work:taisho-t1918-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "四念處",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1918.xml",
+      "upstreamPath": "T/T46/T46n1918.xml",
+      "upstreamGitBlobSha1": "56dcb06b4caee126b19dd8145c72af6c8c14031f",
+      "upstreamBytes": 442366,
+      "upstreamSha256": "6e17400e1d9ff36e6ee3b670758ee7fd0bb3ca36d365d841f42e109c675a9227",
+      "localBytes": 442367,
+      "localSha256": "7e7157e89fa5f12a8c2ed00a85479b41defb9ce2b08bbf5dbb4f3474e4f2d36c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四念處",
+        "alternateTitle": "四念處",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1918",
+        "translator": "隋 · 智顗說",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1918_001"
+      },
+      "verification": {
+        "segments": 2127,
+        "folios": 78,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1918.001.0555c10",
+          "T1918.004.0580b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1919",
+      "slug": "taisho-t1919",
+      "workId": "gbcr:work:taisho-t1919-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "天台智者大師禪門口訣",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1919.xml",
+      "upstreamPath": "T/T46/T46n1919.xml",
+      "upstreamGitBlobSha1": "c72f4fe0a0312b2a42c38c4624ba0a1e7c48b3be",
+      "upstreamBytes": 31670,
+      "upstreamSha256": "05a9db7ad0b2ddb4226783c8078e36a2162fe8a5ec35165f618f77119a850b08",
+      "localBytes": 31671,
+      "localSha256": "129b76ad2c3a6f45dde1e49b82c3507d3e833203623461d295cf34e0357c6ccc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台智者大師禪門口訣",
+        "alternateTitle": "天台智者大師禪門口訣",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1919",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1919_001"
+      },
+      "verification": {
+        "segments": 289,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1919.001.0581a02",
+          "T1919.001.0584b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1920",
+      "slug": "taisho-t1920",
+      "workId": "gbcr:work:taisho-t1920-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_root_treatise",
+      "workTitle": "觀心論",
+      "sourceRole": "tiantai_guanxin_root_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        },
+        {
+          "type": "root_treatise_and_commentary_distinct",
+          "groupId": "guanxin-root-commentary-t1920-t1921",
+          "label": "《观心论》与《观心论疏》根本论—注疏边界",
+          "evidence": "DILA 将 T1920、T1921 互列相关并赋予不同权威号；T1920 题署智顗述，T1921 题署灌顶撰，正文规模与注释功能也不同，保留为根本论和独立论疏。",
+          "externalIds": {
+            "cbeta": [
+              "T1920",
+              "T1921"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1920.xml",
+      "upstreamPath": "T/T46/T46n1920.xml",
+      "upstreamGitBlobSha1": "1793491440a83fe39a8894786c6fdf67b797892e",
+      "upstreamBytes": 90676,
+      "upstreamSha256": "de49b512a1c3dcbb0d681c99115c80060b5fbc986dba3c7d6aa93c60ef93f48c",
+      "localBytes": 90677,
+      "localSha256": "1513aa8615b05297a5f3932b67619f8103b57b023466450929cb3c6b07d99f11",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀心論",
+        "alternateTitle": "觀心論",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1920",
+        "translator": "隋 · 智顗述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1920_001"
+      },
+      "verification": {
+        "segments": 271,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1920.001.0584b03",
+          "T1920.001.0587b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1921",
+      "slug": "taisho-t1921",
+      "workId": "gbcr:work:taisho-t1921-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_commentary",
+      "workTitle": "觀心論疏",
+      "sourceRole": "tiantai_guanxin_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        },
+        {
+          "type": "root_treatise_and_commentary_distinct",
+          "groupId": "guanxin-root-commentary-t1920-t1921",
+          "label": "《观心论》与《观心论疏》根本论—注疏边界",
+          "evidence": "DILA 将 T1920、T1921 互列相关并赋予不同权威号；T1920 题署智顗述，T1921 题署灌顶撰，正文规模与注释功能也不同，保留为根本论和独立论疏。",
+          "externalIds": {
+            "cbeta": [
+              "T1920",
+              "T1921"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1921.xml",
+      "upstreamPath": "T/T46/T46n1921.xml",
+      "upstreamGitBlobSha1": "872d5b7454d65fbd0a27cc9017d056ff4c6900d1",
+      "upstreamBytes": 802999,
+      "upstreamSha256": "8c00fe574aaff7526cafae05ba95e8e3afb9970731a80e885f660a32605629e2",
+      "localBytes": 803000,
+      "localSha256": "e136cf0c58528e173b34e22a752085c7c77ee5c6d2c360306e65342f2a83ac8c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀心論疏",
+        "alternateTitle": "觀心論疏",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1921",
+        "translator": "隋 · 灌頂撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 灌頂撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1921_001"
+      },
+      "verification": {
+        "segments": 2910,
+        "folios": 105,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1921.001.0587b16",
+          "T1921.005.0621a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1922",
+      "slug": "taisho-t1922",
+      "workId": "gbcr:work:taisho-t1922-tiantai-meditation",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "釋摩訶般若波羅蜜經覺意三昧",
+      "sourceRole": "tiantai_meditation_or_exegetical_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_works_scope_distinct",
+          "groupId": "zhiyi-meditation-works-t1915-t1922",
+          "label": "智顗止观、禅门与观心著述范围边界",
+          "evidence": "T1915–T1922 横跨坐禅要、禅波罗蜜、六妙门、四念处、禅门口诀、观心论及其疏与觉意三昧。共同天台传统或智顗责任题记不能消除独立题名、结构和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1915",
+              "T1916",
+              "T1917",
+              "T1918",
+              "T1919",
+              "T1920",
+              "T1921",
+              "T1922"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1922.xml",
+      "upstreamPath": "T/T46/T46n1922.xml",
+      "upstreamGitBlobSha1": "eed6c9761d5fadbb7bd59e6fbd0ade20700f722c",
+      "upstreamBytes": 182879,
+      "upstreamSha256": "a64b1bce3dd01a1de037c516b0042e70afbd107dd93ce3ae26a6b953492a2977",
+      "localBytes": 182880,
+      "localSha256": "9593241a2ca56ef44e0ec196e13d2a048c13627301a20ef0783fa2a360501730",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋摩訶般若波羅蜜經覺意三昧",
+        "alternateTitle": "釋摩訶般若波羅蜜經覺意三昧",
+        "tradition": "汉传佛教 · 天台止观与禅门",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1922",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1922_001"
+      },
+      "verification": {
+        "segments": 571,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1922.001.0621a04",
+          "T1922.001.0627b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1923",
+      "slug": "taisho-t1923",
+      "workId": "gbcr:work:taisho-t1923-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "諸法無諍三昧法門",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_doctrinal_works_distinct",
+          "groupId": "huisi-meditation-works-t1923-t1924-t1926",
+          "label": "慧思三昧、止观与安乐行著述边界",
+          "evidence": "T1923、T1924、T1926 均传统题署慧思，但分别处理无诤三昧、大乘止观与法华安乐行；DILA 权威号、题名、卷数和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1923",
+              "T1924",
+              "T1926"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1923.xml",
+      "upstreamPath": "T/T46/T46n1923.xml",
+      "upstreamGitBlobSha1": "beb0d9cc3b4f58847c3ebc917ea76238508ec03b",
+      "upstreamBytes": 105140,
+      "upstreamSha256": "de8c4727d880ce703f8a40d3f3310c1ffb011575857b78fc671e85aa01ce9711",
+      "localBytes": 105141,
+      "localSha256": "389361864fd1fd00e91799c541dc51670f02c9b58f1cc72e0470059b1f8e2a72",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸法無諍三昧法門",
+        "alternateTitle": "諸法無諍三昧法門",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1923",
+        "translator": "陳 · 慧思撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：陳 慧思撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1923_001"
+      },
+      "verification": {
+        "segments": 1148,
+        "folios": 41,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1923.001.0627c02",
+          "T1923.002.0640c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1924",
+      "slug": "taisho-t1924",
+      "workId": "gbcr:work:taisho-t1924-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "大乘止觀法門",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_doctrinal_works_distinct",
+          "groupId": "huisi-meditation-works-t1923-t1924-t1926",
+          "label": "慧思三昧、止观与安乐行著述边界",
+          "evidence": "T1923、T1924、T1926 均传统题署慧思，但分别处理无诤三昧、大乘止观与法华安乐行；DILA 权威号、题名、卷数和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1923",
+              "T1924",
+              "T1926"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1924.xml",
+      "upstreamPath": "T/T46/T46n1924.xml",
+      "upstreamGitBlobSha1": "237bfe922e1857fe5ed91a58aed638fb63515e48",
+      "upstreamBytes": 508444,
+      "upstreamSha256": "859417be0882c18a95f0ca113bc4a3fddeda1daa08087d63071626f75bb0fc8c",
+      "localBytes": 508445,
+      "localSha256": "baa18d78854a7ce1dcc583bfaf459ccdb732f6856f6d3879649f9bf866a3a46f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘止觀法門",
+        "alternateTitle": "大乘止觀法門",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1924",
+        "translator": "陳 · 慧思說",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：陳 慧思說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1924_001"
+      },
+      "verification": {
+        "segments": 2015,
+        "folios": 72,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1924.001.0641a02",
+          "T1924.004.0664a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1925",
+      "slug": "taisho-t1925",
+      "workId": "gbcr:work:taisho-t1925-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "法界次第初門",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1925.xml",
+      "upstreamPath": "T/T46/T46n1925.xml",
+      "upstreamGitBlobSha1": "13d7d3f381f25d82861581d4b0d9856cdb9b3dc6",
+      "upstreamBytes": 445866,
+      "upstreamSha256": "78e39ee76191d899c471ec65d20fe69d60ac8c28c94ecdd15827fbe288f4b387",
+      "localBytes": 445867,
+      "localSha256": "7d3d88ebaf9fe64a1f3369adef04391454bbc32836b5805891dc4c9c7560b1de",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法界次第初門",
+        "alternateTitle": "法界次第初門",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1925",
+        "translator": "隋 · 智顗撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1925_001"
+      },
+      "verification": {
+        "segments": 2881,
+        "folios": 103,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1925.001.0664b02",
+          "T1925.003.0697c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1926",
+      "slug": "taisho-t1926",
+      "workId": "gbcr:work:taisho-t1926-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "法華經安樂行義",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_meditation_doctrinal_works_distinct",
+          "groupId": "huisi-meditation-works-t1923-t1924-t1926",
+          "label": "慧思三昧、止观与安乐行著述边界",
+          "evidence": "T1923、T1924、T1926 均传统题署慧思，但分别处理无诤三昧、大乘止观与法华安乐行；DILA 权威号、题名、卷数和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1923",
+              "T1924",
+              "T1926"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1926.xml",
+      "upstreamPath": "T/T46/T46n1926.xml",
+      "upstreamGitBlobSha1": "e5338b781f3eba47f4be238e00139181b62823dd",
+      "upstreamBytes": 46442,
+      "upstreamSha256": "a6d5f00e05235a3f5ad9ba068f0460c31c94fd7025d3803a1a858e4e4d149387",
+      "localBytes": 46443,
+      "localSha256": "83270fd28430eae7e14051b62d729e7f9bc168d031602853b8a86e4c0da2c643",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華經安樂行義",
+        "alternateTitle": "法華經安樂行義",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1926",
+        "translator": "陳 · 慧思說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：陳 慧思說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1926_001"
+      },
+      "verification": {
+        "segments": 430,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1926.001.0697c15",
+          "T1926.001.0702c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1927",
+      "slug": "taisho-t1927",
+      "workId": "gbcr:work:taisho-t1927-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_root_doctrinal_text",
+      "workTitle": "十不二門",
+      "sourceRole": "tiantai_shibuer_men_root_doctrinal_text",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        },
+        {
+          "type": "root_doctrinal_text_and_commentary_distinct",
+          "groupId": "shibuer-men-root-commentary-t1927-t1928",
+          "label": "《十不二门》与《十不二门指要钞》根本著作—注释边界",
+          "evidence": "DILA 的 T1928 权威记录明确关联 T1927；两者分别题署湛然述、知礼述，且有独立全文和结构，因此登记为根本著作与后出注释两部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1927",
+              "T1928"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1927.xml",
+      "upstreamPath": "T/T46/T46n1927.xml",
+      "upstreamGitBlobSha1": "0af50a0de3e3521a8f4c5af5f051422e2d9d2ec7",
+      "upstreamBytes": 24959,
+      "upstreamSha256": "dfe80fd756c647b5da3dfd5201d7266ade9af689ef9359e2eb8cbf4e7ae947d0",
+      "localBytes": 24960,
+      "localSha256": "52aee930d7e00ab123a5218400cb3ca082c20694afaad13aa4a510bf34df1588",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十不二門",
+        "alternateTitle": "十不二門",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1927",
+        "translator": "唐 · 湛然述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1927_001"
+      },
+      "verification": {
+        "segments": 169,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1927.001.0702c13",
+          "T1927.001.0704c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1928",
+      "slug": "taisho-t1928",
+      "workId": "gbcr:work:taisho-t1928-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_commentary",
+      "workTitle": "十不二門指要鈔",
+      "sourceRole": "tiantai_shibuer_men_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        },
+        {
+          "type": "root_doctrinal_text_and_commentary_distinct",
+          "groupId": "shibuer-men-root-commentary-t1927-t1928",
+          "label": "《十不二门》与《十不二门指要钞》根本著作—注释边界",
+          "evidence": "DILA 的 T1928 权威记录明确关联 T1927；两者分别题署湛然述、知礼述，且有独立全文和结构，因此登记为根本著作与后出注释两部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1927",
+              "T1928"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1928.xml",
+      "upstreamPath": "T/T46/T46n1928.xml",
+      "upstreamGitBlobSha1": "b97d5d6a4b308442ce421fb52583f4e16ae9da62",
+      "upstreamBytes": 179586,
+      "upstreamSha256": "6c4ce549de91680985f7e7968a62d4f197b8666e2dbb57c24fb2a3d91bd44013",
+      "localBytes": 179587,
+      "localSha256": "62119b83d804ca57e71c81c862caedcdf4cee4faac3605e09e17d0e73ef3af43",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十不二門指要鈔",
+        "alternateTitle": "十不二門指要鈔",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1928",
+        "translator": "宋 · 知禮述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 知禮述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1928_001"
+      },
+      "verification": {
+        "segments": 1321,
+        "folios": 48,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1928.001.0704c11",
+          "T1928.002.0720a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1929",
+      "slug": "taisho-t1929",
+      "workId": "gbcr:work:taisho-t1929-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "四教義",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1929.xml",
+      "upstreamPath": "T/T46/T46n1929.xml",
+      "upstreamGitBlobSha1": "ad7d011fd5a971287912a825e46a2e1a654479d4",
+      "upstreamBytes": 1415248,
+      "upstreamSha256": "43c3d4496496bfa44bbf57152305c898012be92d9b6d2d642a1f48eee21d5ed2",
+      "localBytes": 1415249,
+      "localSha256": "f84106dac8f89b1d3a68448845e3b209676a0b81d3fbf2059a60a332952f2023",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四教義",
+        "alternateTitle": "四教義",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1929",
+        "translator": "隋 · 智顗撰",
+        "summary": "12卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1929_001"
+      },
+      "verification": {
+        "segments": 4117,
+        "folios": 156,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1929.001.0721a02",
+          "T1929.012.0769a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1930",
+      "slug": "taisho-t1930",
+      "workId": "gbcr:work:taisho-t1930-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "天台八教大意",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1930.xml",
+      "upstreamPath": "T/T46/T46n1930.xml",
+      "upstreamGitBlobSha1": "7f31229e78b6358d641bf8c74fdcddf88c1d7508",
+      "upstreamBytes": 39435,
+      "upstreamSha256": "eefb9e292e3093218c0ffd940c91b50a4c789a82ef3fe3e22f9d459eea3c6e3a",
+      "localBytes": 39436,
+      "localSha256": "96ac82ea1b5c0eee2a51c967c4d7a1081756fdd070c8ee50c959ce7221a72bf3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台八教大意",
+        "alternateTitle": "天台八教大意",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1930",
+        "translator": "隋 · 灌頂撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 灌頂撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1930_001"
+      },
+      "verification": {
+        "segments": 413,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1930.001.0769a08",
+          "T1930.001.0773c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1931",
+      "slug": "taisho-t1931",
+      "workId": "gbcr:work:taisho-t1931-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "天台四教儀",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1931.xml",
+      "upstreamPath": "T/T46/T46n1931.xml",
+      "upstreamGitBlobSha1": "91d1fe0e412e96a4a53813a019e12e0aec92ae5f",
+      "upstreamBytes": 82364,
+      "upstreamSha256": "93a0898c4b463c258d85b3c5663aca5d7561b9965e49d0b61848eba0e92f2ef8",
+      "localBytes": 82365,
+      "localSha256": "c3e3d11361ea9299f0d05af3ff4da2fa46d9e217f59cd8a4d2a58fddcd33cf99",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台四教儀",
+        "alternateTitle": "天台四教儀",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1931",
+        "translator": "高麗 · 諦觀錄",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：高麗 諦觀錄。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1931_001"
+      },
+      "verification": {
+        "segments": 587,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1931.001.0773c18",
+          "T1931.001.0780c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1932",
+      "slug": "taisho-t1932",
+      "workId": "gbcr:work:taisho-t1932-tiantai-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "金剛錍",
+      "sourceRole": "tiantai_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_doctrinal_manuals_scope_distinct",
+          "groupId": "tiantai-doctrinal-manuals-t1925-t1932",
+          "label": "法界次第、十不二门、四教义与教仪著述边界",
+          "evidence": "T1925、T1927–T1932 同属天台教观著述群，却具有不同权威号、作者、时代、体例和全文范围。宗派术语、四教框架或共同引文只形成检索关系，不形成作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1925",
+              "T1927",
+              "T1928",
+              "T1929",
+              "T1930",
+              "T1931",
+              "T1932"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1932.xml",
+      "upstreamPath": "T/T46/T46n1932.xml",
+      "upstreamGitBlobSha1": "ab9d8a79d97255638ba9c41ee572a764e61b604b",
+      "upstreamBytes": 82222,
+      "upstreamSha256": "cb8a7447be9dee01c0a57907033000b14ac2446a2667bdd159d12b8f925c443d",
+      "localBytes": 82223,
+      "localSha256": "c12ad7eab504624d2c423677331486f9f9f62a9691dbbbb65e0ad20b1eaea901",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金剛錍",
+        "alternateTitle": "金剛錍",
+        "tradition": "东亚佛教 · 天台教观著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1932",
+        "translator": "唐 · 湛然述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1932_001"
+      },
+      "verification": {
+        "segments": 479,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1932.001.0781a02",
+          "T1932.001.0786b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1933",
+      "slug": "taisho-t1933",
+      "workId": "gbcr:work:taisho-t1933-tiantai-history",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "南嶽思大禪師立誓願文",
+      "sourceRole": "tiantai_vow_text",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1933.xml",
+      "upstreamPath": "T/T46/T46n1933.xml",
+      "upstreamGitBlobSha1": "203c88f61d629df5505ec7b0b6e038e46cf91508",
+      "upstreamBytes": 48078,
+      "upstreamSha256": "0aa2b1dd4b3985ab4bc0d59ec756c8116d41bd9ce6e6c7452cb83b31df204e60",
+      "localBytes": 48079,
+      "localSha256": "45ef235a89b497304ad2e906dec734d3c5ceed72091ea766d9ea0f5014d24019",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "南嶽思大禪師立誓願文",
+        "alternateTitle": "南嶽思大禪師立誓願文",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1933",
+        "translator": "陳 · 慧思撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：陳 慧思撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1933_001"
+      },
+      "verification": {
+        "segments": 504,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1933.001.0786b24",
+          "T1933.001.0792b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1934",
+      "slug": "taisho-t1934",
+      "workId": "gbcr:work:taisho-t1934-tiantai-history",
+      "workIdentityStatus": "verified_distinct_compiled_historical_collection",
+      "workTitle": "國清百錄",
+      "sourceRole": "tiantai_historical_record_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1934.xml",
+      "upstreamPath": "T/T46/T46n1934.xml",
+      "upstreamGitBlobSha1": "9e38f27a017ccb0568c17e38a11e705b3db31440",
+      "upstreamBytes": 262616,
+      "upstreamSha256": "3b7aab9e10f790581fb25e941be3d5e2f3e78d05a39a2cb07f1cb5567e7e69c0",
+      "localBytes": 262617,
+      "localSha256": "629e63bce9dee713f5eff305b08c104ea8bba4b2f5492a24e9ed3ea51b7d8219",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "國清百錄",
+        "alternateTitle": "國清百錄",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1934",
+        "translator": "隋 · 灌頂纂",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 灌頂纂。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1934_001"
+      },
+      "verification": {
+        "segments": 2675,
+        "folios": 97,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1934.001.0793a02",
+          "T1934.004.0824a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1935",
+      "slug": "taisho-t1935",
+      "workId": "gbcr:work:taisho-t1935-tiantai-history",
+      "workIdentityStatus": "verified_distinct_compiled_question_collection",
+      "workTitle": "法智遺編觀心二百問",
+      "sourceRole": "tiantai_question_answer_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1935.xml",
+      "upstreamPath": "T/T46/T46n1935.xml",
+      "upstreamGitBlobSha1": "bcba2faad6aef766a6f4cdb0fe92d01eec931e2d",
+      "upstreamBytes": 56220,
+      "upstreamSha256": "ca66bef1546c88b1d09d5f912a3cd94fb413e2d74873d519d5da6d02d9c697e2",
+      "localBytes": 56221,
+      "localSha256": "6af9056a19f117e0fa1ea8a81620dce009f8231b50647896e732b856d14b11e6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法智遺編觀心二百問",
+        "alternateTitle": "法智遺編觀心二百問",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1935",
+        "translator": "宋 · 繼忠集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 繼忠集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1935_001"
+      },
+      "verification": {
+        "segments": 616,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1935.001.0824a05",
+          "T1935.001.0831a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1936",
+      "slug": "taisho-t1936",
+      "workId": "gbcr:work:taisho-t1936-tiantai-history",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "四明十義書",
+      "sourceRole": "tiantai_epistolary_doctrinal_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1936.xml",
+      "upstreamPath": "T/T46/T46n1936.xml",
+      "upstreamGitBlobSha1": "169d94e0df98f290b287fc33b558ed6468d75cc1",
+      "upstreamBytes": 219374,
+      "upstreamSha256": "152e3a986595fa264a775ccc75170530f36acfdc61bd78409c5a662c86a1ae11",
+      "localBytes": 219375,
+      "localSha256": "c07ae51c350aac18bc12ad400765dbb97a75479496b180244cbad071448c8045",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四明十義書",
+        "alternateTitle": "四明十義書",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1936",
+        "translator": "宋 · 知禮撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 知禮撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1936_001"
+      },
+      "verification": {
+        "segments": 2137,
+        "folios": 77,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1936.001.0831a15",
+          "T1936.002.0856a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1937",
+      "slug": "taisho-t1937",
+      "workId": "gbcr:work:taisho-t1937-tiantai-history",
+      "workIdentityStatus": "verified_distinct_compiled_teaching_record",
+      "workTitle": "四明尊者教行錄",
+      "sourceRole": "tiantai_biographical_teaching_record_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1937.xml",
+      "upstreamPath": "T/T46/T46n1937.xml",
+      "upstreamGitBlobSha1": "c18845416044080eaf03be03c22e7ad779d40037",
+      "upstreamBytes": 659505,
+      "upstreamSha256": "5cb6eed98d7ce88f05c57edd7d280efa13705a3738d99a6bd8465d78934d8773",
+      "localBytes": 659506,
+      "localSha256": "4bf0174a9737aee9d31a17bae7453658ebb8a2acef01b70f6512744c4f8bc7bc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "四明尊者教行錄",
+        "alternateTitle": "四明尊者教行錄",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1937",
+        "translator": "宋 · 宗曉編",
+        "summary": "7卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 宗曉編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1937_001"
+      },
+      "verification": {
+        "segments": 6708,
+        "folios": 239,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1937.001.0856a20",
+          "T1937.007.0934a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1938",
+      "slug": "taisho-t1938",
+      "workId": "gbcr:work:taisho-t1938-tiantai-history",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "天台傳佛心印記",
+      "sourceRole": "tiantai_historical_or_doctrinal_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1938.xml",
+      "upstreamPath": "T/T46/T46n1938.xml",
+      "upstreamGitBlobSha1": "051e258bf5ad723204abdc9fa4f1044c12c4c4d8",
+      "upstreamBytes": 23301,
+      "upstreamSha256": "4ec6b623a041d8ff6416efbfae47988156ccc480bfd5a153a674169941666c5a",
+      "localBytes": 23302,
+      "localSha256": "0cafeb9bac213659cd0b9ca7ccd4eef76d3382a150b625d3e080e4ebc375ab08",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台傳佛心印記",
+        "alternateTitle": "天台傳佛心印記",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1938",
+        "translator": "元 · 懷則述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：元 懷則述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1938_001"
+      },
+      "verification": {
+        "segments": 238,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1938.001.0934a10",
+          "T1938.001.0936c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1939",
+      "slug": "taisho-t1939",
+      "workId": "gbcr:work:taisho-t1939-tiantai-history",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "教觀綱宗",
+      "sourceRole": "tiantai_historical_or_doctrinal_collection",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_vow_history_letters_and_doctrine_works_distinct",
+          "groupId": "tiantai-historical-doctrinal-works-t1933-t1939",
+          "label": "天台愿文、宗门记录、问答书与教观纲宗边界",
+          "evidence": "T1933–T1939 混合愿文、百录、问答集、书信、教行录、心印记与纲宗。共同天台传承不消除文类、编纂责任、时代和正文范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1933",
+              "T1934",
+              "T1935",
+              "T1936",
+              "T1937",
+              "T1938",
+              "T1939"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1939.xml",
+      "upstreamPath": "T/T46/T46n1939.xml",
+      "upstreamGitBlobSha1": "d0e8bdf415975f45b513a28470a6791f29569193",
+      "upstreamBytes": 51689,
+      "upstreamSha256": "8f47d5c167f348b981af77ef84cd4c31ed2f5c360f057fdbb6ca5a0033ef8033",
+      "localBytes": 51690,
+      "localSha256": "1537cafe1d925b7bb3096a94674de22e10d5bd4572ecd6a410fb8f8a87df0eb9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "教觀綱宗",
+        "alternateTitle": "教觀綱宗",
+        "tradition": "东亚佛教 · 天台宗史与教义",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1939",
+        "translator": "明 · 智旭述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：明 智旭述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1939_001"
+      },
+      "verification": {
+        "segments": 449,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1939.001.0936c18",
+          "T1939.001.0942b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1940",
+      "slug": "taisho-t1940",
+      "workId": "gbcr:work:taisho-t1940-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "方等三昧行法",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1940.xml",
+      "upstreamPath": "T/T46/T46n1940.xml",
+      "upstreamGitBlobSha1": "5648a631455e3fa878d5dd898113cda74240df29",
+      "upstreamBytes": 55186,
+      "upstreamSha256": "4acd8fcb7ac91182c86415daeecbe78b1985ec4fa7ab3c7d4c1d7960ea3976aa",
+      "localBytes": 55187,
+      "localSha256": "158ac77cb00f36c6dada59391768f965a96ab7978f9510c01b1615831d3b8d72",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "方等三昧行法",
+        "alternateTitle": "方等三昧行法",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1940",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1940_001"
+      },
+      "verification": {
+        "segments": 519,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1940.001.0943a02",
+          "T1940.001.0949a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1941",
+      "slug": "taisho-t1941",
+      "workId": "gbcr:work:taisho-t1941-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "法華三昧懺儀",
+      "sourceRole": "tiantai_fahua_samadhi_root_repentance_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "fahua_samadhi_root_and_auxiliary_rituals_distinct",
+          "groupId": "fahua-samadhi-rituals-t1941-t1944",
+          "label": "法华三昧忏仪、补助仪与礼经仪式边界",
+          "evidence": "DILA 将 T1941–T1944 互列相关。T1941 为智顗撰的完整忏仪，T1942 为湛然撰的运想补助仪，T1943、T1944 为未署名短仪；四个不同权威号与独立全文证明其相关但不相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1941.xml",
+      "upstreamPath": "T/T46/T46n1941.xml",
+      "upstreamGitBlobSha1": "4087606e82fcc3e9b3244ebd64dec39381c79976",
+      "upstreamBytes": 60076,
+      "upstreamSha256": "abe891e21acf9b8393a10017efd2c50e25ce62267824d0ee5779c4021e07c884",
+      "localBytes": 60077,
+      "localSha256": "a9f1b6c3fc45b535476b682c7bdbb0f12e8eb86d5c314ea018b653ae0d787d67",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華三昧懺儀",
+        "alternateTitle": "法華三昧懺儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1941",
+        "translator": "隋 · 智顗撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1941_001"
+      },
+      "verification": {
+        "segments": 505,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1941.001.0949a12",
+          "T1941.001.0955c05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1942",
+      "slug": "taisho-t1942",
+      "workId": "gbcr:work:taisho-t1942-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_auxiliary_ritual",
+      "workTitle": "法華三昧行事運想補助儀",
+      "sourceRole": "tiantai_fahua_samadhi_auxiliary_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "fahua_samadhi_root_and_auxiliary_rituals_distinct",
+          "groupId": "fahua-samadhi-rituals-t1941-t1944",
+          "label": "法华三昧忏仪、补助仪与礼经仪式边界",
+          "evidence": "DILA 将 T1941–T1944 互列相关。T1941 为智顗撰的完整忏仪，T1942 为湛然撰的运想补助仪，T1943、T1944 为未署名短仪；四个不同权威号与独立全文证明其相关但不相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1942.xml",
+      "upstreamPath": "T/T46/T46n1942.xml",
+      "upstreamGitBlobSha1": "d42b5cd9bd0e9f5fa905ab18a7fb98f750c4072d",
+      "upstreamBytes": 12771,
+      "upstreamSha256": "daefccdf585a8e91306e33ad11143ff4a849a1c5e65b22528bebb54a6fc4866f",
+      "localBytes": 12772,
+      "localSha256": "009407bf3e7722822cc5638d50a373a1c078c6dbe733d7ecdc0a8a12bcdc3ab4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法華三昧行事運想補助儀",
+        "alternateTitle": "法華三昧行事運想補助儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1942",
+        "translator": "唐 · 湛然撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 湛然撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1942_001"
+      },
+      "verification": {
+        "segments": 38,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1942.001.0955c09",
+          "T1942.001.0956b27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1943",
+      "slug": "taisho-t1943",
+      "workId": "gbcr:work:taisho-t1943-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_unsigned_auxiliary_ritual",
+      "workTitle": "略法華三昧補助儀",
+      "sourceRole": "unsigned_tiantai_fahua_samadhi_auxiliary_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "fahua_samadhi_root_and_auxiliary_rituals_distinct",
+          "groupId": "fahua-samadhi-rituals-t1941-t1944",
+          "label": "法华三昧忏仪、补助仪与礼经仪式边界",
+          "evidence": "DILA 将 T1941–T1944 互列相关。T1941 为智顗撰的完整忏仪，T1942 为湛然撰的运想补助仪，T1943、T1944 为未署名短仪；四个不同权威号与独立全文证明其相关但不相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1943.xml",
+      "upstreamPath": "T/T46/T46n1943.xml",
+      "upstreamGitBlobSha1": "0766c73ae2e1bb97a883dfdf939a9e138afa3ff9",
+      "upstreamBytes": 5496,
+      "upstreamSha256": "87013b5cdfb77f296a57cffa517a8955732d08a16075fd118540779ed70aaabf",
+      "localBytes": 5497,
+      "localSha256": "2301ab83f5850e73989f878aa55d393a64d18c5cbd9d8021e568ae4f09942622",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "略法華三昧補助儀",
+        "alternateTitle": "略法華三昧補助儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1943",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1943_001"
+      },
+      "verification": {
+        "segments": 7,
+        "folios": 1,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1943.001.0956c03",
+          "T1943.001.0956c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1944",
+      "slug": "taisho-t1944",
+      "workId": "gbcr:work:taisho-t1944-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_unsigned_liturgy",
+      "workTitle": "禮法華經儀式",
+      "sourceRole": "unsigned_tiantai_fahua_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "fahua_samadhi_root_and_auxiliary_rituals_distinct",
+          "groupId": "fahua-samadhi-rituals-t1941-t1944",
+          "label": "法华三昧忏仪、补助仪与礼经仪式边界",
+          "evidence": "DILA 将 T1941–T1944 互列相关。T1941 为智顗撰的完整忏仪，T1942 为湛然撰的运想补助仪，T1943、T1944 为未署名短仪；四个不同权威号与独立全文证明其相关但不相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1944.xml",
+      "upstreamPath": "T/T46/T46n1944.xml",
+      "upstreamGitBlobSha1": "5f00df98edb21d81d42c074e47ed0fd882df64e3",
+      "upstreamBytes": 6590,
+      "upstreamSha256": "e4235641a4f58dd47daf1013781c017664f982f5e32e1099ed077ce1d76ed367",
+      "localBytes": 6591,
+      "localSha256": "bb39b1f8196e9198d0924d5106ae7f2126f08d72b62182894360b341c0c15bef",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "禮法華經儀式",
+        "alternateTitle": "禮法華經儀式",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1944",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1944_001"
+      },
+      "verification": {
+        "segments": 33,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1944.001.0956c21",
+          "T1944.001.0957a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1945",
+      "slug": "taisho-t1945",
+      "workId": "gbcr:work:taisho-t1945-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_related_repentance_ritual",
+      "workTitle": "金光明懺法補助儀",
+      "sourceRole": "tiantai_golden_light_repentance_auxiliary_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "golden_light_repentance_rituals_distinct",
+          "groupId": "golden-light-repentance-t1945-t1946",
+          "label": "两部金光明忏仪的高重叠边界",
+          "evidence": "DILA 将 T1945、T1946 互列相关并赋予不同权威号；两份 TEI 分别题署遵式集、知礼集。五字组较短一方包含度约 0.665972，反映同一礼忏传统与材料复用，不能证明同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1946"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_works_scope_distinct",
+          "groupId": "zunshi-ritual-works-t1945-t1948-t1949-t1951",
+          "label": "遵式金光明忏、礼赞与陀罗尼仪轨边界",
+          "evidence": "T1945、T1948、T1949、T1951 传统题署遵式，却分别是金光明忏法补助仪、智者斋忌礼赞、请观音三昧仪与炽盛光念诵仪；同一作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1948",
+              "T1949",
+              "T1951"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1945.xml",
+      "upstreamPath": "T/T46/T46n1945.xml",
+      "upstreamGitBlobSha1": "2ea0be4b0b1811182d0ca8141421e0bc6af2de64",
+      "upstreamBytes": 43494,
+      "upstreamSha256": "7cbd7fa0ef3094b66ba73738ddf64a7d95f51dea6c175088a7eb6d6c4858fc64",
+      "localBytes": 43495,
+      "localSha256": "b2f33fe9f41449f210d81f2b0587bb3238bad5fc5bbc337161a8961347576a5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明懺法補助儀",
+        "alternateTitle": "金光明懺法補助儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1945",
+        "translator": "宋 · 遵式集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1945_001"
+      },
+      "verification": {
+        "segments": 354,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1945.001.0957b02",
+          "T1945.001.0961c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1946",
+      "slug": "taisho-t1946",
+      "workId": "gbcr:work:taisho-t1946-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_related_repentance_ritual",
+      "workTitle": "金光明最勝懺儀",
+      "sourceRole": "tiantai_golden_light_repentance_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "golden_light_repentance_rituals_distinct",
+          "groupId": "golden-light-repentance-t1945-t1946",
+          "label": "两部金光明忏仪的高重叠边界",
+          "evidence": "DILA 将 T1945、T1946 互列相关并赋予不同权威号；两份 TEI 分别题署遵式集、知礼集。五字组较短一方包含度约 0.665972，反映同一礼忏传统与材料复用，不能证明同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1946"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_compilations_scope_distinct",
+          "groupId": "zhili-ritual-works-t1946-t1950",
+          "label": "知礼金光明忏仪与大悲行法边界",
+          "evidence": "T1946、T1950 均题署知礼集，但所依经典、尊格、仪轨结构与全文不同；DILA 分配不同权威号，保持两部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1946",
+              "T1950"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1946.xml",
+      "upstreamPath": "T/T46/T46n1946.xml",
+      "upstreamGitBlobSha1": "f83b1babea5287f82248c4e5d8ac1fb7e43f7e4b",
+      "upstreamBytes": 20999,
+      "upstreamSha256": "343bb0e9aad4e49d042ef8d1c93d302baeeee5f105b44a5fb4b0751a5c81940a",
+      "localBytes": 21000,
+      "localSha256": "cd18dd160b8a9810dc14b8b6f81789e90bf3150077124f91e451c68611f4ca83",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金光明最勝懺儀",
+        "alternateTitle": "金光明最勝懺儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1946",
+        "translator": "宋 · 知禮集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 知禮集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1946_001"
+      },
+      "verification": {
+        "segments": 160,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1946.001.0961c19",
+          "T1946.001.0963c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1947",
+      "slug": "taisho-t1947",
+      "workId": "gbcr:work:taisho-t1947-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "釋迦如來涅槃禮讚文",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1947.xml",
+      "upstreamPath": "T/T46/T46n1947.xml",
+      "upstreamGitBlobSha1": "acf678d2f0954d914abee8ab8a786b4e1b6e477a",
+      "upstreamBytes": 22048,
+      "upstreamSha256": "89aa3439420de8d513379909a7a8bba2369e75dde73847d450bed3ba114523d9",
+      "localBytes": 22049,
+      "localSha256": "12e6bd8ba3b58c6b06ac4ee7db729dd1d2250fb25ffb6bcfba4194845aa770b3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋迦如來涅槃禮讚文",
+        "alternateTitle": "釋迦如來涅槃禮讚文",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1947",
+        "translator": "宋 · 仁岳撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 仁岳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1947_001"
+      },
+      "verification": {
+        "segments": 180,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1947.001.0963c15",
+          "T1947.001.0965c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1948",
+      "slug": "taisho-t1948",
+      "workId": "gbcr:work:taisho-t1948-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "天台智者大師齋忌禮讚文",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_works_scope_distinct",
+          "groupId": "zunshi-ritual-works-t1945-t1948-t1949-t1951",
+          "label": "遵式金光明忏、礼赞与陀罗尼仪轨边界",
+          "evidence": "T1945、T1948、T1949、T1951 传统题署遵式，却分别是金光明忏法补助仪、智者斋忌礼赞、请观音三昧仪与炽盛光念诵仪；同一作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1948",
+              "T1949",
+              "T1951"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1948.xml",
+      "upstreamPath": "T/T46/T46n1948.xml",
+      "upstreamGitBlobSha1": "9ff872d6a6479bc93c2c7216df03ac1a9f765a91",
+      "upstreamBytes": 21357,
+      "upstreamSha256": "629c2549f90056727d3e08768ad35169afb56f94c484f314efc8ed5928be73ef",
+      "localBytes": 21358,
+      "localSha256": "5612f005f2dc36ec96fd72601987e6dd244862df75d88143d3c9e259d8c2fbf5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天台智者大師齋忌禮讚文",
+        "alternateTitle": "天台智者大師齋忌禮讚文",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1948",
+        "translator": "宋 · 遵式述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1948_001"
+      },
+      "verification": {
+        "segments": 173,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1948.001.0966a02",
+          "T1948.001.0968a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1949",
+      "slug": "taisho-t1949",
+      "workId": "gbcr:work:taisho-t1949-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "請觀世音菩薩消伏毒害陀羅尼三昧儀",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_works_scope_distinct",
+          "groupId": "zunshi-ritual-works-t1945-t1948-t1949-t1951",
+          "label": "遵式金光明忏、礼赞与陀罗尼仪轨边界",
+          "evidence": "T1945、T1948、T1949、T1951 传统题署遵式，却分别是金光明忏法补助仪、智者斋忌礼赞、请观音三昧仪与炽盛光念诵仪；同一作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1948",
+              "T1949",
+              "T1951"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1949.xml",
+      "upstreamPath": "T/T46/T46n1949.xml",
+      "upstreamGitBlobSha1": "faa67012d7c2d0f7c7ddc070d1295bd32d8572d3",
+      "upstreamBytes": 45743,
+      "upstreamSha256": "5074b962999c9e3c0ed3025096418cfc43b8a85a781d01b3416acf1c5e342cfa",
+      "localBytes": 45744,
+      "localSha256": "cf656e1257902c43ccf89fd33859d4c02bfcb133f144972db80c24ef4ccf8daa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "請觀世音菩薩消伏毒害陀羅尼三昧儀",
+        "alternateTitle": "請觀世音菩薩消伏毒害陀羅尼三昧儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1949",
+        "translator": "宋 · 遵式集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1949_001"
+      },
+      "verification": {
+        "segments": 350,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1949.001.0968a07",
+          "T1949.001.0972c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1950",
+      "slug": "taisho-t1950",
+      "workId": "gbcr:work:taisho-t1950-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "千手眼大悲心呪行法",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_compilations_scope_distinct",
+          "groupId": "zhili-ritual-works-t1946-t1950",
+          "label": "知礼金光明忏仪与大悲行法边界",
+          "evidence": "T1946、T1950 均题署知礼集，但所依经典、尊格、仪轨结构与全文不同；DILA 分配不同权威号，保持两部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1946",
+              "T1950"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1950.xml",
+      "upstreamPath": "T/T46/T46n1950.xml",
+      "upstreamGitBlobSha1": "b2269bcc1b13a56b932c310b0df3014c69ec84e6",
+      "upstreamBytes": 49158,
+      "upstreamSha256": "c5b9fe5410112be1000f9f80f90568f0baa4c580225726617f0a37e59480f5fb",
+      "localBytes": 49159,
+      "localSha256": "3caf3a0fe938a6f34146140ef5aa16af28027fa39d6d358f058faa513420a348",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "千手眼大悲心呪行法",
+        "alternateTitle": "千手眼大悲心呪行法",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1950",
+        "translator": "宋 · 知禮集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 知禮集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1950_001"
+      },
+      "verification": {
+        "segments": 434,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1950.001.0973a02",
+          "T1950.001.0978a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1951",
+      "slug": "taisho-t1951",
+      "workId": "gbcr:work:taisho-t1951-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "熾盛光道場念誦儀",
+      "sourceRole": "tiantai_ritual_or_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        },
+        {
+          "type": "same_author_ritual_works_scope_distinct",
+          "groupId": "zunshi-ritual-works-t1945-t1948-t1949-t1951",
+          "label": "遵式金光明忏、礼赞与陀罗尼仪轨边界",
+          "evidence": "T1945、T1948、T1949、T1951 传统题署遵式，却分别是金光明忏法补助仪、智者斋忌礼赞、请观音三昧仪与炽盛光念诵仪；同一作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1945",
+              "T1948",
+              "T1949",
+              "T1951"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1951.xml",
+      "upstreamPath": "T/T46/T46n1951.xml",
+      "upstreamGitBlobSha1": "6cf4df4692b85029c5753dafacfab73c5d986166",
+      "upstreamBytes": 45211,
+      "upstreamSha256": "ba63fe76afddd503e79a69f43b0b06df47cc216a2c1624dbc717573b0c53f931",
+      "localBytes": 45212,
+      "localSha256": "a47946546621b046003ee9bad4f1faf2ade63e3e1f68fd37d35af4c53caaf2f3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "熾盛光道場念誦儀",
+        "alternateTitle": "熾盛光道場念誦儀",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1951",
+        "translator": "宋 · 遵式撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1951_001"
+      },
+      "verification": {
+        "segments": 378,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1951.001.0978b02",
+          "T1951.001.0982c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1952",
+      "slug": "taisho-t1952",
+      "workId": "gbcr:work:taisho-t1952-tiantai-ritual",
+      "workIdentityStatus": "verified_distinct_unsigned_ritual",
+      "workTitle": "觀自在菩薩如意輪呪課法",
+      "sourceRole": "unsigned_sinitic_mantra_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "tiantai_ritual_liturgy_works_related_distinct",
+          "groupId": "tiantai-rituals-t1940-t1952",
+          "label": "方等、法华、金光明、礼赞与陀罗尼行法作品群",
+          "evidence": "T1940–T1952 均涉及天台礼忏与修法，但所依经典、仪轨对象、责任题记、时代和正文范围不同。相同礼忏功能、尊格或仪式语汇不能自动合并作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1940",
+              "T1941",
+              "T1942",
+              "T1943",
+              "T1944",
+              "T1945",
+              "T1946",
+              "T1947",
+              "T1948",
+              "T1949",
+              "T1950",
+              "T1951",
+              "T1952"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1952.xml",
+      "upstreamPath": "T/T46/T46n1952.xml",
+      "upstreamGitBlobSha1": "095d1112185bc10d4f5ab413656491d0bc2f78be",
+      "upstreamBytes": 24575,
+      "upstreamSha256": "871e7ff511d48ac1d1778e7bc419f379d8a580861f676c00fea292ee174fea4f",
+      "localBytes": 24576,
+      "localSha256": "4b5d19596a54ec4aa071345c10e22c1287f65bfb0d7299d89ac1ab4bbbf69730",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀自在菩薩如意輪呪課法",
+        "alternateTitle": "觀自在菩薩如意輪呪課法",
+        "tradition": "汉传佛教 · 天台忏仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1952",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1952_001"
+      },
+      "verification": {
+        "segments": 185,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1952.001.0983a02",
+          "T1952.001.0985a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1953",
+      "slug": "taisho-t1953",
+      "workId": "gbcr:work:taisho-t1953-esoteric-compendium",
+      "workIdentityStatus": "verified_distinct_unsigned_doctrinal_work",
+      "workTitle": "菩提心義",
+      "sourceRole": "unsigned_sinitic_esoteric_doctrinal_work",
+      "bibliographicRelations": [
+        {
+          "type": "esoteric_doctrine_inscription_and_compendia_distinct",
+          "groupId": "esoteric-compendia-t1953-t1956",
+          "label": "菩提心义、碑铭与显密汇编边界",
+          "evidence": "T1953–T1956 横跨未署名菩提心义、智慧轮碑铭、道𭮨显密汇编与智广等往生集。密教术语和显密圆通主题不能消除不同权威号、责任、文类与全文范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1953",
+              "T1954",
+              "T1955",
+              "T1956"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1953.xml",
+      "upstreamPath": "T/T46/T46n1953.xml",
+      "upstreamGitBlobSha1": "e49670077d1823d6444980756e401d516b66da4d",
+      "upstreamBytes": 15874,
+      "upstreamSha256": "6a50ea9a6dab853a475a792d6cf0945f0221a3692252a3a5487fef8d5fe90901",
+      "localBytes": 15875,
+      "localSha256": "cdb8668f95ac749e67910b21cbde4c712d2b9848aab0ec6292c24ecf9b59efec",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩提心義",
+        "alternateTitle": "菩提心義",
+        "tradition": "汉传佛教 · 显密教义与汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1953",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1953_001"
+      },
+      "verification": {
+        "segments": 135,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1953.001.0987a02",
+          "T1953.001.0988b21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1954",
+      "slug": "taisho-t1954",
+      "workId": "gbcr:work:taisho-t1954-esoteric-compendium",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "明佛法根本碑",
+      "sourceRole": "sinitic_buddhist_inscription",
+      "bibliographicRelations": [
+        {
+          "type": "esoteric_doctrine_inscription_and_compendia_distinct",
+          "groupId": "esoteric-compendia-t1953-t1956",
+          "label": "菩提心义、碑铭与显密汇编边界",
+          "evidence": "T1953–T1956 横跨未署名菩提心义、智慧轮碑铭、道𭮨显密汇编与智广等往生集。密教术语和显密圆通主题不能消除不同权威号、责任、文类与全文范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1953",
+              "T1954",
+              "T1955",
+              "T1956"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1954.xml",
+      "upstreamPath": "T/T46/T46n1954.xml",
+      "upstreamGitBlobSha1": "2eb24611dbf630ad49222aaf04265deab158ddf4",
+      "upstreamBytes": 9829,
+      "upstreamSha256": "5ed8b0bd25c92d70c57cf3d555546a4b56dbc263e47c4344efdbe507a4d9b585",
+      "localBytes": 9830,
+      "localSha256": "d6082438b9801558c1d52292ad43d3dc10308c42e309eb3941ddddd6742c6a0f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "明佛法根本碑",
+        "alternateTitle": "明佛法根本碑",
+        "tradition": "汉传佛教 · 显密教义与汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1954",
+        "translator": "唐 · 智慧輪述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 智慧輪述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1954_001"
+      },
+      "verification": {
+        "segments": 60,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1954.001.0988b23",
+          "T1954.001.0989a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1955",
+      "slug": "taisho-t1955",
+      "workId": "gbcr:work:taisho-t1955-esoteric-compendium",
+      "workIdentityStatus": "verified_distinct_compiled_esoteric_work",
+      "workTitle": "顯密圓通成佛心要集",
+      "sourceRole": "sinitic_esoteric_doctrinal_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "esoteric_doctrine_inscription_and_compendia_distinct",
+          "groupId": "esoteric-compendia-t1953-t1956",
+          "label": "菩提心义、碑铭与显密汇编边界",
+          "evidence": "T1953–T1956 横跨未署名菩提心义、智慧轮碑铭、道𭮨显密汇编与智广等往生集。密教术语和显密圆通主题不能消除不同权威号、责任、文类与全文范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1953",
+              "T1954",
+              "T1955",
+              "T1956"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1955.xml",
+      "upstreamPath": "T/T46/T46n1955.xml",
+      "upstreamGitBlobSha1": "113a4affcf78ac556c8d90f6ef489aed6d4d2ecd",
+      "upstreamBytes": 257133,
+      "upstreamSha256": "5a8a46788f447ab737b5acd727ea204d1c77d81a1f482f8a260a6d324c5b49ee",
+      "localBytes": 257134,
+      "localSha256": "2dd5e8c44d582b4792271e0843b13952f341774b5aa7dea0f1ebbdd1fcefba16",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "顯密圓通成佛心要集",
+        "alternateTitle": "顯密圓通成佛心要集",
+        "tradition": "汉传佛教 · 显密教义与汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1955",
+        "translator": "遼 · 道𭮨集",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：遼 道𭮨集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1955_001"
+      },
+      "verification": {
+        "segments": 1239,
+        "folios": 54,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1955.001.0989b02",
+          "T1955.002.1007a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1956",
+      "slug": "taisho-t1956",
+      "workId": "gbcr:work:taisho-t1956-esoteric-compendium",
+      "workIdentityStatus": "verified_distinct_compiled_esoteric_work",
+      "workTitle": "密呪圓因往生集",
+      "sourceRole": "sinitic_esoteric_rebirth_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "esoteric_doctrine_inscription_and_compendia_distinct",
+          "groupId": "esoteric-compendia-t1953-t1956",
+          "label": "菩提心义、碑铭与显密汇编边界",
+          "evidence": "T1953–T1956 横跨未署名菩提心义、智慧轮碑铭、道𭮨显密汇编与智广等往生集。密教术语和显密圆通主题不能消除不同权威号、责任、文类与全文范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1953",
+              "T1954",
+              "T1955",
+              "T1956"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T46n1956.xml",
+      "upstreamPath": "T/T46/T46n1956.xml",
+      "upstreamGitBlobSha1": "55ce91e8af631b02b66bd4f3242a74be5c5f932f",
+      "upstreamBytes": 75705,
+      "upstreamSha256": "7a61afa0c64a90ea07c8d310f3b31a13aeaf775c30df8085e3ae2a55d98c2114",
+      "localBytes": 75706,
+      "localSha256": "d0cff45470ab7cb6bcb8eb2b89a1f42a051ee34f35bef2df121b370a992f1052",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "密呪圓因往生集",
+        "alternateTitle": "密呪圓因往生集",
+        "tradition": "汉传佛教 · 显密教义与汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T46, no. 1956",
+        "translator": "夏 · 智廣等集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：夏 智廣等集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1956_001"
+      },
+      "verification": {
+        "segments": 547,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1956.001.1007a12",
+          "T1956.001.1013b13"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
