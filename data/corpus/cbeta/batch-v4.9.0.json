@@ -1,0 +1,592 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.9.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.8.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t42-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T42; T42 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T42",
+    "title": "大正藏 T42 中观与瑜伽论疏部固定来源记录",
+    "sourceRecordDenominator": 5,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 5,
+    "controlledSourceRecords": 5,
+    "newSourceBytes": 10207300,
+    "newStableSegments": 74641,
+    "newFolios": 2613,
+    "newJuans": 42,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 5,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 5,
+    "attributionBoundaryRecords": 5,
+    "newWorks": 5,
+    "controlledWorks": 5,
+    "workCountingDecision": "T42 的 5 份来源记录登记为 5 个完整表达和 5 个独立汉地注疏作品。T1824、T1827、T1828 分别解释 T1564、T1569、T1579；T1825 吉藏《十二门论疏》和 T1826 法藏《十二门论宗致义记》均解释 T1568，但保持不同作者责任、篇幅、体例与全文边界。五者均不标作根本论的同作品表达、印度论本或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_madhyamaka_and_yogacara_root_treatise_parallel_commentary_and_scope_boundaries_recorded",
+    "existingControlledRecords": [
+      "T1564",
+      "T1568",
+      "T1569",
+      "T1579"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "madhyamaka-sastra-commentary-t1564-t1824",
+      "dvadasamukha-sastra-commentaries-t1568-t1825-t1826",
+      "sataka-sastra-commentary-t1569-t1827",
+      "yogacarabhumi-commentary-t1579-t1828"
+    ],
+    "subcommentaryGroups": [],
+    "scopeBoundaryGroups": [
+      "dvadasamukha-commentary-scope-t1825-t1826"
+    ],
+    "relatedDistinctWorkGroups": [
+      "dvadasamukha-parallel-commentaries-t1825-t1826",
+      "jizang-three-treatise-commentaries-t1824-t1825-t1827"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1564↔T1824、T1569↔T1827、T1579↔T1828（三种根本论与各自汉地注疏分层保存）",
+      "T1568↔T1825/T1826（十二门论、吉藏三卷疏与法藏两卷宗致义记按作者和范围分层）",
+      "T1824↔T1825↔T1827（共同吉藏作者责任和三论传统不构成同一作品）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_dvadasamukha_sastra_commentary": [
+        "T1825",
+        "T1826"
+      ],
+      "sinitic_authored_madhyamaka_sastra_commentary": [
+        "T1824"
+      ],
+      "sinitic_authored_sataka_sastra_commentary": [
+        "T1827"
+      ],
+      "sinitic_authored_yogacarabhumi_commentary": [
+        "T1828"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records shared technical vocabulary, quotation and exegetical dependence; it cannot merge four root treatises or five commentaries with different authors, base texts and scope.",
+      "pairs": [
+        {
+          "pair": [
+            "T1824",
+            "T1825"
+          ],
+          "normalizedCharacters": [
+            246241,
+            59612
+          ],
+          "fiveGramContainmentOfShorter": 0.045585,
+          "fiveGramJaccard": 0.009092
+        },
+        {
+          "pair": [
+            "T1824",
+            "T1826"
+          ],
+          "normalizedCharacters": [
+            246241,
+            27231
+          ],
+          "fiveGramContainmentOfShorter": 0.011696,
+          "fiveGramJaccard": 0.001191
+        },
+        {
+          "pair": [
+            "T1824",
+            "T1827"
+          ],
+          "normalizedCharacters": [
+            246241,
+            114838
+          ],
+          "fiveGramContainmentOfShorter": 0.021669,
+          "fiveGramJaccard": 0.007061
+        },
+        {
+          "pair": [
+            "T1824",
+            "T1828"
+          ],
+          "normalizedCharacters": [
+            246241,
+            814354
+          ],
+          "fiveGramContainmentOfShorter": 0.004258,
+          "fiveGramJaccard": 0.000979
+        },
+        {
+          "pair": [
+            "T1825",
+            "T1826"
+          ],
+          "normalizedCharacters": [
+            59612,
+            27231
+          ],
+          "fiveGramContainmentOfShorter": 0.012076,
+          "fiveGramJaccard": 0.003818
+        },
+        {
+          "pair": [
+            "T1825",
+            "T1827"
+          ],
+          "normalizedCharacters": [
+            59612,
+            114838
+          ],
+          "fiveGramContainmentOfShorter": 0.014927,
+          "fiveGramJaccard": 0.0051
+        },
+        {
+          "pair": [
+            "T1825",
+            "T1828"
+          ],
+          "normalizedCharacters": [
+            59612,
+            814354
+          ],
+          "fiveGramContainmentOfShorter": 0.004173,
+          "fiveGramJaccard": 0.000286
+        },
+        {
+          "pair": [
+            "T1826",
+            "T1827"
+          ],
+          "normalizedCharacters": [
+            27231,
+            114838
+          ],
+          "fiveGramContainmentOfShorter": 0.004405,
+          "fiveGramJaccard": 0.000844
+        },
+        {
+          "pair": [
+            "T1826",
+            "T1828"
+          ],
+          "normalizedCharacters": [
+            27231,
+            814354
+          ],
+          "fiveGramContainmentOfShorter": 0.007709,
+          "fiveGramJaccard": 0.000252
+        },
+        {
+          "pair": [
+            "T1827",
+            "T1828"
+          ],
+          "normalizedCharacters": [
+            114838,
+            814354
+          ],
+          "fiveGramContainmentOfShorter": 0.003066,
+          "fiveGramJaccard": 0.000383
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T42",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004105",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004103",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003044",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003045",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003046",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000150",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000151",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003829",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003827"
+    ],
+    "caveat": "T42 是汉地中观与瑜伽论疏集合，不是佛说经或印度根本论集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分 T1564、T1568、T1569、T1579 四种根本论和五部汉地注疏；共同术语、同一作者、同一根本论、传统责任题记或机器相似度都不能单独证明作品相同、作者无争议、文本已成批校本或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1824",
+      "slug": "taisho-t1824",
+      "workId": "gbcr:work:madhyamaka-sastra-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "中觀論疏",
+      "sourceRole": "sinitic_authored_madhyamaka_sastra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_madhyamaka_sastra_distinct",
+          "groupId": "madhyamaka-sastra-commentary-t1564-t1824",
+          "label": "《中论》与吉藏《中观论疏》",
+          "evidence": "DILA 权威记录将 T1824 关联到 T1564。十卷隋代疏具有吉藏作者责任、独立解释结构和完整来源边界，不是《中论》的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1824"
+            ]
+          }
+        },
+        {
+          "type": "jizang_three_treatise_commentaries_related_distinct",
+          "groupId": "jizang-three-treatise-commentaries-t1824-t1825-t1827",
+          "label": "吉藏的中论、十二门论与百论三部注疏",
+          "evidence": "DILA 人名与经录权威记录将 T1824、T1825、T1827 均署吉藏；共同作者与三论传统构成相关性，但三种根本论和三套正文边界保持为不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1568",
+              "T1569",
+              "T1824",
+              "T1825",
+              "T1827"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T42n1824.xml",
+      "upstreamPath": "T/T42/T42n1824.xml",
+      "upstreamGitBlobSha1": "87d76cffa2e3405fa3840ab1b42c4344a9849a34",
+      "upstreamBytes": 1320504,
+      "upstreamSha256": "f78f3b9f780cd6c5b5903da3318d0ca5df0f7469d92ad108351a54012352a868",
+      "localBytes": 1320505,
+      "localSha256": "5006150fbc137ff9985cacd30c27e8971c74ea923c71df94b8910959081215ed",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中觀論疏",
+        "alternateTitle": "中觀論疏",
+        "tradition": "汉传佛教 · 中观论疏部 · 中论注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T42, no. 1824",
+        "translator": "隋 · 吉藏撰",
+        "summary": "10卷。吉藏《中观论疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1824_001"
+      },
+      "verification": {
+        "segments": 14525,
+        "folios": 509,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1824.001.0001a02",
+          "T1824.010.0169b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1825",
+      "slug": "taisho-t1825",
+      "workId": "gbcr:work:dvadasamukha-sastra-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "十二門論疏",
+      "sourceRole": "sinitic_authored_dvadasamukha_sastra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_dvadasamukha_sastra_distinct",
+          "groupId": "dvadasamukha-sastra-commentaries-t1568-t1825-t1826",
+          "label": "《十二门论》与吉藏、法藏两部注疏",
+          "evidence": "DILA 权威记录将 T1825、T1826 均关联到 T1568。两部注疏分别署吉藏与法藏，具有独立作者责任、篇幅、解释范围和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_same_treatise_distinct",
+          "groupId": "dvadasamukha-parallel-commentaries-t1825-t1826",
+          "label": "吉藏《十二门论疏》与法藏《十二门论宗致义记》",
+          "evidence": "两书同释 T1568，但传统作者题记、三卷与二卷的范围、行文及五字片段统计不同；共享根本论引文不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        },
+        {
+          "type": "full_commentary_and_doctrinal_meaning_commentary_scope_distinct",
+          "groupId": "dvadasamukha-commentary-scope-t1825-t1826",
+          "label": "《十二门论疏》与《十二门论宗致义记》的解释范围",
+          "evidence": "T1825 按吉藏三卷疏完整解释 T1568，T1826 以法藏宗致义记的两卷组织阐明宗旨；共同根本论不能消除体例与范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        },
+        {
+          "type": "jizang_three_treatise_commentaries_related_distinct",
+          "groupId": "jizang-three-treatise-commentaries-t1824-t1825-t1827",
+          "label": "吉藏的中论、十二门论与百论三部注疏",
+          "evidence": "DILA 人名与经录权威记录将 T1824、T1825、T1827 均署吉藏；共同作者与三论传统构成相关性，但三种根本论和三套正文边界保持为不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1568",
+              "T1569",
+              "T1824",
+              "T1825",
+              "T1827"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T42n1825.xml",
+      "upstreamPath": "T/T42/T42n1825.xml",
+      "upstreamGitBlobSha1": "c98cd8c2eb10ad586283152e736136d0c149f979",
+      "upstreamBytes": 401113,
+      "upstreamSha256": "9f6ba10099b355de578758048d7fd727f6023714915ab1a995b915a0ad115b63",
+      "localBytes": 401114,
+      "localSha256": "b16e9b9078df98d491406958a6086f4e95db1e039b0280d1f845088d28b14afe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十二門論疏",
+        "alternateTitle": "十二門論疏",
+        "tradition": "汉传佛教 · 中观论疏部 · 十二门论注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T42, no. 1825",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。吉藏《十二门论疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1825_001"
+      },
+      "verification": {
+        "segments": 3582,
+        "folios": 126,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1825.001.0171a02",
+          "T1825.003.0212b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1826",
+      "slug": "taisho-t1826",
+      "workId": "gbcr:work:dvadasamukha-sastra-zongzhi-yiji-fazang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "十二門論宗致義記",
+      "sourceRole": "sinitic_authored_dvadasamukha_sastra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_dvadasamukha_sastra_distinct",
+          "groupId": "dvadasamukha-sastra-commentaries-t1568-t1825-t1826",
+          "label": "《十二门论》与吉藏、法藏两部注疏",
+          "evidence": "DILA 权威记录将 T1825、T1826 均关联到 T1568。两部注疏分别署吉藏与法藏，具有独立作者责任、篇幅、解释范围和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_same_treatise_distinct",
+          "groupId": "dvadasamukha-parallel-commentaries-t1825-t1826",
+          "label": "吉藏《十二门论疏》与法藏《十二门论宗致义记》",
+          "evidence": "两书同释 T1568，但传统作者题记、三卷与二卷的范围、行文及五字片段统计不同；共享根本论引文不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        },
+        {
+          "type": "full_commentary_and_doctrinal_meaning_commentary_scope_distinct",
+          "groupId": "dvadasamukha-commentary-scope-t1825-t1826",
+          "label": "《十二门论疏》与《十二门论宗致义记》的解释范围",
+          "evidence": "T1825 按吉藏三卷疏完整解释 T1568，T1826 以法藏宗致义记的两卷组织阐明宗旨；共同根本论不能消除体例与范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1568",
+              "T1825",
+              "T1826"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T42n1826.xml",
+      "upstreamPath": "T/T42/T42n1826.xml",
+      "upstreamGitBlobSha1": "1ab76652be2fbbc22fcf898baaf65e3248eba561",
+      "upstreamBytes": 178036,
+      "upstreamSha256": "3086add6167b54f773e202d70ea05ff741562186d0959ec2b06d49e730e5c6f4",
+      "localBytes": 178037,
+      "localSha256": "9f6203de0e24cb544253460a767a16a56081b5e26b248331bb1f3bd082f9486a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十二門論宗致義記",
+        "alternateTitle": "十二門論宗致義記",
+        "tradition": "汉传佛教 · 中观论疏部 · 十二门论注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T42, no. 1826",
+        "translator": "唐 · 法藏述",
+        "summary": "2卷。法藏《十二门论宗致义记》完整来源。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1826_001"
+      },
+      "verification": {
+        "segments": 1622,
+        "folios": 58,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1826.001.0212b13",
+          "T1826.002.0231a15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1827",
+      "slug": "taisho-t1827",
+      "workId": "gbcr:work:sataka-sastra-shu-jizang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "百論疏",
+      "sourceRole": "sinitic_authored_sataka_sastra_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_sataka_sastra_distinct",
+          "groupId": "sataka-sastra-commentary-t1569-t1827",
+          "label": "《百论》与吉藏《百论疏》",
+          "evidence": "DILA 权威记录将 T1827 关联到 T1569。三卷吉藏疏具有独立作者责任和解释结构，不是提婆本颂、婆藪释或罗什译文的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1569",
+              "T1827"
+            ]
+          }
+        },
+        {
+          "type": "jizang_three_treatise_commentaries_related_distinct",
+          "groupId": "jizang-three-treatise-commentaries-t1824-t1825-t1827",
+          "label": "吉藏的中论、十二门论与百论三部注疏",
+          "evidence": "DILA 人名与经录权威记录将 T1824、T1825、T1827 均署吉藏；共同作者与三论传统构成相关性，但三种根本论和三套正文边界保持为不同作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1564",
+              "T1568",
+              "T1569",
+              "T1824",
+              "T1825",
+              "T1827"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T42n1827.xml",
+      "upstreamPath": "T/T42/T42n1827.xml",
+      "upstreamGitBlobSha1": "ca6e55d1d8aedaec68ca85bd00f2c01d5f28e8d5",
+      "upstreamBytes": 630234,
+      "upstreamSha256": "2ed79e182d1083a4082a95868507566f767464d85d0db54c2508a2f8cb6e35c2",
+      "localBytes": 630235,
+      "localSha256": "b766247655af6e661b99a944281a6e785437f63d979a30f8bcbcfb3b1381a19d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "百論疏",
+        "alternateTitle": "百論疏",
+        "tradition": "汉传佛教 · 中观论疏部 · 百论注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T42, no. 1827",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。吉藏《百论疏》完整来源。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1827_001"
+      },
+      "verification": {
+        "segments": 6731,
+        "folios": 235,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1827.001.0232a02",
+          "T1827.003.0309c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1828",
+      "slug": "taisho-t1828",
+      "workId": "gbcr:work:yogacarabhumi-lun-ji-dunlun",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "瑜伽論記",
+      "sourceRole": "sinitic_authored_yogacarabhumi_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_yogacarabhumi_distinct",
+          "groupId": "yogacarabhumi-commentary-t1579-t1828",
+          "label": "《瑜伽师地论》与遁伦《瑜伽论记》",
+          "evidence": "DILA 权威记录将 T1828 关联到 T1579。二十四卷唐代集撰疏具有遁伦责任题记、独立注释结构和完整来源边界，不是百卷根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1579",
+              "T1828"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T42n1828.xml",
+      "upstreamPath": "T/T42/T42n1828.xml",
+      "upstreamGitBlobSha1": "ae74df4d218b2076405366859353ff855acaf093",
+      "upstreamBytes": 7677413,
+      "upstreamSha256": "9820c5f93dcb8b9af0cebd5fb5b2943e43ffda1158dca3663714be40a2f87884",
+      "localBytes": 7677414,
+      "localSha256": "72a84fc6aff7366e00a289b62e1f41797574bde8bdd7fdb5af3b758bc7dde0eb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "瑜伽論記",
+        "alternateTitle": "瑜伽論記",
+        "tradition": "汉传佛教 · 瑜伽论疏部 · 瑜伽师地论注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T42, no. 1828",
+        "translator": "唐 · 遁倫集撰",
+        "summary": "24卷。遁伦《瑜伽论记》完整来源。传统责任题记：唐 遁倫集撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1828_001"
+      },
+      "verification": {
+        "segments": 48181,
+        "folios": 1685,
+        "juanRange": [
+          1,
+          24
+        ],
+        "anchors": [
+          "T1828.001.0311a02",
+          "T1828.024.0868b04"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
