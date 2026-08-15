@@ -279,6 +279,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT41SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT41SourceRecords.controlledWorks} 个独立作品；2 组根本论—论疏、1 组平行注疏异作与 1 组通论疏—颂疏范围边界均已记录，
               普光、法宝与圆晖三部三十卷唐疏不因共同解释 T1558、T1560 或共享俱舍术语而合并；
+              T42 中观与瑜伽论疏部固定来源已完成 {snapshot.candidateInventory.chineseT42SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT42SourceRecords.denominator}（{snapshot.candidateInventory.chineseT42SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT42SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT42SourceRecords.controlledWorks} 个独立作品；4 组根本论—论疏、1 组十二门论平行注疏范围与 2 组相关异作边界均已记录，
+              吉藏、法藏与遁伦五部论疏不因共同作者、同释 T1568、三论传统或共享术语而合并；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -481,6 +486,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T41 的 3 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t42-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T42 的 5 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

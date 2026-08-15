@@ -1,0 +1,64 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "b9188db47bdbfc84a8e081812682597a938ad5e9"
+  },
+  "subset": {
+    "id": "taisho_madhyamaka_and_yogacara_commentaries_t42",
+    "label": "大正藏 T42 中观与瑜伽论疏部固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T42 目录下、文件名卷号一致的 T42n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T42 的 5 份来源记录是吉藏《中观论疏》《十二门论疏》《百论疏》、法藏《十二门论宗致义记》和遁伦《瑜伽论记》五部汉地论疏。它们分别解释 T1564、T1568、T1569 与 T1579；T1825、T1826 虽同释 T1568，仍因作者责任、篇幅与解释范围不同而保持为两部平行注疏。共同根本论、三论传统、题名或正文引文不能把不同作者和注释结构误作同一作品、根本论表达或佛陀逐字亲说归属。"
+  },
+  "totals": {
+    "records": 5,
+    "upstreamBytes": 10207300,
+    "candidatePathSha256": "2b444ca8adfc6edbd22c2afb7e0dc410dabd628607f25138c5d8e43449d39f5d"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T42n1824",
+      "canonWitnessId": "T1824",
+      "volume": "T42",
+      "upstreamPath": "T/T42/T42n1824.xml",
+      "upstreamGitBlobSha1": "87d76cffa2e3405fa3840ab1b42c4344a9849a34",
+      "upstreamBytes": 1320504
+    },
+    {
+      "sourceRecordId": "T42n1825",
+      "canonWitnessId": "T1825",
+      "volume": "T42",
+      "upstreamPath": "T/T42/T42n1825.xml",
+      "upstreamGitBlobSha1": "c98cd8c2eb10ad586283152e736136d0c149f979",
+      "upstreamBytes": 401113
+    },
+    {
+      "sourceRecordId": "T42n1826",
+      "canonWitnessId": "T1826",
+      "volume": "T42",
+      "upstreamPath": "T/T42/T42n1826.xml",
+      "upstreamGitBlobSha1": "1ab76652be2fbbc22fcf898baaf65e3248eba561",
+      "upstreamBytes": 178036
+    },
+    {
+      "sourceRecordId": "T42n1827",
+      "canonWitnessId": "T1827",
+      "volume": "T42",
+      "upstreamPath": "T/T42/T42n1827.xml",
+      "upstreamGitBlobSha1": "ca6e55d1d8aedaec68ca85bd00f2c01d5f28e8d5",
+      "upstreamBytes": 630234
+    },
+    {
+      "sourceRecordId": "T42n1828",
+      "canonWitnessId": "T1828",
+      "volume": "T42",
+      "upstreamPath": "T/T42/T42n1828.xml",
+      "upstreamGitBlobSha1": "ae74df4d218b2076405366859353ff855acaf093",
+      "upstreamBytes": 7677413
+    }
+  ]
+}
