@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v6.4.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v3.4.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.5.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v3.5.0.json";
 
 type Expression = {
   id: string;
@@ -289,6 +289,12 @@ export function buildCoverageSnapshot() {
   const chineseT46Controlled = "t46ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t46ControlledSourceRecords ?? null
     : null;
+  const chineseT47Denominator = "t47SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t47SourceRecordDenominator ?? null
+    : null;
+  const chineseT47Controlled = "t47ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t47ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -440,6 +446,11 @@ export function buildCoverageSnapshot() {
   const chineseT46SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_tiantai_meditation_rituals_t46",
+      ) ?? null
+    : null;
+  const chineseT47SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_pure_land_chan_records_t47",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -679,8 +690,9 @@ export function buildCoverageSnapshot() {
         t44InventorySha256: chineseT44SubsetInventory?.inventorySha256 ?? null,
         t45InventorySha256: chineseT45SubsetInventory?.inventorySha256 ?? null,
         t46InventorySha256: chineseT46SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T46 三十个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T46 释经论、毘昙、中观、瑜伽、因明、诸宗、止观与仪轨分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、注疏、再注释、同经号文本、复合责任、同作者异作、集撰与无署名作品；目录部类、题名、作者、引文或机器相似度不构成作品自动合并或佛陀逐字亲说的证据。",
+        t47InventorySha256: chineseT47SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T47 三十一个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T47 释经论、诸宗、止观、仪轨与语录分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、注疏、再注释、同数字经号文本、复合责任、同作者异作、同宗师语录、集撰与无署名作品；目录部类、题名、作者、宗师、引文或机器相似度不构成作品自动合并或佛陀逐字亲说的证据。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -1348,6 +1360,34 @@ export function buildCoverageSnapshot() {
         relatedDistinctWorkGroups: corpusRegistry.cbetaT46BoundaryAudit.relatedDistinctWorkGroups.length,
         unit: "CBETA 固定提交大正藏 T46 天台止观、教观、宗史、忏仪与显密汇编来源记录",
         caveat: corpusRegistry.cbetaT46BoundaryAudit.caveat,
+      },
+      chineseT47SourceRecords: {
+        denominator: chineseT47Denominator,
+        controlled: chineseT47Controlled,
+        percentage: chineseT47Denominator && chineseT47Controlled !== null
+          ? Number(((chineseT47Controlled / chineseT47Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT47BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT47BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT47BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT47BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedSplitWorkWitnesses: corpusRegistry.cbetaT47BoundaryAudit.verifiedSplitWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT47BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT47BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT47BoundaryAudit.relationAnnotatedRecords,
+        unsignedResponsibilityRecords: corpusRegistry.cbetaT47BoundaryAudit.unsignedResponsibilityRecords,
+        newWorks: corpusRegistry.cbetaT47BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT47BoundaryAudit.controlledWorks,
+        rootVinayaCommentaryGroups: corpusRegistry.cbetaT47BoundaryAudit.rootVinayaCommentaryGroups.length,
+        rootTreatiseCommentaryGroups: corpusRegistry.cbetaT47BoundaryAudit.rootTreatiseCommentaryGroups.length,
+        rootEditionBoundaryGroups: corpusRegistry.cbetaT47BoundaryAudit.rootEditionBoundaryGroups.length,
+        subcommentaryGroups: corpusRegistry.cbetaT47BoundaryAudit.subcommentaryGroups.length,
+        sameNumberBoundaryGroups: corpusRegistry.cbetaT47BoundaryAudit.sameNumberBoundaryGroups.length,
+        layeredAttributionGroups: corpusRegistry.cbetaT47BoundaryAudit.layeredAttributionGroups.length,
+        scopeBoundaryGroups: corpusRegistry.cbetaT47BoundaryAudit.scopeBoundaryGroups.length,
+        relatedDistinctWorkGroups: corpusRegistry.cbetaT47BoundaryAudit.relatedDistinctWorkGroups.length,
+        unit: "CBETA 固定提交大正藏 T47 净土论著、礼赞仪轨与禅宗语录来源记录",
+        caveat: corpusRegistry.cbetaT47BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

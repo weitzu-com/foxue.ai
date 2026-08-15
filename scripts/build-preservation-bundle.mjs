@@ -63,8 +63,8 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
 const cbetaSources = archivedPaths.filter((path) =>
   /^data\/corpus\/cbeta\/T[0-9A-Za-z]+\.xml$/.test(path),
 );
-if (cbetaSources.length !== 2038) {
-  throw new Error(`保存包应包含 2,038 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
+if (cbetaSources.length !== 2087) {
+  throw new Error(`保存包应包含 2,087 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
 }
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
@@ -311,6 +311,10 @@ const requiredPaths = [
   "data/gbcr/cbeta-taisho-t46-inventory-v0.1.0.json",
   "data/gbcr/registry-cbeta-v4.13.0.json",
   "data/gbcr/registry-v6.4.0.json",
+  "data/gbcr/source-snapshots-v3.5.0.json",
+  "data/gbcr/cbeta-taisho-t47-inventory-v0.1.0.json",
+  "data/gbcr/registry-cbeta-v4.14.0.json",
+  "data/gbcr/registry-v6.5.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -411,6 +415,8 @@ const requiredPaths = [
   "data/gbcr/checksums-v6.3.0.sha256",
   "data/gbcr/checksums-cbeta-v4.13.0.sha256",
   "data/gbcr/checksums-v6.4.0.sha256",
+  "data/gbcr/checksums-cbeta-v4.14.0.sha256",
+  "data/gbcr/checksums-v6.5.0.sha256",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -540,6 +546,9 @@ const requiredPaths = [
   "data/corpus/cbeta/batch-v4.13.0.json",
   "data/corpus/cbeta/catalog-v4.13.0.json",
   "data/corpus/cbeta/manifest-v4.13.0.json",
+  "data/corpus/cbeta/batch-v4.14.0.json",
+  "data/corpus/cbeta/catalog-v4.14.0.json",
+  "data/corpus/cbeta/manifest-v4.14.0.json",
   "data/corpus/suttacentral/NOTICE.md",
   "data/corpus/suttacentral/batch-v0.7.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",

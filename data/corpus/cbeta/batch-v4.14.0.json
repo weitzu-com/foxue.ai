@@ -1,0 +1,4129 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.14.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.13.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t47-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T47; T47 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T47",
+    "title": "大正藏 T47 净土论著、礼赞仪轨与禅宗语录固定来源记录",
+    "sourceRecordDenominator": 49,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 49,
+    "controlledSourceRecords": 49,
+    "newSourceBytes": 11178014,
+    "newStableSegments": 90567,
+    "newFolios": 3306,
+    "newJuans": 168,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 49,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 49,
+    "attributionBoundaryRecords": 49,
+    "unsignedResponsibilityRecords": 1,
+    "newWorks": 49,
+    "controlledWorks": 49,
+    "workCountingDecision": "T47 的 49 份来源记录登记为 49 个完整表达和 49 个独立东亚著述或汇编作品。DILA 为每份记录分配不同作品权威号；五组 A/B 同数字经号、同一宗师语录、同作者异作、礼赞仪轨复用与机器文本重叠均保持相关而独立。没有仅凭题名、作者、宗派、宗师、仪式功能、引文或文本重叠执行作品合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_pure_land_doctrine_liturgy_same_author_same_number_chan_master_record_and_unsigned_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [
+      "le-bang-compilations-t1969a-t1969b",
+      "dongshan-records-t1986a-t1986b",
+      "caoshan-records-t1987a-t1987b",
+      "yangqi-records-t1994a-t1994b",
+      "dahui-records-t1998a-t1998b"
+    ],
+    "layeredAttributionGroups": [
+      "tanluan-pure-land-works-t1957-t1978",
+      "zhiyi-pure-land-works-t1961-t1962",
+      "shandao-pure-land-works-t1959-t1979-t1981",
+      "zunshi-pure-land-works-t1968-t1984"
+    ],
+    "scopeBoundaryGroups": [
+      "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+      "pure-land-hymns-and-rituals-t1978-t1984",
+      "chan-recorded-sayings-t1985-t2000"
+    ],
+    "relatedDistinctWorkGroups": [
+      "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+      "tanluan-pure-land-works-t1957-t1978",
+      "zhiyi-pure-land-works-t1961-t1962",
+      "le-bang-compilations-t1969a-t1969b",
+      "pure-land-hymns-and-rituals-t1978-t1984",
+      "shandao-pure-land-works-t1959-t1979-t1981",
+      "zunshi-pure-land-works-t1968-t1984",
+      "chan-recorded-sayings-t1985-t2000",
+      "dongshan-records-t1986a-t1986b",
+      "caoshan-records-t1987a-t1987b",
+      "yangqi-records-t1994a-t1994b",
+      "dahui-records-t1998a-t1998b"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1969A/B、T1986A/B、T1987A/B、T1994A/B、T1998A/B 共享数字经号或宗师脉络，但均有两个不同 DILA 作品号",
+      "T1986A/B 五字组较短一方包含度约 0.459652，T1987A/B 约 0.707505；高重叠只记录共同材料与传承，不证明同一作品或表达",
+      "T1957/T1978、T1961/T1962、T1959/T1979–T1981、T1968/T1984 是同一传统责任者下的异作，不因作者相同合并",
+      "T1978–T1984 共享净土礼赞、愿生与行仪语汇，但尊格、功能、引文与仪轨相似不能独立证明作品同一",
+      "T1994B 的 TEI 责任字段为空，按未署名后录登记，不据宗师、相邻记录或传统推断编者",
+      "T1985–T2000 语录共同使用禅宗语汇与公案材料；宗派、师承和文体均只形成关系，不改变作品边界"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "chan_compiled_cases_collection": [
+        "T1998B"
+      ],
+      "chan_extended_recorded_sayings": [
+        "T1998A"
+      ],
+      "chan_main_recorded_sayings": [
+        "T1994A"
+      ],
+      "chan_recorded_sayings_or_compiled_record": [
+        "T1985",
+        "T1988",
+        "T1989",
+        "T1990",
+        "T1991",
+        "T1992",
+        "T1993",
+        "T1995",
+        "T1996",
+        "T1997",
+        "T1999",
+        "T2000"
+      ],
+      "chan_same_master_recorded_sayings_a": [
+        "T1986A",
+        "T1987A"
+      ],
+      "chan_same_master_recorded_sayings_b": [
+        "T1986B",
+        "T1987B"
+      ],
+      "compiled_buddhist_repentance_ritual": [
+        "T1982"
+      ],
+      "pure_land_compiled_literary_collection": [
+        "T1969A"
+      ],
+      "pure_land_compiled_supplementary_collection": [
+        "T1969B"
+      ],
+      "pure_land_doctrinal_or_compiled_work": [
+        "T1957",
+        "T1958",
+        "T1959",
+        "T1960",
+        "T1961",
+        "T1962",
+        "T1963",
+        "T1964",
+        "T1965",
+        "T1966",
+        "T1967",
+        "T1968",
+        "T1970",
+        "T1971",
+        "T1972",
+        "T1974",
+        "T1975",
+        "T1976",
+        "T1977"
+      ],
+      "pure_land_five_tone_recitation_liturgy": [
+        "T1983"
+      ],
+      "pure_land_historical_doctrinal_compendium": [
+        "T1973"
+      ],
+      "pure_land_hymn": [
+        "T1978"
+      ],
+      "pure_land_pratyutpanna_practice_hymn": [
+        "T1981"
+      ],
+      "pure_land_processional_service_hymn": [
+        "T1979"
+      ],
+      "pure_land_rebirth_liturgy": [
+        "T1980"
+      ],
+      "pure_land_repentance_and_vow_ritual": [
+        "T1984"
+      ],
+      "unsigned_chan_later_record": [
+        "T1994B"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records quotation, shared sayings, ritual reuse and compilation dependence only; it cannot merge same-number records, same-master collections, same-author works, liturgies or unsigned supplements.",
+      "pairs": [
+        {
+          "pair": [
+            "T1957",
+            "T1978"
+          ],
+          "normalizedCharacters": [
+            4182,
+            4243
+          ],
+          "fiveGramContainmentOfShorter": 0.001686,
+          "fiveGramJaccard": 0.000716
+        },
+        {
+          "pair": [
+            "T1961",
+            "T1962"
+          ],
+          "normalizedCharacters": [
+            6674,
+            2024
+          ],
+          "fiveGramContainmentOfShorter": 0.005682,
+          "fiveGramJaccard": 0.001313
+        },
+        {
+          "pair": [
+            "T1968",
+            "T1984"
+          ],
+          "normalizedCharacters": [
+            3947,
+            4392
+          ],
+          "fiveGramContainmentOfShorter": 0.02749,
+          "fiveGramJaccard": 0.0137
+        },
+        {
+          "pair": [
+            "T1969A",
+            "T1969B"
+          ],
+          "normalizedCharacters": [
+            111480,
+            25275
+          ],
+          "fiveGramContainmentOfShorter": 0.017555,
+          "fiveGramJaccard": 0.003291
+        },
+        {
+          "pair": [
+            "T1959",
+            "T1979"
+          ],
+          "normalizedCharacters": [
+            10772,
+            17349
+          ],
+          "fiveGramContainmentOfShorter": 0.004207,
+          "fiveGramJaccard": 0.001724
+        },
+        {
+          "pair": [
+            "T1959",
+            "T1980"
+          ],
+          "normalizedCharacters": [
+            10772,
+            10492
+          ],
+          "fiveGramContainmentOfShorter": 0.011578,
+          "fiveGramJaccard": 0.004965
+        },
+        {
+          "pair": [
+            "T1959",
+            "T1981"
+          ],
+          "normalizedCharacters": [
+            10772,
+            8646
+          ],
+          "fiveGramContainmentOfShorter": 0.004143,
+          "fiveGramJaccard": 0.001927
+        },
+        {
+          "pair": [
+            "T1979",
+            "T1980"
+          ],
+          "normalizedCharacters": [
+            17349,
+            10492
+          ],
+          "fiveGramContainmentOfShorter": 0.042453,
+          "fiveGramJaccard": 0.014646
+        },
+        {
+          "pair": [
+            "T1979",
+            "T1981"
+          ],
+          "normalizedCharacters": [
+            17349,
+            8646
+          ],
+          "fiveGramContainmentOfShorter": 0.018111,
+          "fiveGramJaccard": 0.006837
+        },
+        {
+          "pair": [
+            "T1980",
+            "T1981"
+          ],
+          "normalizedCharacters": [
+            10492,
+            8646
+          ],
+          "fiveGramContainmentOfShorter": 0.006203,
+          "fiveGramJaccard": 0.002874
+        },
+        {
+          "pair": [
+            "T1986A",
+            "T1986B"
+          ],
+          "normalizedCharacters": [
+            15866,
+            8608
+          ],
+          "fiveGramContainmentOfShorter": 0.459652,
+          "fiveGramJaccard": 0.193119
+        },
+        {
+          "pair": [
+            "T1987A",
+            "T1987B"
+          ],
+          "normalizedCharacters": [
+            12355,
+            10267
+          ],
+          "fiveGramContainmentOfShorter": 0.707505,
+          "fiveGramJaccard": 0.473849
+        },
+        {
+          "pair": [
+            "T1994A",
+            "T1994B"
+          ],
+          "normalizedCharacters": [
+            8179,
+            3556
+          ],
+          "fiveGramContainmentOfShorter": 0.061784,
+          "fiveGramJaccard": 0.01872
+        },
+        {
+          "pair": [
+            "T1998A",
+            "T1998B"
+          ],
+          "normalizedCharacters": [
+            182349,
+            19975
+          ],
+          "fiveGramContainmentOfShorter": 0.021305,
+          "fiveGramJaccard": 0.002286
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T47",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000091",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000090",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001198",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003133",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001853",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003471",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001840",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003513",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003814",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002357",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002361",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003292",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001936",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001937",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002114",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001837",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001833",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002055",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000261",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001846",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003507",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001856",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003936",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003291",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003293",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000237",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001509",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001855",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003290",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002069",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000788",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000787",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000368",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000367",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003919",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003337",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003685",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003385",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001022",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001482",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003684",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003683",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000947",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002261",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003891",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000601",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000602",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002199",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003626"
+    ],
+    "caveat": "T47 是净土论著、礼赞仪轨与禅宗语录集合，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分同作者异作、同数字 A/B 记录、同一宗师的不同语录编校层、仪轨复用、汇编责任和未署名后录；共同宗派、题名、作者、宗师、仪式功能、引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1957",
+      "slug": "taisho-t1957",
+      "workId": "gbcr:work:taisho-t1957-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "略論安樂淨土義",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_pure_land_works_scope_distinct",
+          "groupId": "tanluan-pure-land-works-t1957-t1978",
+          "label": "曇鸾净土论义与赞偈作品边界",
+          "evidence": "T1957 与 T1978 均传统题署曇鸾，却分别是论义与赞偈，DILA 权威号、题名、体例和全文范围均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1978"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1957.xml",
+      "upstreamPath": "T/T47/T47n1957.xml",
+      "upstreamGitBlobSha1": "fcbf4f1cdbd34f5622e07b7e9ca3b6874bdc730d",
+      "upstreamBytes": 106769,
+      "upstreamSha256": "a338dc57ea47d72ebdf3c5ab311c3342a46704afcaf6ae454c15cf4ed2c9d41e",
+      "localBytes": 106770,
+      "localSha256": "67517ae151033f5443c666d26b35e080d6ef8d623f23ace62ac163efe95d7b4d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "略論安樂淨土義",
+        "alternateTitle": "略論安樂淨土義",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1957",
+        "translator": "後魏 · 曇鸞撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：後魏 曇鸞撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1957_001"
+      },
+      "verification": {
+        "segments": 258,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1957.001.0001a01",
+          "T1957.001.0004a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1958",
+      "slug": "taisho-t1958",
+      "workId": "gbcr:work:taisho-t1958-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "安樂集",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1958.xml",
+      "upstreamPath": "T/T47/T47n1958.xml",
+      "upstreamGitBlobSha1": "e6749109e80db7b901000b17ad28ac4eed2c0e7b",
+      "upstreamBytes": 387224,
+      "upstreamSha256": "76041642a7ade2e0751e29eaff169b15c66903bf36fbb971abd78e80aa93c903",
+      "localBytes": 387225,
+      "localSha256": "abbbc3702db11e4a7497ea14bc0e00777aa338c3aec6d70585d30c2294a498a7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "安樂集",
+        "alternateTitle": "安樂集",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1958",
+        "translator": "唐 · 道綽撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 道綽撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1958_001"
+      },
+      "verification": {
+        "segments": 1593,
+        "folios": 56,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1958.001.0004a04",
+          "T1958.002.0022b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1959",
+      "slug": "taisho-t1959",
+      "workId": "gbcr:work:taisho-t1959-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "觀念阿彌陀佛相海三昧功德法門",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_doctrine_and_liturgies_distinct",
+          "groupId": "shandao-pure-land-works-t1959-t1979-t1981",
+          "label": "善导集记与撰述净土法门、法事赞边界",
+          "evidence": "T1959、T1979、T1980、T1981 均与善导传统责任相关，却分别处理观念法门、转经法事、往生礼赞与般舟行道；不同 DILA 权威号、题名和正文支持四部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1959",
+              "T1979",
+              "T1980",
+              "T1981"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1959.xml",
+      "upstreamPath": "T/T47/T47n1959.xml",
+      "upstreamGitBlobSha1": "e7d57469754010899bc65a1d0ce053367cb8e63d",
+      "upstreamBytes": 74050,
+      "upstreamSha256": "0b0a21c5288f1e7829d749039fb5e5357a069fc2a48892faa342ca77b0fd6682",
+      "localBytes": 74051,
+      "localSha256": "f48be69b30bd2b58024283de07c8e011e3501a950b4d771abde73f52b52d8c03",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "觀念阿彌陀佛相海三昧功德法門",
+        "alternateTitle": "觀念阿彌陀佛相海三昧功德法門",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1959",
+        "translator": "唐 · 善導集記",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 善導集記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1959_001"
+      },
+      "verification": {
+        "segments": 677,
+        "folios": 25,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1959.001.0022b20",
+          "T1959.001.0030b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1960",
+      "slug": "taisho-t1960",
+      "workId": "gbcr:work:taisho-t1960-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "釋淨土群疑論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1960.xml",
+      "upstreamPath": "T/T47/T47n1960.xml",
+      "upstreamGitBlobSha1": "bc56c6b62caee1984ea094b7b6f4452af6088a9a",
+      "upstreamBytes": 519222,
+      "upstreamSha256": "0d22687becd1d26257519f82b4104cb73546bb7a9cc803f8d41a73072606e7c1",
+      "localBytes": 519223,
+      "localSha256": "972f9dd7a9f47162c95272755c6a013cce37e7862f365a719e73323eb02caf8f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋淨土群疑論",
+        "alternateTitle": "釋淨土群疑論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1960",
+        "translator": "唐 · 懷感撰",
+        "summary": "7卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 懷感撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1960_001"
+      },
+      "verification": {
+        "segments": 4024,
+        "folios": 144,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1960.001.0030b03",
+          "T1960.007.0076c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1961",
+      "slug": "taisho-t1961",
+      "workId": "gbcr:work:taisho-t1961-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土十疑論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_pure_land_methods_distinct",
+          "groupId": "zhiyi-pure-land-works-t1961-t1962",
+          "label": "智顗传统题署净土著述边界",
+          "evidence": "T1961、T1962 的 TEI 分别题署智顗说与智顗撰。平台忠实保存传统责任题记而不把题署升级为现代归属定论；两个 DILA 权威号和独立全文仍构成两部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1961",
+              "T1962"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1961.xml",
+      "upstreamPath": "T/T47/T47n1961.xml",
+      "upstreamGitBlobSha1": "0a55b2524363a7cdf5166b54753fdde47c0b0ee5",
+      "upstreamBytes": 149681,
+      "upstreamSha256": "f4aa763561f9e4c8f66be5e90cdc0b834370252e882f0913a30aaa5c3cb5b0ff",
+      "localBytes": 149682,
+      "localSha256": "beb4a9d1c1283191f197838761bdf43a5eaa03455ed78472e3d171aa3b4ce98b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土十疑論",
+        "alternateTitle": "淨土十疑論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1961",
+        "translator": "隋 · 智顗說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1961_001"
+      },
+      "verification": {
+        "segments": 417,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1961.001.0077a02",
+          "T1961.001.0081c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1962",
+      "slug": "taisho-t1962",
+      "workId": "gbcr:work:taisho-t1962-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "五方便念佛門",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_pure_land_methods_distinct",
+          "groupId": "zhiyi-pure-land-works-t1961-t1962",
+          "label": "智顗传统题署净土著述边界",
+          "evidence": "T1961、T1962 的 TEI 分别题署智顗说与智顗撰。平台忠实保存传统责任题记而不把题署升级为现代归属定论；两个 DILA 权威号和独立全文仍构成两部作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1961",
+              "T1962"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1962.xml",
+      "upstreamPath": "T/T47/T47n1962.xml",
+      "upstreamGitBlobSha1": "eafdee2cf7e46d5ad0aa8a1f9f52ec83081db5a3",
+      "upstreamBytes": 19612,
+      "upstreamSha256": "ad13ab8f8fa5f32f8547309ab2afb2627e082d2f30dcee979b1f6cb483106b39",
+      "localBytes": 19613,
+      "localSha256": "c3561c478059e86df78189c22768abbbdae89a2ad6cb51d2008cfef18efa9ca7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "五方便念佛門",
+        "alternateTitle": "五方便念佛門",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1962",
+        "translator": "隋 · 智顗撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：隋 智顗撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1962_001"
+      },
+      "verification": {
+        "segments": 122,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1962.001.0081c21",
+          "T1962.001.0083a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1963",
+      "slug": "taisho-t1963",
+      "workId": "gbcr:work:taisho-t1963-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1963.xml",
+      "upstreamPath": "T/T47/T47n1963.xml",
+      "upstreamGitBlobSha1": "e739530acad2ac1535343a30fb7b50af42ded541",
+      "upstreamBytes": 211572,
+      "upstreamSha256": "9d064289c64a0ccc58f342a6f3d0c465dad795b81826723cf15b7c131153278d",
+      "localBytes": 211573,
+      "localSha256": "e44937557daa312eaaf2c7369357eaa532f9ea175942757ad78ebe2b9dfb72ea",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土論",
+        "alternateTitle": "淨土論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1963",
+        "translator": "唐 · 迦才撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 迦才撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1963_001"
+      },
+      "verification": {
+        "segments": 1791,
+        "folios": 65,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1963.001.0083b02",
+          "T1963.003.0104a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1964",
+      "slug": "taisho-t1964",
+      "workId": "gbcr:work:taisho-t1964-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "西方要決釋疑通規",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1964.xml",
+      "upstreamPath": "T/T47/T47n1964.xml",
+      "upstreamGitBlobSha1": "702348fc85a876c2574f6153e5bfa821bca6db39",
+      "upstreamBytes": 81795,
+      "upstreamSha256": "71d1411fc8703c80d6fbd6cf257fd5a2514a5bf7325465158336fa9c5f0c48b8",
+      "localBytes": 81796,
+      "localSha256": "a08bd16550f7a1d1e66338b950fd2bed951dceda0984e05920f25bc5977e8a1f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "西方要決釋疑通規",
+        "alternateTitle": "西方要決釋疑通規",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1964",
+        "translator": "唐 · 基撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1964_001"
+      },
+      "verification": {
+        "segments": 542,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1964.001.0104a15",
+          "T1964.001.0110b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1965",
+      "slug": "taisho-t1965",
+      "workId": "gbcr:work:taisho-t1965-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "遊心安樂道",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1965.xml",
+      "upstreamPath": "T/T47/T47n1965.xml",
+      "upstreamGitBlobSha1": "b30f4ce1f3a2db7e2c2e8635122f589977724a3c",
+      "upstreamBytes": 139010,
+      "upstreamSha256": "9388cc5c73423efa2d4c10e61dec42501af8a6670c43cd1cc53ec4401404a19b",
+      "localBytes": 139011,
+      "localSha256": "5ddd704c6fbd7075a26b803469786a33a9a7a3f50daf2443bb6754f6c9ece15e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "遊心安樂道",
+        "alternateTitle": "遊心安樂道",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1965",
+        "translator": "新羅 · 元曉撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：新羅 元曉撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1965_001"
+      },
+      "verification": {
+        "segments": 826,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1965.001.0110b09",
+          "T1965.001.0119c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1966",
+      "slug": "taisho-t1966",
+      "workId": "gbcr:work:taisho-t1966-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "念佛鏡",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1966.xml",
+      "upstreamPath": "T/T47/T47n1966.xml",
+      "upstreamGitBlobSha1": "f686cc6368819343a6b4760ec73c090a5841103a",
+      "upstreamBytes": 133162,
+      "upstreamSha256": "94e033db7c95a9eafb33d902350066bc01bb17015c7c31187f88c5671d8fdcb3",
+      "localBytes": 133163,
+      "localSha256": "33994a9b8264c2a095587a92c6a5fc110d95d79d5af76d24c5ecc0bab3413ad0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "念佛鏡",
+        "alternateTitle": "念佛鏡",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1966",
+        "translator": "唐 · 道鏡．善道共集",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 道鏡．善道共集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1966_001"
+      },
+      "verification": {
+        "segments": 1200,
+        "folios": 43,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1966.001.0120a02",
+          "T1966.002.0133c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1967",
+      "slug": "taisho-t1967",
+      "workId": "gbcr:work:taisho-t1967-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "念佛三昧寶王論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1967.xml",
+      "upstreamPath": "T/T47/T47n1967.xml",
+      "upstreamGitBlobSha1": "36e83a401b354f14b5c62d5a7a69b65f3d842778",
+      "upstreamBytes": 99403,
+      "upstreamSha256": "427738f8aa95f33f7087fb7f9b55bd30658f83025828b6282185f01adf103068",
+      "localBytes": 99404,
+      "localSha256": "06309a10eb057118077dd9b62fae556d70445793954c279bbd25e43a710c4253",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "念佛三昧寶王論",
+        "alternateTitle": "念佛三昧寶王論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1967",
+        "translator": "唐 · 飛錫撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 飛錫撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1967_001"
+      },
+      "verification": {
+        "segments": 931,
+        "folios": 33,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1967.001.0134a02",
+          "T1967.003.0144c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1968",
+      "slug": "taisho-t1968",
+      "workId": "gbcr:work:taisho-t1968-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "往生淨土決疑行願二門",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_author_pure_land_doctrine_and_ritual_distinct",
+          "groupId": "zunshi-pure-land-works-t1968-t1984",
+          "label": "遵式净土论述与忏愿仪边界",
+          "evidence": "T1968、T1984 均题署遵式撰，但一为决疑行愿论述，一为忏愿仪；DILA 权威号、文类与全文范围不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1968",
+              "T1984"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1968.xml",
+      "upstreamPath": "T/T47/T47n1968.xml",
+      "upstreamGitBlobSha1": "17f6b6a0418fb20fe91da61127833c9902a323f3",
+      "upstreamBytes": 28878,
+      "upstreamSha256": "2ff2bb8fc379e36ebe3be16c1487ba539824c3300bdd55fdd48db4ef7ab27959",
+      "localBytes": 28879,
+      "localSha256": "799d3dbf4195201b97380ad87f51af86a01f2875dcf49821c6e0c83747e2d3ae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "往生淨土決疑行願二門",
+        "alternateTitle": "往生淨土決疑行願二門",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1968",
+        "translator": "宋 · 遵式撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1968_001"
+      },
+      "verification": {
+        "segments": 256,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1968.001.0144c21",
+          "T1968.001.0148a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1969A",
+      "slug": "taisho-t1969a",
+      "workId": "gbcr:work:taisho-t1969a-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_compiled_collection",
+      "workTitle": "樂邦文類",
+      "sourceRole": "pure_land_compiled_literary_collection",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_number_compiled_pure_land_works_distinct",
+          "groupId": "le-bang-compilations-t1969a-t1969b",
+          "label": "《乐邦文类》与《乐邦遗稿》同数字经号边界",
+          "evidence": "T1969A、T1969B 均题署宗晓编并共享数字经号 1969，但 DILA 分配 CA0001936、CA0001937 两个作品号；题名、规模、结构与全文不同，登记为相关而独立的汇编。",
+          "externalIds": {
+            "cbeta": [
+              "T1969A",
+              "T1969B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1969A.xml",
+      "upstreamPath": "T/T47/T47n1969A.xml",
+      "upstreamGitBlobSha1": "1aadac7abd33317e7a375b7d4b1b9a5ca3db62ec",
+      "upstreamBytes": 1002995,
+      "upstreamSha256": "219ec936257af797475f48924913db91ce5d8219b0bad58794e7498ea58b5209",
+      "localBytes": 1002996,
+      "localSha256": "361277505825df31139c3244eba3ddf6468d629312325ff859c036842ab70e31",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "樂邦文類",
+        "alternateTitle": "樂邦文類",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1969A",
+        "translator": "宋 · 宗曉編",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 宗曉編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1969A_001"
+      },
+      "verification": {
+        "segments": 7231,
+        "folios": 255,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1969A.001.0148a04",
+          "T1969A.005.0231b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1969B",
+      "slug": "taisho-t1969b",
+      "workId": "gbcr:work:taisho-t1969b-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_related_compiled_collection",
+      "workTitle": "樂邦遺稿",
+      "sourceRole": "pure_land_compiled_supplementary_collection",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        },
+        {
+          "type": "same_number_compiled_pure_land_works_distinct",
+          "groupId": "le-bang-compilations-t1969a-t1969b",
+          "label": "《乐邦文类》与《乐邦遗稿》同数字经号边界",
+          "evidence": "T1969A、T1969B 均题署宗晓编并共享数字经号 1969，但 DILA 分配 CA0001936、CA0001937 两个作品号；题名、规模、结构与全文不同，登记为相关而独立的汇编。",
+          "externalIds": {
+            "cbeta": [
+              "T1969A",
+              "T1969B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1969B.xml",
+      "upstreamPath": "T/T47/T47n1969B.xml",
+      "upstreamGitBlobSha1": "7b240f273aeb11b4859385313c78ece167aeed8d",
+      "upstreamBytes": 158540,
+      "upstreamSha256": "07069924f05b7c9d2d0cd0e831fee2b0186f88dc884deeee621b31cd4cc5ebd0",
+      "localBytes": 158541,
+      "localSha256": "05a7f6b03f5edb20436780f3458b22c7525190eabd58640c0054b1e20b24d2b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "樂邦遺稿",
+        "alternateTitle": "樂邦遺稿",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1969B",
+        "translator": "宋 · 宗曉編",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 宗曉編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1969B_001"
+      },
+      "verification": {
+        "segments": 1575,
+        "folios": 56,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1969B.001.0231b25",
+          "T1969B.002.0249c13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1970",
+      "slug": "taisho-t1970",
+      "workId": "gbcr:work:taisho-t1970-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "龍舒增廣淨土文",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1970.xml",
+      "upstreamPath": "T/T47/T47n1970.xml",
+      "upstreamGitBlobSha1": "2c1caf7d38d1fb860492215253f3ece6984646a7",
+      "upstreamBytes": 323177,
+      "upstreamSha256": "9b14c3babd2aaa9b88e1338073e1391f07aeb476e130ac3131c54fdb596d044f",
+      "localBytes": 323178,
+      "localSha256": "6d848b2cdf1cb724057512d9dd65783332dc99c89a3be1221fa611e8d195756d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "龍舒增廣淨土文",
+        "alternateTitle": "龍舒增廣淨土文",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1970",
+        "translator": "宋 · 王日休撰",
+        "summary": "12卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 王日休撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1970_001"
+      },
+      "verification": {
+        "segments": 3275,
+        "folios": 126,
+        "juanRange": [
+          1,
+          12
+        ],
+        "anchors": [
+          "T1970.001.0251a02",
+          "T1970.012.0289c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1971",
+      "slug": "taisho-t1971",
+      "workId": "gbcr:work:taisho-t1971-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土境觀要門",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1971.xml",
+      "upstreamPath": "T/T47/T47n1971.xml",
+      "upstreamGitBlobSha1": "841bfabfb3f0e405b4c2f8234cb408006d9cd797",
+      "upstreamBytes": 19350,
+      "upstreamSha256": "8de5266e718f94dbf34a4b75245a836f9a7a20129c751a80d631a6767f598b9b",
+      "localBytes": 19351,
+      "localSha256": "bc38bcefdf85cec0b2f9bfc4b88e5e95f216f8f2ecac84c78d11ac48ddea170b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土境觀要門",
+        "alternateTitle": "淨土境觀要門",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1971",
+        "translator": "元 · 懷則述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：元 懷則述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1971_001"
+      },
+      "verification": {
+        "segments": 184,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1971.001.0289c12",
+          "T1971.001.0291c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1972",
+      "slug": "taisho-t1972",
+      "workId": "gbcr:work:taisho-t1972-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土或問",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1972.xml",
+      "upstreamPath": "T/T47/T47n1972.xml",
+      "upstreamGitBlobSha1": "c55d422392a33772518ac4fb9313fe727207c0ed",
+      "upstreamBytes": 90493,
+      "upstreamSha256": "3b8d5588608cca51be1aef27c54a642dcfc81efe51c0c5740fbfd14d9b3e6cec",
+      "localBytes": 90494,
+      "localSha256": "c0ae8c043c9a8a28885cc3d50b692c5687d4dc49a02ddc932158acfb65ac4b9d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土或問",
+        "alternateTitle": "淨土或問",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1972",
+        "translator": "元 · 天如則著",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：元 天如則著。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1972_001"
+      },
+      "verification": {
+        "segments": 934,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1972.001.0292a01",
+          "T1972.001.0302c09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1973",
+      "slug": "taisho-t1973",
+      "workId": "gbcr:work:taisho-t1973-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "廬山蓮宗寶鑑",
+      "sourceRole": "pure_land_historical_doctrinal_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1973.xml",
+      "upstreamPath": "T/T47/T47n1973.xml",
+      "upstreamGitBlobSha1": "57e7c3f40fcc2c872d562511b18556d8edba70bb",
+      "upstreamBytes": 529019,
+      "upstreamSha256": "e2bc402d0c7bac98eae79f418a62e5b47c9490aff464828a6123ab0bf49ef808",
+      "localBytes": 529020,
+      "localSha256": "1c94163f2bb68d570a250cab648139bc91d89fabd54641b9d8b6c278ee8ee824",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "廬山蓮宗寶鑑",
+        "alternateTitle": "廬山蓮宗寶鑑",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1973",
+        "translator": "元 · 普度編",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：元 普度編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1973_001"
+      },
+      "verification": {
+        "segments": 4335,
+        "folios": 161,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1973.001.0302c12",
+          "T1973.010.0354a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1974",
+      "slug": "taisho-t1974",
+      "workId": "gbcr:work:taisho-t1974-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "寶王三昧念佛直指",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1974.xml",
+      "upstreamPath": "T/T47/T47n1974.xml",
+      "upstreamGitBlobSha1": "4cb4567bd73f4d623cea4d3a6812a2795aeaf142",
+      "upstreamBytes": 211313,
+      "upstreamSha256": "bae1f2542afe0bde277927ad6f9d2d1545711661f257c857594a388bcdcea42f",
+      "localBytes": 211314,
+      "localSha256": "802640104e40864746f955b1d02077ff1930c3f4b6dc1fac23d95ab2c1c3a74b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶王三昧念佛直指",
+        "alternateTitle": "寶王三昧念佛直指",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1974",
+        "translator": "明 · 妙叶集",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 妙叶集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1974_001"
+      },
+      "verification": {
+        "segments": 2307,
+        "folios": 82,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1974.001.0354b02",
+          "T1974.002.0381a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1975",
+      "slug": "taisho-t1975",
+      "workId": "gbcr:work:taisho-t1975-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土生無生論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1975.xml",
+      "upstreamPath": "T/T47/T47n1975.xml",
+      "upstreamGitBlobSha1": "fe82ca1ad14b7ce53ba9dc6353222b74b9ceb159",
+      "upstreamBytes": 32072,
+      "upstreamSha256": "94ce3e63bf0ab16c1e22ef6625ef449ea7ea3882aed5c12bc9ac4fb731634eb7",
+      "localBytes": 32073,
+      "localSha256": "cb30ae0829cd23ad4fe909d2c23ba80bbe48fad3188b0fdcef39ed7eb76b4348",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土生無生論",
+        "alternateTitle": "淨土生無生論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1975",
+        "translator": "明 · 傳燈撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 傳燈撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1975_001"
+      },
+      "verification": {
+        "segments": 248,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1975.001.0381a20",
+          "T1975.001.0384a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1976",
+      "slug": "taisho-t1976",
+      "workId": "gbcr:work:taisho-t1976-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "西方合論",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1976.xml",
+      "upstreamPath": "T/T47/T47n1976.xml",
+      "upstreamGitBlobSha1": "3f1bbd370579a673f15c83651ea90c1d0438fa20",
+      "upstreamBytes": 285833,
+      "upstreamSha256": "382416cb0e8011fa219a8cb63b0586c2dc25a688e0a5ce0901149936088049bf",
+      "localBytes": 285834,
+      "localSha256": "41f917d3d64b25a665e51dd13507d361d5b2a095c77d8ad30a3c93bcd68ed7a6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "西方合論",
+        "alternateTitle": "西方合論",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1976",
+        "translator": "明 · 袁宏道撰",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 袁宏道撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1976_001"
+      },
+      "verification": {
+        "segments": 2976,
+        "folios": 112,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1976.001.0385a02",
+          "T1976.010.0419c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1977",
+      "slug": "taisho-t1977",
+      "workId": "gbcr:work:taisho-t1977-pure-land-doctrine",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土疑辨",
+      "sourceRole": "pure_land_doctrinal_or_compiled_work",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_doctrinal_compiled_works_scope_distinct",
+          "groupId": "pure-land-doctrinal-and-compiled-works-t1957-t1977",
+          "label": "净土论著、问答与文类汇编范围边界",
+          "evidence": "T1957–T1977 横跨论义、集论、疑难问答、念佛法门与文类汇编。DILA 为每份记录分配不同作品权威号；共同净土主题、祖师传承或引文不能消除独立题名、责任、结构与全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1958",
+              "T1959",
+              "T1960",
+              "T1961",
+              "T1962",
+              "T1963",
+              "T1964",
+              "T1965",
+              "T1966",
+              "T1967",
+              "T1968",
+              "T1969A",
+              "T1969B",
+              "T1970",
+              "T1971",
+              "T1972",
+              "T1973",
+              "T1974",
+              "T1975",
+              "T1976",
+              "T1977"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1977.xml",
+      "upstreamPath": "T/T47/T47n1977.xml",
+      "upstreamGitBlobSha1": "00f67e3e52454266c80a850a25463c2c40894a97",
+      "upstreamBytes": 11395,
+      "upstreamSha256": "e3cc84a764a20482d4015a256b421485f8ce576ea40c4a10e47685f1397c494d",
+      "localBytes": 11396,
+      "localSha256": "12f58260fbe81a0fb2627561dc8345216c888f47e3e9c7e657037ead57027a6d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土疑辨",
+        "alternateTitle": "淨土疑辨",
+        "tradition": "汉传佛教 · 净土论著与文类汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1977",
+        "translator": "明 · 袾宏撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 袾宏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1977_001"
+      },
+      "verification": {
+        "segments": 71,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1977.001.0419c19",
+          "T1977.001.0420c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1978",
+      "slug": "taisho-t1978",
+      "workId": "gbcr:work:taisho-t1978-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "讚阿彌陀佛偈",
+      "sourceRole": "pure_land_hymn",
+      "bibliographicRelations": [
+        {
+          "type": "same_traditional_author_pure_land_works_scope_distinct",
+          "groupId": "tanluan-pure-land-works-t1957-t1978",
+          "label": "曇鸾净土论义与赞偈作品边界",
+          "evidence": "T1957 与 T1978 均传统题署曇鸾，却分别是论义与赞偈，DILA 权威号、题名、体例和全文范围均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1957",
+              "T1978"
+            ]
+          }
+        },
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1978.xml",
+      "upstreamPath": "T/T47/T47n1978.xml",
+      "upstreamGitBlobSha1": "a71ba9861ac978493f4d4f32448cf83df20b1c88",
+      "upstreamBytes": 68762,
+      "upstreamSha256": "c79b43dc7592ffac2a312371c832ac88e852839dc2f39f77c13d797fa5a225a8",
+      "localBytes": 68763,
+      "localSha256": "cf09a6bed8dd8284a9f19ae3bf9308143fa1186353aa4559a65e46eb126789f5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "讚阿彌陀佛偈",
+        "alternateTitle": "讚阿彌陀佛偈",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1978",
+        "translator": "後魏 · 曇鸞撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：後魏 曇鸞撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1978_001"
+      },
+      "verification": {
+        "segments": 327,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1978.001.0420c12",
+          "T1978.001.0424b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1979",
+      "slug": "taisho-t1979",
+      "workId": "gbcr:work:taisho-t1979-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "轉經行道願往生淨土法事讚",
+      "sourceRole": "pure_land_processional_service_hymn",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_doctrine_and_liturgies_distinct",
+          "groupId": "shandao-pure-land-works-t1959-t1979-t1981",
+          "label": "善导集记与撰述净土法门、法事赞边界",
+          "evidence": "T1959、T1979、T1980、T1981 均与善导传统责任相关，却分别处理观念法门、转经法事、往生礼赞与般舟行道；不同 DILA 权威号、题名和正文支持四部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1959",
+              "T1979",
+              "T1980",
+              "T1981"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1979.xml",
+      "upstreamPath": "T/T47/T47n1979.xml",
+      "upstreamGitBlobSha1": "de0fed439ed8a17966cfdf76bf0fe1b614181234",
+      "upstreamBytes": 117494,
+      "upstreamSha256": "67899de22bc92ec0e519c7700f94117dcdda124262da15139123de0e7de4b452",
+      "localBytes": 117495,
+      "localSha256": "e705fa2f36f7731687cbf115db5ee07685a7c5f6d92fdc10671d45237797d17e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "轉經行道願往生淨土法事讚",
+        "alternateTitle": "轉經行道願往生淨土法事讚",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1979",
+        "translator": "唐 · 善導集記",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 善導集記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1979_001"
+      },
+      "verification": {
+        "segments": 1189,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1979.001.0424b23",
+          "T1979.002.0438b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1980",
+      "slug": "taisho-t1980",
+      "workId": "gbcr:work:taisho-t1980-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "往生禮讚偈",
+      "sourceRole": "pure_land_rebirth_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_doctrine_and_liturgies_distinct",
+          "groupId": "shandao-pure-land-works-t1959-t1979-t1981",
+          "label": "善导集记与撰述净土法门、法事赞边界",
+          "evidence": "T1959、T1979、T1980、T1981 均与善导传统责任相关，却分别处理观念法门、转经法事、往生礼赞与般舟行道；不同 DILA 权威号、题名和正文支持四部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1959",
+              "T1979",
+              "T1980",
+              "T1981"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1980.xml",
+      "upstreamPath": "T/T47/T47n1980.xml",
+      "upstreamGitBlobSha1": "4a3885d574ef051a7661249953c4d0d1e5ccf698",
+      "upstreamBytes": 113782,
+      "upstreamSha256": "b5218980f6887553c08d838212b613407f944fa08d0b9261331fbc2f0c63a535",
+      "localBytes": 113783,
+      "localSha256": "6ab11f2170bedf1815b5dfa7e58ee22af4147b1adc26456e47e80f6b2368e725",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "往生禮讚偈",
+        "alternateTitle": "往生禮讚偈",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1980",
+        "translator": "唐 · 善導集記",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 善導集記。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1980_001"
+      },
+      "verification": {
+        "segments": 827,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1980.001.0438b12",
+          "T1980.001.0448a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1981",
+      "slug": "taisho-t1981",
+      "workId": "gbcr:work:taisho-t1981-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "依觀經等明般舟三昧行道往生讚",
+      "sourceRole": "pure_land_pratyutpanna_practice_hymn",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        },
+        {
+          "type": "same_traditional_author_doctrine_and_liturgies_distinct",
+          "groupId": "shandao-pure-land-works-t1959-t1979-t1981",
+          "label": "善导集记与撰述净土法门、法事赞边界",
+          "evidence": "T1959、T1979、T1980、T1981 均与善导传统责任相关，却分别处理观念法门、转经法事、往生礼赞与般舟行道；不同 DILA 权威号、题名和正文支持四部独立作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1959",
+              "T1979",
+              "T1980",
+              "T1981"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1981.xml",
+      "upstreamPath": "T/T47/T47n1981.xml",
+      "upstreamGitBlobSha1": "d6b5c7d46a6159614758d10e4f0896d25f7edd0e",
+      "upstreamBytes": 111153,
+      "upstreamSha256": "4d596b993bfba5448708e020cfcb8fe632bab3d61aea687ccf3fceaa67ce29ac",
+      "localBytes": 111154,
+      "localSha256": "c28c3006268483cea3943bed8a10c176cf020a8dfe84c91362832c234d50021f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "依觀經等明般舟三昧行道往生讚",
+        "alternateTitle": "依觀經等明般舟三昧行道往生讚",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1981",
+        "translator": "唐 · 善導撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 善導撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1981_001"
+      },
+      "verification": {
+        "segments": 616,
+        "folios": 25,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1981.001.0448a17",
+          "T1981.001.0456a26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1982",
+      "slug": "taisho-t1982",
+      "workId": "gbcr:work:taisho-t1982-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "集諸經禮懺儀",
+      "sourceRole": "compiled_buddhist_repentance_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1982.xml",
+      "upstreamPath": "T/T47/T47n1982.xml",
+      "upstreamGitBlobSha1": "8a33453c55ea3388cbef19ff99fa0eb515bb2b2b",
+      "upstreamBytes": 324433,
+      "upstreamSha256": "01a573f7f00ec52080b55b7cf14930e3ecefe696b2b82cd3058cc74c26257d7c",
+      "localBytes": 324434,
+      "localSha256": "d269ab26f8069bfc984f6c6ca0a0131583ccf45803705bee3e8d79a9c6463465",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "集諸經禮懺儀",
+        "alternateTitle": "集諸經禮懺儀",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1982",
+        "translator": "唐 · 智昇撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 智昇撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1982_001"
+      },
+      "verification": {
+        "segments": 1596,
+        "folios": 56,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1982.001.0456b02",
+          "T1982.002.0474c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1983",
+      "slug": "taisho-t1983",
+      "workId": "gbcr:work:taisho-t1983-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "淨土五會念佛略法事儀讚",
+      "sourceRole": "pure_land_five_tone_recitation_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1983.xml",
+      "upstreamPath": "T/T47/T47n1983.xml",
+      "upstreamGitBlobSha1": "58341c7998824888c38f0cb777ff0de2e0e94983",
+      "upstreamBytes": 206482,
+      "upstreamSha256": "003be0e694906b6b2a3631414b0146bf2578d4bccdd6c777b173501b4017222d",
+      "localBytes": 206483,
+      "localSha256": "56f7431f776c3fcf8f0f28af591e650acad5f0f9606f5aac43b5cc0022e9f9fb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨土五會念佛略法事儀讚",
+        "alternateTitle": "淨土五會念佛略法事儀讚",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1983",
+        "translator": "唐 · 法照述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 法照述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1983_001"
+      },
+      "verification": {
+        "segments": 1141,
+        "folios": 50,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1983.001.0474c18",
+          "T1983.002.0490c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1984",
+      "slug": "taisho-t1984",
+      "workId": "gbcr:work:taisho-t1984-pure-land-liturgy",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "往生淨土懺願儀",
+      "sourceRole": "pure_land_repentance_and_vow_ritual",
+      "bibliographicRelations": [
+        {
+          "type": "pure_land_hymn_ritual_liturgy_works_related_distinct",
+          "groupId": "pure-land-hymns-and-rituals-t1978-t1984",
+          "label": "净土赞偈、法事赞、礼忏与念佛仪轨边界",
+          "evidence": "T1978–T1984 共享净土礼赞与行仪语汇，但责任、用途、结构、篇幅和 DILA 权威号均不同。共同尊格、愿生目标或仪式功能不证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T1978",
+              "T1979",
+              "T1980",
+              "T1981",
+              "T1982",
+              "T1983",
+              "T1984"
+            ]
+          }
+        },
+        {
+          "type": "same_author_pure_land_doctrine_and_ritual_distinct",
+          "groupId": "zunshi-pure-land-works-t1968-t1984",
+          "label": "遵式净土论述与忏愿仪边界",
+          "evidence": "T1968、T1984 均题署遵式撰，但一为决疑行愿论述，一为忏愿仪；DILA 权威号、文类与全文范围不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1968",
+              "T1984"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1984.xml",
+      "upstreamPath": "T/T47/T47n1984.xml",
+      "upstreamGitBlobSha1": "85f38b062352bd3034a681e875c4b0034a85a691",
+      "upstreamBytes": 43896,
+      "upstreamSha256": "1cd33b277c5b195c42de61fd2ed447f8cc2f0ab1115090a8ca41cbb925803e7e",
+      "localBytes": 43897,
+      "localSha256": "a5683060d12e8cadca0a6924216b58c3314ffb026567ae5e4ddbbf62ef61a270",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "往生淨土懺願儀",
+        "alternateTitle": "往生淨土懺願儀",
+        "tradition": "汉传佛教 · 净土礼赞与行仪",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1984",
+        "translator": "宋 · 遵式撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 遵式撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1984_001"
+      },
+      "verification": {
+        "segments": 305,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1984.001.0490c20",
+          "T1984.001.0494c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1985",
+      "slug": "taisho-t1985",
+      "workId": "gbcr:work:taisho-t1985-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "鎮州臨濟慧照禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1985.xml",
+      "upstreamPath": "T/T47/T47n1985.xml",
+      "upstreamGitBlobSha1": "e65a20af5dc4a02980dbc44d7935ef42adbfed8d",
+      "upstreamBytes": 137970,
+      "upstreamSha256": "ec5b606a936b1c167845001e68cb3e14951d9aa6a0e04670d5558e1870d09e6a",
+      "localBytes": 137971,
+      "localSha256": "04ea4a20dc453e19d24100861bef0c93a2c60e42c43fb9529872655c6fae9ade",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鎮州臨濟慧照禪師語錄",
+        "alternateTitle": "鎮州臨濟慧照禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1985",
+        "translator": "唐 · 慧然集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 慧然集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1985_001"
+      },
+      "verification": {
+        "segments": 1008,
+        "folios": 36,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1985.001.0495a02",
+          "T1985.001.0506c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1986A",
+      "slug": "taisho-t1986a",
+      "workId": "gbcr:work:taisho-t1986a-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_related_same_master_record",
+      "workTitle": "筠州洞山悟本禪師語錄",
+      "sourceRole": "chan_same_master_recorded_sayings_a",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_recorded_sayings_distinct",
+          "groupId": "dongshan-records-t1986a-t1986b",
+          "label": "两部洞山禅师语录的同数字经号与高重叠边界",
+          "evidence": "T1986A、T1986B 均围绕洞山良价，五字组较短一方包含度约 0.459652；但题名、编校责任、规模和 DILA 权威号 CA0000788/CA0000787 不同，因此保留为相关而独立的语录作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1986A",
+              "T1986B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1986A.xml",
+      "upstreamPath": "T/T47/T47n1986A.xml",
+      "upstreamGitBlobSha1": "0f709de0bf179a4d26af69096094ff02e3f24c4b",
+      "upstreamBytes": 184931,
+      "upstreamSha256": "5a6a07cca3964d24fc17b0d6e6e3a838f854ff043c9245dea8af2740e4dcc24b",
+      "localBytes": 184932,
+      "localSha256": "b995c419436a75ba47566d999e2a7963897ae9eec4c075c45f64319d68e92428",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "筠州洞山悟本禪師語錄",
+        "alternateTitle": "筠州洞山悟本禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1986A",
+        "translator": "日本 · 慧印校",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：日本 慧印校。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1986A_001"
+      },
+      "verification": {
+        "segments": 1050,
+        "folios": 38,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1986A.001.0507a02",
+          "T1986A.001.0519b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1986B",
+      "slug": "taisho-t1986b",
+      "workId": "gbcr:work:taisho-t1986b-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_related_same_master_record",
+      "workTitle": "瑞州洞山良价禪師語錄",
+      "sourceRole": "chan_same_master_recorded_sayings_b",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_recorded_sayings_distinct",
+          "groupId": "dongshan-records-t1986a-t1986b",
+          "label": "两部洞山禅师语录的同数字经号与高重叠边界",
+          "evidence": "T1986A、T1986B 均围绕洞山良价，五字组较短一方包含度约 0.459652；但题名、编校责任、规模和 DILA 权威号 CA0000788/CA0000787 不同，因此保留为相关而独立的语录作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1986A",
+              "T1986B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1986B.xml",
+      "upstreamPath": "T/T47/T47n1986B.xml",
+      "upstreamGitBlobSha1": "565e82e70f133f708fc257746ebd846614f6f48b",
+      "upstreamBytes": 68355,
+      "upstreamSha256": "a82106b5fb3b337b27ed22a9f13dfe077560179f929991be87860f945d144d59",
+      "localBytes": 68356,
+      "localSha256": "2f7e26f1cd2a010a75041fd028baf2a07eee69184e5ba659540c70d1acb59120",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "瑞州洞山良价禪師語錄",
+        "alternateTitle": "瑞州洞山良价禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1986B",
+        "translator": "明 · 語風圓信．郭凝之編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 語風圓信．郭凝之編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1986B_001"
+      },
+      "verification": {
+        "segments": 574,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1986B.001.0519b13",
+          "T1986B.001.0526b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1987A",
+      "slug": "taisho-t1987a",
+      "workId": "gbcr:work:taisho-t1987a-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_related_same_master_record",
+      "workTitle": "撫州曹山元證禪師語錄",
+      "sourceRole": "chan_same_master_recorded_sayings_a",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_recorded_sayings_distinct",
+          "groupId": "caoshan-records-t1987a-t1987b",
+          "label": "两部曹山禅师语录的同数字经号与高重叠边界",
+          "evidence": "T1987A、T1987B 均围绕曹山本寂，五字组较短一方包含度约 0.707505；但题名、编校责任、范围和 DILA 权威号 CA0000368/CA0000367 不同。高重叠记录共同材料，不能自动证明同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1987A",
+              "T1987B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1987A.xml",
+      "upstreamPath": "T/T47/T47n1987A.xml",
+      "upstreamGitBlobSha1": "af963915293bf8bec9b9faaf24457c38018632e1",
+      "upstreamBytes": 98902,
+      "upstreamSha256": "0ee653f8919194497e828271b1609ae154b329cd05d783b231f7e74343a85e68",
+      "localBytes": 98903,
+      "localSha256": "530aa8fc125156089506525accb034f9788cf0c3e6542be9f6a69802fc461715",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "撫州曹山元證禪師語錄",
+        "alternateTitle": "撫州曹山元證禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1987A",
+        "translator": "日本 · 慧印校",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：日本 慧印校。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1987A_001"
+      },
+      "verification": {
+        "segments": 796,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1987A.001.0526b26",
+          "T1987A.001.0535c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1987B",
+      "slug": "taisho-t1987b",
+      "workId": "gbcr:work:taisho-t1987b-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_related_same_master_record",
+      "workTitle": "撫州曹山本寂禪師語錄",
+      "sourceRole": "chan_same_master_recorded_sayings_b",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_recorded_sayings_distinct",
+          "groupId": "caoshan-records-t1987a-t1987b",
+          "label": "两部曹山禅师语录的同数字经号与高重叠边界",
+          "evidence": "T1987A、T1987B 均围绕曹山本寂，五字组较短一方包含度约 0.707505；但题名、编校责任、范围和 DILA 权威号 CA0000368/CA0000367 不同。高重叠记录共同材料，不能自动证明同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1987A",
+              "T1987B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1987B.xml",
+      "upstreamPath": "T/T47/T47n1987B.xml",
+      "upstreamGitBlobSha1": "fef4e74b5fe48b51bd474924bcb1b2d3df85eaba",
+      "upstreamBytes": 124988,
+      "upstreamSha256": "de57d4a082ecba1fcbc7092e641acd2569273521eed2e500e2de082b77138d5b",
+      "localBytes": 124989,
+      "localSha256": "5b477609932c7c62ad898b5e229a0e47646cf7728089e72a291a0928a38ddd52",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "撫州曹山本寂禪師語錄",
+        "alternateTitle": "撫州曹山本寂禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1987B",
+        "translator": "日本 · 玄契編",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：日本 玄契編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1987B_001"
+      },
+      "verification": {
+        "segments": 672,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1987B.001.0535c21",
+          "T1987B.002.0544c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1988",
+      "slug": "taisho-t1988",
+      "workId": "gbcr:work:taisho-t1988-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "雲門匡真禪師廣錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1988.xml",
+      "upstreamPath": "T/T47/T47n1988.xml",
+      "upstreamGitBlobSha1": "74672c97526276b34b83cf1b8170aa02cc338026",
+      "upstreamBytes": 359102,
+      "upstreamSha256": "cff312da5df07bcd72f08c3acd88b7a89769b38cd175a3c83f40fb2e8607f295",
+      "localBytes": 359103,
+      "localSha256": "b37a70483271da76566d0de550259b1abf7701a7277123964887bfb23e2e2c56",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "雲門匡真禪師廣錄",
+        "alternateTitle": "雲門匡真禪師廣錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1988",
+        "translator": "宋 · 守堅集",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 守堅集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1988_001"
+      },
+      "verification": {
+        "segments": 2777,
+        "folios": 99,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1988.001.0544c26",
+          "T1988.003.0576c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1989",
+      "slug": "taisho-t1989",
+      "workId": "gbcr:work:taisho-t1989-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "潭州溈山靈祐禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1989.xml",
+      "upstreamPath": "T/T47/T47n1989.xml",
+      "upstreamGitBlobSha1": "d3255a388471667d46e5e8270c4f354cfbd7fb0b",
+      "upstreamBytes": 48966,
+      "upstreamSha256": "c9f1a97f1d6bb105aa1209705cff3dab8bbf17b916b12afaf7b8397b61f789e9",
+      "localBytes": 48967,
+      "localSha256": "a5c1eca1248b1e72f3171e2475a412f0a73983a628190c38ef3d2c09970bcc24",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "潭州溈山靈祐禪師語錄",
+        "alternateTitle": "潭州溈山靈祐禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1989",
+        "translator": "明 · 語風圓信．郭凝之編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 語風圓信．郭凝之編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1989_001"
+      },
+      "verification": {
+        "segments": 408,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1989.001.0577a02",
+          "T1989.001.0582a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1990",
+      "slug": "taisho-t1990",
+      "workId": "gbcr:work:taisho-t1990-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "袁州仰山慧寂禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1990.xml",
+      "upstreamPath": "T/T47/T47n1990.xml",
+      "upstreamGitBlobSha1": "999961e00ffc00d642205e65f0a3d244c663b553",
+      "upstreamBytes": 64221,
+      "upstreamSha256": "b19f6cd6196c5c32d02b8b4eddbf78b1758a7b2e1fa463adedc0609c4605b234",
+      "localBytes": 64222,
+      "localSha256": "bbc7b7f8676fd8e16d4601fb0a21b20da9f654285e5aaef162da211e3cafdc99",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "袁州仰山慧寂禪師語錄",
+        "alternateTitle": "袁州仰山慧寂禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1990",
+        "translator": "明 · 語風圓信．郭凝之編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 語風圓信．郭凝之編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1990_001"
+      },
+      "verification": {
+        "segments": 471,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1990.001.0582a09",
+          "T1990.001.0588a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1991",
+      "slug": "taisho-t1991",
+      "workId": "gbcr:work:taisho-t1991-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "金陵清涼院文益禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1991.xml",
+      "upstreamPath": "T/T47/T47n1991.xml",
+      "upstreamGitBlobSha1": "e731d626fc1c3af4cee1943414527c28d3a91524",
+      "upstreamBytes": 61512,
+      "upstreamSha256": "254a8bd044ee7978917834bc18de723933c6a19735ed46565d4055bc6e610c72",
+      "localBytes": 61513,
+      "localSha256": "ced5b585ffdddc9286e7cc9b91e3f694187f5b0f9f88e705f92c1593aa2c0a39",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金陵清涼院文益禪師語錄",
+        "alternateTitle": "金陵清涼院文益禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1991",
+        "translator": "明 · 語風圓信．郭凝之編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：明 語風圓信．郭凝之編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1991_001"
+      },
+      "verification": {
+        "segments": 513,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1991.001.0588a20",
+          "T1991.001.0594a29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1992",
+      "slug": "taisho-t1992",
+      "workId": "gbcr:work:taisho-t1992-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "汾陽無德禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1992.xml",
+      "upstreamPath": "T/T47/T47n1992.xml",
+      "upstreamGitBlobSha1": "341e0a2b20908a16233e0cfebbb01225c51674fa",
+      "upstreamBytes": 308985,
+      "upstreamSha256": "1e38c5c027c7b608c7bbfaba5ae877261add39e65ed4ad5c3996ff080d79fab3",
+      "localBytes": 308986,
+      "localSha256": "1277c6ece5c094327ce7f818808f75252e804a30e13acfadb50331a5d80577fe",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "汾陽無德禪師語錄",
+        "alternateTitle": "汾陽無德禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1992",
+        "translator": "宋 · 楚圓集",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 楚圓集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1992_001"
+      },
+      "verification": {
+        "segments": 3059,
+        "folios": 108,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1992.001.0594b02",
+          "T1992.003.0629c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1993",
+      "slug": "taisho-t1993",
+      "workId": "gbcr:work:taisho-t1993-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "黃龍慧南禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1993.xml",
+      "upstreamPath": "T/T47/T47n1993.xml",
+      "upstreamGitBlobSha1": "02330da4191cb1a47a59a80b3ced5848efb3a387",
+      "upstreamBytes": 109367,
+      "upstreamSha256": "54d75987cfb22f2260a7a1c849ccb37d843d4593828fcbdee3c3971203d85bb3",
+      "localBytes": 109368,
+      "localSha256": "cfdcbd3664d0048b981c75fc7f9b1913a8bf6f6a7ac54a9c461c5571bfab9b3f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "黃龍慧南禪師語錄",
+        "alternateTitle": "黃龍慧南禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1993",
+        "translator": "宋 · 惠泉集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 惠泉集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1993_001"
+      },
+      "verification": {
+        "segments": 890,
+        "folios": 32,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1993.001.0629c07",
+          "T1993.001.0640a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1994A",
+      "slug": "taisho-t1994a",
+      "workId": "gbcr:work:taisho-t1994a-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_main_recorded_sayings",
+      "workTitle": "楊岐方會和尚語錄",
+      "sourceRole": "chan_main_recorded_sayings",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_main_and_later_record_distinct",
+          "groupId": "yangqi-records-t1994a-t1994b",
+          "label": "杨岐方会语录与后录边界",
+          "evidence": "T1994A 为具名编者的语录，T1994B 为未署名责任的后录；两者有不同题名、全文和 DILA 权威号 CA0003684/CA0003683，不能因共享数字经号与宗师而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1994A",
+              "T1994B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1994A.xml",
+      "upstreamPath": "T/T47/T47n1994A.xml",
+      "upstreamGitBlobSha1": "ce44f9b9b8661667da9155c177ccacd8b83977e4",
+      "upstreamBytes": 56743,
+      "upstreamSha256": "96e76c681a9d1a1af2aa0609e03bd043c4614c9aa37eaa40252bc440e99c2b3b",
+      "localBytes": 56744,
+      "localSha256": "c9569df5c573a290630d8436879b9e7431850ceffb64d368740ea129bc1aef81",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "楊岐方會和尚語錄",
+        "alternateTitle": "楊岐方會和尚語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1994A",
+        "translator": "宋 · 仁勇等編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 仁勇等編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1994A_001"
+      },
+      "verification": {
+        "segments": 533,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1994A.001.0640a11",
+          "T1994A.001.0646a22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1994B",
+      "slug": "taisho-t1994b",
+      "workId": "gbcr:work:taisho-t1994b-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_unsigned_later_record",
+      "workTitle": "楊岐方會和尚後錄",
+      "sourceRole": "unsigned_chan_later_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_main_and_later_record_distinct",
+          "groupId": "yangqi-records-t1994a-t1994b",
+          "label": "杨岐方会语录与后录边界",
+          "evidence": "T1994A 为具名编者的语录，T1994B 为未署名责任的后录；两者有不同题名、全文和 DILA 权威号 CA0003684/CA0003683，不能因共享数字经号与宗师而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1994A",
+              "T1994B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1994B.xml",
+      "upstreamPath": "T/T47/T47n1994B.xml",
+      "upstreamGitBlobSha1": "ee4d9db2d7530808d9bb4c7fe05d9a8e1018faef",
+      "upstreamBytes": 26961,
+      "upstreamSha256": "7d145bd9356a542d4f521103a3b3436ae4de38f487dd593ad0746b399e8464b6",
+      "localBytes": 26962,
+      "localSha256": "1867ed67e95c50dbdfa0c63292a6e16d504b17896e3fe352ce4336551096a91b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "楊岐方會和尚後錄",
+        "alternateTitle": "楊岐方會和尚後錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1994B",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1994B_001"
+      },
+      "verification": {
+        "segments": 237,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1994B.001.0646a25",
+          "T1994B.001.0648c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1995",
+      "slug": "taisho-t1995",
+      "workId": "gbcr:work:taisho-t1995-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "法演禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1995.xml",
+      "upstreamPath": "T/T47/T47n1995.xml",
+      "upstreamGitBlobSha1": "50d7f0ec56ff9edde2e5a5916927b45f0a5f29f3",
+      "upstreamBytes": 186183,
+      "upstreamSha256": "c3564c3d6b07a4656503d4fd66d3ba6446c264814437b1b1cd9389203fa02e1d",
+      "localBytes": 186184,
+      "localSha256": "0227a2021eb1cccd61744749efd579c17301269beb4771a4a41abb32e4814b29",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法演禪師語錄",
+        "alternateTitle": "法演禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1995",
+        "translator": "宋 · 才良等編",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 才良等編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1995_001"
+      },
+      "verification": {
+        "segments": 1741,
+        "folios": 62,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1995.001.0649a02",
+          "T1995.003.0669a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1996",
+      "slug": "taisho-t1996",
+      "workId": "gbcr:work:taisho-t1996-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "明覺禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1996.xml",
+      "upstreamPath": "T/T47/T47n1996.xml",
+      "upstreamGitBlobSha1": "59fbe49f7be3692c7ccaa212f85ef34a4be14ea1",
+      "upstreamBytes": 446275,
+      "upstreamSha256": "3a6aa6426435665065df45e44cceea30b379185d0effa02f567d2edbc196d64b",
+      "localBytes": 446276,
+      "localSha256": "dfb49524d0117d63bd3b30fd0a6009422060ea8e2d5dada94efe924ba71b484b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "明覺禪師語錄",
+        "alternateTitle": "明覺禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1996",
+        "translator": "宋 · 惟蓋竺編",
+        "summary": "6卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 惟蓋竺編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1996_001"
+      },
+      "verification": {
+        "segments": 3824,
+        "folios": 137,
+        "juanRange": [
+          1,
+          6
+        ],
+        "anchors": [
+          "T1996.001.0669a13",
+          "T1996.006.0713b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1997",
+      "slug": "taisho-t1997",
+      "workId": "gbcr:work:taisho-t1997-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "圓悟佛果禪師語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1997.xml",
+      "upstreamPath": "T/T47/T47n1997.xml",
+      "upstreamGitBlobSha1": "e7c4f71ed523e6c8cf4cc3e5fd8d0d20ff91859b",
+      "upstreamBytes": 813946,
+      "upstreamSha256": "a80cd69565d414530f5017faf4146da2fc3a193845d74c73d5f28a9ebfcaaaf4",
+      "localBytes": 813947,
+      "localSha256": "7a2e14bb7267b63123b7dda7047a7f61750c3218aa2dcbc1f09c65cd14de9af2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "圓悟佛果禪師語錄",
+        "alternateTitle": "圓悟佛果禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1997",
+        "translator": "宋 · 紹隆等編",
+        "summary": "20卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 紹隆等編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1997_001"
+      },
+      "verification": {
+        "segments": 8405,
+        "folios": 309,
+        "juanRange": [
+          1,
+          20
+        ],
+        "anchors": [
+          "T1997.001.0713b22",
+          "T1997.020.0810c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1998A",
+      "slug": "taisho-t1998a",
+      "workId": "gbcr:work:taisho-t1998a-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_extended_recorded_sayings",
+      "workTitle": "大慧普覺禪師語錄",
+      "sourceRole": "chan_extended_recorded_sayings",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_record_and_compendium_distinct",
+          "groupId": "dahui-records-t1998a-t1998b",
+          "label": "大慧语录与《宗门武库》边界",
+          "evidence": "T1998A 是大慧普觉禅师语录，T1998B 是道谦编《宗门武库》；两份记录的题名、编者、规模、结构与 DILA 权威号 CA0000601/CA0000602 不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1998A",
+              "T1998B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1998A.xml",
+      "upstreamPath": "T/T47/T47n1998A.xml",
+      "upstreamGitBlobSha1": "d937338560dca44f0802a641fd5c76d52d30878b",
+      "upstreamBytes": 1260436,
+      "upstreamSha256": "6e58bbf9b9f04fb6c7f6ae69eb57ddecc77b1fbab0becdd6a99bdfb14f3d04f2",
+      "localBytes": 1260437,
+      "localSha256": "5727d7ed2d111efe394ba578a337ed10d80125ba8340e75de246680b3ed4020c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大慧普覺禪師語錄",
+        "alternateTitle": "大慧普覺禪師語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1998A",
+        "translator": "宋 · 蘊聞編",
+        "summary": "30卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 蘊聞編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1998A_001"
+      },
+      "verification": {
+        "segments": 11412,
+        "folios": 423,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1998A.001.0811a02",
+          "T1998A.030.0943b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1998B",
+      "slug": "taisho-t1998b",
+      "workId": "gbcr:work:taisho-t1998b-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_compiled_cases_collection",
+      "workTitle": "大慧普覺禪師宗門武庫",
+      "sourceRole": "chan_compiled_cases_collection",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        },
+        {
+          "type": "same_number_same_master_record_and_compendium_distinct",
+          "groupId": "dahui-records-t1998a-t1998b",
+          "label": "大慧语录与《宗门武库》边界",
+          "evidence": "T1998A 是大慧普觉禅师语录，T1998B 是道谦编《宗门武库》；两份记录的题名、编者、规模、结构与 DILA 权威号 CA0000601/CA0000602 不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1998A",
+              "T1998B"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1998B.xml",
+      "upstreamPath": "T/T47/T47n1998B.xml",
+      "upstreamGitBlobSha1": "1b915a4ac3280d22e95e43c7359759a88e7e3928",
+      "upstreamBytes": 117759,
+      "upstreamSha256": "5a9d4e96884d994ba9cc044190a566144772196f26a0f021d7fc75cf729489de",
+      "localBytes": 117760,
+      "localSha256": "f1c2d96a2575a9c4bf29a3e00c9c757f2bf194d54d564dec7d0636680b8d7292",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大慧普覺禪師宗門武庫",
+        "alternateTitle": "大慧普覺禪師宗門武庫",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1998B",
+        "translator": "宋 · 道謙編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 道謙編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1998B_001"
+      },
+      "verification": {
+        "segments": 1238,
+        "folios": 44,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1998B.001.0943b07",
+          "T1998B.001.0957c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1999",
+      "slug": "taisho-t1999",
+      "workId": "gbcr:work:taisho-t1999-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "密菴和尚語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n1999.xml",
+      "upstreamPath": "T/T47/T47n1999.xml",
+      "upstreamGitBlobSha1": "6d57b2bd5d06924eb71bfa7ad1c7a10d0046095b",
+      "upstreamBytes": 254866,
+      "upstreamSha256": "0eedbe654233f07c1f0feb6cace4134598538e29c8c5e02893adbbb729a0f438",
+      "localBytes": 254867,
+      "localSha256": "4e0ac303f66e7abaebc28903e9c4d2e9deff5189b2c54322cff1b41b17d000bd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "密菴和尚語錄",
+        "alternateTitle": "密菴和尚語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 1999",
+        "translator": "宋 · 崇岳．了悟等編",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 崇岳．了悟等編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1999_001"
+      },
+      "verification": {
+        "segments": 2227,
+        "folios": 78,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1999.001.0957c04",
+          "T1999.001.0983b01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2000",
+      "slug": "taisho-t2000",
+      "workId": "gbcr:work:taisho-t2000-chan-recorded-sayings",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_or_compiled_work",
+      "workTitle": "虛堂和尚語錄",
+      "sourceRole": "chan_recorded_sayings_or_compiled_record",
+      "bibliographicRelations": [
+        {
+          "type": "chan_master_recorded_sayings_collections_distinct",
+          "groupId": "chan-recorded-sayings-t1985-t2000",
+          "label": "禅宗诸师语录与宗门汇编作品边界",
+          "evidence": "T1985–T2000 记录不同禅师、门庭和后世编校层。师承、宗派、语录体例或公案复用只建立检索关系；DILA 权威号、所记宗师、编者、结构和全文范围共同维持作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1985",
+              "T1986A",
+              "T1986B",
+              "T1987A",
+              "T1987B",
+              "T1988",
+              "T1989",
+              "T1990",
+              "T1991",
+              "T1992",
+              "T1993",
+              "T1994A",
+              "T1994B",
+              "T1995",
+              "T1996",
+              "T1997",
+              "T1998A",
+              "T1998B",
+              "T1999",
+              "T2000"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T47n2000.xml",
+      "upstreamPath": "T/T47/T47n2000.xml",
+      "upstreamGitBlobSha1": "e98fa46042fd3640770cbd369d44a1572fcb90a1",
+      "upstreamBytes": 846979,
+      "upstreamSha256": "c9bc8782ad8f3dcc9e634b7a199b46f7ce6b444e6564f12808b5647d387b321a",
+      "localBytes": 846980,
+      "localSha256": "ebd7fc9812ef8170ee3f75d9e73483a86adf6077b3293c8854c12ba73492d390",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "虛堂和尚語錄",
+        "alternateTitle": "虛堂和尚語錄",
+        "tradition": "汉传佛教 · 禅宗语录与宗门汇编",
+        "language": "汉文",
+        "canonRef": "大正藏 T47, no. 2000",
+        "translator": "宋 · 妙源編",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述或汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 妙源編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2000_001"
+      },
+      "verification": {
+        "segments": 6958,
+        "folios": 247,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2000.001.0984a02",
+          "T2000.010.1064b20"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
