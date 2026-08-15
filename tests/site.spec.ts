@@ -117,6 +117,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
   const coverage = await response.json();
+  const healthResponse = await request.get("/api/health");
+  expect(healthResponse.ok()).toBeTruthy();
+  const health = await healthResponse.json();
+  expect(health.capabilities.corpusRegistry).toBe(
+    `v${coverage.generatedFrom.registryVersion}-public-draft`,
+  );
   expect(coverage.claim.publishable).toBe(false);
   expect(coverage.globalDenominators.catalogWorks).toBeNull();
   expect(coverage.globalPercentages.catalog).toBeNull();

@@ -1,3 +1,5 @@
+import { CORPUS_REGISTRY_VERSION } from "@/lib/corpus-registry-metadata";
+
 export const dynamic = "force-dynamic";
 
 export function GET() {
@@ -10,7 +12,7 @@ export function GET() {
         reading: "available",
         citedAnswers: "prototype",
         generativeAI: "disabled",
-        corpusRegistry: "v6.5.0-public-draft",
+        corpusRegistry: `v${CORPUS_REGISTRY_VERSION}-public-draft`,
         corpusBackend: process.env.CORPUS_ASSET_BASE_URL
           ? "edge_with_local_fallback"
           : "local_controlled_assets",
