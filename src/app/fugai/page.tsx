@@ -733,6 +733,24 @@ export default function CoveragePage() {
             </Link>
           </article>
           <article>
+            <span>古汉译 ROOT 受控见证</span>
+            <strong>
+              {snapshot.candidateInventory.suttacentralClassicalChineseRoots.controlled}
+              <small> / {snapshot.candidateInventory.suttacentralClassicalChineseRoots.denominator} 份 root</small>
+            </strong>
+            <p>
+              固定提交的古汉译目录已逐文件受控，共 {snapshot.candidateInventory.suttacentralClassicalChineseRoots.stableSegments?.toLocaleString("zh-CN")} 个稳定段落；
+              {snapshot.candidateInventory.suttacentralClassicalChineseRoots.completeExpressions} 个完整表达与
+              {snapshot.candidateInventory.suttacentralClassicalChineseRoots.partialWitnessGroups} 个局部见证复用
+              {snapshot.candidateInventory.suttacentralClassicalChineseRoots.existingWorksReused} 个既有作品，新增作品数为
+              {snapshot.candidateInventory.suttacentralClassicalChineseRoots.newWorksCreated}。
+            </p>
+            <small>{snapshot.candidateInventory.suttacentralClassicalChineseRoots.caveat}</small>
+            <Link className="text-link" href="/jingzang/suttacentral-benshi-jing-t0765">
+              阅读 SuttaCentral《本事经》见证 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
+          </article>
+          <article>
             <span>巴利律藏受控原文</span>
             <strong>
               {snapshot.candidateInventory.suttacentralPaliVinayaRoot.controlledExpressions}

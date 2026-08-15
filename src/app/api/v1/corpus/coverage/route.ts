@@ -8,7 +8,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: "https://foxue.ai/fugai",
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.15.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.16.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
         sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v4.5.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
@@ -100,6 +100,8 @@ export function GET() {
         suttacentralIndicRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json",
         suttacentralVinayaRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
         suttacentralAbhidhammaRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
+        suttacentralClassicalChineseRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-lzh-root-rights-audit-v1.1.0.json",
+        suttacentralClassicalChineseManifest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/suttacentral/lzh-manifest-v1.6.0.json",
         suttacentralChineseParallels: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
         suttacentralParallelReviewQueue: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json",
         suttacentralParallelP0EvidencePackets: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json",

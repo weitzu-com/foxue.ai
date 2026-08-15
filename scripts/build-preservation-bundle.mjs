@@ -103,6 +103,9 @@ const suttacentralVinayaSources = archivedPaths.filter((path) =>
 const suttacentralAbhidhammaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/abhidhamma/") && path.endsWith(".json"),
 );
+const suttacentralLzhSources = archivedPaths.filter((path) =>
+  path.startsWith("data/corpus/suttacentral/root/lzh/sct/") && path.endsWith(".json"),
+);
 if (suttacentralDhammapadaSources.length !== 26) {
   throw new Error(`保存包应包含 26 个巴利《法句经》来源文件，实际为 ${suttacentralDhammapadaSources.length}`);
 }
@@ -129,6 +132,9 @@ if (suttacentralVinayaSources.length !== 422) {
 }
 if (suttacentralAbhidhammaSources.length !== 1102) {
   throw new Error(`保存包应包含 1,102 个巴利论藏 root 来源文件，实际为 ${suttacentralAbhidhammaSources.length}`);
+}
+if (suttacentralLzhSources.length !== 272) {
+  throw new Error(`保存包应包含 272 个古汉译 root 来源文件，实际为 ${suttacentralLzhSources.length}`);
 }
 const requiredPaths = [
   "README.md",
@@ -195,6 +201,7 @@ const requiredPaths = [
   "data/gbcr/suttacentral-vinaya-root-rights-audit-v0.9.0.json",
   "data/gbcr/registry-v3.3.0.json",
   "data/gbcr/suttacentral-abhidhamma-root-rights-audit-v1.0.0.json",
+  "data/gbcr/suttacentral-lzh-root-rights-audit-v1.1.0.json",
   "data/gbcr/registry-v3.4.0.json",
   "data/gbcr/suttacentral-chinese-parallels-v0.7.0.json",
   "data/gbcr/suttacentral-chinese-parallel-reader-index-v0.1.0.json",
@@ -360,6 +367,7 @@ const requiredPaths = [
   "data/gbcr/source-snapshots-v4.5.0.json",
   "data/gbcr/esukhia-derge-kangyur-inventory-v0.8.0.json",
   "data/gbcr/registry-v6.15.0.json",
+  "data/gbcr/registry-v6.16.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -481,6 +489,7 @@ const requiredPaths = [
   "data/gbcr/checksums-cbeta-v4.23.0.sha256",
   "data/gbcr/checksums-v6.14.0.sha256",
   "data/gbcr/checksums-v6.15.0.sha256",
+  "data/gbcr/checksums-v6.16.0.sha256",
   "data/corpus/derge/UPSTREAM_README.md",
   "data/corpus/derge/NOTICE.md",
   "data/corpus/derge/reference/103_catalog.txt",
@@ -665,6 +674,8 @@ const requiredPaths = [
   "data/corpus/suttacentral/vinaya-manifest-v1.4.0.json",
   "data/corpus/suttacentral/abhidhamma-batch-v1.5.0.json",
   "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json",
+  "data/corpus/suttacentral/lzh-batch-v1.6.0.json",
+  "data/corpus/suttacentral/lzh-manifest-v1.6.0.json",
   ...suttacentralDhammapadaSources,
   ...suttacentralDighaSources,
   ...suttacentralMajjhimaSources,
@@ -674,6 +685,7 @@ const requiredPaths = [
   ...suttacentralIndicSources,
   ...suttacentralVinayaSources,
   ...suttacentralAbhidhammaSources,
+  ...suttacentralLzhSources,
   ...cbetaSources,
   "data/corpus/cbeta/T01n0001.xml",
   "data/corpus/cbeta/T01n0026.xml",
@@ -869,10 +881,13 @@ const requiredPaths = [
   "scripts/build-suttacentral-vinaya-catalog.mjs",
   "scripts/audit-suttacentral-abhidhamma.mjs",
   "scripts/build-suttacentral-abhidhamma-catalog.mjs",
+  "scripts/audit-suttacentral-lzh-roots.mjs",
+  "scripts/build-suttacentral-lzh-catalog.mjs",
   "scripts/build-suttacentral-parallel-review-queue.mjs",
   "scripts/build-suttacentral-parallel-p0-evidence-packets.mjs",
   "scripts/build-federated-corpus.mjs",
   "scripts/build-federated-corpus-v6.15.mjs",
+  "scripts/build-federated-corpus-v6.16.mjs",
   "scripts/verify-corpus-registry.mjs",
   "scripts/build-corpus-release.mjs",
   "scripts/corpus-release-context.mjs",

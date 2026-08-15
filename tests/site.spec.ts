@@ -51,6 +51,8 @@ const criticalRoutes = [
   "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034",
   "/jingzang/pali-bhikkhu-patimokkha/001-pli-tv-bu-pm-0001-0120",
   "/jingzang/pali-dhammasangani/001-ds1-1-0001-0092",
+  "/jingzang/suttacentral-madhyama-agama-selection/001-ma1-0001-0088",
+  "/jingzang/suttacentral-benshi-jing-t0765/001-t765-1-0001-0024",
   "/jingzang/derge-kangyur-d0001",
   "/jingzang/derge-kangyur-d0001/001-0001b",
   "/fugai",
@@ -96,7 +98,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录支持元数据检索、语种筛选与渐进显示", async ({ page }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3825 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/3829 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
 
   const search = page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者");
@@ -133,6 +135,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
   await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
   await expect(page.getByText("巴利论藏七论受控原文")).toBeVisible();
+  await expect(page.getByText("古汉译 ROOT 受控见证")).toBeVisible();
   await expect(page.getByText("德格甘珠尔固定全文见证")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
@@ -153,10 +156,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3377,
-    registeredExpressions: 3868,
+    registeredExpressions: 3875,
     fullSourceTextWorks: 3350,
-    fullSourceTextExpressions: 3825,
-    stableSegments: 5618245,
+    fullSourceTextExpressions: 3829,
+    stableSegments: 5656889,
     structureVerifiedWorks: 3377,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -198,6 +201,18 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     stableSegments: 88414,
     omittedEmptySegments: 0,
     filesApprovedForReadingAndRetrieval: 1102,
+    filesApprovedForModelTraining: 0,
+  });
+  expect(coverage.candidateInventory.suttacentralClassicalChineseRoots).toMatchObject({
+    denominator: 272,
+    controlled: 272,
+    percentage: 100,
+    controlledBytes: 2922861,
+    stableSegments: 38644,
+    completeExpressions: 4,
+    partialWitnessGroups: 3,
+    existingWorksReused: 7,
+    newWorksCreated: 0,
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
@@ -3651,6 +3666,29 @@ test("巴利论藏七论按书级边界阅读并保留首尾原生锚点", async
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/pali-dhammasangani/001-ds1-1-0001-0092");
   expect(sitemap).toContain("/jingzang/pali-patthana/892-patthana24-22-0001-0034");
+});
+
+test("古汉译 root 区分完整表达与局部见证并保留原生锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/suttacentral-madhyama-agama-selection#ma1:1.1");
+  await page.waitForURL(/\/jingzang\/suttacentral-madhyama-agama-selection\/001-ma1-0001-0088#ma1:1\.1$/);
+  await expect(page.locator('[id="ma1:1.1"]')).toContainText("我聞如是");
+  await expect(page.getByText("局部见证 · 完整来源分页")).toBeVisible();
+  await expect(page.getByText(/局部见证 2895 稳定段落/)).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("完整巴利原文");
+
+  await page.goto("/jingzang/suttacentral-benshi-jing-t0765#t765.1:1.0");
+  await page.waitForURL(/\/jingzang\/suttacentral-benshi-jing-t0765\/001-t765-1-0001-0024#t765\.1:1\.0$/);
+  await expect(page.locator('[id="t765.1:1.0"]')).toContainText("吾從世尊聞如是語");
+  await expect(page.getByText("完整古汉译原文 · 稳定分页")).toBeVisible();
+  await expect(page.getByText(/全经 4610 稳定段落/)).toBeVisible();
+
+  const partial = await request.get("/jingzang/suttacentral-ekottarika-agama-selection/001-ea19-1-0001-0046");
+  const complete = await request.get("/jingzang/suttacentral-t1548/175-t1548-33-1321-1437");
+  expect(partial.ok()).toBeTruthy();
+  expect(complete.ok()).toBeTruthy();
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/suttacentral-madhyama-agama-selection/031-ma200-0361-0445");
+  expect(sitemap).toContain("/jingzang/suttacentral-t1548/175-t1548-33-1321-1437");
 });
 
 test("德格甘珠尔固定全文见证保留藏文、版页行号与可追溯边界", async ({ page, request }) => {

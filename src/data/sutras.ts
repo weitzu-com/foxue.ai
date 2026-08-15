@@ -8,6 +8,7 @@ import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
 import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
+import lzhRootManifest from "../../data/corpus/suttacentral/lzh-manifest-v1.6.0.json";
 import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 
 export type SutraSegment = {
@@ -526,6 +527,25 @@ export const sutras: Sutra[] = catalog.files.map((file) => {
   bibliographicNote: file.relationDecision,
   attributionNote: "本页保存上座部论藏文本；论藏属于佛教经典，不据此标作佛陀逐字亲说。",
   status: "完整原文 · 原生段落" as const,
+  readerMode: "bilara-sutta" as const,
+  segments: [],
+}))).concat(lzhRootManifest.files.map((file) => ({
+  slug: file.slug,
+  title: file.presentation.title,
+  alternateTitle: file.presentation.alternateTitle,
+  tradition: file.presentation.tradition,
+  language: file.presentation.language,
+  canonRef: file.presentation.canonRef,
+  translator: file.presentation.translator,
+  summary: file.presentation.summary,
+  sourceName: "SuttaCentral",
+  sourceUrl: file.presentation.sourceUrl,
+  sourceLicense: "古汉译原文依 SuttaCentral 官方政策属公有领域；保留来源署名；不用于模型训练",
+  bibliographicNote: file.relationDecision,
+  attributionNote: file.id.startsWith("LZH-T15")
+    ? "论藏属于佛教经典；传统说者、作者、译者和数字见证分层记录，不据目录位置标作佛陀逐字亲说。"
+    : "这是既有汉译作品的 SuttaCentral 数字见证；物理分段与数字版本不另算作品。",
+  status: (file.fullSourceText ? "完整原文 · 原生段落" : "局部见证 · 完整来源记录") as Sutra["status"],
   readerMode: "bilara-sutta" as const,
   segments: [],
 }))).concat(dergeKangyurManifest.files.map((file) => ({

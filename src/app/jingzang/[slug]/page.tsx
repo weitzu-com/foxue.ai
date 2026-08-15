@@ -24,7 +24,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const derge = sutra.readerMode === "derge-folio";
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
-  const bilaraCorpusUnit = /律藏|论藏/.test(sutra.tradition) ? "全书" : "全经";
+  const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
 
   return (
     <>
@@ -44,7 +44,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
               : bilara
-                ? "全经按原生段落次序确定性分页，每页最多 120 段。Bilara 标识原样保留，未加入未经审核的译文或跨本对齐。"
+                ? `${partialWitness ? "已发布的局部见证" : "文本"}按原生段落次序确定性分页，每页最多 120 段。Bilara 标识原样保留，未加入未经审核的译文或跨本对齐。`
                 : derge
                   ? "每页只加载一个德格木刻版页；藏文 NFD 原样保存，稳定行号同时编码德格目录号、函号、版页、行号与重复序号。"
                 : "每页只加载一个大正藏版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。"}
@@ -113,7 +113,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             <div><dt>{bilara ? "版本" : derge ? "译责" : "译者"}</dt><dd>{sutra.translator}</dd></div>
             <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
             <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? `${bilaraCorpusUnit}完整 Bilara JSON` : derge ? "完整 Public Domain 藏文切片" : partialWitness ? `完整来源 TEI · ${sourceRecordLabel}` : "完整 TEI"}</dd></div>
+            <div><dt>收录</dt><dd>{reading.segmentCount} 个稳定段落 · {bilara ? (partialWitness ? `完整来源 JSON · ${sourceRecordLabel}` : `${bilaraCorpusUnit}完整 Bilara JSON`) : derge ? "完整 Public Domain 藏文切片" : partialWitness ? `完整来源 TEI · ${sourceRecordLabel}` : "完整 TEI"}</dd></div>
           </dl>
           <p className="reader-meta__caution">
             引用、研究或再分发前，请以来源网站最新授权说明为准。

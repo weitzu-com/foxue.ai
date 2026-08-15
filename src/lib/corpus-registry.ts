@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.15.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.16.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.5.0.json";
 
 type Expression = {
@@ -1820,6 +1820,21 @@ export function buildCoverageSnapshot() {
         controlledWorks: paliControlledWorks,
         unit: "SuttaCentral 固定提交中的巴利 root 物理记录",
         caveat: "固定提交中的 7,288 个巴利 root 物理文件已全部受控：经藏 5,764 份、律藏 422 份、论藏 1,102 份分别统计。100% 是固定来源内文件完整性，不是作品去重率或全球佛典覆盖率。",
+      },
+      suttacentralClassicalChineseRoots: {
+        denominator: corpusRegistry.suttacentralClassicalChineseRootAudit.sourceRecords,
+        controlled: corpusRegistry.suttacentralClassicalChineseRootAudit.sourceRecords,
+        percentage: 100,
+        controlledBytes: corpusRegistry.suttacentralClassicalChineseRootAudit.sourceBytes,
+        stableSegments: corpusRegistry.suttacentralClassicalChineseRootAudit.stableSegments,
+        completeExpressions: corpusRegistry.suttacentralClassicalChineseRootAudit.completeExpressions,
+        partialWitnessGroups: corpusRegistry.suttacentralClassicalChineseRootAudit.partialWitnessGroups,
+        existingWorksReused: corpusRegistry.suttacentralClassicalChineseRootAudit.existingWorksReused,
+        newWorksCreated: corpusRegistry.suttacentralClassicalChineseRootAudit.newWorksCreated,
+        filesApprovedForModelTraining: 0,
+        rightsAuditSha256: corpusRegistry.suttacentralClassicalChineseRootAudit.auditSha256,
+        unit: "SuttaCentral 固定提交 root/lzh/sct 目录的古汉译物理记录",
+        caveat: "272/272 只表示固定来源目录的文件控制率。四个完整数字表达与三个局部见证复用七个既有作品；文件、分段和数字见证不新增作品，MA、SA、EA 不冒充全经，全球分母仍未知。",
       },
       suttacentralPaliVinayaRoot: {
         denominator: corpusRegistry.suttacentralVinayaRootRightsAudit.filesAudited,
