@@ -1,0 +1,5125 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.12.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.11.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t45-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T45; T45 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T45",
+    "title": "大正藏 T45 三论、法相、华严、律仪与忏法固定来源记录",
+    "sourceRecordDenominator": 61,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 61,
+    "controlledSourceRecords": 61,
+    "newSourceBytes": 11260895,
+    "newStableSegments": 82868,
+    "newFolios": 2995,
+    "newJuans": 112,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 61,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 61,
+    "attributionBoundaryRecords": 61,
+    "unsignedResponsibilityRecords": 3,
+    "newWorks": 61,
+    "controlledWorks": 61,
+    "workCountingDecision": "T45 的 61 份来源记录登记为 61 个完整表达和 61 个独立东亚著述作品。T1858–T1860 的根本文本—注疏、T1879a/b 的同经号边界、T1880/T1881 的平行注释层、T1887A/B 的根本法界图—集注层，以及同作者、同宗派、律仪和忏法作品群均保持独立；没有仅凭题名、作者、宗派、引文或文本重叠执行作品合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_east_asian_school_root_commentary_subcommentary_same_number_layered_attribution_vinaya_ritual_and_repentance_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "zhaolun-commentaries-t1858-t1860"
+    ],
+    "rootEditionBoundaryGroups": [],
+    "subcommentaryGroups": [
+      "huayan-dharmadhatu-diagram-t1887a-t1887b"
+    ],
+    "sameNumberBoundaryGroups": [
+      "huayan-guanmai-boundary-t1879a-t1879b",
+      "huayan-dharmadhatu-diagram-t1887a-t1887b"
+    ],
+    "layeredAttributionGroups": [
+      "sengzhao-corpus-boundary-t1856-t1858",
+      "dushun-zhiyan-layered-attribution-t1867-t1868",
+      "golden-lion-commentaries-t1880-t1881",
+      "huayan-dharmadhatu-contemplation-t1882-t1885",
+      "cibei-repentance-boundary-t1909-t1910"
+    ],
+    "scopeBoundaryGroups": [
+      "sanlun-doctrinal-works-t1852-t1855",
+      "faxiang-doctrinal-works-t1861-t1865",
+      "fazang-huayan-works-t1866-t1881",
+      "daoxuan-vinaya-works-t1892-t1899",
+      "yijing-vinaya-manuals-t1901-t1903",
+      "phagpa-mulasarvastivada-manuals-t1904-t1905",
+      "wonhyo-precept-repentance-t1907-t1908"
+    ],
+    "relatedDistinctWorkGroups": [
+      "huayan-school-works-t1866-t1891",
+      "golden-lion-commentaries-t1880-t1881",
+      "huayan-dharmadhatu-contemplation-t1882-t1885",
+      "silla-huayan-works-t1887a-t1890",
+      "vinaya-material-culture-t1892-t1900",
+      "silla-precept-repentance-t1906-t1908",
+      "repentance-rituals-t1908-t1910",
+      "cibei-repentance-boundary-t1909-t1910"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1858↔T1859/T1860（《肇论》根本文本与元康、文才两部疏分层）",
+      "T1879a↔T1879b（不同 DILA 权威号、题名责任与版页正文的同经号 a/b 边界）",
+      "T1880↔T1881（法藏根本文本上净源述、承迁注的平行解释层）",
+      "T1887A↔T1887B（义湘法界图与后出《法界图记丛髓录》集注层）",
+      "T1857 的传统僧肇题记、T1868 的杜顺说—智俨撰、T1885 的本嵩述—琮湛注、T1909 的集撰和 T1879b/T1887B/T1910 无署名均按来源记录，不伪装成现代无争议作者事实",
+      "T1892–T1905 律仪、行法和仪范及 T1906–T1910 戒本、忏悔与集撰仪轨均按文类与责任分层，不因功能接近而合并"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "east_asian_huayan_dharmadhatu_diagram_subcommentary_compendium": [
+        "T1887B"
+      ],
+      "east_asian_huayan_school_work": [
+        "T1866",
+        "T1867",
+        "T1869",
+        "T1870",
+        "T1871",
+        "T1872",
+        "T1873",
+        "T1874",
+        "T1875",
+        "T1876",
+        "T1877",
+        "T1878",
+        "T1882",
+        "T1883",
+        "T1884",
+        "T1886",
+        "T1888",
+        "T1889",
+        "T1890",
+        "T1891"
+      ],
+      "east_asian_vinaya_or_ritual_manual": [
+        "T1892",
+        "T1893",
+        "T1894",
+        "T1895",
+        "T1896",
+        "T1897",
+        "T1898",
+        "T1899",
+        "T1900",
+        "T1901",
+        "T1902",
+        "T1903",
+        "T1904",
+        "T1905"
+      ],
+      "silla_bodhisattva_precept_or_repentance_work": [
+        "T1906",
+        "T1907",
+        "T1908"
+      ],
+      "silla_huayan_dharmadhatu_diagram_root_work": [
+        "T1887A"
+      ],
+      "sinitic_authored_huayan_guanmai_work_a": [
+        "T1879a"
+      ],
+      "sinitic_authored_zhaolun_commentary": [
+        "T1859"
+      ],
+      "sinitic_authored_zhaolun_new_commentary": [
+        "T1860"
+      ],
+      "sinitic_buddhist_epistolary_question_answer_collection": [
+        "T1856"
+      ],
+      "sinitic_collectively_compiled_repentance_liturgy": [
+        "T1909"
+      ],
+      "sinitic_later_supplementary_yogacara_commentary": [
+        "T1865"
+      ],
+      "sinitic_layered_golden_lion_commentary": [
+        "T1880",
+        "T1881"
+      ],
+      "sinitic_layered_huayan_teaching_and_composition": [
+        "T1868"
+      ],
+      "sinitic_layered_huayan_verse_and_commentary": [
+        "T1885"
+      ],
+      "sinitic_madhyamaka_or_zhaolun_work": [
+        "T1852",
+        "T1853",
+        "T1854",
+        "T1855"
+      ],
+      "sinitic_treatise_with_traditional_attribution_boundary": [
+        "T1857"
+      ],
+      "sinitic_yogacara_school_work": [
+        "T1861",
+        "T1862",
+        "T1863",
+        "T1864"
+      ],
+      "sinitic_zhaolun_root_treatise": [
+        "T1858"
+      ],
+      "unsigned_huayan_guanmai_work_b": [
+        "T1879b"
+      ],
+      "unsigned_sinitic_repentance_liturgy": [
+        "T1910"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records quotation and exegetical dependence only; it cannot merge roots, commentaries, subcommentaries, same-number texts, same-author works or repentance liturgies.",
+      "pairs": [
+        {
+          "pair": [
+            "T1858",
+            "T1859"
+          ],
+          "normalizedCharacters": [
+            16104,
+            56168
+          ],
+          "fiveGramContainmentOfShorter": 0.263891,
+          "fiveGramJaccard": 0.062264
+        },
+        {
+          "pair": [
+            "T1858",
+            "T1860"
+          ],
+          "normalizedCharacters": [
+            16104,
+            57099
+          ],
+          "fiveGramContainmentOfShorter": 0.716091,
+          "fiveGramJaccard": 0.185076
+        },
+        {
+          "pair": [
+            "T1859",
+            "T1860"
+          ],
+          "normalizedCharacters": [
+            56168,
+            57099
+          ],
+          "fiveGramContainmentOfShorter": 0.077165,
+          "fiveGramJaccard": 0.039642
+        },
+        {
+          "pair": [
+            "T1879a",
+            "T1879b"
+          ],
+          "normalizedCharacters": [
+            4725,
+            4858
+          ],
+          "fiveGramContainmentOfShorter": 0.427063,
+          "fiveGramJaccard": 0.267503
+        },
+        {
+          "pair": [
+            "T1880",
+            "T1881"
+          ],
+          "normalizedCharacters": [
+            4758,
+            4345
+          ],
+          "fiveGramContainmentOfShorter": 0.085809,
+          "fiveGramJaccard": 0.042306
+        },
+        {
+          "pair": [
+            "T1883",
+            "T1884"
+          ],
+          "normalizedCharacters": [
+            15915,
+            11366
+          ],
+          "fiveGramContainmentOfShorter": 0.193666,
+          "fiveGramJaccard": 0.088703
+        },
+        {
+          "pair": [
+            "T1883",
+            "T1885"
+          ],
+          "normalizedCharacters": [
+            15915,
+            19867
+          ],
+          "fiveGramContainmentOfShorter": 0.027318,
+          "fiveGramJaccard": 0.012024
+        },
+        {
+          "pair": [
+            "T1884",
+            "T1885"
+          ],
+          "normalizedCharacters": [
+            11366,
+            19867
+          ],
+          "fiveGramContainmentOfShorter": 0.045122,
+          "fiveGramJaccard": 0.016444
+        },
+        {
+          "pair": [
+            "T1887A",
+            "T1887B"
+          ],
+          "normalizedCharacters": [
+            7445,
+            72468
+          ],
+          "fiveGramContainmentOfShorter": 0.767985,
+          "fiveGramJaccard": 0.077494
+        },
+        {
+          "pair": [
+            "T1907",
+            "T1908"
+          ],
+          "normalizedCharacters": [
+            4746,
+            1103
+          ],
+          "fiveGramContainmentOfShorter": 0.001842,
+          "fiveGramJaccard": 0.000348
+        },
+        {
+          "pair": [
+            "T1909",
+            "T1910"
+          ],
+          "normalizedCharacters": [
+            60097,
+            15169
+          ],
+          "fiveGramContainmentOfShorter": 0.023081,
+          "fiveGramJaccard": 0.005055
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T45",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002725",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000573",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000815",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002726",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000567",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000273",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004035",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004038",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004041",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000949",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002613",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002347",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002678",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000110",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001454",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001447",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001461",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001448",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001396",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001437",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001394",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001423",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001395",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001433",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003604",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001462",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001360",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001367a",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001367b",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001371",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001370",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002742",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001365",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001363",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001364",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001463",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001453",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000921",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001410",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001309",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001452",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003383",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001190",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001861",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003139",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002062",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003135",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001568",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002132",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002931",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001108",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001350",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003178",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003203",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001152",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001151",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000982",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000975",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002097",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000373",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000374"
+    ],
+    "caveat": "T45 是东亚三论、法相、华严、律仪与忏法著述集合，不是佛说经或单一印度根本文本集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分根本论—注疏、法界图—集注、同经号 a/b 与 A/B、复合责任、同作者异作、律仪功能和集撰或无署名忏法；共同宗派、题名、作者、引文或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1852",
+      "slug": "taisho-t1852",
+      "workId": "gbcr:work:taisho-t1852-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "三論玄義",
+      "sourceRole": "sinitic_madhyamaka_or_zhaolun_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_doctrinal_works_scope_distinct",
+          "groupId": "sanlun-doctrinal-works-t1852-t1855",
+          "label": "三论宗义著述的作品范围边界",
+          "evidence": "DILA 为 T1852–T1855 分配四个不同作品权威号；吉藏、硕法师的玄义、玄论、二谛义与游意义分别具有独立题名、责任和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1852",
+              "T1853",
+              "T1854",
+              "T1855"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1852.xml",
+      "upstreamPath": "T/T45/T45n1852.xml",
+      "upstreamGitBlobSha1": "421aa266ad41f0e90c56c4dc115c0d599b1fcdf4",
+      "upstreamBytes": 122274,
+      "upstreamSha256": "ac14736034f8b352dec54a7c9cc156e329562dea7b58abb5a09c4b927605dbcf",
+      "localBytes": 122275,
+      "localSha256": "4d3b7d0f21c8cef1e5359c5d3c001fa9514ee19b4b181c6b28e9abbc9e8ef567",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三論玄義",
+        "alternateTitle": "三論玄義",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1852",
+        "translator": "隋 · 吉藏撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1852_001"
+      },
+      "verification": {
+        "segments": 1217,
+        "folios": 43,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1852.001.0001a02",
+          "T1852.001.0015a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1853",
+      "slug": "taisho-t1853",
+      "workId": "gbcr:work:taisho-t1853-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "大乘玄論",
+      "sourceRole": "sinitic_madhyamaka_or_zhaolun_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_doctrinal_works_scope_distinct",
+          "groupId": "sanlun-doctrinal-works-t1852-t1855",
+          "label": "三论宗义著述的作品范围边界",
+          "evidence": "DILA 为 T1852–T1855 分配四个不同作品权威号；吉藏、硕法师的玄义、玄论、二谛义与游意义分别具有独立题名、责任和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1852",
+              "T1853",
+              "T1854",
+              "T1855"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1853.xml",
+      "upstreamPath": "T/T45/T45n1853.xml",
+      "upstreamGitBlobSha1": "81d183b5fd4445eabf1867aded23202299df4d26",
+      "upstreamBytes": 479650,
+      "upstreamSha256": "da2794b24adee7416621a13582665b24c87428f8c8ae455ef59ebc5af8e11e60",
+      "localBytes": 479651,
+      "localSha256": "f6d19bbfdf6cfa39e246a5812128132397b1731b3f61359cc93f30b168ec876a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘玄論",
+        "alternateTitle": "大乘玄論",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1853",
+        "translator": "隋 · 吉藏撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1853_001"
+      },
+      "verification": {
+        "segments": 5429,
+        "folios": 191,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T1853.001.0015a06",
+          "T1853.005.0077b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1854",
+      "slug": "taisho-t1854",
+      "workId": "gbcr:work:taisho-t1854-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "二諦義",
+      "sourceRole": "sinitic_madhyamaka_or_zhaolun_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_doctrinal_works_scope_distinct",
+          "groupId": "sanlun-doctrinal-works-t1852-t1855",
+          "label": "三论宗义著述的作品范围边界",
+          "evidence": "DILA 为 T1852–T1855 分配四个不同作品权威号；吉藏、硕法师的玄义、玄论、二谛义与游意义分别具有独立题名、责任和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1852",
+              "T1853",
+              "T1854",
+              "T1855"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1854.xml",
+      "upstreamPath": "T/T45/T45n1854.xml",
+      "upstreamGitBlobSha1": "6c498f7454804fedd58d8078cc628cf9e058858f",
+      "upstreamBytes": 341081,
+      "upstreamSha256": "29af0452901217086bdc7d39cbd7c9513b24d262ffd6da287b09d1c3fe8b3745",
+      "localBytes": 341082,
+      "localSha256": "aa17cc5c15c233885c61a5702f0eeb740aefff8be95bfa2c209130d23aa13adb",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "二諦義",
+        "alternateTitle": "二諦義",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1854",
+        "translator": "隋 · 吉藏撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 吉藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1854_001"
+      },
+      "verification": {
+        "segments": 3262,
+        "folios": 116,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1854.001.0077b25",
+          "T1854.003.0115a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1855",
+      "slug": "taisho-t1855",
+      "workId": "gbcr:work:taisho-t1855-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "三論遊意義",
+      "sourceRole": "sinitic_madhyamaka_or_zhaolun_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_doctrinal_works_scope_distinct",
+          "groupId": "sanlun-doctrinal-works-t1852-t1855",
+          "label": "三论宗义著述的作品范围边界",
+          "evidence": "DILA 为 T1852–T1855 分配四个不同作品权威号；吉藏、硕法师的玄义、玄论、二谛义与游意义分别具有独立题名、责任和全文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1852",
+              "T1853",
+              "T1854",
+              "T1855"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1855.xml",
+      "upstreamPath": "T/T45/T45n1855.xml",
+      "upstreamGitBlobSha1": "cd8d0d358ac032aa3901dceff7bfa56850c44483",
+      "upstreamBytes": 68231,
+      "upstreamSha256": "382e795bc5a8e166d2b6f8f287ca562768d025792cfb57a1d96b89142b1da1ac",
+      "localBytes": 68232,
+      "localSha256": "645c2f83d98cce747728b66b3a3c583edbac6a54b554fd532d95e634fe2d5772",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三論遊意義",
+        "alternateTitle": "三論遊意義",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1855",
+        "translator": "隋 · 碩法師撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 碩法師撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1855_001"
+      },
+      "verification": {
+        "segments": 563,
+        "folios": 20,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1855.001.0116a02",
+          "T1855.001.0122b14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1856",
+      "slug": "taisho-t1856",
+      "workId": "gbcr:work:taisho-t1856-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "鳩摩羅什法師大義",
+      "sourceRole": "sinitic_buddhist_epistolary_question_answer_collection",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_author_corpus_attribution_boundary",
+          "groupId": "sengzhao-corpus-boundary-t1856-t1858",
+          "label": "罗什—慧远问答与传统僧肇著述边界",
+          "evidence": "T1856 明署慧远问、罗什答；T1857 传统题署僧肇但现代真伪问题不能由题记解决；T1858 是另一部独立《肇论》。三者不因时代、人物或思想联系而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1856",
+              "T1857",
+              "T1858"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1856.xml",
+      "upstreamPath": "T/T45/T45n1856.xml",
+      "upstreamGitBlobSha1": "12d3ecd94011cc1c2835f273dbfa91c084c422f7",
+      "upstreamBytes": 238021,
+      "upstreamSha256": "e0c8a3ac589579836c1e690534d296e959bc782e36685aefde9b9f8dd6a8d8eb",
+      "localBytes": 238022,
+      "localSha256": "2de16555c8d7983bf6b4b70f78ea71d219056240f3ce81fd7e99eed77f909130",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "鳩摩羅什法師大義",
+        "alternateTitle": "鳩摩羅什法師大義",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1856",
+        "translator": "東晉 · 慧遠問．羅什答",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：東晉 慧遠問．羅什答。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1856_001"
+      },
+      "verification": {
+        "segments": 1813,
+        "folios": 66,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1856.001.0122b17",
+          "T1856.003.0143b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1857",
+      "slug": "taisho-t1857",
+      "workId": "gbcr:work:taisho-t1857-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_work_with_traditional_attribution_boundary",
+      "workTitle": "寶藏論",
+      "sourceRole": "sinitic_treatise_with_traditional_attribution_boundary",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_author_corpus_attribution_boundary",
+          "groupId": "sengzhao-corpus-boundary-t1856-t1858",
+          "label": "罗什—慧远问答与传统僧肇著述边界",
+          "evidence": "T1856 明署慧远问、罗什答；T1857 传统题署僧肇但现代真伪问题不能由题记解决；T1858 是另一部独立《肇论》。三者不因时代、人物或思想联系而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1856",
+              "T1857",
+              "T1858"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1857.xml",
+      "upstreamPath": "T/T45/T45n1857.xml",
+      "upstreamGitBlobSha1": "8ad276563740e571ffbd9a5a1c104b831ce1294b",
+      "upstreamBytes": 58941,
+      "upstreamSha256": "175e5568494e1923f29ca515e2afa5ac4a5c08e807fa9df4eec383975c0996ad",
+      "localBytes": 58942,
+      "localSha256": "f70993d6bf4b31c0fcadae538471c8ef2784f9df1370d4837302e2ab89019a9a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "寶藏論",
+        "alternateTitle": "寶藏論",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1857",
+        "translator": "後秦 · 僧肇著",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：後秦 僧肇著。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1857_001"
+      },
+      "verification": {
+        "segments": 585,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1857.001.0143b13",
+          "T1857.001.0150a18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1858",
+      "slug": "taisho-t1858",
+      "workId": "gbcr:work:taisho-t1858-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "肇論",
+      "sourceRole": "sinitic_zhaolun_root_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "traditional_author_corpus_attribution_boundary",
+          "groupId": "sengzhao-corpus-boundary-t1856-t1858",
+          "label": "罗什—慧远问答与传统僧肇著述边界",
+          "evidence": "T1856 明署慧远问、罗什答；T1857 传统题署僧肇但现代真伪问题不能由题记解决；T1858 是另一部独立《肇论》。三者不因时代、人物或思想联系而合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1856",
+              "T1857",
+              "T1858"
+            ]
+          }
+        },
+        {
+          "type": "commentaries_on_zhaolun_distinct",
+          "groupId": "zhaolun-commentaries-t1858-t1860",
+          "label": "《肇论》与元康、文才两部论疏",
+          "evidence": "DILA 的 T1858 权威记录明确关联 T1859、T1860，后两者也反向指向 T1858。两部疏各有独立责任、时代和正文，保留为根本文本上的不同注疏作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1858",
+              "T1859",
+              "T1860"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1858.xml",
+      "upstreamPath": "T/T45/T45n1858.xml",
+      "upstreamGitBlobSha1": "e53a2c322bba02f618c242a3fefbe3c75fdfe759",
+      "upstreamBytes": 161035,
+      "upstreamSha256": "134ed966a272fc519a2669324d0b57bbb72a048560569546186ec1e97ad2a5e1",
+      "localBytes": 161036,
+      "localSha256": "93c6db01749e0196d4387acd97b14b98183d11e528ea681a99f3c7386259abe7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "肇論",
+        "alternateTitle": "肇論",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1858",
+        "translator": "後秦 · 僧肇作",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：後秦 僧肇作。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1858_001"
+      },
+      "verification": {
+        "segments": 990,
+        "folios": 35,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1858.001.0150a21",
+          "T1858.001.0161b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1859",
+      "slug": "taisho-t1859",
+      "workId": "gbcr:work:taisho-t1859-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "肇論疏",
+      "sourceRole": "sinitic_authored_zhaolun_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_zhaolun_distinct",
+          "groupId": "zhaolun-commentaries-t1858-t1860",
+          "label": "《肇论》与元康、文才两部论疏",
+          "evidence": "DILA 的 T1858 权威记录明确关联 T1859、T1860，后两者也反向指向 T1858。两部疏各有独立责任、时代和正文，保留为根本文本上的不同注疏作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1858",
+              "T1859",
+              "T1860"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1859.xml",
+      "upstreamPath": "T/T45/T45n1859.xml",
+      "upstreamGitBlobSha1": "1c9557a5a65e86b5777c44cb645ee90a0f91bbbd",
+      "upstreamBytes": 429352,
+      "upstreamSha256": "db49569bf81ad6229ceca79cbd58b331bb836af37ef9300f72ccb9134e3f22d4",
+      "localBytes": 429353,
+      "localSha256": "eb1a74a5a7833fbf69fda3bae9eaf97af4fe1426b4c7e25e992e03819e07c057",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "肇論疏",
+        "alternateTitle": "肇論疏",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1859",
+        "translator": "唐 · 元康撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 元康撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1859_001"
+      },
+      "verification": {
+        "segments": 3409,
+        "folios": 120,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1859.001.0161c02",
+          "T1859.003.0200c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1860",
+      "slug": "taisho-t1860",
+      "workId": "gbcr:work:taisho-t1860-sanlun-zhaolun",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "肇論新疏",
+      "sourceRole": "sinitic_authored_zhaolun_new_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_zhaolun_distinct",
+          "groupId": "zhaolun-commentaries-t1858-t1860",
+          "label": "《肇论》与元康、文才两部论疏",
+          "evidence": "DILA 的 T1858 权威记录明确关联 T1859、T1860，后两者也反向指向 T1858。两部疏各有独立责任、时代和正文，保留为根本文本上的不同注疏作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1858",
+              "T1859",
+              "T1860"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1860.xml",
+      "upstreamPath": "T/T45/T45n1860.xml",
+      "upstreamGitBlobSha1": "c702cf811274137de7a1cd79db880c32a204afcb",
+      "upstreamBytes": 349135,
+      "upstreamSha256": "848a98ff3276496bedb9c72daa478b69573d6f9aa6859a920ec1838ffbb47ad7",
+      "localBytes": 349136,
+      "localSha256": "1e4faeb01718a7d0e084f23ddf81cd438dc0b0c44b1d88aa233f196ee82377a3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "肇論新疏",
+        "alternateTitle": "肇論新疏",
+        "tradition": "汉传佛教 · 三论与肇论著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1860",
+        "translator": "元 · 文才述",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：元 文才述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1860_001"
+      },
+      "verification": {
+        "segments": 3695,
+        "folios": 130,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1860.001.0201a02",
+          "T1860.003.0243b22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1861",
+      "slug": "taisho-t1861",
+      "workId": "gbcr:work:taisho-t1861-faxiang",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "大乘法苑義林章",
+      "sourceRole": "sinitic_yogacara_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_yogacara_works_scope_distinct",
+          "groupId": "faxiang-doctrinal-works-t1861-t1865",
+          "label": "法相宗义章、论辩、入道次第与补注边界",
+          "evidence": "DILA 为 T1861–T1865 分配五个独立权威号。共同法相术语、作者师承或八识主题不消除义章、论辩、修道次第和后世补注的范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1861",
+              "T1862",
+              "T1863",
+              "T1864",
+              "T1865"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1861.xml",
+      "upstreamPath": "T/T45/T45n1861.xml",
+      "upstreamGitBlobSha1": "3b6f48d2b98acaa7a1c799cfc3278ce93076c928",
+      "upstreamBytes": 1104078,
+      "upstreamSha256": "ad732a3f3b161d3bec494a2af990bfb1230428ac3eba273da4887bd5eef55c6d",
+      "localBytes": 1104079,
+      "localSha256": "c2c8829b67cf30466b04d9cfbbfdc9b59a23a5e8b89a7007ebdc678f53aab3b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘法苑義林章",
+        "alternateTitle": "大乘法苑義林章",
+        "tradition": "汉传佛教 · 法相宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1861",
+        "translator": "唐 · 窺基撰",
+        "summary": "7卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 窺基撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1861_001"
+      },
+      "verification": {
+        "segments": 11269,
+        "folios": 396,
+        "juanRange": [
+          1,
+          7
+        ],
+        "anchors": [
+          "T1861.001.0245a02",
+          "T1861.007.0374c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1862",
+      "slug": "taisho-t1862",
+      "workId": "gbcr:work:taisho-t1862-faxiang",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "勸發菩提心集",
+      "sourceRole": "sinitic_yogacara_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_yogacara_works_scope_distinct",
+          "groupId": "faxiang-doctrinal-works-t1861-t1865",
+          "label": "法相宗义章、论辩、入道次第与补注边界",
+          "evidence": "DILA 为 T1861–T1865 分配五个独立权威号。共同法相术语、作者师承或八识主题不消除义章、论辩、修道次第和后世补注的范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1861",
+              "T1862",
+              "T1863",
+              "T1864",
+              "T1865"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1862.xml",
+      "upstreamPath": "T/T45/T45n1862.xml",
+      "upstreamGitBlobSha1": "69f08f8b8859bb0191c8fbdbcf59a5969c819882",
+      "upstreamBytes": 301809,
+      "upstreamSha256": "09b496da224d7400edac39254b25286af067f6055a071456b5e698072fde9ae9",
+      "localBytes": 301810,
+      "localSha256": "aff5cc83909434b6714b2b4c95c244b3ba587a2ed0ad1caa106c7f97232efc06",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勸發菩提心集",
+        "alternateTitle": "勸發菩提心集",
+        "tradition": "汉传佛教 · 法相宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1862",
+        "translator": "唐 · 慧沼撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 慧沼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1862_001"
+      },
+      "verification": {
+        "segments": 2904,
+        "folios": 103,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1862.001.0375a02",
+          "T1862.003.0408b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1863",
+      "slug": "taisho-t1863",
+      "workId": "gbcr:work:taisho-t1863-faxiang",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "能顯中邊慧日論",
+      "sourceRole": "sinitic_yogacara_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_yogacara_works_scope_distinct",
+          "groupId": "faxiang-doctrinal-works-t1861-t1865",
+          "label": "法相宗义章、论辩、入道次第与补注边界",
+          "evidence": "DILA 为 T1861–T1865 分配五个独立权威号。共同法相术语、作者师承或八识主题不消除义章、论辩、修道次第和后世补注的范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1861",
+              "T1862",
+              "T1863",
+              "T1864",
+              "T1865"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1863.xml",
+      "upstreamPath": "T/T45/T45n1863.xml",
+      "upstreamGitBlobSha1": "920bc6c86598f1625b384bceefbdd94760634f0a",
+      "upstreamBytes": 775592,
+      "upstreamSha256": "b81094b59e84e065b71aa4270642bca0de98be4f24ff171ac38e7b09693b6a46",
+      "localBytes": 775593,
+      "localSha256": "e5e8e5d87426ae3f1a344780a0f27306a274e5188c2a3d5151e64ed020e361e2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "能顯中邊慧日論",
+        "alternateTitle": "能顯中邊慧日論",
+        "tradition": "汉传佛教 · 法相宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1863",
+        "translator": "唐 · 慧沼撰",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 慧沼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1863_001"
+      },
+      "verification": {
+        "segments": 3537,
+        "folios": 126,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1863.001.0408b20",
+          "T1863.004.0449b02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1864",
+      "slug": "taisho-t1864",
+      "workId": "gbcr:work:taisho-t1864-faxiang",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "大乘入道次第",
+      "sourceRole": "sinitic_yogacara_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_yogacara_works_scope_distinct",
+          "groupId": "faxiang-doctrinal-works-t1861-t1865",
+          "label": "法相宗义章、论辩、入道次第与补注边界",
+          "evidence": "DILA 为 T1861–T1865 分配五个独立权威号。共同法相术语、作者师承或八识主题不消除义章、论辩、修道次第和后世补注的范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1861",
+              "T1862",
+              "T1863",
+              "T1864",
+              "T1865"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1864.xml",
+      "upstreamPath": "T/T45/T45n1864.xml",
+      "upstreamGitBlobSha1": "5cbae059c3a0b26295bbba5ee6d11d4b7c40d1e7",
+      "upstreamBytes": 155088,
+      "upstreamSha256": "d2b06596ddd91611b61a9ad039931fb683900575558c945897ae89bd20473e16",
+      "localBytes": 155089,
+      "localSha256": "a94944bd251cfad1ac344d6dec8be4aed4eedbf0e702765245cc8367302809aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘入道次第",
+        "alternateTitle": "大乘入道次第",
+        "tradition": "汉传佛教 · 法相宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1864",
+        "translator": "唐 · 智周撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 智周撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1864_001"
+      },
+      "verification": {
+        "segments": 1602,
+        "folios": 56,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1864.001.0449b05",
+          "T1864.001.0467c12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1865",
+      "slug": "taisho-t1865",
+      "workId": "gbcr:work:taisho-t1865-faxiang",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "八識規矩補註",
+      "sourceRole": "sinitic_later_supplementary_yogacara_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "same_school_yogacara_works_scope_distinct",
+          "groupId": "faxiang-doctrinal-works-t1861-t1865",
+          "label": "法相宗义章、论辩、入道次第与补注边界",
+          "evidence": "DILA 为 T1861–T1865 分配五个独立权威号。共同法相术语、作者师承或八识主题不消除义章、论辩、修道次第和后世补注的范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1861",
+              "T1862",
+              "T1863",
+              "T1864",
+              "T1865"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1865.xml",
+      "upstreamPath": "T/T45/T45n1865.xml",
+      "upstreamGitBlobSha1": "8c22b05374f7bf6c5280dd536185a6760ed316d4",
+      "upstreamBytes": 72527,
+      "upstreamSha256": "ad34a00c38f53e27e56ff8831efa81ab90e451d56d374449df4c4a4d907991ce",
+      "localBytes": 72528,
+      "localSha256": "7029ac295bc3711a0ec60dc62e76d574286386646bc63af6c0a63b5e145d8648",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "八識規矩補註",
+        "alternateTitle": "八識規矩補註",
+        "tradition": "汉传佛教 · 法相宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1865",
+        "translator": "明 · 普泰補註",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：明 普泰補註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1865_001"
+      },
+      "verification": {
+        "segments": 741,
+        "folios": 28,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1865.001.0467c15",
+          "T1865.002.0476b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1866",
+      "slug": "taisho-t1866",
+      "workId": "gbcr:work:taisho-t1866-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴一乘教義分齊章",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1866.xml",
+      "upstreamPath": "T/T45/T45n1866.xml",
+      "upstreamGitBlobSha1": "509b30ba6fe2b0f04b44bcd2ce8c8545609f47b6",
+      "upstreamBytes": 1036643,
+      "upstreamSha256": "9fc63a8fa54474ab40921bdf576b695e7288ed028f8b520358aaf603fe2a33bf",
+      "localBytes": 1036644,
+      "localSha256": "ecc92cd41289de676b52d5758a3e95f808473a1fe51203b1795ea1a56034f7aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴一乘教義分齊章",
+        "alternateTitle": "華嚴一乘教義分齊章",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1866",
+        "translator": "唐 · 法藏述",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1866_001"
+      },
+      "verification": {
+        "segments": 2688,
+        "folios": 98,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1866.001.0477a02",
+          "T1866.004.0509a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1867",
+      "slug": "taisho-t1867",
+      "workId": "gbcr:work:taisho-t1867-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴五教止觀",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "layered_traditional_attribution_recorded",
+          "groupId": "dushun-zhiyan-layered-attribution-t1867-t1868",
+          "label": "杜顺说与智俨撰的复合传承责任",
+          "evidence": "T1867 传统题署杜顺说；T1868 题署杜顺说、智俨撰。平台保存“说—撰”两层责任，不压平成单一作者，也不据同宗同题自动合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1867",
+              "T1868"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1867.xml",
+      "upstreamPath": "T/T45/T45n1867.xml",
+      "upstreamGitBlobSha1": "2b1d99f4b1730d2ae1d6990ed24f40aadc3a2e30",
+      "upstreamBytes": 60964,
+      "upstreamSha256": "09dcfef124709adc0a8dd2c893f33974f6686ef8e0e6e3e59d22c61c464f784b",
+      "localBytes": 60965,
+      "localSha256": "393c7772dc75ec9f00b759ba0cb8d19d3fbdb32f71d469bfc81bc916a8f43a0e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴五教止觀",
+        "alternateTitle": "華嚴五教止觀",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1867",
+        "translator": "隋 · 杜順說",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 杜順說。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1867_001"
+      },
+      "verification": {
+        "segments": 435,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1867.001.0509a07",
+          "T1867.001.0514a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1868",
+      "slug": "taisho-t1868",
+      "workId": "gbcr:work:taisho-t1868-huayan",
+      "workIdentityStatus": "verified_distinct_layered_attribution_work",
+      "workTitle": "華嚴一乘十玄門",
+      "sourceRole": "sinitic_layered_huayan_teaching_and_composition",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "layered_traditional_attribution_recorded",
+          "groupId": "dushun-zhiyan-layered-attribution-t1867-t1868",
+          "label": "杜顺说与智俨撰的复合传承责任",
+          "evidence": "T1867 传统题署杜顺说；T1868 题署杜顺说、智俨撰。平台保存“说—撰”两层责任，不压平成单一作者，也不据同宗同题自动合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1867",
+              "T1868"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1868.xml",
+      "upstreamPath": "T/T45/T45n1868.xml",
+      "upstreamGitBlobSha1": "1d5b3b91930869d53ba57b07e819ad24cc489797",
+      "upstreamBytes": 46429,
+      "upstreamSha256": "e7c744e304eda5024e72c7c9682747463e3edf5032ab5e5c21ce055bb4db0075",
+      "localBytes": 46430,
+      "localSha256": "ed3ee267adc3ae4ce8b78bc49fde8a8043231eb7fddde161e3132205f01ffc54",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴一乘十玄門",
+        "alternateTitle": "華嚴一乘十玄門",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1868",
+        "translator": "隋 · 杜順說．唐 · 智儼撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：隋 杜順說．唐 智儼撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1868_001"
+      },
+      "verification": {
+        "segments": 407,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1868.001.0514a20",
+          "T1868.001.0518c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1869",
+      "slug": "taisho-t1869",
+      "workId": "gbcr:work:taisho-t1869-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴五十要問答",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1869.xml",
+      "upstreamPath": "T/T45/T45n1869.xml",
+      "upstreamGitBlobSha1": "310f76f7b642360a2a41b47901d903e3bbbf0222",
+      "upstreamBytes": 169283,
+      "upstreamSha256": "ef1df7be4f071464234f0b40bfee36a51e81338a35a178e7f186a17c5d48290d",
+      "localBytes": 169284,
+      "localSha256": "24a05124cc678ff4b47cffe1cca799d2a5717b8d616298a8f3166aeac68748d5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴五十要問答",
+        "alternateTitle": "華嚴五十要問答",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1869",
+        "translator": "唐 · 智儼集",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 智儼集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1869_001"
+      },
+      "verification": {
+        "segments": 1521,
+        "folios": 54,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1869.001.0519a02",
+          "T1869.002.0536b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1870",
+      "slug": "taisho-t1870",
+      "workId": "gbcr:work:taisho-t1870-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴經內章門等雜孔目章",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1870.xml",
+      "upstreamPath": "T/T45/T45n1870.xml",
+      "upstreamGitBlobSha1": "aa7a8aaf5697258c4926231a18addbe61dfe6867",
+      "upstreamBytes": 448786,
+      "upstreamSha256": "d9c238ca3bb58c14bad24ae3d0a96ed738732b15c55fc2ed75fe768c32f2476e",
+      "localBytes": 448787,
+      "localSha256": "164ec103cf72189304dcf559782b6758eca47226ccc872cc9b6ce2b56493f793",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經內章門等雜孔目章",
+        "alternateTitle": "華嚴經內章門等雜孔目章",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1870",
+        "translator": "唐 · 智儼集",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 智儼集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1870_001"
+      },
+      "verification": {
+        "segments": 4575,
+        "folios": 162,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T1870.001.0536c02",
+          "T1870.004.0589b25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1871",
+      "slug": "taisho-t1871",
+      "workId": "gbcr:work:taisho-t1871-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴經旨歸",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1871.xml",
+      "upstreamPath": "T/T45/T45n1871.xml",
+      "upstreamGitBlobSha1": "f6331de9c98e6cf4af3bfe9e8413687c30b51327",
+      "upstreamBytes": 106000,
+      "upstreamSha256": "c675d32c5c72a3f64a6284de36e35db6c2017dadca834d067270753965bed2ea",
+      "localBytes": 106001,
+      "localSha256": "619b4531c2677cb6633d74cf6affce350150904030350b8808c7e20f992bdccf",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經旨歸",
+        "alternateTitle": "華嚴經旨歸",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1871",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1871_001"
+      },
+      "verification": {
+        "segments": 632,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1871.001.0589c02",
+          "T1871.001.0596c25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1872",
+      "slug": "taisho-t1872",
+      "workId": "gbcr:work:taisho-t1872-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴策林",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1872.xml",
+      "upstreamPath": "T/T45/T45n1872.xml",
+      "upstreamGitBlobSha1": "3c58722af96eaa0450032cdff023e95802702151",
+      "upstreamBytes": 33063,
+      "upstreamSha256": "685d8195cfba8f80b4d3fcac082b19cacada57a0a2514cc07d9c68a51955c7b2",
+      "localBytes": 33064,
+      "localSha256": "50ab308b2ebeda6b957cdceb72e75ee0dd56c67fe267fb54f1f1be86b40e1c29",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴策林",
+        "alternateTitle": "華嚴策林",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1872",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1872_001"
+      },
+      "verification": {
+        "segments": 128,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1872.001.0597a02",
+          "T1872.001.0598b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1873",
+      "slug": "taisho-t1873",
+      "workId": "gbcr:work:taisho-t1873-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴經問答",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1873.xml",
+      "upstreamPath": "T/T45/T45n1873.xml",
+      "upstreamGitBlobSha1": "1afc9012fa42f2507a7b2a101aed8c7679012138",
+      "upstreamBytes": 299147,
+      "upstreamSha256": "9784607966a74ed2c2297afc8ba302b3a19929b01b81ad361b65d18b6ad98637",
+      "localBytes": 299148,
+      "localSha256": "648d85317a6d2de805ceb4e51417b9dcd1e231e026e62664dd7693b8675f91b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經問答",
+        "alternateTitle": "華嚴經問答",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1873",
+        "translator": "唐 · 法藏撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1873_001"
+      },
+      "verification": {
+        "segments": 1241,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1873.001.0598b18",
+          "T1873.002.0612c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1874",
+      "slug": "taisho-t1874",
+      "workId": "gbcr:work:taisho-t1874-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴經明法品內立三寶章",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1874.xml",
+      "upstreamPath": "T/T45/T45n1874.xml",
+      "upstreamGitBlobSha1": "814006ec111eaf3b2db29da0a6595fdb219ff495",
+      "upstreamBytes": 106284,
+      "upstreamSha256": "920344c2440687b7079317eae11de716bed457bf504854e686e999036836435c",
+      "localBytes": 106285,
+      "localSha256": "f2abf4b3736b285ee69ffe384d6688a24276543fd10d64d6645179b92aa453ce",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經明法品內立三寶章",
+        "alternateTitle": "華嚴經明法品內立三寶章",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1874",
+        "translator": "唐 · 法藏述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1874_001"
+      },
+      "verification": {
+        "segments": 1174,
+        "folios": 42,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1874.001.0613a02",
+          "T1874.002.0626b20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1875",
+      "slug": "taisho-t1875",
+      "workId": "gbcr:work:taisho-t1875-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴經義海百門",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1875.xml",
+      "upstreamPath": "T/T45/T45n1875.xml",
+      "upstreamGitBlobSha1": "11566c0486d33f3fd0a14da1beccb5711476a979",
+      "upstreamBytes": 83860,
+      "upstreamSha256": "5e06e19c8ae0826b381f839e46c924ccab6dabb9b3aa8e4994679a0359bff8a4",
+      "localBytes": 83861,
+      "localSha256": "46401974e5029e05f464386b7c028313dab6ec3c01d752a4d34044a809e98cb4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經義海百門",
+        "alternateTitle": "華嚴經義海百門",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1875",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1875_001"
+      },
+      "verification": {
+        "segments": 858,
+        "folios": 30,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1875.001.0627a02",
+          "T1875.001.0636c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1876",
+      "slug": "taisho-t1876",
+      "workId": "gbcr:work:taisho-t1876-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "修華嚴奧旨妄盡還源觀",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1876.xml",
+      "upstreamPath": "T/T45/T45n1876.xml",
+      "upstreamGitBlobSha1": "35e195f63e34eeef3ec6e3b11315a46cacb124f8",
+      "upstreamBytes": 62741,
+      "upstreamSha256": "5e045fd5f9bde2035d50a5bbbab3ac74c108c3e0a0ab3afe325ba8f3556b76d6",
+      "localBytes": 62742,
+      "localSha256": "67fcb68dcb1f62878701430928fb79149f8d05c5763ccf477286aae514f6acd2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "修華嚴奧旨妄盡還源觀",
+        "alternateTitle": "修華嚴奧旨妄盡還源觀",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1876",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1876_001"
+      },
+      "verification": {
+        "segments": 379,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1876.001.0637a02",
+          "T1876.001.0641a30"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1877",
+      "slug": "taisho-t1877",
+      "workId": "gbcr:work:taisho-t1877-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴遊心法界記",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1877.xml",
+      "upstreamPath": "T/T45/T45n1877.xml",
+      "upstreamGitBlobSha1": "7f3d9207c061de94fe3cdd17cf4529d193be6f5b",
+      "upstreamBytes": 82053,
+      "upstreamSha256": "ef61333de6b9bf58201dc8799597d5317d836fe49e36aee9205a8cf9831acff7",
+      "localBytes": 82054,
+      "localSha256": "746812281a5bbb2205b3f94898d3485180d510e619d3f4edf39c5391b8ec197f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴遊心法界記",
+        "alternateTitle": "華嚴遊心法界記",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1877",
+        "translator": "唐 · 法藏撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1877_001"
+      },
+      "verification": {
+        "segments": 822,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1877.001.0641b02",
+          "T1877.001.0650c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1878",
+      "slug": "taisho-t1878",
+      "workId": "gbcr:work:taisho-t1878-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴發菩提心章",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1878.xml",
+      "upstreamPath": "T/T45/T45n1878.xml",
+      "upstreamGitBlobSha1": "7022302f2dad6489d7364699f4b28c9becfbae74",
+      "upstreamBytes": 61280,
+      "upstreamSha256": "4d0efa40894078cac77487b18ef72254b4faa1da44539f8edc49fa571ac44556",
+      "localBytes": 61281,
+      "localSha256": "b61fb17316df36ab5f3ec1d13d474808965cc593a72a9dd891bd6865792d9547",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴發菩提心章",
+        "alternateTitle": "華嚴發菩提心章",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1878",
+        "translator": "唐 · 法藏述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1878_001"
+      },
+      "verification": {
+        "segments": 452,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1878.001.0650c19",
+          "T1878.001.0656a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1879a",
+      "slug": "taisho-t1879a",
+      "workId": "gbcr:work:taisho-t1879a-huayan",
+      "workIdentityStatus": "verified_distinct_same_number_related_work",
+      "workTitle": "華嚴經關脈義記",
+      "sourceRole": "sinitic_authored_huayan_guanmai_work_a",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        },
+        {
+          "type": "same_number_related_works_not_merged",
+          "groupId": "huayan-guanmai-boundary-t1879a-t1879b",
+          "label": "T1879a、T1879b 两部关脉义记边界",
+          "evidence": "两份来源拥有不同 DILA 权威号、不同题名责任字段、相邻但不重合的版页范围和独立正文；五字组重叠只记录文本关系，不足以把 a/b 合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1879a",
+              "T1879b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1879a.xml",
+      "upstreamPath": "T/T45/T45n1879a.xml",
+      "upstreamGitBlobSha1": "d84721d22923dc321ed0a987f641fcd1bb7318df",
+      "upstreamBytes": 28445,
+      "upstreamSha256": "e2b7dcdecd0a0cb73204cfda9344370f9806ba799771645550a481b694b86dc9",
+      "localBytes": 28446,
+      "localSha256": "0e1c65208bef98b8e8cb119ac7125f3ba288d85d18150140c3508f10c2bbc903",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經關脈義記",
+        "alternateTitle": "華嚴經關脈義記",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1879a",
+        "translator": "唐 · 法藏撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1879a_001"
+      },
+      "verification": {
+        "segments": 283,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1879a.001.0656a13",
+          "T1879a.001.0659b06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1879b",
+      "slug": "taisho-t1879b",
+      "workId": "gbcr:work:taisho-t1879b-huayan",
+      "workIdentityStatus": "verified_distinct_same_number_related_unsigned_work",
+      "workTitle": "華嚴關脈義記",
+      "sourceRole": "unsigned_huayan_guanmai_work_b",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        },
+        {
+          "type": "same_number_related_works_not_merged",
+          "groupId": "huayan-guanmai-boundary-t1879a-t1879b",
+          "label": "T1879a、T1879b 两部关脉义记边界",
+          "evidence": "两份来源拥有不同 DILA 权威号、不同题名责任字段、相邻但不重合的版页范围和独立正文；五字组重叠只记录文本关系，不足以把 a/b 合并为同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1879a",
+              "T1879b"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1879b.xml",
+      "upstreamPath": "T/T45/T45n1879b.xml",
+      "upstreamGitBlobSha1": "1bf6b0d3427522be390eca9e73d84870977b0f1e",
+      "upstreamBytes": 43742,
+      "upstreamSha256": "69a96863b30cf23af1a0109d3527344858a233f7b0c904a9d5fa8c2be5d057bb",
+      "localBytes": 43743,
+      "localSha256": "513aae9b595e2bcfd41c806245d675a8c5f393292ae06d651804588b397590b2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴關脈義記",
+        "alternateTitle": "華嚴關脈義記",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1879b",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1879b_001"
+      },
+      "verification": {
+        "segments": 310,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1879b.001.0659b09",
+          "T1879b.001.0663a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1880",
+      "slug": "taisho-t1880",
+      "workId": "gbcr:work:taisho-t1880-huayan",
+      "workIdentityStatus": "verified_distinct_layered_commentary_work",
+      "workTitle": "金師子章雲間類解",
+      "sourceRole": "sinitic_layered_golden_lion_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_golden_lion_treatise_distinct",
+          "groupId": "golden-lion-commentaries-t1880-t1881",
+          "label": "法藏《金师子章》与净源、承迁两种解释层",
+          "evidence": "DILA 从 T1880 关联 T1881；两份 TEI 分别明署净源述和承迁注，并保存法藏根本文本责任。它们是相关但不同的注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1880.xml",
+      "upstreamPath": "T/T45/T45n1880.xml",
+      "upstreamGitBlobSha1": "d759e0bf66deffe75ea03eac7d1caee3c099b8d6",
+      "upstreamBytes": 33790,
+      "upstreamSha256": "5bff9bfd6440231384422834806aa5ee84d662fba4c339e13e037d9c6bcbe104",
+      "localBytes": 33791,
+      "localSha256": "a3e90ca29869fc61b26fefaca77bb36ced199bd986308d99effb0adc55dda214",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金師子章雲間類解",
+        "alternateTitle": "金師子章雲間類解",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1880",
+        "translator": "唐 · 法藏撰．宋 · 淨源述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏撰．宋 淨源述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1880_001"
+      },
+      "verification": {
+        "segments": 349,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1880.001.0663a04",
+          "T1880.001.0667a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1881",
+      "slug": "taisho-t1881",
+      "workId": "gbcr:work:taisho-t1881-huayan",
+      "workIdentityStatus": "verified_distinct_layered_commentary_work",
+      "workTitle": "華嚴經金師子章註",
+      "sourceRole": "sinitic_layered_golden_lion_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "same_author_huayan_works_scope_distinct",
+          "groupId": "fazang-huayan-works-t1866-t1881",
+          "label": "法藏华严著述与后世注释范围边界",
+          "evidence": "T1866 及 T1871–T1881 中多部传统题署法藏，T1880、T1881 又分别保存净源述、承迁注的后出解释层。同一传统作者或根本文本不能消除各部作品和注释层。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_golden_lion_treatise_distinct",
+          "groupId": "golden-lion-commentaries-t1880-t1881",
+          "label": "法藏《金师子章》与净源、承迁两种解释层",
+          "evidence": "DILA 从 T1880 关联 T1881；两份 TEI 分别明署净源述和承迁注，并保存法藏根本文本责任。它们是相关但不同的注释作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1880",
+              "T1881"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1881.xml",
+      "upstreamPath": "T/T45/T45n1881.xml",
+      "upstreamGitBlobSha1": "ad6e1a16249951e8ffc05fec995d4570248c89b0",
+      "upstreamBytes": 156389,
+      "upstreamSha256": "8d3e408cfcf2ace874cb36a0687105f3abe4dac90d17fcc5a32114f1f90122f9",
+      "localBytes": 156390,
+      "localSha256": "334ba820c929fd0f70a4bce84faa5780a9ef52dee7409e1a26afca145a8a40d2",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴經金師子章註",
+        "alternateTitle": "華嚴經金師子章註",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1881",
+        "translator": "唐 · 法藏撰．宋 · 承遷註",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 法藏撰．宋 承遷註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1881_001"
+      },
+      "verification": {
+        "segments": 305,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1881.001.0667a08",
+          "T1881.001.0670c17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1882",
+      "slug": "taisho-t1882",
+      "workId": "gbcr:work:taisho-t1882-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "三聖圓融觀門",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "huayan_dharmadhatu_contemplation_works_distinct",
+          "groupId": "huayan-dharmadhatu-contemplation-t1882-t1885",
+          "label": "华严法界观门的玄镜、注释与颂释边界",
+          "evidence": "T1882–T1885 各有独立 DILA 权威号；澄观玄镜、宗密注和本嵩述—琮湛注的颂释具有不同文本对象、责任层与结构，不按共享法界观术语合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1882.xml",
+      "upstreamPath": "T/T45/T45n1882.xml",
+      "upstreamGitBlobSha1": "9cac2f1ffbd6b826d6b56a412e1f585c4ed69c23",
+      "upstreamBytes": 15537,
+      "upstreamSha256": "9f3f3dc553b9433c300b1b4d36b6616f7e409ffd83232cf6c737e77e16875af3",
+      "localBytes": 15538,
+      "localSha256": "6bcd94a04cba9f93389262cdc49b6fa22388d8087c827420a5787c51d5e9451e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三聖圓融觀門",
+        "alternateTitle": "三聖圓融觀門",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1882",
+        "translator": "唐 · 澄觀述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 澄觀述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1882_001"
+      },
+      "verification": {
+        "segments": 93,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1882.001.0671a02",
+          "T1882.001.0672a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1883",
+      "slug": "taisho-t1883",
+      "workId": "gbcr:work:taisho-t1883-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴法界玄鏡",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "huayan_dharmadhatu_contemplation_works_distinct",
+          "groupId": "huayan-dharmadhatu-contemplation-t1882-t1885",
+          "label": "华严法界观门的玄镜、注释与颂释边界",
+          "evidence": "T1882–T1885 各有独立 DILA 权威号；澄观玄镜、宗密注和本嵩述—琮湛注的颂释具有不同文本对象、责任层与结构，不按共享法界观术语合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1883.xml",
+      "upstreamPath": "T/T45/T45n1883.xml",
+      "upstreamGitBlobSha1": "a1f9eb16461af2982ba18310ae7fadce4f298172",
+      "upstreamBytes": 91116,
+      "upstreamSha256": "bc9d661eb40f5b39d922ab31f78d8c3248f89503a9c1f494df573f3c513598b2",
+      "localBytes": 91117,
+      "localSha256": "9f219cdd83d6c94eddbdd771396ef990f8ed4583e137cddb71b4759700ef5f5b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴法界玄鏡",
+        "alternateTitle": "華嚴法界玄鏡",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1883",
+        "translator": "唐 · 澄觀述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 澄觀述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1883_001"
+      },
+      "verification": {
+        "segments": 968,
+        "folios": 35,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1883.001.0672a11",
+          "T1883.002.0683a25"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1884",
+      "slug": "taisho-t1884",
+      "workId": "gbcr:work:taisho-t1884-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "註華嚴法界觀門",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "huayan_dharmadhatu_contemplation_works_distinct",
+          "groupId": "huayan-dharmadhatu-contemplation-t1882-t1885",
+          "label": "华严法界观门的玄镜、注释与颂释边界",
+          "evidence": "T1882–T1885 各有独立 DILA 权威号；澄观玄镜、宗密注和本嵩述—琮湛注的颂释具有不同文本对象、责任层与结构，不按共享法界观术语合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1884.xml",
+      "upstreamPath": "T/T45/T45n1884.xml",
+      "upstreamGitBlobSha1": "a5dec9ed60c24b45f6c2e7e6283560deb147eedb",
+      "upstreamBytes": 152011,
+      "upstreamSha256": "9bcf4be24887bb7b1bae56aa7dcab418a367ed1a09f0cdb6ccc98bd929c0d69f",
+      "localBytes": 152012,
+      "localSha256": "5ccd7aa9f4cbbe26b0d5548fd6b050536f52a957492f1e1f9f42a3f8c307a4ff",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "註華嚴法界觀門",
+        "alternateTitle": "註華嚴法界觀門",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1884",
+        "translator": "唐 · 宗密註",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 宗密註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1884_001"
+      },
+      "verification": {
+        "segments": 785,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1884.001.0683b01",
+          "T1884.001.0692b08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1885",
+      "slug": "taisho-t1885",
+      "workId": "gbcr:work:taisho-t1885-huayan",
+      "workIdentityStatus": "verified_distinct_layered_commentary_work",
+      "workTitle": "註華嚴經題法界觀門頌",
+      "sourceRole": "sinitic_layered_huayan_verse_and_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "huayan_dharmadhatu_contemplation_works_distinct",
+          "groupId": "huayan-dharmadhatu-contemplation-t1882-t1885",
+          "label": "华严法界观门的玄镜、注释与颂释边界",
+          "evidence": "T1882–T1885 各有独立 DILA 权威号；澄观玄镜、宗密注和本嵩述—琮湛注的颂释具有不同文本对象、责任层与结构，不按共享法界观术语合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1885.xml",
+      "upstreamPath": "T/T45/T45n1885.xml",
+      "upstreamGitBlobSha1": "6a1a5d249936022b36dc0101a8c57353e05eba6e",
+      "upstreamBytes": 124614,
+      "upstreamSha256": "f3d5b8e5d3467cf5b7d8529fbbce218e45b4c867ecceb8c5e2aa474493616863",
+      "localBytes": 124615,
+      "localSha256": "9aa92084c1d3afa4522399a39c8b6326fa06ca0b5e3b0855c961dece9702e36d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "註華嚴經題法界觀門頌",
+        "alternateTitle": "註華嚴經題法界觀門頌",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1885",
+        "translator": "宋 · 本嵩述．琮湛註",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 本嵩述．琮湛註。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1885_001"
+      },
+      "verification": {
+        "segments": 1331,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1885.001.0692b11",
+          "T1885.002.0707c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1886",
+      "slug": "taisho-t1886",
+      "workId": "gbcr:work:taisho-t1886-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "原人論",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1886.xml",
+      "upstreamPath": "T/T45/T45n1886.xml",
+      "upstreamGitBlobSha1": "25043b564f0e41c59ff652e413cbdc938a572269",
+      "upstreamBytes": 55296,
+      "upstreamSha256": "754d6a7b2d842243ff4e56ac46618d281b68f2c41244814e04acf9b3442bb5d6",
+      "localBytes": 55297,
+      "localSha256": "cf167ceee4f17bb6367c3c07e33864bb0be7dd5f320d5dc40e89972a03e73145",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "原人論",
+        "alternateTitle": "原人論",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1886",
+        "translator": "唐 · 宗密述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 宗密述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1886_001"
+      },
+      "verification": {
+        "segments": 233,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1886.001.0707c21",
+          "T1886.001.0710c26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1887A",
+      "slug": "taisho-t1887a",
+      "workId": "gbcr:work:taisho-t1887a-huayan",
+      "workIdentityStatus": "verified_distinct_root_doctrinal_diagram_work",
+      "workTitle": "華嚴一乘法界圖",
+      "sourceRole": "silla_huayan_dharmadhatu_diagram_root_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_huayan_dharmadhatu_diagram_distinct",
+          "groupId": "huayan-dharmadhatu-diagram-t1887a-t1887b",
+          "label": "义湘《华严一乘法界图》与《法界图记丛髓录》",
+          "evidence": "DILA 将 T1887A、T1887B 互列相关。A 是义湘法界图根本文本，B 是四分卷编码的后出集注；高包含重叠反映引文依赖，不是同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B"
+            ]
+          }
+        },
+        {
+          "type": "silla_huayan_works_related_distinct",
+          "groupId": "silla-huayan-works-t1887a-t1890",
+          "label": "新罗华严著述范围边界",
+          "evidence": "T1887A、T1887B、T1889、T1890 在新罗华严传统中相关，但义湘法界图、丛髓录、明皛论和见登集具有不同责任与作品范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B",
+              "T1889",
+              "T1890"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1887A.xml",
+      "upstreamPath": "T/T45/T45n1887A.xml",
+      "upstreamGitBlobSha1": "3028d1d2c38302dfed9543b687b4d5dd07a719c0",
+      "upstreamBytes": 103977,
+      "upstreamSha256": "f1f14c4bca2fac0dfb500488c2df20933f52484b741e6f91cf01abb7d4bcd384",
+      "localBytes": 103978,
+      "localSha256": "30de2983cc11b8c84f2c8c225101cc4e32e5797bc83fcbff265c81f360294d76",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴一乘法界圖",
+        "alternateTitle": "華嚴一乘法界圖",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1887A",
+        "translator": "新羅 · 義湘撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 義湘撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1887A_001"
+      },
+      "verification": {
+        "segments": 469,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1887A.001.0711a02",
+          "T1887A.001.0716a20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1887B",
+      "slug": "taisho-t1887b",
+      "workId": "gbcr:work:taisho-t1887b-huayan",
+      "workIdentityStatus": "verified_distinct_subcommentary_compendium",
+      "workTitle": "法界圖記叢髓錄",
+      "sourceRole": "east_asian_huayan_dharmadhatu_diagram_subcommentary_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "subcommentary_on_huayan_dharmadhatu_diagram_distinct",
+          "groupId": "huayan-dharmadhatu-diagram-t1887a-t1887b",
+          "label": "义湘《华严一乘法界图》与《法界图记丛髓录》",
+          "evidence": "DILA 将 T1887A、T1887B 互列相关。A 是义湘法界图根本文本，B 是四分卷编码的后出集注；高包含重叠反映引文依赖，不是同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B"
+            ]
+          }
+        },
+        {
+          "type": "silla_huayan_works_related_distinct",
+          "groupId": "silla-huayan-works-t1887a-t1890",
+          "label": "新罗华严著述范围边界",
+          "evidence": "T1887A、T1887B、T1889、T1890 在新罗华严传统中相关，但义湘法界图、丛髓录、明皛论和见登集具有不同责任与作品范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B",
+              "T1889",
+              "T1890"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1887B.xml",
+      "upstreamPath": "T/T45/T45n1887B.xml",
+      "upstreamGitBlobSha1": "9692f39eb60628a8d331c74fb92efe9be120c726",
+      "upstreamBytes": 429321,
+      "upstreamSha256": "d802fc120513d6004f6b578294345c44367e7b8c96f1d2620259dadf5ca4d9b9",
+      "localBytes": 429322,
+      "localSha256": "2ccb1c66a06b92267c92dc485b8b19ae03d6c8048a8a37755703835625461d21",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法界圖記叢髓錄",
+        "alternateTitle": "法界圖記叢髓錄",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1887B",
+        "translator": "传统责任题记未署名",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1887B_001"
+      },
+      "verification": {
+        "segments": 4481,
+        "folios": 157,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1887B.001.0716a23",
+          "T1887B.002.0767c20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1888",
+      "slug": "taisho-t1888",
+      "workId": "gbcr:work:taisho-t1888-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "解迷顯智成悲十明論",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1888.xml",
+      "upstreamPath": "T/T45/T45n1888.xml",
+      "upstreamGitBlobSha1": "840a643f231dd5484852e9d37e6e5b90a2d6b626",
+      "upstreamBytes": 51412,
+      "upstreamSha256": "45a3b3f83b944f93fa0b7bb21b1956da47f6222a78ff6eb5c2b9fc0be72974b3",
+      "localBytes": 51413,
+      "localSha256": "826e743a711d2789d4f19c1d593a3527274af7074de9c0494f8ea81b00b93216",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "解迷顯智成悲十明論",
+        "alternateTitle": "解迷顯智成悲十明論",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1888",
+        "translator": "唐 · 李通玄撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 李通玄撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1888_001"
+      },
+      "verification": {
+        "segments": 506,
+        "folios": 19,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1888.001.0767c23",
+          "T1888.001.0773c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1889",
+      "slug": "taisho-t1889",
+      "workId": "gbcr:work:taisho-t1889-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "海印三昧論",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "silla_huayan_works_related_distinct",
+          "groupId": "silla-huayan-works-t1887a-t1890",
+          "label": "新罗华严著述范围边界",
+          "evidence": "T1887A、T1887B、T1889、T1890 在新罗华严传统中相关，但义湘法界图、丛髓录、明皛论和见登集具有不同责任与作品范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B",
+              "T1889",
+              "T1890"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1889.xml",
+      "upstreamPath": "T/T45/T45n1889.xml",
+      "upstreamGitBlobSha1": "63d35e63f7f6a97140cd94ebf5a5d611c09a24e3",
+      "upstreamBytes": 24744,
+      "upstreamSha256": "0185d2ca80b238780c3d188ccdb96ce8a93f459876a678fdcc441458c6457ee9",
+      "localBytes": 24745,
+      "localSha256": "3e43fa762b0a574a1a899d3ce67c3f7b7c3af8f1df4a7f4a96a0e86c45e431b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "海印三昧論",
+        "alternateTitle": "海印三昧論",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1889",
+        "translator": "新羅 · 明皛述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 明皛述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1889_001"
+      },
+      "verification": {
+        "segments": 165,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1889.001.0773c18",
+          "T1889.001.0775b26"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1890",
+      "slug": "taisho-t1890",
+      "workId": "gbcr:work:taisho-t1890-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "華嚴一乘成佛妙義",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        },
+        {
+          "type": "silla_huayan_works_related_distinct",
+          "groupId": "silla-huayan-works-t1887a-t1890",
+          "label": "新罗华严著述范围边界",
+          "evidence": "T1887A、T1887B、T1889、T1890 在新罗华严传统中相关，但义湘法界图、丛髓录、明皛论和见登集具有不同责任与作品范围。",
+          "externalIds": {
+            "cbeta": [
+              "T1887A",
+              "T1887B",
+              "T1889",
+              "T1890"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1890.xml",
+      "upstreamPath": "T/T45/T45n1890.xml",
+      "upstreamGitBlobSha1": "2feeebce09350ff1296781d1795b41250c7f6550",
+      "upstreamBytes": 178705,
+      "upstreamSha256": "b971537245cacdeb39077575bb07655a73322238ae18b78ca03cde3a94e342c1",
+      "localBytes": 178706,
+      "localSha256": "9a765e2465ba5a9e4d464646c740ad0a4e490c5b3b09634ae32fe45a2620ebb5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "華嚴一乘成佛妙義",
+        "alternateTitle": "華嚴一乘成佛妙義",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1890",
+        "translator": "新羅 · 見登之集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 見登之集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1890_001"
+      },
+      "verification": {
+        "segments": 1499,
+        "folios": 52,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1890.001.0775c02",
+          "T1890.001.0792c27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1891",
+      "slug": "taisho-t1891",
+      "workId": "gbcr:work:taisho-t1891-huayan",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "文殊指南圖讚",
+      "sourceRole": "east_asian_huayan_school_work",
+      "bibliographicRelations": [
+        {
+          "type": "huayan_school_works_related_distinct",
+          "groupId": "huayan-school-works-t1866-t1891",
+          "label": "华严宗义、观门、论书与图赞作品群",
+          "evidence": "T1866–T1891 在物理卷册中构成华严著述群，但 DILA 权威号、题名、责任、体例和全文锚点逐部不同；宗派归类只构成检索关系，不构成作品合并证据。",
+          "externalIds": {
+            "cbeta": [
+              "T1866",
+              "T1867",
+              "T1868",
+              "T1869",
+              "T1870",
+              "T1871",
+              "T1872",
+              "T1873",
+              "T1874",
+              "T1875",
+              "T1876",
+              "T1877",
+              "T1878",
+              "T1879a",
+              "T1879b",
+              "T1880",
+              "T1881",
+              "T1882",
+              "T1883",
+              "T1884",
+              "T1885",
+              "T1886",
+              "T1887A",
+              "T1887B",
+              "T1888",
+              "T1889",
+              "T1890",
+              "T1891"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1891.xml",
+      "upstreamPath": "T/T45/T45n1891.xml",
+      "upstreamGitBlobSha1": "4302a48b6c851900cb8e39481d8a79e18cc1a01f",
+      "upstreamBytes": 93793,
+      "upstreamSha256": "8ecd48335ca13ca84b32d32814713556afa2187da345426407d25d3c3b82312f",
+      "localBytes": 93794,
+      "localSha256": "8a111c5fb0ba2bb28af132bda8c1b8e693d2522a71dbef7df5c418663150b012",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "文殊指南圖讚",
+        "alternateTitle": "文殊指南圖讚",
+        "tradition": "东亚佛教 · 华严宗义著述",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1891",
+        "translator": "宋 · 惟白述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 惟白述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1891_001"
+      },
+      "verification": {
+        "segments": 491,
+        "folios": 41,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1891.001.0793a03",
+          "T1891.001.0806b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1892",
+      "slug": "taisho-t1892",
+      "workId": "gbcr:work:taisho-t1892-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "關中創立戒壇圖經",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_material_culture_works_related_distinct",
+          "groupId": "vinaya-material-culture-t1892-t1900",
+          "label": "戒坛、章服、量处与比丘六物的物质律仪边界",
+          "evidence": "T1892、T1894、T1895、T1900 共享律仪物质文化主题，但作者、时代、题名和正文结构不同，保持相关而不同的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1894",
+              "T1895",
+              "T1900"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1892.xml",
+      "upstreamPath": "T/T45/T45n1892.xml",
+      "upstreamGitBlobSha1": "aa9b860e3e8b579629c1339ef945696d0a42f55c",
+      "upstreamBytes": 93554,
+      "upstreamSha256": "2aca99207b800344e0f0bd3ba3a63bd92abb4e12a203e5cc9677f620ba6d025f",
+      "localBytes": 93555,
+      "localSha256": "828ed38ef828c3341e9614ea2a1be42a2ec21708c38498e89c23d70f10530930",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "關中創立戒壇圖經",
+        "alternateTitle": "關中創立戒壇圖經",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1892",
+        "translator": "唐 · 道宣撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1892_001"
+      },
+      "verification": {
+        "segments": 843,
+        "folios": 32,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1892.001.0807a03",
+          "T1892.001.0819a21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1893",
+      "slug": "taisho-t1893",
+      "workId": "gbcr:work:taisho-t1893-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "淨心誡觀法",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1893.xml",
+      "upstreamPath": "T/T45/T45n1893.xml",
+      "upstreamGitBlobSha1": "71ff0ccc7b25c14c567d2e5d3172fa4ff4ccc1b8",
+      "upstreamBytes": 145919,
+      "upstreamSha256": "e22aefc7bdbe3ddd5d90209241b077fa3bf86bc4aca739efed4587ee1b47b72c",
+      "localBytes": 145920,
+      "localSha256": "ba2c2afbdcba487b61e98a6c92fc37a9430d96dc396491ea8dd5115236c4be97",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "淨心誡觀法",
+        "alternateTitle": "淨心誡觀法",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1893",
+        "translator": "唐 · 道宣撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1893_001"
+      },
+      "verification": {
+        "segments": 1282,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1893.001.0819a24",
+          "T1893.002.0834a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1894",
+      "slug": "taisho-t1894",
+      "workId": "gbcr:work:taisho-t1894-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "釋門章服儀",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_material_culture_works_related_distinct",
+          "groupId": "vinaya-material-culture-t1892-t1900",
+          "label": "戒坛、章服、量处与比丘六物的物质律仪边界",
+          "evidence": "T1892、T1894、T1895、T1900 共享律仪物质文化主题，但作者、时代、题名和正文结构不同，保持相关而不同的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1894",
+              "T1895",
+              "T1900"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1894.xml",
+      "upstreamPath": "T/T45/T45n1894.xml",
+      "upstreamGitBlobSha1": "0a59f5fa2a66fe3e44fe4a179d92d8f907e0f0ec",
+      "upstreamBytes": 46970,
+      "upstreamSha256": "04a219aae374498fa3c06061b6d6b922b3ad53c018f6615fea2dcb72fc4e7d90",
+      "localBytes": 46971,
+      "localSha256": "48335e216c1c85cf84a4c9865a5ca59806149f68e9f85a16c1fa33b95f14cdb0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋門章服儀",
+        "alternateTitle": "釋門章服儀",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1894",
+        "translator": "唐 · 道宣述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1894_001"
+      },
+      "verification": {
+        "segments": 463,
+        "folios": 17,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1894.001.0834a11",
+          "T1894.001.0839b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1895",
+      "slug": "taisho-t1895",
+      "workId": "gbcr:work:taisho-t1895-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "量處輕重儀",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        },
+        {
+          "type": "vinaya_material_culture_works_related_distinct",
+          "groupId": "vinaya-material-culture-t1892-t1900",
+          "label": "戒坛、章服、量处与比丘六物的物质律仪边界",
+          "evidence": "T1892、T1894、T1895、T1900 共享律仪物质文化主题，但作者、时代、题名和正文结构不同，保持相关而不同的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1894",
+              "T1895",
+              "T1900"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1895.xml",
+      "upstreamPath": "T/T45/T45n1895.xml",
+      "upstreamGitBlobSha1": "93db4fff89fac0d2ab23f3417461b96975e0e0f1",
+      "upstreamBytes": 153833,
+      "upstreamSha256": "03119ddbad1e76f78e99b2263e3bce772a05cb5f470f69f16e688ddaffe8548c",
+      "localBytes": 153834,
+      "localSha256": "d04a88edc21ed5b7ad025032e20d5d21d99516e6aad1b8b7c60148a3ffcc0861",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "量處輕重儀",
+        "alternateTitle": "量處輕重儀",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1895",
+        "translator": "唐 · 道宣緝",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣緝。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1895_001"
+      },
+      "verification": {
+        "segments": 1234,
+        "folios": 47,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1895.001.0839b16",
+          "T1895.002.0854b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1896",
+      "slug": "taisho-t1896",
+      "workId": "gbcr:work:taisho-t1896-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "釋門歸敬儀",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1896.xml",
+      "upstreamPath": "T/T45/T45n1896.xml",
+      "upstreamGitBlobSha1": "56b1cbd6f7c4f9c40ae1bb09e96b8ce422df53ab",
+      "upstreamBytes": 134889,
+      "upstreamSha256": "99560ce73104763f7057faa8f71034d1d7cfc1f8a2c884ed5f24eb69b55d8ba8",
+      "localBytes": 134890,
+      "localSha256": "1704ed4d94cb7b96d6242cd3beb8c08036c87ac0d914ee194c13241eeda24bcd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋門歸敬儀",
+        "alternateTitle": "釋門歸敬儀",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1896",
+        "translator": "唐 · 道宣述",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1896_001"
+      },
+      "verification": {
+        "segments": 1225,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1896.001.0854c02",
+          "T1896.002.0868c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1897",
+      "slug": "taisho-t1897",
+      "workId": "gbcr:work:taisho-t1897-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "教誡新學比丘行護律儀",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1897.xml",
+      "upstreamPath": "T/T45/T45n1897.xml",
+      "upstreamGitBlobSha1": "13e59fec1e89fafeb3d1914c1c7b9e434b36083b",
+      "upstreamBytes": 64873,
+      "upstreamSha256": "09600b2170c7cde19c76f61bed183bab54018d66a6727d872a953b8b7b16ae73",
+      "localBytes": 64874,
+      "localSha256": "92e70010624ee2e42e847704fa4cc87abe324b3329b386e446bdbc45c9c4481f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "教誡新學比丘行護律儀",
+        "alternateTitle": "教誡新學比丘行護律儀",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1897",
+        "translator": "唐 · 道宣述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1897_001"
+      },
+      "verification": {
+        "segments": 443,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1897.001.0869a02",
+          "T1897.001.0874a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1898",
+      "slug": "taisho-t1898",
+      "workId": "gbcr:work:taisho-t1898-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "律相感通傳",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1898.xml",
+      "upstreamPath": "T/T45/T45n1898.xml",
+      "upstreamGitBlobSha1": "f2729a3dc6144f0b087923139b0823beb2b6531b",
+      "upstreamBytes": 130702,
+      "upstreamSha256": "dcc97fb50484250f5329430b05a5377ff25ae0d27aab72dbe00763730776051d",
+      "localBytes": 130703,
+      "localSha256": "82395a2fc720de26e8187803ecad58a3fdd6f20c303e1273d3b7fe89744789a6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "律相感通傳",
+        "alternateTitle": "律相感通傳",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1898",
+        "translator": "唐 · 道宣撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1898_001"
+      },
+      "verification": {
+        "segments": 705,
+        "folios": 25,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1898.001.0874a16",
+          "T1898.001.0882a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1899",
+      "slug": "taisho-t1899",
+      "workId": "gbcr:work:taisho-t1899-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "中天竺舍衛國祇洹寺圖經",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_works_scope_distinct",
+          "groupId": "daoxuan-vinaya-works-t1892-t1899",
+          "label": "道宣戒坛、律仪、感通传与图经作品群",
+          "evidence": "DILA 为 T1892–T1899 分配八个独立权威号。共同道宣责任不能把戒坛图经、诫观法、章服仪、量处仪、归敬仪、学比丘律仪、感通传和寺图经合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1893",
+              "T1894",
+              "T1895",
+              "T1896",
+              "T1897",
+              "T1898",
+              "T1899"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1899.xml",
+      "upstreamPath": "T/T45/T45n1899.xml",
+      "upstreamGitBlobSha1": "caf0a3312a2881737b63390149b85a88f82a47eb",
+      "upstreamBytes": 134533,
+      "upstreamSha256": "230005475a2fc5e3b58e219b49ff953319ec3a83fc131541b7e8d112cb635d30",
+      "localBytes": 134534,
+      "localSha256": "5d7526591d27988b30edae865b66d7e540582f9e5d717b45a28212c7243fc509",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中天竺舍衛國祇洹寺圖經",
+        "alternateTitle": "中天竺舍衛國祇洹寺圖經",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1899",
+        "translator": "唐 · 道宣撰",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 道宣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1899_001"
+      },
+      "verification": {
+        "segments": 1218,
+        "folios": 44,
+        "juanRange": [
+          1,
+          2
+        ],
+        "anchors": [
+          "T1899.001.0882b02",
+          "T1899.002.0896b24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1900",
+      "slug": "taisho-t1900",
+      "workId": "gbcr:work:taisho-t1900-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "佛制比丘六物圖",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "vinaya_material_culture_works_related_distinct",
+          "groupId": "vinaya-material-culture-t1892-t1900",
+          "label": "戒坛、章服、量处与比丘六物的物质律仪边界",
+          "evidence": "T1892、T1894、T1895、T1900 共享律仪物质文化主题，但作者、时代、题名和正文结构不同，保持相关而不同的作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1892",
+              "T1894",
+              "T1895",
+              "T1900"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1900.xml",
+      "upstreamPath": "T/T45/T45n1900.xml",
+      "upstreamGitBlobSha1": "1cec77ff54aa694f164b6de02306fb37c5c62622",
+      "upstreamBytes": 59777,
+      "upstreamSha256": "47e85c28bc713282fd8d8b06da9ce5d3fe9405bb20fcfa7596bbce659c4bc022",
+      "localBytes": 59778,
+      "localSha256": "b85bea19101f8e1bcd6b56f7bd086c216bf30c1589f8a7e6635ee81e4e983485",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛制比丘六物圖",
+        "alternateTitle": "佛制比丘六物圖",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1900",
+        "translator": "宋 · 元照撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：宋 元照撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1900_001"
+      },
+      "verification": {
+        "segments": 336,
+        "folios": 18,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1900.001.0896c02",
+          "T1900.001.0902a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1901",
+      "slug": "taisho-t1901",
+      "workId": "gbcr:work:taisho-t1901-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "護命放生軌儀法",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_manuals_scope_distinct",
+          "groupId": "yijing-vinaya-manuals-t1901-t1903",
+          "label": "义净三部短篇律仪行法",
+          "evidence": "T1901–T1903 同署义净，却分别处理护命放生、受用三水和说罪；DILA 权威号、题名、版页和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1901",
+              "T1902",
+              "T1903"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1901.xml",
+      "upstreamPath": "T/T45/T45n1901.xml",
+      "upstreamGitBlobSha1": "37d82621b20ddf5e1bb236f6ece08b803410e7e4",
+      "upstreamBytes": 7863,
+      "upstreamSha256": "5cc32cef8690397b980126f9263a62b33c0b1866fafc36274a9f02c5358b39bb",
+      "localBytes": 7864,
+      "localSha256": "4d62bb1a826342b1a5a8978ebfc555c8188fae2ad20195f82edca05dd9fedd58",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "護命放生軌儀法",
+        "alternateTitle": "護命放生軌儀法",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1901",
+        "translator": "唐 · 義淨撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1901_001"
+      },
+      "verification": {
+        "segments": 52,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1901.001.0902a13",
+          "T1901.001.0902c07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1902",
+      "slug": "taisho-t1902",
+      "workId": "gbcr:work:taisho-t1902-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "受用三水要行法",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_manuals_scope_distinct",
+          "groupId": "yijing-vinaya-manuals-t1901-t1903",
+          "label": "义净三部短篇律仪行法",
+          "evidence": "T1901–T1903 同署义净，却分别处理护命放生、受用三水和说罪；DILA 权威号、题名、版页和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1901",
+              "T1902",
+              "T1903"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1902.xml",
+      "upstreamPath": "T/T45/T45n1902.xml",
+      "upstreamGitBlobSha1": "1c2873507c715af3cfd71da49c7d9f60ed4d8390",
+      "upstreamBytes": 11607,
+      "upstreamSha256": "f7cc1f23064677f580a3d813d5bb6871e2fe2995d2c89a5121378cf2480b13aa",
+      "localBytes": 11608,
+      "localSha256": "48573fc629f17f0d8da9431bd5c85b32ecb762b71a2901de7432297a615c1da9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "受用三水要行法",
+        "alternateTitle": "受用三水要行法",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1902",
+        "translator": "唐 · 義淨撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1902_001"
+      },
+      "verification": {
+        "segments": 93,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1902.001.0902c10",
+          "T1902.001.0903c16"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1903",
+      "slug": "taisho-t1903",
+      "workId": "gbcr:work:taisho-t1903-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "說罪要行法",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_author_vinaya_manuals_scope_distinct",
+          "groupId": "yijing-vinaya-manuals-t1901-t1903",
+          "label": "义净三部短篇律仪行法",
+          "evidence": "T1901–T1903 同署义净，却分别处理护命放生、受用三水和说罪；DILA 权威号、题名、版页和正文均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1901",
+              "T1902",
+              "T1903"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1903.xml",
+      "upstreamPath": "T/T45/T45n1903.xml",
+      "upstreamGitBlobSha1": "0c28a92331046bccea8bd6f88f1d0b6152139373",
+      "upstreamBytes": 12163,
+      "upstreamSha256": "42233b02408f0e4617f78988029611ac44ad125ff6cf6979f27d3706bb59bb95",
+      "localBytes": 12164,
+      "localSha256": "4a6a6cc3e1298ac270ba6bf8d2d0ab1ae6f307a574cd79c0cac07c30265dd01c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "說罪要行法",
+        "alternateTitle": "說罪要行法",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1903",
+        "translator": "唐 · 義淨撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1903_001"
+      },
+      "verification": {
+        "segments": 97,
+        "folios": 4,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1903.001.0903c19",
+          "T1903.001.0904c29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1904",
+      "slug": "taisho-t1904",
+      "workId": "gbcr:work:taisho-t1904-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "根本說一切有部出家授近圓羯磨儀範",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_compiler_mulasarvastivada_manuals_scope_distinct",
+          "groupId": "phagpa-mulasarvastivada-manuals-t1904-t1905",
+          "label": "拔合思巴集两部根本说一切有部仪范",
+          "evidence": "T1904、T1905 同署拔合思巴集并属根本说一切有部，但出家授近圆羯磨与苾芻习学略法的功能、范围和全文不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1904",
+              "T1905"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1904.xml",
+      "upstreamPath": "T/T45/T45n1904.xml",
+      "upstreamGitBlobSha1": "e4013982f768f1a587bfa924344c27831e626c05",
+      "upstreamBytes": 55748,
+      "upstreamSha256": "2320ad487cf580ac0e3469dbef6fe8f6803a9b36a1ee1f82c27be8dbe3908f2a",
+      "localBytes": 55749,
+      "localSha256": "f18e8e03c4d809170aaebdcef06216bd60686df8d926daf62303546a838bc0cc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部出家授近圓羯磨儀範",
+        "alternateTitle": "根本說一切有部出家授近圓羯磨儀範",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1904",
+        "translator": "元 · 拔合思巴集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：元 拔合思巴集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1904_001"
+      },
+      "verification": {
+        "segments": 596,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1904.001.0905a02",
+          "T1904.001.0911c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1905",
+      "slug": "taisho-t1905",
+      "workId": "gbcr:work:taisho-t1905-vinaya-ritual",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "根本說一切有部苾芻習學略法",
+      "sourceRole": "east_asian_vinaya_or_ritual_manual",
+      "bibliographicRelations": [
+        {
+          "type": "same_compiler_mulasarvastivada_manuals_scope_distinct",
+          "groupId": "phagpa-mulasarvastivada-manuals-t1904-t1905",
+          "label": "拔合思巴集两部根本说一切有部仪范",
+          "evidence": "T1904、T1905 同署拔合思巴集并属根本说一切有部，但出家授近圆羯磨与苾芻习学略法的功能、范围和全文不同。",
+          "externalIds": {
+            "cbeta": [
+              "T1904",
+              "T1905"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1905.xml",
+      "upstreamPath": "T/T45/T45n1905.xml",
+      "upstreamGitBlobSha1": "17830f1423e3ce5d2fc4a170ecf19175a7d3b499",
+      "upstreamBytes": 28043,
+      "upstreamSha256": "2c3c58f8510401e52132ba4eb5d58c2a1cb7137daae9c7b3166af68dd324a2cb",
+      "localBytes": 28044,
+      "localSha256": "6158d3203aa948cdc1dee01df1f3c2218c79939c4c267368541433e0c7e42dc6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "根本說一切有部苾芻習學略法",
+        "alternateTitle": "根本說一切有部苾芻習學略法",
+        "tradition": "东亚佛教 · 律仪与行法",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1905",
+        "translator": "元 · 拔合思巴集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：元 拔合思巴集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1905_001"
+      },
+      "verification": {
+        "segments": 271,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1905.001.0912a02",
+          "T1905.001.0915a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1906",
+      "slug": "taisho-t1906",
+      "workId": "gbcr:work:taisho-t1906-bodhisattva-precept",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "菩薩戒本宗要",
+      "sourceRole": "silla_bodhisattva_precept_or_repentance_work",
+      "bibliographicRelations": [
+        {
+          "type": "silla_bodhisattva_precept_and_repentance_works_distinct",
+          "groupId": "silla-precept-repentance-t1906-t1908",
+          "label": "新罗菩萨戒与忏悔著述边界",
+          "evidence": "T1906 大贤宗要、T1907 元晓持犯要记与 T1908 元晓六情忏悔分别具有独立权威号、题名和功能；共同新罗传统或作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1906",
+              "T1907",
+              "T1908"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1906.xml",
+      "upstreamPath": "T/T45/T45n1906.xml",
+      "upstreamGitBlobSha1": "37a9278b78b06aeff3ad91a950e65a2d271377cb",
+      "upstreamBytes": 35901,
+      "upstreamSha256": "9d64d00ea5f53bc2a197c06209a256454c6cdb838c5a757f16be4f1f9442e05a",
+      "localBytes": 35902,
+      "localSha256": "b33773c7942f8ae61b40d78a6bf33cc63a16e4ab50a166b88235f17b8bceb2c6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒本宗要",
+        "alternateTitle": "菩薩戒本宗要",
+        "tradition": "新罗佛教 · 菩萨戒与忏悔",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1906",
+        "translator": "新羅 · 大賢撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 大賢撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1906_001"
+      },
+      "verification": {
+        "segments": 267,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1906.001.0915a15",
+          "T1906.001.0918a24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1907",
+      "slug": "taisho-t1907",
+      "workId": "gbcr:work:taisho-t1907-bodhisattva-precept",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "菩薩戒本持犯要記",
+      "sourceRole": "silla_bodhisattva_precept_or_repentance_work",
+      "bibliographicRelations": [
+        {
+          "type": "silla_bodhisattva_precept_and_repentance_works_distinct",
+          "groupId": "silla-precept-repentance-t1906-t1908",
+          "label": "新罗菩萨戒与忏悔著述边界",
+          "evidence": "T1906 大贤宗要、T1907 元晓持犯要记与 T1908 元晓六情忏悔分别具有独立权威号、题名和功能；共同新罗传统或作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1906",
+              "T1907",
+              "T1908"
+            ]
+          }
+        },
+        {
+          "type": "same_author_precept_and_repentance_scope_distinct",
+          "groupId": "wonhyo-precept-repentance-t1907-t1908",
+          "label": "元晓戒本要记与六情忏悔范围边界",
+          "evidence": "T1907 是戒本持犯要记，T1908 是忏悔文本；共同元晓责任不消除文类、功能与正文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1907",
+              "T1908"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1907.xml",
+      "upstreamPath": "T/T45/T45n1907.xml",
+      "upstreamGitBlobSha1": "0820598604a95f2aad6eb2eb0a6886757397f394",
+      "upstreamBytes": 31562,
+      "upstreamSha256": "2a3812b1a71b4a2690d3f24195b019998b19a19282667f58a2bcd10a37895d38",
+      "localBytes": 31563,
+      "localSha256": "38abeb0b16e7165f2dd0a9deb39ae4a3ebe03d28eb42688fbe931d4b02eec2a1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "菩薩戒本持犯要記",
+        "alternateTitle": "菩薩戒本持犯要記",
+        "tradition": "新罗佛教 · 菩萨戒与忏悔",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1907",
+        "translator": "新羅 · 元曉述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 元曉述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1907_001"
+      },
+      "verification": {
+        "segments": 289,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1907.001.0918b02",
+          "T1907.001.0921c01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1908",
+      "slug": "taisho-t1908",
+      "workId": "gbcr:work:taisho-t1908-bodhisattva-precept",
+      "workIdentityStatus": "verified_distinct_east_asian_authored_work",
+      "workTitle": "大乘六情懺悔",
+      "sourceRole": "silla_bodhisattva_precept_or_repentance_work",
+      "bibliographicRelations": [
+        {
+          "type": "silla_bodhisattva_precept_and_repentance_works_distinct",
+          "groupId": "silla-precept-repentance-t1906-t1908",
+          "label": "新罗菩萨戒与忏悔著述边界",
+          "evidence": "T1906 大贤宗要、T1907 元晓持犯要记与 T1908 元晓六情忏悔分别具有独立权威号、题名和功能；共同新罗传统或作者不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T1906",
+              "T1907",
+              "T1908"
+            ]
+          }
+        },
+        {
+          "type": "same_author_precept_and_repentance_scope_distinct",
+          "groupId": "wonhyo-precept-repentance-t1907-t1908",
+          "label": "元晓戒本要记与六情忏悔范围边界",
+          "evidence": "T1907 是戒本持犯要记，T1908 是忏悔文本；共同元晓责任不消除文类、功能与正文边界。",
+          "externalIds": {
+            "cbeta": [
+              "T1907",
+              "T1908"
+            ]
+          }
+        },
+        {
+          "type": "repentance_rituals_related_distinct",
+          "groupId": "repentance-rituals-t1908-t1910",
+          "label": "六情忏悔、慈悲道场忏与水忏边界",
+          "evidence": "T1908–T1910 均涉及忏悔实践，但一卷新罗撰述、十卷集撰道场仪轨和三卷无署名水忏在题名、责任、结构和全文上均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1908",
+              "T1909",
+              "T1910"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1908.xml",
+      "upstreamPath": "T/T45/T45n1908.xml",
+      "upstreamGitBlobSha1": "7b1f649c596b8e8d09ebe2179b76f7279e302ada",
+      "upstreamBytes": 10098,
+      "upstreamSha256": "fc519c115a17e4ad5ca4837340464018b61b859a23a9e5b06ac2bec556943c99",
+      "localBytes": 10099,
+      "localSha256": "fab30abfdf95b6d6bee82d8d413c25b9f5e1c913822b65aa4e3376ac17f0d6bd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大乘六情懺悔",
+        "alternateTitle": "大乘六情懺悔",
+        "tradition": "新罗佛教 · 菩萨戒与忏悔",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1908",
+        "translator": "新羅 · 元曉撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：新羅 元曉撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1908_001"
+      },
+      "verification": {
+        "segments": 69,
+        "folios": 3,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T1908.001.0921c04",
+          "T1908.001.0922b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1909",
+      "slug": "taisho-t1909",
+      "workId": "gbcr:work:taisho-t1909-repentance",
+      "workIdentityStatus": "verified_distinct_collectively_compiled_liturgy",
+      "workTitle": "慈悲道場懺法",
+      "sourceRole": "sinitic_collectively_compiled_repentance_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "repentance_rituals_related_distinct",
+          "groupId": "repentance-rituals-t1908-t1910",
+          "label": "六情忏悔、慈悲道场忏与水忏边界",
+          "evidence": "T1908–T1910 均涉及忏悔实践，但一卷新罗撰述、十卷集撰道场仪轨和三卷无署名水忏在题名、责任、结构和全文上均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1908",
+              "T1909",
+              "T1910"
+            ]
+          }
+        },
+        {
+          "type": "compiled_and_unsigned_repentance_works_distinct",
+          "groupId": "cibei-repentance-boundary-t1909-t1910",
+          "label": "《慈悲道场忏法》与《慈悲水忏法》责任边界",
+          "evidence": "DILA 为 T1909、T1910 分配不同权威号；前者题署梁诸大法师集撰，后者 TEI 责任字段为空。共同“慈悲”与忏法功能不能证明同作、节本或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1909",
+              "T1910"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1909.xml",
+      "upstreamPath": "T/T45/T45n1909.xml",
+      "upstreamGitBlobSha1": "fbc0077985dc56ec75f3f62ccb6363c57e3a1e85",
+      "upstreamBytes": 1181261,
+      "upstreamSha256": "94dbfd52277080b4575d271e702ae8b2d9fdc03822207c9bd7b6bee0a9ba55b8",
+      "localBytes": 1181262,
+      "localSha256": "70e3f5c52b4a75713fd5420729a862bc7a619f7d8d0a5fa9aa98ba1a716a786b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "慈悲道場懺法",
+        "alternateTitle": "慈悲道場懺法",
+        "tradition": "汉传佛教 · 忏法仪轨",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1909",
+        "translator": "梁 · 諸大法師集撰",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：梁 諸大法師集撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1909_001"
+      },
+      "verification": {
+        "segments": 3870,
+        "folios": 143,
+        "juanRange": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T1909.001.0922b18",
+          "T1909.010.0967c24"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1910",
+      "slug": "taisho-t1910",
+      "workId": "gbcr:work:taisho-t1910-repentance",
+      "workIdentityStatus": "verified_distinct_unsigned_liturgy",
+      "workTitle": "慈悲水懺法",
+      "sourceRole": "unsigned_sinitic_repentance_liturgy",
+      "bibliographicRelations": [
+        {
+          "type": "repentance_rituals_related_distinct",
+          "groupId": "repentance-rituals-t1908-t1910",
+          "label": "六情忏悔、慈悲道场忏与水忏边界",
+          "evidence": "T1908–T1910 均涉及忏悔实践，但一卷新罗撰述、十卷集撰道场仪轨和三卷无署名水忏在题名、责任、结构和全文上均独立。",
+          "externalIds": {
+            "cbeta": [
+              "T1908",
+              "T1909",
+              "T1910"
+            ]
+          }
+        },
+        {
+          "type": "compiled_and_unsigned_repentance_works_distinct",
+          "groupId": "cibei-repentance-boundary-t1909-t1910",
+          "label": "《慈悲道场忏法》与《慈悲水忏法》责任边界",
+          "evidence": "DILA 为 T1909、T1910 分配不同权威号；前者题署梁诸大法师集撰，后者 TEI 责任字段为空。共同“慈悲”与忏法功能不能证明同作、节本或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1909",
+              "T1910"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T45n1910.xml",
+      "upstreamPath": "T/T45/T45n1910.xml",
+      "upstreamGitBlobSha1": "eddb91986100b5d57ac564e4b3b4a22e2388426b",
+      "upstreamBytes": 85360,
+      "upstreamSha256": "fb9fb1a146d80615fbda2b82562f84cf28afb9bba84073d7509ef7ae096e627a",
+      "localBytes": 85361,
+      "localSha256": "928707782234703c3eccb39400824d43f0ee7654358c3dbd488d436574543d99",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "慈悲水懺法",
+        "alternateTitle": "慈悲水懺法",
+        "tradition": "汉传佛教 · 忏法仪轨",
+        "language": "汉文",
+        "canonRef": "大正藏 T45, no. 1910",
+        "translator": "传统责任题记未署名",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立东亚佛教著述建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1910_001"
+      },
+      "verification": {
+        "segments": 919,
+        "folios": 35,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T1910.001.0967c26",
+          "T1910.003.0978b28"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
