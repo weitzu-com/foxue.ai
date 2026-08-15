@@ -1,0 +1,355 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.8.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.7.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t41-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T41; T41 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T41",
+    "title": "大正藏 T41 俱舍论注疏部固定来源记录",
+    "sourceRecordDenominator": 3,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 3,
+    "controlledSourceRecords": 3,
+    "newSourceBytes": 16077486,
+    "newStableSegments": 84212,
+    "newFolios": 2999,
+    "newJuans": 90,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 3,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 3,
+    "attributionBoundaryRecords": 3,
+    "newWorks": 3,
+    "controlledWorks": 3,
+    "workCountingDecision": "T41 的 3 份来源记录登记为 3 个完整表达和 3 个独立阿毘达磨注疏作品。T1821 普光《俱舍论记》和 T1822 法宝《俱舍论疏》均直接解释 T1558，但保持不同作者责任与全文边界；T1823 圆晖《俱舍论颂疏》兼依 T1558 与 T1560，按颂疏范围独立保存。三者均不标作 T1558/T1560 的同作品表达、世亲论本或佛陀逐字亲说。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_abhidharmakosa_root_treatise_parallel_commentary_and_verse_commentary_scope_boundaries_recorded",
+    "existingControlledRecords": [
+      "T1558",
+      "T1560"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [
+      "abhidharmakosa-bhasya-commentaries-t1558-t1821-t1822",
+      "abhidharmakosa-verse-commentary-t1558-t1560-t1823"
+    ],
+    "subcommentaryGroups": [],
+    "scopeBoundaryGroups": [
+      "abhidharmakosa-commentary-scope-t1821-t1823"
+    ],
+    "relatedDistinctWorkGroups": [
+      "abhidharmakosa-parallel-commentaries-t1821-t1822"
+    ],
+    "candidateRelationsNotMerged": [
+      "T1558↔T1821/T1822（玄奘译俱舍论与普光、法宝两部独立唐疏分层保存）",
+      "T1558/T1560↔T1823（完整论释、根本颂与圆晖颂疏按注释对象和范围分层）",
+      "T1821↔T1822↔T1823（共同俱舍传统、三十卷规模与引论文字不构成同一作品）"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "sinitic_authored_abhidharmakosa_bhasya_commentary": [
+        "T1821",
+        "T1822"
+      ],
+      "sinitic_authored_abhidharmakosa_verse_commentary": [
+        "T1823"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Text overlap only records shared technical vocabulary, quotation and exegetical dependence; it cannot merge the root treatise, root verses, or three commentaries with different authors and scope.",
+      "pairs": [
+        {
+          "pair": [
+            "T1821",
+            "T1822"
+          ],
+          "normalizedCharacters": [
+            609826,
+            479048
+          ],
+          "fiveGramContainmentOfShorter": 0.186258,
+          "fiveGramJaccard": 0.090975
+        },
+        {
+          "pair": [
+            "T1821",
+            "T1823"
+          ],
+          "normalizedCharacters": [
+            609826,
+            209867
+          ],
+          "fiveGramContainmentOfShorter": 0.128114,
+          "fiveGramJaccard": 0.034771
+        },
+        {
+          "pair": [
+            "T1822",
+            "T1823"
+          ],
+          "normalizedCharacters": [
+            479048,
+            209867
+          ],
+          "fiveGramContainmentOfShorter": 0.057721,
+          "fiveGramJaccard": 0.017913
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T41",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001890",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001898",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001893"
+    ],
+    "caveat": "T41 是唐代俱舍论注疏集合，不是佛说经或世亲论本集合。平台完整保存固定来源，同时区分 T1558 完整论释、T1560 根本颂、两部通论注疏与一部颂疏；共同术语、相近题名、同为三十卷、传统责任题记或机器相似度都不能单独证明作品相同、作者无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T1821",
+      "slug": "taisho-t1821",
+      "workId": "gbcr:work:abhidharmakosa-ji-puguang",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "俱舍論記",
+      "sourceRole": "sinitic_authored_abhidharmakosa_bhasya_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_abhidharmakosa_treatise_distinct",
+          "groupId": "abhidharmakosa-bhasya-commentaries-t1558-t1821-t1822",
+          "label": "玄奘译《阿毘达磨俱舍论》与普光《俱舍论记》、法宝《俱舍论疏》",
+          "evidence": "DILA 权威记录将 T1821、T1822 均关联到 T1558。两部三十卷唐代注疏分别署普光与法宝，具有独立作者责任、解释结构和全文边界，不是根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1821",
+              "T1822"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_same_treatise_distinct",
+          "groupId": "abhidharmakosa-parallel-commentaries-t1821-t1822",
+          "label": "普光《俱舍论记》与法宝《俱舍论疏》",
+          "evidence": "两书同释 T1558 且均为三十卷，但传统作者题记、行文与五字片段统计显著不同；共享引论不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1821",
+              "T1822"
+            ]
+          }
+        },
+        {
+          "type": "full_bhasya_and_verse_commentary_scope_distinct",
+          "groupId": "abhidharmakosa-commentary-scope-t1821-t1823",
+          "label": "两部俱舍通论注疏与一部俱舍颂疏",
+          "evidence": "T1821、T1822 直接贯释 T1558，T1823 以 T1560 根本颂为结构并参照 T1558；共同术语和三十卷规模不能消除注释对象与组织范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1560",
+              "T1821",
+              "T1822",
+              "T1823"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T41n1821.xml",
+      "upstreamPath": "T/T41/T41n1821.xml",
+      "upstreamGitBlobSha1": "d4510488b1bd2450792048e11b4c93e91d76333d",
+      "upstreamBytes": 6446053,
+      "upstreamSha256": "45ad3b354fe14b5c888b33aad78afbadb1cfb461e411686209569cefefb693d6",
+      "localBytes": 6446054,
+      "localSha256": "bf5d4358fe3a7a1e9115096ecd991b3bac88c70d3de31767628e4aa65bd1aaae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "俱舍論記",
+        "alternateTitle": "俱舍論記",
+        "tradition": "汉传佛教 · 阿毘达磨论疏部 · 俱舍论与俱舍颂注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T41, no. 1821",
+        "translator": "唐 · 普光述",
+        "summary": "30卷。普光《俱舍论记》完整来源。传统责任题记：唐 普光述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1821_001"
+      },
+      "verification": {
+        "segments": 38912,
+        "folios": 1368,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1821.001.0001a02",
+          "T1821.030.0452b05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1822",
+      "slug": "taisho-t1822",
+      "workId": "gbcr:work:abhidharmakosa-shu-fabao",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "俱舍論疏",
+      "sourceRole": "sinitic_authored_abhidharmakosa_bhasya_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentaries_on_abhidharmakosa_treatise_distinct",
+          "groupId": "abhidharmakosa-bhasya-commentaries-t1558-t1821-t1822",
+          "label": "玄奘译《阿毘达磨俱舍论》与普光《俱舍论记》、法宝《俱舍论疏》",
+          "evidence": "DILA 权威记录将 T1821、T1822 均关联到 T1558。两部三十卷唐代注疏分别署普光与法宝，具有独立作者责任、解释结构和全文边界，不是根本论的另一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1821",
+              "T1822"
+            ]
+          }
+        },
+        {
+          "type": "parallel_commentaries_on_same_treatise_distinct",
+          "groupId": "abhidharmakosa-parallel-commentaries-t1821-t1822",
+          "label": "普光《俱舍论记》与法宝《俱舍论疏》",
+          "evidence": "两书同释 T1558 且均为三十卷，但传统作者题记、行文与五字片段统计显著不同；共享引论不能据以合并。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1821",
+              "T1822"
+            ]
+          }
+        },
+        {
+          "type": "full_bhasya_and_verse_commentary_scope_distinct",
+          "groupId": "abhidharmakosa-commentary-scope-t1821-t1823",
+          "label": "两部俱舍通论注疏与一部俱舍颂疏",
+          "evidence": "T1821、T1822 直接贯释 T1558，T1823 以 T1560 根本颂为结构并参照 T1558；共同术语和三十卷规模不能消除注释对象与组织范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1560",
+              "T1821",
+              "T1822",
+              "T1823"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T41n1822.xml",
+      "upstreamPath": "T/T41/T41n1822.xml",
+      "upstreamGitBlobSha1": "66001c777c701476b3345c519033f75a9d585201",
+      "upstreamBytes": 7577561,
+      "upstreamSha256": "41284754608125688d9706a9e2b6268d84d6e2c83a8427325ecd46a1dfd91560",
+      "localBytes": 7577562,
+      "localSha256": "89708712cb6d0fdb80deccf6d5fba33a0e5d4c804385f901a1ce9252003f56bd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "俱舍論疏",
+        "alternateTitle": "俱舍論疏",
+        "tradition": "汉传佛教 · 阿毘达磨论疏部 · 俱舍论与俱舍颂注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T41, no. 1822",
+        "translator": "唐 · 法寶撰",
+        "summary": "30卷。法宝《俱舍论疏》完整来源。传统责任题记：唐 法寶撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1822_001"
+      },
+      "verification": {
+        "segments": 30958,
+        "folios": 1099,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1822.001.0453a02",
+          "T1822.030.0812c15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T1823",
+      "slug": "taisho-t1823",
+      "workId": "gbcr:work:abhidharmakosa-karika-shu-yuanhui",
+      "workIdentityStatus": "verified_distinct_commentary_work",
+      "workTitle": "俱舍論頌疏",
+      "sourceRole": "sinitic_authored_abhidharmakosa_verse_commentary",
+      "bibliographicRelations": [
+        {
+          "type": "commentary_on_abhidharmakosa_bhasya_and_verses_distinct",
+          "groupId": "abhidharmakosa-verse-commentary-t1558-t1560-t1823",
+          "label": "《阿毘达磨俱舍论》《俱舍论本颂》与圆晖《俱舍论颂疏》",
+          "evidence": "DILA 权威记录将 T1823 同时关联 T1558 与 T1560。圆晖疏以俱舍颂为组织核心，兼依完整论释，须与论本、根本颂及两部通论注疏分开。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1560",
+              "T1823"
+            ]
+          }
+        },
+        {
+          "type": "full_bhasya_and_verse_commentary_scope_distinct",
+          "groupId": "abhidharmakosa-commentary-scope-t1821-t1823",
+          "label": "两部俱舍通论注疏与一部俱舍颂疏",
+          "evidence": "T1821、T1822 直接贯释 T1558，T1823 以 T1560 根本颂为结构并参照 T1558；共同术语和三十卷规模不能消除注释对象与组织范围差异。",
+          "externalIds": {
+            "cbeta": [
+              "T1558",
+              "T1560",
+              "T1821",
+              "T1822",
+              "T1823"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T41n1823.xml",
+      "upstreamPath": "T/T41/T41n1823.xml",
+      "upstreamGitBlobSha1": "48a99eff8058cd7524fd25337c3f7918296779b3",
+      "upstreamBytes": 2053872,
+      "upstreamSha256": "78fb5de00861994f66f611a0a31dc8c4913a29076b22c10168f14dd0474be9bb",
+      "localBytes": 2053873,
+      "localSha256": "a40fcbe887a579c91bacb29c70be5c8e26ccc7b188153b2dc17877eac1a8fe11",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "俱舍論頌疏",
+        "alternateTitle": "俱舍論頌疏",
+        "tradition": "汉传佛教 · 阿毘达磨论疏部 · 俱舍论与俱舍颂注疏",
+        "language": "汉文",
+        "canonRef": "大正藏 T41, no. 1823",
+        "translator": "唐 · 圓暉述",
+        "summary": "30卷。圆晖《俱舍论颂疏》完整来源。传统责任题记：唐 圓暉述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T1823_001"
+      },
+      "verification": {
+        "segments": 14342,
+        "folios": 532,
+        "juanRange": [
+          1,
+          30
+        ],
+        "anchors": [
+          "T1823.001.0813a02",
+          "T1823.030.0982a09"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}
