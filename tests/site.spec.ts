@@ -125,12 +125,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 1971,
-    registeredExpressions: 2189,
-    fullSourceTextWorks: 1944,
-    fullSourceTextExpressions: 2146,
-    stableSegments: 3992306,
-    structureVerifiedWorks: 1971,
+    registeredWorks: 1988,
+    registeredExpressions: 2206,
+    fullSourceTextWorks: 1961,
+    fullSourceTextExpressions: 2163,
+    stableSegments: 4067476,
+    structureVerifiedWorks: 1988,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -164,11 +164,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 1914,
-    controlled: 1914,
+    denominator: 1931,
+    controlled: 1931,
     percentage: 100,
-    sourceBytes: 640813221,
-    controlledBytes: 640813221,
+    sourceBytes: 650242651,
+    controlledBytes: 650242651,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -192,6 +192,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t41InventorySha256: "25e49bce89d1b992df7f9bb175a63878e323e97074b3b2bbb49e5c4b09867c39",
     t42InventorySha256: "c50fdc4104ec179a4fed2ceff6625f9fe189ebcc60a185dd2b48fc6f695c9c5f",
     t43InventorySha256: "9c6f95bc79ac5a33a807ad42e0e9bd160f57d3de74f751118bdd15c8b30b5a0e",
+    t44InventorySha256: "930334ff7291ffdcfabf427fe3265d0983067ad731d7329d5b98da6a597da81e",
   });
   expect(coverage.candidateInventory.chineseAgamaSourceRecords).toMatchObject({
     denominator: 155,
@@ -626,6 +627,27 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     scopeBoundaryGroups: 1,
     relatedDistinctWorkGroups: 3,
   });
+  expect(coverage.candidateInventory.chineseT44SourceRecords).toMatchObject({
+    denominator: 17,
+    controlled: 17,
+    percentage: 100,
+    fullSourceTexts: 17,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedPartialWorkWitnesses: 0,
+    verifiedSplitWorkWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 17,
+    relationAnnotatedRecords: 17,
+    newWorks: 17,
+    controlledWorks: 17,
+    rootVinayaCommentaryGroups: 0,
+    rootTreatiseCommentaryGroups: 7,
+    rootEditionBoundaryGroups: 2,
+    subcommentaryGroups: 1,
+    scopeBoundaryGroups: 3,
+    relatedDistinctWorkGroups: 6,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -679,6 +701,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseMadhyamakaYogacaraCommentaryT42BoundaryAudit: expect.stringContaining("batch-v4.9.0.json"),
     chineseYogacaraCommentaryT43Inventory: expect.stringContaining("cbeta-taisho-t43-inventory-v0.1.0.json"),
     chineseYogacaraCommentaryT43BoundaryAudit: expect.stringContaining("batch-v4.10.0.json"),
+    chineseTreatiseLogicAwakeningCommentaryT44Inventory: expect.stringContaining("cbeta-taisho-t44-inventory-v0.1.0.json"),
+    chineseTreatiseLogicAwakeningCommentaryT44BoundaryAudit: expect.stringContaining("batch-v4.11.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -2362,6 +2386,56 @@ test("汉译 T43 六部唯识论疏完整受控并保持根本论、再注释、
 
   const sitemap = await readSitemaps(request);
   for (const id of [1829, 1830, 1831, 1832, 1833, 1834]) {
+    expect(sitemap).toContain(`/jingzang/taisho-t${id}/`);
+  }
+});
+
+test("汉译 T44 十七部论疏、因明与大乘义章完整受控并保持责任、译本、再注释和范围边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t1836/001-0046a");
+  await expect(page.getByRole("heading", { level: 1, name: "大乘百法明門論解" })).toBeVisible();
+  await expect(page.getByText(/窺基註解.*普泰增修/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1848/001-0297a");
+  await expect(page.getByRole("heading", { level: 1, name: "起信論疏筆削記" })).toBeVisible();
+  await expect(page.getByText(/再注释|子璿/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t1851/001-0465a");
+  await expect(page.getByRole("heading", { level: 1, name: "大乘義章" })).toBeVisible();
+  await expect(page.getByText(/综合|義章|义章/).first()).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t1835/003-0046a", "/jingzang/taisho-t1836/002-0052c",
+    "/jingzang/taisho-t1837/002-0061a", "/jingzang/taisho-t1838/001-0076b",
+    "/jingzang/taisho-t1839/001-0091b", "/jingzang/taisho-t1840/003-0143a",
+    "/jingzang/taisho-t1841/001-0158b", "/jingzang/taisho-t1842/001-0174b",
+    "/jingzang/taisho-t1843/002-0201c", "/jingzang/taisho-t1844/002-0226a",
+    "/jingzang/taisho-t1845/001-0240c", "/jingzang/taisho-t1846/003-0287b",
+    "/jingzang/taisho-t1847/001-0295c", "/jingzang/taisho-t1848/020-0409b",
+    "/jingzang/taisho-t1849/001-0422b", "/jingzang/taisho-t1850/006-0464b",
+    "/jingzang/taisho-t1851/020-0875c",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT44SourceRecords).toMatchObject({
+    denominator: 17,
+    controlled: 17,
+    percentage: 100,
+    fullSourceTexts: 17,
+    partialSourceWitnesses: 0,
+    relationAnnotatedRecords: 17,
+    attributionBoundaryRecords: 17,
+    newWorks: 17,
+    controlledWorks: 17,
+    rootVinayaCommentaryGroups: 0,
+    rootTreatiseCommentaryGroups: 7,
+    rootEditionBoundaryGroups: 2,
+    subcommentaryGroups: 1,
+    scopeBoundaryGroups: 3,
+    relatedDistinctWorkGroups: 6,
+  });
+
+  const sitemap = await readSitemaps(request);
+  for (let id = 1835; id <= 1851; id += 1) {
     expect(sitemap).toContain(`/jingzang/taisho-t${id}/`);
   }
 });

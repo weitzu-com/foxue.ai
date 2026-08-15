@@ -3,8 +3,8 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const registryPath = resolve(root, "data/gbcr/registry-v6.1.0.json");
-const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v3.1.0.json");
+const registryPath = resolve(root, "data/gbcr/registry-v6.2.0.json");
+const sourceSnapshotsPath = resolve(root, "data/gbcr/source-snapshots-v3.2.0.json");
 const inventoryPath = resolve(root, "data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json");
 const t18InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json");
 const t19InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t19-inventory-v0.1.0.json");
@@ -32,6 +32,7 @@ const t40InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t40-inventory-v0.
 const t41InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t41-inventory-v0.1.0.json");
 const t42InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t42-inventory-v0.1.0.json");
 const t43InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t43-inventory-v0.1.0.json");
+const t44InventoryPath = resolve(root, "data/gbcr/cbeta-taisho-t44-inventory-v0.1.0.json");
 const dergeInventoryPath = resolve(root, "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json");
 const rights84000Path = resolve(root, "data/gbcr/84000-rights-policy-v0.3.0.json");
 const sanskritEvidencePath = resolve(root, "data/gbcr/dsbc-gretil-source-snapshot-v0.4.0.json");
@@ -46,7 +47,7 @@ const suttacentralParallelP0EvidencePacketsPath = resolve(root, "data/gbcr/sutta
 const crossCatalogAlignmentsPath = resolve(root, "data/gbcr/cross-catalog-alignments-v0.5.0.json");
 const rktsEvidencePath = resolve(root, "data/gbcr/rkts-kangyur-catalog-snapshot-v0.5.0.json");
 const rktsKernelAlignmentsPath = resolve(root, "data/gbcr/rkts-kernel-alignment-audit-v0.6.0.json");
-const checksumPath = resolve(root, "data/gbcr/checksums-v6.1.0.sha256");
+const checksumPath = resolve(root, "data/gbcr/checksums-v6.2.0.sha256");
 const agamaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.3.0.json");
 const benyuanBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.4.0.json");
 const prajnaparamitaBatchPath = resolve(root, "data/corpus/cbeta/batch-v1.5.0.json");
@@ -85,9 +86,10 @@ const t40BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.7.0.json");
 const t41BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.8.0.json");
 const t42BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.9.0.json");
 const t43BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.10.0.json");
-const cbetaCatalogPath = resolve(root, "data/corpus/cbeta/catalog-v4.10.0.json");
-const cbetaManifestPath = resolve(root, "data/corpus/cbeta/manifest-v4.10.0.json");
-const cbetaRegistryPath = resolve(root, "data/gbcr/registry-cbeta-v4.10.0.json");
+const t44BatchPath = resolve(root, "data/corpus/cbeta/batch-v4.11.0.json");
+const cbetaCatalogPath = resolve(root, "data/corpus/cbeta/catalog-v4.11.0.json");
+const cbetaManifestPath = resolve(root, "data/corpus/cbeta/manifest-v4.11.0.json");
+const cbetaRegistryPath = resolve(root, "data/gbcr/registry-cbeta-v4.11.0.json");
 const suttacentralBatchPath = resolve(root, "data/corpus/suttacentral/batch-v0.7.0.json");
 const suttacentralManifestPath = resolve(root, "data/corpus/suttacentral/manifest-v0.7.0.json");
 const dighaBatchPath = resolve(root, "data/corpus/suttacentral/dn-batch-v0.8.0.json");
@@ -135,6 +137,7 @@ const t40InventoryRaw = await readFile(t40InventoryPath, "utf8");
 const t41InventoryRaw = await readFile(t41InventoryPath, "utf8");
 const t42InventoryRaw = await readFile(t42InventoryPath, "utf8");
 const t43InventoryRaw = await readFile(t43InventoryPath, "utf8");
+const t44InventoryRaw = await readFile(t44InventoryPath, "utf8");
 const dergeInventoryRaw = await readFile(dergeInventoryPath, "utf8");
 const rights84000Raw = await readFile(rights84000Path, "utf8");
 const sanskritEvidenceRaw = await readFile(sanskritEvidencePath, "utf8");
@@ -187,6 +190,7 @@ const t40BatchRaw = await readFile(t40BatchPath, "utf8");
 const t41BatchRaw = await readFile(t41BatchPath, "utf8");
 const t42BatchRaw = await readFile(t42BatchPath, "utf8");
 const t43BatchRaw = await readFile(t43BatchPath, "utf8");
+const t44BatchRaw = await readFile(t44BatchPath, "utf8");
 const cbetaCatalogRaw = await readFile(cbetaCatalogPath, "utf8");
 const cbetaManifestRaw = await readFile(cbetaManifestPath, "utf8");
 const cbetaRegistryRaw = await readFile(cbetaRegistryPath, "utf8");
@@ -237,6 +241,7 @@ const t40Inventory = JSON.parse(t40InventoryRaw);
 const t41Inventory = JSON.parse(t41InventoryRaw);
 const t42Inventory = JSON.parse(t42InventoryRaw);
 const t43Inventory = JSON.parse(t43InventoryRaw);
+const t44Inventory = JSON.parse(t44InventoryRaw);
 const dergeInventory = JSON.parse(dergeInventoryRaw);
 const rights84000 = JSON.parse(rights84000Raw);
 const sanskritEvidence = JSON.parse(sanskritEvidenceRaw);
@@ -289,6 +294,7 @@ const t40Batch = JSON.parse(t40BatchRaw);
 const t41Batch = JSON.parse(t41BatchRaw);
 const t42Batch = JSON.parse(t42BatchRaw);
 const t43Batch = JSON.parse(t43BatchRaw);
+const t44Batch = JSON.parse(t44BatchRaw);
 const cbetaCatalog = JSON.parse(cbetaCatalogRaw);
 const cbetaManifest = JSON.parse(cbetaManifestRaw);
 const cbetaRegistry = JSON.parse(cbetaRegistryRaw);
@@ -317,7 +323,7 @@ const requireValue = (condition, message) => {
 };
 
 requireValue(registry.schema === "https://foxue.ai/schemas/gbcr/registry-v0.1", "schema 版本不匹配");
-requireValue(registry.registry?.version === "6.1.0", "登记册版本不匹配");
+requireValue(registry.registry?.version === "6.2.0", "登记册版本不匹配");
 requireValue(registry.claimPolicy?.publishable === false, "全球分母未完成时不得发布 99% 声明");
 
 const denominatorValues = [
@@ -372,7 +378,7 @@ for (const source of registry.sourceSnapshots) {
 }
 
 requireValue(sourceSnapshots.denominatorReady === false, "候选来源记录尚未去重，不得标为分母就绪");
-requireValue(sourceSnapshots.version === "3.1.0", "来源候选快照版本不匹配");
+requireValue(sourceSnapshots.version === "3.2.0", "来源候选快照版本不匹配");
 requireValue(sourceSnapshots.sources?.length === 6, "来源候选快照必须包含 CBETA、SuttaCentral、BDRC、DSBC、GRETIL 与 rKTs");
 for (const snapshot of sourceSnapshots.sources ?? []) {
   const registrySource = registry.sourceSnapshots.find((item) => item.id === snapshot.id);
@@ -921,15 +927,29 @@ requireValue(t43Inventory?.totals?.upstreamBytes === 10412626, "T43 唯识论疏
 requireValue(t43Inventory?.totals?.candidatePathSha256 === "10cf4d2404ab0eb6ff5a278f2437e66e59f5974b426a4c802abfa2da93d675c8", "T43 唯识论疏部清单路径摘要漂移");
 unique(t43Inventory.records.map((record) => record.sourceRecordId), "T43 唯识论疏部来源记录");
 unique(t43Inventory.records.map((record) => record.upstreamPath), "T43 唯识论疏部上游路径");
+const chineseT44Subset = sourceSnapshots.sources
+  .find((source) => source.id === "cbeta_xml_p5")
+  ?.candidateSubsets?.find((subset) => subset.id === "taisho_treatise_logic_awakening_commentaries_t44");
+requireValue(chineseT44Subset?.candidateRecordCount === 17, "T44 论疏、因明与大乘义章候选来源记录分母漂移");
+requireValue(chineseT44Subset?.candidateBytes === 9429430, "T44 论疏、因明与大乘义章候选来源字节数漂移");
+requireValue(chineseT44Subset?.candidatePathSha256 === "107e6e9e81157f954ce742645dcb65567b11ef2ce6fb2f43540d7479019c921f", "T44 论疏、因明与大乘义章候选路径摘要漂移");
+requireValue(chineseT44Subset?.inventoryFile === "data/gbcr/cbeta-taisho-t44-inventory-v0.1.0.json", "T44 论疏、因明与大乘义章逐文件清单路径不匹配");
+requireValue(chineseT44Subset?.inventorySha256 === createHash("sha256").update(t44InventoryRaw).digest("hex"), "T44 论疏、因明与大乘义章逐文件清单摘要不匹配");
+requireValue(chineseT44Subset?.inventorySha256 === "930334ff7291ffdcfabf427fe3265d0983067ad731d7329d5b98da6a597da81e", "T44 论疏、因明与大乘义章固定清单摘要漂移");
+requireValue(t44Inventory?.totals?.records === 17 && t44Inventory?.records?.length === 17, "T44 论疏、因明与大乘义章逐文件清单记录数漂移");
+requireValue(t44Inventory?.totals?.upstreamBytes === 9429430, "T44 论疏、因明与大乘义章逐文件清单字节数漂移");
+requireValue(t44Inventory?.totals?.candidatePathSha256 === "107e6e9e81157f954ce742645dcb65567b11ef2ce6fb2f43540d7479019c921f", "T44 论疏、因明与大乘义章清单路径摘要漂移");
+unique(t44Inventory.records.map((record) => record.sourceRecordId), "T44 论疏、因明与大乘义章来源记录");
+unique(t44Inventory.records.map((record) => record.upstreamPath), "T44 论疏、因明与大乘义章上游路径");
 const chineseFamily = registry.sourceFamilies.find((family) => family.id === "cbeta_chinese");
 requireValue(chineseFamily?.suttacentralParallelEdges === 5161 && chineseFamily?.suttacentralParallelChineseWorksReferenced === 147, "汉译来源族的 SuttaCentral 平行证据统计不匹配");
 requireValue(chineseFamily?.suttacentralParallelEvidenceSha256 === suttacentralChineseParallelsSha256, "汉译来源族的 SuttaCentral 平行证据摘要不匹配");
 requireValue(chineseFamily?.suttacentralParallelReviewQueueItems === 80 && chineseFamily?.suttacentralParallelAdjudicatedItems === 0, "汉译来源族的汉巴裁决进度不匹配");
 requireValue(chineseFamily?.suttacentralParallelReviewQueueSha256 === suttacentralParallelReviewQueueSha256, "汉译来源族的汉巴裁决队列摘要不匹配");
-requireValue(chineseFamily?.candidateExpressionRecords === 1914, "汉译 T01–T43 候选记录未写入来源族");
-requireValue(chineseFamily?.controlledExpressionRecords === 1914, "汉译 T01–T43 受控记录数不匹配");
-requireValue(chineseFamily?.candidateExpressionBytes === 640813221, "汉译 T01–T43 候选字节数未写入来源族");
-requireValue(chineseFamily?.controlledExpressionBytes === 640813221, "汉译 T01–T43 受控字节数不匹配");
+requireValue(chineseFamily?.candidateExpressionRecords === 1931, "汉译 T01–T44 候选记录未写入来源族");
+requireValue(chineseFamily?.controlledExpressionRecords === 1931, "汉译 T01–T44 受控记录数不匹配");
+requireValue(chineseFamily?.candidateExpressionBytes === 650242651, "汉译 T01–T44 候选字节数未写入来源族");
+requireValue(chineseFamily?.controlledExpressionBytes === 650242651, "汉译 T01–T44 受控字节数不匹配");
 requireValue(chineseFamily?.agamaSourceRecordDenominator === 155, "汉译阿含部固定来源分母不匹配");
 requireValue(chineseFamily?.agamaControlledSourceRecords === 155, "汉译阿含部固定来源未完整受控");
 requireValue(chineseFamily?.agamaSourceRecordPercentage === 100, "汉译阿含部固定来源完成率不匹配");
@@ -1804,10 +1824,81 @@ const t1830Relations = t43RegistryWorks[1]?.bibliographicRelations?.map((relatio
 requireValue(t1830Relations.includes("commentaries_on_cheng_weishi_lun_distinct"), "T1830 缺少《成唯识论》根本论—论疏关系");
 requireValue(t1830Relations.filter((type) => type === "subcommentary_on_cheng_weishi_lun_shuji_distinct").length === 2, "T1830 缺少 T1832/T1833 两组再注释关系");
 requireValue(t1830Relations.includes("full_commentary_and_essential_companion_scope_distinct"), "T1830/T1831 述记—枢要范围边界缺失");
-requireValue(cbetaCatalog?.files?.length === 1900, "CBETA 受控目录来源记录数漂移");
-requireValue(cbetaManifest?.files?.length === 1900, "CBETA 资产清单来源记录数漂移");
-requireValue(cbetaRegistry?.works?.length === 1682, "CBETA 书目实体数漂移");
-requireValue(cbetaRegistry?.works?.flatMap((work) => work.expressions)?.length === 1900, "CBETA 文本表达数漂移");
+requireValue(chineseFamily?.t44SourceRecordDenominator === 17, "汉译 T44 固定来源分母不匹配");
+requireValue(chineseFamily?.t44ControlledSourceRecords === 17, "汉译 T44 固定来源未完整受控");
+requireValue(chineseFamily?.t44SourceRecordPercentage === 100, "汉译 T44 固定来源完成率不匹配");
+const t44ExpectedIds = Array.from({ length: 17 }, (_, index) => `T${1835 + index}`);
+requireValue(t44Batch?.files?.length === 17 && t44ExpectedIds.every((id) => t44Batch.files.some((file) => file.id === id)), "CBETA T44 新增来源记录漂移");
+requireValue(t44Batch?.collection?.sourceRecordDenominator === 17 && t44Batch?.collection?.controlledSourceRecords === 17, "CBETA T44 固定来源分母或受控记录数漂移");
+requireValue(t44Batch?.collection?.previouslyControlledSourceRecords === 0, "CBETA T44 既有受控来源记录数漂移");
+requireValue(t44Batch?.collection?.newSourceBytes === 9429430, "CBETA T44 新增来源字节数漂移");
+requireValue(t44Batch?.collection?.newStableSegments === 75170, "CBETA T44 新增稳定行段数漂移");
+requireValue(t44Batch?.collection?.newFolios === 2663, "CBETA T44 新增版页数漂移");
+requireValue(t44Batch?.collection?.newJuans === 70, "CBETA T44 新增卷数漂移");
+requireValue(t44Batch?.collection?.newFullSourceTexts === 17 && t44Batch?.collection?.newPartialSourceWitnesses === 0, "CBETA T44 完整作品来源或部分见证数漂移");
+requireValue(t44Batch?.collection?.verifiedSameWorkExpressions === 0 && t44Batch?.collection?.verifiedPartialWorkWitnesses === 0 && t44Batch?.collection?.verifiedSplitWorkWitnesses === 0 && t44Batch?.collection?.verifiedEditionWitnesses === 0, "CBETA T44 不应误并作品或版本见证");
+requireValue(t44Batch?.collection?.provisionalRecords === 0, "CBETA T44 已审定记录不应保留暂定书目状态");
+requireValue(t44Batch?.collection?.relationAnnotatedRecords === 17 && t44Batch?.collection?.attributionBoundaryRecords === 17, "CBETA T44 关系或责任边界记录数漂移");
+requireValue(t44Batch?.collection?.newWorks === 17 && t44Batch?.collection?.controlledWorks === 17, "CBETA T44 作品实体数漂移");
+requireValue(t44Batch?.boundaryAudit?.rootVinayaCommentaryGroups?.length === 0, "CBETA T44 不应包含律疏关系组");
+requireValue(t44Batch?.boundaryAudit?.rootTreatiseCommentaryGroups?.length === 7, "CBETA T44 论本—论疏关系组漂移");
+requireValue(t44Batch?.boundaryAudit?.rootEditionBoundaryGroups?.length === 2, "CBETA T44 根本论译本边界组漂移");
+requireValue(t44Batch?.boundaryAudit?.subcommentaryGroups?.length === 1, "CBETA T44 再注释关系组漂移");
+requireValue(t44Batch?.boundaryAudit?.scopeBoundaryGroups?.length === 3, "CBETA T44 伴随著作范围关系组漂移");
+requireValue(t44Batch?.boundaryAudit?.relatedDistinctWorkGroups?.length === 6, "CBETA T44 平行论疏或同作者异作关系组漂移");
+requireValue(
+  t44Batch?.boundaryAudit?.status === "verified_source_integrity_treatise_logic_awakening_commentary_subcommentary_root_translation_layered_attribution_companion_scope_and_compendium_boundaries_recorded",
+  "CBETA T44 作品边界状态不匹配",
+);
+requireValue(registry.cbetaT44BoundaryAudit?.sha256 === createHash("sha256").update(t44BatchRaw).digest("hex"), "登记册 CBETA T44 边界审计摘要不匹配");
+const t44ExpectedRoles = new Map([
+  ["T1835", "sinitic_authored_madhyantavibhaga_commentary"],
+  ["T1836", "sinitic_layered_hundred_dharmas_commentary"],
+  ["T1837", "sinitic_authored_hundred_dharmas_commentary"],
+  ["T1838", "sinitic_authored_dharmadhatu_avisesa_commentary"],
+  ["T1839", "sinitic_authored_nyayamukha_commentary"],
+  ["T1840", "sinitic_authored_nyayapravesa_commentary"],
+  ["T1841", "sinitic_authored_nyayapravesa_critical_commentary"],
+  ["T1842", "sinitic_compiled_nyayapravesa_commentary"],
+  ["T1843", "sinitic_authored_awakening_of_faith_commentary"],
+  ["T1844", "silla_authored_awakening_of_faith_commentary"],
+  ["T1845", "silla_authored_awakening_of_faith_companion_note"],
+  ["T1846", "sinitic_authored_awakening_of_faith_commentary"],
+  ["T1847", "sinitic_authored_awakening_of_faith_companion_note"],
+  ["T1848", "sinitic_authored_awakening_of_faith_subcommentary"],
+  ["T1849", "silla_authored_awakening_of_faith_concise_commentary"],
+  ["T1850", "sinitic_authored_awakening_of_faith_new_translation_commentary"],
+  ["T1851", "sinitic_authored_mahayana_doctrinal_compendium"],
+]);
+const t44ExpectedSegments = new Map([
+  ["T1835", 3917], ["T1836", 577], ["T1837", 701], ["T1838", 1335], ["T1839", 1248],
+  ["T1840", 4479], ["T1841", 1326], ["T1842", 1381], ["T1843", 2333], ["T1844", 2057],
+  ["T1845", 1277], ["T1846", 4040], ["T1847", 726], ["T1848", 9716], ["T1849", 1117],
+  ["T1850", 3632], ["T1851", 35308],
+]);
+const t44RegistryWorks = t44ExpectedIds.map((id) => registry.works.find((work) =>
+  work.expressions.some((expression) => expression.id === `gbcr:expression:${id}-zh-Hant`),
+));
+requireValue(t44RegistryWorks.every(Boolean), "CBETA T44 十七个作品未完整进入统一登记册");
+requireValue(new Set(t44RegistryWorks.map((work) => work?.id)).size === 17, "CBETA T44 十七个来源必须保持十七个独立作品");
+for (const [index, id] of t44ExpectedIds.entries()) {
+  const work = t44RegistryWorks[index];
+  const expression = work?.expressions.find((candidate) => candidate.id === `gbcr:expression:${id}-zh-Hant`);
+  requireValue(expression?.sourceRole === t44ExpectedRoles.get(id), `${id} T44 来源角色漂移`);
+  requireValue(expression?.stableSegments === t44ExpectedSegments.get(id), `${id} 稳定行段数漂移`);
+  requireValue(expression?.fullSourceText === true && expression?.completeSourceRecord === true, `${id} 必须保持完整来源记录`);
+  requireValue(expression?.sourceTextAsset?.path === `data/corpus/cbeta/T44n${id.slice(1)}.xml`, `${id} 来源资产路径漂移`);
+}
+const t1836Relations = t44RegistryWorks[1]?.bibliographicRelations?.map((relation) => relation.type) ?? [];
+const t1848Relations = t44RegistryWorks[13]?.bibliographicRelations?.map((relation) => relation.type) ?? [];
+const t1851Relations = t44RegistryWorks[16]?.bibliographicRelations?.map((relation) => relation.type) ?? [];
+requireValue(t1836Relations.includes("layered_traditional_attribution_recorded"), "T1836 窺基注解—普泰增修复合责任边界缺失");
+requireValue(t1848Relations.includes("subcommentary_on_fazang_awakening_commentary_distinct"), "T1848 对法藏义记系统的再注释边界缺失");
+requireValue(t1851Relations.includes("huiyuan_commentary_and_doctrinal_compendium_related_distinct"), "T1851 综合义章与慧远《起信论》疏相关异作边界缺失");
+requireValue(cbetaCatalog?.files?.length === 1917, "CBETA 受控目录来源记录数漂移");
+requireValue(cbetaManifest?.files?.length === 1917, "CBETA 资产清单来源记录数漂移");
+requireValue(cbetaRegistry?.works?.length === 1699, "CBETA 书目实体数漂移");
+requireValue(cbetaRegistry?.works?.flatMap((work) => work.expressions)?.length === 1917, "CBETA 文本表达数漂移");
 const suttacentralFamily = registry.sourceFamilies.find(
   (family) => family.id === "suttacentral_early_buddhist_texts",
 );
@@ -1902,8 +1993,8 @@ const checksums = new Map(checksumLines.map((line) => {
   return [file, hash];
 }));
 const controlledFiles = [
-  ["registry-v6.1.0.json", raw],
-  ["source-snapshots-v3.1.0.json", sourceSnapshotsRaw],
+  ["registry-v6.2.0.json", raw],
+  ["source-snapshots-v3.2.0.json", sourceSnapshotsRaw],
   ["cbeta-taisho-sutra-inventory-v0.2.1.json", inventoryRaw],
   ["cbeta-taisho-t18-inventory-v0.1.0.json", t18InventoryRaw],
   ["cbeta-taisho-t19-inventory-v0.1.0.json", t19InventoryRaw],
@@ -1931,6 +2022,7 @@ const controlledFiles = [
   ["cbeta-taisho-t41-inventory-v0.1.0.json", t41InventoryRaw],
   ["cbeta-taisho-t42-inventory-v0.1.0.json", t42InventoryRaw],
   ["cbeta-taisho-t43-inventory-v0.1.0.json", t43InventoryRaw],
+  ["cbeta-taisho-t44-inventory-v0.1.0.json", t44InventoryRaw],
   ["bdrc-derge-kangyur-inventory-v0.3.0.json", dergeInventoryRaw],
   ["84000-rights-policy-v0.3.0.json", rights84000Raw],
   ["dsbc-gretil-source-snapshot-v0.4.0.json", sanskritEvidenceRaw],
@@ -1977,9 +2069,10 @@ const controlledFiles = [
   ["batch-v4.8.0.json", t41BatchRaw],
   ["batch-v4.9.0.json", t42BatchRaw],
   ["batch-v4.10.0.json", t43BatchRaw],
-  ["catalog-v4.10.0.json", cbetaCatalogRaw],
-  ["manifest-v4.10.0.json", cbetaManifestRaw],
-  ["registry-cbeta-v4.10.0.json", cbetaRegistryRaw],
+  ["batch-v4.11.0.json", t44BatchRaw],
+  ["catalog-v4.11.0.json", cbetaCatalogRaw],
+  ["manifest-v4.11.0.json", cbetaManifestRaw],
+  ["registry-cbeta-v4.11.0.json", cbetaRegistryRaw],
   ["batch-v0.7.0.json", suttacentralBatchRaw],
   ["manifest-v0.7.0.json", suttacentralManifestRaw],
   ["dn-batch-v0.8.0.json", dighaBatchRaw],
@@ -2020,12 +2113,12 @@ const mahaPrajnaparamita = registry.works.find((work) => work.id === "gbcr:work:
 const paliDhammapada = registry.works.find((work) => work.id === "gbcr:work:dhammapada-pali");
 const chineseDharmapada = registry.works.find((work) => work.id === "gbcr:work:dharmapada-t0210");
 const dhammapadaFamily = registry.textFamilies?.find((family) => family.id === "gbcr:text-family:dhammapada");
-requireValue(registry.registry.version === "6.1.0", "当前 GBCR 版本必须为 v6.1.0");
-requireValue(registry.works.length === 1971, "v6.1 必须登记 1,971 个可追踪作品实体");
-requireValue(expressions.length === 2189, "v6.1 必须登记 2,189 个文本表达或见证");
-requireValue(expressions.filter((expression) => expression.fullSourceText).length === 2146, "v6.1 必须登记 2,146 个完整文本表达或见证");
-requireValue(registry.works.filter((work) => work.expressions.some((expression) => expression.fullSourceText)).length === 1944, "v6.1 必须登记 1,944 个含完整文本的作品");
-requireValue(segmentCount === 3992306, "v6.1 稳定行段总数漂移");
+requireValue(registry.registry.version === "6.2.0", "当前 GBCR 版本必须为 v6.2.0");
+requireValue(registry.works.length === 1988, "v6.2 必须登记 1,988 个可追踪作品实体");
+requireValue(expressions.length === 2206, "v6.2 必须登记 2,206 个文本表达或见证");
+requireValue(expressions.filter((expression) => expression.fullSourceText).length === 2163, "v6.2 必须登记 2,163 个完整文本表达或见证");
+requireValue(registry.works.filter((work) => work.expressions.some((expression) => expression.fullSourceText)).length === 1961, "v6.2 必须登记 1,961 个含完整文本的作品");
+requireValue(segmentCount === 4067476, "v6.2 稳定行段总数漂移");
 const provisionalCbetaWorks = registry.works.filter((work) =>
   work.workType === "provisional_bibliographic_entity" && /^gbcr:work:taisho-t/.test(work.id),
 );
