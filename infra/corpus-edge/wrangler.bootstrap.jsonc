@@ -11,12 +11,6 @@
       "custom_domain": true
     }
   ],
-  "r2_buckets": [
-    {
-      "binding": "CORPUS",
-      "bucket_name": "foxue-ai-corpus"
-    }
-  ],
   "vars": {
     "RELEASE_ID": "gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb",
     "RELEASE_MANIFEST_SHA256": "2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182",
