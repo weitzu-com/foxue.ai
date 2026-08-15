@@ -106,7 +106,7 @@ Vercel 恢复顺序：
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
-2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d39f2db5229c`，应复现 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变正文对象、2,763,263,069 个不可变对象字节，以及含清单与指针在内的 262,905 个上传对象、2,860,962,092 个上传字节；版本清单 SHA-256 应为 `35cc65a05ff0167229793f9e08d4ca23d7215a5ba99a812edbb9c0fc0a1afa9e`；
+2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb`，应复现 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变正文对象、2,763,263,069 个不可变对象字节，以及含清单与指针在内的 262,905 个上传对象、2,860,962,092 个上传字节；版本清单 SHA-256 应为 `2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182`；
 3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
 4. 运行 `pnpm cloudflare:types:check` 与 `pnpm cloudflare:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 部署只读 Worker；
 5. 将 `canon.foxue.ai` 绑定到 Worker，验证 `/health`、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；
