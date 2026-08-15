@@ -289,6 +289,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT43SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT43SourceRecords.controlledWorks} 个独立作品；3 组根本论—论疏、2 组述记—再注释、1 组述记—枢要范围与 3 组相关异作边界均已记录，
               窥基、惠沼与智周六部唯识疏释不因同一根本论、师承、共同作者或共享术语而合并；
+              T44 论疏、因明与大乘义章固定来源已完成 {snapshot.candidateInventory.chineseT44SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT44SourceRecords.denominator}（{snapshot.candidateInventory.chineseT44SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT44SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT44SourceRecords.controlledWorks} 个独立作品；7 组根本论—论疏、2 组根本译本、1 组再注释、3 组伴随著作范围与 6 组相关异作边界均已记录，
+              T1836 的复合责任题记、T1848 的再注释层级和 T1851 的综合义章身份都不被压平；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -507,6 +512,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T43 的 6 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t44-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T44 的 17 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
