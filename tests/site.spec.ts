@@ -131,12 +131,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2334,
-    registeredExpressions: 2554,
-    fullSourceTextWorks: 2307,
-    fullSourceTextExpressions: 2511,
-    stableSegments: 5034716,
-    structureVerifiedWorks: 2334,
+    registeredWorks: 2526,
+    registeredExpressions: 2746,
+    fullSourceTextWorks: 2499,
+    fullSourceTextExpressions: 2703,
+    stableSegments: 5159332,
+    structureVerifiedWorks: 2526,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -170,11 +170,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 2279,
-    controlled: 2279,
+    denominator: 2471,
+    controlled: 2471,
     percentage: 100,
-    sourceBytes: 840047921,
-    controlledBytes: 840047921,
+    sourceBytes: 855499447,
+    controlledBytes: 855499447,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -194,6 +194,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t53InventorySha256: "ebe99cb171dae4f820997ae20bc6b60a2760c3031757df7e78e0a1d47386dbf3",
     t54InventorySha256: "fa445094b7bfe4f80c80deddb519fd12276f281bba54f87bc1d5814e437bbdd5",
     t55InventorySha256: "86a05a20d2884b3aaa77ab4b5f6061cdd9fa3a423bd91a2799a5c3a648a7f7d8",
+    t85InventorySha256: "63ddc4f9d83530d741af5088045f20ec7588440b4f878a86fd83770662034523",
     t30InventorySha256: "dda6b9612df5cb08b0900eca6a76726aa421c1a6c92923d612add7b3fccc2839",
     t31InventorySha256: "9efd4f5897ef47c36e5310b9263dfa515483fa6c713433555a899e12a63566ca",
     t32InventorySha256: "7f4aae2c0ab97ffdf872ec72705acf05f9ef6dcd0d42f12e9756c9465ca670f7",
@@ -952,6 +953,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseBuddhistReferenceAndNonBuddhistT54BoundaryAudit: expect.stringContaining("batch-v4.21.0.json"),
     chineseBuddhistCataloguesT55Inventory: expect.stringContaining("cbeta-taisho-t55-inventory-v0.1.0.json"),
     chineseBuddhistCataloguesT55BoundaryAudit: expect.stringContaining("batch-v4.22.0.json"),
+    chineseLostAndSuspectedTextsT85Inventory: expect.stringContaining("cbeta-taisho-t85-inventory-v0.1.0.json"),
+    chineseLostAndSuspectedTextsT85BoundaryAudit: expect.stringContaining("batch-v4.23.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -3356,6 +3359,63 @@ test("汉译 T55 佛教经录与书目完整受控且不误标为佛陀逐字亲
     sourceReuseBoundaryGroups: 3,
     sameAuthorCompanionWorkGroups: 2,
     relatedDistinctWorkGroups: 14,
+  });
+
+  const sitemap = await readSitemaps(request);
+  for (const path of representativePaths) expect(sitemap).toContain(path);
+});
+
+test("汉译 T85 古逸与疑似部完整受控并保持异本、卷序及佛说边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t2732/001-0001a");
+  await expect(page.getByRole("heading", { level: 1, name: "梁朝傅大士頌金剛經" })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2764a/001-0280a");
+  await expect(page.getByRole("heading", { level: 1, name: "涅槃經義記" })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2764b/004-0294a");
+  await expect(page.getByRole("heading", { level: 1, name: "大涅槃經義記卷第四" })).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2865/001-1325a");
+  await expect(page.getByRole("heading", { level: 1, name: "護身命經" })).toBeVisible();
+
+  const representativePaths = [
+    "/jingzang/taisho-t2732/001-0001a",
+    "/jingzang/taisho-t2732/001-0008c",
+    "/jingzang/taisho-t2764a/001-0280a",
+    "/jingzang/taisho-t2764a/001-0294a",
+    "/jingzang/taisho-t2764b/004-0294a",
+    "/jingzang/taisho-t2764b/004-0304a",
+    "/jingzang/taisho-t2830a/001-1268b",
+    "/jingzang/taisho-t2830b/001-1269a",
+    "/jingzang/taisho-t2865/001-1325a",
+    "/jingzang/taisho-t2865/001-1326a",
+    "/jingzang/taisho-t2917a/001-1462a",
+    "/jingzang/taisho-t2917b/001-1462b",
+    "/jingzang/taisho-t2920/001-1463b",
+    "/jingzang/taisho-t2920/001-1464a",
+  ];
+  for (const path of representativePaths) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT85SourceRecords).toMatchObject({
+    denominator: 192,
+    controlled: 192,
+    percentage: 100,
+    fullSourceTexts: 192,
+    partialSourceWitnesses: 0,
+    provisionalRecords: 192,
+    relationAnnotatedRecords: 192,
+    attributionBoundaryRecords: 192,
+    unsignedResponsibilityRecords: 160,
+    buddhistCulturalReferenceRecords: 7,
+    suspectedTextRecords: 57,
+    newWorks: 192,
+    controlledWorks: 192,
+    sameNumberBoundaryGroups: 3,
+    sameTitleBoundaryGroups: 9,
+    irregularJuanSequenceGroups: 4,
+    manuscriptCollationPendingGroups: 12,
+    relatedDistinctWorkGroups: 22,
   });
 
   const sitemap = await readSitemaps(request);
