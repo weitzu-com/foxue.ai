@@ -1,0 +1,1324 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.16.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.15.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t49-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T49; T49 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T49",
+    "title": "大正藏 T49 结集、法灭、部派论书与佛教史传固定来源记录",
+    "sourceRecordDenominator": 14,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 14,
+    "controlledSourceRecords": 14,
+    "newSourceBytes": 13132361,
+    "newStableSegments": 82214,
+    "newFolios": 3080,
+    "newJuans": 111,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 14,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 14,
+    "attributionBoundaryRecords": 14,
+    "unsignedResponsibilityRecords": 0,
+    "lostTranslatorResponsibilityRecords": 3,
+    "newWorks": 14,
+    "controlledWorks": 14,
+    "workCountingDecision": "T49 的 14 份来源记录登记为 14 个完整表达和 14 个独立作品、译本或史传汇编。DILA 为每份记录分配不同作品权威号；三部部派论书保持相关而独立，五部中国史书的史料复用不构成作品同一，《释氏稽古略》与续集分立，《三国遗事》的 TEI 与目录责任标签并列保存。没有仅凭题名、主题、译者、编者、编年结构、引文或文本重叠执行作品合并。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_council_decline_sectarian_treatises_histories_continuation_and_responsibility_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [],
+    "layeredAttributionGroups": [
+      "sectarian-related-texts-t2031-t2033",
+      "samguk-yusa-responsibility-t2039"
+    ],
+    "scopeBoundaryGroups": [
+      "council-dharma-duration-decline-t2026-t2030",
+      "sectarian-treatises-t2031-t2033",
+      "east-asian-buddhist-histories-t2034-t2039"
+    ],
+    "continuationBoundaryGroups": [
+      "shishi-jigu-and-continuation-t2037-t2038"
+    ],
+    "catalogResponsibilityBoundaryGroups": [
+      "samguk-yusa-responsibility-t2039"
+    ],
+    "relatedDistinctWorkGroups": [
+      "council-dharma-duration-decline-t2026-t2030",
+      "sectarian-treatises-t2031-t2033",
+      "east-asian-buddhist-histories-t2034-t2039",
+      "sectarian-related-texts-t2031-t2033",
+      "historiographic-reuse-t2034-t2038",
+      "shishi-jigu-and-continuation-t2037-t2038",
+      "samguk-yusa-responsibility-t2039"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2026–T2030 共同讨论佛灭后的结集、法住与法灭，但叙事对象、责任题记、题名和五个 DILA 作品号不同",
+      "T2031–T2033 是关系密切的部派论书；五字组包含度最高约 0.053791，当前记录关系但不把三个 DILA 作品号自动压成同一作品的译本",
+      "T2034–T2038 共享佛教史料；T2036/T2037 五字组包含度约 0.106599，只证明编纂依赖或史料复用",
+      "T2037/T2038 是本编与续集，五字组包含度约 0.006027；续修关系不消除不同编者、时代、范围与作品号",
+      "T2039 与中国佛教史传共享东亚佛教历史主题，但地域、体例、内容与作品权威号不同",
+      "T2039 的 TEI 题署一然撰，DILA 当前责任标签为 translator；两种来源标签并列保留，不静默改写责任裁决",
+      "T2026、T2028、T2029 的责任题记为失译，表示译者失载而不是无署名原创，也不据相邻记录推定译者"
+    ],
+    "partialWorkWitnesses": [],
+    "sourceRoles": {
+      "buddhist_bibliographic_historical_chronicle": [
+        "T2034"
+      ],
+      "buddhist_historical_compendium": [
+        "T2037"
+      ],
+      "buddhist_historical_compendium_continuation": [
+        "T2038"
+      ],
+      "buddhist_patriarchal_chronicle": [
+        "T2035"
+      ],
+      "buddhist_universal_historical_chronicle": [
+        "T2036"
+      ],
+      "korean_historical_mythic_compilation": [
+        "T2039"
+      ],
+      "lost_translator_dharma_extinction_verses": [
+        "T2029"
+      ],
+      "lost_translator_future_dharma_change_record": [
+        "T2028"
+      ],
+      "lost_translator_tripitaka_compilation_legend": [
+        "T2026"
+      ],
+      "paramartha_translation_eighteen_schools_treatise": [
+        "T2032"
+      ],
+      "paramartha_translation_related_sectarian_treatise": [
+        "T2033"
+      ],
+      "translated_arhat_dharma_duration_record": [
+        "T2030"
+      ],
+      "translated_kasyapa_council_record": [
+        "T2027"
+      ],
+      "xuanzang_translation_sectarian_treatise": [
+        "T2031"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records shared sectarian accounts, chronologies, names, quotations, source reuse and compilation dependence only; it cannot merge related treatises, historical chronicles, base works and continuations, or resolve catalog responsibility conflicts.",
+      "pairs": [
+        {
+          "pair": [
+            "T2026",
+            "T2027"
+          ],
+          "normalizedCharacters": [
+            3453,
+            3493
+          ],
+          "fiveGramContainmentOfShorter": 0.000585,
+          "fiveGramJaccard": 0.000293
+        },
+        {
+          "pair": [
+            "T2026",
+            "T2028"
+          ],
+          "normalizedCharacters": [
+            3453,
+            3774
+          ],
+          "fiveGramContainmentOfShorter": 0.000585,
+          "fiveGramJaccard": 0.000279
+        },
+        {
+          "pair": [
+            "T2026",
+            "T2029"
+          ],
+          "normalizedCharacters": [
+            3453,
+            2456
+          ],
+          "fiveGramContainmentOfShorter": 0.000823,
+          "fiveGramJaccard": 0.000342
+        },
+        {
+          "pair": [
+            "T2028",
+            "T2029"
+          ],
+          "normalizedCharacters": [
+            3774,
+            2456
+          ],
+          "fiveGramContainmentOfShorter": 0.001645,
+          "fiveGramJaccard": 0.000647
+        },
+        {
+          "pair": [
+            "T2031",
+            "T2032"
+          ],
+          "normalizedCharacters": [
+            3393,
+            3366
+          ],
+          "fiveGramContainmentOfShorter": 0.015878,
+          "fiveGramJaccard": 0.00794
+        },
+        {
+          "pair": [
+            "T2031",
+            "T2033"
+          ],
+          "normalizedCharacters": [
+            3393,
+            4021
+          ],
+          "fiveGramContainmentOfShorter": 0.053791,
+          "fiveGramJaccard": 0.025728
+        },
+        {
+          "pair": [
+            "T2032",
+            "T2033"
+          ],
+          "normalizedCharacters": [
+            3366,
+            4021
+          ],
+          "fiveGramContainmentOfShorter": 0.022336,
+          "fiveGramJaccard": 0.010612
+        },
+        {
+          "pair": [
+            "T2034",
+            "T2035"
+          ],
+          "normalizedCharacters": [
+            82303,
+            410241
+          ],
+          "fiveGramContainmentOfShorter": 0.008892,
+          "fiveGramJaccard": 0.001382
+        },
+        {
+          "pair": [
+            "T2034",
+            "T2036"
+          ],
+          "normalizedCharacters": [
+            82303,
+            318425
+          ],
+          "fiveGramContainmentOfShorter": 0.019307,
+          "fiveGramJaccard": 0.00355
+        },
+        {
+          "pair": [
+            "T2034",
+            "T2037"
+          ],
+          "normalizedCharacters": [
+            82303,
+            218351
+          ],
+          "fiveGramContainmentOfShorter": 0.013317,
+          "fiveGramJaccard": 0.003344
+        },
+        {
+          "pair": [
+            "T2035",
+            "T2036"
+          ],
+          "normalizedCharacters": [
+            410241,
+            318425
+          ],
+          "fiveGramContainmentOfShorter": 0.043773,
+          "fiveGramJaccard": 0.020102
+        },
+        {
+          "pair": [
+            "T2035",
+            "T2037"
+          ],
+          "normalizedCharacters": [
+            410241,
+            218351
+          ],
+          "fiveGramContainmentOfShorter": 0.026199,
+          "fiveGramJaccard": 0.009388
+        },
+        {
+          "pair": [
+            "T2035",
+            "T2038"
+          ],
+          "normalizedCharacters": [
+            410241,
+            67447
+          ],
+          "fiveGramContainmentOfShorter": 0.011497,
+          "fiveGramJaccard": 0.001706
+        },
+        {
+          "pair": [
+            "T2036",
+            "T2037"
+          ],
+          "normalizedCharacters": [
+            318425,
+            218351
+          ],
+          "fiveGramContainmentOfShorter": 0.106599,
+          "fiveGramJaccard": 0.044769
+        },
+        {
+          "pair": [
+            "T2036",
+            "T2038"
+          ],
+          "normalizedCharacters": [
+            318425,
+            67447
+          ],
+          "fiveGramContainmentOfShorter": 0.049311,
+          "fiveGramJaccard": 0.008714
+        },
+        {
+          "pair": [
+            "T2037",
+            "T2038"
+          ],
+          "normalizedCharacters": [
+            218351,
+            67447
+          ],
+          "fiveGramContainmentOfShorter": 0.006027,
+          "fiveGramJaccard": 0.001449
+        },
+        {
+          "pair": [
+            "T2035",
+            "T2039"
+          ],
+          "normalizedCharacters": [
+            410241,
+            84831
+          ],
+          "fiveGramContainmentOfShorter": 0.001822,
+          "fiveGramJaccard": 0.000326
+        },
+        {
+          "pair": [
+            "T2036",
+            "T2039"
+          ],
+          "normalizedCharacters": [
+            318425,
+            84831
+          ],
+          "fiveGramContainmentOfShorter": 0.001366,
+          "fiveGramJaccard": 0.000287
+        },
+        {
+          "pair": [
+            "T2037",
+            "T2039"
+          ],
+          "normalizedCharacters": [
+            218351,
+            84831
+          ],
+          "fiveGramContainmentOfShorter": 0.002001,
+          "fiveGramJaccard": 0.000568
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T49",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004162",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001530",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001527",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001080",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000957",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003759",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003028",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000343",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002040",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001102",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001101",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003154",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003128",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002713"
+    ],
+    "caveat": "T49 是结集与法灭记录、部派论书及中韩佛教史传集合，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI 与校勘注记，同时区分相关部派论书、史料复用、通史与编年史、本编与续集、失译责任及目录责任标签冲突；共同主题、人物、年代、译者、编者、地域、史料、引文或机器相似度都不能单独证明作品相同、责任无争议或佛陀逐字亲说。"
+  },
+  "files": [
+    {
+      "id": "T2026",
+      "slug": "taisho-t2026",
+      "workId": "gbcr:work:taisho-t2026-early-buddhist-transmission-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "撰集三藏及雜藏傳",
+      "sourceRole": "lost_translator_tripitaka_compilation_legend",
+      "bibliographicRelations": [
+        {
+          "type": "council_dharma_duration_and_decline_records_distinct",
+          "groupId": "council-dharma-duration-decline-t2026-t2030",
+          "label": "结集、法住与法灭记录作品边界",
+          "evidence": "T2026–T2030 分别叙述三藏结集、迦叶结经、未来变乱、法灭偈与罗汉法住。五份记录的题名、叙事对象、责任题记、结构与 DILA 作品号均不同；共同讨论佛灭后传承不能证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T2026",
+              "T2027",
+              "T2028",
+              "T2029",
+              "T2030"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2026.xml",
+      "upstreamPath": "T/T49/T49n2026.xml",
+      "upstreamGitBlobSha1": "27c78380cc7b9078838ddd6b0cd542d36f242cf0",
+      "upstreamBytes": 72720,
+      "upstreamSha256": "c5533e34585b8f5f734f08715bc0ff6836e734fa9fb4d9e73856cece88adeee6",
+      "localBytes": 72721,
+      "localSha256": "22073044b5867d920efc69356071f31d9a2d94470cae6b400a5331663bdd396b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "撰集三藏及雜藏傳",
+        "alternateTitle": "撰集三藏及雜藏傳",
+        "tradition": "汉传佛教 · 结集与法住法灭传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2026",
+        "translator": "失譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2026_001"
+      },
+      "verification": {
+        "segments": 286,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2026.001.0001a02",
+          "T2026.001.0004a27"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2027",
+      "slug": "taisho-t2027",
+      "workId": "gbcr:work:taisho-t2027-early-buddhist-transmission-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "迦葉結經",
+      "sourceRole": "translated_kasyapa_council_record",
+      "bibliographicRelations": [
+        {
+          "type": "council_dharma_duration_and_decline_records_distinct",
+          "groupId": "council-dharma-duration-decline-t2026-t2030",
+          "label": "结集、法住与法灭记录作品边界",
+          "evidence": "T2026–T2030 分别叙述三藏结集、迦叶结经、未来变乱、法灭偈与罗汉法住。五份记录的题名、叙事对象、责任题记、结构与 DILA 作品号均不同；共同讨论佛灭后传承不能证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T2026",
+              "T2027",
+              "T2028",
+              "T2029",
+              "T2030"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2027.xml",
+      "upstreamPath": "T/T49/T49n2027.xml",
+      "upstreamGitBlobSha1": "32c96b9496f91d55be51d70eb0e7fd69d490e1d9",
+      "upstreamBytes": 57718,
+      "upstreamSha256": "56da322514e12a738fcc50425d223ecf16e9662888a709976d91b62e0b87e5e6",
+      "localBytes": 57719,
+      "localSha256": "52e4b5dff53cb9478f714e7a562aceb55d0781a9b47ad26d01629eda43c90af6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "迦葉結經",
+        "alternateTitle": "迦葉結經",
+        "tradition": "汉传佛教 · 结集与法住法灭传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2027",
+        "translator": "後漢 · 安世高譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：後漢 安世高譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2027_001"
+      },
+      "verification": {
+        "segments": 247,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2027.001.0004b02",
+          "T2027.001.0007a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2028",
+      "slug": "taisho-t2028",
+      "workId": "gbcr:work:taisho-t2028-early-buddhist-transmission-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "迦丁比丘說當來變經",
+      "sourceRole": "lost_translator_future_dharma_change_record",
+      "bibliographicRelations": [
+        {
+          "type": "council_dharma_duration_and_decline_records_distinct",
+          "groupId": "council-dharma-duration-decline-t2026-t2030",
+          "label": "结集、法住与法灭记录作品边界",
+          "evidence": "T2026–T2030 分别叙述三藏结集、迦叶结经、未来变乱、法灭偈与罗汉法住。五份记录的题名、叙事对象、责任题记、结构与 DILA 作品号均不同；共同讨论佛灭后传承不能证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T2026",
+              "T2027",
+              "T2028",
+              "T2029",
+              "T2030"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2028.xml",
+      "upstreamPath": "T/T49/T49n2028.xml",
+      "upstreamGitBlobSha1": "877087344bdce985d1eee56cbcffb99fce23731b",
+      "upstreamBytes": 83706,
+      "upstreamSha256": "f61c6c97f6f4a8ee194fe9fff7777ecd1da3abeca74fc34722d7eedb4c3fd23a",
+      "localBytes": 83707,
+      "localSha256": "8b4516c8a857ccfe0a8d334e29c8c44faf32272550a3ec1827766a60c736a48b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "迦丁比丘說當來變經",
+        "alternateTitle": "迦丁比丘說當來變經",
+        "tradition": "汉传佛教 · 结集与法住法灭传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2028",
+        "translator": "失譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2028_001"
+      },
+      "verification": {
+        "segments": 226,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2028.001.0007a20",
+          "T2028.001.0009c14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2029",
+      "slug": "taisho-t2029",
+      "workId": "gbcr:work:taisho-t2029-early-buddhist-transmission-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "佛使比丘迦旃延說法沒盡偈百二十章",
+      "sourceRole": "lost_translator_dharma_extinction_verses",
+      "bibliographicRelations": [
+        {
+          "type": "council_dharma_duration_and_decline_records_distinct",
+          "groupId": "council-dharma-duration-decline-t2026-t2030",
+          "label": "结集、法住与法灭记录作品边界",
+          "evidence": "T2026–T2030 分别叙述三藏结集、迦叶结经、未来变乱、法灭偈与罗汉法住。五份记录的题名、叙事对象、责任题记、结构与 DILA 作品号均不同；共同讨论佛灭后传承不能证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T2026",
+              "T2027",
+              "T2028",
+              "T2029",
+              "T2030"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2029.xml",
+      "upstreamPath": "T/T49/T49n2029.xml",
+      "upstreamGitBlobSha1": "605b3b1b8ff604a2328b38640750cdc054bc4f0e",
+      "upstreamBytes": 52140,
+      "upstreamSha256": "3dfbe3ff36bb5f89d812e4e93f549059f37f05bd97a7a85d5898c48dbebe1c43",
+      "localBytes": 52141,
+      "localSha256": "96085816fdbcdf90e533cfe9a5bcdfad6a22556a9bc799b01fb77e7b692a584e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛使比丘迦旃延說法沒盡偈百二十章",
+        "alternateTitle": "佛使比丘迦旃延說法沒盡偈百二十章",
+        "tradition": "汉传佛教 · 结集与法住法灭传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2029",
+        "translator": "失譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：失譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2029_001"
+      },
+      "verification": {
+        "segments": 245,
+        "folios": 10,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2029.001.0009c18",
+          "T2029.001.0012c02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2030",
+      "slug": "taisho-t2030",
+      "workId": "gbcr:work:taisho-t2030-early-buddhist-transmission-record",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "大阿羅漢難提蜜多羅所說法住記",
+      "sourceRole": "translated_arhat_dharma_duration_record",
+      "bibliographicRelations": [
+        {
+          "type": "council_dharma_duration_and_decline_records_distinct",
+          "groupId": "council-dharma-duration-decline-t2026-t2030",
+          "label": "结集、法住与法灭记录作品边界",
+          "evidence": "T2026–T2030 分别叙述三藏结集、迦叶结经、未来变乱、法灭偈与罗汉法住。五份记录的题名、叙事对象、责任题记、结构与 DILA 作品号均不同；共同讨论佛灭后传承不能证明作品相同。",
+          "externalIds": {
+            "cbeta": [
+              "T2026",
+              "T2027",
+              "T2028",
+              "T2029",
+              "T2030"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2030.xml",
+      "upstreamPath": "T/T49/T49n2030.xml",
+      "upstreamGitBlobSha1": "713814e364877f34d6aee3d22a810cc13e09b258",
+      "upstreamBytes": 35883,
+      "upstreamSha256": "699f3eb7ad171b9986f2bed8c6e3eb7eaad97fd80030bdfdd89fc8f3b9168346",
+      "localBytes": 35884,
+      "localSha256": "8e175d63e0e12e2704b92d949a25afd61dff843a52fd071c35c52de50d9be459",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大阿羅漢難提蜜多羅所說法住記",
+        "alternateTitle": "大阿羅漢難提蜜多羅所說法住記",
+        "tradition": "汉传佛教 · 结集与法住法灭传承",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2030",
+        "translator": "唐 · 玄奘譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2030_001"
+      },
+      "verification": {
+        "segments": 190,
+        "folios": 7,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2030.001.0012c06",
+          "T2030.001.0014c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2031",
+      "slug": "taisho-t2031",
+      "workId": "gbcr:work:taisho-t2031-sectarian-buddhist-treatise",
+      "workIdentityStatus": "verified_distinct_related_sectarian_treatise",
+      "workTitle": "異部宗輪論",
+      "sourceRole": "xuanzang_translation_sectarian_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_buddhist_treatises_scope_distinct",
+          "groupId": "sectarian-treatises-t2031-t2033",
+          "label": "三部部派论书来源记录边界",
+          "evidence": "T2031《异部宗轮论》、T2032《十八部论》与 T2033《部执异论》关系密切，但题名、传统责任、译者、全文和 DILA 作品号 CA0003759/CA0003028/CA0000343 不同。在缺少独立作品级裁决前保持三个作品与三个完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        },
+        {
+          "type": "related_sectarian_treatises_not_merged",
+          "groupId": "sectarian-related-texts-t2031-t2033",
+          "label": "部派论书相近传本或译本关系",
+          "evidence": "T2031/T2032、T2031/T2033、T2032/T2033 的五字组较短一方包含度分别约 0.015878、0.053791、0.022336。低至有限的文字重叠与传统归属只能证明关系，不能单独裁定同一根本作品或可互换译本。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2031.xml",
+      "upstreamPath": "T/T49/T49n2031.xml",
+      "upstreamGitBlobSha1": "a3b665242048900213ba1797e8d8b27d2b45809c",
+      "upstreamBytes": 51204,
+      "upstreamSha256": "aabe7653733c71339a554c0320c0a173560e21d4b4f462e392d2ad41c225f771",
+      "localBytes": 51205,
+      "localSha256": "e934ac9b55e6835c940396d85c0c183d2b5bd947567204f64005360e7ae7c80b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "異部宗輪論",
+        "alternateTitle": "異部宗輪論",
+        "tradition": "部派佛教 · 部派论书",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2031",
+        "translator": "世友菩薩造 · 唐 · 玄奘譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：世友菩薩造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2031_001"
+      },
+      "verification": {
+        "segments": 211,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2031.001.0015a02",
+          "T2031.001.0017b10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2032",
+      "slug": "taisho-t2032",
+      "workId": "gbcr:work:taisho-t2032-sectarian-buddhist-treatise",
+      "workIdentityStatus": "verified_distinct_related_sectarian_treatise",
+      "workTitle": "十八部論",
+      "sourceRole": "paramartha_translation_eighteen_schools_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_buddhist_treatises_scope_distinct",
+          "groupId": "sectarian-treatises-t2031-t2033",
+          "label": "三部部派论书来源记录边界",
+          "evidence": "T2031《异部宗轮论》、T2032《十八部论》与 T2033《部执异论》关系密切，但题名、传统责任、译者、全文和 DILA 作品号 CA0003759/CA0003028/CA0000343 不同。在缺少独立作品级裁决前保持三个作品与三个完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        },
+        {
+          "type": "related_sectarian_treatises_not_merged",
+          "groupId": "sectarian-related-texts-t2031-t2033",
+          "label": "部派论书相近传本或译本关系",
+          "evidence": "T2031/T2032、T2031/T2033、T2032/T2033 的五字组较短一方包含度分别约 0.015878、0.053791、0.022336。低至有限的文字重叠与传统归属只能证明关系，不能单独裁定同一根本作品或可互换译本。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2032.xml",
+      "upstreamPath": "T/T49/T49n2032.xml",
+      "upstreamGitBlobSha1": "6acf91957dfbec94ac7a96f853b37d1f004f741c",
+      "upstreamBytes": 38396,
+      "upstreamSha256": "35dd9f2ae83309e7f18ff311d02e6fc85f73aba05e43a6079f2c1c93f2cbf3b4",
+      "localBytes": 38397,
+      "localSha256": "92952374f6564bc7ac0aad229edd0c3e7e1b2d58d54c1c228f7ad22b499fdcd3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "十八部論",
+        "alternateTitle": "十八部論",
+        "tradition": "部派佛教 · 部派论书",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2032",
+        "translator": "陳 · 真諦譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2032_001"
+      },
+      "verification": {
+        "segments": 215,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2032.001.0017b13",
+          "T2032.001.0019c28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2033",
+      "slug": "taisho-t2033",
+      "workId": "gbcr:work:taisho-t2033-sectarian-buddhist-treatise",
+      "workIdentityStatus": "verified_distinct_related_sectarian_treatise",
+      "workTitle": "部執異論",
+      "sourceRole": "paramartha_translation_related_sectarian_treatise",
+      "bibliographicRelations": [
+        {
+          "type": "sectarian_buddhist_treatises_scope_distinct",
+          "groupId": "sectarian-treatises-t2031-t2033",
+          "label": "三部部派论书来源记录边界",
+          "evidence": "T2031《异部宗轮论》、T2032《十八部论》与 T2033《部执异论》关系密切，但题名、传统责任、译者、全文和 DILA 作品号 CA0003759/CA0003028/CA0000343 不同。在缺少独立作品级裁决前保持三个作品与三个完整表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        },
+        {
+          "type": "related_sectarian_treatises_not_merged",
+          "groupId": "sectarian-related-texts-t2031-t2033",
+          "label": "部派论书相近传本或译本关系",
+          "evidence": "T2031/T2032、T2031/T2033、T2032/T2033 的五字组较短一方包含度分别约 0.015878、0.053791、0.022336。低至有限的文字重叠与传统归属只能证明关系，不能单独裁定同一根本作品或可互换译本。",
+          "externalIds": {
+            "cbeta": [
+              "T2031",
+              "T2032",
+              "T2033"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2033.xml",
+      "upstreamPath": "T/T49/T49n2033.xml",
+      "upstreamGitBlobSha1": "d4e65a0dc78332ae1edc63d9ddb9ec7f5d8a16b6",
+      "upstreamBytes": 64520,
+      "upstreamSha256": "37d03f29351ecff2a687b0d690315820ae5aeb72483ac8b49a69b0c352ba44ff",
+      "localBytes": 64521,
+      "localSha256": "4b89d30839542311b8806d1dadcfc8559a997a072889a0b92633b114b6e875ba",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "部執異論",
+        "alternateTitle": "部執異論",
+        "tradition": "部派佛教 · 部派论书",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2033",
+        "translator": "天友菩薩造 · 陳 · 真諦譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：天友菩薩造 陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2033_001"
+      },
+      "verification": {
+        "segments": 250,
+        "folios": 9,
+        "juanRange": [
+          1,
+          1
+        ],
+        "anchors": [
+          "T2033.001.0020a02",
+          "T2033.001.0022c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2034",
+      "slug": "taisho-t2034",
+      "workId": "gbcr:work:taisho-t2034-chinese-buddhist-historiography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "歷代三寶紀",
+      "sourceRole": "buddhist_bibliographic_historical_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "historiographic_source_reuse_without_work_merge",
+          "groupId": "historiographic-reuse-t2034-t2038",
+          "label": "佛教史书史料复用与编纂依赖边界",
+          "evidence": "T2034–T2038 共享人物、年代、谱系与既有史料。五字组中 T2036/T2037 较短一方包含度约 0.106599，T2035/T2036 约 0.043773；这些数值记录史料复用与编纂依赖，不消除题名、时代、编者、范围和作品权威号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2034.xml",
+      "upstreamPath": "T/T49/T49n2034.xml",
+      "upstreamGitBlobSha1": "d890f280bd37c9e863baad33f011705b93681f65",
+      "upstreamBytes": 3047264,
+      "upstreamSha256": "96c955ef83a4872c21fa0d1a15c22897cd202b26d1c35466aa219c6eeb40bee1",
+      "localBytes": 3047265,
+      "localSha256": "d124e4c0a8803fdf535ceacefa392e5bf25f7df3db9a10a075122973f493f633",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "歷代三寶紀",
+        "alternateTitle": "歷代三寶紀",
+        "tradition": "汉传佛教 · 佛教史传",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2034",
+        "translator": "隋 · 費長房撰",
+        "summary": "15卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：隋 費長房撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2034_001"
+      },
+      "verification": {
+        "segments": 6861,
+        "folios": 287,
+        "juanRange": [
+          1,
+          15
+        ],
+        "anchors": [
+          "T2034.001.0022c25",
+          "T2034.015.0127c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2035",
+      "slug": "taisho-t2035",
+      "workId": "gbcr:work:taisho-t2035-chinese-buddhist-historiography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "佛祖統紀",
+      "sourceRole": "buddhist_patriarchal_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "historiographic_source_reuse_without_work_merge",
+          "groupId": "historiographic-reuse-t2034-t2038",
+          "label": "佛教史书史料复用与编纂依赖边界",
+          "evidence": "T2034–T2038 共享人物、年代、谱系与既有史料。五字组中 T2036/T2037 较短一方包含度约 0.106599，T2035/T2036 约 0.043773；这些数值记录史料复用与编纂依赖，不消除题名、时代、编者、范围和作品权威号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2035.xml",
+      "upstreamPath": "T/T49/T49n2035.xml",
+      "upstreamGitBlobSha1": "b8f204db2e9f1c9d586c2b4967d39fbf5d2cc769",
+      "upstreamBytes": 3777891,
+      "upstreamSha256": "06101a8776e7eb2a465fd76ffe527dfa446d23c24a0b01aae4d58ea389e27f9f",
+      "localBytes": 3777892,
+      "localSha256": "38a46085416256737e538c1a982aa4e876b947d90227969cd189943367766789",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛祖統紀",
+        "alternateTitle": "佛祖統紀",
+        "tradition": "汉传佛教 · 佛教史传",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2035",
+        "translator": "宋 · 志磐撰",
+        "summary": "54卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：宋 志磐撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2035_001"
+      },
+      "verification": {
+        "segments": 28518,
+        "folios": 1088,
+        "juanRange": [
+          1,
+          54
+        ],
+        "anchors": [
+          "T2035.001.0129a02",
+          "T2035.054.0475c04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2036",
+      "slug": "taisho-t2036",
+      "workId": "gbcr:work:taisho-t2036-chinese-buddhist-historiography",
+      "workIdentityStatus": "verified_distinct_canonical_buddhist_work",
+      "workTitle": "佛祖歷代通載",
+      "sourceRole": "buddhist_universal_historical_chronicle",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "historiographic_source_reuse_without_work_merge",
+          "groupId": "historiographic-reuse-t2034-t2038",
+          "label": "佛教史书史料复用与编纂依赖边界",
+          "evidence": "T2034–T2038 共享人物、年代、谱系与既有史料。五字组中 T2036/T2037 较短一方包含度约 0.106599，T2035/T2036 约 0.043773；这些数值记录史料复用与编纂依赖，不消除题名、时代、编者、范围和作品权威号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2036.xml",
+      "upstreamPath": "T/T49/T49n2036.xml",
+      "upstreamGitBlobSha1": "5d34fa5e390f380893f034db7c1af4562f29f885",
+      "upstreamBytes": 2810960,
+      "upstreamSha256": "f81bcadf9e4d1d445b1f031f4b0e8c24863f344332ae6b249f66d821ea9df214",
+      "localBytes": 2810961,
+      "localSha256": "f7285947845f32c31d6da72ef17b2be0e4b41f1f65800bc99b6dd149a314634a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛祖歷代通載",
+        "alternateTitle": "佛祖歷代通載",
+        "tradition": "汉传佛教 · 佛教史传",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2036",
+        "translator": "元 · 念常集",
+        "summary": "22卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：元 念常集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2036_001"
+      },
+      "verification": {
+        "segments": 21481,
+        "folios": 790,
+        "juanRange": [
+          1,
+          22
+        ],
+        "anchors": [
+          "T2036.001.0477a02",
+          "T2036.022.0735b18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2037",
+      "slug": "taisho-t2037",
+      "workId": "gbcr:work:taisho-t2037-chinese-buddhist-historiography",
+      "workIdentityStatus": "verified_distinct_historical_base_compilation",
+      "workTitle": "釋氏稽古略",
+      "sourceRole": "buddhist_historical_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "historiographic_source_reuse_without_work_merge",
+          "groupId": "historiographic-reuse-t2034-t2038",
+          "label": "佛教史书史料复用与编纂依赖边界",
+          "evidence": "T2034–T2038 共享人物、年代、谱系与既有史料。五字组中 T2036/T2037 较短一方包含度约 0.106599，T2035/T2036 约 0.043773；这些数值记录史料复用与编纂依赖，不消除题名、时代、编者、范围和作品权威号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038"
+            ]
+          }
+        },
+        {
+          "type": "historical_compilation_and_continuation_distinct",
+          "groupId": "shishi-jigu-and-continuation-t2037-t2038",
+          "label": "《释氏稽古略》与《释鉴稽古略续集》本编—续集边界",
+          "evidence": "T2038 明示为续集，但由明代幻轮编，T2037 由元代觉岸编；题名、编者、时代、卷数、内容范围和 DILA 作品号 CA0003154/CA0003128 均不同。五字组包含度约 0.006027，因此建立续修关系而保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2037",
+              "T2038"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2037.xml",
+      "upstreamPath": "T/T49/T49n2037.xml",
+      "upstreamGitBlobSha1": "a3d0bea9d247d20687451e1233612fb663e4eefe",
+      "upstreamBytes": 1654934,
+      "upstreamSha256": "9b4d1879b6b92e1a4233ab1d7b909a41728894e73a90ed69e722f8528ab20e03",
+      "localBytes": 1654935,
+      "localSha256": "a489b15b0d42f7ebeeb10f62884c597447c375e108aad1b42448e2a02db6a204",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋氏稽古略",
+        "alternateTitle": "釋氏稽古略",
+        "tradition": "汉传佛教 · 佛教史传",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2037",
+        "translator": "元 · 覺岸編",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：元 覺岸編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2037_001"
+      },
+      "verification": {
+        "segments": 13862,
+        "folios": 495,
+        "juanRange": [
+          1,
+          4
+        ],
+        "anchors": [
+          "T2037.001.0737a02",
+          "T2037.004.0902c06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2038",
+      "slug": "taisho-t2038",
+      "workId": "gbcr:work:taisho-t2038-chinese-buddhist-historiography",
+      "workIdentityStatus": "verified_distinct_historical_continuation",
+      "workTitle": "釋鑑稽古略續集",
+      "sourceRole": "buddhist_historical_compendium_continuation",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "historiographic_source_reuse_without_work_merge",
+          "groupId": "historiographic-reuse-t2034-t2038",
+          "label": "佛教史书史料复用与编纂依赖边界",
+          "evidence": "T2034–T2038 共享人物、年代、谱系与既有史料。五字组中 T2036/T2037 较短一方包含度约 0.106599，T2035/T2036 约 0.043773；这些数值记录史料复用与编纂依赖，不消除题名、时代、编者、范围和作品权威号差异。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038"
+            ]
+          }
+        },
+        {
+          "type": "historical_compilation_and_continuation_distinct",
+          "groupId": "shishi-jigu-and-continuation-t2037-t2038",
+          "label": "《释氏稽古略》与《释鉴稽古略续集》本编—续集边界",
+          "evidence": "T2038 明示为续集，但由明代幻轮编，T2037 由元代觉岸编；题名、编者、时代、卷数、内容范围和 DILA 作品号 CA0003154/CA0003128 均不同。五字组包含度约 0.006027，因此建立续修关系而保持两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2037",
+              "T2038"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2038.xml",
+      "upstreamPath": "T/T49/T49n2038.xml",
+      "upstreamGitBlobSha1": "3ef6210d5c9401cdb0a922743443ccfa75568318",
+      "upstreamBytes": 458662,
+      "upstreamSha256": "b5da3edaee6da043c3cbcb16fb9c9a7b8382ba53097c75c7835998e51062939d",
+      "localBytes": 458663,
+      "localSha256": "5397968ee280f7c696c54bad7632e26a9b73d30ab10cd2f223f044aab15f8267",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋鑑稽古略續集",
+        "alternateTitle": "釋鑑稽古略續集",
+        "tradition": "汉传佛教 · 佛教史传",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2038",
+        "translator": "明 · 幻輪編",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：明 幻輪編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2038_001"
+      },
+      "verification": {
+        "segments": 4387,
+        "folios": 153,
+        "juanRange": [
+          1,
+          3
+        ],
+        "anchors": [
+          "T2038.001.0903a02",
+          "T2038.003.0953b29"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2039",
+      "slug": "taisho-t2039",
+      "workId": "gbcr:work:taisho-t2039-korean-buddhist-historical-compilation",
+      "workIdentityStatus": "verified_distinct_korean_history_with_responsibility_boundary",
+      "workTitle": "三國遺事",
+      "sourceRole": "korean_historical_mythic_compilation",
+      "bibliographicRelations": [
+        {
+          "type": "east_asian_buddhist_histories_scope_distinct",
+          "groupId": "east-asian-buddhist-histories-t2034-t2039",
+          "label": "中韩佛教通史、编年史与史传杂录边界",
+          "evidence": "T2034–T2039 横跨隋、宋、元、明中国佛教史传与高丽史传杂录。共同年代、人物、谱系、史料和编年体例只形成检索关系；六个 DILA 权威号、题名、地域、编者与全文范围保持独立。",
+          "externalIds": {
+            "cbeta": [
+              "T2034",
+              "T2035",
+              "T2036",
+              "T2037",
+              "T2038",
+              "T2039"
+            ]
+          }
+        },
+        {
+          "type": "catalog_responsibility_labels_preserved",
+          "groupId": "samguk-yusa-responsibility-t2039",
+          "label": "《三国遗事》撰者与目录责任标签边界",
+          "evidence": "T2039 的 CBETA TEI 题署为‘高丽 一然撰’，DILA 当前检索页把一然标作 translator。平台把两项都作为来源证据保存，以 TEI 题记呈现责任，不把目录标签差异静默改写成确定作者或译者裁决。",
+          "externalIds": {
+            "cbeta": [
+              "T2039"
+            ]
+          }
+        }
+      ],
+      "localPath": "data/corpus/cbeta/T49n2039.xml",
+      "upstreamPath": "T/T49/T49n2039.xml",
+      "upstreamGitBlobSha1": "4988a47a88e7ea780dc3efeb22789c537a1ae944",
+      "upstreamBytes": 926363,
+      "upstreamSha256": "68cc16d4812da2a5626ee7cb642d62c7ae61fd762b6d317131594c61177c0ec6",
+      "localBytes": 926364,
+      "localSha256": "a8fe055354429eccb4911e8baad756698ab5c6c869c64b6916cbd1703049ea48",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "三國遺事",
+        "alternateTitle": "三國遺事",
+        "tradition": "高丽佛教 · 史传杂录",
+        "language": "汉文",
+        "canonRef": "大正藏 T49, no. 2039",
+        "translator": "高麗 · 一然撰",
+        "summary": "5卷。完整保存固定 CBETA TEI、校勘与责任题记；作为独立佛教作品、译本或史传汇编建模，不标成佛陀逐字亲说。传统责任题记：高麗 一然撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2039_001"
+      },
+      "verification": {
+        "segments": 5235,
+        "folios": 197,
+        "juanRange": [
+          1,
+          5
+        ],
+        "anchors": [
+          "T2039.001.0953c02",
+          "T2039.005.1019a13"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

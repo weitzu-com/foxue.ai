@@ -309,6 +309,15 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT47SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT47SourceRecords.controlledWorks} 个独立作品；5 组同数字经号、4 组同作者责任、3 组文类范围与 12 组相关异作边界均已记录，
               T1986A/B、T1987A/B 即使文本高度重叠也因题名、编校责任、全文范围与权威号不同而保持相关且独立；
+              T48 禅宗语录、公案评唱、宗论警策与清规固定来源已完成 {snapshot.candidateInventory.chineseT48SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT48SourceRecords.denominator}（{snapshot.candidateInventory.chineseT48SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT48SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT48SourceRecords.controlledWorks} 个独立作品；3 组同数字经号、3 组同作者责任、6 组文类范围与 12 组相关异作边界均已记录；
+              T49 结集、法灭、部派论书与佛教史传固定来源已完成 {snapshot.candidateInventory.chineseT49SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT49SourceRecords.denominator}（{snapshot.candidateInventory.chineseT49SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT49SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT49SourceRecords.controlledWorks} 个独立作品；3 组主题范围、1 组本编—续集、1 组目录责任标签冲突与 7 组相关异作边界均已记录，
+              三部部派论书、五部中国佛教史传与《三国遗事》不因共同主题、史料复用、编年结构或责任目录标签而误合并；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -559,6 +568,22 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T47 的 49 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t48-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T48 的 28 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t49-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T49 的 14 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
