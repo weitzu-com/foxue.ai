@@ -1,0 +1,2705 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.21.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.20.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t54-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T54; T54 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T54",
+    "title": "大正藏 T54 佛教类书、求法与制度史、语文学资料及外教文献固定来源记录",
+    "sourceRecordDenominator": 24,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 24,
+    "controlledSourceRecords": 24,
+    "newSourceBytes": 25078637,
+    "newStableSegments": 91138,
+    "newFolios": 3981,
+    "newJuans": 176,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 2,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 24,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 24,
+    "attributionBoundaryRecords": 24,
+    "unsignedResponsibilityRecords": 6,
+    "lostTranslatorResponsibilityRecords": 0,
+    "nonBuddhistReferenceRecords": 9,
+    "newWorks": 23,
+    "controlledWorks": 23,
+    "workCountingDecision": "T54 的 24 份固定来源记录登记为 24 个完整表达和 23 个作品。T2133A/B 由 DILA 的 CA0001000A/B 与 CBETA 底本说明确认为同一《梵语千字文》的两个版本见证；其余记录保留独立作品。T2137–T2144 共 9 份外教资料可检索阅读但从佛教经典与佛陀亲说覆盖分子中排除；T2139 原样保存卷一、卷十两个残存卷号。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_edition_expansion_language_layered_responsibility_irregular_juan_and_non_buddhist_reference_boundaries_recorded",
+    "existingControlledRecords": [
+      "T2122"
+    ],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [
+      "sanskrit-thousand-character-primer-t2133a-b"
+    ],
+    "editionOrRecensionGroups": [
+      "sanskrit-thousand-character-primer-t2133a-b"
+    ],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [
+      "sanskrit-thousand-character-primer-t2133a-b",
+      "taisho-t2141a-b-distinct-works"
+    ],
+    "layeredAttributionGroups": [
+      "huilin-lexicon-layered-responsibility-t2128"
+    ],
+    "scopeBoundaryGroups": [
+      "t54-buddhist-compendia-history-and-language-reference-works",
+      "t54-non-buddhist-reference-boundary-t2137-t2144"
+    ],
+    "continuationBoundaryGroups": [
+      "daoshi-compendia-t2122-t2123",
+      "canonical-pronunciation-lexicons-t2128-t2129"
+    ],
+    "sourceReuseBoundaryGroups": [
+      "daoshi-compendia-t2122-t2123"
+    ],
+    "sameAuthorCompanionWorkGroups": [
+      "yijing-travel-and-language-works-t2125-t2133"
+    ],
+    "crossVolumeRelationGroups": [
+      "daoshi-compendia-t2122-t2123"
+    ],
+    "irregularJuanSequenceGroups": [
+      "laozi-huahu-jing-extant-juan-1-10-t2139"
+    ],
+    "nonBuddhistReferenceGroups": [
+      "t54-non-buddhist-reference-boundary-t2137-t2144",
+      "samkhya-vaisesika-t2137-t2138",
+      "manichaean-chinese-texts-t2140-t2141",
+      "church-of-the-east-chinese-texts-t2142-t2144"
+    ],
+    "relatedDistinctWorkGroups": [
+      "t54-buddhist-compendia-history-and-language-reference-works",
+      "daoshi-compendia-t2122-t2123",
+      "canonical-pronunciation-lexicons-t2128-t2129",
+      "huilin-lexicon-layered-responsibility-t2128",
+      "sanskrit-language-materials-t2132-t2136",
+      "yijing-travel-and-language-works-t2125-t2133",
+      "t54-non-buddhist-reference-boundary-t2137-t2144",
+      "samkhya-vaisesika-t2137-t2138",
+      "taisho-t2141a-b-distinct-works",
+      "manichaean-chinese-texts-t2140-t2141",
+      "church-of-the-east-chinese-texts-t2142-t2144",
+      "laozi-huahu-jing-extant-juan-1-10-t2139"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2122/T2123 五字组对较短文本包含度 0.877805，记录扩充与材料复用关系；一百卷《法苑珠林》和二十卷《诸经要集》仍为两个作品",
+      "T2128/T2129 是佛典音义本编与续编，慧琳和希麟责任、时代、范围及作品号不同",
+      "T2133A/B 共享一个作品，但保留东洋文库藏本与敬光刊本两个完整版本表达",
+      "T2132–T2136 的悉昙、千字文与词汇材料除 T2133A/B 外不据语言功能或低量正文重合合并",
+      "T2137–T2144 是九份非佛教参照文本，不因收录于《大正藏》而改标佛经或佛说",
+      "T2141A/B 共用数字经号但为摩尼教仪略与残经两个作品",
+      "T2139 extent 标 2 卷而编码卷序为 1、10，按两个残存卷保存，不重排为 1、2"
+    ],
+    "partialWorkWitnesses": [],
+    "editionWitnesses": [
+      "T2133A",
+      "T2133B"
+    ],
+    "sourceRoles": {
+      "anonymous_sanskrit_chinese_lexicon": [
+        "T2130"
+      ],
+      "church_of_the_east_non_buddhist_reference_text": [
+        "T2142",
+        "T2143"
+      ],
+      "church_of_the_east_stele_text": [
+        "T2144"
+      ],
+      "daoist_non_buddhist_reference_text": [
+        "T2139"
+      ],
+      "daoshi_buddhist_compendium": [
+        "T2123"
+      ],
+      "east_asian_buddhist_reference_compendium": [
+        "T2124"
+      ],
+      "east_asian_buddhist_travel_or_institutional_history": [
+        "T2126",
+        "T2127"
+      ],
+      "fayun_buddhist_translation_terminology_lexicon": [
+        "T2131"
+      ],
+      "huilin_buddhist_canonical_pronunciation_lexicon": [
+        "T2128"
+      ],
+      "manichaean_doctrinal_compendium_traditional_translation_attribution": [
+        "T2141A"
+      ],
+      "manichaean_fragment_unattributed": [
+        "T2141B"
+      ],
+      "manichaean_non_buddhist_reference_text": [
+        "T2140"
+      ],
+      "sanskrit_chinese_buddhist_language_reference": [
+        "T2134",
+        "T2135",
+        "T2136"
+      ],
+      "translated_indian_non_buddhist_philosophy_reference": [
+        "T2137",
+        "T2138"
+      ],
+      "xilin_buddhist_canonical_pronunciation_supplement": [
+        "T2129"
+      ],
+      "yijing_indian_monastic_practice_travel_record": [
+        "T2125"
+      ],
+      "yijing_sanskrit_thousand_character_primer": [
+        "T2133A",
+        "T2133B"
+      ],
+      "zhiguang_siddham_orthographic_treatise": [
+        "T2132"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Overlap records expansion, continuation, edition, shared terminology or religious vocabulary; authority, title, responsibility, genre and scope determine work boundaries.",
+      "pairs": [
+        {
+          "pair": [
+            "T2122",
+            "T2123"
+          ],
+          "normalizedCharacters": [
+            1009671,
+            256417
+          ],
+          "uniqueFiveGrams": [
+            947717,
+            242890
+          ],
+          "sharedFiveGrams": 213210,
+          "fiveGramContainmentOfShorter": 0.877805,
+          "fiveGramJaccard": 0.218141
+        },
+        {
+          "pair": [
+            "T2128",
+            "T2129"
+          ],
+          "normalizedCharacters": [
+            152607,
+            11646
+          ],
+          "uniqueFiveGrams": [
+            120899,
+            8637
+          ],
+          "sharedFiveGrams": 725,
+          "fiveGramContainmentOfShorter": 0.083941,
+          "fiveGramJaccard": 0.005628
+        },
+        {
+          "pair": [
+            "T2133A",
+            "T2133B"
+          ],
+          "normalizedCharacters": [
+            12290,
+            15883
+          ],
+          "uniqueFiveGrams": [
+            11282,
+            15107
+          ],
+          "sharedFiveGrams": 1748,
+          "fiveGramContainmentOfShorter": 0.154937,
+          "fiveGramJaccard": 0.070939
+        },
+        {
+          "pair": [
+            "T2134",
+            "T2135"
+          ],
+          "normalizedCharacters": [
+            7118,
+            14431
+          ],
+          "uniqueFiveGrams": [
+            6797,
+            14032
+          ],
+          "sharedFiveGrams": 170,
+          "fiveGramContainmentOfShorter": 0.025011,
+          "fiveGramJaccard": 0.008229
+        },
+        {
+          "pair": [
+            "T2134",
+            "T2136"
+          ],
+          "normalizedCharacters": [
+            7118,
+            1331
+          ],
+          "uniqueFiveGrams": [
+            6797,
+            1282
+          ],
+          "sharedFiveGrams": 2,
+          "fiveGramContainmentOfShorter": 0.00156,
+          "fiveGramJaccard": 0.000248
+        },
+        {
+          "pair": [
+            "T2135",
+            "T2136"
+          ],
+          "normalizedCharacters": [
+            14431,
+            1331
+          ],
+          "uniqueFiveGrams": [
+            14032,
+            1282
+          ],
+          "sharedFiveGrams": 5,
+          "fiveGramContainmentOfShorter": 0.0039,
+          "fiveGramJaccard": 0.000327
+        },
+        {
+          "pair": [
+            "T2140",
+            "T2141A"
+          ],
+          "normalizedCharacters": [
+            11051,
+            1602
+          ],
+          "uniqueFiveGrams": [
+            10786,
+            1592
+          ],
+          "sharedFiveGrams": 2,
+          "fiveGramContainmentOfShorter": 0.001256,
+          "fiveGramJaccard": 0.000162
+        },
+        {
+          "pair": [
+            "T2140",
+            "T2141B"
+          ],
+          "normalizedCharacters": [
+            11051,
+            7315
+          ],
+          "uniqueFiveGrams": [
+            10786,
+            6932
+          ],
+          "sharedFiveGrams": 41,
+          "fiveGramContainmentOfShorter": 0.005915,
+          "fiveGramJaccard": 0.002319
+        },
+        {
+          "pair": [
+            "T2141A",
+            "T2141B"
+          ],
+          "normalizedCharacters": [
+            1602,
+            7315
+          ],
+          "uniqueFiveGrams": [
+            1592,
+            6932
+          ],
+          "sharedFiveGrams": 3,
+          "fiveGramContainmentOfShorter": 0.001884,
+          "fiveGramJaccard": 0.000352
+        },
+        {
+          "pair": [
+            "T2142",
+            "T2143"
+          ],
+          "normalizedCharacters": [
+            2863,
+            618
+          ],
+          "uniqueFiveGrams": [
+            2837,
+            609
+          ],
+          "sharedFiveGrams": 2,
+          "fiveGramContainmentOfShorter": 0.003284,
+          "fiveGramJaccard": 0.000581
+        },
+        {
+          "pair": [
+            "T2142",
+            "T2144"
+          ],
+          "normalizedCharacters": [
+            2863,
+            2055
+          ],
+          "uniqueFiveGrams": [
+            2837,
+            2045
+          ],
+          "sharedFiveGrams": 2,
+          "fiveGramContainmentOfShorter": 0.000978,
+          "fiveGramJaccard": 0.00041
+        },
+        {
+          "pair": [
+            "T2143",
+            "T2144"
+          ],
+          "normalizedCharacters": [
+            618,
+            2055
+          ],
+          "uniqueFiveGrams": [
+            609,
+            2045
+          ],
+          "sharedFiveGrams": 2,
+          "fiveGramContainmentOfShorter": 0.003284,
+          "fiveGramJaccard": 0.000754
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T54",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0004139",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000936",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002323",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002761",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003157",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003719",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003651",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000959",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000960",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003530",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001000A",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001000B",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003221",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001001",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003220",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001800",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003010",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001935",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002298",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0002297",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000332",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0003655",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001819",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000660",
+      "https://dazangthings.nz/cbc/text/2264/",
+      "https://dazangthings.nz/cbc/text/2262/",
+      "https://dazangthings.nz/cbc/text/2255/",
+      "https://dazangthings.nz/cbc/text/2265/",
+      "https://dazangthings.nz/cbc/text/2267/",
+      "https://dazangthings.nz/cbc/text/2266/",
+      "https://dazangthings.nz/cbc/text/2273/",
+      "https://dazangthings.nz/cbc/text/2276/",
+      "https://dazangthings.nz/cbc/text/2258/",
+      "https://dazangthings.nz/cbc/text/2272/",
+      "https://dazangthings.nz/cbc/text/2269/",
+      "https://dazangthings.nz/cbc/text/2268/",
+      "https://dazangthings.nz/cbc/text/2277/",
+      "https://dazangthings.nz/cbc/text/2275/",
+      "https://dazangthings.nz/cbc/text/2271/",
+      "https://dazangthings.nz/cbc/text/2274/",
+      "https://dazangthings.nz/cbc/text/2270/",
+      "https://dazangthings.nz/cbc/text/2260/",
+      "https://dazangthings.nz/cbc/text/2259/",
+      "https://dazangthings.nz/cbc/text/2278/",
+      "https://dazangthings.nz/cbc/text/2261/",
+      "https://dazangthings.nz/cbc/text/2256/",
+      "https://dazangthings.nz/cbc/text/2263/",
+      "https://dazangthings.nz/cbc/text/2257/",
+      "https://archive2.cbeta.org/ko/node/6519"
+    ],
+    "caveat": "T54 同时包含佛教类书、史传、音义、梵汉语文学资料与九份外教文献，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI、校勘、版本、篇内责任与原始残存卷序；T2133A/B 共享作品但保留两个版本，T2137–T2144 明确排除于佛教经典覆盖分子。共同作者、语言功能、续编题名、宗教语汇、相邻经号或机器重叠都不能单独证明作品相同。"
+  },
+  "files": [
+    {
+      "id": "T2123",
+      "slug": "taisho-t2123",
+      "workId": "gbcr:work:taisho-t2123-buddhist-reference-compendium",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "諸經要集",
+      "sourceRole": "daoshi_buddhist_compendium",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "expanded_compendium_source_reuse_distinct",
+          "groupId": "daoshi-compendia-t2122-t2123",
+          "label": "道世《法苑珠林》与《诸经要集》扩充、材料复用边界",
+          "evidence": "T2123《诸经要集》二十卷成于 659 年，T2122《法苑珠林》一百卷为其后扩充的大型类书。两书规范化五字组对较短 T2123 的包含度为 0.877805，证明大量材料复用；不同题名、范围、结构、完成年代和 DILA/CBC 入口仍支持两个相关作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2122",
+              "T2123"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0004139",
+        "cbcText": "2264"
+      },
+      "localPath": "data/corpus/cbeta/T54n2123.xml",
+      "upstreamPath": "T/T54/T54n2123.xml",
+      "upstreamGitBlobSha1": "ef7215e986940e9c909ff2713eb0d9123ea97b60",
+      "upstreamBytes": 3414790,
+      "upstreamSha256": "a4254f6fabd80e3c335729e70f3bf2c5bc973303afe7aba79a5dac9b0e2aaed2",
+      "localBytes": 3414791,
+      "localSha256": "1a203b6e9e33b3c604306171fc331a59131a5f10f02eb233476ac6f4e6c7addc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "諸經要集",
+        "alternateTitle": "諸經要集",
+        "tradition": "汉传佛教 · 类书与名义集",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2123",
+        "translator": "唐 · 道世集",
+        "summary": "20卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 道世集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2123_001"
+      },
+      "verification": {
+        "segments": 16678,
+        "folios": 594,
+        "juanRange": [
+          1,
+          20
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "anchors": [
+          "T2123.001.0001a02",
+          "T2123.020.0194a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2124",
+      "slug": "taisho-t2124",
+      "workId": "gbcr:work:taisho-t2124-buddhist-reference-compendium",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "法門名義集",
+      "sourceRole": "east_asian_buddhist_reference_compendium",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000936",
+        "cbcText": "2262"
+      },
+      "localPath": "data/corpus/cbeta/T54n2124.xml",
+      "upstreamPath": "T/T54/T54n2124.xml",
+      "upstreamGitBlobSha1": "759d1ce5649ef2ffca7a49973736f0b8f3b7b165",
+      "upstreamBytes": 99263,
+      "upstreamSha256": "0d1dc47627ff0e88898fad97b2b783d62b2f82e837cdb72cdd1159ba1259725d",
+      "localBytes": 99264,
+      "localSha256": "669e31a45b84a195943e9a0ff405885394d8a06af93e13e41105b396c1b98ed4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法門名義集",
+        "alternateTitle": "法門名義集",
+        "tradition": "汉传佛教 · 类书与名义集",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2124",
+        "translator": "唐 · 李師政撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 李師政撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2124_001"
+      },
+      "verification": {
+        "segments": 821,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2124.001.0195a03",
+          "T2124.001.0204b28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2125",
+      "slug": "taisho-t2125",
+      "workId": "gbcr:work:taisho-t2125-buddhist-travel-institutional-history",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "南海寄歸內法傳",
+      "sourceRole": "yijing_indian_monastic_practice_travel_record",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "same_author_cross_genre_distinct",
+          "groupId": "yijing-travel-and-language-works-t2125-t2133",
+          "label": "义净求法传与梵语教材跨文类伴随著作",
+          "evidence": "T2125《南海寄归内法传》记录求法见闻与僧团制度，T2133A/B《梵语千字文》是梵汉语学习材料；共同撰者义净与语言文化语境只建立人物关联，不消除作品和版本层级。",
+          "externalIds": {
+            "cbeta": [
+              "T2125",
+              "T2133A",
+              "T2133B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002323",
+        "cbcText": "2255"
+      },
+      "localPath": "data/corpus/cbeta/T54n2125.xml",
+      "upstreamPath": "T/T54/T54n2125.xml",
+      "upstreamGitBlobSha1": "8045400bcc7501560393f637f14158a2fc414317",
+      "upstreamBytes": 666551,
+      "upstreamSha256": "2b3a3aca836312c972d000e9a67fa11f32ba19cd8f77eaaeed9501284c5acc5d",
+      "localBytes": 666552,
+      "localSha256": "9c42e7f0e7b8bc53723aaa555e681fad05cf855205bd0b978ed4757fe95e23aa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "南海寄歸內法傳",
+        "alternateTitle": "南海寄歸內法傳",
+        "tradition": "汉传佛教 · 求法与制度史",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2125",
+        "translator": "唐 · 義淨撰",
+        "summary": "4卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2125_001"
+      },
+      "verification": {
+        "segments": 2495,
+        "folios": 91,
+        "juanRange": [
+          1,
+          4
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "anchors": [
+          "T2125.001.0204c02",
+          "T2125.004.0234a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2126",
+      "slug": "taisho-t2126",
+      "workId": "gbcr:work:taisho-t2126-buddhist-travel-institutional-history",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "大宋僧史略",
+      "sourceRole": "east_asian_buddhist_travel_or_institutional_history",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002761",
+        "cbcText": "2265"
+      },
+      "localPath": "data/corpus/cbeta/T54n2126.xml",
+      "upstreamPath": "T/T54/T54n2126.xml",
+      "upstreamGitBlobSha1": "42b6c62be31d2bef437aa3cb0db96c06ce96f734",
+      "upstreamBytes": 224881,
+      "upstreamSha256": "48aa78e0beb016337764dd1f234c6cfaa9d70661996f1b578ae08f96c66e92ed",
+      "localBytes": 224882,
+      "localSha256": "a7185d6cd758e37063aba36bf8dd8cca4a67bc5f7d83561fe4117ea8672a27ff",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大宋僧史略",
+        "alternateTitle": "大宋僧史略",
+        "tradition": "汉传佛教 · 求法与制度史",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2126",
+        "translator": "宋 · 贊寧撰",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：宋 贊寧撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2126_001"
+      },
+      "verification": {
+        "segments": 2003,
+        "folios": 73,
+        "juanRange": [
+          1,
+          3
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3
+        ],
+        "anchors": [
+          "T2126.001.0234a09",
+          "T2126.003.0257b13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2127",
+      "slug": "taisho-t2127",
+      "workId": "gbcr:work:taisho-t2127-buddhist-travel-institutional-history",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "釋氏要覽",
+      "sourceRole": "east_asian_buddhist_travel_or_institutional_history",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003157",
+        "cbcText": "2267"
+      },
+      "localPath": "data/corpus/cbeta/T54n2127.xml",
+      "upstreamPath": "T/T54/T54n2127.xml",
+      "upstreamGitBlobSha1": "34a37fecc7d8d058c529efebd50b680a4d26dd56",
+      "upstreamBytes": 497805,
+      "upstreamSha256": "49199edb4f153e29f1747742b3e119412d6fde4f2f6c57c873e104192711d92b",
+      "localBytes": 497806,
+      "localSha256": "a09903993f20fb0e4c9fc81f0306076e177d68831ef7858336b42580ca33ce95",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "釋氏要覽",
+        "alternateTitle": "釋氏要覽",
+        "tradition": "汉传佛教 · 求法与制度史",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2127",
+        "translator": "宋 · 道誠集",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：宋 道誠集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2127_001"
+      },
+      "verification": {
+        "segments": 4461,
+        "folios": 161,
+        "juanRange": [
+          1,
+          3
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3
+        ],
+        "anchors": [
+          "T2127.001.0257b15",
+          "T2127.003.0310b17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2128",
+      "slug": "taisho-t2128",
+      "workId": "gbcr:work:taisho-t2128-buddhist-lexicographic-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "一切經音義",
+      "sourceRole": "huilin_buddhist_canonical_pronunciation_lexicon",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "lexicon_continuation_distinct",
+          "groupId": "canonical-pronunciation-lexicons-t2128-t2129",
+          "label": "《一切经音义》与《续一切经音义》本编、续编边界",
+          "evidence": "T2128 为慧琳百卷佛典音义总集，T2129 为希麟十卷续编，补充后出经典。续编关系和共同体例建立书目关联，但作者、时代、收词范围、卷数与权威作品号均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2128",
+              "T2129"
+            ]
+          }
+        },
+        {
+          "type": "compiler_and_embedded_source_responsibility_layered",
+          "groupId": "huilin-lexicon-layered-responsibility-t2128",
+          "label": "慧琳总集责任与所收前代音义责任分层",
+          "evidence": "T2128 总集责任为慧琳撰，正文又明确保存玄应、景审、顾齐之等序跋、旧音义与分卷责任。平台保留全部题记，但不把篇内责任人误作百卷总集的共同作者。",
+          "externalIds": {
+            "cbeta": [
+              "T2128"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003719",
+        "cbcText": "2266"
+      },
+      "localPath": "data/corpus/cbeta/T54n2128.xml",
+      "upstreamPath": "T/T54/T54n2128.xml",
+      "upstreamGitBlobSha1": "08f885440eff2158417e5064623e62b211174989",
+      "upstreamBytes": 11543539,
+      "upstreamSha256": "f68a5902147ea15b6c977b0aec8ed6c6ae2efcf6d509fc2fcc36c836cb017eec",
+      "localBytes": 11543540,
+      "localSha256": "ad82f8c439aee3144e78425ae94cd3de521057e8675ea4aba5864f1f6e5973fa",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "一切經音義",
+        "alternateTitle": "一切經音義",
+        "tradition": "汉传佛教 · 音义与译名",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2128",
+        "translator": "唐 · 慧琳撰",
+        "summary": "100卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 慧琳撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2128_001"
+      },
+      "verification": {
+        "segments": 37930,
+        "folios": 1941,
+        "juanRange": [
+          1,
+          100
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100
+        ],
+        "anchors": [
+          "T2128.001.0311a02",
+          "T2128.100.0933b03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2129",
+      "slug": "taisho-t2129",
+      "workId": "gbcr:work:taisho-t2129-buddhist-lexicographic-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "續一切經音義",
+      "sourceRole": "xilin_buddhist_canonical_pronunciation_supplement",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "lexicon_continuation_distinct",
+          "groupId": "canonical-pronunciation-lexicons-t2128-t2129",
+          "label": "《一切经音义》与《续一切经音义》本编、续编边界",
+          "evidence": "T2128 为慧琳百卷佛典音义总集，T2129 为希麟十卷续编，补充后出经典。续编关系和共同体例建立书目关联，但作者、时代、收词范围、卷数与权威作品号均不同。",
+          "externalIds": {
+            "cbeta": [
+              "T2128",
+              "T2129"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003651",
+        "cbcText": "2273"
+      },
+      "localPath": "data/corpus/cbeta/T54n2129.xml",
+      "upstreamPath": "T/T54/T54n2129.xml",
+      "upstreamGitBlobSha1": "f81adb1d9a8d2ed364ea65bf1d6ad75574d2a20d",
+      "upstreamBytes": 1094265,
+      "upstreamSha256": "fc7ac1b8539e80503b7336604a38332d2f7c7e552f7aa636a0a28d353c72ffe5",
+      "localBytes": 1094266,
+      "localSha256": "c500e8cae49a44e4274db110e3fa2b52d81999550b8686c70bdafb39ed80c64d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "續一切經音義",
+        "alternateTitle": "續一切經音義",
+        "tradition": "汉传佛教 · 音义与译名",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2129",
+        "translator": "宋 · 希麟集",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：宋 希麟集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2129_001"
+      },
+      "verification": {
+        "segments": 2272,
+        "folios": 144,
+        "juanRange": [
+          1,
+          10
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "anchors": [
+          "T2129.001.0934a03",
+          "T2129.010.0979c18"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2130",
+      "slug": "taisho-t2130",
+      "workId": "gbcr:work:taisho-t2130-buddhist-lexicographic-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "翻梵語",
+      "sourceRole": "anonymous_sanskrit_chinese_lexicon",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000959",
+        "cbcText": "2276"
+      },
+      "localPath": "data/corpus/cbeta/T54n2130.xml",
+      "upstreamPath": "T/T54/T54n2130.xml",
+      "upstreamGitBlobSha1": "ed0523a6d939b6fa8436cf49490baedf4d12cc6d",
+      "upstreamBytes": 1226985,
+      "upstreamSha256": "99d28bcc020f003c236b82dbd118efeb78293e7b55161d605efd8c39f694b6c6",
+      "localBytes": 1226986,
+      "localSha256": "b3a5609817483343035ed6fca7bceb34bab89119fc3acec5f273cd889b228f8a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "翻梵語",
+        "alternateTitle": "翻梵語",
+        "tradition": "汉传佛教 · 音义与译名",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2130",
+        "translator": "传统责任题记未署名",
+        "summary": "10卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2130_001"
+      },
+      "verification": {
+        "segments": 5329,
+        "folios": 227,
+        "juanRange": [
+          1,
+          10
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "anchors": [
+          "T2130.001.0981a04",
+          "T2130.010.1054c20"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2131",
+      "slug": "taisho-t2131",
+      "workId": "gbcr:work:taisho-t2131-buddhist-lexicographic-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "翻譯名義集",
+      "sourceRole": "fayun_buddhist_translation_terminology_lexicon",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000960",
+        "cbcText": "2258"
+      },
+      "localPath": "data/corpus/cbeta/T54n2131.xml",
+      "upstreamPath": "T/T54/T54n2131.xml",
+      "upstreamGitBlobSha1": "83f97721b45c6113be05da9e9e3c8b93a358265c",
+      "upstreamBytes": 2204673,
+      "upstreamSha256": "ab148230d6203db79279acce1173ca7d5d687f1a491defab0d6eae8b5c87d534",
+      "localBytes": 2204674,
+      "localSha256": "79f3c7ca125532c4eba2d2b1a60018b032a97656b3ba513440bf561af477ec3f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "翻譯名義集",
+        "alternateTitle": "翻譯名義集",
+        "tradition": "汉传佛教 · 音义与译名",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2131",
+        "translator": "宋 · 法雲編",
+        "summary": "7卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：宋 法雲編。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2131_001"
+      },
+      "verification": {
+        "segments": 11105,
+        "folios": 397,
+        "juanRange": [
+          1,
+          7
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "anchors": [
+          "T2131.001.1055a02",
+          "T2131.007.1185b23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2132",
+      "slug": "taisho-t2132",
+      "workId": "gbcr:work:taisho-t2132-sanskrit-chinese-language-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "悉曇字記",
+      "sourceRole": "zhiguang_siddham_orthographic_treatise",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003530",
+        "cbcText": "2272"
+      },
+      "localPath": "data/corpus/cbeta/T54n2132.xml",
+      "upstreamPath": "T/T54/T54n2132.xml",
+      "upstreamGitBlobSha1": "4fdf9454a49cf5b3cc28c404ba259c290ea97070",
+      "upstreamBytes": 250360,
+      "upstreamSha256": "f91c8b2633d8073ccb024179fb3728044d9f031fd3ac40083a5c70e545426b02",
+      "localBytes": 250361,
+      "localSha256": "91e459308f61bac3f589139fe9642321b316afc8d6907da9b63b6bc4cd4e6b12",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "悉曇字記",
+        "alternateTitle": "悉曇字記",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2132",
+        "translator": "唐 · 智廣撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 智廣撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2132_001"
+      },
+      "verification": {
+        "segments": 314,
+        "folios": 13,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2132.001.1186a02",
+          "T2132.001.1190a12"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2133A",
+      "slug": "taisho-t2133a",
+      "workId": "gbcr:work:taisho-t2133-sanskrit-thousand-character-primer",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "梵語千字文",
+      "sourceRole": "yijing_sanskrit_thousand_character_primer",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_witness",
+          "groupId": "sanskrit-thousand-character-primer-t2133a-b",
+          "label": "《梵语千字文》东洋文库本与敬光刊本版本组",
+          "evidence": "DILA 将 T2133A/B 登记为 CA0001000A/B，同题同署义净撰；CBETA 说明 A 本以东洋文库藏本为底本，B 本以日本安永二年敬光刊本为底本。两份完整 TEI 共享一个作品实体，保留两个版本表达、各自附录与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T2133A",
+              "T2133B"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "same_author_cross_genre_distinct",
+          "groupId": "yijing-travel-and-language-works-t2125-t2133",
+          "label": "义净求法传与梵语教材跨文类伴随著作",
+          "evidence": "T2125《南海寄归内法传》记录求法见闻与僧团制度，T2133A/B《梵语千字文》是梵汉语学习材料；共同撰者义净与语言文化语境只建立人物关联，不消除作品和版本层级。",
+          "externalIds": {
+            "cbeta": [
+              "T2125",
+              "T2133A",
+              "T2133B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001000A",
+        "cbcText": "2269"
+      },
+      "localPath": "data/corpus/cbeta/T54n2133A.xml",
+      "upstreamPath": "T/T54/T54n2133A.xml",
+      "upstreamGitBlobSha1": "fe94e2490e50ad51daef6cd0672af74563c22c95",
+      "upstreamBytes": 566564,
+      "upstreamSha256": "022350c2ac0cc298e7e90cd95aa7decf418b5d31b05124199a54a099cab703fa",
+      "localBytes": 566565,
+      "localSha256": "53ae349dabe43145efdb08d935832b294bb58366f793403bfa8e0d0881d02f58",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵語千字文",
+        "alternateTitle": "梵語千字文",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2133A",
+        "translator": "唐 · 義淨撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为同一《梵语千字文》作品的独立版本见证。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2133A_001"
+      },
+      "verification": {
+        "segments": 354,
+        "folios": 22,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2133A.001.1190a14",
+          "T2133A.001.1197a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2133B",
+      "slug": "taisho-t2133b",
+      "workId": "gbcr:work:taisho-t2133-sanskrit-thousand-character-primer",
+      "workIdentityStatus": "verified_edition_witness",
+      "workTitle": "梵語千字文",
+      "sourceRole": "yijing_sanskrit_thousand_character_primer",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "same_work_edition_witness",
+          "groupId": "sanskrit-thousand-character-primer-t2133a-b",
+          "label": "《梵语千字文》东洋文库本与敬光刊本版本组",
+          "evidence": "DILA 将 T2133A/B 登记为 CA0001000A/B，同题同署义净撰；CBETA 说明 A 本以东洋文库藏本为底本，B 本以日本安永二年敬光刊本为底本。两份完整 TEI 共享一个作品实体，保留两个版本表达、各自附录与稳定锚点。",
+          "externalIds": {
+            "cbeta": [
+              "T2133A",
+              "T2133B"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "same_author_cross_genre_distinct",
+          "groupId": "yijing-travel-and-language-works-t2125-t2133",
+          "label": "义净求法传与梵语教材跨文类伴随著作",
+          "evidence": "T2125《南海寄归内法传》记录求法见闻与僧团制度，T2133A/B《梵语千字文》是梵汉语学习材料；共同撰者义净与语言文化语境只建立人物关联，不消除作品和版本层级。",
+          "externalIds": {
+            "cbeta": [
+              "T2125",
+              "T2133A",
+              "T2133B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001000B",
+        "cbcText": "2268"
+      },
+      "localPath": "data/corpus/cbeta/T54n2133B.xml",
+      "upstreamPath": "T/T54/T54n2133B.xml",
+      "upstreamGitBlobSha1": "f3cf960088b1187993e51261403a6e2f49f3a111",
+      "upstreamBytes": 766384,
+      "upstreamSha256": "e2503468a8c0c0d0bb7e82818568cc13539183c32c4595cb678c3037782baaaa",
+      "localBytes": 766385,
+      "localSha256": "91635f911b82e08d8b6aa8489be5526e91225f6e505c82f092e82a04847127b1",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵語千字文",
+        "alternateTitle": "梵語千字文",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2133B",
+        "translator": "唐 · 義淨撰",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为同一《梵语千字文》作品的独立版本见证。传统责任题记：唐 義淨撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2133B_001"
+      },
+      "verification": {
+        "segments": 1451,
+        "folios": 59,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2133B.001.1197a17",
+          "T2133B.001.1216b07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2134",
+      "slug": "taisho-t2134",
+      "workId": "gbcr:work:taisho-t2134-sanskrit-chinese-language-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "唐梵文字",
+      "sourceRole": "sanskrit_chinese_buddhist_language_reference",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003221",
+        "cbcText": "2277"
+      },
+      "localPath": "data/corpus/cbeta/T54n2134.xml",
+      "upstreamPath": "T/T54/T54n2134.xml",
+      "upstreamGitBlobSha1": "b3784116c9d3923fc6f1238809f16f5d063647e5",
+      "upstreamBytes": 595995,
+      "upstreamSha256": "8d08ce98c791e0200daaa04ddee91d5e9c7a7f91c75b8597d9bb328109adb9e3",
+      "localBytes": 595996,
+      "localSha256": "144fcdee8bf72577322eb7fe04719e8206957f6d5aef63d72ba5e725399ff5d4",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唐梵文字",
+        "alternateTitle": "唐梵文字",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2134",
+        "translator": "唐 · 全真集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 全真集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2134_001"
+      },
+      "verification": {
+        "segments": 582,
+        "folios": 21,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2134.001.1216b10",
+          "T2134.001.1223a17"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2135",
+      "slug": "taisho-t2135",
+      "workId": "gbcr:work:taisho-t2135-sanskrit-chinese-language-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "梵語雜名",
+      "sourceRole": "sanskrit_chinese_buddhist_language_reference",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001001",
+        "cbcText": "2275"
+      },
+      "localPath": "data/corpus/cbeta/T54n2135.xml",
+      "upstreamPath": "T/T54/T54n2135.xml",
+      "upstreamGitBlobSha1": "a069b37280bad48f4f8d128c1ebfa66259dde58c",
+      "upstreamBytes": 1205305,
+      "upstreamSha256": "a4f31546f9e72ac30bfda066d938d5c07544e4de035cf19122e8c97fe358aa83",
+      "localBytes": 1205306,
+      "localSha256": "0d7a7dad6a96008b713eb65384337a79a3e5c7c94734be46aea31cd292d8ea5a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "梵語雜名",
+        "alternateTitle": "梵語雜名",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2135",
+        "translator": "唐 · 禮言集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 禮言集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2135_001"
+      },
+      "verification": {
+        "segments": 1312,
+        "folios": 56,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2135.001.1223a20",
+          "T2135.001.1241b04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2136",
+      "slug": "taisho-t2136",
+      "workId": "gbcr:work:taisho-t2136-sanskrit-chinese-language-reference",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "唐梵兩語雙對集",
+      "sourceRole": "sanskrit_chinese_buddhist_language_reference",
+      "canonicalStatus": "buddhist_reference_work_not_claimed_as_buddha_word",
+      "buddhaWordStatus": "not_claimed_buddha_word",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_reference_genres_distinct",
+          "groupId": "t54-buddhist-compendia-history-and-language-reference-works",
+          "label": "T54 佛教类书、制度史、音义与梵汉语文学资料边界",
+          "evidence": "T2123–T2136 横跨类书、名义集、求法传、僧史、制度参考书、佛典音义、译名集、悉昙与梵汉教材。共同服务佛教知识整理或语言学习，不构成同一作品，也不把后世编集标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2123",
+              "T2124",
+              "T2125",
+              "T2126",
+              "T2127",
+              "T2128",
+              "T2129",
+              "T2130",
+              "T2131",
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        },
+        {
+          "type": "sanskrit_chinese_language_works_distinct",
+          "groupId": "sanskrit-language-materials-t2132-t2136",
+          "label": "悉昙字记、千字文与梵汉词汇资料范围边界",
+          "evidence": "T2132–T2136 分别承担悉昙字母说明、千字韵文、唐梵词汇、杂名与双语对集等不同功能。T2133A/B 之外，其余题名、责任、体例、正文重合度与权威号均不支持作品合并。",
+          "externalIds": {
+            "cbeta": [
+              "T2132",
+              "T2133A",
+              "T2133B",
+              "T2134",
+              "T2135",
+              "T2136"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003220",
+        "cbcText": "2271"
+      },
+      "localPath": "data/corpus/cbeta/T54n2136.xml",
+      "upstreamPath": "T/T54/T54n2136.xml",
+      "upstreamGitBlobSha1": "285b3c0db643b67714615fab125d1c71d0522131",
+      "upstreamBytes": 72493,
+      "upstreamSha256": "4a446f676b932c6b599f5065ca456847ee04dc8d04c856d9b382b975742544a4",
+      "localBytes": 72494,
+      "localSha256": "2476da527879419a73a9bced27846dcd6adf9efb5a6a6ef8eebe42749d0726dc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "唐梵兩語雙對集",
+        "alternateTitle": "唐梵兩語雙對集",
+        "tradition": "汉传佛教 · 悉昙与梵汉语文学",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2136",
+        "translator": "唐 · 僧怛多蘖多．波羅瞿那彌捨沙集",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为独立佛教类书、史传、音义或梵汉语文学资料建模，不标成佛陀逐字亲说。传统责任题记：唐 僧怛多蘖多．波羅瞿那彌捨沙集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2136_001"
+      },
+      "verification": {
+        "segments": 124,
+        "folios": 8,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2136.001.1241b08",
+          "T2136.001.1243c22"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2137",
+      "slug": "taisho-t2137",
+      "workId": "gbcr:work:taisho-t2137-translated-indian-non-buddhist-philosophy",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "金七十論",
+      "sourceRole": "translated_indian_non_buddhist_philosophy_reference",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "indian_non_buddhist_philosophies_distinct",
+          "groupId": "samkhya-vaisesika-t2137-t2138",
+          "label": "汉译数论与胜论文献学派边界",
+          "evidence": "T2137《金七十论》属数论传统，传统题记真谛译；T2138《胜宗十句义论》属胜论传统，题记慧月造、玄奘译。两者均由佛教翻译活动保存，却是不同学派、作者、译者与作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001800",
+        "cbcText": "2274"
+      },
+      "localPath": "data/corpus/cbeta/T54n2137.xml",
+      "upstreamPath": "T/T54/T54n2137.xml",
+      "upstreamGitBlobSha1": "3773bb1a2e821963da772ea1086b9ef3c09a6f77",
+      "upstreamBytes": 371726,
+      "upstreamSha256": "1de2dec016bfad6d5c23e0b049fc740bb5e2e1c466cdb770bcb8f6b946143674",
+      "localBytes": 371727,
+      "localSha256": "a2678af49a5c139918369cf43f84119c15a9a578640959588beb1a18685833a5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "金七十論",
+        "alternateTitle": "金七十論",
+        "tradition": "印度哲学 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2137",
+        "translator": "陳 · 真諦譯",
+        "summary": "3卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：陳 真諦譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2137_001"
+      },
+      "verification": {
+        "segments": 1529,
+        "folios": 56,
+        "juanRange": [
+          1,
+          3
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3
+        ],
+        "anchors": [
+          "T2137.001.1245a02",
+          "T2137.003.1262c08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2138",
+      "slug": "taisho-t2138",
+      "workId": "gbcr:work:taisho-t2138-translated-indian-non-buddhist-philosophy",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "勝宗十句義論",
+      "sourceRole": "translated_indian_non_buddhist_philosophy_reference",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "indian_non_buddhist_philosophies_distinct",
+          "groupId": "samkhya-vaisesika-t2137-t2138",
+          "label": "汉译数论与胜论文献学派边界",
+          "evidence": "T2137《金七十论》属数论传统，传统题记真谛译；T2138《胜宗十句义论》属胜论传统，题记慧月造、玄奘译。两者均由佛教翻译活动保存，却是不同学派、作者、译者与作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003010",
+        "cbcText": "2270"
+      },
+      "localPath": "data/corpus/cbeta/T54n2138.xml",
+      "upstreamPath": "T/T54/T54n2138.xml",
+      "upstreamGitBlobSha1": "02de70ecc9fdbd91afd79d6ddd8094c4070fb6d5",
+      "upstreamBytes": 40351,
+      "upstreamSha256": "390c2022fe2144030570dcaf8b2906b19422a938aed391051a24adf94d54df91",
+      "localBytes": 40352,
+      "localSha256": "e9f83279b51b13d17f1b795723ea2bca4074fff30789460fc61fec0ebb9a5922",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "勝宗十句義論",
+        "alternateTitle": "勝宗十句義論",
+        "tradition": "印度哲学 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2138",
+        "translator": "慧月造 · 唐 · 玄奘譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：慧月造 唐 玄奘譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2138_001"
+      },
+      "verification": {
+        "segments": 302,
+        "folios": 11,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2138.001.1262c11",
+          "T2138.001.1266a23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2139",
+      "slug": "taisho-t2139",
+      "workId": "gbcr:work:taisho-t2139-daoist-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "老子化胡經",
+      "sourceRole": "daoist_non_buddhist_reference_text",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "irregular_extant_juan_sequence_preserved",
+          "groupId": "laozi-huahu-jing-extant-juan-1-10-t2139",
+          "label": "《老子化胡经》残存卷一、卷十编码边界",
+          "evidence": "固定 TEI 的 extent 标 2 卷，稳定里程碑实际为卷一与卷十。平台按两个残存卷保存原始卷号与锚点，不改写成连续卷一、卷二，也不把缺卷误作完整十卷。",
+          "externalIds": {
+            "cbeta": [
+              "T2139"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001935",
+        "cbcText": "2260"
+      },
+      "localPath": "data/corpus/cbeta/T54n2139.xml",
+      "upstreamPath": "T/T54/T54n2139.xml",
+      "upstreamGitBlobSha1": "529ef7f06f2d08648e85e7c03379d7d0efef07ae",
+      "upstreamBytes": 40132,
+      "upstreamSha256": "dfc26d0309676e8d3985ec9be045098675b86813730f5770dd3755f1a97f3b80",
+      "localBytes": 40133,
+      "localSha256": "93eb888ed0165bbf687f6f3720a4ef2ab4ee688922abe848202ee4fdad0b5e2b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "老子化胡經",
+        "alternateTitle": "老子化胡經",
+        "tradition": "道教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2139",
+        "translator": "传统责任题记未署名",
+        "summary": "2卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2139_001"
+      },
+      "verification": {
+        "segments": 363,
+        "folios": 15,
+        "juanRange": [
+          1,
+          10
+        ],
+        "juanSequence": [
+          1,
+          10
+        ],
+        "anchors": [
+          "T2139.001.1266a26",
+          "T2139.010.1270b15"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2140",
+      "slug": "taisho-t2140",
+      "workId": "gbcr:work:taisho-t2140-manichaean-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "摩尼教下部讚",
+      "sourceRole": "manichaean_non_buddhist_reference_text",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "manichaean_texts_distinct",
+          "groupId": "manichaean-chinese-texts-t2140-t2141",
+          "label": "摩尼教赞颂、仪略与残经作品边界",
+          "evidence": "T2140、T2141A、T2141B 同属汉语摩尼教文献语境，却分别为赞颂集、教法仪略与残经，责任层级、体例、范围及三个权威入口各异。共同宗教传统不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2140",
+              "T2141A",
+              "T2141B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002298",
+        "cbcText": "2259"
+      },
+      "localPath": "data/corpus/cbeta/T54n2140.xml",
+      "upstreamPath": "T/T54/T54n2140.xml",
+      "upstreamGitBlobSha1": "207d7bf365a031edd5b5799ce76442b2b68934a3",
+      "upstreamBytes": 87234,
+      "upstreamSha256": "79a2fd57dd5a34e36018b76a09bad0bbd04c82e2ad26adc21f597632185c7a91",
+      "localBytes": 87235,
+      "localSha256": "8518b4d77be50e499674a7b9a3dac781b034dccb295e734c24b31f09ec18f428",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩尼教下部讚",
+        "alternateTitle": "摩尼教下部讚",
+        "tradition": "摩尼教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2140",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2140_001"
+      },
+      "verification": {
+        "segments": 800,
+        "folios": 29,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2140.001.1270b19",
+          "T2140.001.1279c10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2141A",
+      "slug": "taisho-t2141a",
+      "workId": "gbcr:work:taisho-t2141a-manichaean-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "摩尼光佛教法儀略",
+      "sourceRole": "manichaean_doctrinal_compendium_traditional_translation_attribution",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "same_number_distinct_non_buddhist_works",
+          "groupId": "taisho-t2141a-b-distinct-works",
+          "label": "T2141A/B 同数字经号异作边界",
+          "evidence": "T2141A《摩尼光佛教法仪略》与 T2141B《波斯教残经》题名、范围、传统责任、DILA 基础作品号及 CBC 入口均不同。A/B 是《大正藏》编排标识，不是同一作品的版本证据。",
+          "externalIds": {
+            "cbeta": [
+              "T2141A",
+              "T2141B"
+            ]
+          }
+        },
+        {
+          "type": "manichaean_texts_distinct",
+          "groupId": "manichaean-chinese-texts-t2140-t2141",
+          "label": "摩尼教赞颂、仪略与残经作品边界",
+          "evidence": "T2140、T2141A、T2141B 同属汉语摩尼教文献语境，却分别为赞颂集、教法仪略与残经，责任层级、体例、范围及三个权威入口各异。共同宗教传统不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2140",
+              "T2141A",
+              "T2141B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0002297",
+        "cbcText": "2278"
+      },
+      "localPath": "data/corpus/cbeta/T54n2141A.xml",
+      "upstreamPath": "T/T54/T54n2141A.xml",
+      "upstreamGitBlobSha1": "804ea0eb55316ff8566bee87580ec0bea64114f6",
+      "upstreamBytes": 13890,
+      "upstreamSha256": "fbc8b301e3d64dee9a701c0a3cb93a2db85f41fd27cb69102e447ddd79dfc62a",
+      "localBytes": 13891,
+      "localSha256": "ec4e7a7f088140aff53b10b3066cc101c8649babc158648d19cfbac62041fb84",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "摩尼光佛教法儀略",
+        "alternateTitle": "摩尼光佛教法儀略",
+        "tradition": "摩尼教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2141A",
+        "translator": "唐 · 拂多誕譯",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：唐 拂多誕譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2141A_001"
+      },
+      "verification": {
+        "segments": 113,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2141A.001.1279c14",
+          "T2141A.001.1281a11"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2141B",
+      "slug": "taisho-t2141b",
+      "workId": "gbcr:work:taisho-t2141b-manichaean-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "波斯教殘經",
+      "sourceRole": "manichaean_fragment_unattributed",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "same_number_distinct_non_buddhist_works",
+          "groupId": "taisho-t2141a-b-distinct-works",
+          "label": "T2141A/B 同数字经号异作边界",
+          "evidence": "T2141A《摩尼光佛教法仪略》与 T2141B《波斯教残经》题名、范围、传统责任、DILA 基础作品号及 CBC 入口均不同。A/B 是《大正藏》编排标识，不是同一作品的版本证据。",
+          "externalIds": {
+            "cbeta": [
+              "T2141A",
+              "T2141B"
+            ]
+          }
+        },
+        {
+          "type": "manichaean_texts_distinct",
+          "groupId": "manichaean-chinese-texts-t2140-t2141",
+          "label": "摩尼教赞颂、仪略与残经作品边界",
+          "evidence": "T2140、T2141A、T2141B 同属汉语摩尼教文献语境，却分别为赞颂集、教法仪略与残经，责任层级、体例、范围及三个权威入口各异。共同宗教传统不构成同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2140",
+              "T2141A",
+              "T2141B"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000332",
+        "cbcText": "2261"
+      },
+      "localPath": "data/corpus/cbeta/T54n2141B.xml",
+      "upstreamPath": "T/T54/T54n2141B.xml",
+      "upstreamGitBlobSha1": "1ede04cedf8116180073bb16162feac626faed98",
+      "upstreamBytes": 49331,
+      "upstreamSha256": "40d80e6b7c3ca0dcce009aa345f6f437fbc3ad868a9d0e492c403b2a47735d84",
+      "localBytes": 49332,
+      "localSha256": "b103ee94cbf8dbf12089468454d7060a2d3009b3c440decaec0575a55307169c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "波斯教殘經",
+        "alternateTitle": "波斯教殘經",
+        "tradition": "摩尼教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2141B",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2141B_001"
+      },
+      "verification": {
+        "segments": 445,
+        "folios": 16,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2141B.001.1281a14",
+          "T2141B.001.1286a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2142",
+      "slug": "taisho-t2142",
+      "workId": "gbcr:work:taisho-t2142-church-of-the-east-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "序聽迷詩所經",
+      "sourceRole": "church_of_the_east_non_buddhist_reference_text",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "church_of_the_east_texts_distinct",
+          "groupId": "church-of-the-east-chinese-texts-t2142-t2144",
+          "label": "景教经、赞与碑颂作品边界",
+          "evidence": "T2142《序听迷诗所经》、T2143《景教三威蒙度赞》与 T2144《大秦景教流行中国碑颂》分别是经文、赞颂与碑铭；共同景教语境不能消除三种文类和作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0003655",
+        "cbcText": "2256"
+      },
+      "localPath": "data/corpus/cbeta/T54n2142.xml",
+      "upstreamPath": "T/T54/T54n2142.xml",
+      "upstreamGitBlobSha1": "9a7502d1128c234a07a0fc128874c891b28ba409",
+      "upstreamBytes": 20136,
+      "upstreamSha256": "092652bd9f3c3f8c9a6911009efc6799928ba34071e1b7ea41838992e67df78b",
+      "localBytes": 20137,
+      "localSha256": "45164fa9af3f4127070906d3dbc2a4aa3de23a04b5b5d3a2798fbca7524bfd92",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "序聽迷詩所經",
+        "alternateTitle": "序聽迷詩所經",
+        "tradition": "景教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2142",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2142_001"
+      },
+      "verification": {
+        "segments": 171,
+        "folios": 6,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2142.001.1286b02",
+          "T2142.001.1288a28"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2143",
+      "slug": "taisho-t2143",
+      "workId": "gbcr:work:taisho-t2143-church-of-the-east-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "景教三威蒙度讚",
+      "sourceRole": "church_of_the_east_non_buddhist_reference_text",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "church_of_the_east_texts_distinct",
+          "groupId": "church-of-the-east-chinese-texts-t2142-t2144",
+          "label": "景教经、赞与碑颂作品边界",
+          "evidence": "T2142《序听迷诗所经》、T2143《景教三威蒙度赞》与 T2144《大秦景教流行中国碑颂》分别是经文、赞颂与碑铭；共同景教语境不能消除三种文类和作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001819",
+        "cbcText": "2263"
+      },
+      "localPath": "data/corpus/cbeta/T54n2143.xml",
+      "upstreamPath": "T/T54/T54n2143.xml",
+      "upstreamGitBlobSha1": "c9895db83bf72be52b6b1220575576c6ff67312c",
+      "upstreamBytes": 8550,
+      "upstreamSha256": "25953e3d73df45bdf659a65cabb59163fa6a27ea437cf241f315c50ca3107dea",
+      "localBytes": 8551,
+      "localSha256": "bc664176787803d39d26a7a36bb7f2af6b35d53e23b3efb217883dc944396a07",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "景教三威蒙度讚",
+        "alternateTitle": "景教三威蒙度讚",
+        "tradition": "景教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2143",
+        "translator": "传统责任题记未署名",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：传统责任题记未署名。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2143_001"
+      },
+      "verification": {
+        "segments": 48,
+        "folios": 2,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2143.001.1288b02",
+          "T2143.001.1288c21"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2144",
+      "slug": "taisho-t2144",
+      "workId": "gbcr:work:taisho-t2144-church-of-the-east-reference-text",
+      "workIdentityStatus": "verified_distinct_reference_work",
+      "workTitle": "大秦景教流行中國碑頌",
+      "sourceRole": "church_of_the_east_stele_text",
+      "canonicalStatus": "non_buddhist_reference_text",
+      "buddhaWordStatus": "excluded_non_buddhist_reference",
+      "bibliographicRelations": [
+        {
+          "type": "non_buddhist_reference_texts_excluded_from_buddha_word",
+          "groupId": "t54-non-buddhist-reference-boundary-t2137-t2144",
+          "label": "外教部九份非佛教参照文本边界",
+          "evidence": "T2137–T2144 的九份记录涵盖印度数论与胜论、道教、摩尼教及景教文献。它们因佛教译者、敦煌文献史、宗教交流或《大正藏》编纂语境而具有研究价值，但不是佛教经典，更不是佛陀逐字亲说；平台允许阅读而从佛经覆盖分子中排除。",
+          "externalIds": {
+            "cbeta": [
+              "T2137",
+              "T2138",
+              "T2139",
+              "T2140",
+              "T2141A",
+              "T2141B",
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        },
+        {
+          "type": "church_of_the_east_texts_distinct",
+          "groupId": "church-of-the-east-chinese-texts-t2142-t2144",
+          "label": "景教经、赞与碑颂作品边界",
+          "evidence": "T2142《序听迷诗所经》、T2143《景教三威蒙度赞》与 T2144《大秦景教流行中国碑颂》分别是经文、赞颂与碑铭；共同景教语境不能消除三种文类和作品边界。",
+          "externalIds": {
+            "cbeta": [
+              "T2142",
+              "T2143",
+              "T2144"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000660",
+        "cbcText": "2257"
+      },
+      "localPath": "data/corpus/cbeta/T54n2144.xml",
+      "upstreamPath": "T/T54/T54n2144.xml",
+      "upstreamGitBlobSha1": "22c4c0c4be49dae3d5b5009fef8171f4ef740571",
+      "upstreamBytes": 17434,
+      "upstreamSha256": "12930d39a47f37cd1e286c8c2a984a385a52a6834740e853edc5c167f218f309",
+      "localBytes": 17435,
+      "localSha256": "bb77e11e62cf2bbc6de4dc182ae956caaa636cc81b3dd86bf680c9e175d5b272",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "大秦景教流行中國碑頌",
+        "alternateTitle": "大秦景教流行中國碑頌",
+        "tradition": "景教文献 · 外教参照",
+        "language": "汉文",
+        "canonRef": "大正藏 T54, no. 2144",
+        "translator": "唐 · 景淨述",
+        "summary": "1卷。完整保存固定 CBETA TEI、校勘、责任题记与原始卷序；作为非佛教参照文献开放研究，不计作佛教经典或佛陀逐字亲说。传统责任题记：唐 景淨述。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2144_001"
+      },
+      "verification": {
+        "segments": 136,
+        "folios": 5,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "T2144.001.1289a02",
+          "T2144.001.1290b23"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

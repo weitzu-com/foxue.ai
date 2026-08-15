@@ -131,12 +131,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2269,
-    registeredExpressions: 2488,
-    fullSourceTextWorks: 2242,
-    fullSourceTextExpressions: 2445,
-    stableSegments: 4849562,
-    structureVerifiedWorks: 2269,
+    registeredWorks: 2292,
+    registeredExpressions: 2512,
+    fullSourceTextWorks: 2265,
+    fullSourceTextExpressions: 2469,
+    stableSegments: 4940700,
+    structureVerifiedWorks: 2292,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -170,11 +170,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 2213,
-    controlled: 2213,
+    denominator: 2237,
+    controlled: 2237,
     percentage: 100,
-    sourceBytes: 789383075,
-    controlledBytes: 789383075,
+    sourceBytes: 814461712,
+    controlledBytes: 814461712,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -946,6 +946,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseBuddhistApologeticsDebateMemorialsT52BoundaryAudit: expect.stringContaining("batch-v4.19.0.json"),
     chineseBuddhistEncyclopedicCompendiaT53Inventory: expect.stringContaining("cbeta-taisho-t53-inventory-v0.1.0.json"),
     chineseBuddhistEncyclopedicCompendiaT53BoundaryAudit: expect.stringContaining("batch-v4.20.0.json"),
+    chineseBuddhistReferenceAndNonBuddhistT54Inventory: expect.stringContaining("cbeta-taisho-t54-inventory-v0.1.0.json"),
+    chineseBuddhistReferenceAndNonBuddhistT54BoundaryAudit: expect.stringContaining("batch-v4.21.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -3219,6 +3221,82 @@ test("汉译 T53 两部佛教类书完整受控且保留引文复用与分层责
   expect(sitemap).toContain("/jingzang/taisho-t2121/050-0268c");
   expect(sitemap).toContain("/jingzang/taisho-t2122/001-0269a");
   expect(sitemap).toContain("/jingzang/taisho-t2122/100-1030a");
+});
+
+test("汉译 T54 佛教参考资料与外教文献完整受控且不混入佛经覆盖分子", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t2123/001-0001a");
+  await expect(page.getByRole("heading", { level: 1, name: "諸經要集" })).toBeVisible();
+  await expect(page.getByText(/唐 · 道世集/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2133a/001-1190a");
+  await expect(page.getByRole("heading", { level: 1, name: "梵語千字文" })).toBeVisible();
+  await expect(page.getByText(/唐 · 義淨撰/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2139/010-1270b");
+  await expect(page.getByRole("heading", { level: 1, name: "老子化胡經" })).toBeVisible();
+  await expect(page.getByText(/传统责任题记未署名/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2144/001-1289a");
+  await expect(page.getByRole("heading", { level: 1, name: "大秦景教流行中國碑頌" })).toBeVisible();
+  await expect(page.getByText(/唐 · 景淨述/).first()).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t2123/001-0001a",
+    "/jingzang/taisho-t2123/020-0194a",
+    "/jingzang/taisho-t2128/001-0311a",
+    "/jingzang/taisho-t2128/100-0933b",
+    "/jingzang/taisho-t2133a/001-1190a",
+    "/jingzang/taisho-t2133a/001-1197a",
+    "/jingzang/taisho-t2133b/001-1197a",
+    "/jingzang/taisho-t2133b/001-1216b",
+    "/jingzang/taisho-t2139/001-1266a",
+    "/jingzang/taisho-t2139/010-1270b",
+    "/jingzang/taisho-t2144/001-1289a",
+    "/jingzang/taisho-t2144/001-1290b",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT54SourceRecords).toMatchObject({
+    denominator: 24,
+    controlled: 24,
+    percentage: 100,
+    fullSourceTexts: 24,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 2,
+    relationAnnotatedRecords: 24,
+    attributionBoundaryRecords: 24,
+    unsignedResponsibilityRecords: 6,
+    lostTranslatorResponsibilityRecords: 0,
+    nonBuddhistReferenceRecords: 9,
+    newWorks: 23,
+    controlledWorks: 23,
+    rootEditionBoundaryGroups: 1,
+    editionOrRecensionGroups: 1,
+    sameNumberBoundaryGroups: 2,
+    layeredAttributionGroups: 1,
+    scopeBoundaryGroups: 2,
+    continuationBoundaryGroups: 2,
+    sourceReuseBoundaryGroups: 1,
+    sameAuthorCompanionWorkGroups: 1,
+    crossVolumeRelationGroups: 1,
+    irregularJuanSequenceGroups: 1,
+    nonBuddhistReferenceGroups: 4,
+    relatedDistinctWorkGroups: 12,
+  });
+
+  const sitemap = await readSitemaps(request);
+  for (const path of [
+    "/jingzang/taisho-t2123/001-0001a",
+    "/jingzang/taisho-t2123/020-0194a",
+    "/jingzang/taisho-t2128/001-0311a",
+    "/jingzang/taisho-t2128/100-0933b",
+    "/jingzang/taisho-t2133a/001-1190a",
+    "/jingzang/taisho-t2133b/001-1216b",
+    "/jingzang/taisho-t2139/001-1266a",
+    "/jingzang/taisho-t2139/010-1270b",
+    "/jingzang/taisho-t2144/001-1289a",
+    "/jingzang/taisho-t2144/001-1290b",
+  ]) expect(sitemap).toContain(path);
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {

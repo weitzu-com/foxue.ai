@@ -338,6 +338,12 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT53SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT53SourceRecords.controlledWorks} 个独立作品；2 组分层责任、1 组引文复用与 5 组相关异作证据均已记录，
               共同类书文类、所引原典和五字组相似度不触发自动合并，T2121 的责任标签与成书年代差异作为同一作品的证据层保存；
+              T54 佛教参考资料与外教文献固定来源已完成 {snapshot.candidateInventory.chineseT54SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT54SourceRecords.denominator}（{snapshot.candidateInventory.chineseT54SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT54SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT54SourceRecords.controlledWorks} 个作品；《梵语千字文》A/B 作为同一作品的 2 个版本见证，
+              {snapshot.candidateInventory.chineseT54SourceRecords.nonBuddhistReferenceRecords} 份数论、胜论、道教、摩尼教与景教资料明确作为非佛教参照文本，不计作佛经或佛陀亲说；
+              T2139 的残存卷一、卷十保持原号，不重排成卷一、卷二；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -636,6 +642,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T53 的 2 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t54-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T54 的 24 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

@@ -5,13 +5,13 @@ import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-te
 
 const root = process.cwd();
 const manifest = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/manifest-v4.20.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/manifest-v4.21.0.json"), "utf8"),
 );
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v6.11.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v6.12.0.json"), "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.20.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.21.0.json"), "utf8"),
 );
 const errors = [];
 const requireValue = (condition, message) => {
@@ -58,7 +58,7 @@ for (const file of manifest.files) {
       "中華電子佛典協會 （CBETA）",
     ].some((attribution) => text.includes(attribution));
     requireValue(hasCbetaAttribution, `${source.id} 缺少 CBETA 来源署名`);
-    requireValue(text.includes("<text><body>"), `${source.id} 缺少完整正文结构`);
+    requireValue(/<text(?:\s[^>]*)?><body(?:\s[^>]*)?>/.test(text), `${source.id} 缺少完整正文结构`);
     requireValue(text.trimEnd().endsWith("</back></text></TEI>"), `${source.id} XML 末尾结构不完整`);
     readingLines.push(...parseCbetaReadingLines(text, { canonId: file.id }));
   }
