@@ -17,7 +17,7 @@
     }
   ],
   "vars": {
-    "RELEASE_ID": "gbcr-6.10.0-2b8ab8d5e4fe-eac6c24781dd-020426566b1e"
+    "RELEASE_ID": "gbcr-6.11.0-2b8ab8d5e4fe-eac6c24781dd-83bf2aff2540"
   },
   "observability": {
     "enabled": true,

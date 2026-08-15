@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v6.10.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.0.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.11.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.1.0.json";
 
 type Expression = {
   id: string;
@@ -325,6 +325,12 @@ export function buildCoverageSnapshot() {
   const chineseT52Controlled = "t52ControlledSourceRecords" in (chineseFamily ?? {})
     ? chineseFamily?.t52ControlledSourceRecords ?? null
     : null;
+  const chineseT53Denominator = "t53SourceRecordDenominator" in (chineseFamily ?? {})
+    ? chineseFamily?.t53SourceRecordDenominator ?? null
+    : null;
+  const chineseT53Controlled = "t53ControlledSourceRecords" in (chineseFamily ?? {})
+    ? chineseFamily?.t53ControlledSourceRecords ?? null
+    : null;
   const cbetaSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "cbeta_xml_p5",
   );
@@ -506,6 +512,11 @@ export function buildCoverageSnapshot() {
   const chineseT52SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
     ? cbetaSourceInventory.candidateSubsets?.find(
         (subset) => subset.id === "taisho_buddhist_apologetics_debate_memorials_t52",
+      ) ?? null
+    : null;
+  const chineseT53SubsetInventory = cbetaSourceInventory && "candidateSubsets" in cbetaSourceInventory
+    ? cbetaSourceInventory.candidateSubsets?.find(
+        (subset) => subset.id === "taisho_buddhist_encyclopedic_compendia_t53",
       ) ?? null
     : null;
   const suttacentralFamily = corpusRegistry.sourceFamilies.find(
@@ -751,8 +762,9 @@ export function buildCoverageSnapshot() {
         t50InventorySha256: chineseT50SubsetInventory?.inventorySha256 ?? null,
         t51InventorySha256: chineseT51SubsetInventory?.inventorySha256 ?? null,
         t52InventorySha256: chineseT52SubsetInventory?.inventorySha256 ?? null,
-        unit: "CBETA 大正藏 T01–T52 三十六个固定候选子集的来源记录",
-        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T52 释经论、诸宗、止观、仪轨、语录、公案、宗论、警策、清规、部派论书、史传、求法传、感应传、灯录、游记、方志、护法论辩与表制文书分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、注疏、再注释、同数字经号文本、相关传本、复合责任、同作者异作、集撰、失译、未署名、版本见证、史料复用、本编与续修、伴随著作及人物、制度、地域和跨卷文类边界；目录部类、题名、作者、人物、制度语境、主题、引文或机器相似度不构成作品自动合并或佛陀逐字亲说的证据。",
+        t53InventorySha256: chineseT53SubsetInventory?.inventorySha256 ?? null,
+        unit: "CBETA 大正藏 T01–T53 三十七个固定候选子集的来源记录",
+        caveat: "这是固定来源中的记录完整性，不是去重作品覆盖率或全球佛典覆盖率；T18–T21 密教部、T22–T24 律部与 T25–T53 释经论、诸宗、止观、仪轨、语录、公案、宗论、警策、清规、部派论书、史传、求法传、感应传、灯录、游记、方志、护法论辩、表制文书与佛教类书分别容纳译经、仪轨、论造、编集、广律、戒本、羯磨、根本颂、释论、完整论书、注疏、再注释、同数字经号文本、相关传本、复合责任、同作者异作、集撰、失译、未署名、版本见证、史料与引文复用、本编与续修、伴随著作及人物、制度、地域和跨卷文类边界；目录部类、题名、作者、人物、制度语境、主题、引文或机器相似度不构成作品自动合并或佛陀逐字亲说的证据。",
       },
       chineseAgamaSourceRecords: {
         denominator: chineseAgamaDenominator,
@@ -1606,6 +1618,40 @@ export function buildCoverageSnapshot() {
         relatedDistinctWorkGroups: corpusRegistry.cbetaT52BoundaryAudit.relatedDistinctWorkGroups.length,
         unit: "CBETA 固定提交大正藏 T52 护法论辩、三教交涉、感通录与表制文书来源记录",
         caveat: corpusRegistry.cbetaT52BoundaryAudit.caveat,
+      },
+      chineseT53SourceRecords: {
+        denominator: chineseT53Denominator,
+        controlled: chineseT53Controlled,
+        percentage: chineseT53Denominator && chineseT53Controlled !== null
+          ? Number(((chineseT53Controlled / chineseT53Denominator) * 100).toFixed(2))
+          : null,
+        fullSourceTexts: corpusRegistry.cbetaT53BoundaryAudit.newFullSourceTexts,
+        partialSourceWitnesses: corpusRegistry.cbetaT53BoundaryAudit.newPartialSourceWitnesses,
+        verifiedSameWorkExpressions: corpusRegistry.cbetaT53BoundaryAudit.verifiedSameWorkExpressions,
+        verifiedPartialWorkWitnesses: corpusRegistry.cbetaT53BoundaryAudit.verifiedPartialWorkWitnesses,
+        verifiedSplitWorkWitnesses: corpusRegistry.cbetaT53BoundaryAudit.verifiedSplitWorkWitnesses,
+        verifiedEditionWitnesses: corpusRegistry.cbetaT53BoundaryAudit.verifiedEditionWitnesses,
+        attributionBoundaryRecords: corpusRegistry.cbetaT53BoundaryAudit.attributionBoundaryRecords,
+        relationAnnotatedRecords: corpusRegistry.cbetaT53BoundaryAudit.relationAnnotatedRecords,
+        unsignedResponsibilityRecords: corpusRegistry.cbetaT53BoundaryAudit.unsignedResponsibilityRecords,
+        lostTranslatorResponsibilityRecords: corpusRegistry.cbetaT53BoundaryAudit.lostTranslatorResponsibilityRecords,
+        newWorks: corpusRegistry.cbetaT53BoundaryAudit.newWorks,
+        controlledWorks: corpusRegistry.cbetaT53BoundaryAudit.controlledWorks,
+        rootVinayaCommentaryGroups: corpusRegistry.cbetaT53BoundaryAudit.rootVinayaCommentaryGroups.length,
+        rootTreatiseCommentaryGroups: corpusRegistry.cbetaT53BoundaryAudit.rootTreatiseCommentaryGroups.length,
+        rootEditionBoundaryGroups: corpusRegistry.cbetaT53BoundaryAudit.rootEditionBoundaryGroups.length,
+        editionOrRecensionGroups: corpusRegistry.cbetaT53BoundaryAudit.editionOrRecensionGroups.length,
+        subcommentaryGroups: corpusRegistry.cbetaT53BoundaryAudit.subcommentaryGroups.length,
+        sameNumberBoundaryGroups: corpusRegistry.cbetaT53BoundaryAudit.sameNumberBoundaryGroups.length,
+        layeredAttributionGroups: corpusRegistry.cbetaT53BoundaryAudit.layeredAttributionGroups.length,
+        scopeBoundaryGroups: corpusRegistry.cbetaT53BoundaryAudit.scopeBoundaryGroups.length,
+        continuationBoundaryGroups: corpusRegistry.cbetaT53BoundaryAudit.continuationBoundaryGroups.length,
+        sourceReuseBoundaryGroups: corpusRegistry.cbetaT53BoundaryAudit.sourceReuseBoundaryGroups.length,
+        sameAuthorCompanionWorkGroups: corpusRegistry.cbetaT53BoundaryAudit.sameAuthorCompanionWorkGroups.length,
+        crossVolumeRelationGroups: corpusRegistry.cbetaT53BoundaryAudit.crossVolumeRelationGroups.length,
+        relatedDistinctWorkGroups: corpusRegistry.cbetaT53BoundaryAudit.relatedDistinctWorkGroups.length,
+        unit: "CBETA 固定提交大正藏 T53《经律异相》与《法苑珠林》佛教类书来源记录",
+        caveat: corpusRegistry.cbetaT53BoundaryAudit.caveat,
       },
       suttacentralPaliRootPilot: {
         denominator: paliCandidateRecords,

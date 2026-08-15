@@ -1,1 +1,1 @@
-import "./build-cbeta-catalog-v4.19.mjs";
+import "./build-cbeta-catalog-v4.20.mjs";

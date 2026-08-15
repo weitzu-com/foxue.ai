@@ -6,7 +6,7 @@ import { promisify } from "node:util";
 
 const root = process.cwd();
 const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.19.0.json"), "utf8"),
+  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.20.0.json"), "utf8"),
 );
 const requested = process.argv.slice(2);
 const selected = requested.includes("--all")

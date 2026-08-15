@@ -1,0 +1,314 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "4.20.0",
+  "publishedAt": "2026-08-15",
+  "baseCatalog": "data/corpus/cbeta/catalog-v4.19.0.json",
+  "inventory": "data/gbcr/cbeta-taisho-t53-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Taishō volumes T01–T53; T53 source-record closure",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-TAISHO-T53",
+    "title": "大正藏 T53《经律异相》与《法苑珠林》佛教类书固定来源记录",
+    "sourceRecordDenominator": 2,
+    "previouslyControlledSourceRecords": 0,
+    "newSourceRecords": 2,
+    "controlledSourceRecords": 2,
+    "newSourceBytes": 23150439,
+    "newStableSegments": 88027,
+    "newFolios": 3178,
+    "newJuans": 150,
+    "verifiedSameWorkExpressions": 0,
+    "verifiedPartialWorkWitnesses": 0,
+    "verifiedSplitWorkWitnesses": 0,
+    "verifiedEditionWitnesses": 0,
+    "provisionalRecords": 0,
+    "newFullSourceTexts": 2,
+    "newPartialSourceWitnesses": 0,
+    "relationAnnotatedRecords": 2,
+    "attributionBoundaryRecords": 2,
+    "unsignedResponsibilityRecords": 0,
+    "lostTranslatorResponsibilityRecords": 0,
+    "newWorks": 2,
+    "controlledWorks": 2,
+    "workCountingDecision": "T53 的 2 份固定来源记录登记为 2 个完整表达和 2 个独立作品。DILA 返回 CA0001817/CA0000954 两个作品号，CBC 返回 66/65 两个入口；共同类书文类、所引原典、主题、故事与 0.110043 的五字组包含度只建立材料复用关系，不自动合并。T2121 的头部、正文、DILA 与 CBC 责任标签差异属于同一作品的证据层，不拆分作品。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_encyclopedic_compendium_quotation_reuse_and_layered_responsibility_boundaries_recorded",
+    "existingControlledRecords": [],
+    "verifiedTranslationGroups": [],
+    "rootVinayaCommentaryGroups": [],
+    "rootTreatiseCommentaryGroups": [],
+    "rootEditionBoundaryGroups": [],
+    "editionOrRecensionGroups": [],
+    "subcommentaryGroups": [],
+    "sameNumberBoundaryGroups": [],
+    "layeredAttributionGroups": [
+      "t53-compilers-and-quoted-source-authors-layered",
+      "jinglu-yixiang-responsibility-labels-t2121"
+    ],
+    "scopeBoundaryGroups": [
+      "buddhist-encyclopedic-compendia-t2121-t2122"
+    ],
+    "continuationBoundaryGroups": [],
+    "sourceReuseBoundaryGroups": [
+      "t53-compendia-quotation-source-reuse-t2121-t2122"
+    ],
+    "sameAuthorCompanionWorkGroups": [],
+    "crossVolumeRelationGroups": [],
+    "relatedDistinctWorkGroups": [
+      "buddhist-encyclopedic-compendia-t2121-t2122",
+      "t53-compendia-quotation-source-reuse-t2121-t2122",
+      "t53-compilers-and-quoted-source-authors-layered",
+      "jinglu-yixiang-responsibility-labels-t2121",
+      "jinglu-yixiang-completion-date-evidence-t2121"
+    ],
+    "candidateRelationsNotMerged": [
+      "T2121/T2122 同为佛教类书但时代、责任、结构、卷数和两个权威作品入口不同，保持两部完整独立作品",
+      "T2121/T2122 唯一五字组对较短文本包含度为 0.110043；共享引文、故事与分类材料只登记来源复用，不自动合并",
+      "两部类书编者与所引经律论、史传原责任分层；类书不标成佛陀逐字亲说",
+      "T2121 TEI 头部的宝唱等集与正文/CBC 的僧旻宝唱等集并列保存，不删人名也不拆作品",
+      "T2121 的 516 目录年代与 CBC 收录研究的 517 或稍后判断并列保存，不伪造无争议单值"
+    ],
+    "partialWorkWitnesses": [],
+    "editionWitnesses": [],
+    "sourceRoles": {
+      "liang_buddhist_sutra_vinaya_excerpt_compendium": [
+        "T2121"
+      ],
+      "tang_buddhist_encyclopedic_compendium": [
+        "T2122"
+      ]
+    },
+    "textualComparison": {
+      "algorithm": "Unicode text from stable reading lines; punctuation/space removed; unique character 5-gram containment and Jaccard. Shared quotations and stories are evidence of source reuse; distinct DILA/CBC work entries, title, date, responsibility, structure and scope prevent automatic work merge.",
+      "pairs": [
+        {
+          "pair": [
+            "T2121",
+            "T2122"
+          ],
+          "normalizedCharacters": [
+            369577,
+            1009671
+          ],
+          "uniqueFiveGrams": [
+            348017,
+            947717
+          ],
+          "sharedFiveGrams": 38297,
+          "fiveGramContainmentOfShorter": 0.110043,
+          "fiveGramJaccard": 0.030456
+        }
+      ]
+    },
+    "authoritySources": [
+      "https://github.com/cbeta-org/xml-p5/tree/2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9/T/T53",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0001817",
+      "https://authority.dila.edu.tw/catalog/search.php?code=CA0000954",
+      "https://dazangthings.nz/cbc/text/66/",
+      "https://dazangthings.nz/cbc/text/65/"
+    ],
+    "caveat": "T53 是两部东亚佛教类书，不是佛陀逐字亲说的单一经藏集合。平台完整保存固定 CBETA TEI、校勘、编纂责任与引文结构，同时分离类书、所引作品、责任证据和完成年代证据；共同题材、故事、引文、分类框架或机器相似度都不能单独证明作品相同。"
+  },
+  "files": [
+    {
+      "id": "T2121",
+      "slug": "taisho-t2121",
+      "workId": "gbcr:work:taisho-t2121-buddhist-encyclopedic-compendium",
+      "workIdentityStatus": "verified_distinct_compilation_with_responsibility_and_date_evidence_variation",
+      "workTitle": "經律異相",
+      "sourceRole": "liang_buddhist_sutra_vinaya_excerpt_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_encyclopedic_compendia_distinct",
+          "groupId": "buddhist-encyclopedic-compendia-t2121-t2122",
+          "label": "《经律异相》与《法苑珠林》佛教类书作品边界",
+          "evidence": "T2121 是梁代五十卷经律分类摘编，T2122 是唐代一百卷佛教类书；二者编纂时代、责任、分类结构、篇目范围、卷数及 DILA/CBC 作品入口均不同。共同的佛教事汇文类、主题或引文不能构成同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        },
+        {
+          "type": "quoted_canonical_source_reuse_distinct",
+          "groupId": "t53-compendia-quotation-source-reuse-t2121-t2122",
+          "label": "两部类书共同引文与材料复用边界",
+          "evidence": "稳定阅读行去标点后，T2121/T2122 唯一五字组对较短文本的包含度为 0.110043、Jaccard 为 0.030456，符合两部类书共享经律论、史传、故事与表达的事实。机器重叠只登记为可复核的引文或材料复用，不消除两个独立作品号、编纂范围与时代。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        },
+        {
+          "type": "compiler_and_quoted_source_responsibility_layered",
+          "groupId": "t53-compilers-and-quoted-source-authors-layered",
+          "label": "类书编纂责任与所引原典责任分层",
+          "evidence": "T2121 与 T2122 都汇集大量既有原典、目录材料和叙事。僧旻、宝唱等的编集责任与道世的撰述责任属于类书层；所引经、律、论及史传的译者、作者和传统归属仍属于被引作品层，不能把编者视为全部引文作者，也不能把类书全文标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        },
+        {
+          "type": "responsibility_label_variation_same_work",
+          "groupId": "jinglu-yixiang-responsibility-labels-t2121",
+          "label": "《经律异相》责任标签差异并列保存",
+          "evidence": "固定 TEI 头部写“梁 宝唱等集”，正文各卷 byline 与 CBC 入口写“梁沙门僧旻宝唱等集”；DILA 主责任列宝唱（集），其高丽藏说明又并列僧旻、宝唱等。差异属于同一 T2121 表达的目录与正文责任证据，不能删去僧旻，也不能凭单一标签拆成两个作品。",
+          "externalIds": {
+            "cbeta": [
+              "T2121"
+            ]
+          }
+        },
+        {
+          "type": "completion_date_evidence_variation_same_work",
+          "groupId": "jinglu-yixiang-completion-date-evidence-t2121",
+          "label": "《经律异相》完成年代证据差异",
+          "evidence": "DILA 目录记录梁天监十五年（516），CBC 收录的 Palumbo 研究判断为 517 或稍后。平台保留两条来源和各自证据层级，不把目录年代与现代研究判断伪装为无争议的单一日期。",
+          "externalIds": {
+            "cbeta": [
+              "T2121"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0001817",
+        "cbcText": "66"
+      },
+      "traditionalResponsibilityEvidence": {
+        "teiHeader": "梁 寶唱等集",
+        "textByline": "梁沙門僧旻寶唱等集",
+        "dila": "寶唱（集）；高丽藏说明另载僧旻、宝唱等编集",
+        "cbc": "梁沙門僧旻寶唱等集"
+      },
+      "localPath": "data/corpus/cbeta/T53n2121.xml",
+      "upstreamPath": "T/T53/T53n2121.xml",
+      "upstreamGitBlobSha1": "c38fcd1fbd604e5c0915d904bf0814ec5fa1de31",
+      "upstreamBytes": 6766723,
+      "upstreamSha256": "c7e3f44c61f9710e029722c218c0ab75cf3130a956b888f996b1492571e86cf5",
+      "localBytes": 6766724,
+      "localSha256": "ff61eeb6a795b186634a60136587c72337d78dfc2996675693a4da406fac2387",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "經律異相",
+        "alternateTitle": "經律異相",
+        "tradition": "汉传佛教 · 佛教类书与事汇",
+        "language": "汉文",
+        "canonRef": "大正藏 T53, no. 2121",
+        "translator": "梁 · 寶唱等集",
+        "summary": "50卷。完整保存固定 CBETA TEI、校勘、责任题记与类书引文结构；作为独立佛教类书建模，不把所引原典与编者责任混合，也不标成佛陀逐字亲说。传统责任题记：梁 寶唱等集。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2121_001"
+      },
+      "verification": {
+        "segments": 22860,
+        "folios": 842,
+        "juanRange": [
+          1,
+          50
+        ],
+        "anchors": [
+          "T2121.001.0001a01",
+          "T2121.050.0268c23"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "T2122",
+      "slug": "taisho-t2122",
+      "workId": "gbcr:work:taisho-t2122-buddhist-encyclopedic-compendium",
+      "workIdentityStatus": "verified_distinct_authored_buddhist_encyclopedic_compendium",
+      "workTitle": "法苑珠林",
+      "sourceRole": "tang_buddhist_encyclopedic_compendium",
+      "bibliographicRelations": [
+        {
+          "type": "buddhist_encyclopedic_compendia_distinct",
+          "groupId": "buddhist-encyclopedic-compendia-t2121-t2122",
+          "label": "《经律异相》与《法苑珠林》佛教类书作品边界",
+          "evidence": "T2121 是梁代五十卷经律分类摘编，T2122 是唐代一百卷佛教类书；二者编纂时代、责任、分类结构、篇目范围、卷数及 DILA/CBC 作品入口均不同。共同的佛教事汇文类、主题或引文不能构成同一作品或同一表达。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        },
+        {
+          "type": "quoted_canonical_source_reuse_distinct",
+          "groupId": "t53-compendia-quotation-source-reuse-t2121-t2122",
+          "label": "两部类书共同引文与材料复用边界",
+          "evidence": "稳定阅读行去标点后，T2121/T2122 唯一五字组对较短文本的包含度为 0.110043、Jaccard 为 0.030456，符合两部类书共享经律论、史传、故事与表达的事实。机器重叠只登记为可复核的引文或材料复用，不消除两个独立作品号、编纂范围与时代。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        },
+        {
+          "type": "compiler_and_quoted_source_responsibility_layered",
+          "groupId": "t53-compilers-and-quoted-source-authors-layered",
+          "label": "类书编纂责任与所引原典责任分层",
+          "evidence": "T2121 与 T2122 都汇集大量既有原典、目录材料和叙事。僧旻、宝唱等的编集责任与道世的撰述责任属于类书层；所引经、律、论及史传的译者、作者和传统归属仍属于被引作品层，不能把编者视为全部引文作者，也不能把类书全文标成佛陀逐字亲说。",
+          "externalIds": {
+            "cbeta": [
+              "T2121",
+              "T2122"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "dilaCatalog": "CA0000954",
+        "cbcText": "65"
+      },
+      "traditionalResponsibilityEvidence": {
+        "teiHeader": "唐 道世撰",
+        "textByline": "西明寺沙門釋道世撰",
+        "dila": "道世（撰）",
+        "cbc": "当前 T2122 入口未列人物断言"
+      },
+      "localPath": "data/corpus/cbeta/T53n2122.xml",
+      "upstreamPath": "T/T53/T53n2122.xml",
+      "upstreamGitBlobSha1": "9683fc0bf015ea49d1196959b968a94e1f43aa7b",
+      "upstreamBytes": 16383716,
+      "upstreamSha256": "47e361ab807fb629a280424398d9650f1db08918e3d6b3d544fa512f904f5753",
+      "localBytes": 16383717,
+      "localSha256": "70ba6a78232a77040323172cebe1ec478b5c9d656c6daa97f05773b1c7cca532",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法苑珠林",
+        "alternateTitle": "法苑珠林",
+        "tradition": "汉传佛教 · 佛教类书与事汇",
+        "language": "汉文",
+        "canonRef": "大正藏 T53, no. 2122",
+        "translator": "唐 · 道世撰",
+        "summary": "100卷。完整保存固定 CBETA TEI、校勘、责任题记与类书引文结构；作为独立佛教类书建模，不把所引原典与编者责任混合，也不标成佛陀逐字亲说。传统责任题记：唐 道世撰。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T2122_001"
+      },
+      "verification": {
+        "segments": 65167,
+        "folios": 2336,
+        "juanRange": [
+          1,
+          100
+        ],
+        "anchors": [
+          "T2122.001.0269a02",
+          "T2122.100.1030a25"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

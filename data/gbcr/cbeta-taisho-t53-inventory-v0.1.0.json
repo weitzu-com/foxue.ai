@@ -1,0 +1,40 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-15",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "60affd074dd9734170c82ae672328a0cdc9019ac"
+  },
+  "subset": {
+    "id": "taisho_buddhist_encyclopedic_compendia_t53",
+    "label": "大正藏 T53《经律异相》与《法苑珠林》佛教类书固定来源记录",
+    "inclusionRule": "固定 Git tree 中 T/T53 目录下、文件名卷号一致的 T53n*.xml",
+    "recordUnit": "TEI P5 source record",
+    "denominatorCaveat": "T53 的两份来源记录是梁代五十卷《经律异相》和唐代一百卷《法苑珠林》两部独立佛教类书。两书都分类汇集或引述大量经、律、论、史传与感应材料，所引原典、共同题材、相同故事、机器文本重叠或后书对前代材料的再编不能自动证明两书、引文与被引作品相同，也不能把类书全文标成佛陀逐字亲说。T2121 的 TEI 头部“宝唱等集”与正文/CBC“僧旻宝唱等集”责任标签必须并列保存。"
+  },
+  "totals": {
+    "records": 2,
+    "upstreamBytes": 23150439,
+    "candidatePathSha256": "8553e369a45cf00566f2ff739c9cafdb3fe52779ff198e77dac61b36013017e5"
+  },
+  "records": [
+    {
+      "sourceRecordId": "T53n2121",
+      "canonWitnessId": "T2121",
+      "volume": "T53",
+      "upstreamPath": "T/T53/T53n2121.xml",
+      "upstreamGitBlobSha1": "c38fcd1fbd604e5c0915d904bf0814ec5fa1de31",
+      "upstreamBytes": 6766723
+    },
+    {
+      "sourceRecordId": "T53n2122",
+      "canonWitnessId": "T2122",
+      "volume": "T53",
+      "upstreamPath": "T/T53/T53n2122.xml",
+      "upstreamGitBlobSha1": "9683fc0bf015ea49d1196959b968a94e1f43aa7b",
+      "upstreamBytes": 16383716
+    }
+  ]
+}
