@@ -6,7 +6,7 @@ const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
 };
-const SERIES_FILE = /^([a-z][a-z0-9.-]*)_root-(?:pli-ms|san|pra-pts)\.json$/;
+const SERIES_FILE = /^([a-z][a-z0-9.-]*)_root-(?:pli-ms|san|pra-pts|lzh-sct)\.json$/;
 const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function renderEditorialMarkup(text, filename) {

@@ -29,8 +29,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const derge = sutra.readerMode === "derge-folio";
+  const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const originalLanguageLabel = derge
     ? "藏文原文"
+    : sutra.language.includes("古汉")
+      ? "古汉译原文"
     : sutra.language.startsWith("梵")
     ? "梵文原文"
     : sutra.language.includes("俗语")
@@ -41,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: chaptered
       ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
       : bilara
-        ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${originalLanguageLabel}。`
+        ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
         : derge
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
       : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
@@ -58,6 +61,7 @@ function FolioPager({
   bilara,
   chaptered,
   derge,
+  partialWitness,
 }: {
   slug: string;
   current: ReaderNavigationItem;
@@ -67,6 +71,7 @@ function FolioPager({
   bilara: boolean;
   chaptered: boolean;
   derge: boolean;
+  partialWitness: boolean;
 }) {
   const unit = chaptered ? "品" : bilara ? "阅读页" : "版页";
   return (
@@ -77,7 +82,7 @@ function FolioPager({
           <span>上一{unit}<small>{previous.label}</small></span>
         </Link>
       ) : (
-        <span className="reader-pager__edge">{chaptered ? "品集之首" : bilara ? "全经之首" : derge ? "本经之首" : "卷首"}</span>
+        <span className="reader-pager__edge">{chaptered ? "品集之首" : bilara ? (partialWitness ? "见证之首" : "全经之首") : derge ? "本经之首" : "卷首"}</span>
       )}
       <div>
         <span>当前{unit}</span>
@@ -89,7 +94,7 @@ function FolioPager({
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
       ) : (
-        <span className="reader-pager__edge">{chaptered ? "品集之末" : bilara ? "全经之末" : derge ? "本经之末" : "卷末"}</span>
+        <span className="reader-pager__edge">{chaptered ? "品集之末" : bilara ? (partialWitness ? "见证之末" : "全经之末") : derge ? "本经之末" : "卷末"}</span>
       )}
     </nav>
   );
@@ -116,6 +121,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : "卷";
   const originalLanguageLabel = derge
     ? "藏文原文"
+    : sutra.language.includes("古汉")
+      ? "古汉译原文"
     : sutra.language.startsWith("梵")
     ? "梵文原文"
     : sutra.language.includes("俗语")
@@ -128,9 +135,9 @@ export default async function SutraFolioPage({ params }: PageProps) {
     : sutra.language.includes("俗语")
       ? "pra-Latn"
       : bilara
-        ? "pi-Latn"
+        ? sutra.language.includes("古汉") ? "zh-Hant" : "pi-Latn"
         : "zh-Hant";
-  const bilaraCorpusUnit = /律藏|论藏/.test(sutra.tradition) ? "全书" : "全经";
+  const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
 
   return (
     <>
@@ -214,15 +221,18 @@ export default async function SutraFolioPage({ params }: PageProps) {
             bilara={bilara}
             chaptered={chaptered}
             derge={derge}
+            partialWitness={partialWitness}
           />
           <div className="sutra-paper__notice">
             <BookMarked aria-hidden="true" />
             <p>
-              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? `完整${originalLanguageLabel} · 稳定分页` : derge ? "完整藏文原文 · 德格版页" : partialWitness ? partialHeading : "完整原文 · 分页阅读"}</strong>　
+              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? (partialWitness ? partialHeading : `完整${originalLanguageLabel} · 稳定分页`) : derge ? "完整藏文原文 · 德格版页" : partialWitness ? partialHeading : "完整原文 · 分页阅读"}</strong>　
               {chaptered
                 ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
                 : bilara
-                  ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
+                  ? partialWitness
+                    ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；固定提交中的已发布来源文件完整保存，但这里只是母作品的局部见证。`
+                    : `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
                 : derge
                   ? `当前仅加载第 ${Number(folio.item.juan)} 函德格 ${folio.item.label} 版页；藏文 NFD、目录标记与异常页序保留在来源切片中，重复版页行以稳定序号区分。`
                 : partialWitness
@@ -254,6 +264,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             bilara={bilara}
             chaptered={chaptered}
             derge={derge}
+            partialWitness={partialWitness}
           />
         </article>
 
@@ -269,7 +280,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             <div>
               <dt>{chaptered ? "本品" : "本页"}</dt>
               <dd>{bilara
-                ? `${folio.segments.length} 段 · ${bilaraCorpusUnit} ${reading.segmentCount} 稳定段落`
+                ? `${folio.segments.length} 段 · ${partialWitness ? "局部见证" : bilaraCorpusUnit} ${reading.segmentCount} 稳定段落`
                 : `${folio.segments.length} 行 · 全经 ${reading.segmentCount} 稳定行段`}</dd>
             </div>
           </dl>

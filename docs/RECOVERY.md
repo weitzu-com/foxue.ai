@@ -59,17 +59,17 @@ pnpm build
 
 ## 4. 恢复 GBCR 与佛典数据
 
-1. 核对 `data/gbcr/checksums-v6.15.0.sha256`、`data/gbcr/checksums-v6.14.0.sha256` 与 `data/gbcr/checksums-cbeta-v4.23.0.sha256`；历史版本不得被覆盖。
-2. 运行 `pnpm verify:corpus`、`pnpm verify:derge` 与 `pnpm verify:gbcr:v6.15`，验证登记册结构、固定来源、权利状态、1,223 个德格可逆切片和统计纪律。前两项德格离线审计不要求上游仓库仍在线；如另有固定 Esukhia 检出，可设置 `DERGE_KANGYUR_DIR` 后运行 `pnpm verify:derge:upstream` 复算上游提交、tree 与全部输出。
+1. 核对 `data/gbcr/checksums-v6.16.0.sha256`、`data/gbcr/checksums-v6.15.0.sha256`、`data/gbcr/checksums-v6.14.0.sha256` 与 `data/gbcr/checksums-cbeta-v4.23.0.sha256`；历史版本不得被覆盖。
+2. 运行 `pnpm verify:corpus`、`pnpm verify:derge`、`pnpm verify:gbcr:v6.15` 与 `pnpm verify:gbcr:v6.16`，验证登记册结构、固定来源、权利状态、1,223 个德格可逆切片、272 个古汉译 root 和统计纪律。前两项德格离线审计不要求上游仓库仍在线；如另有固定 Esukhia 检出，可设置 `DERGE_KANGYUR_DIR` 后运行 `pnpm verify:derge:upstream` 复算上游提交、tree 与全部输出。
 3. 有网络时运行 `pnpm verify:upstream-snapshots`，从固定提交复算 CBETA、SuttaCentral 候选路径摘要，以及 T01–T17 的 881 条汉译经藏逐文件路径、Git 对象哈希和字节数；将同一固定 CBETA 提交检出到本地并设置 `CBETA_XML_P5_DIR` 后，依次运行 `pnpm verify:cbeta:t18-snapshot` 至 `pnpm verify:cbeta:t55-snapshot`，再运行 `pnpm verify:cbeta:t85-snapshot`，复算 T18–T55 与 T85 各固定来源记录、字节数和 Git blob。其余运行 BDRC、梵文、GRETIL、rKTs、跨目录、汉—巴关系、双人复核队列与 P0 审前证据包的既有验证命令。所有项目都必须保持双人独立复核、分歧仲裁和 0 自动归并；未决连接不得自动合并作品或改变全球分母。
-4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:cbeta:t85-snapshot`、`pnpm audit:cbeta:t85`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、3,868 个文本表达或见证（其中 3,825 个完整全文表达或版本见证）、2,471 个 CBETA TEI 来源资产、1,122 个 Esukhia 德格顶层完整表达、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语 JSON 来源资产、393 部由汉巴关系表实际引用的站内文本轻量平行证据索引，以及 80 项尚待真人双重复核的作品裁决队列。T54 的 9 份外教参照文本不得进入佛教经典或佛陀亲说覆盖分子；T55 的 42 份目录学原典、T85 的 192 份古逸与疑似部记录及德格《甘珠尔》的规范位置都不得被自动升级为佛陀逐字亲说。
+4. 运行 `pnpm verify:cbeta-catalog`、`pnpm verify:cbeta:t85-snapshot`、`pnpm audit:cbeta:t85`、`pnpm verify:suttacentral-catalog`、`pnpm verify:suttacentral-dn-catalog`、`pnpm verify:suttacentral-mn-catalog`、`pnpm verify:suttacentral-sn-catalog`、`pnpm verify:suttacentral-an-catalog`、`pnpm verify:suttacentral-kn-catalog`、`pnpm verify:suttacentral:indic`、`pnpm verify:suttacentral:vinaya`、`pnpm verify:suttacentral:abhidhamma`、`pnpm verify:suttacentral:lzh`、`pnpm verify:suttacentral-lzh-catalog`、`pnpm verify:corpus-catalog`、`pnpm verify:parallel-reader-index` 与 `pnpm verify:cbeta-pilot`，核对受控批次、3,875 个文本表达或见证（其中 3,829 个完整全文表达或版本见证）、2,471 个 CBETA TEI 来源资产、1,122 个 Esukhia 德格顶层完整表达、5,764 个 SuttaCentral 巴利经藏、422 个巴利律藏、1,102 个巴利论藏、24 个梵文与俗语及 272 个古汉译 JSON 来源资产。古汉译批次必须保持 4 个完整表达、3 个局部见证、7 个既有作品和 0 个新增作品。
 5. 运行 `pnpm build:corpus-release` 和 `pnpm verify:corpus-release`，确定性重建版本清单、作品索引、逐版页对象与 SHA-256 清单。
 6. 不得把候选文件数升级为作品分母；Work、Expression 与 Witness 的人工裁决日志必须随下一版登记册保存。
 7. 未保存的第三方全文从权利允许的原始来源重建；不能证明许可时，只恢复目录与来源链接。
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 3,825 个受控完整全文表达或版本见证、43 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文见证与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 3,829 个受控完整全文表达或版本见证、46 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文见证与覆盖登记册。
 
 Vercel 恢复顺序：
 
@@ -105,10 +105,10 @@ Vercel 恢复顺序：
 
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
-截至 2026-08-16 的生产事实必须与目标状态分开记录：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health` 和 `v1/latest.json` 均已从公网验证；Worker 当前运行 `infra/corpus-edge/wrangler.bootstrap.jsonc`，`storage=bootstrap`、`preservationReady=false`，`/ready` 返回 503。Cloudflare 账户仍未完成 R2 首次订阅，因此私有桶和 262,905 个上传对象尚未存在。Vercel 生产环境不得设置 `CORPUS_ASSET_BASE_URL`，直到 `/ready` 返回 200 且代表性不可变对象逐哈希通过。
+截至 2026-08-16 的生产事实必须与目标状态分开记录：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health` 和 `v1/latest.json` 均已从公网验证；Worker 当前运行 `infra/corpus-edge/wrangler.bootstrap.jsonc`，`storage=bootstrap`、`preservationReady=false`，`/ready` 返回 503。Cloudflare 账户仍未完成 R2 首次订阅，因此私有桶和 263,682 个上传对象尚未存在。Vercel 生产环境不得设置 `CORPUS_ASSET_BASE_URL`，直到 `/ready` 返回 200 且代表性不可变对象逐哈希通过。
 
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
-2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb`，应复现 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变正文对象、2,763,263,069 个不可变对象字节，以及含清单与指针在内的 262,905 个上传对象、2,860,962,092 个上传字节；版本清单 SHA-256 应为 `2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182`；
+2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.16.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-42f8521542a8`，应复现 3,875 个表达、248,527 个阅读单元、5,656,889 个稳定行段、263,680 个不可变正文对象、2,774,367,815 个不可变对象字节，以及含清单与指针在内的 263,682 个上传对象、2,872,401,422 个上传字节；版本清单 SHA-256 应为 `a015f6ecfd9a5270c81cdde2ba1986748cc9157e141b6a6b61a3a7d447d3dbe2`；
 3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
 4. 运行 `pnpm cloudflare:types:check`、`pnpm cloudflare:check` 与 `pnpm cloudflare:bootstrap:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 把现有 bootstrap 版本升级为带 R2 绑定的只读 Worker；
 5. 保持 `canon.foxue.ai` 绑定不变，验证 `/health` 与 `/ready` 均为 200、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；再运行 `pnpm verify:cloudflare-edge`；

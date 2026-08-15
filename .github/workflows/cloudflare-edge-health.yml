@@ -23,7 +23,7 @@ jobs:
           node-version: 22
       - name: Verify authoritative DNS, Worker, release pointer and readiness semantics
         env:
-          EXPECTED_RELEASE_ID: gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d373518ebabb
-          EXPECTED_MANIFEST_SHA256: 2bdfe7082c9fa45643bf19124be4c231073ab1a493bf0aea0f34a722fe29f182
+          EXPECTED_RELEASE_ID: gbcr-6.16.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-42f8521542a8
+          EXPECTED_MANIFEST_SHA256: a015f6ecfd9a5270c81cdde2ba1986748cc9157e141b6a6b61a3a7d447d3dbe2
           REQUIRE_READY: "false"
         run: node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai

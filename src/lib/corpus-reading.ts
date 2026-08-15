@@ -12,6 +12,7 @@ import khuddakaNikayaManifest from "../../data/corpus/suttacentral/kn-manifest-v
 import indicRootManifest from "../../data/corpus/suttacentral/indic-manifest-v1.3.0.json";
 import vinayaRootManifest from "../../data/corpus/suttacentral/vinaya-manifest-v1.4.0.json";
 import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json";
+import lzhRootManifest from "../../data/corpus/suttacentral/lzh-manifest-v1.6.0.json";
 import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import {
@@ -60,6 +61,7 @@ const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: str
     ...(indicRootManifest.files as CorpusManifestFile[]),
     ...(vinayaRootManifest.files as CorpusManifestFile[]),
     ...(abhidhammaRootManifest.files as CorpusManifestFile[]),
+    ...(lzhRootManifest.files as CorpusManifestFile[]),
     ...(dergeKangyurManifest.files as CorpusManifestFile[]),
   ].map((file) => [
     file.slug,
@@ -289,7 +291,7 @@ const loadEdgeFolio = cache(async (
         (canonId === "DHP" && /^dhp\d+:/.test(segment.id)) ||
         (/^(?:DN|MN)\d+$/.test(canonId) && /^(?:dn|mn)\d+:/.test(segment.id)) ||
         (/^(?:SN|AN)\d+$/.test(canonId) && /^(?:sn|an)\d+\./.test(segment.id)) ||
-        (/^(?:BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PDHP|PE|PLI-TV-(?:BU|BI)-(?:PM|VB)|PLI-TV-(?:KD|PVR)|PS|PV|SF36|SF276|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
+        (/^(?:BV|CND|CP|ITI|JA|KP|LZH-(?:MA|SA|EA|T0765|T1536|T1537|T1548)|MIL|MND|NE|PDHP|PE|PLI-TV-(?:BU|BI)-(?:PM|VB)|PLI-TV-(?:KD|PVR)|PS|PV|SF36|SF276|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)$/.test(canonId) &&
           /^[a-z][a-z0-9.-]*:\d+(?:[.-]\d+)*$/.test(segment.id))
       ) &&
       typeof segment.text === "string" && segment.text.length > 0 &&
@@ -400,6 +402,13 @@ async function readControlledCorpusAsset(localPath: string) {
     /^(?:ds\/ds\d+\/ds\d+(?:\.\d+)+(?:-\d+)?|vb\/vb\d+(?:-\d+)?|dt\/dt\d+\/dt\d+(?:\.\d+)+(?:-\d+)?|pp\/pp\d+\/pp\d+(?:\.\d+)+(?:-\d+)?|kv\/kv\d+\/kv\d+(?:\.\d+)+(?:-\d+)?|ya\/ya\d+\/ya\d+(?:\.\d+)+(?:-\d+)?|patthana\/patthana\d+\/patthana\d+(?:\.\d+)+(?:-\d+)?)_root-pli-ms\.json$/.test(abhidhammaRelative)
   ) {
     return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "abhidhamma", abhidhammaRelative), "utf8");
+  }
+  const lzhPrefix = "suttacentral/root/lzh/sct/";
+  const lzhRelative = localPath.startsWith(lzhPrefix) ? localPath.slice(lzhPrefix.length) : "";
+  if (
+    /^(?:sutta\/ma\/ma\d+|sutta\/sa\/sa\d+-\d+\/sa\d+|sutta\/ea\/ea19\/ea19\.1|sutta\/lzh-minor\/lzh-iti\/t765\.\d+|abhidhamma\/(?:sg\/t1536\.[0-9a-z]+|lzh-dk\/t1537\.[0-9a-z]+|sag\/t1548\.[0-9a-z]+))_root-lzh-sct\.json$/.test(lzhRelative)
+  ) {
+    return readFile(join(root, "data", "corpus", "suttacentral", "root", "lzh", "sct", lzhRelative), "utf8");
   }
   const dergeMatch = localPath.match(
     /^derge\/works\/(derge-kangyur-d\d{4}[a-z]?)\/(\d{3}\.txt)$/,
