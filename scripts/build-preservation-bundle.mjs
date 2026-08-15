@@ -63,8 +63,8 @@ const archivedPaths = runBuffer("git", ["ls-tree", "-r", "-z", "--name-only", co
 const cbetaSources = archivedPaths.filter((path) =>
   /^data\/corpus\/cbeta\/T[0-9A-Za-z]+\.xml$/.test(path),
 );
-if (cbetaSources.length !== 2115) {
-  throw new Error(`保存包应包含 2,115 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
+if (cbetaSources.length !== 2129) {
+  throw new Error(`保存包应包含 2,129 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
 }
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
