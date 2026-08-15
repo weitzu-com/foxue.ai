@@ -344,6 +344,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT54SourceRecords.controlledWorks} 个作品；《梵语千字文》A/B 作为同一作品的 2 个版本见证，
               {snapshot.candidateInventory.chineseT54SourceRecords.nonBuddhistReferenceRecords} 份数论、胜论、道教、摩尼教与景教资料明确作为非佛教参照文本，不计作佛经或佛陀亲说；
               T2139 的残存卷一、卷十保持原号，不重排成卷一、卷二；
+              T55 佛教经录、请来目录与宗派章疏书目固定来源已完成 {snapshot.candidateInventory.chineseT55SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT55SourceRecords.denominator}（{snapshot.candidateInventory.chineseT55SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT55SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT55SourceRecords.controlledWorks} 个独立作品；2 组同数字经号、4 组续录或略出、3 组材料复用、2 组同编者目录与
+              {snapshot.candidateInventory.chineseT55SourceRecords.relatedDistinctWorkGroups} 组相关异作边界均已记录，全部作为佛教知识史原典而非佛陀逐字亲说；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -650,6 +655,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T54 的 24 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t55-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T55 的 42 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>
