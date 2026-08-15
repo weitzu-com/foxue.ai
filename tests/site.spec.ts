@@ -131,12 +131,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2212,
-    registeredExpressions: 2431,
-    fullSourceTextWorks: 2185,
-    fullSourceTextExpressions: 2388,
-    stableSegments: 4594639,
-    structureVerifiedWorks: 2212,
+    registeredWorks: 2248,
+    registeredExpressions: 2467,
+    fullSourceTextWorks: 2221,
+    fullSourceTextExpressions: 2424,
+    stableSegments: 4691142,
+    structureVerifiedWorks: 2248,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -170,11 +170,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 2156,
-    controlled: 2156,
+    denominator: 2192,
+    controlled: 2192,
     percentage: 100,
-    sourceBytes: 730370304,
-    controlledBytes: 730370304,
+    sourceBytes: 747395893,
+    controlledBytes: 747395893,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -189,6 +189,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t48InventorySha256: "ad95ac51f6e32b0b0c5073306f7211b8a3bc800459a764125707c1653fa4002b",
     t49InventorySha256: "0f92e34f3ba4576e21c2ae4112c1930006cd301ec972ba3fe12e42c40f5fb1f4",
     t50InventorySha256: "66cfbfc0a258c4f893dec14577d0d62c891176686066e26643abba92851df7ad",
+    t51InventorySha256: "aca7eb33bc36ea403998c747b70fec5c790c8e029c7bba83a61ce757b7892951",
     t30InventorySha256: "dda6b9612df5cb08b0900eca6a76726aa421c1a6c92923d612add7b3fccc2839",
     t31InventorySha256: "9efd4f5897ef47c36e5310b9263dfa515483fa6c713433555a899e12a63566ca",
     t32InventorySha256: "7f4aae2c0ab97ffdf872ec72705acf05f9ef6dcd0d42f12e9756c9465ca670f7",
@@ -811,6 +812,35 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     sourceReuseBoundaryGroups: 2,
     relatedDistinctWorkGroups: 9,
   });
+  expect(coverage.candidateInventory.chineseT51SourceRecords).toMatchObject({
+    denominator: 36,
+    controlled: 36,
+    percentage: 100,
+    fullSourceTexts: 36,
+    partialSourceWitnesses: 0,
+    verifiedSameWorkExpressions: 0,
+    verifiedPartialWorkWitnesses: 0,
+    verifiedSplitWorkWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    attributionBoundaryRecords: 36,
+    relationAnnotatedRecords: 36,
+    unsignedResponsibilityRecords: 5,
+    lostTranslatorResponsibilityRecords: 0,
+    newWorks: 36,
+    controlledWorks: 36,
+    rootVinayaCommentaryGroups: 0,
+    rootTreatiseCommentaryGroups: 0,
+    rootEditionBoundaryGroups: 0,
+    editionOrRecensionGroups: 0,
+    subcommentaryGroups: 0,
+    sameNumberBoundaryGroups: 0,
+    layeredAttributionGroups: 2,
+    scopeBoundaryGroups: 10,
+    continuationBoundaryGroups: 2,
+    sourceReuseBoundaryGroups: 5,
+    sameAuthorCompanionWorkGroups: 1,
+    relatedDistinctWorkGroups: 13,
+  });
   expect(coverage.links).toMatchObject({
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
@@ -878,6 +908,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chineseBuddhistHistoriesSectarianRecordsT49BoundaryAudit: expect.stringContaining("batch-v4.16.0.json"),
     chineseBuddhistBiographiesHagiographiesT50Inventory: expect.stringContaining("cbeta-taisho-t50-inventory-v0.1.0.json"),
     chineseBuddhistBiographiesHagiographiesT50BoundaryAudit: expect.stringContaining("batch-v4.17.0.json"),
+    chinesePilgrimageLineageTravelGazetteersT51Inventory: expect.stringContaining("cbeta-taisho-t51-inventory-v0.1.0.json"),
+    chinesePilgrimageLineageTravelGazetteersT51BoundaryAudit: expect.stringContaining("batch-v4.18.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -2946,6 +2978,94 @@ test("汉译 T50 二十七份佛传与僧尼史传完整受控且保留龙树传
     id === 2047 ? ["taisho-t2047a", "taisho-t2047b"] : [`taisho-t${id}`]);
   expect(t50Slugs).toHaveLength(27);
   for (const slug of t50Slugs) expect(sitemap).toContain(`/jingzang/${slug}/`);
+});
+
+test("汉译 T51 三十六份求法传、灯录、游记与方志完整受控且保留责任和续修边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t2068/001-0048b");
+  await expect(page.getByRole("heading", { level: 1, name: "法華傳記" })).toBeVisible();
+  await expect(page.getByText(/唐 · 僧詳撰/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2070/001-0104a");
+  await expect(page.getByRole("heading", { level: 1, name: "往生西方淨土瑞應傳" })).toBeVisible();
+  await expect(page.getByText("传统责任题记未署名").first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2087/001-0867b");
+  await expect(page.getByRole("heading", { level: 1, name: "大唐西域記" })).toBeVisible();
+  await expect(page.getByText(/唐 · 玄奘譯．辯機撰/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2090/001-0996a");
+  await expect(page.getByRole("heading", { level: 1, name: "釋迦牟尼如來像法滅盡之記" })).toBeVisible();
+  await expect(page.getByText(/唐 · 法成譯/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2098/001-1092c");
+  await expect(page.getByRole("heading", { level: 1, name: "古清涼傳" })).toBeVisible();
+  await page.goto("/jingzang/taisho-t2100/001-1127a");
+  await expect(page.getByRole("heading", { level: 1, name: "續清涼傳" })).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t2066/001-0001a", "/jingzang/taisho-t2066/002-0012b",
+    "/jingzang/taisho-t2067/001-0012b", "/jingzang/taisho-t2067/010-0048b",
+    "/jingzang/taisho-t2068/001-0048b", "/jingzang/taisho-t2068/010-0097a",
+    "/jingzang/taisho-t2069/001-0097a", "/jingzang/taisho-t2069/001-0103c",
+    "/jingzang/taisho-t2070/001-0104a", "/jingzang/taisho-t2070/001-0108b",
+    "/jingzang/taisho-t2071/001-0108b", "/jingzang/taisho-t2071/003-0126b",
+    "/jingzang/taisho-t2072/001-0126b", "/jingzang/taisho-t2072/003-0153a",
+    "/jingzang/taisho-t2073/001-0153a", "/jingzang/taisho-t2073/005-0173a",
+    "/jingzang/taisho-t2074/001-0173b", "/jingzang/taisho-t2074/001-0178b",
+    "/jingzang/taisho-t2075/001-0179a", "/jingzang/taisho-t2075/001-0196b",
+    "/jingzang/taisho-t2076/001-0196b", "/jingzang/taisho-t2076/030-0467a",
+    "/jingzang/taisho-t2077/001-0469a", "/jingzang/taisho-t2077/036-0714c",
+    "/jingzang/taisho-t2078/001-0715a", "/jingzang/taisho-t2078/009-0768c",
+    "/jingzang/taisho-t2079/001-0768c", "/jingzang/taisho-t2079/001-0773b",
+    "/jingzang/taisho-t2080/001-0773c", "/jingzang/taisho-t2080/002-0783c",
+    "/jingzang/taisho-t2081/001-0783c", "/jingzang/taisho-t2081/002-0787b",
+    "/jingzang/taisho-t2082/001-0787b", "/jingzang/taisho-t2082/003-0802a",
+    "/jingzang/taisho-t2083/001-0802a", "/jingzang/taisho-t2083/002-0826a",
+    "/jingzang/taisho-t2084/001-0826a", "/jingzang/taisho-t2084/003-0856c",
+    "/jingzang/taisho-t2085/001-0857a", "/jingzang/taisho-t2085/001-0866c",
+    "/jingzang/taisho-t2086/001-0866c", "/jingzang/taisho-t2086/001-0867b",
+    "/jingzang/taisho-t2087/001-0867b", "/jingzang/taisho-t2087/012-0947c",
+    "/jingzang/taisho-t2088/001-0948a", "/jingzang/taisho-t2088/002-0975a",
+    "/jingzang/taisho-t2089/001-0975a", "/jingzang/taisho-t2089/001-0995c",
+    "/jingzang/taisho-t2090/001-0996a", "/jingzang/taisho-t2090/001-0997b",
+    "/jingzang/taisho-t2091/001-0997c", "/jingzang/taisho-t2091/001-0998b",
+    "/jingzang/taisho-t2092/001-0999a", "/jingzang/taisho-t2092/005-1022b",
+    "/jingzang/taisho-t2093/001-1022b", "/jingzang/taisho-t2093/001-1024a",
+    "/jingzang/taisho-t2094/001-1024a", "/jingzang/taisho-t2094/001-1024b",
+    "/jingzang/taisho-t2095/001-1024c", "/jingzang/taisho-t2095/005-1052a",
+    "/jingzang/taisho-t2096/001-1052a", "/jingzang/taisho-t2096/001-1055c",
+    "/jingzang/taisho-t2097/001-1055c", "/jingzang/taisho-t2097/003-1092b",
+    "/jingzang/taisho-t2098/001-1092c", "/jingzang/taisho-t2098/002-1100c",
+    "/jingzang/taisho-t2099/001-1101a", "/jingzang/taisho-t2099/003-1127a",
+    "/jingzang/taisho-t2100/001-1127a", "/jingzang/taisho-t2100/002-1135a",
+    "/jingzang/taisho-t2101/001-1135a", "/jingzang/taisho-t2101/001-1140b",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT51SourceRecords).toMatchObject({
+    denominator: 36,
+    controlled: 36,
+    percentage: 100,
+    fullSourceTexts: 36,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    relationAnnotatedRecords: 36,
+    attributionBoundaryRecords: 36,
+    unsignedResponsibilityRecords: 5,
+    lostTranslatorResponsibilityRecords: 0,
+    newWorks: 36,
+    controlledWorks: 36,
+    layeredAttributionGroups: 2,
+    scopeBoundaryGroups: 10,
+    continuationBoundaryGroups: 2,
+    sourceReuseBoundaryGroups: 5,
+    sameAuthorCompanionWorkGroups: 1,
+    relatedDistinctWorkGroups: 13,
+  });
+
+  const sitemap = await readSitemaps(request);
+  const t51Slugs = Array.from({ length: 36 }, (_, index) => `taisho-t${2066 + index}`);
+  for (const slug of t51Slugs) expect(sitemap).toContain(`/jingzang/${slug}/`);
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
