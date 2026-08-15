@@ -51,6 +51,8 @@ const criticalRoutes = [
   "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034",
   "/jingzang/pali-bhikkhu-patimokkha/001-pli-tv-bu-pm-0001-0120",
   "/jingzang/pali-dhammasangani/001-ds1-1-0001-0092",
+  "/jingzang/derge-kangyur-d0001",
+  "/jingzang/derge-kangyur-d0001/001-0001b",
   "/fugai",
   "/shenjiao",
   "/touming",
@@ -92,6 +94,24 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
   await expect(page.getByText("这是不应进入页面的私密问题")).toHaveCount(0);
 });
 
+test("经藏目录支持元数据检索、语种筛选与渐进显示", async ({ page }) => {
+  await page.goto("/jingzang");
+  await expect(page.getByText(/3825 个完整文本/)).toBeVisible();
+  await expect(page.locator(".sutra-row")).toHaveCount(60);
+
+  const search = page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者");
+  await search.fill("'dul ba gzhi/");
+  await expect(page.getByText(/找到 1 个文本表达/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "阅读德格《甘珠尔》D1" })).toBeVisible();
+
+  await search.fill("");
+  await page.getByRole("button", { name: "藏文" }).click();
+  await expect(page.getByText(/找到 1122 个文本表达/)).toBeVisible();
+  await expect(page.locator(".sutra-row")).toHaveCount(60);
+  await page.getByRole("button", { name: /再显示 60 项/ }).click();
+  await expect(page.locator(".sutra-row")).toHaveCount(120);
+});
+
 test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async ({ page, request }) => {
   await page.goto("/fugai");
 
@@ -113,6 +133,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("梵文与俗语受控原文")).toBeVisible();
   await expect(page.getByText("巴利律藏受控原文")).toBeVisible();
   await expect(page.getByText("巴利论藏七论受控原文")).toBeVisible();
+  await expect(page.getByText("德格甘珠尔固定全文见证")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -128,15 +149,25 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.globalPercentages.catalog).toBeNull();
   expect(coverage.candidateInventory).toMatchObject({
     denominatorReady: false,
-    totalSourceRecords: 29675,
+    totalSourceRecords: 30797,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2526,
-    registeredExpressions: 2746,
-    fullSourceTextWorks: 2499,
-    fullSourceTextExpressions: 2703,
-    stableSegments: 5159332,
-    structureVerifiedWorks: 2526,
+    registeredWorks: 3377,
+    registeredExpressions: 3868,
+    fullSourceTextWorks: 3350,
+    fullSourceTextExpressions: 3825,
+    stableSegments: 5618245,
+    structureVerifiedWorks: 3377,
+  });
+  expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
+    denominator: 1122,
+    controlled: 1122,
+    percentage: 100,
+    linkedWorkCandidates: 851,
+    volumes: 102,
+    sourceBytes: 298719357,
+    stableSegments: 458913,
+    readingUnits: 66397,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -982,11 +1013,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.dergeKangyurEdition).toMatchObject({
     catalogRecords: 1122,
-    candidateExpressions: 1114,
+    candidateExpressions: 1122,
     excludedCatalogOnlyRecords: 8,
-    nestedTextParts: 71,
-    dergeIdentifiers: 1193,
-    linkedAbstractWorkIds: 844,
+    nestedTextParts: 76,
+    dergeIdentifiers: 1198,
+    linkedAbstractWorkIds: 851,
     volumeManifests: 103,
   });
   expect(coverage.candidateInventory.multiEditionTibetanCatalogs).toMatchObject({
@@ -3620,6 +3651,28 @@ test("巴利论藏七论按书级边界阅读并保留首尾原生锚点", async
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/pali-dhammasangani/001-ds1-1-0001-0092");
   expect(sitemap).toContain("/jingzang/pali-patthana/892-patthana24-22-0001-0034");
+});
+
+test("德格甘珠尔固定全文见证保留藏文、版页行号与可追溯边界", async ({ page, request }) => {
+  await page.goto("/jingzang/derge-kangyur-d0001#D1.001.0001b01.01");
+  await page.waitForURL(
+    /\/jingzang\/derge-kangyur-d0001\/001-0001b#D1\.001\.0001b01\.01$/,
+  );
+  await expect(page.locator('[id="D1.001.0001b01.01"]')).toContainText("རྒྱ་གར་སྐད་དུ");
+  await expect(page.getByText(/全经 17054 稳定行段/)).toBeVisible();
+  await expect(page.getByText(/BDRC WA0RK0001 作为固定目录作品链接候选/)).toBeVisible();
+  await expect(page.getByText(/不自动证明每一项是佛陀逐字亲说/)).toBeVisible();
+  await expect(page.getByText(/Public Domain/).first()).toBeVisible();
+
+  const finalExpression = await request.get("/jingzang/derge-kangyur-d1108");
+  const firstFolio = await request.get("/jingzang/derge-kangyur-d0001/001-0001b");
+  expect(finalExpression.ok()).toBeTruthy();
+  expect(firstFolio.ok()).toBeTruthy();
+  expect((await firstFolio.body()).byteLength).toBeLessThan(500_000);
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/derge-kangyur-d0001/001-0001b");
+  expect(sitemap).toContain("/jingzang/derge-kangyur-d1108");
 });
 
 test.describe("桌面无障碍扫描", () => {

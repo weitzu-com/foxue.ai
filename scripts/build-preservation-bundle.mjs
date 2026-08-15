@@ -66,6 +66,12 @@ const cbetaSources = archivedPaths.filter((path) =>
 if (cbetaSources.length !== 2471) {
   throw new Error(`保存包应包含 2,471 个 CBETA TEI 来源文件，实际为 ${cbetaSources.length}`);
 }
+const dergeSources = archivedPaths.filter((path) =>
+  /^data\/corpus\/derge\/works\/derge-kangyur-d[0-9a-z]+\/[0-9]{3}\.txt$/.test(path),
+);
+if (dergeSources.length !== 1223) {
+  throw new Error(`保存包应包含 1,223 个德格甘珠尔可逆正文切片，实际为 ${dergeSources.length}`);
+}
 const suttacentralDhammapadaSources = archivedPaths.filter((path) =>
   path.startsWith("data/corpus/suttacentral/root/pli/ms/sutta/kn/dhp/") && path.endsWith(".json"),
 );
@@ -351,6 +357,9 @@ const requiredPaths = [
   "data/gbcr/cbeta-taisho-t85-inventory-v0.1.0.json",
   "data/gbcr/registry-cbeta-v4.23.0.json",
   "data/gbcr/registry-v6.14.0.json",
+  "data/gbcr/source-snapshots-v4.5.0.json",
+  "data/gbcr/esukhia-derge-kangyur-inventory-v0.8.0.json",
+  "data/gbcr/registry-v6.15.0.json",
   "data/gbcr/checksums-v0.6.0.sha256",
   "data/gbcr/checksums-v0.7.0.sha256",
   "data/gbcr/checksums-v0.8.0.sha256",
@@ -471,6 +480,13 @@ const requiredPaths = [
   "data/gbcr/checksums-v6.13.0.sha256",
   "data/gbcr/checksums-cbeta-v4.23.0.sha256",
   "data/gbcr/checksums-v6.14.0.sha256",
+  "data/gbcr/checksums-v6.15.0.sha256",
+  "data/corpus/derge/UPSTREAM_README.md",
+  "data/corpus/derge/NOTICE.md",
+  "data/corpus/derge/reference/103_catalog.txt",
+  "data/corpus/derge/manifest-v0.1.0.json",
+  "data/corpus/derge/catalog-v0.1.0.json",
+  "data/corpus/derge/batch-v0.1.0.json",
   "data/corpus/cbeta/NOTICE.md",
   "data/corpus/cbeta/batch-v0.5.0.json",
   "data/corpus/cbeta/catalog-v0.5.0.json",
@@ -839,6 +855,9 @@ const requiredPaths = [
   "scripts/import-suttacentral-kn-source.mjs",
   "scripts/snapshot-upstream-catalogs.mjs",
   "scripts/snapshot-bdrc-derge-kangyur.mjs",
+  "scripts/snapshot-derge-kangyur.mjs",
+  "scripts/test-derge-reading.mjs",
+  "scripts/verify-derge-corpus.mjs",
   "scripts/snapshot-sanskrit-catalogs.mjs",
   "scripts/build-cross-catalog-alignments.mjs",
   "scripts/snapshot-rkts-kangyur-catalogs.mjs",
@@ -853,6 +872,7 @@ const requiredPaths = [
   "scripts/build-suttacentral-parallel-review-queue.mjs",
   "scripts/build-suttacentral-parallel-p0-evidence-packets.mjs",
   "scripts/build-federated-corpus.mjs",
+  "scripts/build-federated-corpus-v6.15.mjs",
   "scripts/verify-corpus-registry.mjs",
   "scripts/build-corpus-release.mjs",
   "scripts/corpus-release-context.mjs",
@@ -860,6 +880,8 @@ const requiredPaths = [
   "scripts/verify-corpus-release.mjs",
   "src/lib/bilara-reading.mjs",
   "src/lib/bilara-reading.d.mts",
+  "src/lib/derge-reading.mjs",
+  "src/lib/derge-reading.d.mts",
   "src/lib/corpus-reading.ts",
   "src/lib/reader-routes.ts",
   "src/app/shenjiao/page.tsx",

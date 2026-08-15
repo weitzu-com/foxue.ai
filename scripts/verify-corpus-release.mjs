@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v6.14.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v6.15.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -98,6 +98,8 @@ for (const work of releaseManifest.expressions) {
     requireValue(sha256(sourceBytes) === expectedSource.localSha256, `${expectedSource.id} 来源哈希不一致`);
     if ((sourceFile.parser ?? "cbeta_tei") === "cbeta_tei") {
       requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${expectedSource.id} TEI 头部缺失`);
+    } else if (sourceFile.parser === "derge_plain_text") {
+      if (position === 0) requireValue(sourceBytes.includes(Buffer.from(`{${work.canonId}}`)), `${expectedSource.id} 德格顶层目录标记缺失`);
     } else {
       try {
         const value = JSON.parse(sourceBytes.toString("utf8"));
@@ -132,6 +134,8 @@ for (const work of releaseManifest.expressions) {
         requireValue(/^(?:sn|an)\d+\.\d+(?:-\d+)?:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 经集原生标识无效`);
       } else if (sourceFile.parser === "bilara_series_root_json") {
         requireValue(/^[a-z][a-z0-9.-]*:\d+(?:[.-]\d+)*$/.test(segment.id), `${segment.id} Bilara 多文件文本原生标识无效`);
+      } else if (sourceFile.parser === "derge_plain_text") {
+        requireValue(new RegExp(`^${work.canonId}\\.\\d{3}\\.\\d{4}x?[ab]\\d{2}\\.\\d{2}$`).test(segment.id), `${segment.id} 德格稳定行号无效`);
       } else {
         requireValue(segment.id === `${work.canonId}.${segment.juan}.${segment.sourceLine}`, `${segment.id} 行号结构不一致`);
       }

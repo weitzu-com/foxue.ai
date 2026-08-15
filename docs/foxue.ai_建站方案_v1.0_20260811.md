@@ -1,7 +1,7 @@
 # foxue.ai 全球佛学交流 AI 平台建站方案
 
-> 版本：v1.0  
-> 日期：2026-08-11  
+> 版本：v1.1
+> 日期：2026-08-16
 > 文档性质：产品战略、佛典工程、AI 架构、UI/UX、治理与百年保存总方案  
 > 篇幅说明：按 21 个逻辑页组织；Markdown 导出为 A4/PDF 后预计显著超过 10 页  
 > 研究范围：X、GitHub、skills.sh、佛典数字化机构、Web/档案标准与 AI 风险规范  
@@ -191,17 +191,23 @@ flowchart TB
 | 异步任务与人工确认 | LangChain agent-inbox 的案例突出异步处理、中断、请求确认和恢复执行。[原帖](https://x.com/tuturetom/status/1880067349182828952) | OCR、长篇研究、翻译和批量对齐进入任务中心，关键发布动作需人工批准 |
 | 原型工具不等于生产系统 | 对 v0 的体验反馈认为其展示了未来方向，但未必能直接进入严肃生产工作流。[原帖](https://x.com/i/status/1887191345477132542) | v0/生成工具只用于探索，最终代码必须进入设计系统、测试、评审与可访问性门槛 |
 | 模型与前端分离 | 关于模型厂商和 AI 前端相互竞争的讨论，反映出“模型质量”和“产品界面”是可分离能力。[原帖](https://x.com/levelsio/status/1953527259022668126) | 建立模型网关，不把 foxue.ai 的命运绑定到单一模型厂商 |
+| 弱网与渐进加载 | X 工程团队的 Twitter Lite 复盘把低成本网络、按需代码、渐进渲染、离线缓存和明确“重试”作为全球产品的基础能力，而非后期优化。[工程复盘](https://blog.x.com/engineering/en_us/topics/open-source/2017/how-we-built-twitter-lite) | 经藏目录首屏只传元数据；正文按版页读取；失败可重试；保留离线只读包与低数据模式 |
+| 有约束的组件系统 | X 的组件化复盘显示，共用、强约束的组件 API 能缩短大规模改版，并要求组件默认支持国际化、RTL、屏幕阅读器、文档和测试。[工程复盘](https://blog.x.com/engineering/en_us/topics/infrastructure/2019/buildingfasterwithcomponents) | 建立 foxue.ai 自有 Design Tokens 与可访问原语；禁止页面随意发明按钮、状态色和证据卡变体 |
+| 无障碍是持续公开的质量状态 | X 对 Spaces 的公开复盘把字幕、每个控件的无障碍名称、系统字号、多模态参与和“仍待完成”清单并列呈现。[无障碍复盘](https://blog.x.com/en_us/topics/company/2021/making-spaces-accessible) | 覆盖页同样公开尚不可声明的指标；所有 AI 状态、语音、流式输出和审批控件必须有文本等价与键盘路径 |
 
 ### 4.2 GitHub 上值得学习的 AI UI/UX 项目
 
-星标为 2026-08-11 研究快照，只表示社区关注度，不等于适合直接采用。
+星标为 2026-08-16 GitHub API 快照，只表示社区关注度与维护信号，不等于安全、可访问、可长期采用或适合直接复制。
 
 | 项目 | 快照与强项 | 可学习 | 不应照搬 |
 |---|---|---|---|
 | [Open WebUI](https://github.com/open-webui/open-webui) | 约 140k stars；离线、自托管、权限、PWA、多模型、语音 | 完整设置、权限、离线和模型兼容性清单 | 面向通用个人 AI，信息架构过重，不适合作为佛典首页 |
 | [Chatbot UI](https://github.com/mckaywrigley/chatbot-ui) | 约 33.3k stars；多模型、聊天历史、Supabase | 基础会话、移动布局、用户设置 | 仍是聊天中心，不能承载经典版本学和跨藏对读 |
-| [Vercel Chatbot](https://github.com/vercel/chatbot) | 约 20.8k stars；Next.js、AI SDK、Artifacts、可访问组件、持久化 | 流式输出、工具调用、生成式 UI 和快速 MVP | 默认云组件形成厂商耦合；需容器化与数据层替代方案 |
-| [assistant-ui](https://github.com/assistant-ui/assistant-ui) | 约 11.5k stars；可组合消息、输入、线程、工具 UI、人工批准、可访问性 | 适合作为 AI 交互原语层，逐像素自定义 | 不应让组件库决定品牌和信息架构 |
+| [Vercel Chatbot](https://github.com/vercel/chatbot) | 20,827 stars；Next.js App Router、RSC、AI SDK、工具调用、生成式 UI、持久化与认证 | 流式输出、工具调用、生成式 UI 和快速 MVP | 默认云组件形成厂商耦合；需容器化与数据层替代方案 |
+| [assistant-ui](https://github.com/assistant-ui/assistant-ui) | 11,673 stars、MIT；Thread/Message/Composer 等可组合原语，含流式、重试、附件、键盘与无障碍 | 适合作为 AI 交互原语层，逐像素自定义；后端运行时可替换 | 不应让组件库决定品牌、佛典信息架构或证据纪律 |
+| [shadcn/ui](https://github.com/shadcn-ui/ui) | 121,385 stars、MIT；Open Code、可复制和自有化组件 | 把必要组件源码纳入仓库，固定行为、样式与审计，而不是依赖远程主题 | 高热度不代表每个组合页面自动无障碍；组合语义仍由 foxue.ai 负责 |
+| [Radix Primitives](https://github.com/radix-ui/primitives) | 19,164 stars、MIT；低层可访问交互原语 | 对话框、菜单、标签页等复杂交互优先采用经验证原语 | 只解决控件行为，不解决佛典层级、证据表达和视觉身份 |
+| [Streamdown](https://github.com/vercel/streamdown) | 5,509 stars；为不完整流式 Markdown、GFM、数学、代码与安全渲染设计 | 若启用 AI 流式回答，采用增量安全渲染与白名单扩展 | Mermaid、HTML、链接和代码仍须禁用危险能力并做内容安全审计 |
 | [LobeHub](https://github.com/lobehub/lobehub) | 多模型、知识库、PWA、插件；2.0 从“Chat”转向“Hub”和服务端异步任务 | 从聊天工具升级为知识与任务中心的方向 | 功能规模大，若直接 fork 会继承过多通用 Agent 复杂度 |
 | [OpenUI](https://github.com/thesysdev/openui) | 约 6.5k stars；流式结构化 UI 与 Agent Skill | 受控组件白名单、渐进式结果展示 | 标准仍在快速演进，只做实验层，不作为核心数据格式 |
 | [A2UI](https://github.com/a2ui-project/a2ui) | Agent-to-User Interface 开放格式，处于预览/演进期 | 为未来生成式界面保留适配接口 | 不把预览协议写进百年核心数据层 |
@@ -211,6 +217,7 @@ flowchart TB
 | 项目 | 关键启示 | 结论 |
 |---|---|---|
 | [SuttaCentral Bilara](https://github.com/suttacentral/bilara) | 翻译界面克制；每个段落有稳定 JSON ID；原文、译文、注释、异读可共用同一段 ID | foxue.ai 的翻译工作台应学习其“文本流优先”和不可变段 ID |
+| [SuttaCentral 网站](https://github.com/suttacentral/suttacentral) | PWA 与 JSON API 分层；前端、服务端和独立数据仓库可分别演进 | 阅读产品与规范数据分离；客户端失败不能破坏经文母版和永久标识 |
 | [FoJin 佛津](https://github.com/xr843/fojin) | Apache-2.0 代码；仓库自述聚合 10,500+ 文本、613 个来源、跨汉巴藏检索、引文白名单与逐字引文校验；第三方数据各自保留授权 | 这是最接近 foxue.ai 的开源基线。Phase 0 必须做 fork/合作/重建三选一的技术与法律尽调 |
 | [OpenPecha / WeBuddhist](https://github.com/OpenPecha) | AI、藏文工具、图像转写、翻译、经文检索与社区方向 | 优先寻求互操作和合作，不重复造藏文 OCR、分词与 Pecha 工具 |
 | [CBETA XML P5](https://github.com/cbeta-org/xml-p5) | 正式 TEI P5 XML 经文和丰富藏经结构 | 汉文底层应保留 TEI 和 CBETA 原始标识，不把网页 HTML 当母版 |
@@ -1153,7 +1160,7 @@ skills.sh 的技能是执行开发流程的说明包，不是产品能力本身�
 5. 安全审计是否通过；
 6. 固定版本/提交后是否仍满足需求。
 
-skills.sh 在 2026-08-11 的排行榜显示 `frontend-design`、`vercel-react-best-practices` 和 `web-design-guidelines` 分别处于高使用量梯队。[skills.sh 排行](https://www.skills.sh/)
+skills.sh 的排行榜与 `npx skills find` 在 2026-08-16 的快照显示：高安装量只能作为发现信号，最终仍须读取完整 `SKILL.md`、核对 GitHub 原仓库、许可、最近维护与所有会执行的脚本。[skills.sh 排行](https://www.skills.sh/)
 
 ### 16.2 A 级：建议进入 foxue.ai 开发基线
 
@@ -1162,6 +1169,7 @@ skills.sh 在 2026-08-11 的排行榜显示 `frontend-design`、`vercel-react-be
 | [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) | 约 760.7k installs；Anthropic；多项审计通过 | 建立独特视觉方向，避免通用 AI 模板感 | 本地已具备；在真正设计页面时启用 |
 | [vercel-react-best-practices](https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices) | 约 620.2k；Vercel；70 条性能规则；审计通过 | React/Next.js 数据瀑布、bundle、渲染和缓存 | 建议安装并固定提交 |
 | [webapp-testing](https://www.skills.sh/anthropics/skills/webapp-testing) | 排行快照约 130.2k；Anthropic | 单元、集成、E2E 测试流程 | 建议进入 CI 方案 |
+| [assistant-ui](https://skills.sh/assistant-ui/skills/assistant-ui) | CLI 检索约 5k installs；[原仓库](https://github.com/assistant-ui/skills)持续维护 | AI 对话原语、流式状态、工具结果与人工确认的实现约定 | 仅在问经界面进入真实流式开发时引入；固定提交并逐条审查 |
 
 建议命令仅供批准后执行：
 
@@ -1179,6 +1187,10 @@ npx skills add https://github.com/anthropics/skills --skill webapp-testing
 | [React Aria](https://www.skills.sh/react-aria.adobe.com/react-aria) | Adobe 的可访问交互原语；CLI 搜索约 1.9k installs | 若复杂组合框、树、菜单、日期等原语采用 React Aria |
 | [OpenUI Agent Skill](https://github.com/thesysdev/openui) | 流式生成式 UI、受控组件 | 只做实验功能；协议和库成熟后再评估核心使用 |
 | 本地 `codex-security:*` 系列 | 威胁建模、安全扫描、发现修复与验证 | 在首个可运行版本后执行威胁模型；每个发布候选扫描 |
+| [Cloudflare web-perf](https://skills.sh/developers.cloudflare.com/web-perf) | CLI 检索约 421 installs；当前环境已有官方 Skill | Core Web Vitals、弱网、缓存与边缘性能审计 | 在性能预算与真实监测阶段使用；规则升级须走 PR |
+| [OpenAI Codex Security threat-model](https://skills.sh/openai/codex-security/threat-model) | CLI 检索约 22 installs；[官方 Apache-2.0 仓库](https://github.com/openai/codex-security)在快照日活跃 | AI 应用信任边界、攻击路径与缓解措施 | 与现有本地 `codex-security:*` 能力重叠，不重复安装；采用官方固定版本 |
+| [Google Mantis threat model](https://skills.sh/google/mantis/mantis-threat-model) | CLI 检索约 484 installs；[Google Apache-2.0 原仓库](https://github.com/google/mantis) | 独立安全复核与漏洞复现流程 | 只作为第二意见；任何修复仍须测试和人工评审 |
+| [internationalization-i18n](https://skills.sh/secondsky/claude-skills/internationalization-i18n) | CLI 检索约 351 installs；第三方 MIT 仓库 | 多语资源、RTL、格式化与缺失翻译检查 | C 级信任；先完整审查，再决定是否采用，不能替代母语 QA |
 | 本地 `ai-seo` / SEO audit | 经文页、语言页和结构化数据 | 公开 beta 前使用，不在内容可信度之前优化流量 |
 
 ### 16.4 C 级：暂不采用
@@ -1192,7 +1204,7 @@ npx skills add https://github.com/anthropics/skills --skill webapp-testing
 
 ### 16.5 本方案实际使用说明
 
-本次方案研究使用了 `find-skills` 的流程：先检查排行榜，再用 CLI 搜索，最后复核来源与审计。`ai-product-designer` 仅适用于实体商品和设计图生成，因此未用于本网站方案；`frontend-design` 留到真正制作页面与组件时使用，避免把实现型技能误用为战略研究方法。
+本次方案研究使用了 `find-skills` 的流程：先检查排行榜，再以 AI chat、Next.js 性能、国际化和威胁建模四组 CLI 查询发现候选，最后复核 GitHub 原仓库、许可与活跃度。`ai-product-designer` 仅适用于实体商品和设计图生成，因此未用于本网站方案；`frontend-design` 已用于经藏目录的检索、语种筛选、渐进显示、响应式布局和可访问状态反馈。除当前环境已有的官方/本地能力外，本轮没有自动安装第三方 Skill。
 
 ---
 
@@ -1573,6 +1585,9 @@ foxue.ai 不追求：
 - [Tom Huang：LangChain agent-inbox 的异步与人工确认 UI](https://x.com/tuturetom/status/1880067349182828952)
 - [Mihail Eric：v0 的早期使用观察](https://x.com/i/status/1887191345477132542)
 - [levelsio：模型厂商与 AI 前端的战略分离](https://x.com/levelsio/status/1953527259022668126)
+- [X Engineering：Twitter Lite 的弱网、渐进加载与响应式设计系统](https://blog.x.com/engineering/en_us/topics/open-source/2017/how-we-built-twitter-lite)
+- [X Engineering：有约束组件系统、RTL 与屏幕阅读器](https://blog.x.com/engineering/en_us/topics/infrastructure/2019/buildingfasterwithcomponents)
+- [X：Making Spaces accessible](https://blog.x.com/en_us/topics/company/2021/making-spaces-accessible)
 
 ### C.2 GitHub / AI UI 与佛学项目
 
@@ -1580,12 +1595,16 @@ foxue.ai 不追求：
 - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
 - [vercel/chatbot](https://github.com/vercel/chatbot)
 - [assistant-ui/assistant-ui](https://github.com/assistant-ui/assistant-ui)
+- [shadcn-ui/ui](https://github.com/shadcn-ui/ui)
+- [radix-ui/primitives](https://github.com/radix-ui/primitives)
+- [vercel/streamdown](https://github.com/vercel/streamdown)
 - [lobehub/lobehub](https://github.com/lobehub/lobehub)
 - [thesysdev/openui](https://github.com/thesysdev/openui)
 - [a2ui-project/a2ui](https://github.com/a2ui-project/a2ui)
 - [xr843/fojin](https://github.com/xr843/fojin)
 - [suttacentral/bilara](https://github.com/suttacentral/bilara)
 - [suttacentral/bilara-data](https://github.com/suttacentral/bilara-data)
+- [suttacentral/suttacentral](https://github.com/suttacentral/suttacentral)
 - [cbeta-org/xml-p5](https://github.com/cbeta-org/xml-p5)
 - [OpenPecha](https://github.com/OpenPecha)
 - [BDRC Linked Data Server](https://github.com/buda-base/lds-pdi)
@@ -1625,6 +1644,11 @@ foxue.ai 不追求：
 - [Vercel React Best Practices](https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices)
 - [Vercel Web Design Guidelines](https://www.skills.sh/vercel-labs/agent-skills/web-design-guidelines)
 - [UI/UX Pro Max（仅研究，不建议直接安装）](https://www.skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max)
+- [assistant-ui Skill](https://skills.sh/assistant-ui/skills/assistant-ui)
+- [Cloudflare web-perf](https://skills.sh/developers.cloudflare.com/web-perf)
+- [OpenAI Codex Security threat-model](https://skills.sh/openai/codex-security/threat-model)
+- [Google Mantis threat model](https://skills.sh/google/mantis/mantis-threat-model)
+- [Internationalization i18n（第三方，须审查）](https://skills.sh/secondsky/claude-skills/internationalization-i18n)
 
 ---
 
@@ -2941,6 +2965,27 @@ foxue.ai 不追求：
 - `cbeta-taisho-t85-inventory-v0.1.0.json`、`batch-v4.23.0.json`、CBETA 目录/清单 v4.23、来源快照 v4.4、GBCR v6.14、覆盖页、公开 API、阅读器、站点地图、不可变发布器、校验器、恢复手册和保存包共享同一证据链。v6.13/v4.22 与更早版本永久保留，使未来校订可以复算、比较、修订和撤回，不覆盖历史判断。
 
 下一阶段优先建立 T85 写本与现代研究目录的双人独立校勘队列，并寻找可合法固定的 T56–T84 或其他汉文、藏文、巴利文、梵文来源。任何新来源都必须先闭合来源树、权利、文类、宗教属性和作品边界；全球分母仍保持未知，绝不因本次新增 192 份完整来源而发布虚假的“99%”总体覆盖率。
+
+---
+
+## 实施进展：GBCR v6.15、德格《甘珠尔》公版全文与藏文阅读链路
+
+截至 2026-08-16，第七十五个可审计语料里程碑完成一个固定德格《甘珠尔》数字见证的全文接入。这里的“完成”严格限定于 Esukhia 固定提交的 001–102 卷：它证明这些来源记录、字节切片、版页行号与站内阅读对象完整，不证明全球藏文佛典作品分母已经闭合，也不证明其中每一项都是佛陀逐字亲说。
+
+- 上游固定为 [`Esukhia/derge-kangyur`](https://github.com/Esukhia/derge-kangyur/tree/a582cf471b7c85a101035071078032f106a8e536) 提交 `a582cf471b7c85a101035071078032f106a8e536`、根 tree `b7eb9b0f146d99d5a496a8ed10a8d26805c1a133`、`text` tree `31c409a8caa740345b22c4d1c87ccf645fe3ad96`；README blob 固定为 `338b3176ce8cbe1fff9121adfe1cf8d2647cd5c3`。上游明确把该机械复制本声明为 Public Domain；foxue.ai 仍保留来源署名、固定提交和版本边界，并执行“不用于生成式模型训练”的内部政策；
+- 001–102 卷共 298,719,357 个 UTF-8 原始字节，按 1,122 个顶层德格 D 编号切为 1,223 个仓库内文件。切片不修改任何正文或 Unicode 规范化形式；102 卷均可按字节范围重新拼接，并逐卷复现 SHA-256。第 103 卷目录另存为参考证据，不进入规范全文分子；
+- 固定正文发现 1,198 个互异德格标记，其中 1,122 个是顶层表达，76 个是组件标记。1,122 个表达映射到 851 个 BDRC 链接抽象作品候选；同一链接下的不同 D 编号仍保留为不同 Expression。BDRC 初印本目录中的 1,114 个已定位表达与 8 个未定位/排除记录不被悄然改写，Esukhia 的 LOC 导向全文与 BDRC 目录版本差异公开保留；
+- 解析器生成 458,913 个稳定行段和 66,397 个版页阅读单元。稳定标识形如 `D588.090.0204b01.01`，同时编码顶层 D 号、函号、德格版页、行号和同锚点序号；网址分页键形如 `090-0204b`。显示层隐藏版页与 D 标记，原始切片继续完整保留；
+- GBCR v6.15 现登记 3,377 个可追踪作品实体或权威候选、3,868 个文本表达或见证、3,825 个完整全文表达、3,350 个至少拥有一份完整全文的作品，以及 5,618,245 个稳定行段。结构核验与权利核验不等于人工逐行校勘；`sampled: false` 继续如实保留；
+- 覆盖页与 `/api/v1/corpus/coverage` 新增 `dergeKangyurFullTextWitness`，公开显示 1,122/1,122、102 卷、851 个链接作品候选、298,719,357 字节、458,913 行段和 66,397 阅读单元。全球作品、全文、翻译、权利和质量分母继续为 `null`，所以“全球收录 99%”仍不可发布；
+- 经藏目录已从一次渲染全部记录改为首屏 60 项、继续加载；支持经名、D/T 编号、EWTS 题名、译者等书目元数据检索，并按汉文、藏文、巴利、梵文与俗语筛选。界面明确标注这不是全文语义检索，避免把一个前端过滤框伪装成 AI 检索能力；
+- 藏文目录页和版页阅读器已经支持 `bo-Tibt`、函/版页导航、稳定锚点、来源、权利、书目关系边界和归属边界。D1 首锚点可由 `/jingzang/derge-kangyur-d0001#D1.001.0001b01.01` 确定性落到 `/jingzang/derge-kangyur-d0001/001-0001b#D1.001.0001b01.01`；
+- 不可变发布包为 `gbcr-6.15.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-d39f2db5229c`，含 3,868 个表达、248,029 个阅读单元、5,618,245 个稳定行段、262,903 个不可变对象与 2,763,263,069 个不可变对象字节。加上版本清单与最后更新的指针后，上传计划为 262,905 个对象、2,860,962,092 字节；清单 SHA-256 为 `35cc65a05ff0167229793f9e08d4ca23d7215a5ba99a812edbb9c0fc0a1afa9e`；
+- 离线审计不依赖 Esukhia 仍在线：它核验仓库内每个切片的字节数与 SHA-256、逐卷重组摘要、README 权利证据、第 103 卷参考目录、首尾稳定锚点、版页数和聚合统计。生产构建已成功预生成 3,889 个静态页面，并生成 7 个站点地图分片；德格阅读、目录检索和覆盖 API 的定向 Playwright 测试均通过；
+- 百年保存包现在强制包含 1,223 个德格正文切片、参考目录、上游 README、NOTICE、清单、目录、批次、GBCR v6.15、来源快照 v4.5、校验和、解析器、构建器和离线校验器。历史 v6.14 与更早版本永久保留，未来修订通过新增版本表达，不覆盖过去证据；
+- Cloudflare R2/Worker 对象布局、只读 API、ETag 与最后更新指针已经生成并通过本地校验，但当前维护环境没有 Cloudflare 发布认证，`canon.foxue.ai` 也尚无可验证 DNS 记录。因此本里程碑只声明“可发布、可恢复”，不谎称边缘语料服务已经上线；网站继续安全回退到仓库内受控原文。
+
+本里程碑把一个重要分子做实，却没有制造全球分母。下一阶段按同一证据门槛推进多版本藏文目录对齐、T85 写本复核、合法可固定的新语料、全文索引、母语 QA 与双人独立作品裁决；只有全球分母、逐对象权利、完整性和质量同时闭合，99% 才从愿景变成可发布指标。
 
 ---
 

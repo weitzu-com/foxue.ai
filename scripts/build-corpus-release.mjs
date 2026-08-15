@@ -8,6 +8,7 @@ import {
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
+import { parseDergeSources } from "../src/lib/derge-reading.mjs";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
 const root = process.cwd();
@@ -62,11 +63,15 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
     if (sha256(sourceBytes) !== source.localSha256) {
       throw new Error(`${source.id} 源文件哈希与受控清单不一致`);
     }
-    sourceContents.push({ filename: basename(source.localPath), text: sourceBytes.toString("utf8") });
+    sourceContents.push({ ...source, filename: basename(source.localPath), text: sourceBytes.toString("utf8") });
     if ((sourceFile.parser ?? "cbeta_tei") === "cbeta_tei") {
       segments.push(...parseCbetaReadingLines(sourceBytes.toString("utf8"), { canonId: sourceFile.id }));
     }
-    const extension = source.format === "application/json" ? "json" : "xml";
+    const extension = source.format === "application/json"
+      ? "json"
+      : source.format === "text/plain"
+        ? "txt"
+        : "xml";
     const sourceKey = sources.length === 1
       ? `${workPrefix}/source.${extension}`
       : `${workPrefix}/sources/${String(index + 1).padStart(2, "0")}-${basename(source.localPath)}`;
@@ -94,6 +99,8 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
     ({ segments, navigation } = parseBilaraCollectionSources(sourceContents));
   } else if (sourceFile.parser === "bilara_series_root_json") {
     ({ segments, navigation } = parseBilaraSeriesSources(sourceContents, sourceFile.parserOptions));
+  } else if (sourceFile.parser === "derge_plain_text") {
+    ({ segments, navigation } = parseDergeSources(sourceContents, { canonId: sourceFile.id }));
   } else {
     navigation = buildPageNavigation(segments);
   }

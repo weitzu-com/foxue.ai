@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v6.14.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.4.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.15.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.5.0.json";
 
 type Expression = {
   id: string;
@@ -625,6 +625,9 @@ export function buildCoverageSnapshot() {
   const dergeSourceInventory = sourceSnapshotInventory.sources.find(
     (source) => source.id === "bdrc_derge_kangyur",
   );
+  const esukhiaDergeSourceInventory = sourceSnapshotInventory.sources.find(
+    (source) => source.id === "esukhia_derge_kangyur",
+  );
   const dergeCatalogRecords = "candidateTopLevelCatalogRecords" in (tibetanFamily ?? {})
     ? tibetanFamily?.candidateTopLevelCatalogRecords ?? null
     : null;
@@ -642,6 +645,9 @@ export function buildCoverageSnapshot() {
     : null;
   const dergeLinkedWorks = "candidateLinkedAbstractWorkIds" in (tibetanFamily ?? {})
     ? tibetanFamily?.candidateLinkedAbstractWorkIds ?? null
+    : null;
+  const dergeControlledExpressions = "controlledDergeExpressions" in (tibetanFamily ?? {})
+    ? tibetanFamily?.controlledDergeExpressions ?? null
     : null;
   const dergeVolumes = "volumeManifests" in (tibetanFamily ?? {})
     ? tibetanFamily?.volumeManifests ?? null
@@ -745,9 +751,41 @@ export function buildCoverageSnapshot() {
         id: source.id,
         candidateRecordCount: source.candidateRecordCount,
         recordUnit: source.recordUnit,
-        candidatePathSha256: source.candidatePathSha256,
+        candidatePathSha256: "candidatePathSha256" in source
+          ? source.candidatePathSha256
+          : null,
         denominatorCaveat: source.denominatorCaveat,
       })),
+      dergeKangyurFullTextWitness: {
+        denominator: dergeExpressionRecords,
+        controlled: dergeControlledExpressions,
+        percentage: dergeExpressionRecords && dergeControlledExpressions !== null
+          ? Number(((dergeControlledExpressions / dergeExpressionRecords) * 100).toFixed(2))
+          : null,
+        linkedWorkCandidates: "controlledDergeLinkedWorkCandidates" in (tibetanFamily ?? {})
+          ? tibetanFamily?.controlledDergeLinkedWorkCandidates ?? null
+          : null,
+        volumes: "controlledDergeVolumes" in (tibetanFamily ?? {})
+          ? tibetanFamily?.controlledDergeVolumes ?? null
+          : null,
+        sourceBytes: "controlledDergeSourceBytes" in (tibetanFamily ?? {})
+          ? tibetanFamily?.controlledDergeSourceBytes ?? null
+          : null,
+        stableSegments: "controlledDergeStableSegments" in (tibetanFamily ?? {})
+          ? tibetanFamily?.controlledDergeStableSegments ?? null
+          : null,
+        readingUnits: "controlledDergeReadingUnits" in (tibetanFamily ?? {})
+          ? tibetanFamily?.controlledDergeReadingUnits ?? null
+          : null,
+        inventorySha256: esukhiaDergeSourceInventory && "inventorySha256" in esukhiaDergeSourceInventory
+          ? esukhiaDergeSourceInventory.inventorySha256
+          : null,
+        manifestSha256: esukhiaDergeSourceInventory && "manifestSha256" in esukhiaDergeSourceInventory
+          ? esukhiaDergeSourceInventory.manifestSha256
+          : null,
+        unit: "Esukhia 固定提交中德格《甘珠尔》001–102 卷的顶层 D 编号文本表达",
+        caveat: "1,122/1,122 只表示一个固定德格数字见证的来源记录与全文完整性；851 个 BDRC 链接作品仍不是全球、跨版本去重作品分母，也不等同于佛陀逐字亲说。第 103 卷与 76 个组件标记仅作目录和结构证据。",
+      },
       chineseSutraRecordSubset: {
         denominator: chineseCandidateRecords,
         controlled: chineseControlledRecords,

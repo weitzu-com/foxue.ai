@@ -1,5 +1,10 @@
 # CBETA TEI 母版必须按原始字节保存，禁止 Git 自动转换换行符。
 data/corpus/cbeta/*.xml -text
 
+# 德格甘珠尔正文切片必须与固定上游字节一致，禁止换行或 Unicode 转换。
+data/corpus/derge/works/**/*.txt -text
+data/corpus/derge/reference/*.txt -text
+data/corpus/derge/UPSTREAM_README.md -text
+
 # Wrangler 运行时类型由上游生成器控制格式；保留其字节级输出。
 infra/corpus-edge/worker-configuration.d.ts whitespace=-blank-at-eol
