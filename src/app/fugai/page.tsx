@@ -333,6 +333,11 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.chineseT52SourceRecords.fullSourceTexts} 份完整来源映射为
               {snapshot.candidateInventory.chineseT52SourceRecords.controlledWorks} 个独立作品；2 组续编、3 组材料复用、4 组同作者伴随著作、3 组跨卷关系与 12 组相关异作边界均已记录，
               T2103/T2104 的显著正文重叠不触发自动合并，T2119 也不因题名含玄奘而补造编者；
+              T53《经律异相》与《法苑珠林》固定来源已完成 {snapshot.candidateInventory.chineseT53SourceRecords.controlled}
+              /{snapshot.candidateInventory.chineseT53SourceRecords.denominator}（{snapshot.candidateInventory.chineseT53SourceRecords.percentage}%），
+              {snapshot.candidateInventory.chineseT53SourceRecords.fullSourceTexts} 份完整来源映射为
+              {snapshot.candidateInventory.chineseT53SourceRecords.controlledWorks} 个独立作品；2 组分层责任、1 组引文复用与 5 组相关异作证据均已记录，
+              共同类书文类、所引原典和五字组相似度不触发自动合并，T2121 的责任标签与成书年代差异作为同一作品的证据层保存；
               不把部派、共同译者、目录位置、传统作者或机器相似度冒充同一作品或佛陀逐字亲说
             </p>
             <small>{snapshot.candidateInventory.chineseSutraRecordSubset.caveat}</small>
@@ -623,6 +628,14 @@ export default function CoveragePage() {
               rel="noreferrer"
             >
               查看 T52 的 19 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t53-inventory-v0.1.0.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看 T53 的 2 条逐文件清单 <ExternalLink aria-hidden="true" size={13} />
             </a>
           </article>
           <article>

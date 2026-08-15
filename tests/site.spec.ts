@@ -131,12 +131,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 29675,
   });
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 2267,
-    registeredExpressions: 2486,
-    fullSourceTextWorks: 2240,
-    fullSourceTextExpressions: 2443,
-    stableSegments: 4761535,
-    structureVerifiedWorks: 2267,
+    registeredWorks: 2269,
+    registeredExpressions: 2488,
+    fullSourceTextWorks: 2242,
+    fullSourceTextExpressions: 2445,
+    stableSegments: 4849562,
+    structureVerifiedWorks: 2269,
   });
   expect(coverage.candidateInventory.suttacentralIndicRoots).toMatchObject({
     controlledWorks: 3,
@@ -170,11 +170,11 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
-    denominator: 2211,
-    controlled: 2211,
+    denominator: 2213,
+    controlled: 2213,
     percentage: 100,
-    sourceBytes: 766232636,
-    controlledBytes: 766232636,
+    sourceBytes: 789383075,
+    controlledBytes: 789383075,
     bytePercentage: 100,
     t22InventorySha256: "bdb1785232734284e3e10484ff8b2aa7aa0d092c4fa0faaa374f3ff84ac7196d",
     t23InventorySha256: "ebdf1dcea2dbb5cc16e8e1106d9d49e8c5836313a739efdc0f978cf8f44c53c8",
@@ -191,6 +191,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     t50InventorySha256: "66cfbfc0a258c4f893dec14577d0d62c891176686066e26643abba92851df7ad",
     t51InventorySha256: "aca7eb33bc36ea403998c747b70fec5c790c8e029c7bba83a61ce757b7892951",
     t52InventorySha256: "574dd7c466747a7777488fe40ecf8c2ddb2e1b71d0637bd49f73cdc23cd7916a",
+    t53InventorySha256: "ebe99cb171dae4f820997ae20bc6b60a2760c3031757df7e78e0a1d47386dbf3",
     t30InventorySha256: "dda6b9612df5cb08b0900eca6a76726aa421c1a6c92923d612add7b3fccc2839",
     t31InventorySha256: "9efd4f5897ef47c36e5310b9263dfa515483fa6c713433555a899e12a63566ca",
     t32InventorySha256: "7f4aae2c0ab97ffdf872ec72705acf05f9ef6dcd0d42f12e9756c9465ca670f7",
@@ -943,6 +944,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     chinesePilgrimageLineageTravelGazetteersT51BoundaryAudit: expect.stringContaining("batch-v4.18.0.json"),
     chineseBuddhistApologeticsDebateMemorialsT52Inventory: expect.stringContaining("cbeta-taisho-t52-inventory-v0.1.0.json"),
     chineseBuddhistApologeticsDebateMemorialsT52BoundaryAudit: expect.stringContaining("batch-v4.19.0.json"),
+    chineseBuddhistEncyclopedicCompendiaT53Inventory: expect.stringContaining("cbeta-taisho-t53-inventory-v0.1.0.json"),
+    chineseBuddhistEncyclopedicCompendiaT53BoundaryAudit: expect.stringContaining("batch-v4.20.0.json"),
   });
   expect(coverage.candidateInventory.suttacentralPaliRootPilot).toMatchObject({
     denominator: 7288,
@@ -3170,6 +3173,52 @@ test("汉译 T52 十九份护法论辩、感通录与表制文书完整受控且
   const sitemap = await readSitemaps(request);
   const t52Slugs = Array.from({ length: 19 }, (_, index) => `taisho-t${2102 + index}`);
   for (const slug of t52Slugs) expect(sitemap).toContain(`/jingzang/${slug}/`);
+});
+
+test("汉译 T53 两部佛教类书完整受控且保留引文复用与分层责任边界", async ({ page, request }) => {
+  await page.goto("/jingzang/taisho-t2121/001-0001a");
+  await expect(page.getByRole("heading", { level: 1, name: "經律異相" })).toBeVisible();
+  await expect(page.getByText(/梁 · 寶唱等集/).first()).toBeVisible();
+
+  await page.goto("/jingzang/taisho-t2122/001-0269a");
+  await expect(page.getByRole("heading", { level: 1, name: "法苑珠林" })).toBeVisible();
+  await expect(page.getByText(/唐 · 道世撰/).first()).toBeVisible();
+
+  for (const path of [
+    "/jingzang/taisho-t2121/001-0001a",
+    "/jingzang/taisho-t2121/050-0268c",
+    "/jingzang/taisho-t2122/001-0269a",
+    "/jingzang/taisho-t2122/100-1030a",
+  ]) expect((await request.get(path)).ok()).toBeTruthy();
+
+  const coverage = await (await request.get("/api/v1/corpus/coverage")).json();
+  expect(coverage.candidateInventory.chineseT53SourceRecords).toMatchObject({
+    denominator: 2,
+    controlled: 2,
+    percentage: 100,
+    fullSourceTexts: 2,
+    partialSourceWitnesses: 0,
+    verifiedEditionWitnesses: 0,
+    relationAnnotatedRecords: 2,
+    attributionBoundaryRecords: 2,
+    unsignedResponsibilityRecords: 0,
+    lostTranslatorResponsibilityRecords: 0,
+    newWorks: 2,
+    controlledWorks: 2,
+    layeredAttributionGroups: 2,
+    scopeBoundaryGroups: 1,
+    continuationBoundaryGroups: 0,
+    sourceReuseBoundaryGroups: 1,
+    sameAuthorCompanionWorkGroups: 0,
+    crossVolumeRelationGroups: 0,
+    relatedDistinctWorkGroups: 5,
+  });
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/taisho-t2121/001-0001a");
+  expect(sitemap).toContain("/jingzang/taisho-t2121/050-0268c");
+  expect(sitemap).toContain("/jingzang/taisho-t2122/001-0269a");
+  expect(sitemap).toContain("/jingzang/taisho-t2122/100-1030a");
 });
 
 test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ page, request }) => {
