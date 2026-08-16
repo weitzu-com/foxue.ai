@@ -6,7 +6,7 @@
 
 | 资产 | 恢复点目标（RPO） | 恢复时间目标（RTO） | 最低副本 |
 |---|---:|---:|---:|
-| 源码与治理文档 | 每次主分支提交 | 4 小时 | 3 份、2 种介质、1 份异地 |
+| 源码与治理文档 | 每次主分支提交 | 4 小时 | Git 历史、不可变 Release、Software Heritage、离线介质 |
 | GBCR 登记册与快照 | 每个版本 | 4 小时 | Git 历史、对象存储、离线介质 |
 | 经藏不可变发布对象 | 每个版本 | 24 小时 | R2、离线发布包、仓库内受控原文 |
 | 只读经典阅读站 | 最近稳定发布 | 24 小时 | 可从源码独立构建 |
@@ -33,6 +33,27 @@ pnpm preserve
 源码归档同时包含语料发布器、逐对象校验器、只读 Worker、R2 配置和本手册。生成后的 `artifacts/corpus-release/` 不直接进入 Git；它必须从受控原文与发布脚本确定性重建并复核。
 
 保存包不包含 `.env`、访问令牌、平台密钥、用户数据或未经许可的第三方全文。
+
+### 2.1 GBCR v6.18 公开恢复基线
+
+首个受 GitHub Release Immutability 保护的公开恢复基线是 [`gbcr-v6.18.0`](https://github.com/weitzu-com/foxue.ai/releases/tag/gbcr-v6.18.0)，精确对应提交 `8f2a8a7fa3dd88cfbfd0fd12fe82190575cfc1ff`。主归档为 `foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst`，大小 469,942,187 字节，SHA-256 为 `f66f8988cff5492a12c38704b5a4f56b1a47f4e76bc6a5b161ed9659933c26fd`。GitHub 的发行证明同时绑定注释标签对象、提交和四项资产摘要；这条链独立于 30 天后会过期的 Actions 工件。
+
+从公开 Release 恢复并验证：
+
+```bash
+gh release download gbcr-v6.18.0 --repo weitzu-com/foxue.ai
+gh release verify gbcr-v6.18.0 --repo weitzu-com/foxue.ai
+shasum -a 256 -c RELEASE-SHA256SUMS
+zstd -t foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst
+gh release verify-asset gbcr-v6.18.0 foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst --repo weitzu-com/foxue.ai
+zstd -dc foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst | tar -xf -
+cd 8f2a8a7fa3dd
+shasum -a 256 -c SHA256SUMS
+git init --bare bundle-check.git
+git -C bundle-check.git bundle verify ../foxue.ai-8f2a8a7fa3dd-history.bundle
+```
+
+Software Heritage 的仓库 Origin SWHID 是 `swh:1:ori:5a6f589df03f216f92122303aa0a427521e77e24`，首次保存请求 [`2428947`](https://archive.softwareheritage.org/api/1/origin/save/2428947/) 已以 `succeeded/full` 完成，对应完整快照 [`swh:1:snp:37c001ea9c766f079f18fe995b29929879f6f815`](https://archive.softwareheritage.org/api/1/snapshot/37c001ea9c766f079f18fe995b29929879f6f815/)。仓库 webhook `666408348` 仅订阅 `push`，以 JSON 和 TLS 证书校验模式调用 Software Heritage 官方 GitHub 接收端；首次 ping 返回 200。`pnpm verify:preservation-mirrors` 与每日 `preservation-mirrors-health.yml` 必须同时证明不可变 Release、发行证明和这份 Software Heritage 完整快照存在。Software Heritage 保存 Git 仓库对象，不替代 Release 二进制、R2、机构副本或离线介质。
 
 ## 3. 从零恢复代码
 
@@ -144,6 +165,7 @@ Vercel 恢复顺序：
 
 - 每次主分支构建：生成保存包并验证 Git bundle。
 - 每日：由 `cloudflare-edge-health.yml` 从公网核对权威 DNS、Worker、发行指针、清单哈希、只读门禁与就绪状态。
+- 每日：由 `preservation-mirrors-health.yml` 核对不可变 GitHub Release、注释标签目标、四项资产摘要、发行证明与 Software Heritage 快照。
 - 每季度：在全新临时环境从保存包恢复、构建并运行测试。
 - 每半年：导出 DNS、账户与对象存储清单，验证异地副本可读。
 - 每年：由未参与日常维护的人执行完整接管演练，记录用时、失败点与改进项。

@@ -119,6 +119,19 @@ DERGE_KANGYUR_DIR=/path/to/derge-kangyur pnpm verify:derge:upstream
 pnpm preserve
 ```
 
+### 长期保存镜像
+
+GBCR v6.18 的公开恢复基线固定在 [`gbcr-v6.18.0`](https://github.com/weitzu-com/foxue.ai/releases/tag/gbcr-v6.18.0)，对应 `main` 提交 `8f2a8a7fa3dd88cfbfd0fd12fe82190575cfc1ff`。仓库已经启用 GitHub Release Immutability；发布后标签和四项资产均不可修改或删除，并有 GitHub 自动签发的发行证明。469,942,187 字节外层归档的 SHA-256 是 `f66f8988cff5492a12c38704b5a4f56b1a47f4e76bc6a5b161ed9659933c26fd`，其中包含源码快照、完整可达 Git 历史、保存清单和内部校验和。
+
+公开 Git 仓库也已通过 [Software Heritage 保存请求 2428947](https://archive.softwareheritage.org/api/1/origin/save/2428947/) 完整归档；Origin SWHID 为 `swh:1:ori:5a6f589df03f216f92122303aa0a427521e77e24`，首个完整快照为 [`swh:1:snp:37c001ea9c766f079f18fe995b29929879f6f815`](https://archive.softwareheritage.org/api/1/snapshot/37c001ea9c766f079f18fe995b29929879f6f815/)。GitHub push webhook 指向 Software Heritage 官方接收端，首次 ping 已返回 200；后续推送会自动触发重新归档。`.github/workflows/preservation-mirrors-health.yml` 每日验证 GitHub Release 的不可变状态、标签目标、四项资产摘要、密码学发行证明及这份 Software Heritage 完整快照，防止 30 天 Actions 临时工件被误作长期副本。
+
+公网复核：
+
+```bash
+pnpm verify:preservation-mirrors
+gh release verify gbcr-v6.18.0 --repo weitzu-com/foxue.ai
+```
+
 ## 经藏发布架构
 
 经藏发布以内容寻址的版本目录为单一真相来源。`v1/latest.json` 只负责指向当前版本；版本清单、作品索引、原始 TEI 与逐版页 JSON 一经发布即不可变，并由 SHA-256 清单复核。Cloudflare Worker 仅允许白名单内的 `GET`、`HEAD` 与 `OPTIONS`，拒绝写入和路径穿越。
