@@ -138,11 +138,18 @@ function classifySuttaCentral(work) {
   if (work.workType === "provisional_cross_language_witness") {
     return { category: "provisional_sutra_witness", ruleId: "suttacentral-provisional-sutra-witness" };
   }
-  if (work.id.startsWith("gbcr:work:theravada-") && /patimokkha|vibhanga|vinaya|parivara/.test(work.id)) {
-    return { category: "canonical_vinaya_not_strict_sutra", ruleId: "suttacentral-theravada-vinaya" };
-  }
   if (work.id.startsWith("gbcr:work:theravada-")) {
-    return { category: "canonical_abhidhamma_or_treatise_not_strict_sutra", ruleId: "suttacentral-theravada-abhidhamma" };
+    const assetPaths = work.expressions.flatMap((expression) =>
+      (expression.sourceTextAssets ?? []).map((asset) => asset.path),
+    );
+    const hasVinayaRoot = assetPaths.some((path) => path.includes("/suttacentral/root/pli/ms/vinaya/"));
+    const hasAbhidhammaRoot = assetPaths.some((path) => path.includes("/suttacentral/root/pli/ms/abhidhamma/"));
+    if (hasVinayaRoot === hasAbhidhammaRoot) {
+      throw new Error(`${work.id} 的巴利律／论来源路径无法唯一分类`);
+    }
+    return hasVinayaRoot
+      ? { category: "canonical_vinaya_not_strict_sutra", ruleId: "suttacentral-fixed-root-path-vinaya" }
+      : { category: "canonical_abhidhamma_or_treatise_not_strict_sutra", ruleId: "suttacentral-fixed-root-path-abhidhamma" };
   }
   if (work.id.startsWith("gbcr:work:khuddaka-nikaya-")) {
     return { category: "mixed_scriptural_collection_scope_boundary", ruleId: "suttacentral-khuddaka-mixed-collection" };
@@ -192,8 +199,8 @@ const summary = {
 if (summary.registeredWorksAudited !== 3377) throw new Error("作品范围审计没有覆盖全部 3,377 部登记作品");
 if (new Set(works.map((work) => work.workId)).size !== works.length) throw new Error("作品范围审计出现重复作品");
 const expectedCategoryCounts = {
-  canonical_abhidhamma_or_treatise_not_strict_sutra: 167,
-  canonical_vinaya_not_strict_sutra: 98,
+  canonical_abhidhamma_or_treatise_not_strict_sutra: 168,
+  canonical_vinaya_not_strict_sutra: 97,
   commentary_history_or_reference_not_strict_sutra: 496,
   cross_section_work_scope_boundary: 20,
   esoteric_scripture_or_ritual_scope_boundary: 1083,

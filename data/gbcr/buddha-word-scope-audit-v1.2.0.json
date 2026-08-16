@@ -88,8 +88,8 @@
     "strictSutraCandidateWorks": 1293,
     "strictSutraCandidateWorksWithFullSource": 1292,
     "categoryCounts": {
-      "canonical_abhidhamma_or_treatise_not_strict_sutra": 167,
-      "canonical_vinaya_not_strict_sutra": 98,
+      "canonical_abhidhamma_or_treatise_not_strict_sutra": 168,
+      "canonical_vinaya_not_strict_sutra": 97,
       "commentary_history_or_reference_not_strict_sutra": 496,
       "cross_section_work_scope_boundary": 20,
       "esoteric_scripture_or_ritual_scope_boundary": 1083,
@@ -10265,7 +10265,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-bhikkhuni-patimokkha-pali",
@@ -10281,7 +10281,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-mahavibhanga-pali",
@@ -10297,7 +10297,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-bhikkhuni-vibhanga-pali",
@@ -10313,7 +10313,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-vinaya-khandhaka-pali",
@@ -10329,7 +10329,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-vinaya-parivara-pali",
@@ -10345,7 +10345,7 @@
       "fullSourceText": true,
       "category": "canonical_vinaya_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-vinaya"
     },
     {
       "workId": "gbcr:work:theravada-dhammasangani-pali",
@@ -10361,7 +10361,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-vibhanga-pali",
@@ -10375,9 +10375,9 @@
         ]
       },
       "fullSourceText": true,
-      "category": "canonical_vinaya_not_strict_sutra",
+      "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-vinaya"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-dhatukatha-pali",
@@ -10393,7 +10393,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-puggalapannatti-pali",
@@ -10409,7 +10409,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-kathavatthu-pali",
@@ -10425,7 +10425,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-yamaka-pali",
@@ -10441,7 +10441,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:theravada-patthana-pali",
@@ -10457,7 +10457,7 @@
       "fullSourceText": true,
       "category": "canonical_abhidhamma_or_treatise_not_strict_sutra",
       "strictSutraScope": "excluded_from_strict_sutra_denominator",
-      "ruleId": "suttacentral-theravada-abhidhamma"
+      "ruleId": "suttacentral-fixed-root-path-abhidhamma"
     },
     {
       "workId": "gbcr:work:prajnaparamita-hrdaya",

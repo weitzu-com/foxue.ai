@@ -162,6 +162,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     independentExpertApprovedWorks: 0,
     strictSutraCandidateWorks: 1293,
     strictSutraCandidateWorksWithFullSource: 1292,
+    categoryCounts: {
+      canonical_abhidhamma_or_treatise_not_strict_sutra: 168,
+      canonical_vinaya_not_strict_sutra: 97,
+    },
     strictScopeDecisionCounts: {
       excluded_from_strict_sutra_denominator: 761,
       excluded_non_buddhist_reference: 9,

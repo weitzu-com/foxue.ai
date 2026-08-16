@@ -434913,8 +434913,8 @@
     "strictSutraCandidateWorks": 1293,
     "strictSutraCandidateWorksWithFullSource": 1292,
     "categoryCounts": {
-      "canonical_abhidhamma_or_treatise_not_strict_sutra": 167,
-      "canonical_vinaya_not_strict_sutra": 98,
+      "canonical_abhidhamma_or_treatise_not_strict_sutra": 168,
+      "canonical_vinaya_not_strict_sutra": 97,
       "commentary_history_or_reference_not_strict_sutra": 496,
       "cross_section_work_scope_boundary": 20,
       "esoteric_scripture_or_ritual_scope_boundary": 1083,
@@ -434937,7 +434937,7 @@
     "traditionalCanonMembershipIsNotVerbatimAuthorship": true,
     "globalPercentagePublishable": false,
     "auditFile": "data/gbcr/buddha-word-scope-audit-v1.2.0.json",
-    "auditSha256": "bca6d633c195558c2ee17162dbe7a47e1caa08205422277e13a9dcbb713f6fde",
+    "auditSha256": "4a3893829e15eed5023b5d5fc158e5eb8337324b48138b5c90d2437793a5070b",
     "caveat": "1,293 是当前 3,377 部站内登记作品经保守规则得到的严格经藏候选数，不是全球佛经分母，也不是独立专家批准数。另有 1,102 部密续、陀罗尼或混合集等待范围政策，212 部跨部类、古逸或疑似文本等待逐项复核。"
   }
 }
