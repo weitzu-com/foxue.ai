@@ -5,6 +5,10 @@ async function readSitemaps(request: APIRequestContext) {
   const robotsResponse = await request.get("/robots.txt");
   expect(robotsResponse.ok()).toBeTruthy();
   const robots = await robotsResponse.text();
+  const sitemapDirectives = [...robots.matchAll(/^Sitemap:\s+(\S+)$/gm)].map(
+    (match) => match[1],
+  );
+  expect(sitemapDirectives).toEqual(["https://www.foxue.ai/sitemap-index.xml"]);
   const sitemapIndexPath = robots.match(
     /^Sitemap:\s+https?:\/\/[^/]+(\/sitemap-index\.xml)$/m,
   )?.[1];
