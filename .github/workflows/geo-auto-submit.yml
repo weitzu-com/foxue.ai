@@ -52,8 +52,10 @@ jobs:
           echo "$RESPONSE"
 
       - name: Save to Wayback Machine (AI training datasets)
+        continue-on-error: true
         run: |
           for url in $(jq -r '.[]' urls.json); do
-            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://web.archive.org/save/$url")
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" --retry 3 --retry-delay 15 --max-time 120 "https://web.archive.org/save/$url")
             echo "Wayback $url → HTTP $CODE"
+            sleep 5
           done
