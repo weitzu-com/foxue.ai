@@ -5,8 +5,17 @@ async function readSitemaps(request: APIRequestContext) {
   const robotsResponse = await request.get("/robots.txt");
   expect(robotsResponse.ok()).toBeTruthy();
   const robots = await robotsResponse.text();
-  const sitemapPaths = [...robots.matchAll(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap\/\d+\.xml)$/gm)]
-    .map((match) => match[1]);
+  const sitemapIndexPath = robots.match(
+    /^Sitemap:\s+https?:\/\/[^/]+(\/sitemap-index\.xml)$/m,
+  )?.[1];
+  expect(sitemapIndexPath).toBe("/sitemap-index.xml");
+
+  const sitemapIndexResponse = await request.get(sitemapIndexPath ?? "/sitemap-index.xml");
+  expect(sitemapIndexResponse.ok()).toBeTruthy();
+  const sitemapIndex = await sitemapIndexResponse.text();
+  const sitemapPaths = [
+    ...sitemapIndex.matchAll(/<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml)<\/loc>/g),
+  ].map((match) => match[1]);
   expect(sitemapPaths.length).toBeGreaterThan(0);
   const responses = await Promise.all(sitemapPaths.map((path) => request.get(path)));
   expect(responses.every((response) => response.ok())).toBeTruthy();
