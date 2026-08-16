@@ -8,7 +8,8 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: "https://foxue.ai/fugai",
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.16.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.17.0.json",
+        buddhaWordScopeAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/buddha-word-scope-audit-v1.2.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
         sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v4.5.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",

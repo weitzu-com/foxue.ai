@@ -137,6 +137,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("巴利论藏七论受控原文")).toBeVisible();
   await expect(page.getByText("古汉译 ROOT 受控见证")).toBeVisible();
   await expect(page.getByText("德格甘珠尔固定全文见证")).toBeVisible();
+  await expect(page.getByText("佛陀教说范围规则审计")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -153,6 +154,27 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory).toMatchObject({
     denominatorReady: false,
     totalSourceRecords: 30797,
+  });
+  expect(coverage.candidateInventory.buddhaWordScopeAudit).toMatchObject({
+    registeredWorksAudited: 3377,
+    registeredWorksUnclassified: 0,
+    ruleClassifiedWorks: 3377,
+    independentExpertApprovedWorks: 0,
+    strictSutraCandidateWorks: 1293,
+    strictSutraCandidateWorksWithFullSource: 1292,
+    categoryCounts: {
+      canonical_abhidhamma_or_treatise_not_strict_sutra: 168,
+      canonical_vinaya_not_strict_sutra: 97,
+    },
+    strictScopeDecisionCounts: {
+      excluded_from_strict_sutra_denominator: 761,
+      excluded_non_buddhist_reference: 9,
+      included_candidate: 1291,
+      included_candidate_requires_identity_review: 2,
+      scope_policy_and_item_review_required: 212,
+      scope_policy_required: 1102,
+    },
+    globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3377,

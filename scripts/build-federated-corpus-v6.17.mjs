@@ -1,0 +1,109 @@
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
+const root = process.cwd();
+const verifyMode = process.argv.includes("--verify");
+const basePath = "data/gbcr/registry-v6.16.0.json";
+const auditPath = "data/gbcr/buddha-word-scope-audit-v1.2.0.json";
+const dergeInventoryPath = "data/gbcr/bdrc-derge-kangyur-inventory-v0.3.0.json";
+const outputPath = "data/gbcr/registry-v6.17.0.json";
+const checksumPath = "data/gbcr/checksums-v6.17.0.sha256";
+const metadataPath = "src/lib/corpus-registry-metadata.ts";
+const [baseBytes, auditBytes, dergeInventoryBytes] = await Promise.all(
+  [basePath, auditPath, dergeInventoryPath].map((path) => readFile(resolve(root, path))),
+);
+const base = JSON.parse(baseBytes.toString("utf8"));
+const audit = JSON.parse(auditBytes.toString("utf8"));
+const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+const jsonRaw = (value) => `${JSON.stringify(value, null, 2)}\n`;
+
+if (base.registry.version !== "6.16.0" || base.works.length !== 3377) throw new Error("GBCR v6.16 基线漂移");
+if (audit.version !== "1.2.0" || audit.summary.registeredWorksAudited !== 3377) throw new Error("佛陀教说范围审计漂移");
+if (audit.inputs.registry.sha256 !== sha256(baseBytes)) throw new Error("范围审计引用的 v6.16 登记册指纹漂移");
+if (audit.inputs.dergeInventory.sha256 !== sha256(dergeInventoryBytes)) throw new Error("范围审计引用的德格目录指纹漂移");
+if (audit.summary.registeredWorksUnclassified !== 0 || audit.summary.independentExpertApprovedWorks !== 0) {
+  throw new Error("范围审计必须覆盖全部登记作品，且不得伪造独立专家批准");
+}
+
+const auditDimension = {
+  id: "buddha_word_scope",
+  label: "佛陀教说范围",
+  definition: "按传统经、密续／陀罗尼、律、论、注疏史传与疑伪文本分层；传统正典地位不等于历史上的逐字亲说。",
+};
+if (base.dimensions.some((dimension) => dimension.id === auditDimension.id)) throw new Error("v6.16 已存在范围审计维度");
+
+const registry = {
+  ...base,
+  registry: { ...base.registry, version: "6.17.0", publishedAt: "2026-08-16" },
+  dimensions: [...base.dimensions, auditDimension],
+  globalDenominators: {
+    ...base.globalDenominators,
+    status: "registered_work_scope_rule_classified_global_identity_and_independent_review_pending",
+  },
+  claimPolicy: {
+    ...base.claimPolicy,
+    reason: "3,377 部站内登记作品已完成保守规则分类，但全球作品身份去重、密续等范围政策与独立专家复核尚未完成，因此不得发布总体覆盖百分比。",
+    reviewGate: "只有在范围政策公开、全球候选分母冻结、跨传统作品身份可复算，并经至少两个独立机构或专家组复核后，才可发布全球百分比。",
+  },
+  buddhaWordScopeAudit: {
+    status: audit.status,
+    registeredWorksAudited: audit.summary.registeredWorksAudited,
+    registeredWorksUnclassified: audit.summary.registeredWorksUnclassified,
+    ruleClassifiedWorks: audit.summary.ruleClassifiedWorks,
+    independentExpertApprovedWorks: audit.summary.independentExpertApprovedWorks,
+    strictSutraCandidateWorks: audit.summary.strictSutraCandidateWorks,
+    strictSutraCandidateWorksWithFullSource: audit.summary.strictSutraCandidateWorksWithFullSource,
+    categoryCounts: audit.summary.categoryCounts,
+    strictScopeDecisionCounts: audit.summary.strictScopeDecisionCounts,
+    globalDenominatorImpact: audit.summary.globalDenominatorImpact,
+    traditionalCanonMembershipIsNotVerbatimAuthorship: audit.policy.traditionalCanonMembershipIsNotVerbatimAuthorship,
+    globalPercentagePublishable: audit.policy.globalPercentagePublishable,
+    auditFile: auditPath,
+    auditSha256: sha256(auditBytes),
+    caveat: "1,293 是当前 3,377 部站内登记作品经保守规则得到的严格经藏候选数，不是全球佛经分母，也不是独立专家批准数。另有 1,102 部密续、陀罗尼或混合集等待范围政策，212 部跨部类、古逸或疑似文本等待逐项复核。",
+  },
+};
+
+const expressions = registry.works.flatMap((work) => work.expressions);
+const totals = {
+  works: registry.works.length,
+  expressions: expressions.length,
+  fullSourceExpressions: expressions.filter((expression) => expression.fullSourceText).length,
+  worksWithFullSource: registry.works.filter((work) => work.expressions.some((expression) => expression.fullSourceText)).length,
+  stableSegments: expressions.reduce((sum, expression) => sum + (expression.stableSegments ?? 0), 0),
+};
+const expected = { works: 3377, expressions: 3875, fullSourceExpressions: 3829, worksWithFullSource: 3350, stableSegments: 5656889 };
+if (JSON.stringify(totals) !== JSON.stringify(expected)) throw new Error(`GBCR v6.17 统计不一致：${JSON.stringify(totals)}`);
+if (
+  registry.claimPolicy.publishable !== false ||
+  registry.buddhaWordScopeAudit.globalPercentagePublishable !== false ||
+  Object.entries(registry.globalDenominators)
+    .filter(([key]) => key !== "status" && key !== "unknownMeans")
+    .some(([, value]) => value !== null)
+) {
+  throw new Error("全球覆盖声明必须保持不可发布且全部全局分母为 null");
+}
+
+const registryRaw = jsonRaw(registry);
+const checksumRaw = [
+  `${sha256(Buffer.from(registryRaw))}  registry-v6.17.0.json`,
+  `${sha256(baseBytes)}  registry-v6.16.0.json`,
+  `${sha256(auditBytes)}  buddha-word-scope-audit-v1.2.0.json`,
+  `${sha256(dergeInventoryBytes)}  bdrc-derge-kangyur-inventory-v0.3.0.json`,
+].join("\n") + "\n";
+const metadataRaw = `// Generated by scripts/build-federated-corpus-v6.17.mjs. Do not edit manually.\nexport const CORPUS_REGISTRY_VERSION = "6.17.0" as const;\n`;
+
+if (verifyMode) {
+  for (const [path, expectedRaw] of [[outputPath, registryRaw], [checksumPath, checksumRaw], [metadataPath, metadataRaw]]) {
+    if (await readFile(resolve(root, path), "utf8") !== expectedRaw) throw new Error(`${path} 不可复现`);
+  }
+  console.log(`GBCR v6.17 可复现：${totals.works} 部作品完成范围规则分类；全球分母与百分比保持未知。`);
+} else {
+  await Promise.all([
+    writeFile(resolve(root, outputPath), registryRaw),
+    writeFile(resolve(root, checksumPath), checksumRaw),
+    writeFile(resolve(root, metadataPath), metadataRaw),
+  ]);
+  console.log(`GBCR v6.17 已生成：3,377 部登记作品全部完成佛陀教说范围规则分类，0 部遗漏，0 部独立专家批准。`);
+}

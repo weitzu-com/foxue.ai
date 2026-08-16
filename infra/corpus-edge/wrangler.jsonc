@@ -18,8 +18,8 @@
     }
   ],
   "vars": {
-    "RELEASE_ID": "gbcr-6.16.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-42f8521542a8",
-    "RELEASE_MANIFEST_SHA256": "a015f6ecfd9a5270c81cdde2ba1986748cc9157e141b6a6b61a3a7d447d3dbe2",
+    "RELEASE_ID": "gbcr-6.17.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-464efc759c43",
+    "RELEASE_MANIFEST_SHA256": "21b7bff5e82fb5a5fd7d9d89513c56a04ba38d09f892a63bf3df13e7d6cde492",
     "ORIGIN_COVERAGE_URL": "https://foxue.ai/api/v1/corpus/coverage"
   },
   "observability": {
