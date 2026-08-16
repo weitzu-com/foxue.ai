@@ -1,4 +1,5 @@
 import { sutras } from "@/data/sutras";
+import { emptinessConcept, type ConceptEntry } from "@/lib/concepts";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -21,6 +22,7 @@ export type ResearchResult = {
   answer: string[];
   caution: string;
   evidence: Evidence[];
+  concept?: ConceptEntry;
 };
 
 function evidenceFor(slug: string, segmentIndex: number, relation: "直接" | "相关" = "直接") {
@@ -54,6 +56,7 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       ],
       caution:
         "不同佛教传统对空义的论证层次和术语解释并不完全相同。这里仅依据当前已登记的汉译般若经典给出入门说明。",
+      concept: emptinessConcept,
       evidence: [
         evidenceFor("xinjing", 0),
         evidenceFor("xinjing", 1),
