@@ -295,6 +295,7 @@
     "cloudflare:check": "wrangler deploy --config infra/corpus-edge/wrangler.jsonc --dry-run --outdir artifacts/worker-dry-run",
     "cloudflare:bootstrap:check": "wrangler deploy --config infra/corpus-edge/wrangler.bootstrap.jsonc --dry-run --outdir artifacts/worker-bootstrap-dry-run",
     "verify:cloudflare-edge": "NODE_USE_ENV_PROXY=1 node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai",
+    "verify:preservation-mirrors": "NODE_USE_ENV_PROXY=1 node scripts/verify-preservation-mirrors.mjs",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
     "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm lint && pnpm typecheck && pnpm build"
