@@ -40,9 +40,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   experimental: {
-    // Each reading page can parse a complete source witness during prerendering.
-    // Bound per-worker concurrency so large witnesses do not exhaust the 4 GiB
-    // V8 heap used by hosted builds as the corpus grows.
     staticGenerationMaxConcurrency: 2,
   },
   images: {
@@ -53,6 +50,16 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "foxue.ai" }],
+        destination: "https://www.foxue.ai/:path*",
+        permanent: true,
       },
     ];
   },

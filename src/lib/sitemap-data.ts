@@ -9,7 +9,7 @@ let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
 
 export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   entriesPromise ??= (async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai";
     const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/fenmu", "/shenjiao", "/yuanze", "/touming"];
     const readings = await Promise.all(
       sutras.map(async (sutra) => ({ sutra, reading: await getSutraReading(sutra) })),

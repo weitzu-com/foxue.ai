@@ -1,0 +1,45 @@
+name: geo-auto-submit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "data/**"
+      - "public/**"
+
+jobs:
+  geo-submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      INDEXNOW_HOST: www.foxue.ai
+    steps:
+      - name: Ping Google sitemap
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://www.google.com/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
+      - name: Ping Bing sitemap
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://www.bing.com/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
+      - name: Ping Yandex sitemap
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://webmaster.yandex.ru/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
+      - name: Submit core URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"www.foxue.ai\",\"key\":\"$INDEXNOW_KEY\",\"keyLocation\":\"https://www.foxue.ai/$INDEXNOW_KEY.txt\",\"urlList\":[\"https://www.foxue.ai/\",\"https://www.foxue.ai/wenjing\",\"https://www.foxue.ai/jingzang\",\"https://www.foxue.ai/fugai\",\"https://www.foxue.ai/fenmu\",\"https://www.foxue.ai/shenjiao\",\"https://www.foxue.ai/yuanze\",\"https://www.foxue.ai/touming\"]}"
+      - name: Save core pages to Wayback Machine
+        run: |
+          for url in "https://www.foxue.ai/" "https://www.foxue.ai/wenjing" "https://www.foxue.ai/jingzang" "https://www.foxue.ai/fugai" "https://www.foxue.ai/fenmu" "https://www.foxue.ai/shenjiao" "https://www.foxue.ai/yuanze" "https://www.foxue.ai/touming"; do
+            curl -s -o /dev/null -w "%{http_code} " "https://web.archive.org/save/$url"
+            sleep 3
+          done
+          echo ""

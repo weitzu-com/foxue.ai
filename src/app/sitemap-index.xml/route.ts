@@ -12,7 +12,7 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai").replace(/\/+$/, "");
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai").replace(/\/+$/, "");
   const sitemapIds = await getSitemapIds();
   const sitemaps = sitemapIds
     .map(({ id }) => `<sitemap><loc>${escapeXml(`${baseUrl}/sitemap/${id}.xml`)}</loc></sitemap>`)

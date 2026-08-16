@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 const gaMeasurementId = /^G-[A-Z0-9]+$/.test(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "")
   ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -52,8 +52,68 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "foxue.ai",
+        url: siteUrl,
+        slogan: "从问题，回到原典",
+        description:
+          "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
+        logo: `${siteUrl}/logo.png`,
+        areaServed: ["CN", "US", "TW", "HK", "SG", "JP", "KR", "VN"],
+        knowsAbout: [
+          "佛教",
+          "佛典",
+          "大藏经",
+          "汉传佛教",
+          "巴利三藏",
+          "藏文大藏经",
+          "人工智能",
+          "数字人文学",
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "support",
+          url: `${siteUrl}/touming`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "foxue.ai",
+        inLanguage: ["zh-Hans", "zh-Hant", "en"],
+        publisher: { "@id": `${siteUrl}/#organization` },
+      },
+      {
+        "@type": "WebApplication",
+        "@id": `${siteUrl}/#webapp`,
+        name: "foxue.ai 佛典 AI",
+        url: siteUrl,
+        applicationCategory: "ReferenceApplication",
+        operatingSystem: "Any",
+        inLanguage: ["zh-Hans", "zh-Hant", "en"],
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="zh-Hans">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main-content">
           跳到主要内容

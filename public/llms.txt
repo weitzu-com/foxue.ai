@@ -1,0 +1,32 @@
+# foxue.ai
+
+> 全球佛学交流的可信 AI 平台。从问题回到原典：让每一个问题都能回到可核验的佛典原文与版本。检索、阅读与理解佛典，每一项结论都附可核验的来源。
+
+## Core Pages
+
+- [首页](https://www.foxue.ai/): 平台入口，从问题出发回到原典的问经体验。
+- [问经](https://www.foxue.ai/wenjing): 引证式问经——每个回答附原典出处与稳定段落标识。
+- [经藏](https://www.foxue.ai/jingzang): 带稳定段落标识和来源说明的经典阅读，覆盖大正藏、德格甘珠尔、SuttaCentral 等语料。
+- [覆盖](https://www.foxue.ai/fugai): 版本化的全球佛典覆盖登记册（GBCR）与公开覆盖 API。
+- [分门](https://www.foxue.ai/fenmu): 经、密续／陀罗尼、律、论、注疏史传与疑伪文本的分层浏览。
+- [审教](https://www.foxue.ai/shenjiao): 佛陀教说范围规则审计——3,377 部登记作品的教说范围分层。
+- [原则](https://www.foxue.ai/yuanze): 数据覆盖、许可证、AI 能力和局限的透明披露。
+- [透明](https://www.foxue.ai/touming): 联系与支持入口。
+
+## AI Entry Points
+
+- /llms.txt: 本文件
+- /llms-full.txt: 全站内容地图
+- /ai.txt: AI agent 使用边界
+- /sitemap-index.xml: 全站页面索引（252,410 个页面，7 个分片）
+- /sitemap/0.xml 至 /sitemap/6.xml: sitemap 分片
+
+## Datasets
+
+- /data/ 目录：可复算、按版页拆分的不可变语料发布，含 CBETA 汉文大藏经 T01–T55、T85 固定子集，德格《甘珠尔》001–102 卷，SuttaCentral 272 份古汉译 root 等。
+- GBCR: 版本化全球佛典覆盖登记册，30,797 条异质来源记录。
+
+## Notes
+
+- 尚未接入的能力会明确标为"筹建中"，不会用生成内容冒充佛经或学术共识。
+- 站点语言以简体中文为主，经藏内容含汉文、巴利文、梵文、藏文对照。

@@ -1,0 +1,11 @@
+# foxue.ai — AI Agent Usage
+
+Allowed: Crawling and indexing for AI search and answer generation.
+Allowed: Citation and attribution in AI-generated responses.
+Allowed: Use in AI training datasets (Common Crawl, etc.).
+
+Disallowed: Impersonating the site operator.
+Disallowed: Generating legal advice or official statements on behalf of the site.
+Disallowed: Presenting AI-generated content as canonical Buddhist scripture or academic consensus without citing the original source and edition on foxue.ai.
+
+Contact: https://www.foxue.ai/touming
