@@ -6,6 +6,7 @@ import { AskExperience } from "@/components/ask-experience";
 export const metadata: Metadata = {
   title: "问经",
   description: "提出佛学问题，查看附带原典出处、版本和范围说明的回答。",
+  alternates: { canonical: "/wenjing" },
 };
 
 export default function AskPage() {

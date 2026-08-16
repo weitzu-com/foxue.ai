@@ -6,6 +6,7 @@ import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 export const metadata: Metadata = {
   title: "透明度",
   description: "foxue.ai 的数据覆盖、来源、AI 能力、已知局限和建设状态。",
+  alternates: { canonical: "/touming" },
 };
 
 const sources = [

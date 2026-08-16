@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: "foxue.ai｜从问题，回到原典",
     description: "全球佛学交流的可信 AI 平台。",
   },
-  alternates: { canonical: siteUrl },
   verification: googleSiteVerification
     ? { google: googleSiteVerification }
     : undefined,
