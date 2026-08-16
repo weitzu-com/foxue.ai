@@ -1,0 +1,123 @@
+name: 全球佛经作品分母独立复核
+description: 为 GBCR 全球分母队列提交具名、具证据的范围与作品身份意见；单份意见不会自动改变分母。
+title: "[全球分母复核] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先阅读[全球佛经作品分母独立复核协议](https://github.com/weitzu-com/foxue.ai/blob/main/docs/GLOBAL_DENOMINATOR_REVIEW_PROTOCOL.md)。
+
+        机器与 AI 可以协助检索和整理材料，但不能代替自然人署名、独立判断或双人复核门槛。
+
+  - type: input
+    id: queue_id
+    attributes:
+      label: 队列 ID
+      description: 从 global-denominator-review-queue-v0.1.0.json 复制完整 queueId。
+      placeholder: gbcr:global-denominator:...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reviewer_identity
+    attributes:
+      label: 复核者身份、语言能力与独立性
+      description: 提供姓名、可核验身份、相关语言/目录学/版本学能力、机构或 ORCID，并说明是否看过其他复核意见。
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_scope
+    attributes:
+      label: 来源、底本与文本范围
+      description: 列出目录号、版本、卷页、稳定段落或持久链接；说明是整部、合集组件、节译、版本见证、残片还是引用。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope_decision
+    attributes:
+      label: 严格佛经范围意见
+      options:
+        - scope_uncertain
+        - include_strict_sutra
+        - exclude_strict_sutra
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope_reasoning
+    attributes:
+      label: 范围证据与理由
+      description: 核对传统正典分区、文本自称、目录分类、疑伪状态、合集/单品关系；给出精确证据。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: identity_decision
+    attributes:
+      label: 作品身份意见
+      options:
+        - identity_uncertain
+        - same_work
+        - distinct_work
+        - text_family_only
+        - not_applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: identity_reasoning
+    attributes:
+      label: 作品身份比较
+      description: 比较首尾、章节结构、内容次序、人物地点、增删、题名、责任者、卷数、目录号与版本链。
+    validations:
+      required: true
+
+  - type: textarea
+    id: supporting_evidence
+    attributes:
+      label: 最强支持证据
+      description: 提供可公开核对的原文定位、目录条目、研究页码、DOI 或稳定链接。
+    validations:
+      required: true
+
+  - type: textarea
+    id: counterevidence
+    attributes:
+      label: 最强反证与不确定性
+      description: 必须记录与结论冲突的材料；若未找到，说明检索范围并优先保持未决。
+    validations:
+      required: true
+
+  - type: textarea
+    id: rights_boundary
+    attributes:
+      label: 权利与引用边界
+      description: 说明原文、图像、转写、译文和元数据的来源与许可，不要粘贴无权再发布的长篇内容。
+    validations:
+      required: true
+
+  - type: textarea
+    id: conflict_of_interest
+    attributes:
+      label: 利益冲突披露
+      description: 披露与项目、来源、版本、出版者、译者、另一复核者或机构的关系；没有则写“无已知利益冲突”。
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: 复核声明
+      options:
+        - label: 我是对本意见负责的自然人；AI 未代替我署名或作出最终判断。
+          required: true
+        - label: 我具备或已如实说明核对相关语言、目录与版本证据的能力。
+          required: true
+        - label: 我记录了支持证据、反证、权利边界和利益冲突。
+          required: true
+        - label: 我理解单份意见不会自动合并作品、排除候选或改变全球分母。
+          required: true
+        - label: 我同意意见、修订、署名和仲裁记录被公开长期保存，以便复核与纠错。
+          required: true

@@ -53,6 +53,7 @@ const dimensionNotes: Record<string, string> = {
   rights: "逐对象核对许可与再分发条件",
   quality: "通过来源、结构与抽样复核",
   buddha_word_scope: "经、密续、律、论、注疏史传与疑伪文本分层",
+  global_denominator_governance: "来源宇宙、保守分母与独立双重复核发布门",
 };
 
 export default function CoveragePage() {
@@ -114,6 +115,21 @@ export default function CoveragePage() {
               {snapshot.candidateInventory.buddhaWordScopeAudit.independentExpertApprovedWorks} 部。
             </p>
             <small>{snapshot.candidateInventory.buddhaWordScopeAudit.caveat}</small>
+          </article>
+          <article>
+            <span>全球分母治理队列</span>
+            <strong>
+              {snapshot.candidateInventory.globalDenominatorGovernance.registeredWorksQueued.toLocaleString("zh-CN")}
+              <small> 项待双重复核</small>
+            </strong>
+            <p>
+              已冻结 {snapshot.candidateInventory.globalDenominatorGovernance.frozenCandidateRecords.toLocaleString("zh-CN")} 条异质来源记录，
+              登记 {snapshot.candidateInventory.globalDenominatorGovernance.externalGapsRegistered} 类外部空白；
+              独立真人决定 {snapshot.candidateInventory.globalDenominatorGovernance.independentHumanDecisions}，自动改变分母
+              {snapshot.candidateInventory.globalDenominatorGovernance.automaticDenominatorChanges}。
+            </p>
+            <small>{snapshot.candidateInventory.globalDenominatorGovernance.conservativeUnresolvedTreatment}</small>
+            <Link className="text-link" href="/fenmu">查看全球分母与 G0–G7 发布门 <ArrowRight aria-hidden="true" size={13} /></Link>
           </article>
           {sourceSnapshotInventory.sources.map((source) => (
             <article key={source.id}>
@@ -1094,11 +1110,11 @@ export default function CoveragePage() {
       <section className="coverage-next page-shell">
         <div>
           <p className="eyebrow">NEXT AUDIT GATE</p>
-          <h2>下一步：接入巴利论藏，并复核跨语种作品关系。</h2>
-          <p>固定提交中的巴利经藏与律藏目录已逐条受控。下一阶段审计 1,102 份巴利论藏 root，同时在学术复核后逐步建立平行经与传本关系；未经复核的自动对齐不会进入永久登记册。</p>
+          <h2>下一步：闭合来源宇宙，完成作品范围与身份双重复核。</h2>
+          <p>巴利经、律、论藏固定提交均已逐文件受控。现在优先处理全球分母队列的 P0/P1 项、七类外部来源空白，以及跨语言、跨版本作品身份；未经两名独立真人一致或第三方仲裁的结果不会改变永久登记册。</p>
         </div>
-        <Link className="button-primary" href="/touming">
-          查看完整透明度报告 <ArrowRight aria-hidden="true" size={16} />
+        <Link className="button-primary" href="/fenmu">
+          查看全球分母治理 <ArrowRight aria-hidden="true" size={16} />
         </Link>
       </section>
     </main>
