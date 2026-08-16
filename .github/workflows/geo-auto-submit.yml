@@ -1,0 +1,62 @@
+name: Global SEO & AI GEO Auto-Ingestion
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'URLs to submit (one per line, overrides defaults)'
+        required: false
+
+jobs:
+  indexnow-submit:
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Define submission URLs
+        run: |
+          cat << 'EOF' > urls.json
+          [
+            "https://foxue.ai/",
+            "https://foxue.ai/llms.txt",
+            "https://foxue.ai/ai.txt",
+            "https://foxue.ai/sitemap-index.xml"
+          ]
+          EOF
+          echo 'Submission list:' && cat urls.json
+
+      - name: Submit to IndexNow (Bing, Yandex, Naver, Seznam, 50+ engines)
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          URLS=$(jq -c '.' urls.json)
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"foxue.ai\",
+              \"key\": \"${INDEXNOW_KEY}\" ,
+              \"keyLocation\": \"https://foxue.ai/${INDEXNOW_KEY}.txt\",
+              \"urlList\": ${URLS}
+            }")
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          echo "IndexNow response: HTTP $HTTP_CODE"
+          echo "$RESPONSE"
+
+      - name: Ping Google sitemap
+        run: |
+          curl -s -o /dev/null -w "Google sitemap: HTTP %{http_code}\n" \
+            "https://www.google.com/ping?sitemap=https://foxue.ai/sitemap-index.xml"
+
+      - name: Ping Bing sitemap
+        run: |
+          curl -s -o /dev/null -w "Bing sitemap: HTTP %{http_code}\n" \
+            "https://www.bing.com/ping?sitemap=https://foxue.ai/sitemap-index.xml"
+
+      - name: Save to Wayback Machine (AI training datasets)
+        run: |
+          for url in $(jq -r '.[]' urls.json); do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://web.archive.org/save/$url")
+            echo "Wayback $url → HTTP $CODE"
+          done
