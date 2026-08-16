@@ -5,6 +5,7 @@ import { ArrowRight, Ban, BookOpenCheck, GitBranch, Scale, ShieldCheck } from "l
 export const metadata: Metadata = {
   title: "原则与边界",
   description: "foxue.ai 如何定义可信、纠错、多传统公平与长期传承。",
+  alternates: { canonical: "/yuanze" },
 };
 
 const principles = [

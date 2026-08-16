@@ -19,6 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "佛典覆盖登记册",
   description: "foxue.ai 全球佛典覆盖登记册：公开分母、来源快照、权利状态和可复算的收录进度。",
+  alternates: { canonical: "/fugai" },
 };
 
 const statusLabels: Record<string, string> = {

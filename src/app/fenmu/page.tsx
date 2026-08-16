@@ -9,6 +9,7 @@ import { corpusRegistry } from "@/lib/corpus-registry";
 export const metadata: Metadata = {
   title: "全球佛经作品分母",
   description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
+  alternates: { canonical: "/fenmu" },
 };
 
 const sourceLabels: Record<string, string> = {

@@ -61,6 +61,38 @@ const criticalRoutes = [
   "/touming",
 ];
 
+const sitemapLandingRoutes = [
+  "/",
+  "/wenjing",
+  "/jingzang",
+  "/fugai",
+  "/fenmu",
+  "/shenjiao",
+  "/yuanze",
+  "/touming",
+];
+
+test("站点地图索引提供单一提交入口", async ({ request }) => {
+  const response = await request.get("/sitemap-index.xml");
+  expect(response.ok()).toBeTruthy();
+  expect(response.headers()["content-type"]).toContain("application/xml");
+  const sitemapIndex = await response.text();
+  const childSitemaps = [...sitemapIndex.matchAll(
+    /<loc>https:\/\/foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
+  )].map((match) => match[1]);
+  expect(childSitemaps.length).toBeGreaterThan(0);
+  expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
+});
+
+test("站点地图入口页使用自引用 canonical", async ({ page }) => {
+  for (const path of sitemapLandingRoutes) {
+    await page.goto(path);
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
+    expect(canonical).not.toBeNull();
+    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://foxue.ai").href);
+  }
+});
+
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   await page.goto("/");
 

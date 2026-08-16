@@ -7,6 +7,7 @@ import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 export const metadata: Metadata = {
   title: "经藏",
   description: "浏览已登记佛典全文、来源、版本、经号与稳定行段。",
+  alternates: { canonical: "/jingzang" },
 };
 
 export default function LibraryPage() {

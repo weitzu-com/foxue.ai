@@ -11,6 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "汉—巴作品审校台",
   description: "foxue.ai 汉—巴作品关系双人复核队列：公开反证、文本范围、证据身份与裁决门槛。",
+  alternates: { canonical: "/shenjiao" },
 };
 
 export default function ReviewQueuePage() {
