@@ -87,6 +87,12 @@ foxue.ai 的长期目标是收录全球 99% 以上的佛经，但百分比只有
 
 单份 Issue、单个模型输出、单一机构内部决定或未经签名的批量表格都不会自动改变分母。
 
+### 6.1 审校账本的持久记录格式
+
+`global-denominator-review-ledger-v0.1.0.json` 同时是构建输入和公开账本，不是每次构建都可清空的临时产物。构建器先读取并验证已有的 `reviewerDeclarations`、`decisions` 与 `arbitrations`，再重算摘要；格式或引用无效时立即失败，不会用空数组覆盖记录。历史 v6.18 发行仍冻结在零决定状态；一旦出现第一项合格决定，必须发布新的 GBCR 版本，不得原地改写 v6.18。
+
+复核者声明至少包含：唯一 `reviewerId`、`naturalPerson: true`、`aiSystem: false`、非空 `competence`、利益冲突说明 `conflictOfInterest` 与可验证 `signature`。每项决定至少包含：唯一 `decisionId`、有效 `queueId` 与 `reviewerId`、`independent: true`、审校线 `lane`、该线允许的决定字段、`submittedAt`、非空 `rationale` 和至少一个 HTTPS `evidenceUrls`。仲裁还必须引用至少两项既有决定，并由已声明且不同于原复核者的自然人签署。所有数组只追加；纠错用新记录和新版本表达，不覆写旧记录。
+
 ## 7. 仲裁与纠错
 
 第三方仲裁者不得是原两名复核者，也应避免相同利益冲突。仲裁记录必须逐项引用双方证据，说明采纳与不采纳理由，并允许给出“仍未决”。所有历史决定只追加、不覆写；如新写本、校勘或研究推翻旧决定，以新版本追加更正并保留旧哈希。

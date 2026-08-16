@@ -225,11 +225,180 @@ const reviewQueue = {
   items: reviewItems,
 };
 
+const allowedScopeDecisions = ["include_strict_sutra", "exclude_strict_sutra", "scope_uncertain"];
+const allowedIdentityDecisions = ["same_work", "distinct_work", "text_family_only", "identity_uncertain", "not_applicable"];
+const allowedSourceAndRangeDecisions = ["source_supported", "source_rejected", "source_uncertain"];
+const emptyDurableReviewRecords = {
+  reviewerDeclarations: [],
+  decisions: [],
+  arbitrations: [],
+};
+let durableReviewRecords = emptyDurableReviewRecords;
+try {
+  const storedLedger = JSON.parse(await readFile(resolve(root, reviewLedgerPath), "utf8"));
+  if (
+    storedLedger.schema !== "https://foxue.ai/schemas/gbcr/global-denominator-review-ledger-v0.1" ||
+    storedLedger.version !== "0.1.0"
+  ) {
+    throw new Error("全球分母复核账本 schema 或版本不受当前构建器支持");
+  }
+  durableReviewRecords = {
+    reviewerDeclarations: storedLedger.reviewerDeclarations,
+    decisions: storedLedger.decisions,
+    arbitrations: storedLedger.arbitrations,
+  };
+} catch (error) {
+  if (!(error && typeof error === "object" && "code" in error && error.code === "ENOENT")) throw error;
+  if (verifyMode) throw new Error(`${reviewLedgerPath} 缺失，无法验证持久复核记录`);
+}
+
+for (const [field, records] of Object.entries(durableReviewRecords)) {
+  if (!Array.isArray(records)) throw new Error(`复核账本 ${field} 必须是数组`);
+}
+
+const requireString = (record, field, label) => {
+  if (typeof record?.[field] !== "string" || record[field].trim() === "") {
+    throw new Error(`${label} 缺少 ${field}`);
+  }
+  return record[field];
+};
+const requireUniqueIds = (records, field, label) => {
+  const ids = records.map((record) => requireString(record, field, label));
+  if (new Set(ids).size !== ids.length) throw new Error(`${label} ${field} 不唯一`);
+  return new Set(ids);
+};
+const requireEvidence = (record, label) => {
+  if (
+    !Array.isArray(record.evidenceUrls) ||
+    record.evidenceUrls.length === 0 ||
+    record.evidenceUrls.some((url) => typeof url !== "string" || !/^https:\/\//.test(url))
+  ) {
+    throw new Error(`${label} 必须至少包含一个 HTTPS 证据链接`);
+  }
+  requireString(record, "rationale", label);
+  requireString(record, "submittedAt", label);
+};
+
+const reviewerIds = requireUniqueIds(durableReviewRecords.reviewerDeclarations, "reviewerId", "复核者声明");
+for (const declaration of durableReviewRecords.reviewerDeclarations) {
+  if (declaration.naturalPerson !== true || declaration.aiSystem !== false) {
+    throw new Error(`${declaration.reviewerId} 未作自然人且非 AI 系统的明确声明`);
+  }
+  if (!Array.isArray(declaration.competence) || declaration.competence.length === 0) {
+    throw new Error(`${declaration.reviewerId} 缺少能力声明`);
+  }
+  requireString(declaration, "conflictOfInterest", `${declaration.reviewerId} 复核者声明`);
+  requireString(declaration, "signature", `${declaration.reviewerId} 复核者声明`);
+}
+
+const queueIds = new Set(reviewItems.map((item) => item.queueId));
+const decisionIds = requireUniqueIds(durableReviewRecords.decisions, "decisionId", "独立复核决定");
+const decisionsById = new Map(durableReviewRecords.decisions.map((decision) => [decision.decisionId, decision]));
+const outcomeKeyByLane = {
+  scope: { key: "scopeDecision", allowed: allowedScopeDecisions },
+  identity: { key: "identityDecision", allowed: allowedIdentityDecisions },
+  source_and_range: { key: "sourceAndRangeDecision", allowed: allowedSourceAndRangeDecisions },
+};
+for (const decision of durableReviewRecords.decisions) {
+  const label = `${decision.decisionId} 独立复核决定`;
+  const queueId = requireString(decision, "queueId", label);
+  const reviewerId = requireString(decision, "reviewerId", label);
+  const lane = requireString(decision, "lane", label);
+  if (!queueIds.has(queueId)) throw new Error(`${label} 引用了不存在的 queueId ${queueId}`);
+  if (!reviewerIds.has(reviewerId)) throw new Error(`${label} 引用了未声明的复核者 ${reviewerId}`);
+  if (decision.independent !== true) throw new Error(`${label} 未声明独立完成`);
+  const outcomeSpec = outcomeKeyByLane[lane];
+  if (!outcomeSpec || !outcomeSpec.allowed.includes(decision[outcomeSpec.key])) {
+    throw new Error(`${label} 的 ${lane} 结论不在允许值内`);
+  }
+  requireEvidence(decision, label);
+}
+
+requireUniqueIds(durableReviewRecords.arbitrations, "arbitrationId", "仲裁记录");
+const arbitrationOutcomesByQueueAndLane = new Map();
+for (const arbitration of durableReviewRecords.arbitrations) {
+  const label = `${arbitration.arbitrationId} 仲裁记录`;
+  const queueId = requireString(arbitration, "queueId", label);
+  const reviewerId = requireString(arbitration, "arbitratorReviewerId", label);
+  const lane = requireString(arbitration, "lane", label);
+  if (!queueIds.has(queueId)) throw new Error(`${label} 引用了不存在的 queueId ${queueId}`);
+  if (!reviewerIds.has(reviewerId)) throw new Error(`${label} 引用了未声明的仲裁者 ${reviewerId}`);
+  if (
+    !Array.isArray(arbitration.decisionIds) ||
+    arbitration.decisionIds.length < 2 ||
+    arbitration.decisionIds.some((decisionId) => !decisionIds.has(decisionId))
+  ) {
+    throw new Error(`${label} 必须引用至少两项既有决定`);
+  }
+  const referencedDecisions = arbitration.decisionIds.map((decisionId) => decisionsById.get(decisionId));
+  if (referencedDecisions.some((decision) => decision.queueId !== queueId || decision.lane !== lane)) {
+    throw new Error(`${label} 引用的决定必须属于同一 queueId 与审校线`);
+  }
+  if (referencedDecisions.some((decision) => decision.reviewerId === reviewerId)) {
+    throw new Error(`${label} 的仲裁者不得是原决定复核者`);
+  }
+  const outcomeSpec = outcomeKeyByLane[lane];
+  if (!outcomeSpec || !outcomeSpec.allowed.includes(arbitration[outcomeSpec.key])) {
+    throw new Error(`${label} 的 ${lane} 结论不在允许值内`);
+  }
+  if (new Set(referencedDecisions.map((decision) => decision[outcomeSpec.key])).size < 2) {
+    throw new Error(`${label} 未引用具有实质分歧的决定`);
+  }
+  requireEvidence(arbitration, label);
+  arbitrationOutcomesByQueueAndLane.set(`${queueId}\u0000${lane}`, arbitration[outcomeSpec.key]);
+}
+
+const laneOutcomesByQueue = new Map();
+for (const decision of durableReviewRecords.decisions) {
+  const outcomeSpec = outcomeKeyByLane[decision.lane];
+  const key = `${decision.queueId}\u0000${decision.lane}`;
+  const outcomes = laneOutcomesByQueue.get(key) ?? new Map();
+  const reviewers = outcomes.get(decision[outcomeSpec.key]) ?? new Set();
+  reviewers.add(decision.reviewerId);
+  outcomes.set(decision[outcomeSpec.key], reviewers);
+  laneOutcomesByQueue.set(key, outcomes);
+}
+const consensusFor = (queueId, lane) => {
+  const key = `${queueId}\u0000${lane}`;
+  const arbitratedOutcome = arbitrationOutcomesByQueueAndLane.get(key);
+  if (arbitratedOutcome) return arbitratedOutcome;
+  const outcomes = laneOutcomesByQueue.get(key) ?? new Map();
+  if (outcomes.size !== 1) return null;
+  return [...outcomes.entries()].find(([, reviewers]) => reviewers.size >= 2)?.[0] ?? null;
+};
+let independentlyApprovedWorks = 0;
+let independentlyExcludedWorks = 0;
+let unresolvedConflicts = 0;
+for (const queueId of queueIds) {
+  const scope = consensusFor(queueId, "scope");
+  const identity = consensusFor(queueId, "identity");
+  const sourceAndRange = consensusFor(queueId, "source_and_range");
+  if (
+    scope === "include_strict_sutra" &&
+    identity && identity !== "identity_uncertain" &&
+    sourceAndRange === "source_supported"
+  ) {
+    independentlyApprovedWorks += 1;
+  }
+  if (scope === "exclude_strict_sutra") independentlyExcludedWorks += 1;
+  for (const lane of Object.keys(outcomeKeyByLane)) {
+    const outcomes = laneOutcomesByQueue.get(`${queueId}\u0000${lane}`);
+    if (
+      outcomes && outcomes.size > 1 &&
+      !arbitrationOutcomesByQueueAndLane.has(`${queueId}\u0000${lane}`)
+    ) {
+      unresolvedConflicts += 1;
+    }
+  }
+}
+
 const reviewLedger = {
   schema: "https://foxue.ai/schemas/gbcr/global-denominator-review-ledger-v0.1",
   version: "0.1.0",
   generatedAt: "2026-08-16",
-  status: "open_for_independent_human_review_no_decisions_recorded",
+  status: durableReviewRecords.decisions.length === 0
+    ? "open_for_independent_human_review_no_decisions_recorded"
+    : "open_for_independent_human_review",
   inputs: {
     reviewQueue: { path: reviewQueuePath, sha256: sha256(Buffer.from(jsonRaw(reviewQueue))) },
   },
@@ -244,18 +413,18 @@ const reviewLedger = {
     signedGitHistoryOrEquivalentVerifiableSignatureRequired: true,
     unresolvedDisagreementRequiresThirdPartyArbitration: true,
   },
-  allowedScopeDecisions: ["include_strict_sutra", "exclude_strict_sutra", "scope_uncertain"],
-  allowedIdentityDecisions: ["same_work", "distinct_work", "text_family_only", "identity_uncertain", "not_applicable"],
-  reviewerDeclarations: [],
-  decisions: [],
-  arbitrations: [],
+  allowedScopeDecisions,
+  allowedIdentityDecisions,
+  reviewerDeclarations: durableReviewRecords.reviewerDeclarations,
+  decisions: durableReviewRecords.decisions,
+  arbitrations: durableReviewRecords.arbitrations,
   summary: {
-    declaredReviewers: 0,
-    decisions: 0,
-    arbitrations: 0,
-    independentlyApprovedWorks: 0,
-    independentlyExcludedWorks: 0,
-    unresolvedConflicts: 0,
+    declaredReviewers: durableReviewRecords.reviewerDeclarations.length,
+    decisions: durableReviewRecords.decisions.length,
+    arbitrations: durableReviewRecords.arbitrations.length,
+    independentlyApprovedWorks,
+    independentlyExcludedWorks,
+    unresolvedConflicts,
     denominatorChanges: 0,
   },
 };
@@ -313,7 +482,7 @@ const standard = {
     reviewLedgerFile: reviewLedgerPath,
     frozenCandidateRecords,
     registeredWorksQueued: reviewItems.length,
-    independentHumanDecisions: 0,
+    independentHumanDecisions: reviewLedger.summary.decisions,
     automaticMerges: 0,
     globalDenominator: null,
     globalPercentage: null,
