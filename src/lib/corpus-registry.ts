@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.17.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.18.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.5.0.json";
 
 type Expression = {
@@ -756,6 +756,31 @@ export function buildCoverageSnapshot() {
           : null,
         denominatorCaveat: source.denominatorCaveat,
       })),
+      globalDenominatorGovernance: {
+        status: corpusRegistry.globalDenominatorGovernance.status,
+        standardVersion: corpusRegistry.globalDenominatorGovernance.standardVersion,
+        frozenSources: corpusRegistry.globalDenominatorGovernance.frozenSources,
+        frozenCandidateRecords: corpusRegistry.globalDenominatorGovernance.frozenCandidateRecords,
+        externalGapsRegistered: corpusRegistry.globalDenominatorGovernance.externalGapsRegistered,
+        sourceUniverseReady: corpusRegistry.globalDenominatorGovernance.sourceUniverseReady,
+        registeredWorksQueued: corpusRegistry.globalDenominatorGovernance.registeredWorksQueued,
+        priorityCounts: corpusRegistry.globalDenominatorGovernance.priorityCounts,
+        minimumIndependentReviewsPerLane: corpusRegistry.globalDenominatorGovernance.minimumIndependentReviewsPerLane,
+        independentHumanDecisions: corpusRegistry.globalDenominatorGovernance.independentHumanDecisions,
+        independentlyApprovedWorks: corpusRegistry.globalDenominatorGovernance.independentlyApprovedWorks,
+        adjudicatedItems: corpusRegistry.globalDenominatorGovernance.adjudicatedItems,
+        automaticDenominatorChanges: corpusRegistry.globalDenominatorGovernance.automaticDenominatorChanges,
+        conservativeUnresolvedTreatment: corpusRegistry.globalDenominatorGovernance.conservativeUnresolvedTreatment,
+        publicationGates: corpusRegistry.globalDenominatorGovernance.publicationGates,
+        standardFile: corpusRegistry.globalDenominatorGovernance.standardFile,
+        standardSha256: corpusRegistry.globalDenominatorGovernance.standardSha256,
+        sourceUniverseFile: corpusRegistry.globalDenominatorGovernance.sourceUniverseFile,
+        sourceUniverseSha256: corpusRegistry.globalDenominatorGovernance.sourceUniverseSha256,
+        reviewQueueFile: corpusRegistry.globalDenominatorGovernance.reviewQueueFile,
+        reviewQueueSha256: corpusRegistry.globalDenominatorGovernance.reviewQueueSha256,
+        reviewLedgerFile: corpusRegistry.globalDenominatorGovernance.reviewLedgerFile,
+        reviewLedgerSha256: corpusRegistry.globalDenominatorGovernance.reviewLedgerSha256,
+      },
       buddhaWordScopeAudit: {
         registeredWorksAudited: corpusRegistry.buddhaWordScopeAudit.registeredWorksAudited,
         registeredWorksUnclassified: corpusRegistry.buddhaWordScopeAudit.registeredWorksUnclassified,
@@ -767,7 +792,7 @@ export function buildCoverageSnapshot() {
         strictScopeDecisionCounts: corpusRegistry.buddhaWordScopeAudit.strictScopeDecisionCounts,
         globalDenominatorImpact: corpusRegistry.buddhaWordScopeAudit.globalDenominatorImpact,
         auditSha256: corpusRegistry.buddhaWordScopeAudit.auditSha256,
-        unit: "GBCR v6.17 中全部已登记作品的保守规则范围分类",
+        unit: "GBCR v6.18 继承的 3,377 部已登记作品保守规则范围分类",
         caveat: corpusRegistry.buddhaWordScopeAudit.caveat,
       },
       dergeKangyurFullTextWitness: {

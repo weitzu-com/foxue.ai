@@ -56,6 +56,7 @@ const criticalRoutes = [
   "/jingzang/derge-kangyur-d0001",
   "/jingzang/derge-kangyur-d0001/001-0001b",
   "/fugai",
+  "/fenmu",
   "/shenjiao",
   "/touming",
 ];
@@ -138,6 +139,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   await expect(page.getByText("古汉译 ROOT 受控见证")).toBeVisible();
   await expect(page.getByText("德格甘珠尔固定全文见证")).toBeVisible();
   await expect(page.getByText("佛陀教说范围规则审计")).toBeVisible();
+  await expect(page.getByText("全球分母治理队列")).toBeVisible();
 
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
@@ -176,6 +178,23 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
+  expect(coverage.generatedFrom.registryVersion).toBe("6.18.0");
+  expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
+    status: "public_draft_not_publishable",
+    standardVersion: "0.1.0",
+    frozenSources: 7,
+    frozenCandidateRecords: 30797,
+    externalGapsRegistered: 7,
+    sourceUniverseReady: false,
+    registeredWorksQueued: 3377,
+    priorityCounts: { P0: 2, P1: 212, P2: 1102, P3: 1291, P4: 770 },
+    minimumIndependentReviewsPerLane: 2,
+    independentHumanDecisions: 0,
+    independentlyApprovedWorks: 0,
+    adjudicatedItems: 0,
+    automaticDenominatorChanges: 0,
+  });
+  expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3377,
     registeredExpressions: 3875,
@@ -945,6 +964,13 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     relatedDistinctWorkGroups: 12,
   });
   expect(coverage.links).toMatchObject({
+    registry: expect.stringContaining("registry-v6.18.0.json"),
+    globalDenominatorHuman: "https://foxue.ai/fenmu",
+    globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
+    globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
+    globalDenominatorReviewQueue: expect.stringContaining("global-denominator-review-queue-v0.1.0.json"),
+    globalDenominatorReviewLedger: expect.stringContaining("global-denominator-review-ledger-v0.1.0.json"),
+    globalDenominatorReviewProtocol: expect.stringContaining("GLOBAL_DENOMINATOR_REVIEW_PROTOCOL.md"),
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
     chineseEsotericT19Inventory: expect.stringContaining("cbeta-taisho-t19-inventory-v0.1.0.json"),
@@ -1136,6 +1162,30 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.links.suttacentralParallelP0EvidencePackets).toBe(
     "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json",
   );
+});
+
+test("全球分母页公开保守公式、外部空白和真人审校门", async ({ page, request }) => {
+  await page.goto("/fenmu");
+
+  await expect(page.getByRole("heading", { level: 1, name: /先定义“全世界”/ })).toBeVisible();
+  await expect(page.getByText("全球作品分母：未知")).toBeVisible();
+  await expect(page.getByText("30,797").first()).toBeVisible();
+  await expect(page.getByText("3,377").first()).toBeVisible();
+  await expect(page.getByText("七个来源，七种计量边界。")).toBeVisible();
+  await expect(page.getByText("犍陀罗语佛教写本与残片")).toBeVisible();
+  await expect(page.getByText("八道门，一道都不能绕过。")).toBeVisible();
+  await expect(page.locator(".denominator-gate-list li")).toHaveCount(8);
+  await expect(page.getByText("两人独立判断；分歧由第三人仲裁。")).toBeVisible();
+  await expect(page.getByRole("link", { name: /提交独立复核/ })).toHaveAttribute(
+    "href",
+    "https://github.com/weitzu-com/foxue.ai/issues/new?template=global-denominator-review.yml",
+  );
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/fenmu");
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
 });
 
 test("汉巴作品审校台优先呈现反证并保持真人双重复核边界", async ({ page }) => {

@@ -23,6 +23,8 @@ jobs:
           node-version: 22
       - name: Verify authoritative DNS, Worker, release pointer and readiness semantics
         env:
+          # Keep these values aligned with the release actually deployed at canon.foxue.ai.
+          # Update them in the deployment follow-up commit, never ahead of the Worker.
           EXPECTED_RELEASE_ID: gbcr-6.17.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-464efc759c43
           EXPECTED_MANIFEST_SHA256: 21b7bff5e82fb5a5fd7d9d89513c56a04ba38d09f892a63bf3df13e7d6cde492
           REQUIRE_READY: "false"

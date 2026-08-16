@@ -1,0 +1,47 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/global-denominator-review-ledger-v0.1",
+  "version": "0.1.0",
+  "generatedAt": "2026-08-16",
+  "status": "open_for_independent_human_review_no_decisions_recorded",
+  "inputs": {
+    "reviewQueue": {
+      "path": "data/gbcr/global-denominator-review-queue-v0.1.0.json",
+      "sha256": "83a00497bdcc6406c77a77cfda1d4758d8c54f58a49dd1f7d3d95793970d35a4"
+    }
+  },
+  "reviewerPolicy": {
+    "naturalPersonsOnly": true,
+    "aiSystemsCannotCountAsIndependentReviewers": true,
+    "minimumIndependentReviewersPerLane": 2,
+    "sameInstitutionPairRequiresPublishedIndependenceJustification": true,
+    "conflictOfInterestDeclarationRequired": true,
+    "relevantLanguageAndTextualCompetenceRequired": true,
+    "publicEvidenceCitationsRequired": true,
+    "signedGitHistoryOrEquivalentVerifiableSignatureRequired": true,
+    "unresolvedDisagreementRequiresThirdPartyArbitration": true
+  },
+  "allowedScopeDecisions": [
+    "include_strict_sutra",
+    "exclude_strict_sutra",
+    "scope_uncertain"
+  ],
+  "allowedIdentityDecisions": [
+    "same_work",
+    "distinct_work",
+    "text_family_only",
+    "identity_uncertain",
+    "not_applicable"
+  ],
+  "reviewerDeclarations": [],
+  "decisions": [],
+  "arbitrations": [],
+  "summary": {
+    "declaredReviewers": 0,
+    "decisions": 0,
+    "arbitrations": 0,
+    "independentlyApprovedWorks": 0,
+    "independentlyExcludedWorks": 0,
+    "unresolvedConflicts": 0,
+    "denominatorChanges": 0
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/global-denominator-standard-v0.1",
+  "version": "0.1.0",
+  "generatedAt": "2026-08-16",
+  "titleZh": "foxue.ai 全球佛经作品分母与 99% 声明标准",
+  "status": "public_draft_not_publishable",
+  "inputs": {
+    "registry": {
+      "path": "data/gbcr/registry-v6.17.0.json",
+      "sha256": "2e96d94d868649017670cd248bac4dc9d69749d9bb58a34ec3713e05327958ea"
+    },
+    "scopeAudit": {
+      "path": "data/gbcr/buddha-word-scope-audit-v1.2.0.json",
+      "sha256": "4a3893829e15eed5023b5d5fc158e5eb8337324b48138b5c90d2437793a5070b"
+    },
+    "sourceSnapshots": {
+      "path": "data/gbcr/source-snapshots-v4.5.0.json",
+      "sha256": "cf5c6c65364c0c47f0c71a0f778d9526167751210148029118bbbee04716254a"
+    }
+  },
+  "firstPrinciples": [
+    "覆盖率必须先有有限、版本化、可反驳的分母。",
+    "物理文件、目录项、卷册、译本、版本见证和作品是不同实体，不得相加。",
+    "传统正典地位是可记录事实，不等于历史上的逐字亲说。",
+    "机器分类只能排序证据，不能替代独立真人学术裁决。",
+    "不确定项必须降低覆盖率下界，不能通过静默排除来提高百分比。",
+    "目录、完整原文、中文译文、权利和质量必须分别计算，不发布加权总分。"
+  ],
+  "target": {
+    "term": "全球佛经作品",
+    "targetPercentage": 99,
+    "unit": "经独立复核的去重 Work；Expression、Witness、卷、段和文件另行计量",
+    "currentPublishable": false,
+    "currentReason": "来源宇宙、范围政策、作品身份和独立双重复核均未闭合。"
+  },
+  "conservativeFormula": {
+    "denominator": "已批准纳入且身份已冻结的独立作品 + 尚未归入冻结作品的未决候选记录 + 经复核的已知缺失作品占位",
+    "numerator": "在相同冻结分母中，已批准纳入、身份已冻结并满足某一单独覆盖维度的作品",
+    "lowerBound": "numerator / conservative_denominator",
+    "unresolvedTreatment": "每个未决候选暂按一个可能作品计入分母，且不进入任何覆盖分子；即使可能重复，也不得先行合并。",
+    "externalUnknownTreatment": "任何尚未完成来源宇宙审计的外部空白都会使全球百分比保持 null，而不是记为 0 或忽略。"
+  },
+  "claimDimensions": [
+    {
+      "id": "catalog",
+      "labelZh": "全球作品编目",
+      "numeratorRule": "具有冻结 Work ID 与至少一条可核验目录证据"
+    },
+    {
+      "id": "full_source_text",
+      "labelZh": "完整原文",
+      "numeratorRule": "至少一个完整原语言 Expression 合法受控并通过结构校验"
+    },
+    {
+      "id": "chinese_translation",
+      "labelZh": "完整中文译文",
+      "numeratorRule": "完整中文译文与来源对齐；机器译文必须单独标记，不等同人工译审"
+    },
+    {
+      "id": "rights_publishable",
+      "labelZh": "权利可发布",
+      "numeratorRule": "逐对象许可、署名、用途、地域与再分发条件已冻结"
+    },
+    {
+      "id": "quality_approved",
+      "labelZh": "质量通过",
+      "numeratorRule": "来源、范围、结构、锚点与抽样文本均通过规定质量门"
+    }
+  ],
+  "publicationGates": [
+    {
+      "id": "G0",
+      "labelZh": "术语与范围政策",
+      "status": "partial",
+      "requirement": "严格经、密续、陀罗尼、疑似经、合集、律论边界公开且版本化"
+    },
+    {
+      "id": "G1",
+      "labelZh": "来源宇宙",
+      "status": "pending",
+      "requirement": "所有主要传统、语种、写本与地区见证的纳入或排除均有两份独立意见"
+    },
+    {
+      "id": "G2",
+      "labelZh": "候选记录规范化",
+      "status": "partial",
+      "requirement": "每条冻结来源记录映射为 Expression/Witness、未决记录或明确排除证据"
+    },
+    {
+      "id": "G3",
+      "labelZh": "作品范围双重复核",
+      "status": "pending",
+      "requirement": "每个可能作品至少两名独立真人给出具证据的范围决定"
+    },
+    {
+      "id": "G4",
+      "labelZh": "作品身份双重复核",
+      "status": "pending",
+      "requirement": "跨语言、跨版本聚类经双人一致；分歧由第三人仲裁"
+    },
+    {
+      "id": "G5",
+      "labelZh": "权利、全文与质量分层",
+      "status": "partial",
+      "requirement": "各覆盖维度的分子独立计算并可逐项复算"
+    },
+    {
+      "id": "G6",
+      "labelZh": "全球分母冻结",
+      "status": "pending",
+      "requirement": "分母版本、输入哈希、未决项和已知缺失项同时冻结"
+    },
+    {
+      "id": "G7",
+      "labelZh": "99% 发布",
+      "status": "pending",
+      "requirement": "仅当 G0–G6 全部通过且某一维度的保守下界不低于 99% 才可发布该维度声明"
+    }
+  ],
+  "governance": {
+    "standardFile": "data/gbcr/global-denominator-standard-v0.1.0.json",
+    "sourceUniverseFile": "data/gbcr/global-denominator-source-universe-v0.1.0.json",
+    "reviewQueueFile": "data/gbcr/global-denominator-review-queue-v0.1.0.json",
+    "reviewLedgerFile": "data/gbcr/global-denominator-review-ledger-v0.1.0.json",
+    "frozenCandidateRecords": 30797,
+    "registeredWorksQueued": 3377,
+    "independentHumanDecisions": 0,
+    "automaticMerges": 0,
+    "globalDenominator": null,
+    "globalPercentage": null
+  }
+}
