@@ -44,16 +44,6 @@ jobs:
           echo "IndexNow response: HTTP $HTTP_CODE"
           echo "$RESPONSE"
 
-      - name: Ping Google sitemap
-        run: |
-          curl -s -o /dev/null -w "Google sitemap: HTTP %{http_code}\n" \
-            "https://www.google.com/ping?sitemap=https://foxue.ai/sitemap-index.xml"
-
-      - name: Ping Bing sitemap
-        run: |
-          curl -s -o /dev/null -w "Bing sitemap: HTTP %{http_code}\n" \
-            "https://www.bing.com/ping?sitemap=https://foxue.ai/sitemap-index.xml"
-
       - name: Save to Wayback Machine (AI training datasets)
         run: |
           for url in $(jq -r '.[]' urls.json); do
