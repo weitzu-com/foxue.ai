@@ -8,26 +8,37 @@ on:
       - "src/**"
       - "data/**"
       - "public/**"
-      - "next.config.ts"
-
-concurrency:
-  group: geo-auto-submit
-  cancel-in-progress: true
 
 jobs:
   geo-submit:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     env:
-      INDEXNOW_KEY: ee56df32-2fd6-4889-8de5-9b5bc18a3a0b
+      INDEXNOW_HOST: www.foxue.ai
     steps:
-      - name: Verify canonical sitemap index
+      - name: Ping Google sitemap
         run: |
-          curl --fail-with-body --silent --show-error --retry 3 \
-            "https://www.foxue.ai/sitemap-index.xml" >/dev/null
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://www.google.com/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
+      - name: Ping Bing sitemap
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://www.bing.com/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
+      - name: Ping Yandex sitemap
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://webmaster.yandex.ru/ping?sitemap=https%3A%2F%2Fwww.foxue.ai%2Fsitemap-index.xml"
       - name: Submit core URLs to IndexNow
         run: |
-          curl --fail-with-body --silent --show-error --retry 3 \
+          KEY="ee56df32-2fd6-4889-8de5-9b5bc18a3a0b"
+          curl -s -o /dev/null -w "%{http_code}\n" \
             "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
-            -d "{\"host\":\"www.foxue.ai\",\"key\":\"$INDEXNOW_KEY\",\"keyLocation\":\"https://www.foxue.ai/$INDEXNOW_KEY.txt\",\"urlList\":[\"https://www.foxue.ai/\",\"https://www.foxue.ai/wenjing\",\"https://www.foxue.ai/jingzang\",\"https://www.foxue.ai/fugai\",\"https://www.foxue.ai/fenmu\",\"https://www.foxue.ai/shenjiao\",\"https://www.foxue.ai/yuanze\",\"https://www.foxue.ai/touming\"]}"
+            -d "{\"host\":\"www.foxue.ai\",\"key\":\"$KEY\",\"keyLocation\":\"https://www.foxue.ai/$KEY.txt\",\"urlList\":[\"https://www.foxue.ai/\",\"https://www.foxue.ai/wenjing\",\"https://www.foxue.ai/jingzang\",\"https://www.foxue.ai/fugai\",\"https://www.foxue.ai/fenmu\",\"https://www.foxue.ai/shenjiao\",\"https://www.foxue.ai/yuanze\",\"https://www.foxue.ai/touming\"]}"
+      - name: Save core pages to Wayback Machine
+        run: |
+          for url in "https://www.foxue.ai/" "https://www.foxue.ai/wenjing" "https://www.foxue.ai/jingzang" "https://www.foxue.ai/fugai" "https://www.foxue.ai/fenmu" "https://www.foxue.ai/shenjiao" "https://www.foxue.ai/yuanze" "https://www.foxue.ai/touming"; do
+            curl -s -o /dev/null -w "%{http_code} " "https://web.archive.org/save/$url"
+            sleep 3
+          done
+          echo ""
