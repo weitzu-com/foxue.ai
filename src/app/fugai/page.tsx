@@ -52,6 +52,7 @@ const dimensionNotes: Record<string, string> = {
   translation: "每种目标语言单独计算",
   rights: "逐对象核对许可与再分发条件",
   quality: "通过来源、结构与抽样复核",
+  buddha_word_scope: "经、密续、律、论、注疏史传与疑伪文本分层",
 };
 
 export default function CoveragePage() {
@@ -97,6 +98,23 @@ export default function CoveragePage() {
           <p>{sourceSnapshotInventory.warning}</p>
         </div>
         <div className="candidate-cards">
+          <article>
+            <span>佛陀教说范围规则审计</span>
+            <strong>
+              {snapshot.candidateInventory.buddhaWordScopeAudit.ruleClassifiedWorks.toLocaleString("zh-CN")}
+              <small> / {snapshot.candidateInventory.buddhaWordScopeAudit.registeredWorksAudited.toLocaleString("zh-CN")}</small>
+            </strong>
+            <p>
+              站内登记作品已全部完成保守规则分类，遗漏
+              {snapshot.candidateInventory.buddhaWordScopeAudit.registeredWorksUnclassified} 部；其中严格经藏候选
+              {snapshot.candidateInventory.buddhaWordScopeAudit.strictSutraCandidateWorks.toLocaleString("zh-CN")} 部，
+              已有完整来源全文
+              {snapshot.candidateInventory.buddhaWordScopeAudit.strictSutraCandidateWorksWithFullSource.toLocaleString("zh-CN")} 部。
+              独立专家批准仍为
+              {snapshot.candidateInventory.buddhaWordScopeAudit.independentExpertApprovedWorks} 部。
+            </p>
+            <small>{snapshot.candidateInventory.buddhaWordScopeAudit.caveat}</small>
+          </article>
           {sourceSnapshotInventory.sources.map((source) => (
             <article key={source.id}>
               <span>{sourceLabels[source.id] ?? source.id}</span>

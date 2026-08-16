@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.16.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.17.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.5.0.json";
 
 type Expression = {
@@ -756,6 +756,20 @@ export function buildCoverageSnapshot() {
           : null,
         denominatorCaveat: source.denominatorCaveat,
       })),
+      buddhaWordScopeAudit: {
+        registeredWorksAudited: corpusRegistry.buddhaWordScopeAudit.registeredWorksAudited,
+        registeredWorksUnclassified: corpusRegistry.buddhaWordScopeAudit.registeredWorksUnclassified,
+        ruleClassifiedWorks: corpusRegistry.buddhaWordScopeAudit.ruleClassifiedWorks,
+        independentExpertApprovedWorks: corpusRegistry.buddhaWordScopeAudit.independentExpertApprovedWorks,
+        strictSutraCandidateWorks: corpusRegistry.buddhaWordScopeAudit.strictSutraCandidateWorks,
+        strictSutraCandidateWorksWithFullSource: corpusRegistry.buddhaWordScopeAudit.strictSutraCandidateWorksWithFullSource,
+        categoryCounts: corpusRegistry.buddhaWordScopeAudit.categoryCounts,
+        strictScopeDecisionCounts: corpusRegistry.buddhaWordScopeAudit.strictScopeDecisionCounts,
+        globalDenominatorImpact: corpusRegistry.buddhaWordScopeAudit.globalDenominatorImpact,
+        auditSha256: corpusRegistry.buddhaWordScopeAudit.auditSha256,
+        unit: "GBCR v6.17 中全部已登记作品的保守规则范围分类",
+        caveat: corpusRegistry.buddhaWordScopeAudit.caveat,
+      },
       dergeKangyurFullTextWitness: {
         denominator: dergeExpressionRecords,
         controlled: dergeControlledExpressions,
