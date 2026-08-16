@@ -19,10 +19,17 @@ jobs:
         run: |
           cat << 'EOF' > urls.json
           [
-            "https://foxue.ai/",
-            "https://foxue.ai/llms.txt",
-            "https://foxue.ai/ai.txt",
-            "https://foxue.ai/sitemap-index.xml"
+            "https://www.foxue.ai/",
+            "https://www.foxue.ai/wenjing",
+            "https://www.foxue.ai/jingzang",
+            "https://www.foxue.ai/fugai",
+            "https://www.foxue.ai/fenmu",
+            "https://www.foxue.ai/shenjiao",
+            "https://www.foxue.ai/yuanze",
+            "https://www.foxue.ai/touming",
+            "https://www.foxue.ai/llms.txt",
+            "https://www.foxue.ai/ai.txt",
+            "https://www.foxue.ai/sitemap-index.xml"
           ]
           EOF
           echo 'Submission list:' && cat urls.json
@@ -35,9 +42,9 @@ jobs:
           RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d "{
-              \"host\": \"foxue.ai\",
+              \"host\": \"www.foxue.ai\",
               \"key\": \"${INDEXNOW_KEY}\" ,
-              \"keyLocation\": \"https://foxue.ai/${INDEXNOW_KEY}.txt\",
+              \"keyLocation\": \"https://www.foxue.ai/${INDEXNOW_KEY}.txt\",
               \"urlList\": ${URLS}
             }")
           HTTP_CODE=$(echo "$RESPONSE" | tail -1)
