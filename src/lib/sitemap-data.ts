@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { sutras } from "@/data/sutras";
 import { getSutraReading } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
+import { canonicalSiteUrl } from "@/lib/site-url";
 
 export const sitemapChunkSize = 40_000;
 
@@ -9,14 +10,13 @@ let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
 
 export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   entriesPromise ??= (async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai";
     const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/fenmu", "/shenjiao", "/yuanze", "/touming"];
     const readings = await Promise.all(
       sutras.map(async (sutra) => ({ sutra, reading: await getSutraReading(sutra) })),
     );
     const folioRoutes = readings.flatMap(({ sutra, reading }) =>
       reading.navigation.map((item) => ({
-        url: `${baseUrl}${folioHref(sutra.slug, item.key)}`,
+        url: `${canonicalSiteUrl}${folioHref(sutra.slug, item.key)}`,
         lastModified: new Date("2026-08-14"),
         changeFrequency: "yearly" as const,
         priority: 0.6,
@@ -25,13 +25,13 @@ export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
 
     return [
       ...staticRoutes.map((path) => ({
-        url: `${baseUrl}${path}`,
+        url: `${canonicalSiteUrl}${path}`,
         lastModified: new Date("2026-08-14"),
         changeFrequency: path === "" ? ("weekly" as const) : ("monthly" as const),
         priority: path === "" ? 1 : 0.8,
       })),
       ...sutras.map((sutra) => ({
-        url: `${baseUrl}/jingzang/${sutra.slug}`,
+        url: `${canonicalSiteUrl}/jingzang/${sutra.slug}`,
         lastModified: new Date("2026-08-14"),
         changeFrequency: "monthly" as const,
         priority: 0.7,

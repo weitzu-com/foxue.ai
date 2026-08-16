@@ -78,7 +78,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("application/xml");
   const sitemapIndex = await response.text();
   const childSitemaps = [...sitemapIndex.matchAll(
-    /<loc>https:\/\/foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
+    /<loc>https:\/\/www\.foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
   )].map((match) => match[1]);
   expect(childSitemaps.length).toBeGreaterThan(0);
   expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
@@ -89,7 +89,7 @@ test("站点地图入口页使用自引用 canonical", async ({ page }) => {
     await page.goto(path);
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     expect(canonical).not.toBeNull();
-    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://foxue.ai").href);
+    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://www.foxue.ai").href);
   }
 });
 
@@ -997,7 +997,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     registry: expect.stringContaining("registry-v6.18.0.json"),
-    globalDenominatorHuman: "https://foxue.ai/fenmu",
+    globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
     globalDenominatorReviewQueue: expect.stringContaining("global-denominator-review-queue-v0.1.0.json"),

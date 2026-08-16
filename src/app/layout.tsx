@@ -2,16 +2,16 @@ import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { canonicalSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 const gaMeasurementId = /^G-[A-Z0-9]+$/.test(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "")
   ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   : undefined;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(canonicalSiteUrl),
   title: {
     default: "foxue.ai｜从问题，回到原典",
     template: "%s｜foxue.ai",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "zh_CN",
-    url: siteUrl,
+    url: canonicalSiteUrl,
     siteName: "foxue.ai",
     title: "foxue.ai｜从问题，回到原典",
     description: "全球佛学交流的可信 AI 平台。让每一个问题回到可核验的原典。",
@@ -57,13 +57,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@graph": [
       {
         "@type": "Organization",
-        "@id": `${siteUrl}/#organization`,
+        "@id": `${canonicalSiteUrl}/#organization`,
         name: "foxue.ai",
-        url: siteUrl,
+        url: canonicalSiteUrl,
         slogan: "从问题，回到原典",
         description:
           "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
-        logo: `${siteUrl}/logo.png`,
         areaServed: ["CN", "US", "TW", "HK", "SG", "JP", "KR", "VN"],
         knowsAbout: [
           "佛教",
@@ -78,22 +77,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "support",
-          url: `${siteUrl}/touming`,
+          url: `${canonicalSiteUrl}/touming`,
         },
       },
       {
         "@type": "WebSite",
-        "@id": `${siteUrl}/#website`,
-        url: siteUrl,
+        "@id": `${canonicalSiteUrl}/#website`,
+        url: canonicalSiteUrl,
         name: "foxue.ai",
         inLanguage: ["zh-Hans", "zh-Hant", "en"],
-        publisher: { "@id": `${siteUrl}/#organization` },
+        publisher: { "@id": `${canonicalSiteUrl}/#organization` },
       },
       {
         "@type": "WebApplication",
-        "@id": `${siteUrl}/#webapp`,
+        "@id": `${canonicalSiteUrl}/#webapp`,
         name: "foxue.ai 佛典 AI",
-        url: siteUrl,
+        url: canonicalSiteUrl,
         applicationCategory: "ReferenceApplication",
         operatingSystem: "Any",
         inLanguage: ["zh-Hans", "zh-Hant", "en"],

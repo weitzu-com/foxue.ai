@@ -1,4 +1,5 @@
 import { buildCoverageSnapshot, corpusRegistry } from "@/lib/corpus-registry";
+import { canonicalSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
@@ -7,9 +8,9 @@ export function GET() {
     {
       ...buildCoverageSnapshot(),
       links: {
-        human: "https://foxue.ai/fugai",
+        human: `${canonicalSiteUrl}/fugai`,
         registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.18.0.json",
-        globalDenominatorHuman: "https://foxue.ai/fenmu",
+        globalDenominatorHuman: `${canonicalSiteUrl}/fenmu`,
         globalDenominatorStandard: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-standard-v0.1.0.json",
         globalDenominatorSourceUniverse: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-source-universe-v0.1.0.json",
         globalDenominatorReviewQueue: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-review-queue-v0.1.0.json",

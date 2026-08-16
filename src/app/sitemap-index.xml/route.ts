@@ -1,4 +1,5 @@
 import { getSitemapIds } from "@/lib/sitemap-data";
+import { canonicalSiteUrl } from "@/lib/site-url";
 
 export const revalidate = 86400;
 
@@ -12,10 +13,9 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.foxue.ai").replace(/\/+$/, "");
   const sitemapIds = await getSitemapIds();
   const sitemaps = sitemapIds
-    .map(({ id }) => `<sitemap><loc>${escapeXml(`${baseUrl}/sitemap/${id}.xml`)}</loc></sitemap>`)
+    .map(({ id }) => `<sitemap><loc>${escapeXml(`${canonicalSiteUrl}/sitemap/${id}.xml`)}</loc></sitemap>`)
     .join("\n");
 
   return new Response(
