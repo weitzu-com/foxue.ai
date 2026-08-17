@@ -16,6 +16,7 @@ async function readSitemaps(request: APIRequestContext) {
 const criticalRoutes = [
   "/",
   "/wenjing",
+  "/gainian/kong",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -64,6 +65,7 @@ const criticalRoutes = [
 const sitemapLandingRoutes = [
   "/",
   "/wenjing",
+  "/gainian/kong",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -120,6 +122,64 @@ test("问经结果同时展示结论、范围和原典证据", async ({ page }) 
   await expect(sourceLink).toHaveAttribute("href", /\/jingzang\/xinjing\/001-0848c#/);
   expect(new URL(page.url()).search).toBe("");
   expect(page.url()).not.toContain(encodeURIComponent(question));
+});
+
+test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ page, request }) => {
+  await page.goto("/gainian/kong");
+
+  await expect(page.getByRole("heading", { level: 1, name: /空.*不是一个.*脱离语境的答案/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "同一个汉字，不抹平三种文本层次。" })).toBeVisible();
+  await expect(page.getByText("suñña · suññatā", { exact: true })).toBeVisible();
+  await expect(page.getByText("中观 · 唯识 · 禅等", { exact: true })).toBeVisible();
+  await expect(page.getByText("空 = 什么都不存在", { exact: true })).toBeVisible();
+
+  const originalLinks = page.getByRole("link", { name: "站内稳定原文" });
+  await expect(originalLinks).toHaveCount(4);
+  await expect(originalLinks.nth(0)).toHaveAttribute(
+    "href",
+    "/jingzang/samyutta-nikaya-sn35/068-sn35-85-0001-0013#sn35.85:1.4",
+  );
+  await expect(originalLinks.nth(1)).toHaveAttribute(
+    "href",
+    "/jingzang/majjhima-nikaya-mn121/001-mn121-0001-0102#mn121:4.10",
+  );
+  await expect(originalLinks.nth(2)).toHaveAttribute(
+    "href",
+    "/jingzang/xinjing/001-0848c#T0251.001.0848c07",
+  );
+
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+
+  const sitemap = await request.get("/sitemap/0.xml");
+  expect(sitemap.ok()).toBeTruthy();
+  expect(await sitemap.text()).toContain("/gainian/kong");
+});
+
+test("首页搜索建议与问经结果都能进入空概念 Hub", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("空");
+  const searchHubLink = page.getByRole("link", { name: /进入概念页/ });
+  await expect(searchHubLink).toBeVisible();
+  await searchHubLink.click();
+  await page.waitForURL(/\/gainian\/kong$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("佛教里的空是什么意思？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const askHubLink = page.getByRole("link", { name: /进入“空”概念 Hub/ });
+  await expect(askHubLink).toBeVisible();
+  await askHubLink.click();
+  await page.waitForURL(/\/gainian\/kong$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {

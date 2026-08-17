@@ -2,7 +2,7 @@
 
 import { type FormEvent, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpenCheck, Search, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Network, Search, ShieldCheck } from "lucide-react";
 import { EvidenceCard } from "@/components/evidence-card";
 import { StatusPill } from "@/components/status-pill";
 import { buildResearchResult } from "@/lib/research";
@@ -100,6 +100,23 @@ export function AskExperience() {
               <p>系统只综合当前证据，不授记、不代替师承，也不把单一传统包装成唯一答案。</p>
             </div>
           </div>
+          {result.concept && (
+            <Link
+              className="answer-concept-link"
+              href={result.concept.href}
+              onClick={() => trackEvent("concept_opened", {
+                entry_point: "ask_result",
+                concept: result.concept?.slug,
+              })}
+            >
+              <Network aria-hidden="true" />
+              <span>
+                <small>继续分辨术语与传统边界</small>
+                <strong>进入“{result.concept.title}”概念 Hub</strong>
+              </span>
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          )}
         </article>
 
         <aside className="evidence-panel" aria-labelledby="evidence-title">
