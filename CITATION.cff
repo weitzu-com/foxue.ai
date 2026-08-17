@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use foxue.ai or its corpus in your research or teaching, please cite it as below."
+title: "foxue.ai"
+abstract: >-
+  Multilingual Buddhist canon reader with paragraph-level citations: Chinese
+  (CBETA Taisho), Pali (full Tipitaka), Sanskrit, and Tibetan (Derge Kangyur).
+  Every passage points back to its source edition, version, and paragraph.
+  Open source (Apache-2.0).
+authors:
+  - name: "foxue.ai contributors"
+    website: "https://foxue.ai"
+repository-code: "https://github.com/weitzu-com/foxue.ai"
+url: "https://foxue.ai"
+keywords:
+  - Buddhism
+  - Buddhist canon
+  - digital humanities
+  - Pali canon
+  - Chinese Buddhist texts
+  - Tibetan canon
+  - Sanskrit
+license: Apache-2.0
+version: 6.18.0
+date-released: 2026-08-17
