@@ -1292,6 +1292,7 @@ test("全球分母页公开保守公式、外部空白和真人审校门", async
   expect(itemReviewUrl.searchParams.get("template")).toBe("global-denominator-review.yml");
   expect(itemReviewUrl.searchParams.get("queue_id")).toBe("gdrq:candrasutra-sanskrit-sf276");
   expect(itemReviewUrl.searchParams.get("source_scope")).toContain("suttacentral: sf276");
+  expect(itemReviewUrl.searchParams.get("source_scope")).toContain("人工核验补充（必填）：");
 
   await page.goto("/fenmu?priority=P0#global-review-queue");
   await expect(page.locator(".global-review-card")).toHaveCount(2);

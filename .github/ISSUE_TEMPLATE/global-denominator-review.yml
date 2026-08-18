@@ -14,7 +14,16 @@ body:
     attributes:
       label: 队列 ID
       description: 从 global-denominator-review-queue-v0.1.0.json 复制完整 queueId。
-      placeholder: gbcr:global-denominator:...
+      placeholder: gdrq:...
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: 机构或独立身份
+      description: 填写当前主要机构；无所属机构时写“独立研究者：国家/地区”。自动共识要求两名复核者来自不同机构。
+      placeholder: 某某大学 / 独立研究者：中国
     validations:
       required: true
 
@@ -30,7 +39,7 @@ body:
     id: source_scope
     attributes:
       label: 来源、底本与文本范围
-      description: 列出目录号、版本、卷页、稳定段落或持久链接；说明是整部、合集组件、节译、版本见证、残片还是引用。
+      description: 列出目录号、版本、卷页、稳定段落或持久链接；说明是整部、合集组件、节译、版本见证、残片还是引用。若此字段已由工作台预填，必须在“人工核验补充（必填）”后写入至少 20 字的本人核验结果。
     validations:
       required: true
 
@@ -74,6 +83,17 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: source_and_range_decision
+    attributes:
+      label: 来源与范围核验意见
+      options:
+        - source_uncertain
+        - source_supported
+        - source_rejected
+    validations:
+      required: true
+
   - type: textarea
     id: supporting_evidence
     attributes:
@@ -112,6 +132,8 @@ body:
       label: 复核声明
       options:
         - label: 我是对本意见负责的自然人；AI 未代替我署名或作出最终判断。
+          required: true
+        - label: 我在查看其他复核者的结论前独立完成本次判断。
           required: true
         - label: 我具备或已如实说明核对相关语言、目录与版本证据的能力。
           required: true

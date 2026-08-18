@@ -99,6 +99,7 @@ function issueUrl(item: ReviewItem) {
     `外部编号：${identifiers || "无"}`,
     `机器规则：${item.machineRuleId}`,
     "以上仅为机器整理的定位信息，请由复核者逐项核验底本、范围与版本关系。",
+    "人工核验补充（必填）：",
   ].join("\n");
   const params = new URLSearchParams({
     template: "global-denominator-review.yml",

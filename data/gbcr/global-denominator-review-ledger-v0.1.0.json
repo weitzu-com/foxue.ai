@@ -14,6 +14,7 @@
     "aiSystemsCannotCountAsIndependentReviewers": true,
     "minimumIndependentReviewersPerLane": 2,
     "sameInstitutionPairRequiresPublishedIndependenceJustification": true,
+    "automatedConsensusRequiresDistinctInstitutions": true,
     "conflictOfInterestDeclarationRequired": true,
     "relevantLanguageAndTextualCompetenceRequired": true,
     "publicEvidenceCitationsRequired": true,

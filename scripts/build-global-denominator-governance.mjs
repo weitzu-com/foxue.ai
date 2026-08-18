@@ -1,6 +1,10 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import {
+  arbitratorIsInstitutionallyIndependent,
+  hasInstitutionallyIndependentPair,
+} from "./global-review-consensus.mjs";
 
 const root = process.cwd();
 const verifyMode = process.argv.includes("--verify");
@@ -262,6 +266,11 @@ const requireString = (record, field, label) => {
   }
   return record[field];
 };
+const requireIsoTimestamp = (record, field, label) => {
+  const value = requireString(record, field, label);
+  if (!Number.isFinite(Date.parse(value))) throw new Error(`${label} 的 ${field} 不是有效 ISO 时间`);
+  return value;
+};
 const requireUniqueIds = (records, field, label) => {
   const ids = records.map((record) => requireString(record, field, label));
   if (new Set(ids).size !== ids.length) throw new Error(`${label} ${field} 不唯一`);
@@ -276,7 +285,7 @@ const requireEvidence = (record, label) => {
     throw new Error(`${label} 必须至少包含一个 HTTPS 证据链接`);
   }
   requireString(record, "rationale", label);
-  requireString(record, "submittedAt", label);
+  requireIsoTimestamp(record, "submittedAt", label);
 };
 
 const reviewerIds = requireUniqueIds(durableReviewRecords.reviewerDeclarations, "reviewerId", "复核者声明");
@@ -287,9 +296,25 @@ for (const declaration of durableReviewRecords.reviewerDeclarations) {
   if (!Array.isArray(declaration.competence) || declaration.competence.length === 0) {
     throw new Error(`${declaration.reviewerId} 缺少能力声明`);
   }
+  if (declaration.competence.some((entry) => typeof entry !== "string" || !entry.trim())) {
+    throw new Error(`${declaration.reviewerId} 的能力声明含空值`);
+  }
+  requireString(declaration, "institution", `${declaration.reviewerId} 复核者声明`);
   requireString(declaration, "conflictOfInterest", `${declaration.reviewerId} 复核者声明`);
   requireString(declaration, "signature", `${declaration.reviewerId} 复核者声明`);
+  const sourceIssueUrl = requireString(declaration, "sourceIssueUrl", `${declaration.reviewerId} 复核者声明`);
+  if (!/^https:\/\/github\.com\/weitzu-com\/foxue\.ai\/issues\/\d+$/.test(sourceIssueUrl)) {
+    throw new Error(`${declaration.reviewerId} 的 sourceIssueUrl 不是本仓库复核 Issue`);
+  }
+  const verifiedBy = requireString(declaration, "verifiedBy", `${declaration.reviewerId} 复核者声明`);
+  if (!/^github:[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/.test(verifiedBy) || verifiedBy === declaration.reviewerId) {
+    throw new Error(`${declaration.reviewerId} 缺少独立 GitHub 验收者`);
+  }
+  requireIsoTimestamp(declaration, "verifiedAt", `${declaration.reviewerId} 复核者声明`);
 }
+const reviewerDeclarationsById = new Map(
+  durableReviewRecords.reviewerDeclarations.map((declaration) => [declaration.reviewerId, declaration]),
+);
 
 const queueIds = new Set(reviewItems.map((item) => item.queueId));
 const decisionIds = requireUniqueIds(durableReviewRecords.decisions, "decisionId", "独立复核决定");
@@ -299,6 +324,7 @@ const outcomeKeyByLane = {
   identity: { key: "identityDecision", allowed: allowedIdentityDecisions },
   source_and_range: { key: "sourceAndRangeDecision", allowed: allowedSourceAndRangeDecisions },
 };
+const reviewerLaneKeys = new Set();
 for (const decision of durableReviewRecords.decisions) {
   const label = `${decision.decisionId} 独立复核决定`;
   const queueId = requireString(decision, "queueId", label);
@@ -307,11 +333,34 @@ for (const decision of durableReviewRecords.decisions) {
   if (!queueIds.has(queueId)) throw new Error(`${label} 引用了不存在的 queueId ${queueId}`);
   if (!reviewerIds.has(reviewerId)) throw new Error(`${label} 引用了未声明的复核者 ${reviewerId}`);
   if (decision.independent !== true) throw new Error(`${label} 未声明独立完成`);
+  const reviewerLaneKey = `${queueId}\u0000${lane}\u0000${reviewerId}`;
+  if (reviewerLaneKeys.has(reviewerLaneKey)) throw new Error(`${label} 与同一复核者既有同任务审校线决定重复`);
+  reviewerLaneKeys.add(reviewerLaneKey);
   const outcomeSpec = outcomeKeyByLane[lane];
   if (!outcomeSpec || !outcomeSpec.allowed.includes(decision[outcomeSpec.key])) {
     throw new Error(`${label} 的 ${lane} 结论不在允许值内`);
   }
   requireEvidence(decision, label);
+  const sourceIssueUrl = requireString(decision, "sourceIssueUrl", label);
+  if (!/^https:\/\/github\.com\/weitzu-com\/foxue\.ai\/issues\/\d+$/.test(sourceIssueUrl)) {
+    throw new Error(`${label} 的 sourceIssueUrl 不是本仓库复核 Issue`);
+  }
+  if (!/^[a-f0-9]{64}$/.test(requireString(decision, "submissionSha256", label))) {
+    throw new Error(`${label} 的 submissionSha256 不是 SHA-256`);
+  }
+  requireString(decision, "reviewerIdentityAndCompetence", label);
+  requireString(decision, "reviewerInstitution", label);
+  requireString(decision, "conflictOfInterest", label);
+  requireString(decision, "sourceScope", label);
+  requireString(decision, "supportingEvidence", label);
+  const acceptedBy = requireString(decision, "acceptedBy", label);
+  if (!/^github:[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/.test(acceptedBy) || acceptedBy === reviewerId) {
+    throw new Error(`${label} 缺少独立 GitHub 验收者`);
+  }
+  const acceptedAt = requireIsoTimestamp(decision, "acceptedAt", label);
+  if (Date.parse(acceptedAt) < Date.parse(decision.submittedAt)) {
+    throw new Error(`${label} 的 acceptedAt 早于 submittedAt`);
+  }
 }
 
 requireUniqueIds(durableReviewRecords.arbitrations, "arbitrationId", "仲裁记录");
@@ -337,6 +386,14 @@ for (const arbitration of durableReviewRecords.arbitrations) {
   if (referencedDecisions.some((decision) => decision.reviewerId === reviewerId)) {
     throw new Error(`${label} 的仲裁者不得是原决定复核者`);
   }
+  if (arbitration.independent !== true) throw new Error(`${label} 未声明独立完成`);
+  if (!arbitratorIsInstitutionallyIndependent(
+    reviewerId,
+    referencedDecisions.map((decision) => decision.reviewerId),
+    reviewerDeclarationsById,
+  )) {
+    throw new Error(`${label} 的仲裁者机构必须独立于原决定复核者`);
+  }
   const outcomeSpec = outcomeKeyByLane[lane];
   if (!outcomeSpec || !outcomeSpec.allowed.includes(arbitration[outcomeSpec.key])) {
     throw new Error(`${label} 的 ${lane} 结论不在允许值内`);
@@ -345,6 +402,21 @@ for (const arbitration of durableReviewRecords.arbitrations) {
     throw new Error(`${label} 未引用具有实质分歧的决定`);
   }
   requireEvidence(arbitration, label);
+  const sourceIssueUrl = requireString(arbitration, "sourceIssueUrl", label);
+  if (!/^https:\/\/github\.com\/weitzu-com\/foxue\.ai\/issues\/\d+$/.test(sourceIssueUrl)) {
+    throw new Error(`${label} 的 sourceIssueUrl 不是本仓库复核 Issue`);
+  }
+  if (!/^[a-f0-9]{64}$/.test(requireString(arbitration, "submissionSha256", label))) {
+    throw new Error(`${label} 的 submissionSha256 不是 SHA-256`);
+  }
+  const acceptedBy = requireString(arbitration, "acceptedBy", label);
+  if (!/^github:[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/.test(acceptedBy) || acceptedBy === reviewerId) {
+    throw new Error(`${label} 缺少独立 GitHub 验收者`);
+  }
+  const acceptedAt = requireIsoTimestamp(arbitration, "acceptedAt", label);
+  if (Date.parse(acceptedAt) < Date.parse(arbitration.submittedAt)) {
+    throw new Error(`${label} 的 acceptedAt 早于 submittedAt`);
+  }
   arbitrationOutcomesByQueueAndLane.set(`${queueId}\u0000${lane}`, arbitration[outcomeSpec.key]);
 }
 
@@ -364,7 +436,9 @@ const consensusFor = (queueId, lane) => {
   if (arbitratedOutcome) return arbitratedOutcome;
   const outcomes = laneOutcomesByQueue.get(key) ?? new Map();
   if (outcomes.size !== 1) return null;
-  return [...outcomes.entries()].find(([, reviewers]) => reviewers.size >= 2)?.[0] ?? null;
+  return [...outcomes.entries()].find(([, reviewers]) => (
+    reviewers.size >= 2 && hasInstitutionallyIndependentPair(reviewers, reviewerDeclarationsById)
+  ))?.[0] ?? null;
 };
 let independentlyApprovedWorks = 0;
 let independentlyExcludedWorks = 0;
@@ -395,7 +469,12 @@ for (const queueId of queueIds) {
 const reviewLedger = {
   schema: "https://foxue.ai/schemas/gbcr/global-denominator-review-ledger-v0.1",
   version: "0.1.0",
-  generatedAt: "2026-08-16",
+  generatedAt: [
+    "2026-08-16T00:00:00Z",
+    ...durableReviewRecords.reviewerDeclarations.map((record) => record.verifiedAt),
+    ...durableReviewRecords.decisions.map((record) => record.acceptedAt),
+    ...durableReviewRecords.arbitrations.map((record) => record.acceptedAt),
+  ].filter((value) => Number.isFinite(Date.parse(value))).sort().at(-1).slice(0, 10),
   status: durableReviewRecords.decisions.length === 0
     ? "open_for_independent_human_review_no_decisions_recorded"
     : "open_for_independent_human_review",
@@ -407,6 +486,7 @@ const reviewLedger = {
     aiSystemsCannotCountAsIndependentReviewers: true,
     minimumIndependentReviewersPerLane: 2,
     sameInstitutionPairRequiresPublishedIndependenceJustification: true,
+    automatedConsensusRequiresDistinctInstitutions: true,
     conflictOfInterestDeclarationRequired: true,
     relevantLanguageAndTextualCompetenceRequired: true,
     publicEvidenceCitationsRequired: true,
