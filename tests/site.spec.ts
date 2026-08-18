@@ -1272,6 +1272,30 @@ test("全球分母页公开保守公式、外部空白和真人审校门", async
     "href",
     "https://github.com/weitzu-com/foxue.ai/issues/new?template=global-denominator-review.yml",
   );
+  await expect(page.getByRole("heading", { level: 2, name: /把 3,377 个未知/ })).toBeVisible();
+  await expect(page.locator(".global-review-card")).toHaveCount(20);
+  await expect(page.getByText("机器初筛 · 不是学术结论").first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /下一页/ })).toHaveAttribute(
+    "href",
+    "/fenmu?reviewPage=2#global-review-queue",
+  );
+
+  await page.getByRole("searchbox", { name: "检索 3377 项全球分母任务" }).fill("sf276");
+  await page.getByRole("button", { name: /应用筛选/ }).click();
+  await expect.poll(() => new URL(page.url()).searchParams.get("q")).toBe("sf276");
+  expect(new URL(page.url()).hash).toBe("#global-review-queue");
+  await expect(page.locator(".global-review-card")).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 3, name: "月经（梵文本）" })).toBeVisible();
+  const itemReviewHref = await page.getByRole("link", { name: /填写本项具名复核/ }).getAttribute("href");
+  expect(itemReviewHref).not.toBeNull();
+  const itemReviewUrl = new URL(itemReviewHref!);
+  expect(itemReviewUrl.searchParams.get("template")).toBe("global-denominator-review.yml");
+  expect(itemReviewUrl.searchParams.get("queue_id")).toBe("gdrq:candrasutra-sanskrit-sf276");
+  expect(itemReviewUrl.searchParams.get("source_scope")).toContain("suttacentral: sf276");
+
+  await page.goto("/fenmu?priority=P0#global-review-queue");
+  await expect(page.locator(".global-review-card")).toHaveCount(2);
+  await expect(page.locator(".global-review-results__header strong")).toHaveText("2");
 
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/fenmu");
