@@ -5,6 +5,7 @@ import standard from "../../../data/gbcr/global-denominator-standard-v0.1.0.json
 import sourceUniverse from "../../../data/gbcr/global-denominator-source-universe-v0.1.0.json";
 import reviewLedger from "../../../data/gbcr/global-denominator-review-ledger-v0.1.0.json";
 import { corpusRegistry } from "@/lib/corpus-registry";
+import GlobalReviewWorkbench, { type GlobalReviewSearchParams } from "./global-review-workbench";
 
 export const metadata: Metadata = {
   title: "全球佛经作品分母",
@@ -27,8 +28,13 @@ const statusLabels: Record<string, string> = {
   pending: "待完成",
 };
 
-export default function GlobalDenominatorPage() {
+export default async function GlobalDenominatorPage({
+  searchParams,
+}: {
+  searchParams: Promise<GlobalReviewSearchParams>;
+}) {
   const governance = corpusRegistry.globalDenominatorGovernance;
+  const resolvedSearchParams = await searchParams;
 
   return (
     <main className="denominator-page">
@@ -155,6 +161,8 @@ export default function GlobalDenominatorPage() {
           ))}
         </dl>
       </section>
+
+      <GlobalReviewWorkbench searchParams={resolvedSearchParams} />
 
       <section className="denominator-artifacts page-shell">
         <h2>所有判断，都能回到原始文件。</h2>
