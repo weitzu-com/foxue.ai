@@ -38,10 +38,19 @@ async function request(pathname, init = {}) {
   }
 }
 
-const [health, ready, latest, nameservers] = await Promise.all([
+const [health, ready, latest, latestBare, latestThirdParty, preflight, nameservers] = await Promise.all([
   request("/health"),
   request("/ready"),
+  request("/v1/latest.json", { headers: { origin: "https://www.foxue.ai" } }),
   request("/v1/latest.json", { headers: { origin: "https://foxue.ai" } }),
+  request("/v1/latest.json", { headers: { origin: "https://example.com" } }),
+  request("/v1/latest.json", {
+    method: "OPTIONS",
+    headers: {
+      origin: "https://www.foxue.ai",
+      "access-control-request-method": "GET",
+    },
+  }),
   resolveNs("foxue.ai").catch((error) => {
     failures.push(`无法解析 foxue.ai NS：${error instanceof Error ? error.message : String(error)}`);
     return [];
@@ -142,9 +151,9 @@ if (latest && health) {
     "发行指针与健康状态的清单哈希不一致",
   );
   check(
-    latest.response.headers.get("access-control-allow-origin") === "https://foxue.ai",
-    "发行指针仅允许 foxue.ai 跨域读取",
-    "发行指针 CORS 不正确",
+    latest.response.headers.get("access-control-allow-origin") === "https://www.foxue.ai",
+    "发行指针允许规范 www 域名跨域读取",
+    "发行指针缺少规范 www 域名 CORS",
   );
   check(
     typeof latest.body?.manifestObjectKey === "string" &&
@@ -153,6 +162,32 @@ if (latest && health) {
     "发行清单对象键无效",
   );
   if (typeof latest.body?.manifestObjectKey === "string") manifestPath = `/${latest.body.manifestObjectKey}`;
+}
+
+if (latestBare) {
+  check(
+    latestBare.response.headers.get("access-control-allow-origin") === "https://foxue.ai",
+    "发行指针允许裸域跨域读取",
+    "发行指针缺少裸域 CORS",
+  );
+}
+
+if (latestThirdParty) {
+  check(
+    latestThirdParty.response.headers.get("access-control-allow-origin") === null,
+    "第三方来源未获得跨域权限",
+    "第三方来源被错误授予跨域权限",
+  );
+}
+
+if (preflight) {
+  check(
+    preflight.response.status === 204 &&
+      preflight.response.headers.get("access-control-allow-origin") === "https://www.foxue.ai" &&
+      preflight.response.headers.get("access-control-allow-methods")?.includes("GET"),
+    "规范 www 域名预检请求通过",
+    "规范 www 域名预检响应不正确",
+  );
 }
 
 if (manifestPath && health) {
