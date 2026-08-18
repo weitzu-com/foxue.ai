@@ -1,4 +1,4 @@
-# foxue.ai 总目标完成审计（2026-08-18）
+# foxue.ai 总目标完成审计（更新于 2026-08-19）
 
 本文件按“可证明才算完成”的原则，逐项审计 foxue.ai 的总目标：公开 GitHub 仓库、Vercel 生产部署、Cloudflare 自动化解析与经藏分发、中文可信佛学 AI、可延续 100 年的保存机制，以及佛陀教说全球作品覆盖率超过 99%。
 
@@ -6,7 +6,7 @@
 
 ## 1. 结论
 
-截至 2026-08-18，总目标**尚未完成**。
+截至 2026-08-19，总目标**尚未完成**。
 
 已经成立的部分：
 
@@ -17,6 +17,8 @@
 - `www.foxue.ai`、裸域 CORS、第三方来源拒绝、OPTIONS 预检、安全头和只读门禁已通过生产验证；
 - 经藏固定来源内已有大规模可复算全文、目录、权利和段落资产；
 - R2 原子发布、不可变发行、季度全量恢复演练的下一阶段自动化已合并至主线并通过 CI。
+- 3,377 项全球分母任务已有公开、可搜索、可分页的人工复核工作台；
+- GitHub Issue Form、候选制品、实时 Issue 重验、独立接收、机构版本快照和共识门已经进入主线，自动化不能自行写入真人决定账本。
 
 尚未成立的部分：
 
@@ -31,13 +33,13 @@
 | 原始要求 | 完成标准 | 当前证据 | 判定 |
 |---|---|---|---|
 | GitHub 建仓 | 公开仓库可访问、主线存在、维护者有权限 | `weitzu-com/foxue.ai`，仓库 ID `1330028206`，公开，默认分支 `main`；连接账户报告 admin/push 权限 | 已完成 |
-| Vercel 部署 | 当前生产部署为 Ready，`www.foxue.ai` 可从公网取得预期版本 | 项目 `aipy/foxue-ai`（Node 22）存在；生产部署 `dpl_HsdtTPf3qRDXTabdjhEYgqtoKF9k` 为 Ready；`www.foxue.ai`、裸域、健康 API 与核心页面均从公网复核 | 已完成 |
+| Vercel 部署 | 当前生产部署为 Ready，`www.foxue.ai` 可从公网取得预期版本 | 项目 `aipy/foxue-ai`（Node 22）存在；PR #51 功能版本的生产取证部署 `dpl_DsAeifS57wGXNvxTevJSRC6N7n3o` 为 Ready；取证时 `www.foxue.ai` 返回该部署 ID，裸域、健康 API 与核心页面均从公网复核 | 已完成 |
 | Cloudflare 自动解析 | Zone active、DNS/Redirect 与 Worker 路由可从 API 和公网复核 | Cloudflare API 证明 `canon.foxue.ai` 自定义域启用并指向 `foxue-ai-corpus-edge`；公网 NS、健康、CORS、安全头和只读门禁通过 | 已完成 |
 | R2 经藏分发 | 桶存在；计划中全部对象哈希匹配；`latest` 最后切换；`/ready=200` | 当前仍有 10042 账户资格阻断；主线 README 明确 `/ready` 刻意返回 503 | 未完成 |
 | 中文网站 | 核心界面、说明、错误边界和治理内容为中文 | 远端 README、页面和主线 PR 均为中文产品 | 已完成 |
 | 佛学 AI 可信性 | 回答回到原典；稳定引文；无证据时降级；不把生成内容冒充经文 | 主线已有问经、经典阅读、稳定定位符、来源/权利披露与本地回退 | 已完成可信原型；非最终全能系统 |
 | 收录佛经 | 来源、版本、哈希、权利、可读段落与恢复链可复算 | v6.18：3,377 部作品、3,829 个完整全文表达或见证、5,656,889 个稳定段落；固定来源资产已校验 | 大规模局部完成 |
-| 全球 99% | 先冻结全球作品分母，再由独立双重人工复核；五类覆盖率均达到门槛 | 30,797 条异质候选，3,377 项复核任务，真人决定 0；全球覆盖率为 `null` | 未完成，禁止宣称 99% |
+| 全球 99% | 先冻结全球作品分母，再由独立双重人工复核；五类覆盖率均达到门槛 | 30,797 条异质候选，3,377 项公开复核任务，受保护接收管线已上线，真人决定仍为 0；全球覆盖率为 `null` | 未完成，禁止宣称 99% |
 | 运行 100 年 | 多故障域副本、开放格式、不可变身份、季度恢复、离线/机构托管和继任者演练均有持续证据 | GitHub 不可变发行、Software Heritage、主线发布与恢复工作流已完成；R2、首次远端季度恢复、离线 WORM、机构镜像和继任者演练未全部完成 | 长期保存链已建立，但未完成 |
 
 ## 3. GitHub 当前状态
@@ -45,8 +47,8 @@
 远端主线在本次审计时指向：
 
 ```text
-fce364859fe3a6755787bded69fc9f719415bb1a
-Merge PR #48: automate corpus publication and recovery
+db141eac6d708963b23977cc54d77b0f68857af6
+Merge PR #51: harden global denominator review intake
 ```
 
 主线已经包含：
@@ -56,27 +58,32 @@ Merge PR #48: automate corpus publication and recovery
 - PR #42–#44：AI/搜索发现、IndexNow、www canonical 与自动提交修复；
 - PR #45：跨传统“空”概念证据页；
 - PR #46：供 AI 爬虫读取的全站内容地图；
-- PR #48：R2 原子发布、不可变 GitHub Release、季度全量恢复演练与长期运维文档。
+- PR #48：R2 原子发布、不可变 GitHub Release、季度全量恢复演练与长期运维文档；
+- PR #49：生产闭环证据写回；
+- PR #50：3,377 项全球分母人工复核工作台；
+- PR #51：受保护的全球分母复核接收、实时 Issue 重验、机构版本快照和独立共识门。
 
-PR #48 在合并前通过：R2 发布器集成验证、保存发行工作流验证、双层归档恢复与 Git bundle `fsck`、项目全量 `verify`、Playwright E2E、保存制品、Vercel Preview 与 IndexNow。全量质量任务耗时 17 分 25 秒。受保护主线的 squash 合并提交为 `fce364859fe3a6755787bded69fc9f719415bb1a`。
+PR #51 的精确提交 `c81df34389e9c4a338bd6d893600c221f1d4d956` 通过 Quality run `32177051309`：242 项通过、1 项跳过；Vercel Preview、IndexNow、自动审查和仓库门禁全部绿色。两项关于实时 Issue 重验和机构归属版本化的审查意见已在合并前修复并关闭。受保护主线的合并提交为 `db141eac6d708963b23977cc54d77b0f68857af6`。
+
+合并后的主线 Quality run `32178782652` 也已成功：`verify`、242 项 Playwright E2E、保存构建和制品上传全部通过，1 项按预期跳过，总耗时 19 分 53 秒。该运行生成短期校验制品 `foxue-ai-preservation-db141eac6d708963b23977cc54d77b0f68857af6`，压缩后 596,432,195 字节；短期 Actions 制品不替代不可变 Release、Software Heritage、R2、WORM 或机构镜像。
 
 Cloudflare Worker 在合并后部署版本 `78f7bdb2-f05f-481b-9130-c72a71d2f145`，部署 ID `996c5e73-29c2-4f0e-b124-1559ea2bb4c0`，100% 流量。API 复核其三个纯文本绑定、Node 兼容标志、日志/追踪配置与 `canon.foxue.ai` 自定义域均正确。
 
-## 3.1 Vercel 当前状态
+## 3.1 Vercel 生产证据
 
-认证 Vercel CLI 与公网 HTTP 在 2026-08-18 共同证明：
+认证 Vercel CLI 与公网 HTTP 在 2026-08-19 共同证明：
 
 - 项目：`aipy/foxue-ai`；
 - Project ID：`prj_Col4GcRWnFfR6Y4lzaS5NKYkU23C`；
 - 框架：Next.js；Node.js：22.x；
-- 当前生产部署：`dpl_HsdtTPf3qRDXTabdjhEYgqtoKF9k`（`https://foxue-13zys4z7a-aipy.vercel.app`）；
+- PR #51 功能版本的生产取证部署：`dpl_DsAeifS57wGXNvxTevJSRC6N7n3o`（`https://foxue-m4727sufw-aipy.vercel.app`）；
 - 生产状态：`Ready`；
 - 生产别名：`www.foxue.ai`、`foxue.ai`、`foxue-ai.vercel.app`、`foxue-ai-aipy.vercel.app` 与 main 分支别名；
 - `foxue.ai` 单次 308 到 `www.foxue.ai`；
-- 首页、问经、经藏、覆盖、分母、治理、透明、“空”概念页、健康 API、覆盖 API、sitemap index 与 `llms-full.txt` 全部返回 200；
+- 首页、问经、经藏、覆盖、分母、原则治理、透明、“空”概念页、健康 API、覆盖 API、`sitemap-index.xml`、分片站点地图与 `llms-full.txt` 全部返回 200；
 - 生产响应包含 HSTS、CSP、frame deny、nosniff、严格 referrer policy 与权限策略。
 
-PR #48 的 Vercel Preview 与合并后的正式生产部署均已完成并标记为 Ready。新部署已取得 `www.foxue.ai`、裸域与项目生产别名；16 个核心页面/API/发现入口全部返回 200，裸域返回 308 到 `https://www.foxue.ai/`，六项安全响应头齐全。Vercel 已不是本次阻断项。
+PR #51 合并后的正式生产部署已完成并标记为 Ready。取证时 `/fenmu?q=sf276` 的服务端结果来自部署 `dpl_DsAeifS57wGXNvxTevJSRC6N7n3o`，能定位 `gdrq:candrasutra-sanskrit-sf276`；其 Issue 预填保留正确标题、队列 ID 和“人工核验补充（必填）”。该部署取得 `www.foxue.ai`、裸域与项目生产别名；核心页面、API 与发现入口实测通过，裸域返回 308 到 `https://www.foxue.ai/`。后续仅含文档的生产部署可以替换“当前部署”ID，但不能改变这里记录的功能版本取证事实；Vercel 已不是本次阻断项。
 
 ## 4. 语料覆盖审计
 
@@ -132,7 +139,7 @@ GBCR v6.18 的固定来源成果是真实且重要的，但“固定来源内完
 
 - `gh` 已认证为 `weitzu-com`；
 - 为避免污染原本包含无关修改的工作树，本次使用干净稀疏克隆、显式暂存和独立分支；
-- PR #48 已在全部门禁通过后合并，GitHub 写入不再是阻断项。
+- PR #48–#51 均在必需门禁通过后合并，GitHub 写入不再是阻断项。
 
 ### 6.2 Cloudflare R2
 
@@ -142,6 +149,14 @@ GBCR v6.18 的固定来源成果是真实且重要的，但“固定来源内完
 - 两个浏览器会话均停在 Cloudflare 登录页，未代填密码、验证码或付款信息。
 
 解除条件：账户启用 R2；配置 `CLOUDFLARE_ACCOUNT_ID`、`CLOUDFLARE_API_TOKEN`、`R2_ACCESS_KEY_ID`、`R2_SECRET_ACCESS_KEY`；运行 `cloudflare-r2-release`，并以公网验证结果作为完成证据。
+
+### 6.3 独立人审与百年托管
+
+- 全球分母账本必须来自至少两个独立机构的具名真人复核；AI、机器人、仓库维护者自我接收或伪造机构身份都不能替代；
+- 当前公开工作台和受保护接收管线解决的是“如何可信地收集决定”，并没有产生任何可计数真人决定；
+- 离线 WORM 副本、独立机构镜像、继任法律文件与双维护者年度恢复也需要真实机构、人员和保管责任，不能由代码自动宣称完成。
+
+解除条件：合格机构复核者通过公开 Issue Form 提交独立判断，由不同于提交者的维护者实时重验并接收；同时落实可验证的独立托管与继任演练证据。
 
 ## 7. 最终完成门
 
