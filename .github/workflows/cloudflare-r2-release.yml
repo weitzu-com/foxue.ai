@@ -1,0 +1,135 @@
+name: Publish verified corpus to Cloudflare R2
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/cloudflare-r2-release.yml"
+      - "scripts/publish-corpus-release-s3.mjs"
+      - "scripts/test-corpus-r2-publisher.mjs"
+      - "scripts/validate-long-term-operations-workflows.mjs"
+      - "docs/CLOUDFLARE_R2_RELEASES.md"
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type seed-foxue-ai-corpus to provision, upload and switch the production Worker
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-r2-corpus-release
+  cancel-in-progress: false
+
+jobs:
+  validate-publisher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - name: Verify SigV4 and atomic publication controls
+        run: node scripts/test-corpus-r2-publisher.mjs
+      - name: Validate long-term workflow permissions and ordering
+        run: node scripts/validate-long-term-operations-workflows.mjs
+
+  publish:
+    needs: validate-publisher
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CORPUS_R2_BUCKET: foxue-ai-corpus
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_PREFLIGHT_CONCURRENCY: "16"
+      R2_UPLOAD_CONCURRENCY: "32"
+    steps:
+      - name: Require explicit production confirmation
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          set -Eeuo pipefail
+          if [[ "$CONFIRMATION" != "seed-foxue-ai-corpus" ]]; then
+            echo "Production confirmation did not match" >&2
+            exit 1
+          fi
+          for name in CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Required secret is missing: $name" >&2
+              exit 1
+            fi
+          done
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Verify the complete site, corpus release and Worker package
+        run: pnpm verify
+
+      - name: Resolve and preflight the generated upload plan
+        id: release
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          release_id="$(node --input-type=module -e 'import("./scripts/corpus-release-context.mjs").then(async ({ loadCorpusReleaseContext }) => console.log((await loadCorpusReleaseContext(process.cwd())).releaseId))')"
+          release_root="artifacts/corpus-release/$release_id"
+          plan="$release_root/upload-plan.json"
+          node scripts/publish-corpus-release-s3.mjs --dry-run --plan="$plan"
+          manifest_sha="$(node -e 'const fs=require("node:fs"); const p=JSON.parse(fs.readFileSync(process.argv[1], "utf8")); console.log(p.manifestSha256)' "$release_root/v1/latest.json")"
+          {
+            echo "id=$release_id"
+            echo "manifest_sha=$manifest_sha"
+            echo "plan=$plan"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Provision the R2 bucket if absent
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          if ! pnpm exec wrangler r2 bucket info "$CORPUS_R2_BUCKET" >/tmp/r2-bucket-info.json 2>/tmp/r2-bucket-info.err; then
+            pnpm exec wrangler r2 bucket create "$CORPUS_R2_BUCKET" \
+              --location=apac \
+              --storage-class=Standard
+          fi
+          pnpm exec wrangler r2 bucket info "$CORPUS_R2_BUCKET"
+
+      - name: Upload immutable objects and update latest last
+        env:
+          CORPUS_UPLOAD_PLAN: ${{ steps.release.outputs.plan }}
+        run: node scripts/publish-corpus-release-s3.mjs --plan="$CORPUS_UPLOAD_PLAN"
+
+      - name: Deploy the R2-bound read-only Worker
+        run: pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc
+
+      - name: Prove production readiness from the public Internet
+        env:
+          EXPECTED_RELEASE_ID: ${{ steps.release.outputs.id }}
+          EXPECTED_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
+          REQUIRE_READY: "true"
+        run: node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai
+
+      - name: Record publication evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cloudflare-r2-publication-${{ github.run_id }}
+          path: |
+            artifacts/corpus-release/*/R2-PUBLISH-REPORT.json
+            artifacts/corpus-release/*/upload-plan.json
+            artifacts/corpus-release/*/SHA256SUMS
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,308 @@
+name: Publish immutable GBCR preservation release
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/preservation-release.yml"
+      - "scripts/validate-preservation-release-workflow.mjs"
+      - "docs/PRESERVATION_RELEASES.md"
+  push:
+    tags:
+      - "gbcr-v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing annotated GBCR tag to publish
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preservation-release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out policy files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Validate immutable-release policy
+        run: node scripts/validate-preservation-release-workflow.mjs
+
+  release:
+    needs: validate
+    if: github.event_name != 'pull_request' && github.repository == 'weitzu-com/foxue.ai'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - name: Check out the exact release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.tag || github.ref_name }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Validate release identity and ancestry
+        id: identity
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          tag="$RELEASE_TAG"
+          if [[ ! "$tag" =~ ^gbcr-v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must match gbcr-vMAJOR.MINOR.PATCH: $tag" >&2
+            exit 1
+          fi
+
+          git fetch --no-tags origin main
+          git fetch --force origin "refs/tags/$tag:refs/tags/$tag"
+
+          object_type="$(git cat-file -t "refs/tags/$tag")"
+          if [[ "$object_type" != "tag" ]]; then
+            echo "Release tag must be an annotated tag, got: $object_type" >&2
+            exit 1
+          fi
+
+          commit="$(git rev-parse "$tag^{commit}")"
+          head_commit="$(git rev-parse HEAD)"
+          tag_object="$(git rev-parse "$tag^{tag}")"
+          if [[ "$commit" != "$head_commit" ]]; then
+            echo "Checked-out commit $head_commit does not match tag target $commit" >&2
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$commit" origin/main; then
+            echo "Release tag target must be reachable from origin/main" >&2
+            exit 1
+          fi
+
+          short_commit="${commit:0:12}"
+          {
+            echo "commit=$commit"
+            echo "short_commit=$short_commit"
+            echo "tag_object=$tag_object"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify the complete site and corpus
+        run: pnpm verify
+
+      - name: Build the offline preservation bundle
+        run: pnpm preserve
+
+      - name: Prepare deterministic release assets
+        id: assets
+        shell: bash
+        env:
+          RELEASE_COMMIT: ${{ steps.identity.outputs.commit }}
+          SHORT_COMMIT: ${{ steps.identity.outputs.short_commit }}
+          TAG_OBJECT: ${{ steps.identity.outputs.tag_object }}
+        run: |
+          set -Eeuo pipefail
+
+          command -v zstd >/dev/null
+          bundle_dir="artifacts/preservation/$SHORT_COMMIT"
+          if [[ ! -d "$bundle_dir" ]]; then
+            echo "Preservation bundle is missing: $bundle_dir" >&2
+            exit 1
+          fi
+
+          archive="foxue-ai-preservation-${RELEASE_TAG}-${SHORT_COMMIT}.tar.zst"
+          release_dir="artifacts/preservation-release"
+          source_date_epoch="$(git show -s --format=%ct "$RELEASE_COMMIT")"
+          mkdir -p "$release_dir"
+
+          tar \
+            --sort=name \
+            --mtime="@$source_date_epoch" \
+            --owner=0 \
+            --group=0 \
+            --numeric-owner \
+            -cf - \
+            -C artifacts/preservation \
+            "$SHORT_COMMIT" \
+            | zstd -19 -T0 -o "$release_dir/$archive"
+
+          cp "$bundle_dir/preservation-manifest.json" "$release_dir/preservation-manifest.json"
+          cp "$bundle_dir/SHA256SUMS" "$release_dir/SHA256SUMS"
+          (
+            cd "$release_dir"
+            sha256sum "$archive" preservation-manifest.json SHA256SUMS > RELEASE-SHA256SUMS
+            sha256sum -c RELEASE-SHA256SUMS
+          )
+
+          archive_sha="$(sha256sum "$release_dir/$archive" | cut -d ' ' -f 1)"
+          cat > "$release_dir/RELEASE-NOTES.md" <<EOF
+          # foxue.ai ${RELEASE_TAG} preservation baseline
+
+          This immutable release is an offline recovery baseline for foxue.ai.
+
+          - Annotated tag: \`${RELEASE_TAG}\`
+          - Tag object: \`${TAG_OBJECT}\`
+          - Commit: \`${RELEASE_COMMIT}\`
+          - Archive: \`${archive}\`
+          - Archive SHA-256: \`${archive_sha}\`
+
+          Verify before extraction:
+
+          \`\`\`bash
+          gh release verify "${RELEASE_TAG}" --repo "${GITHUB_REPOSITORY}"
+          sha256sum -c RELEASE-SHA256SUMS
+          zstd -t "${archive}"
+          zstd -dc "${archive}" | tar -xf -
+          \`\`\`
+
+          After extraction, enter \`${SHORT_COMMIT}\` and run \`sha256sum -c SHA256SUMS\`, then verify the included Git bundle. See \`docs/PRESERVATION_RELEASES.md\` and \`docs/RECOVERY.md\` in the archive.
+          EOF
+
+          {
+            echo "archive=$archive"
+            echo "release_dir=$release_dir"
+            echo "archive_sha=$archive_sha"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create or resume a draft release
+        id: draft
+        shell: bash
+        env:
+          RELEASE_DIR: ${{ steps.assets.outputs.release_dir }}
+        run: |
+          set -Eeuo pipefail
+
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json isDraft >/tmp/release-state.json 2>/dev/null; then
+            is_draft="$(node -e 'const fs=require("node:fs"); console.log(JSON.parse(fs.readFileSync("/tmp/release-state.json", "utf8")).isDraft)' )"
+            if [[ "$is_draft" != "true" ]]; then
+              echo "Release $RELEASE_TAG is already published; refusing to modify it" >&2
+              exit 1
+            fi
+            echo "resumed=true" >> "$GITHUB_OUTPUT"
+            gh release edit "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --draft=true \
+              --latest=false \
+              --verify-tag \
+              --title "foxue.ai $RELEASE_TAG preservation baseline" \
+              --notes-file "$RELEASE_DIR/RELEASE-NOTES.md"
+          else
+            echo "resumed=false" >> "$GITHUB_OUTPUT"
+            gh release create "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --draft \
+              --latest=false \
+              --verify-tag \
+              --title "foxue.ai $RELEASE_TAG preservation baseline" \
+              --notes-file "$RELEASE_DIR/RELEASE-NOTES.md"
+          fi
+
+      - name: Upload and verify every draft asset
+        shell: bash
+        env:
+          ARCHIVE: ${{ steps.assets.outputs.archive }}
+          RELEASE_DIR: ${{ steps.assets.outputs.release_dir }}
+          RESUMED: ${{ steps.draft.outputs.resumed }}
+        run: |
+          set -Eeuo pipefail
+
+          assets=(
+            "$RELEASE_DIR/$ARCHIVE"
+            "$RELEASE_DIR/preservation-manifest.json"
+            "$RELEASE_DIR/SHA256SUMS"
+            "$RELEASE_DIR/RELEASE-SHA256SUMS"
+          )
+          upload_args=()
+          if [[ "$RESUMED" == "true" ]]; then
+            upload_args+=(--clobber)
+          fi
+          gh release upload "$RELEASE_TAG" "${assets[@]}" \
+            --repo "$GITHUB_REPOSITORY" \
+            "${upload_args[@]}"
+
+          gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --json isDraft,assets > /tmp/release-assets.json
+          node --input-type=module - "${assets[@]}" <<'NODE'
+          import { readFileSync, statSync } from "node:fs";
+          import { basename } from "node:path";
+
+          const release = JSON.parse(readFileSync("/tmp/release-assets.json", "utf8"));
+          if (release.isDraft !== true) throw new Error("Release must remain a draft during verification");
+          const localAssets = process.argv.slice(2).map((path) => ({
+            name: basename(path),
+            size: statSync(path).size,
+          }));
+          if (release.assets.length !== localAssets.length) {
+            throw new Error(`Expected ${localAssets.length} assets, found ${release.assets.length}`);
+          }
+          for (const expected of localAssets) {
+            const actual = release.assets.find((asset) => asset.name === expected.name);
+            if (!actual || actual.size !== expected.size || actual.state !== "uploaded") {
+              throw new Error(`Release asset mismatch: ${expected.name}`);
+            }
+          }
+          NODE
+
+      - name: Publish and prove immutability
+        shell: bash
+        env:
+          ARCHIVE: ${{ steps.assets.outputs.archive }}
+          RELEASE_DIR: ${{ steps.assets.outputs.release_dir }}
+        run: |
+          set -Eeuo pipefail
+
+          gh release edit "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --draft=false \
+            --latest=false \
+            --verify-tag
+
+          immutable=false
+          for attempt in {1..12}; do
+            immutable="$(gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json isDraft,isImmutable --jq 'select(.isDraft == false) | .isImmutable')"
+            if [[ "$immutable" == "true" ]]; then
+              break
+            fi
+            sleep 5
+          done
+          if [[ "$immutable" != "true" ]]; then
+            echo "Published release did not become immutable" >&2
+            exit 1
+          fi
+
+          for attempt in {1..12}; do
+            if gh release verify "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY"; then
+              break
+            fi
+            if [[ "$attempt" == "12" ]]; then
+              echo "Release attestation was not verifiable after 60 seconds" >&2
+              exit 1
+            fi
+            sleep 5
+          done
+
+          for asset in \
+            "$RELEASE_DIR/$ARCHIVE" \
+            "$RELEASE_DIR/preservation-manifest.json" \
+            "$RELEASE_DIR/SHA256SUMS" \
+            "$RELEASE_DIR/RELEASE-SHA256SUMS"; do
+            gh release verify-asset "$RELEASE_TAG" "$asset" --repo "$GITHUB_REPOSITORY"
+          done

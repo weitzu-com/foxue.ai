@@ -1,6 +1,6 @@
 const immutableObjectPattern = /^v1\/releases\/[a-z0-9][a-z0-9.-]{0,95}\/(?:manifest\.json|works\/(?:T\d{4}[A-Za-z]?|D\d{1,4}[a-z]?|DHP|DN\d{1,2}|MN\d{1,3}|SN\d{1,2}|AN\d{1,2}|LZH-(?:MA|SA|EA|T0765|T1536|T1537|T1548)|BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PE|PS|PV|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)\/(?:index\.json|source\.(?:xml|json|txt)|sources\/\d{2,4}-[A-Za-z0-9._-]+\.(?:xml|json|txt)|folios\/[a-z0-9][a-z0-9.-]{0,95}\.json))$/;
 
-const corsOrigin = "https://foxue.ai";
+const corsOrigins = new Set(["https://www.foxue.ai", "https://foxue.ai"]);
 
 const latestKey = "v1/latest.json";
 
@@ -24,7 +24,7 @@ function json(value: unknown, init: ResponseInit = {}, head = false) {
 
 function applyPublicHeaders(headers: Headers, request: Request, immutable: boolean) {
   const origin = request.headers.get("origin");
-  if (origin === corsOrigin) headers.set("access-control-allow-origin", corsOrigin);
+  if (origin && corsOrigins.has(origin)) headers.set("access-control-allow-origin", origin);
   headers.set("vary", "Origin");
   applySecurityHeaders(headers);
   headers.set(
