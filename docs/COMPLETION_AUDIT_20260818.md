@@ -22,7 +22,7 @@
 - Cloudflare R2 尚未完成订阅、建桶和 263,682 个发布对象的首次播种；
 - `canon.foxue.ai/ready` 尚无证据达到 200，不能标记为完整经藏分发就绪；
 - 新的 R2 发布与季度恢复工作流尚未进入 GitHub 主线；
-- Vercel 当前生产部署无法在本次审计环境中重新取证；
+- Vercel 项目、当前生产部署、生产别名与核心公网路径已由认证 CLI 和独立 HTTP 请求重新取证；
 - 全球分母的 3,377 项双重复核任务仍没有真人决定；
 - 全球作品、全文、中文翻译、权利和质量覆盖率仍为 `null`，因此不能宣称达到 99%；
 - 独立机构镜像、离线 WORM 副本和继任维护者年度实操仍缺少证据，因此不能宣称保证运行 100 年。
@@ -32,7 +32,7 @@
 | 原始要求 | 完成标准 | 当前证据 | 判定 |
 |---|---|---|---|
 | GitHub 建仓 | 公开仓库可访问、主线存在、维护者有权限 | `weitzu-com/foxue.ai`，仓库 ID `1330028206`，公开，默认分支 `main`；连接账户报告 admin/push 权限 | 已完成 |
-| Vercel 部署 | 当前生产部署为 Ready，`www.foxue.ai` 可从公网取得预期版本 | 历史部署与主线记录存在；本次 Vercel 连接器在唯一可见团队中未列出项目，公网网络也不可达 | 当前证据不足 |
+| Vercel 部署 | 当前生产部署为 Ready，`www.foxue.ai` 可从公网取得预期版本 | 项目 `aipy/foxue-ai`（Node 22）存在；生产部署 `dpl_9rfRcWauJ6Nx6HU7bUBVP46aK9g8` 为 Ready；`www.foxue.ai`、裸域、健康 API 与核心页面均从公网复核 | 已完成 |
 | Cloudflare 自动解析 | Zone active、DNS/Redirect 与 Worker 路由可从 API 和公网复核 | 主线 PR #38、#41–#44 记录了 DNS、www canonical 和 bootstrap Worker；本次 Cloudflare API 只读调用被环境审批策略拒绝 | 历史完成，当前状态未复核 |
 | R2 经藏分发 | 桶存在；计划中全部对象哈希匹配；`latest` 最后切换；`/ready=200` | 当前仍有 10042 账户资格阻断；主线 README 明确 `/ready` 刻意返回 503 | 未完成 |
 | 中文网站 | 核心界面、说明、错误边界和治理内容为中文 | 远端 README、页面和主线 PR 均为中文产品 | 已完成 |
@@ -74,6 +74,22 @@ Merge pull request #45 from weitzu-com/codex/emptiness-concept-hub
 - `docs/CLOUDFLARE_R2_RELEASES.md`
 
 这些文件的本地验证已经通过，但本地通过不能替代远端 PR、主线 CI 和生产运行证据。
+
+## 3.1 Vercel 当前状态
+
+认证 Vercel CLI 与公网 HTTP 在 2026-08-18 共同证明：
+
+- 项目：`aipy/foxue-ai`；
+- Project ID：`prj_Col4GcRWnFfR6Y4lzaS5NKYkU23C`；
+- 框架：Next.js；Node.js：22.x；
+- 当前生产部署：`dpl_9rfRcWauJ6Nx6HU7bUBVP46aK9g8`；
+- 生产状态：`Ready`；
+- 生产别名：`www.foxue.ai`、`foxue.ai`、`foxue-ai.vercel.app`、`foxue-ai-aipy.vercel.app` 与 main 分支别名；
+- `foxue.ai` 单次 308 到 `www.foxue.ai`；
+- 首页、问经、经藏、覆盖、分母、治理、透明、“空”概念页、健康 API、覆盖 API、sitemap index 与 `llms-full.txt` 全部返回 200；
+- 生产响应包含 HSTS、CSP、frame deny、nosniff、严格 referrer policy 与权限策略。
+
+PR #48 的 Vercel Preview 也已完成并标记为 Ready。Vercel 已不是本次阻断项。
 
 ## 4. 语料覆盖审计
 
