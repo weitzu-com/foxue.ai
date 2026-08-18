@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import {
   arbitratorIsInstitutionallyIndependent,
-  hasInstitutionallyIndependentPair,
+  hasInstitutionallyIndependentDecisionPair,
 } from "./global-review-consensus.mjs";
 
 const root = process.cwd();
@@ -311,10 +311,32 @@ for (const declaration of durableReviewRecords.reviewerDeclarations) {
     throw new Error(`${declaration.reviewerId} 缺少独立 GitHub 验收者`);
   }
   requireIsoTimestamp(declaration, "verifiedAt", `${declaration.reviewerId} 复核者声明`);
+  if (!Array.isArray(declaration.affiliations) || declaration.affiliations.length === 0) {
+    throw new Error(`${declaration.reviewerId} 缺少版本化机构记录`);
+  }
+  for (const affiliation of declaration.affiliations) {
+    const affiliationLabel = `${declaration.reviewerId} 机构记录`;
+    requireString(affiliation, "institution", affiliationLabel);
+    const affiliationIssueUrl = requireString(affiliation, "sourceIssueUrl", affiliationLabel);
+    if (!/^https:\/\/github\.com\/weitzu-com\/foxue\.ai\/issues\/\d+$/.test(affiliationIssueUrl)) {
+      throw new Error(`${affiliationLabel} 的 sourceIssueUrl 不是本仓库复核 Issue`);
+    }
+    if (!/^[a-f0-9]{64}$/.test(requireString(affiliation, "submissionSha256", affiliationLabel))) {
+      throw new Error(`${affiliationLabel} 的 submissionSha256 不是 SHA-256`);
+    }
+    const affiliationVerifiedBy = requireString(affiliation, "verifiedBy", affiliationLabel);
+    if (
+      !/^github:[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/.test(affiliationVerifiedBy) ||
+      affiliationVerifiedBy === declaration.reviewerId
+    ) {
+      throw new Error(`${affiliationLabel} 缺少独立 GitHub 验收者`);
+    }
+    requireIsoTimestamp(affiliation, "verifiedAt", affiliationLabel);
+  }
+  if (new Set(declaration.affiliations.map((entry) => entry.submissionSha256)).size !== declaration.affiliations.length) {
+    throw new Error(`${declaration.reviewerId} 的版本化机构记录重复`);
+  }
 }
-const reviewerDeclarationsById = new Map(
-  durableReviewRecords.reviewerDeclarations.map((declaration) => [declaration.reviewerId, declaration]),
-);
 
 const queueIds = new Set(reviewItems.map((item) => item.queueId));
 const decisionIds = requireUniqueIds(durableReviewRecords.decisions, "decisionId", "独立复核决定");
@@ -387,10 +409,10 @@ for (const arbitration of durableReviewRecords.arbitrations) {
     throw new Error(`${label} 的仲裁者不得是原决定复核者`);
   }
   if (arbitration.independent !== true) throw new Error(`${label} 未声明独立完成`);
+  const arbitratorInstitution = requireString(arbitration, "reviewerInstitution", label);
   if (!arbitratorIsInstitutionallyIndependent(
-    reviewerId,
-    referencedDecisions.map((decision) => decision.reviewerId),
-    reviewerDeclarationsById,
+    arbitratorInstitution,
+    referencedDecisions,
   )) {
     throw new Error(`${label} 的仲裁者机构必须独立于原决定复核者`);
   }
@@ -425,9 +447,9 @@ for (const decision of durableReviewRecords.decisions) {
   const outcomeSpec = outcomeKeyByLane[decision.lane];
   const key = `${decision.queueId}\u0000${decision.lane}`;
   const outcomes = laneOutcomesByQueue.get(key) ?? new Map();
-  const reviewers = outcomes.get(decision[outcomeSpec.key]) ?? new Set();
-  reviewers.add(decision.reviewerId);
-  outcomes.set(decision[outcomeSpec.key], reviewers);
+  const decisions = outcomes.get(decision[outcomeSpec.key]) ?? [];
+  decisions.push(decision);
+  outcomes.set(decision[outcomeSpec.key], decisions);
   laneOutcomesByQueue.set(key, outcomes);
 }
 const consensusFor = (queueId, lane) => {
@@ -436,8 +458,8 @@ const consensusFor = (queueId, lane) => {
   if (arbitratedOutcome) return arbitratedOutcome;
   const outcomes = laneOutcomesByQueue.get(key) ?? new Map();
   if (outcomes.size !== 1) return null;
-  return [...outcomes.entries()].find(([, reviewers]) => (
-    reviewers.size >= 2 && hasInstitutionallyIndependentPair(reviewers, reviewerDeclarationsById)
+  return [...outcomes.entries()].find(([, decisions]) => (
+    hasInstitutionallyIndependentDecisionPair(decisions)
   ))?.[0] ?? null;
 };
 let independentlyApprovedWorks = 0;
@@ -487,6 +509,9 @@ const reviewLedger = {
     minimumIndependentReviewersPerLane: 2,
     sameInstitutionPairRequiresPublishedIndependenceJustification: true,
     automatedConsensusRequiresDistinctInstitutions: true,
+    institutionalIndependenceUsesPerDecisionSnapshots: true,
+    versionedReviewerAffiliationsRequired: true,
+    liveIssueRevalidationBeforeAcceptanceRequired: true,
     conflictOfInterestDeclarationRequired: true,
     relevantLanguageAndTextualCompetenceRequired: true,
     publicEvidenceCitationsRequired: true,

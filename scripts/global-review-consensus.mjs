@@ -2,26 +2,24 @@ export function normalizeInstitution(value) {
   return String(value ?? "").normalize("NFKC").trim().toLocaleLowerCase("en-US").replace(/\s+/g, " ");
 }
 
-export function hasInstitutionallyIndependentPair(reviewerIds, declarationsById) {
+export function hasInstitutionallyIndependentDecisionPair(decisions) {
+  const reviewerIds = new Set();
   const institutions = new Set();
-  for (const reviewerId of reviewerIds) {
-    const declaration = declarationsById.get(reviewerId);
-    const institution = normalizeInstitution(declaration?.institution);
+  for (const decision of decisions) {
+    reviewerIds.add(decision?.reviewerId);
+    const institution = normalizeInstitution(decision?.reviewerInstitution);
     if (institution) institutions.add(institution);
   }
-  return institutions.size >= 2;
+  return reviewerIds.size >= 2 && institutions.size >= 2;
 }
 
 export function arbitratorIsInstitutionallyIndependent(
-  arbitratorReviewerId,
-  referencedReviewerIds,
-  declarationsById,
+  arbitratorInstitution,
+  referencedDecisions,
 ) {
-  const arbitratorInstitution = normalizeInstitution(
-    declarationsById.get(arbitratorReviewerId)?.institution,
-  );
-  if (!arbitratorInstitution) return false;
-  return referencedReviewerIds.every((reviewerId) => (
-    normalizeInstitution(declarationsById.get(reviewerId)?.institution) !== arbitratorInstitution
+  const normalizedArbitratorInstitution = normalizeInstitution(arbitratorInstitution);
+  if (!normalizedArbitratorInstitution) return false;
+  return referencedDecisions.every((decision) => (
+    normalizeInstitution(decision?.reviewerInstitution) !== normalizedArbitratorInstitution
   ));
 }

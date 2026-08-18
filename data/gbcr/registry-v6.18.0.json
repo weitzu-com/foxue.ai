@@ -435025,7 +435025,7 @@
     "reviewQueueFile": "data/gbcr/global-denominator-review-queue-v0.1.0.json",
     "reviewQueueSha256": "83a00497bdcc6406c77a77cfda1d4758d8c54f58a49dd1f7d3d95793970d35a4",
     "reviewLedgerFile": "data/gbcr/global-denominator-review-ledger-v0.1.0.json",
-    "reviewLedgerSha256": "cfe9619c67f47ad9b578013c6fc8cb5b8ba4980dc2db854d39b8e0f5d7eec2b6",
+    "reviewLedgerSha256": "1d6df36d38ce7b578faf2ca97ef2155e855e92d214b91aff8f8996490ba7f7fd",
     "caveat": "30,797 是七个冻结来源中计量单位不同且互相重叠的候选记录总量，不是作品数。3,377 项队列是站内作品的治理工作量，也不是全球分母。"
   }
 }

@@ -9,13 +9,14 @@ import {
   ReviewIntakeError,
   buildAcceptedLedger,
   candidateSha256,
+  fetchCurrentGitHubIssueEvent,
   revalidateCandidateAgainstQueue,
   validateGlobalReviewIssueEvent,
   validateStoredCandidate,
 } from "./global-review-intake.mjs";
 import {
   arbitratorIsInstitutionallyIndependent,
-  hasInstitutionallyIndependentPair,
+  hasInstitutionallyIndependentDecisionPair,
 } from "./global-review-consensus.mjs";
 
 const queueRaw = await readFile("data/gbcr/global-denominator-review-queue-v0.1.0.json");
@@ -98,7 +99,8 @@ function expectIntakeError(callback, code) {
   assert.throws(callback, (error) => error instanceof ReviewIntakeError && error.code === code);
 }
 
-const candidate = validateGlobalReviewIssueEvent(eventFor(), queue, queueRaw);
+const currentIssueEvent = eventFor();
+const candidate = validateGlobalReviewIssueEvent(currentIssueEvent, queue, queueRaw);
 assert.equal(candidate.queue.queueId, queue.items[0].queueId);
 assert.equal(candidate.sourceIssue.author, "sutra-reviewer");
 assert.equal(candidate.reviewerDeclarationDraft.naturalPersonDeclared, true);
@@ -106,17 +108,35 @@ assert.equal(candidate.reviewerDeclarationDraft.independentReviewDeclared, true)
 assert.deepEqual(candidate.decisionsDraft.map((decision) => decision.lane), ["scope", "identity", "source_and_range"]);
 assert.equal(candidate.governance.acceptedIntoLedger, false);
 assert.equal(candidate.governance.countsAsIndependentHumanDecision, false);
+assert.equal(candidate.governance.requiresLiveIssueRevalidationBeforeAcceptance, true);
 assert.equal(candidate.integrity.candidateSha256, candidateSha256(candidate));
 assert.equal(validateStoredCandidate(candidate), candidate);
-assert.equal(revalidateCandidateAgainstQueue(candidate, queue, queueRaw), candidate);
+assert.equal(revalidateCandidateAgainstQueue(candidate, queue, queueRaw, currentIssueEvent), candidate);
+
+const fetchedLiveEvent = await fetchCurrentGitHubIssueEvent(candidate, async (url, options) => {
+  assert.equal(url, "https://api.github.com/repos/weitzu-com/foxue.ai/issues/101");
+  assert.equal(options.headers.Accept, "application/vnd.github+json");
+  return { ok: true, status: 200, json: async () => currentIssueEvent.issue };
+});
+assert.deepEqual(fetchedLiveEvent, { action: "edited", repository: { full_name: "weitzu-com/foxue.ai" }, issue: currentIssueEvent.issue });
+await assert.rejects(
+  fetchCurrentGitHubIssueEvent(candidate, async () => ({ ok: false, status: 404 })),
+  (error) => error instanceof ReviewIntakeError && error.code === "LIVE_ISSUE_FETCH_FAILED",
+);
+expectIntakeError(
+  () => revalidateCandidateAgainstQueue(candidate, queue, queueRaw),
+  "LIVE_ISSUE_REQUIRED",
+);
 
 const accepted = buildAcceptedLedger(candidate, ledger, {
   acceptedBy: "maintainer-one",
   acceptedAt: "2026-08-19T03:00:00Z",
   reviewQueue: queue,
   reviewQueueBytes: queueRaw,
+  liveIssueEvent: currentIssueEvent,
 });
 assert.equal(accepted.reviewerDeclarations.length, 1);
+assert.equal(accepted.reviewerDeclarations[0].affiliations.length, 1);
 assert.equal(accepted.decisions.length, 3);
 assert.deepEqual(accepted.decisions.map((decision) => decision.lane), ["scope", "identity", "source_and_range"]);
 assert.ok(accepted.decisions.every((decision) => decision.independent === true));
@@ -135,21 +155,47 @@ const acceptedAgain = buildAcceptedLedger(secondCandidate, accepted, {
   acceptedAt: "2026-08-19T04:00:00Z",
   reviewQueue: queue,
   reviewQueueBytes: queueRaw,
+  liveIssueEvent: eventFor({ number: 102, queueId: queue.items[1].queueId }),
 });
 assert.equal(acceptedAgain.reviewerDeclarations.length, 1, "同一 GitHub 自然人只保留一份复核者声明");
+assert.equal(acceptedAgain.reviewerDeclarations[0].affiliations.length, 1, "机构未变时不重复追加机构版本");
 assert.equal(acceptedAgain.decisions.length, 6);
+
+const movedIssueEvent = eventFor({
+  number: 103,
+  queueId: queue.items[2].queueId,
+  overrides: { "机构或独立身份": "佛教大学 B：访问学者" },
+});
+const movedCandidate = validateGlobalReviewIssueEvent(movedIssueEvent, queue, queueRaw);
+const acceptedAfterMove = buildAcceptedLedger(movedCandidate, acceptedAgain, {
+  acceptedBy: "maintainer-one",
+  acceptedAt: "2026-08-19T05:00:00Z",
+  reviewQueue: queue,
+  reviewQueueBytes: queueRaw,
+  liveIssueEvent: movedIssueEvent,
+});
+assert.equal(acceptedAfterMove.reviewerDeclarations.length, 1);
+assert.deepEqual(
+  acceptedAfterMove.reviewerDeclarations[0].affiliations.map((entry) => entry.institution),
+  ["独立研究者：中国上海", "佛教大学 B：访问学者"],
+);
+assert.ok(acceptedAfterMove.decisions.slice(-3).every((decision) => (
+  decision.reviewerInstitution === "佛教大学 B：访问学者"
+)));
 
 expectIntakeError(() => buildAcceptedLedger(candidate, accepted, {
   acceptedBy: "maintainer-one",
   acceptedAt: "2026-08-19T04:00:00Z",
   reviewQueue: queue,
   reviewQueueBytes: queueRaw,
+  liveIssueEvent: currentIssueEvent,
 }), "ISSUE_ALREADY_ACCEPTED");
 expectIntakeError(() => buildAcceptedLedger(candidate, ledger, {
   acceptedBy: "sutra-reviewer",
   acceptedAt: "2026-08-19T03:00:00Z",
   reviewQueue: queue,
   reviewQueueBytes: queueRaw,
+  liveIssueEvent: currentIssueEvent,
 }), "SELF_ACCEPTANCE");
 
 const tampered = structuredClone(candidate);
@@ -161,8 +207,32 @@ forgedWithFreshHash.queue.titleZh = "改写后重新计算哈希的伪造题名"
 forgedWithFreshHash.integrity.candidateSha256 = candidateSha256(forgedWithFreshHash);
 assert.equal(validateStoredCandidate(forgedWithFreshHash), forgedWithFreshHash);
 expectIntakeError(
-  () => revalidateCandidateAgainstQueue(forgedWithFreshHash, queue, queueRaw),
+  () => revalidateCandidateAgainstQueue(forgedWithFreshHash, queue, queueRaw, currentIssueEvent),
   "CANDIDATE_REVALIDATION",
+);
+
+const supersededIssueEvent = structuredClone(currentIssueEvent);
+supersededIssueEvent.issue.updated_at = "2026-08-19T02:10:00Z";
+supersededIssueEvent.issue.body = issueBody(queue.items[0].queueId, {
+  "利益冲突披露": "修订后披露：与来源项目存在未领取报酬的学术协作。",
+});
+expectIntakeError(
+  () => revalidateCandidateAgainstQueue(candidate, queue, queueRaw, supersededIssueEvent),
+  "CANDIDATE_REVALIDATION",
+);
+const metadataOnlyIssueEvent = structuredClone(currentIssueEvent);
+metadataOnlyIssueEvent.issue.updated_at = "2026-08-19T02:15:00Z";
+metadataOnlyIssueEvent.issue.author_association = "CONTRIBUTOR";
+assert.equal(
+  revalidateCandidateAgainstQueue(candidate, queue, queueRaw, metadataOnlyIssueEvent),
+  candidate,
+  "评论、标签或作者关系变化不得把未改正文的候选误判为旧修订",
+);
+const withdrawnIssueEvent = structuredClone(currentIssueEvent);
+withdrawnIssueEvent.issue.state = "closed";
+expectIntakeError(
+  () => revalidateCandidateAgainstQueue(candidate, queue, queueRaw, withdrawnIssueEvent),
+  "ISSUE_NOT_OPEN",
 );
 
 expectIntakeError(() => validateGlobalReviewIssueEvent(eventFor({ userType: "Bot", author: "review-bot[bot]" }), queue, queueRaw), "AUTHOR_NOT_HUMAN_ACCOUNT");
@@ -178,15 +248,15 @@ expectIntakeError(() => validateGlobalReviewIssueEvent(eventFor({
   },
 }), queue, queueRaw), "ATTESTATION_UNCHECKED");
 
-const declarations = new Map([
-  ["r1", { institution: "佛教大学 A" }],
-  ["r2", { institution: " 佛教大学   A " }],
-  ["r3", { institution: "独立研究所 B" }],
-]);
-assert.equal(hasInstitutionallyIndependentPair(new Set(["r1", "r2"]), declarations), false);
-assert.equal(hasInstitutionallyIndependentPair(new Set(["r1", "r3"]), declarations), true);
-assert.equal(arbitratorIsInstitutionallyIndependent("r2", ["r1"], declarations), false);
-assert.equal(arbitratorIsInstitutionallyIndependent("r3", ["r1", "r2"], declarations), true);
+const institutionDecisions = [
+  { reviewerId: "r1", reviewerInstitution: "佛教大学 A" },
+  { reviewerId: "r2", reviewerInstitution: " 佛教大学   A " },
+  { reviewerId: "r3", reviewerInstitution: "独立研究所 B" },
+];
+assert.equal(hasInstitutionallyIndependentDecisionPair(institutionDecisions.slice(0, 2)), false);
+assert.equal(hasInstitutionallyIndependentDecisionPair([institutionDecisions[0], institutionDecisions[2]]), true);
+assert.equal(arbitratorIsInstitutionallyIndependent("佛教大学 A", institutionDecisions.slice(0, 1)), false);
+assert.equal(arbitratorIsInstitutionallyIndependent("独立研究所 B", institutionDecisions.slice(0, 2)), true);
 
 const cliTemp = await mkdtemp(join(tmpdir(), "foxue-global-review-intake-"));
 try {
@@ -211,6 +281,7 @@ try {
     "--candidate", candidatePath,
     "--ledger", ledgerPath,
     "--queue", resolve("data/gbcr/global-denominator-review-queue-v0.1.0.json"),
+    "--live-event", eventPath,
     "--accepted-by", "maintainer-one",
     "--accepted-at", "2026-08-19T03:00:00Z",
   ], { cwd: process.cwd(), encoding: "utf8" });
@@ -234,8 +305,20 @@ try {
   assert.equal(unsafeWriteCli.status, 1);
   assert.match(unsafeWriteCli.stderr, /\[WRITE_TARGET_UNSAFE\]/);
   assert.deepEqual(JSON.parse(await readFile(unsafeLedgerPath, "utf8")), ledger);
+
+  const localEventWriteCli = spawnSync(process.execPath, [
+    "scripts/global-review-intake.mjs",
+    "accept-candidate",
+    "--candidate", candidatePath,
+    "--live-event", eventPath,
+    "--accepted-by", "maintainer-one",
+    "--accepted-at", "2026-08-19T03:00:00Z",
+    "--write",
+  ], { cwd: process.cwd(), encoding: "utf8" });
+  assert.equal(localEventWriteCli.status, 1);
+  assert.match(localEventWriteCli.stderr, /\[LIVE_EVENT_WRITE_UNSAFE\]/);
 } finally {
   await rm(cliTemp, { recursive: true, force: true });
 }
 
-console.log("全球分母 Issue 摄取与人工验收边界通过：有效候选只生成草案；机器人、篡改、缺证、未独立和同机构伪共识均被拒绝。");
+console.log("全球分母 Issue 摄取与人工验收边界通过：有效候选只生成草案；机器人、旧修订、撤回、篡改、缺证、自验收和同机构伪共识均被拒绝。");

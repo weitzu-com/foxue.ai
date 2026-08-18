@@ -4,7 +4,6 @@ import { existsSync } from "node:fs";
 import { appendFile, mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { normalizeInstitution } from "./global-review-consensus.mjs";
 
 export const INTAKE_SCHEMA = "https://foxue.ai/schemas/gbcr/global-review-intake-candidate-v0.1";
 export const INTAKE_VERSION = "0.1.0";
@@ -277,6 +276,7 @@ export function validateGlobalReviewIssueEvent(event, reviewQueue, reviewQueueBy
       acceptedIntoLedger: false,
       automaticLedgerMutation: false,
       countsAsIndependentHumanDecision: false,
+      requiresLiveIssueRevalidationBeforeAcceptance: true,
       requiresMaintainerIdentityAndEvidenceReview: true,
       requiresSignedPullRequestHistory: true,
       singleSubmissionCannotChangeDenominator: true,
@@ -302,34 +302,70 @@ export function validateStoredCandidate(candidate) {
   if (candidate.integrity?.algorithm !== "sha256" || candidate.integrity?.candidateSha256 !== expectedSha) {
     fail("CANDIDATE_INTEGRITY", "复核候选内容哈希不匹配");
   }
-  if (candidate.governance?.automaticLedgerMutation !== false || candidate.governance?.countsAsIndependentHumanDecision !== false) {
+  if (
+    candidate.governance?.automaticLedgerMutation !== false ||
+    candidate.governance?.countsAsIndependentHumanDecision !== false ||
+    candidate.governance?.requiresLiveIssueRevalidationBeforeAcceptance !== true
+  ) {
     fail("CANDIDATE_GOVERNANCE", "候选错误地宣称已进入真人账本");
   }
   return candidate;
 }
 
-export function revalidateCandidateAgainstQueue(candidateInput, reviewQueue, reviewQueueBytes = Buffer.from(jsonRaw(reviewQueue))) {
+export async function fetchCurrentGitHubIssueEvent(candidateInput, fetchImpl = globalThis.fetch) {
   const candidate = validateStoredCandidate(candidateInput);
-  const issue = candidate.sourceIssue;
-  const rebuilt = validateGlobalReviewIssueEvent({
+  if (typeof fetchImpl !== "function") fail("LIVE_ISSUE_FETCH_UNAVAILABLE", "当前环境无法读取 GitHub Issue");
+  const headers = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "foxue-ai-global-review-intake",
+  };
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  let response;
+  try {
+    response = await fetchImpl(
+      `https://api.github.com/repos/${repositoryFullName}/issues/${candidate.sourceIssue.number}`,
+      { headers },
+    );
+  } catch (error) {
+    fail("LIVE_ISSUE_FETCH_FAILED", `无法读取当前 GitHub Issue：${error.message}`);
+  }
+  if (!response?.ok) {
+    fail("LIVE_ISSUE_FETCH_FAILED", `GitHub Issue API 返回 ${response?.status ?? "未知状态"}`);
+  }
+  let issue;
+  try {
+    issue = await response.json();
+  } catch {
+    fail("LIVE_ISSUE_FETCH_FAILED", "GitHub Issue API 未返回有效 JSON");
+  }
+  return {
     action: "edited",
-    repository: { full_name: issue.repository },
-    issue: {
-      number: issue.number,
-      state: "open",
-      title: issue.title,
-      body: issue.body,
-      html_url: issue.url,
-      created_at: issue.createdAt,
-      updated_at: issue.updatedAt,
-      author_association: issue.authorAssociation,
-      user: { login: issue.author, type: issue.authorType },
-    },
-  }, reviewQueue, reviewQueueBytes);
+    repository: { full_name: repositoryFullName },
+    issue,
+  };
+}
+
+export function revalidateCandidateAgainstQueue(
+  candidateInput,
+  reviewQueue,
+  reviewQueueBytes = Buffer.from(jsonRaw(reviewQueue)),
+  liveIssueEvent,
+) {
+  const candidate = validateStoredCandidate(candidateInput);
+  if (!liveIssueEvent) fail("LIVE_ISSUE_REQUIRED", "验收必须提供从 GitHub 当前读取的 Issue");
+  const normalizedLiveEvent = structuredClone(liveIssueEvent);
+  if (normalizedLiveEvent?.issue) {
+    // Comments and labels can advance GitHub's updated_at without changing the signed review body.
+    // State, title, body, author and queue are still read from the live Issue and validated below.
+    normalizedLiveEvent.issue.updated_at = candidate.sourceIssue.updatedAt;
+    normalizedLiveEvent.issue.author_association = candidate.sourceIssue.authorAssociation;
+  }
+  const rebuilt = validateGlobalReviewIssueEvent(normalizedLiveEvent, reviewQueue, reviewQueueBytes);
   if (rebuilt.integrity.candidateSha256 !== candidate.integrity.candidateSha256) {
     fail(
       "CANDIDATE_REVALIDATION",
-      "候选无法由保存的原始 Issue 与当前复核队列重新生成；拒绝进入账本",
+      "候选无法由 GitHub 当前 Issue 与当前复核队列重新生成；旧修订、撤回或改写内容不得进入账本",
     );
   }
   return candidate;
@@ -338,9 +374,14 @@ export function revalidateCandidateAgainstQueue(candidateInput, reviewQueue, rev
 export function buildAcceptedLedger(
   candidateInput,
   ledgerInput,
-  { acceptedBy, acceptedAt, reviewQueue, reviewQueueBytes },
+  { acceptedBy, acceptedAt, reviewQueue, reviewQueueBytes, liveIssueEvent },
 ) {
-  const candidate = revalidateCandidateAgainstQueue(candidateInput, reviewQueue, reviewQueueBytes);
+  const candidate = revalidateCandidateAgainstQueue(
+    candidateInput,
+    reviewQueue,
+    reviewQueueBytes,
+    liveIssueEvent,
+  );
   const maintainer = requireString(acceptedBy, "ACCEPTOR_MISSING", "验收维护者 GitHub 用户名");
   if (!/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$/.test(maintainer)) {
     fail("ACCEPTOR_INVALID", "验收维护者 GitHub 用户名格式无效");
@@ -369,9 +410,20 @@ export function buildAcceptedLedger(
   }
   const draft = candidate.reviewerDeclarationDraft;
   const existingDeclaration = ledger.reviewerDeclarations.find((entry) => entry.reviewerId === draft.reviewerId);
+  const affiliation = {
+    institution: draft.institution,
+    sourceIssueUrl,
+    submissionSha256: candidate.integrity.candidateSha256,
+    verifiedBy: `github:${maintainer.toLocaleLowerCase("en-US")}`,
+    verifiedAt: acceptanceTime,
+  };
   if (existingDeclaration) {
-    if (normalizeInstitution(existingDeclaration.institution) !== normalizeInstitution(draft.institution)) {
-      fail("REVIEWER_INSTITUTION_CONFLICT", `${draft.reviewerId} 的机构声明与既有账本冲突`);
+    if (!Array.isArray(existingDeclaration.affiliations)) {
+      fail("REVIEWER_AFFILIATIONS_INVALID", `${draft.reviewerId} 缺少版本化机构记录`);
+    }
+    const lastAffiliation = existingDeclaration.affiliations.at(-1);
+    if (lastAffiliation?.institution !== draft.institution) {
+      existingDeclaration.affiliations.push(affiliation);
     }
   } else {
     ledger.reviewerDeclarations.push({
@@ -385,6 +437,7 @@ export function buildAcceptedLedger(
       sourceIssueUrl,
       verifiedBy: `github:${maintainer.toLocaleLowerCase("en-US")}`,
       verifiedAt: acceptanceTime,
+      affiliations: [affiliation],
     });
   }
 
@@ -484,31 +537,42 @@ async function runCli() {
       readFile(resolve(root, queuePath)),
     ]);
     const candidate = JSON.parse(candidateRaw.toString("utf8"));
-    const updatedLedger = buildAcceptedLedger(candidate, JSON.parse(ledgerRaw.toString("utf8")), {
-      acceptedBy,
-      acceptedAt,
-      reviewQueue: JSON.parse(queueRaw.toString("utf8")),
-      reviewQueueBytes: queueRaw,
-    });
     const archiveRelative = argumentValue(
       args,
       "--archive",
       `data/gbcr/review-submissions/github-issue-${candidate.sourceIssue.number}.json`,
     );
-    if (!args.includes("--write")) {
-      process.stdout.write(jsonRaw({ archivePath: archiveRelative, ledger: updatedLedger }));
-      console.error("仅完成验收预演；未写入候选归档或账本。添加 --write 才会修改文件并重建治理数据。");
-      return;
-    }
+    const writeMode = args.includes("--write");
+    const liveEventPath = argumentValue(args, "--live-event");
     const ledgerAbsolute = resolve(root, ledgerPath);
     const archiveAbsolute = resolve(root, archiveRelative);
     const canonicalArchive = `data/gbcr/review-submissions/github-issue-${candidate.sourceIssue.number}.json`;
+    if (writeMode && liveEventPath) {
+      fail("LIVE_EVENT_WRITE_UNSAFE", "--write 必须直接读取 GitHub 当前 Issue，不接受本地事件替代");
+    }
     if (
-      ledgerAbsolute !== resolve(root, defaultLedgerPath) ||
-      resolve(root, queuePath) !== resolve(root, defaultQueuePath) ||
-      archiveAbsolute !== resolve(root, canonicalArchive)
+      writeMode && (
+        ledgerAbsolute !== resolve(root, defaultLedgerPath) ||
+        resolve(root, queuePath) !== resolve(root, defaultQueuePath) ||
+        archiveAbsolute !== resolve(root, canonicalArchive)
+      )
     ) {
       fail("WRITE_TARGET_UNSAFE", "--write 只允许写入官方账本、当前官方队列与固定 Issue 归档路径");
+    }
+    const liveIssueEvent = liveEventPath
+      ? JSON.parse(await readFile(resolve(root, liveEventPath), "utf8"))
+      : await fetchCurrentGitHubIssueEvent(candidate);
+    const updatedLedger = buildAcceptedLedger(candidate, JSON.parse(ledgerRaw.toString("utf8")), {
+      acceptedBy,
+      acceptedAt,
+      reviewQueue: JSON.parse(queueRaw.toString("utf8")),
+      reviewQueueBytes: queueRaw,
+      liveIssueEvent,
+    });
+    if (!writeMode) {
+      process.stdout.write(jsonRaw({ archivePath: archiveRelative, ledger: updatedLedger }));
+      console.error("仅完成验收预演；未写入候选归档或账本。添加 --write 才会修改文件并重建治理数据。");
+      return;
     }
     if (existsSync(archiveAbsolute)) fail("ARCHIVE_EXISTS", `候选归档已存在：${archiveRelative}`);
     await mkdir(dirname(archiveAbsolute), { recursive: true });
