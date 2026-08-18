@@ -1,0 +1,102 @@
+name: Drill immutable preservation recovery
+
+on:
+  schedule:
+    - cron: "17 3 1 */3 *"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Optional immutable GBCR release tag; blank selects the newest immutable release
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - ".github/workflows/preservation-recovery-drill.yml"
+      - "scripts/verify-preservation-recovery.mjs"
+      - "scripts/test-preservation-recovery.mjs"
+      - "scripts/select-preservation-release.mjs"
+      - "scripts/validate-long-term-operations-workflows.mjs"
+      - "docs/PRESERVATION_RELEASES.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preservation-recovery-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'scheduled' }}
+  cancel-in-progress: false
+
+jobs:
+  validate-verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - name: Test hostile and valid preservation fixtures
+        run: node scripts/test-preservation-recovery.mjs --integration
+      - name: Validate long-term workflow permissions and ordering
+        run: node scripts/validate-long-term-operations-workflows.mjs
+
+  recover:
+    needs: validate-verifier
+    if: github.event_name != 'pull_request' && github.repository == 'weitzu-com/foxue.ai'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REQUESTED_TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Select one immutable GBCR release
+        id: release
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          gh release list \
+            --repo "$GITHUB_REPOSITORY" \
+            --limit 100 \
+            --json tagName,isDraft,isImmutable,publishedAt \
+            > "$RUNNER_TEMP/releases.json"
+          tag="$(node scripts/select-preservation-release.mjs "$RUNNER_TEMP/releases.json" "$REQUESTED_TAG")"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Download and verify GitHub release attestations
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          release_dir="$RUNNER_TEMP/release"
+          mkdir -p "$release_dir"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir "$release_dir"
+          gh release verify "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY"
+          shopt -s nullglob
+          assets=("$release_dir"/*)
+          if [[ "${#assets[@]}" -ne 4 ]]; then
+            echo "Expected exactly four release assets, found ${#assets[@]}" >&2
+            exit 1
+          fi
+          for asset in "${assets[@]}"; do
+            gh release verify-asset "$RELEASE_TAG" "$asset" --repo "$GITHUB_REPOSITORY"
+          done
+
+      - name: Perform a from-zero recovery drill
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: >-
+          node scripts/verify-preservation-recovery.mjs
+          --release-dir="$RUNNER_TEMP/release"
+          --tag="$RELEASE_TAG"
+          --work-dir="$RUNNER_TEMP/recovery"
+
+      - name: Preserve the drill report for operational review
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: preservation-recovery-${{ steps.release.outputs.tag }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/release/RECOVERY-DRILL-REPORT.json
+          if-no-files-found: error
+          retention-days: 90
