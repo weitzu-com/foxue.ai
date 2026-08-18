@@ -274,6 +274,7 @@
     "verify:gbcr:v6.17": "node scripts/build-federated-corpus-v6.17.mjs --verify",
     "build:global-denominator-governance": "node scripts/build-global-denominator-governance.mjs",
     "verify:global-denominator-governance": "node scripts/build-global-denominator-governance.mjs --verify",
+    "verify:global-review-intake": "node scripts/test-global-review-intake.mjs",
     "build:gbcr:v6.18": "node scripts/build-federated-corpus-v6.18.mjs",
     "verify:gbcr:v6.18": "node scripts/build-federated-corpus-v6.18.mjs --verify",
     "verify:cbeta-pilot": "node scripts/verify-cbeta-pilot.mjs",
@@ -298,7 +299,7 @@
     "verify:preservation-mirrors": "NODE_USE_ENV_PROXY=1 node scripts/verify-preservation-mirrors.mjs",
     "preserve": "node scripts/build-preservation-bundle.mjs",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",
