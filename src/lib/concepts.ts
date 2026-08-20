@@ -1,36 +1,20 @@
-const EMPTYNESS_ALIASES = [
-  "空",
-  "空性",
-  "空相",
-  "五蕴皆空",
-  "五蘊皆空",
-  "śūnya",
-  "śūnyatā",
-  "sunyata",
-  "suñña",
-  "suññatā",
-  "sunnata",
-];
+import { allConcepts, getConceptEntry, type ConceptEntry, type ConceptSlug } from "@/lib/concept-hubs";
 
-export type ConceptEntry = {
-  slug: "kong";
-  title: "空";
-  href: "/gainian/kong";
-  summary: string;
-};
+export type { ConceptEntry, ConceptSlug } from "@/lib/concept-hubs";
 
-export const emptinessConcept: ConceptEntry = {
-  slug: "kong",
-  title: "空",
-  href: "/gainian/kong",
-  summary: "区分巴利经藏与汉译般若的术语语境，并从每项判断回到稳定原典。",
-};
+export const emptinessConcept = getConceptEntry("kong");
+export const nonAbidingConcept = getConceptEntry("wuzhu");
+export const observingMindConcept = getConceptEntry("guanxin");
+
+if (!emptinessConcept || !nonAbidingConcept || !observingMindConcept) {
+  throw new Error("概念 Hub 配置不完整");
+}
 
 export function conceptForQuery(rawQuery: string): ConceptEntry | undefined {
   const query = rawQuery.trim().toLocaleLowerCase();
   if (!query) return undefined;
 
-  return EMPTYNESS_ALIASES.some((alias) => query.includes(alias.toLocaleLowerCase()))
-    ? emptinessConcept
-    : undefined;
+  return allConcepts.find((concept) =>
+    concept.aliases.some((alias) => query.includes(alias.toLocaleLowerCase())),
+  );
 }

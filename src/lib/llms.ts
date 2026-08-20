@@ -28,6 +28,11 @@ const corePages: CorePage[] = [
     summary: "佛经在线阅读目录；按来源、版本、经号与稳定行段浏览已登记文本。",
   },
   {
+    path: "/gainian",
+    label: "概念",
+    summary: "主题层入口；按空、无住、观心等受控证据页进入佛学高频问题。",
+  },
+  {
     path: "/gainian/kong",
     label: "空概念 Hub",
     summary: "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界与常见误解。",
@@ -151,6 +156,7 @@ ${renderCorePageTable()}
 - 当前 sitemap 共 **${sitemapCount}** 个分片：${absoluteUrl("/sitemap/0.xml")} … ${absoluteUrl(`/sitemap/${sitemapCount - 1}.xml`)}
 - 当前登记 **${formatCount(totalUrls)}** 个 canonical URL
 - 当前经藏目录登记 **${formatCount(sutraCount)}** 部文本表达，覆盖汉文、藏文、巴利文、梵文与俗语见证
+- 当前公开主题 Hub 至少包括：${absoluteUrl("/gainian/kong")}、${absoluteUrl("/gainian/wuzhu")}、${absoluteUrl("/gainian/guanxin")}
 - 经目页与分册页提供稳定段落或版页锚点；全文阅读以 ${absoluteUrl("/jingzang")} 为入口，覆盖治理以 ${absoluteUrl("/fugai")} 为准
 
 ## 问经边界

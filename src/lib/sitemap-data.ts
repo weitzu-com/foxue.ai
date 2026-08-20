@@ -11,7 +11,20 @@ let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
 
 export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   entriesPromise ??= (async () => {
-    const staticRoutes = ["", "/wenjing", "/jingzang", "/gainian/kong", "/fugai", "/fenmu", "/shenjiao", "/yuanze", "/touming"];
+    const staticRoutes = [
+      "",
+      "/wenjing",
+      "/jingzang",
+      "/gainian",
+      "/gainian/kong",
+      "/gainian/wuzhu",
+      "/gainian/guanxin",
+      "/fugai",
+      "/fenmu",
+      "/shenjiao",
+      "/yuanze",
+      "/touming",
+    ];
     const libraryPaginationRoutes = Array.from(
       { length: Math.max(0, Math.ceil(sutras.length / libraryPageSize) - 1) },
       (_, index) => `/jingzang/page/${index + 2}`,

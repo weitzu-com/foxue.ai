@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { SearchConsole } from "@/components/search-console";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
+import { allConcepts } from "@/lib/concept-hubs";
 import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -176,6 +177,35 @@ export default function Home() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="intent-section section-space">
+        <div className="page-shell">
+          <div className="section-heading section-heading--split">
+            <div>
+              <p className="eyebrow">主题层入口</p>
+              <h2>先理解问题类型，<br />再进入原典。</h2>
+            </div>
+            <p>
+              问题不是都该直接打到经文目录。对于高频主题，先进入受控概念 Hub，
+              能更快看清术语边界、常见误读和最值得先打开的原典入口。
+            </p>
+          </div>
+          <div className="task-grid">
+            {allConcepts.map((concept, index) => (
+              <Link href={concept.href} className="task-card" key={concept.slug}>
+                <span className="task-card__number">{`题 ${index + 1}`}</span>
+                <CircleDot aria-hidden="true" />
+                <h3>{concept.title}</h3>
+                <p>{concept.summary}</p>
+                <p>入口问题：{concept.prompt}</p>
+                <span className="task-card__link">
+                  进入概念 Hub <ArrowRight aria-hidden="true" size={16} />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

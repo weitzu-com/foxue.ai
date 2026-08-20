@@ -33,7 +33,10 @@ async function readSitemaps(request: APIRequestContext) {
 const criticalRoutes = [
   "/",
   "/wenjing",
+  "/gainian",
   "/gainian/kong",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -82,7 +85,10 @@ const criticalRoutes = [
 const sitemapLandingRoutes = [
   "/",
   "/wenjing",
+  "/gainian",
   "/gainian/kong",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -116,7 +122,10 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
   const cases = [
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
+    ["/gainian", "https://www.foxue.ai/gainian"],
     ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
+    ["/gainian/wuzhu", "https://www.foxue.ai/gainian/wuzhu"],
+    ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
@@ -212,11 +221,35 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       ],
     },
     {
+      path: "/gainian",
+      required: [
+        ["https://www.foxue.ai/gainian#page", "CollectionPage"],
+        ["https://www.foxue.ai/gainian#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/gainian#list", "ItemList"],
+      ],
+    },
+    {
       path: "/gainian/kong",
       required: [
         ["https://www.foxue.ai/gainian/kong#page", "WebPage"],
         ["https://www.foxue.ai/gainian/kong#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/kong#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuzhu",
+      required: [
+        ["https://www.foxue.ai/gainian/wuzhu#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuzhu#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuzhu#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/guanxin",
+      required: [
+        ["https://www.foxue.ai/gainian/guanxin#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/guanxin#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/guanxin#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -371,7 +404,43 @@ test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ pag
   expect(await sitemap.text()).toContain("/gainian/kong");
 });
 
-test("首页搜索建议与问经结果都能进入空概念 Hub", async ({ page }) => {
+test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ page, request }) => {
+  await page.goto("/gainian");
+
+  await expect(page.getByRole("heading", { level: 1, name: /先进入主题层/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /空/ })).toHaveAttribute("href", "/gainian/kong");
+  await expect(page.getByRole("link", { name: /无住/ })).toHaveAttribute("href", "/gainian/wuzhu");
+  await expect(page.getByRole("link", { name: /观心/ })).toHaveAttribute("href", "/gainian/guanxin");
+
+  const sitemap = await request.get("/sitemap/0.xml");
+  expect(sitemap.ok()).toBeTruthy();
+  const body = await sitemap.text();
+  expect(body).toContain("/gainian");
+  expect(body).toContain("/gainian/wuzhu");
+  expect(body).toContain("/gainian/guanxin");
+});
+
+test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
+  await page.goto("/gainian/wuzhu");
+  await expect(page.getByRole("heading", { level: 1, name: /无住.*不是退场/ })).toBeVisible();
+  await expect(page.getByText("应无所住而生其心。", { exact: true })).toBeVisible();
+  await expect(page.getByText("无住 = 什么都不要做", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/jingangjing/001-0749c#T0235.001.0749c22",
+  );
+
+  await page.goto("/gainian/guanxin");
+  await expect(page.getByRole("heading", { level: 1, name: /观心.*不是压住情绪/ })).toBeVisible();
+  await expect(page.getByText("心为法本，心尊心使；中心念恶，即言即行，罪苦自追，车轹于辙。")).toBeVisible();
+  await expect(page.getByText("痛苦都是自己想出来的", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/fajujing/001-0559a#T0210.001.0562a13",
+  );
+});
+
+test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ page }) => {
   await page.goto("/");
   await page.getByLabel("输入佛学问题、经名、句子或术语").fill("空");
   const searchHubLink = page.getByRole("link", { name: /进入概念页/ });
@@ -386,6 +455,28 @@ test("首页搜索建议与问经结果都能进入空概念 Hub", async ({ page
   await expect(askHubLink).toBeVisible();
   await askHubLink.click();
   await page.waitForURL(/\/gainian\/kong$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无住");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuzhu$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无住是不是消极？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const nonAbidingHubLink = page.getByRole("link", { name: /进入“无住”概念 Hub/ });
+  await expect(nonAbidingHubLink).toBeVisible();
+  await nonAbidingHubLink.click();
+  await page.waitForURL(/\/gainian\/wuzhu$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("烦恼生起时，怎样观察自己的心？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const mindHubLink = page.getByRole("link", { name: /进入“观心”概念 Hub/ });
+  await expect(mindHubLink).toBeVisible();
+  await mindHubLink.click();
+  await page.waitForURL(/\/gainian\/guanxin$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {

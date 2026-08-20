@@ -1,5 +1,10 @@
 import { sutras } from "@/data/sutras";
-import { emptinessConcept, type ConceptEntry } from "@/lib/concepts";
+import {
+  emptinessConcept,
+  nonAbidingConcept,
+  observingMindConcept,
+  type ConceptEntry,
+} from "@/lib/concepts";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -77,6 +82,7 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       ],
       caution:
         "此回答不是医疗或心理危机建议。若你正处于危险或强烈痛苦中，请优先联系当地紧急服务和可信赖的专业人员。",
+      concept: observingMindConcept,
       evidence: [
         evidenceFor("fajujing", 0),
         evidenceFor("fajujing", 1),
@@ -97,6 +103,7 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       ],
       caution:
         "本说明聚焦鸠摩罗什译本的可见段落；其他汉译本及梵文本的措辞差异尚未在首版中展开。",
+      concept: nonAbidingConcept,
       evidence: [
         evidenceFor("jingangjing", 1),
         evidenceFor("jingangjing", 3),
