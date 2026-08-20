@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { sutras } from "@/data/sutras";
 import { getSutraReading } from "@/lib/corpus-reading";
+import { allConcepts } from "@/lib/concept-hubs";
 import { libraryPageSize } from "@/lib/library-pagination";
 import { folioHref } from "@/lib/reader-routes";
 import { siteOrigin } from "@/lib/site-metadata";
@@ -16,9 +17,7 @@ export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       "/wenjing",
       "/jingzang",
       "/gainian",
-      "/gainian/kong",
-      "/gainian/wuzhu",
-      "/gainian/guanxin",
+      ...allConcepts.map((concept) => concept.href),
       "/fugai",
       "/fenmu",
       "/shenjiao",

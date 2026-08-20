@@ -9,7 +9,12 @@ const baseShaInput = process.env.INDEXNOW_BASE_SHA?.trim() || "";
 const platformCluster = [
   "/",
   "/wenjing",
+  "/gainian",
   "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -36,7 +41,12 @@ const catalogCluster = [
 const metadataCluster = [
   "/",
   "/wenjing",
+  "/gainian",
   "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -173,8 +183,18 @@ function urlsForChangedFile(file) {
     addUnique(urls, [absoluteUrl("/wenjing")]);
   }
 
-  if (file.startsWith("src/lib/concepts")) {
-    addUnique(urls, [absoluteUrl("/gainian/kong")]);
+  if (file.startsWith("src/lib/concepts") || file === "src/lib/concept-hubs.ts" || file === "src/lib/concept-hubs-expanded.ts") {
+    addUnique(urls, [
+      absoluteUrl("/gainian"),
+      absoluteUrl("/gainian/kong"),
+      absoluteUrl("/gainian/wuchang"),
+      absoluteUrl("/gainian/wuwo"),
+      absoluteUrl("/gainian/wuzhu"),
+      absoluteUrl("/gainian/guanxin"),
+      absoluteUrl("/llms.txt"),
+      absoluteUrl("/llms-full.txt"),
+      absoluteUrl("/sitemap-index.xml"),
+    ]);
   }
 
   const staticPagePath = deriveStaticPagePath(file);

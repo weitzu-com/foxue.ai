@@ -1,6 +1,7 @@
 name: Google integrations health
 
 on:
+  deployment_status:
   workflow_dispatch:
   schedule:
     - cron: "17 2 * * *"
@@ -10,14 +11,43 @@ permissions:
 
 jobs:
   verify:
-    if: vars.GOOGLE_INTEGRATIONS_ENABLED == 'true'
+    if: |
+      vars.GOOGLE_INTEGRATIONS_ENABLED == 'true' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        github.event_name == 'schedule' ||
+        (
+          github.event_name == 'deployment_status' &&
+          github.event.deployment_status.state == 'success' &&
+          (
+            startsWith(github.event.deployment_status.environment_url, 'https://www.foxue.ai') ||
+            github.event.deployment.environment == 'production' ||
+            github.event.deployment.environment == 'Production'
+          )
+        )
+      )
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
+      - name: Summarize verification trigger
+        run: |
+          {
+            echo "## Google integrations health"
+            echo
+            echo "- Event: ${GITHUB_EVENT_NAME}"
+            echo "- Verify target: https://www.foxue.ai"
+            if [ "${GITHUB_EVENT_NAME}" = "deployment_status" ]; then
+              echo "- Deployment environment: ${{ github.event.deployment.environment }}"
+              echo "- Deployment state: ${{ github.event.deployment_status.state }}"
+              echo "- Environment URL: ${{ github.event.deployment_status.environment_url }}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Verify GA4, GSC, sitemap index and core SEO head signals
         env:
           EXPECTED_GA4_MEASUREMENT_ID: G-3MWMWV1MQC

@@ -6,20 +6,20 @@ import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-
 
 export const metadata: Metadata = buildPageMetadata({
   title: "佛教概念与主题 Hub",
-  description: "按主题进入空、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+  description: "按主题进入空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
   path: "/gainian",
 });
 
 const conceptIndexJsonLdBase = buildPageJsonLd({
   path: "/gainian",
   title: "佛教概念与主题 Hub",
-  description: "按主题进入空、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+  description: "按主题进入空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
   type: "CollectionPage",
   breadcrumb: [
     { name: "首页", path: "/" },
     { name: "概念", path: "/gainian" },
   ],
-  about: ["佛教概念", "空", "无住", "观心", "原典证据"],
+  about: ["佛教概念", "空", "无常", "无我", "无住", "观心", "原典证据"],
   mainEntityId: "https://www.foxue.ai/gainian#list",
 });
 

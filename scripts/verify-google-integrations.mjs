@@ -108,11 +108,13 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
   get("/gainian/kong"),
+  get("/gainian/wuchang"),
+  get("/gainian/wuwo"),
   get("/gainian/wuzhu"),
   get("/gainian/guanxin"),
   get("/jingzang"),
@@ -157,7 +159,7 @@ const pageExpectations = [
     gainian,
     {
       title: "佛教概念与主题 Hub｜foxue.ai",
-      description: "按主题进入空、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+      description: "按主题进入空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
       bodyIncludes: ["先进入主题层", "再下钻到原典证据。", "进入概念 Hub"],
       jsonLd: [
         ["https://www.foxue.ai/gainian#page", "CollectionPage"],
@@ -176,6 +178,32 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/kong#page", "WebPage"],
         ["https://www.foxue.ai/gainian/kong#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/kong#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/wuchang",
+    gainianWuchang,
+    {
+      title: "无常｜概念 Hub｜foxue.ai",
+      description: "从《佛说无常经》与《佛说五蕴皆空经》等现有证据理解“无常”的观察范围、修行指向与常见误解。",
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/wuchang#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuchang#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuchang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/wuwo",
+    gainianWuwo,
+    {
+      title: "无我｜概念 Hub｜foxue.ai",
+      description: "从《佛说五蘊皆空经》与《外道问圣大乘法无我义经》等现有证据理解“无我”的观察范围、传统边界与常见误解。",
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/wuwo#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuwo#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuwo#breadcrumb", "BreadcrumbList"],
       ],
     },
   ],

@@ -22,9 +22,18 @@ async function readSitemaps(request: APIRequestContext) {
   const robotsResponse = await request.get("/robots.txt");
   expect(robotsResponse.ok()).toBeTruthy();
   const robots = await robotsResponse.text();
-  const sitemapPaths = [...robots.matchAll(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap\/\d+\.xml)$/gm)]
-    .map((match) => match[1]);
+  const sitemapIndexPath = robots.match(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap-index\.xml)$/m)?.[1];
+  expect(sitemapIndexPath).toBeTruthy();
+
+  const sitemapIndexResponse = await request.get(sitemapIndexPath ?? "/sitemap-index.xml");
+  expect(sitemapIndexResponse.ok()).toBeTruthy();
+  const sitemapIndex = await sitemapIndexResponse.text();
+
+  const sitemapPaths = [...sitemapIndex.matchAll(/<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml)<\/loc>/g)].map(
+    (match) => match[1],
+  );
   expect(sitemapPaths.length).toBeGreaterThan(0);
+
   const responses = await Promise.all(sitemapPaths.map((path) => request.get(path)));
   expect(responses.every((response) => response.ok())).toBeTruthy();
   return (await Promise.all(responses.map((response) => response.text()))).join("\n");
@@ -35,6 +44,8 @@ const criticalRoutes = [
   "/wenjing",
   "/gainian",
   "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
   "/gainian/wuzhu",
   "/gainian/guanxin",
   "/jingzang",
@@ -87,6 +98,8 @@ const sitemapLandingRoutes = [
   "/wenjing",
   "/gainian",
   "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
   "/gainian/wuzhu",
   "/gainian/guanxin",
   "/jingzang",
@@ -109,6 +122,16 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
   expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
 });
 
+test("robots.txt 声明单一 sitemap index 入口", async ({ request }) => {
+  const response = await request.get("/robots.txt");
+  expect(response.ok()).toBeTruthy();
+
+  const robots = await response.text();
+  const sitemapEntries = [...robots.matchAll(/^Sitemap:\s+(.+)$/gm)].map((match) => match[1]);
+
+  expect(sitemapEntries).toEqual(["https://www.foxue.ai/sitemap-index.xml"]);
+});
+
 test("站点地图入口页使用自引用 canonical", async ({ page }) => {
   for (const path of sitemapLandingRoutes) {
     await page.goto(path);
@@ -124,6 +147,8 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/gainian", "https://www.foxue.ai/gainian"],
     ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
+    ["/gainian/wuchang", "https://www.foxue.ai/gainian/wuchang"],
+    ["/gainian/wuwo", "https://www.foxue.ai/gainian/wuwo"],
     ["/gainian/wuzhu", "https://www.foxue.ai/gainian/wuzhu"],
     ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
@@ -203,6 +228,8 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(llms).toContain("AI 问经与原典出处对照");
   expect(llms).toContain("全球佛经作品分母治理");
   expect(llms).toContain("汉巴作品关系双人复核队列");
+  expect(full).toContain("/gainian/wuchang");
+  expect(full).toContain("/gainian/wuwo");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -234,6 +261,22 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/kong#page", "WebPage"],
         ["https://www.foxue.ai/gainian/kong#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/kong#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuchang",
+      required: [
+        ["https://www.foxue.ai/gainian/wuchang#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuchang#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuchang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuwo",
+      required: [
+        ["https://www.foxue.ai/gainian/wuwo#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuwo#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuwo#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -419,19 +462,41 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await page.goto("/gainian");
 
   await expect(page.getByRole("heading", { level: 1, name: /先进入主题层/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /空/ })).toHaveAttribute("href", "/gainian/kong");
-  await expect(page.getByRole("link", { name: /无住/ })).toHaveAttribute("href", "/gainian/wuzhu");
-  await expect(page.getByRole("link", { name: /观心/ })).toHaveAttribute("href", "/gainian/guanxin");
+  await expect(page.locator('a[href="/gainian/kong"]')).toContainText("空");
+  await expect(page.locator('a[href="/gainian/wuchang"]')).toContainText("无常");
+  await expect(page.locator('a[href="/gainian/wuwo"]')).toContainText("无我");
+  await expect(page.locator('a[href="/gainian/wuzhu"]')).toContainText("无住");
+  await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
 
   const sitemap = await request.get("/sitemap/0.xml");
   expect(sitemap.ok()).toBeTruthy();
   const body = await sitemap.text();
   expect(body).toContain("/gainian");
+  expect(body).toContain("/gainian/wuchang");
+  expect(body).toContain("/gainian/wuwo");
   expect(body).toContain("/gainian/wuzhu");
   expect(body).toContain("/gainian/guanxin");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
+  await page.goto("/gainian/wuchang");
+  await expect(page.getByRole("heading", { level: 1, name: /无常.*不是一句/ })).toBeVisible();
+  await expect(page.getByText("未曾有一事，不被無常吞。")).toBeVisible();
+  await expect(page.getByText("无常 = 悲观或倒霉预言", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/taisho-t0801/001-0745b#T0801.001.0745b24",
+  );
+
+  await page.goto("/gainian/wuwo");
+  await expect(page.getByRole("heading", { level: 1, name: /无我.*不是把经验/ })).toBeVisible();
+  await expect(page.getByText("汝等當知，色不是我，若是我者，色不應病及受苦惱。", { exact: false })).toBeVisible();
+  await expect(page.getByText("无我 = 什么都不存在", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c10",
+  );
+
   await page.goto("/gainian/wuzhu");
   await expect(page.getByRole("heading", { level: 1, name: /无住.*不是退场/ })).toBeVisible();
   await expect(page.getByText("应无所住而生其心。", { exact: true })).toBeVisible();
@@ -466,6 +531,34 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(askHubLink).toBeVisible();
   await askHubLink.click();
   await page.waitForURL(/\/gainian\/kong$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无常");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuchang$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无常是不是悲观？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const impermanenceHubLink = page.getByRole("link", { name: /进入“无常”概念 Hub/ });
+  await expect(impermanenceHubLink).toBeVisible();
+  await impermanenceHubLink.click();
+  await page.waitForURL(/\/gainian\/wuchang$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无我");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuwo$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无我是不是否定‘我’的存在？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const nonSelfHubLink = page.getByRole("link", { name: /进入“无我”概念 Hub/ });
+  await expect(nonSelfHubLink).toBeVisible();
+  await nonSelfHubLink.click();
+  await page.waitForURL(/\/gainian\/wuwo$/);
 
   await page.goto("/");
   await page.getByRole("tab", { name: "查术语" }).click();

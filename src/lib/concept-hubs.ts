@@ -1,4 +1,6 @@
-export type ConceptSlug = "kong" | "wuzhu" | "guanxin";
+import { expandedConceptHubs } from "@/lib/concept-hubs-expanded";
+
+export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin";
 
 export type ConceptEntry = {
   slug: ConceptSlug;
@@ -102,7 +104,7 @@ export type ConceptHub = {
   related: ConceptSlug[];
 };
 
-const conceptHubs: readonly ConceptHub[] = [
+const baseConceptHubs: readonly ConceptHub[] = [
   {
     entry: {
       slug: "kong",
@@ -646,6 +648,8 @@ const conceptHubs: readonly ConceptHub[] = [
     related: ["kong", "wuzhu"],
   },
 ] as const;
+
+const conceptHubs: readonly ConceptHub[] = [...baseConceptHubs, ...expandedConceptHubs];
 
 export const allConceptHubs = [...conceptHubs];
 export const allConcepts = conceptHubs.map((hub) => hub.entry);

@@ -1,3 +1,4 @@
+import { allConcepts } from "@/lib/concept-hubs";
 import { sutras } from "@/data/sutras";
 import { absoluteUrl, siteOrigin } from "@/lib/site-metadata";
 import { getSitemapEntries, getSitemapIds } from "@/lib/sitemap-data";
@@ -30,12 +31,7 @@ const corePages: CorePage[] = [
   {
     path: "/gainian",
     label: "概念",
-    summary: "主题层入口；按空、无住、观心等受控证据页进入佛学高频问题。",
-  },
-  {
-    path: "/gainian/kong",
-    label: "空概念 Hub",
-    summary: "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界与常见误解。",
+    summary: "主题层入口；按空、无常、无我、无住、观心等受控证据页进入佛学高频问题。",
   },
   {
     path: "/fugai",
@@ -64,6 +60,12 @@ const corePages: CorePage[] = [
   },
 ];
 
+const conceptHubPages: CorePage[] = allConcepts.map((concept) => ({
+  path: concept.href,
+  label: `${concept.title}概念 Hub`,
+  summary: concept.summary,
+}));
+
 function formatCount(value: number) {
   return new Intl.NumberFormat("en-US").format(value);
 }
@@ -78,7 +80,7 @@ async function getLlmsSnapshot() {
 }
 
 function renderCorePageBullets() {
-  return corePages
+  return [...corePages, ...conceptHubPages]
     .map((page) => `- [${page.label}](${absoluteUrl(page.path)}): ${page.summary}`)
     .join("\n");
 }
@@ -87,7 +89,7 @@ function renderCorePageTable() {
   return [
     "| 路径 | 名称 | 说明 |",
     "|------|------|------|",
-    ...corePages.map((page) => `| ${page.path} | ${page.label} | ${page.summary} |`),
+    ...[...corePages, ...conceptHubPages].map((page) => `| ${page.path} | ${page.label} | ${page.summary} |`),
   ].join("\n");
 }
 
@@ -156,7 +158,7 @@ ${renderCorePageTable()}
 - 当前 sitemap 共 **${sitemapCount}** 个分片：${absoluteUrl("/sitemap/0.xml")} … ${absoluteUrl(`/sitemap/${sitemapCount - 1}.xml`)}
 - 当前登记 **${formatCount(totalUrls)}** 个 canonical URL
 - 当前经藏目录登记 **${formatCount(sutraCount)}** 部文本表达，覆盖汉文、藏文、巴利文、梵文与俗语见证
-- 当前公开主题 Hub 至少包括：${absoluteUrl("/gainian/kong")}、${absoluteUrl("/gainian/wuzhu")}、${absoluteUrl("/gainian/guanxin")}
+- 当前公开主题 Hub 至少包括：${allConcepts.map((concept) => absoluteUrl(concept.href)).join("、")}
 - 经目页与分册页提供稳定段落或版页锚点；全文阅读以 ${absoluteUrl("/jingzang")} 为入口，覆盖治理以 ${absoluteUrl("/fugai")} 为准
 
 ## 问经边界
