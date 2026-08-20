@@ -429,6 +429,7 @@ test("心经七日学习路径可访问并只在本地保存进度", async ({ pa
 
   await page.getByRole("button", { name: /读完这一日/ }).click();
   await expect(page.locator(".path-day-list .is-completed")).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /第 1 天.*已完成/ })).toBeVisible();
   await expect(page.locator(".path-day-paper__header p")).toContainText("第 2 天");
 
   const stored = await page.evaluate(() => window.localStorage.getItem("foxue:xinjing-seven-day-progress:v1"));

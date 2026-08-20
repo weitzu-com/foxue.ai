@@ -34,7 +34,7 @@ export const xinjingLearningDays: XinjingLearningDay[] = [
       "这里没有把“色”与“空”分成两个世界。简要地说：经验真实发生，却找不到一个脱离条件、永远不变的自性。空不是把生活抹去。",
     pause: "看一件眼前的物品：它依赖了哪些材料、关系与条件才来到这里？",
     segmentId: "T0251.001.0848c07",
-    locator: "T0251.001.0848c07–08",
+    locator: "T0251.001.0848c07–09",
     href: `${xinjingFolioPath}#T0251.001.0848c07`,
   },
   {
@@ -84,9 +84,9 @@ export const xinjingLearningDays: XinjingLearningDay[] = [
     hint:
       "般若在这里不只是知道一个道理，而是被反复写成所依之道。入门不必急着掌握全部术语；先注意经文如何从观照、无所得，走向无碍与觉悟。",
     pause: "用一句自己的话，说说这六天里“空”最不像什么。",
-    segmentId: "T0251.001.0848c16",
-    locator: "T0251.001.0848c16–19",
-    href: `${xinjingFolioPath}#T0251.001.0848c16`,
+    segmentId: "T0251.001.0848c15",
+    locator: "T0251.001.0848c15–18",
+    href: `${xinjingFolioPath}#T0251.001.0848c15`,
   },
   {
     id: 7,

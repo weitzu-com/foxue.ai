@@ -126,12 +126,14 @@ export function XinjingLearningPath() {
         <ol className="path-day-list">
           {xinjingLearningDays.map((day) => {
             const status = progress.statuses[String(day.id)];
+            const statusLabel = status === "completed" ? "，已完成" : status === "skipped" ? "，已跳过" : "，未标记";
             return (
               <li key={day.id}>
                 <button
                   type="button"
                   className={status ? `is-${status}` : undefined}
                   aria-current={day.id === activeDay.id ? "step" : undefined}
+                  aria-label={`第 ${day.id} 天，${day.focus}，${day.title}${statusLabel}`}
                   onClick={() => goToDay(day.id)}
                 >
                   <span className="path-day-list__mark" aria-hidden="true">
