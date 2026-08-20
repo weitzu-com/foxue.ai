@@ -43,6 +43,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/gainian",
+  "/xue/xinjing",
   "/gainian/kong",
   "/gainian/wuchang",
   "/gainian/wuwo",
@@ -97,6 +98,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/gainian",
+  "/xue/xinjing",
   "/gainian/kong",
   "/gainian/wuchang",
   "/gainian/wuwo",
@@ -415,6 +417,23 @@ test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) 
 
   await expect(brandLink).toBeVisible();
   await expect(brandLink).toHaveAttribute("href", "/");
+});
+
+test("心经七日学习路径可访问并只在本地保存进度", async ({ page }) => {
+  await page.goto("/xue/xinjing");
+
+  await expect(page.locator("h1")).toContainText("七天，不求读懂");
+  await expect(page.locator("h1")).toContainText("《心经》");
+  await expect(page.getByText("进度仅存本地")).toBeVisible();
+  await expect(page.getByRole("button", { name: /读完这一日/ })).toBeVisible();
+
+  await page.getByRole("button", { name: /读完这一日/ }).click();
+  await expect(page.locator(".path-day-list .is-completed")).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /第 1 天.*已完成/ })).toBeVisible();
+  await expect(page.locator(".path-day-paper__header p")).toContainText("第 2 天");
+
+  const stored = await page.evaluate(() => window.localStorage.getItem("foxue:xinjing-seven-day-progress:v1"));
+  expect(stored).toContain('"1":"completed"');
 });
 
 test("问经结果同时展示结论、范围和原典证据", async ({ page }) => {
