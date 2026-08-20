@@ -2854,4 +2854,20 @@ a {
   .concept-boundaries { background: #0b1718; }
   .concept-misreadings { background: #182725; }
   .concept-footer { background: #081314; }
+  .learning-hero__seal {
+    border-color: #0d1511;
+    background: #0d1511;
+    color: #fffdf7;
+  }
+  .learning-hero__seal > span { border-right-color: rgb(255 253 247 / 18%); }
+  .learning-hero__seal p { color: #d7ddd4; }
+  .path-complete-button {
+    border-color: #7c2d21;
+    background: #7c2d21;
+    color: #fffdf7;
+  }
+  .path-complete-button:hover {
+    border-color: #9a3d2f;
+    background: #9a3d2f;
+  }
 }
