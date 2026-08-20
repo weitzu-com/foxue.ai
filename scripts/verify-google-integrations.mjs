@@ -4,10 +4,23 @@ const fetchBaseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL
 const expectedSiteOrigin = new URL(process.env.EXPECTED_SITE_ORIGIN ?? fetchBaseUrl.origin).origin;
 const expectedMeasurementId = process.env.EXPECTED_GA4_MEASUREMENT_ID;
 const expectedSourceCommitSha = process.env.EXPECTED_SOURCE_COMMIT_SHA?.trim().toLowerCase() || undefined;
-const expectedSourceCommitRef = process.env.EXPECTED_SOURCE_COMMIT_REF?.trim() || undefined;
 const failures = [];
 const successes = [];
 const isLocalFetch = fetchBaseUrl.hostname === "127.0.0.1" || fetchBaseUrl.hostname === "localhost";
+
+function normalizeCommitRef(value) {
+  const compact = value?.trim();
+  if (!compact) return undefined;
+  if (compact.startsWith("refs/heads/")) return compact.slice("refs/heads/".length);
+  if (compact.startsWith("refs/tags/")) return compact.slice("refs/tags/".length);
+  return compact;
+}
+
+const expectedSourceCommitRef = (() => {
+  const normalized = normalizeCommitRef(process.env.EXPECTED_SOURCE_COMMIT_REF);
+  if (!normalized) return undefined;
+  return /^[0-9a-f]{7,40}$/i.test(normalized) ? undefined : normalized;
+})();
 
 function check(condition, success, failure) {
   if (condition) successes.push(success);
@@ -446,12 +459,12 @@ if (expectedSourceCommitSha) {
 
 if (expectedSourceCommitRef) {
   check(
-    healthRelease.sourceCommitRef === expectedSourceCommitRef,
+    normalizeCommitRef(healthRelease.sourceCommitRef) === expectedSourceCommitRef,
     `/api/health source commit ref 与期望部署一致（${expectedSourceCommitRef}）`,
     `/api/health source commit ref 与期望部署不一致（期望 ${expectedSourceCommitRef}，实际 ${healthRelease.sourceCommitRef ?? "缺失"}）`,
   );
   check(
-    homeReleaseRef === expectedSourceCommitRef,
+    normalizeCommitRef(homeReleaseRef) === expectedSourceCommitRef,
     `首页响应头 source commit ref 与期望部署一致（${expectedSourceCommitRef}）`,
     `首页响应头 source commit ref 与期望部署不一致（期望 ${expectedSourceCommitRef}，实际 ${homeReleaseRef ?? "缺失"}）`,
   );

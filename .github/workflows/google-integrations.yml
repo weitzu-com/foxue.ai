@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event_name == 'deployment_status' && github.event.deployment.sha || github.sha }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
@@ -45,12 +45,14 @@ jobs:
             if [ "${GITHUB_EVENT_NAME}" = "deployment_status" ]; then
               echo "- Deployment environment: ${{ github.event.deployment.environment }}"
               echo "- Deployment state: ${{ github.event.deployment_status.state }}"
+              echo "- Deployment ref: ${{ github.event.deployment.ref }}"
+              echo "- Deployment SHA: ${{ github.event.deployment.sha }}"
               echo "- Environment URL: ${{ github.event.deployment_status.environment_url }}"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Verify GA4, GSC, sitemap index and core SEO head signals
         env:
           EXPECTED_GA4_MEASUREMENT_ID: G-3MWMWV1MQC
-          EXPECTED_SOURCE_COMMIT_SHA: ${{ github.event_name == 'deployment_status' && github.sha || '' }}
-          EXPECTED_SOURCE_COMMIT_REF: ${{ github.event_name == 'deployment_status' && github.ref_name || '' }}
+          EXPECTED_SOURCE_COMMIT_SHA: ${{ github.event_name == 'deployment_status' && github.event.deployment.sha || '' }}
+          EXPECTED_SOURCE_COMMIT_REF: ${{ github.event_name == 'deployment_status' && github.event.deployment.ref || '' }}
         run: node scripts/verify-google-integrations.mjs https://www.foxue.ai

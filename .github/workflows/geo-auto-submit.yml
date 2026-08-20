@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event_name == 'deployment_status' && github.event.deployment.sha || github.sha }}
           fetch-depth: 2
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -28,6 +28,7 @@ jobs:
       - name: Build submission URLs
         env:
           INDEXNOW_URLS_INPUT: ${{ github.event.inputs.urls }}
+          INDEXNOW_TARGET_SHA: ${{ github.event_name == 'deployment_status' && github.event.deployment.sha || github.sha }}
         run: |
           set -euo pipefail
           node scripts/build-indexnow-submission.mjs > urls.json
@@ -37,6 +38,10 @@ jobs:
             echo
             echo "- URL count: $(jq 'length' urls.json)"
             echo "- Source event: ${GITHUB_EVENT_NAME}"
+            if [ "${GITHUB_EVENT_NAME}" = "deployment_status" ]; then
+              echo "- Deployment ref: ${{ github.event.deployment.ref }}"
+              echo "- Deployment SHA: ${{ github.event.deployment.sha }}"
+            fi
             echo
             echo '```json'
             cat urls.json
