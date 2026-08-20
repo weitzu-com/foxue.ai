@@ -541,6 +541,16 @@ test("卷页具有独立标题、H1、规范网址与分享元数据", async ({ 
   expect((await page.title()).length).toBeLessThanOrEqual(60);
 });
 
+test("经目页标题不重复品牌后缀并保持自指元数据", async ({ page }) => {
+  const path = "/jingzang/xinjing";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("般若波罗蜜多心经");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `https://www.foxue.ai${path}`);
+  await expect(page).toHaveTitle("般若波罗蜜多心经｜foxue.ai");
+});
+
 test("经文分册页不会预取沉重的经藏目录 RSC", async ({ page }) => {
   const prefetchedRscPaths: string[] = [];
 

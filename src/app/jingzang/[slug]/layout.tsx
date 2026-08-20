@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return {
     ...metadata,
     title: {
-      default: formatSiteTitle(safeTitle),
+      default: safeTitle,
       template: "%s｜foxue.ai",
     },
   };
