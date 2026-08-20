@@ -1,12 +1,11 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpenText, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpenText, Search } from "lucide-react";
 import type { Sutra } from "@/data/sutras";
+import { libraryPageSize } from "@/lib/library-pagination";
 
-const pageSize = 60;
-const filters = [
+export { libraryPageSize } from "@/lib/library-pagination";
+
+export const libraryFilters = [
   { id: "all", label: "全部" },
   { id: "chinese", label: "汉文" },
   { id: "tibetan", label: "藏文" },
@@ -14,9 +13,14 @@ const filters = [
   { id: "indic", label: "梵文与俗语" },
 ] as const;
 
-type FilterId = (typeof filters)[number]["id"];
+export type LibraryFilterId = (typeof libraryFilters)[number]["id"];
+export type LibrarySearchParams = Record<string, string | string[] | undefined>;
 
-function belongsTo(sutra: Sutra, filter: FilterId) {
+function scalar(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function belongsTo(sutra: Sutra, filter: LibraryFilterId) {
   if (filter === "all") return true;
   if (filter === "tibetan") return sutra.readerMode === "derge-folio";
   if (filter === "pali") return sutra.language.includes("巴利");
@@ -24,12 +28,18 @@ function belongsTo(sutra: Sutra, filter: FilterId) {
   return sutra.language === "汉文";
 }
 
-export function LibraryCatalog({ sutras }: { sutras: Sutra[] }) {
-  const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<FilterId>("all");
-  const [limit, setLimit] = useState(pageSize);
-  const normalizedQuery = query.trim().toLocaleLowerCase();
-  const results = useMemo(() => sutras.filter((sutra) => {
+export function parseLibrarySearchParams(searchParams: LibrarySearchParams) {
+  const query = (scalar(searchParams.q) ?? "").replace(/\s+/g, " ").trim().slice(0, 120);
+  const candidate = scalar(searchParams.language);
+  const filter = libraryFilters.some((item) => item.id === candidate)
+    ? candidate as LibraryFilterId
+    : "all";
+  return { query, filter };
+}
+
+export function filterLibrary(sutras: Sutra[], query: string, filter: LibraryFilterId) {
+  const normalizedQuery = query.toLocaleLowerCase();
+  return sutras.filter((sutra) => {
     if (!belongsTo(sutra, filter)) return false;
     if (!normalizedQuery) return true;
     return [
@@ -40,38 +50,69 @@ export function LibraryCatalog({ sutras }: { sutras: Sutra[] }) {
       sutra.translator,
       sutra.summary,
     ].join("\n").toLocaleLowerCase().includes(normalizedQuery);
-  }), [filter, normalizedQuery, sutras]);
-  const visible = results.slice(0, limit);
+  });
+}
 
-  const resetLimit = () => setLimit(pageSize);
+export function libraryPageHref(page: number, query: string, filter: LibraryFilterId) {
+  const searching = Boolean(query) || filter !== "all";
+  const pathname = searching
+    ? "/jingzang/sousuo"
+    : page > 1 ? `/jingzang/page/${page}` : "/jingzang";
+  const searchParams = new URLSearchParams();
+  if (searching && page > 1) searchParams.set("page", String(page));
+  if (query) searchParams.set("q", query);
+  if (filter !== "all") searchParams.set("language", filter);
+  const search = searchParams.toString();
+  return search ? `${pathname}?${search}` : pathname;
+}
+
+export function LibraryCatalog({
+  sutras,
+  page,
+  query,
+  filter,
+}: {
+  sutras: Sutra[];
+  page: number;
+  query: string;
+  filter: LibraryFilterId;
+}) {
+  const results = filterLibrary(sutras, query, filter);
+  const pageCount = Math.max(1, Math.ceil(results.length / libraryPageSize));
+  const offset = (page - 1) * libraryPageSize;
+  const visible = page <= pageCount ? results.slice(offset, offset + libraryPageSize) : [];
 
   return (
     <>
       <section className="library-toolbar library-toolbar--search" aria-label="佛典目录检索">
-        <label className="library-search">
+        <form className="library-search" action="/jingzang/sousuo" method="get" role="search">
           <Search aria-hidden="true" size={18} />
-          <span className="sr-only">检索佛典目录</span>
+          <label className="sr-only" htmlFor="library-query">检索佛典目录</label>
           <input
+            id="library-query"
+            name="q"
             type="search"
-            value={query}
-            onChange={(event) => { setQuery(event.target.value); resetLimit(); }}
+            defaultValue={query}
             placeholder="输入经名、D／T 编号、EWTS 题名或译者"
           />
-        </label>
-        <div className="library-filters" role="group" aria-label="按语种筛选">
-          {filters.map((item) => (
-            <button
-              type="button"
+          {filter !== "all" ? <input name="language" type="hidden" value={filter} /> : null}
+          <button type="submit">检索</button>
+        </form>
+        <nav className="library-filters" aria-label="按语种筛选">
+          {libraryFilters.map((item) => (
+            <Link
+              href={libraryPageHref(1, query, item.id)}
               key={item.id}
-              aria-pressed={filter === item.id}
-              onClick={() => { setFilter(item.id); resetLimit(); }}
+              prefetch={false}
+              aria-current={filter === item.id ? "page" : undefined}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
-        </div>
-        <p aria-live="polite">
-          找到 <strong>{results.length}</strong> 个文本表达；检索范围为已审计书目元数据，不把它冒充全文语义检索。
+        </nav>
+        <p>
+          找到 <strong>{results.length}</strong> 个文本表达；当前为第 {Math.min(page, pageCount)} / {pageCount} 页。
+          检索范围为已审计书目元数据，不把它冒充全文语义检索。
         </p>
       </section>
 
@@ -79,7 +120,7 @@ export function LibraryCatalog({ sutras }: { sutras: Sutra[] }) {
         <div className="sutra-list">
           {visible.map((sutra, index) => (
             <article className="sutra-row" key={sutra.slug}>
-              <div className="sutra-row__index">{String(index + 1).padStart(2, "0")}</div>
+              <div className="sutra-row__index">{String(offset + index + 1).padStart(2, "0")}</div>
               <div className="sutra-row__title">
                 <span>{sutra.tradition}</span>
                 <h2>{sutra.title}</h2>
@@ -94,6 +135,7 @@ export function LibraryCatalog({ sutras }: { sutras: Sutra[] }) {
               </div>
               <Link
                 href={`/jingzang/${sutra.slug}`}
+                prefetch={false}
                 aria-label={`阅读${sutra.title}`}
                 data-analytics-event="scripture_opened"
                 data-analytics-location="library"
@@ -110,17 +152,40 @@ export function LibraryCatalog({ sutras }: { sutras: Sutra[] }) {
       ) : (
         <div className="library-empty">
           <p>当前受控目录中没有匹配项。</p>
-          <button type="button" onClick={() => { setQuery(""); setFilter("all"); resetLimit(); }}>清除筛选</button>
+          <Link href="/jingzang" prefetch={false}>清除筛选</Link>
         </div>
       )}
 
-      {visible.length < results.length ? (
-        <div className="library-load-more">
-          <button type="button" onClick={() => setLimit((value) => value + pageSize)}>
-            再显示 {Math.min(pageSize, results.length - visible.length)} 项
-          </button>
-          <span>已显示 {visible.length} / {results.length}</span>
-        </div>
+      {results.length ? (
+        <nav className="library-pagination" aria-label="经藏目录分页">
+          <div className="library-pagination__steps">
+            {page > 1 ? (
+              <Link href={libraryPageHref(page - 1, query, filter)} prefetch={false} rel="prev">
+                <ArrowLeft aria-hidden="true" size={15} /> 上一页
+              </Link>
+            ) : <span aria-hidden="true" />}
+            <p>每页 60 部，全部目录均可由普通链接遍历。</p>
+            {page < pageCount ? (
+              <Link href={libraryPageHref(page + 1, query, filter)} prefetch={false} rel="next">
+                下一页 <ArrowRight aria-hidden="true" size={15} />
+              </Link>
+            ) : <span aria-hidden="true" />}
+          </div>
+          <ol className="library-pagination__pages">
+            {Array.from({ length: pageCount }, (_, index) => index + 1).map((pageNumber) => (
+              <li key={pageNumber}>
+                <Link
+                  href={libraryPageHref(pageNumber, query, filter)}
+                  prefetch={false}
+                  aria-current={pageNumber === page ? "page" : undefined}
+                  aria-label={`第 ${pageNumber} 页`}
+                >
+                  {String(pageNumber).padStart(2, "0")}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </nav>
       ) : null}
     </>
   );

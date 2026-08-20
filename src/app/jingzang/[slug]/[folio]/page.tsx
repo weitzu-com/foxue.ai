@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, Link2 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
+import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { getSutra } from "@/data/sutras";
@@ -14,10 +15,12 @@ import {
   type ReaderNavigationItem,
 } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
+import { buildPageMetadata } from "@/lib/site-metadata";
 
 type PageProps = { params: Promise<{ slug: string; folio: string }> };
 
 export const revalidate = 86400;
+export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, folio: folioKey } = await params;
@@ -39,17 +42,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : sutra.language.includes("俗语")
       ? "俗语原文"
       : "巴利原文";
-  return {
-    title: `${sutra.alternateTitle} · ${folio.item.label}`,
-    description: chaptered
+  const description = chaptered
       ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
       : bilara
         ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
         : derge
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
-      : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`,
-    alternates: { canonical: `/jingzang/${sutra.slug}/${folio.item.key}` },
-  };
+      : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`;
+  return buildPageMetadata({
+    title: `${sutra.title} · ${folio.item.label}`,
+    description,
+    path: `/jingzang/${sutra.slug}/${folio.item.key}`,
+  });
 }
 
 function FolioPager({
@@ -77,7 +81,7 @@ function FolioPager({
   return (
     <nav className={`reader-pager reader-pager--${position}`} aria-label={`经文${unit}导航`}>
       {previous ? (
-        <Link href={folioHref(slug, previous.key)} rel="prev">
+        <Link href={folioHref(slug, previous.key)} prefetch={false} rel="prev">
           <ArrowLeft aria-hidden="true" size={16} />
           <span>上一{unit}<small>{previous.label}</small></span>
         </Link>
@@ -89,7 +93,7 @@ function FolioPager({
         <strong>{chaptered ? `第 ${Number(current.juan)} 品 · ${current.label}` : bilara ? `第 ${Number(current.juan)} 阅读页 · ${current.label}` : derge ? `第 ${Number(current.juan)} 函 · 德格 ${current.label}` : `卷 ${Number(current.juan)} · 大正藏 ${current.label}`}</strong>
       </div>
       {next ? (
-        <Link href={folioHref(slug, next.key)} rel="next">
+        <Link href={folioHref(slug, next.key)} prefetch={false} rel="next">
           <span>下一{unit}<small>{next.label}</small></span>
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
@@ -138,9 +142,17 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? sutra.language.includes("古汉") ? "zh-Hant" : "pi-Latn"
         : "zh-Hant";
   const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
+  const currentHeading = chaptered
+    ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}`
+    : bilara
+      ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}`
+      : derge
+        ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
+        : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`;
 
   return (
     <>
+      <ReaderHeader sutra={sutra} currentLabel={currentHeading} />
       <ReaderHashRedirect
         slug={sutra.slug}
         currentFolio={folio.item.key}
@@ -150,7 +162,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
       <div className="reader-layout">
         <aside className="reader-toc">
           <p className="eyebrow">{chaptered ? "品目录" : bilara ? "阅读目录" : derge ? "函页目录" : "版页目录"}</p>
-          <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`}>
+          <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`} prefetch={false}>
             <ArrowLeft aria-hidden="true" size={13} /> 返回文本目录
           </Link>
           {juanNavigation.length > 1 && (
