@@ -16,6 +16,7 @@ export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
       "",
       "/wenjing",
       "/jingzang",
+      "/xue/xinjing",
       "/gainian",
       ...allConcepts.map((concept) => concept.href),
       "/fugai",

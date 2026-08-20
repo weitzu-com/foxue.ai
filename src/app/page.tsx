@@ -52,9 +52,9 @@ const tasks = [
   {
     number: "叁",
     icon: BookMarked,
-    title: "读《心经》原文",
-    description: "保留经号、版页、段号和上下文，让阅读不被 AI 遮蔽。",
-    link: "/jingzang/xinjing",
+    title: "七日读《心经》",
+    description: "每天一小段和一个理解提示；可随时跳过，进度只留在本地。",
+    link: "/xue/xinjing",
   },
   {
     number: "肆",
