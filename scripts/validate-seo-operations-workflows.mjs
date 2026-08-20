@@ -49,6 +49,8 @@ requirePattern(googleWorkflow, "Google integrations workflow 必须 checkout 当
 requirePattern(googleWorkflow, "Google integrations workflow 必须写入 step summary", /GITHUB_STEP_SUMMARY/);
 requirePattern(googleWorkflow, "Google integrations workflow 必须校验正式域名", /node scripts\/verify-google-integrations\.mjs https:\/\/www\.foxue\.ai/);
 requirePattern(googleWorkflow, "Google integrations workflow 必须传递 GA4 衡量 ID", /EXPECTED_GA4_MEASUREMENT_ID:\s*G-3MWMWV1MQC/);
+requirePattern(googleWorkflow, "Google integrations workflow 必须在 deployment_status 验收时传递期望 source commit SHA", /EXPECTED_SOURCE_COMMIT_SHA:\s*\$\{\{\s*github\.event_name == 'deployment_status' && github\.sha \|\| ''\s*\}\}/);
+requirePattern(googleWorkflow, "Google integrations workflow 必须在 deployment_status 验收时传递期望 source commit ref", /EXPECTED_SOURCE_COMMIT_REF:\s*\$\{\{\s*github\.event_name == 'deployment_status' && github\.ref_name \|\| ''\s*\}\}/);
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);

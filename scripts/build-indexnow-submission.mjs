@@ -148,13 +148,14 @@ function urlsForChangedFile(file) {
     file === "src/lib/llms.ts" ||
     file === "src/app/llms.txt/route.ts" ||
     file === "src/app/llms-full.txt/route.ts" ||
+    file === "src/app/ai.txt/route.ts" ||
     file === "public/llms.txt" ||
     file === "public/llms-full.txt"
   ) {
     addUnique(urls, [absoluteUrl("/llms.txt"), absoluteUrl("/llms-full.txt"), absoluteUrl("/sitemap-index.xml")]);
   }
 
-  if (file === "public/ai.txt") {
+  if (file === "public/ai.txt" || file === "src/app/ai.txt/route.ts" || file === "src/lib/ai-policy.ts") {
     addUnique(urls, [absoluteUrl("/ai.txt")]);
   }
 

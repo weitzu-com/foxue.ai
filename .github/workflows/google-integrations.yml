@@ -51,4 +51,6 @@ jobs:
       - name: Verify GA4, GSC, sitemap index and core SEO head signals
         env:
           EXPECTED_GA4_MEASUREMENT_ID: G-3MWMWV1MQC
+          EXPECTED_SOURCE_COMMIT_SHA: ${{ github.event_name == 'deployment_status' && github.sha || '' }}
+          EXPECTED_SOURCE_COMMIT_REF: ${{ github.event_name == 'deployment_status' && github.ref_name || '' }}
         run: node scripts/verify-google-integrations.mjs https://www.foxue.ai

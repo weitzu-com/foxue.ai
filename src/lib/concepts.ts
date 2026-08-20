@@ -1,4 +1,4 @@
-import { allConcepts, getConceptEntry, type ConceptEntry, type ConceptSlug } from "@/lib/concept-hubs";
+import { allConcepts, getConceptEntry, type ConceptEntry } from "@/lib/concept-hubs";
 
 export type { ConceptEntry, ConceptSlug } from "@/lib/concept-hubs";
 

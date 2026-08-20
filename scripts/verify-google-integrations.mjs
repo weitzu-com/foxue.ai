@@ -3,6 +3,8 @@ import { resolveTxt } from "node:dns/promises";
 const fetchBaseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.foxue.ai");
 const expectedSiteOrigin = new URL(process.env.EXPECTED_SITE_ORIGIN ?? fetchBaseUrl.origin).origin;
 const expectedMeasurementId = process.env.EXPECTED_GA4_MEASUREMENT_ID;
+const expectedSourceCommitSha = process.env.EXPECTED_SOURCE_COMMIT_SHA?.trim().toLowerCase() || undefined;
+const expectedSourceCommitRef = process.env.EXPECTED_SOURCE_COMMIT_REF?.trim() || undefined;
 const failures = [];
 const successes = [];
 const isLocalFetch = fetchBaseUrl.hostname === "127.0.0.1" || fetchBaseUrl.hostname === "localhost";
@@ -108,7 +110,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -127,8 +129,11 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/touming"),
   get("/yuanze"),
   get("/robots.txt"),
+  get("/api/health"),
+  get("/ai.txt"),
 ]);
 const mergedSitemap = await loadMergedSitemap();
+const healthJson = JSON.parse(health.body);
 
 const pageExpectations = [
   [
@@ -369,6 +374,88 @@ check(
   "sitemap 分片包含规范首页",
   "sitemap 分片缺少规范首页",
 );
+
+const homeReleaseCommit = home.response.headers.get("x-foxue-source-commit");
+const homeReleaseRef = home.response.headers.get("x-foxue-source-ref");
+const homeReleaseDeployId = home.response.headers.get("x-foxue-deploy-id");
+const homeReleaseEnv = home.response.headers.get("x-foxue-deploy-env");
+const healthRelease = healthJson.release ?? {};
+
+check(health.response.headers.get("x-robots-tag") === "noindex, nofollow", "/api/health 已声明 noindex", "/api/health 缺少 noindex, nofollow");
+check(aiPolicy.response.ok, "/ai.txt 可访问", `/ai.txt 不可访问（HTTP ${aiPolicy.response.status}）`);
+check(
+  aiPolicy.body.includes(expectedSiteOrigin) && !aiPolicy.body.includes("https://foxue.ai"),
+  "/ai.txt 使用 canonical 主域",
+  "/ai.txt 未使用 canonical 主域或仍包含 apex 主域",
+);
+check(
+  aiPolicy.body.includes("Disallowed:") &&
+    aiPolicy.body.includes("Trust principles:") &&
+    aiPolicy.body.includes("Not granted by this file:") &&
+    aiPolicy.body.includes("source-level rights") &&
+    !aiPolicy.body.includes("Use in AI training datasets for preserving and improving access to Buddhist textual heritage."),
+  "/ai.txt 公开 AI 使用边界、原则入口与训练权利约束",
+  "/ai.txt 缺少 AI 使用边界、原则入口或训练权利约束",
+);
+check(healthRelease.provenanceSource !== "unavailable", "/api/health 提供发布指纹来源", "/api/health 缺少可用发布指纹来源");
+check(
+  /^[0-9a-f]{7,40}$/i.test(healthRelease.sourceCommitSha ?? ""),
+  "/api/health 提供 source commit SHA",
+  `/api/health source commit SHA 缺失或非法（实际 ${healthRelease.sourceCommitSha ?? "缺失"}）`,
+);
+check(
+  typeof healthRelease.sourceCommitRef === "string" && healthRelease.sourceCommitRef.length > 0,
+  "/api/health 提供 source commit ref",
+  `/api/health source commit ref 缺失（实际 ${healthRelease.sourceCommitRef ?? "缺失"}）`,
+);
+check(
+  homeReleaseCommit === healthRelease.sourceCommitSha,
+  "首页响应头与 /api/health 的 source commit SHA 一致",
+  `首页响应头 source commit 与 /api/health 不一致（header ${homeReleaseCommit ?? "缺失"}，health ${healthRelease.sourceCommitSha ?? "缺失"}）`,
+);
+check(
+  homeReleaseRef === healthRelease.sourceCommitRef,
+  "首页响应头与 /api/health 的 source commit ref 一致",
+  `首页响应头 source ref 与 /api/health 不一致（header ${homeReleaseRef ?? "缺失"}，health ${healthRelease.sourceCommitRef ?? "缺失"}）`,
+);
+if (healthRelease.deploymentId) {
+  check(
+    homeReleaseDeployId === healthRelease.deploymentId,
+    "首页响应头与 /api/health 的 deployment id 一致",
+    `首页响应头 deployment id 与 /api/health 不一致（header ${homeReleaseDeployId ?? "缺失"}，health ${healthRelease.deploymentId}）`,
+  );
+}
+check(
+  typeof homeReleaseEnv === "string" && homeReleaseEnv.length > 0,
+  "首页响应头提供部署环境标记",
+  "首页响应头缺少部署环境标记",
+);
+
+if (expectedSourceCommitSha) {
+  check(
+    healthRelease.sourceCommitSha === expectedSourceCommitSha,
+    `/api/health source commit SHA 与期望部署一致（${expectedSourceCommitSha}）`,
+    `/api/health source commit SHA 与期望部署不一致（期望 ${expectedSourceCommitSha}，实际 ${healthRelease.sourceCommitSha ?? "缺失"}）`,
+  );
+  check(
+    homeReleaseCommit === expectedSourceCommitSha,
+    `首页响应头 source commit SHA 与期望部署一致（${expectedSourceCommitSha}）`,
+    `首页响应头 source commit SHA 与期望部署不一致（期望 ${expectedSourceCommitSha}，实际 ${homeReleaseCommit ?? "缺失"}）`,
+  );
+}
+
+if (expectedSourceCommitRef) {
+  check(
+    healthRelease.sourceCommitRef === expectedSourceCommitRef,
+    `/api/health source commit ref 与期望部署一致（${expectedSourceCommitRef}）`,
+    `/api/health source commit ref 与期望部署不一致（期望 ${expectedSourceCommitRef}，实际 ${healthRelease.sourceCommitRef ?? "缺失"}）`,
+  );
+  check(
+    homeReleaseRef === expectedSourceCommitRef,
+    `首页响应头 source commit ref 与期望部署一致（${expectedSourceCommitRef}）`,
+    `首页响应头 source commit ref 与期望部署不一致（期望 ${expectedSourceCommitRef}，实际 ${homeReleaseRef ?? "缺失"}）`,
+  );
+}
 
 for (const [path, page, expected] of pageExpectations) {
   const expectedUrl = new URL(path, expectedSiteOrigin).href;

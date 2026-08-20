@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { buildReleaseHeaders } from "./src/lib/release-provenance";
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -35,6 +36,8 @@ const securityHeaders = [
   { key: "Origin-Agent-Cluster", value: "?1" },
   { key: "X-DNS-Prefetch-Control", value: "on" },
 ];
+
+const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value }));
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -84,7 +87,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [...securityHeaders, ...releaseHeaders],
       },
     ];
   },

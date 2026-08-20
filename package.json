@@ -298,7 +298,7 @@
     "verify:cloudflare-edge": "NODE_USE_ENV_PROXY=1 node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai",
     "verify:preservation-mirrors": "NODE_USE_ENV_PROXY=1 node scripts/verify-preservation-mirrors.mjs",
     "preserve": "node scripts/build-preservation-bundle.mjs",
-    "test:seo:e2e": "CI=1 playwright test tests/site.spec.ts -g 'robots.txt 声明单一 sitemap index 入口|关键 SEO 页面输出自指 canonical、og:url 与 twitter card|长经名目录页的 title 受控且保留品牌后缀|经藏搜索结果页 canonical 回落目录且声明 noindex|llms 文本使用 www 主域并反映真实页面职责|关键 SEO 页面输出页面级 JSON-LD|首页核心任务可见且没有水平溢出|品牌首页链接的可访问名称覆盖可见文本|卷页具有独立标题、H1、规范网址与分享元数据|经目页标题不重复品牌后缀并保持自指元数据|经文分册页不会预取沉重的经藏目录 RSC|主题层入口页列出当前概念 Hub 并提供稳定链接|新增概念 Hub 给出边界与稳定原典入口|首页搜索建议与问经结果都能进入相关概念 Hub' --project=desktop",
+    "test:seo:e2e": "CI=1 playwright test tests/site.spec.ts -g 'robots.txt 声明单一 sitemap index 入口|关键 SEO 页面输出自指 canonical、og:url 与 twitter card|长经名目录页的 title 受控且保留品牌后缀|经藏搜索结果页 canonical 回落目录且声明 noindex|llms 文本使用 www 主域并反映真实页面职责|ai.txt 公布 canonical 主域与 AI 使用边界|关键 SEO 页面输出页面级 JSON-LD|首页核心任务可见且没有水平溢出|品牌首页链接的可访问名称覆盖可见文本|卷页具有独立标题、H1、规范网址与分享元数据|经目页标题不重复品牌后缀并保持自指元数据|经文分册页不会预取沉重的经藏目录 RSC|覆盖登记册拒绝伪造全球百分比并公开可复算 API|全球分母页公开保守公式、外部空白和真人审校门|主题层入口页列出当前概念 Hub 并提供稳定链接|新增概念 Hub 给出边界与稳定原典入口|首页搜索建议与问经结果都能进入相关概念 Hub' --project=desktop",
     "test:e2e": "playwright test",
     "verify:seo:production": "node scripts/verify-google-integrations.mjs https://www.foxue.ai",
     "verify:seo:local-production": "node scripts/run-local-seo-smoke.mjs",

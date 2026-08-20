@@ -234,6 +234,23 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("当前登记");
 });
 
+test("ai.txt 公布 canonical 主域与 AI 使用边界", async ({ request }) => {
+  const response = await request.get("/ai.txt");
+  expect(response.ok()).toBeTruthy();
+  const body = await response.text();
+
+  expect(body).toContain("Canonical site: https://www.foxue.ai");
+  expect(body).not.toContain("https://foxue.ai");
+  expect(body).toContain("Allowed:");
+  expect(body).toContain("Not granted by this file:");
+  expect(body).toContain("Disallowed:");
+  expect(body).toContain("Trust principles: https://www.foxue.ai/yuanze");
+  expect(body).toContain("Transparency and known limits: https://www.foxue.ai/touming");
+  expect(body).toContain("Blanket permission to use foxue.ai content in AI training datasets or model fine-tuning.");
+  expect(body).toContain("source-level rights");
+  expect(body).not.toContain("Use in AI training datasets for preserving and improving access to Buddhist textual heritage.");
+});
+
 test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
   const cases = [
     {
@@ -696,12 +713,27 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
   const coverage = await response.json();
+  const homeResponse = await request.get("/");
+  expect(homeResponse.ok()).toBeTruthy();
   const healthResponse = await request.get("/api/health");
   expect(healthResponse.ok()).toBeTruthy();
+  expect(healthResponse.headers()["x-robots-tag"]).toBe("noindex, nofollow");
   const health = await healthResponse.json();
   expect(health.capabilities.corpusRegistry).toBe(
     `v${coverage.generatedFrom.registryVersion}-public-draft`,
   );
+  expect(health.release).toMatchObject({
+    sourceCommitSha: expect.stringMatching(/^[0-9a-f]{7,40}$/i),
+    sourceCommitShortSha: expect.stringMatching(/^[0-9a-f]{7,12}$/i),
+    sourceCommitRef: expect.any(String),
+  });
+  expect(["vercel_system_env", "git_fallback"]).toContain(health.release.provenanceSource);
+  expect(homeResponse.headers()["x-foxue-source-commit"]).toBe(health.release.sourceCommitSha);
+  expect(homeResponse.headers()["x-foxue-source-ref"]).toBe(health.release.sourceCommitRef);
+  if (health.release.deploymentId) {
+    expect(homeResponse.headers()["x-foxue-deploy-id"]).toBe(health.release.deploymentId);
+  }
+  expect(homeResponse.headers()["x-foxue-deploy-env"]).toBeTruthy();
   expect(coverage.claim.publishable).toBe(false);
   expect(coverage.globalDenominators.catalogWorks).toBeNull();
   expect(coverage.globalPercentages.catalog).toBeNull();
@@ -1516,8 +1548,9 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     relatedDistinctWorkGroups: 12,
   });
   expect(coverage.links).toMatchObject({
+    human: "https://www.foxue.ai/fugai",
     registry: expect.stringContaining("registry-v6.18.0.json"),
-    globalDenominatorHuman: "https://foxue.ai/fenmu",
+    globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
     globalDenominatorReviewQueue: expect.stringContaining("global-denominator-review-queue-v0.1.0.json"),

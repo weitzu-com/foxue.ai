@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { execSync } from "node:child_process";
 import { once } from "node:events";
 import { createServer } from "node:net";
 import { resolve } from "node:path";
@@ -33,6 +34,17 @@ async function resolvePort() {
 function formatExit(code, signal) {
   if (typeof code === "number") return `exit code ${code}`;
   return `signal ${signal ?? "unknown"}`;
+}
+
+function readGitValue(args) {
+  try {
+    return execSync(`git ${args.join(" ")}`, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim() || undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 async function waitForHealth(server, fetchBaseUrl) {
@@ -76,6 +88,8 @@ async function main() {
   const port = await resolvePort();
   const fetchBaseUrl = `http://${host}:${port}`;
   const startCommand = [nextBin, "start", "--hostname", host, "--port", String(port)];
+  const expectedSourceCommitSha = readGitValue(["rev-parse", "--verify", "HEAD"])?.toLowerCase();
+  const expectedSourceCommitRef = readGitValue(["rev-parse", "--abbrev-ref", "HEAD"]);
 
   console.log(`Starting local production server for SEO smoke on ${fetchBaseUrl}`);
 
@@ -97,6 +111,8 @@ async function main() {
         env: {
           ...process.env,
           EXPECTED_SITE_ORIGIN: expectedSiteOrigin,
+          ...(expectedSourceCommitSha ? { EXPECTED_SOURCE_COMMIT_SHA: expectedSourceCommitSha } : {}),
+          ...(expectedSourceCommitRef ? { EXPECTED_SOURCE_COMMIT_REF: expectedSourceCommitRef } : {}),
         },
       });
 

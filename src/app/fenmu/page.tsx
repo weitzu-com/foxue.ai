@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, CircleDashed, ExternalLink, FileCheck2, Scale } from "lucide-react";
 import standard from "../../../data/gbcr/global-denominator-standard-v0.1.0.json";
 import sourceUniverse from "../../../data/gbcr/global-denominator-source-universe-v0.1.0.json";
 import reviewLedger from "../../../data/gbcr/global-denominator-review-ledger-v0.1.0.json";
 import { corpusRegistry } from "@/lib/corpus-registry";
+import { buildGlobalReviewWorkbenchPayload } from "@/lib/global-review-queue";
 import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
-import GlobalReviewWorkbench, { type GlobalReviewSearchParams } from "./global-review-workbench";
+import GlobalReviewWorkbench from "./global-review-workbench";
+import GlobalReviewWorkbenchClient from "./global-review-workbench-client";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "全球佛经作品分母治理",
@@ -41,13 +44,11 @@ const statusLabels: Record<string, string> = {
   pending: "待完成",
 };
 
-export default async function GlobalDenominatorPage({
-  searchParams,
-}: {
-  searchParams: Promise<GlobalReviewSearchParams>;
-}) {
+export const dynamic = "force-static";
+
+export default function GlobalDenominatorPage() {
   const governance = corpusRegistry.globalDenominatorGovernance;
-  const resolvedSearchParams = await searchParams;
+  const initialReviewPayload = buildGlobalReviewWorkbenchPayload({});
 
   return (
     <main className="denominator-page">
@@ -179,7 +180,9 @@ export default async function GlobalDenominatorPage({
         </dl>
       </section>
 
-      <GlobalReviewWorkbench searchParams={resolvedSearchParams} />
+      <Suspense fallback={<GlobalReviewWorkbench payload={initialReviewPayload} />}>
+        <GlobalReviewWorkbenchClient initialPayload={initialReviewPayload} />
+      </Suspense>
 
       <section className="denominator-artifacts page-shell">
         <h2>所有判断，都能回到原始文件。</h2>
