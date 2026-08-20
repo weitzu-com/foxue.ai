@@ -80,7 +80,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("application/xml");
   const sitemapIndex = await response.text();
   const childSitemaps = [...sitemapIndex.matchAll(
-    /<loc>https:\/\/foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
+    /<loc>https:\/\/www\.foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
   )].map((match) => match[1]);
   expect(childSitemaps.length).toBeGreaterThan(0);
   expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
@@ -91,7 +91,7 @@ test("站点地图入口页使用自引用 canonical", async ({ page }) => {
     await page.goto(path);
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     expect(canonical).not.toBeNull();
-    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://foxue.ai").href);
+    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://www.foxue.ai").href);
   }
 });
 
@@ -189,22 +189,53 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
   await expect(page.getByText("这是不应进入页面的私密问题")).toHaveCount(0);
 });
 
-test("经藏目录支持元数据检索、语种筛选与渐进显示", async ({ page }) => {
+test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
   await expect(page.getByText(/3829 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
+  await expect(page.getByRole("link", { name: "第 65 页" })).toHaveAttribute("href", "/jingzang/page/65");
 
   const search = page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者");
   await search.fill("'dul ba gzhi/");
+  await page.getByRole("button", { name: "检索" }).click();
+  await page.waitForURL(/\/jingzang\/sousuo\?q=/);
   await expect(page.getByText(/找到 1 个文本表达/)).toBeVisible();
   await expect(page.getByRole("link", { name: "阅读德格《甘珠尔》D1" })).toBeVisible();
 
-  await search.fill("");
-  await page.getByRole("button", { name: "藏文" }).click();
+  await page.goto("/jingzang");
+  await page.getByRole("link", { name: "藏文" }).click();
+  await page.waitForURL(/\/jingzang\/sousuo\?language=tibetan/);
   await expect(page.getByText(/找到 1122 个文本表达/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
-  await page.getByRole("button", { name: /再显示 60 项/ }).click();
-  await expect(page.locator(".sutra-row")).toHaveCount(120);
+
+  await page.goto("/jingzang/page/2");
+  await expect(page.getByRole("heading", { level: 1, name: /经藏目录.*第 2 页/ })).toBeVisible();
+  await expect(page.locator(".sutra-row")).toHaveCount(60);
+  await expect(page.locator(".sutra-row__index").first()).toHaveText("61");
+
+  const response = await request.get("/jingzang");
+  const html = await response.text();
+  expect(Buffer.byteLength(html)).toBeLessThan(400_000);
+});
+
+test("卷页具有独立标题、H1、规范网址与分享元数据", async ({ page }) => {
+  const path = "/jingzang/fajujing/001-0559a";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("法句经");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("大正藏 0559a");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", /法句经/);
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", /法句经/);
+  expect((await page.title()).length).toBeLessThanOrEqual(60);
+});
+
+test("站点地图公开全部目录分页且不伪造统一更新时间", async ({ request }) => {
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("https://www.foxue.ai/jingzang/page/65");
+  expect(sitemap).not.toContain("<lastmod>");
 });
 
 test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async ({ page, request }) => {

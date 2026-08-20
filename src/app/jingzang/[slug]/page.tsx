@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, BookOpenText, Layers3 } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
+import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { getSutra } from "@/data/sutras";
@@ -28,6 +29,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
 
   return (
     <>
+      <ReaderHeader sutra={sutra} />
       <ReaderHashRedirect
         slug={sutra.slug}
         aliases={buildLegacyAliasMap(reading.segments)}
@@ -54,7 +56,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
             <div><dt>{bilara ? "稳定段落" : "稳定行段"}</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
           {firstFolio && (
-            <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)}>
+            <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)} prefetch={false}>
               <BookOpenText aria-hidden="true" size={17} /> 从第一页开始
             </Link>
           )}
