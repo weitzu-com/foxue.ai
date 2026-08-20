@@ -42,6 +42,9 @@ const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  outputFileTracingIncludes: {
+    "/*": ["./data/corpus/cbeta/T08n0251.xml"],
+  },
   experimental: {
     // Each reading page can parse a complete source witness during prerendering.
     // Bound per-worker concurrency so large witnesses do not exhaust the 4 GiB

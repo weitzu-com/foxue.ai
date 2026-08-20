@@ -32,6 +32,7 @@ requirePattern(indexNowWorkflow, "IndexNow workflow 必须复用同一份 urls.j
 
 const googleWorkflowPath = ".github/workflows/google-integrations.yml";
 const googleWorkflow = await readFile(googleWorkflowPath, "utf8");
+const nextConfig = await readFile("next.config.ts", "utf8");
 
 if (/pull_request_target:/.test(googleWorkflow)) failures.push("Google integrations workflow 禁止使用 pull_request_target");
 requirePattern(googleWorkflow, "Google integrations workflow 根权限必须只读", /permissions:\n\s+contents: read/);
@@ -52,6 +53,15 @@ requirePattern(googleWorkflow, "Google integrations workflow 必须校验正式�
 requirePattern(googleWorkflow, "Google integrations workflow 必须传递 GA4 衡量 ID", /EXPECTED_GA4_MEASUREMENT_ID:\s*G-3MWMWV1MQC/);
 requirePattern(googleWorkflow, "Google integrations workflow 必须在 deployment_status 验收时传递期望 source commit SHA", /EXPECTED_SOURCE_COMMIT_SHA:\s*\$\{\{\s*github\.event_name == 'deployment_status' && github\.event\.deployment\.sha \|\| ''\s*\}\}/);
 requirePattern(googleWorkflow, "Google integrations workflow 必须在 deployment_status 验收时传递期望 source commit ref", /EXPECTED_SOURCE_COMMIT_REF:\s*\$\{\{\s*github\.event_name == 'deployment_status' && github\.event\.deployment\.ref \|\| ''\s*\}\}/);
+
+requirePattern(
+  nextConfig,
+  "Next config 必须为心经 folio 页面保留最小运行时语料资产",
+  /outputFileTracingIncludes:\s*\{[\s\S]*["']\/\*["']:\s*\[\s*["']\.\/data\/corpus\/cbeta\/T08n0251\.xml["']\s*\]/,
+);
+if (/["']\.\/data\/corpus\/(?:\*\*|\*)/.test(nextConfig)) {
+  failures.push("Next config 禁止把全量 data/corpus 目录打入任意路由 trace");
+}
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);
