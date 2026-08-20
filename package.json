@@ -302,6 +302,7 @@
     "test:e2e": "playwright test",
     "verify:seo:production": "node scripts/verify-google-integrations.mjs https://www.foxue.ai",
     "verify:seo:local-production": "node scripts/run-local-seo-smoke.mjs",
+    "verify:seo:library-metadata": "node scripts/verify-library-metadata-guards.mjs",
     "verify:seo-ops-workflows": "node scripts/validate-seo-operations-workflows.mjs",
     "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm verify:seo-ops-workflows && pnpm lint && pnpm typecheck && pnpm build"
   },

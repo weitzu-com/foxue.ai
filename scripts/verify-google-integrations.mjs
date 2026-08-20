@@ -250,7 +250,7 @@ const pageExpectations = [
     "/jingzang/xinjing",
     jingzangXinjing,
     {
-      title: "般若波罗蜜多心经｜foxue.ai",
+      title: "般若波罗蜜多心经原文与目录｜foxue.ai",
       description: "般若波罗蜜多心经：以极精炼的篇幅呈现般若空义，并以“照见五蕴皆空”说明智慧与离苦的关系。",
       jsonLd: [
         ["https://www.foxue.ai/jingzang/xinjing#page", "CollectionPage"],

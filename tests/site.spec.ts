@@ -641,7 +641,7 @@ test("经目页标题不重复品牌后缀并保持自指元数据", async ({ pa
   await expect(page.getByRole("heading", { level: 1 })).toContainText("般若波罗蜜多心经");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.foxue.ai${path}`);
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `https://www.foxue.ai${path}`);
-  await expect(page).toHaveTitle("般若波罗蜜多心经｜foxue.ai");
+  await expect(page).toHaveTitle("般若波罗蜜多心经原文与目录｜foxue.ai");
 });
 
 test("经文分册页不会预取沉重的经藏目录 RSC", async ({ page }) => {

@@ -17,6 +17,18 @@ export function formatSiteTitle(title: string) {
   return `${title}｜${siteName}`;
 }
 
+export function buildQualifiedTitle(baseTitle: string, qualifier: string, limit = titleLimit) {
+  const safeQualifier = qualifier.replace(/\s+/g, " ").trim();
+  const safeBaseTitle = baseTitle.replace(/\s+/g, " ").trim();
+  const fullTitle = `${safeBaseTitle}${safeQualifier}`;
+  if (characterLength(fullTitle) <= limit) return fullTitle;
+
+  const qualifierLength = characterLength(safeQualifier);
+  if (qualifierLength >= limit) return truncateMetadata(safeQualifier, limit);
+
+  return `${truncateMetadata(safeBaseTitle, limit - qualifierLength)}${safeQualifier}`;
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -135,4 +147,8 @@ export function buildPageJsonLd({
 
 export function serializeJsonLd(value: unknown) {
   return JSON.stringify(value).replaceAll("<", "\\u003c");
+}
+
+function characterLength(value: string) {
+  return Array.from(value).length;
 }

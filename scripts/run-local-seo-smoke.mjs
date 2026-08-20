@@ -86,22 +86,24 @@ async function main() {
 
   try {
     await waitForHealth(server, fetchBaseUrl);
-
-    const smoke = spawn(
-      process.execPath,
+    const checks = [
       ["scripts/verify-google-integrations.mjs", fetchBaseUrl],
-      {
+      ["scripts/verify-library-metadata-guards.mjs", fetchBaseUrl],
+    ];
+
+    for (const command of checks) {
+      const smoke = spawn(process.execPath, command, {
         stdio: "inherit",
         env: {
           ...process.env,
           EXPECTED_SITE_ORIGIN: expectedSiteOrigin,
         },
-      },
-    );
+      });
 
-    const [code, signal] = await once(smoke, "exit");
-    if (code !== 0) {
-      throw new Error(`SEO smoke failed with ${formatExit(code, signal)}`);
+      const [code, signal] = await once(smoke, "exit");
+      if (code !== 0) {
+        throw new Error(`${command[0]} failed with ${formatExit(code, signal)}`);
+      }
     }
   } finally {
     await stopServer(server);
