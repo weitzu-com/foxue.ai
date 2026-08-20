@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Ban, BookOpenCheck, GitBranch, Scale, ShieldCheck } from "lucide-react";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "原则与边界",
-  description: "foxue.ai 如何定义可信、纠错、多传统公平与长期传承。",
-  alternates: { canonical: "/yuanze" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "可信佛学系统的原则与边界",
+  description: "说明 foxue.ai 如何定义可信、纠错、多传统公平与长期传承的底层原则。",
+  path: "/yuanze",
+});
+
+const principlesPageJsonLd = buildPageJsonLd({
+  path: "/yuanze",
+  title: "可信佛学系统的原则与边界",
+  description: "说明 foxue.ai 如何定义可信、纠错、多传统公平与长期传承的底层原则。",
+  type: "AboutPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "原则与边界", path: "/yuanze" },
+  ],
+  about: ["可信佛学系统", "原典优先", "多传统公平", "可纠错可接管"],
+});
 
 const principles = [
   {
@@ -46,6 +59,10 @@ const refusals = [
 export default function PrinciplesPage() {
   return (
     <div className="principles-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(principlesPageJsonLd) }}
+      />
       <header className="manifesto-hero page-shell">
         <p className="eyebrow">第一性原理 · FIRST PRINCIPLES</p>
         <h1>“完美”不是永不犯错，<br />而是永远能够发现并纠正错误。</h1>

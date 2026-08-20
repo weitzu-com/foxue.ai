@@ -1,4 +1,5 @@
 import { CORPUS_REGISTRY_VERSION } from "@/lib/corpus-registry-metadata";
+import { buildReleaseHeaders, releaseProvenance } from "@/lib/release-provenance";
 
 export const dynamic = "force-dynamic";
 
@@ -8,6 +9,7 @@ export function GET() {
       status: "ok",
       service: "foxue.ai",
       version: "0.2.0",
+      release: releaseProvenance,
       capabilities: {
         reading: "available",
         citedAnswers: "prototype",
@@ -22,6 +24,8 @@ export function GET() {
     {
       headers: {
         "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow",
+        ...Object.fromEntries(buildReleaseHeaders()),
       },
     },
   );

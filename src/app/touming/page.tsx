@@ -2,12 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, CircleDashed, Clock3, ExternalLink, FileWarning } from "lucide-react";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "透明度",
-  description: "foxue.ai 的数据覆盖、来源、AI 能力、已知局限和建设状态。",
-  alternates: { canonical: "/touming" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "数据透明度与建设状态",
+  description: "公开 foxue.ai 的数据覆盖、来源、AI 能力、已知局限和当前建设状态。",
+  path: "/touming",
+});
+
+const transparencyPageJsonLd = buildPageJsonLd({
+  path: "/touming",
+  title: "数据透明度与建设状态",
+  description: "公开 foxue.ai 的数据覆盖、来源、AI 能力、已知局限和当前建设状态。",
+  type: "AboutPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "透明度", path: "/touming" },
+  ],
+  about: ["数据透明度", "建设状态", "来源与权利", "已知局限"],
+});
 
 const sources = [
   {
@@ -42,6 +55,10 @@ export default function TransparencyPage() {
 
   return (
     <div className="transparency-page page-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(transparencyPageJsonLd) }}
+      />
       <header className="transparency-header">
         <div>
           <p className="eyebrow">透明度报告 · 2026-08-14</p>

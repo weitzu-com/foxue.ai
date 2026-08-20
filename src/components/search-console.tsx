@@ -20,8 +20,10 @@ const modes = [
 
 const examples = [
   "佛教里的“空”是什么意思？",
+  "无常是不是悲观？",
   "无住是不是消极？",
   "烦恼生起时，怎样观察自己的心？",
+  "无我是不是否定‘我’的存在？",
 ];
 
 export function SearchConsole() {

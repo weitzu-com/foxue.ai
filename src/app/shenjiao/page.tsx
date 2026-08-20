@@ -2,23 +2,40 @@ import type { Metadata } from "next";
 import { ExternalLink, Scale, Send, UsersRound } from "lucide-react";
 import queueDocument from "../../../data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json";
 import p0EvidenceDocument from "../../../data/gbcr/suttacentral-parallel-p0-evidence-packets-v0.1.0.json";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 import {
   ReviewQueueWorkbench,
   type P0EvidencePacket,
   type ReviewQueueItem,
 } from "./review-queue-workbench";
 
-export const metadata: Metadata = {
-  title: "汉—巴作品审校台",
-  description: "foxue.ai 汉—巴作品关系双人复核队列：公开反证、文本范围、证据身份与裁决门槛。",
-  alternates: { canonical: "/shenjiao" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "汉巴作品关系审校台",
+  description: "foxue.ai 汉巴作品关系双人复核队列：公开反证、文本范围、证据身份与裁决门槛。",
+  path: "/shenjiao",
+});
+
+const reviewQueuePageJsonLd = buildPageJsonLd({
+  path: "/shenjiao",
+  title: "汉巴作品关系审校台",
+  description: "foxue.ai 汉巴作品关系双人复核队列：公开反证、文本范围、证据身份与裁决门槛。",
+  type: "CollectionPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "汉巴作品审校台", path: "/shenjiao" },
+  ],
+  about: ["汉巴作品关系", "双人复核队列", "文本范围", "裁决门槛"],
+});
 
 export default function ReviewQueuePage() {
   const summary = queueDocument.summary;
 
   return (
     <main className="review-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(reviewQueuePageJsonLd) }}
+      />
       <header className="review-hero page-shell">
         <div className="review-hero__copy">
           <p className="eyebrow">GBCR · TEXTUAL REVIEW QUEUE</p>

@@ -138,7 +138,7 @@ export function AskExperience() {
               <span>未</span>
               <h3>没有足以支持结论的证据</h3>
               <p>请尝试更具体的经名、句子或术语，或先浏览当前经藏。</p>
-              <Link href="/jingzang">浏览经藏 <ArrowRight aria-hidden="true" size={15} /></Link>
+              <Link href="/jingzang" prefetch={false}>浏览经藏 <ArrowRight aria-hidden="true" size={15} /></Link>
             </div>
           )}
         </aside>

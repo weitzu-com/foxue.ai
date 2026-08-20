@@ -1,5 +1,12 @@
 import { sutras } from "@/data/sutras";
-import { emptinessConcept, type ConceptEntry } from "@/lib/concepts";
+import {
+  emptinessConcept,
+  impermanenceConcept,
+  nonAbidingConcept,
+  nonSelfConcept,
+  observingMindConcept,
+  type ConceptEntry,
+} from "@/lib/concepts";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -40,9 +47,113 @@ function evidenceFor(slug: string, segmentIndex: number, relation: "直接" | "�
   } satisfies Evidence;
 }
 
+function inlineEvidence(evidence: Evidence) {
+  return evidence;
+}
+
 export function buildResearchResult(rawQuery: string): ResearchResult {
   const query = rawQuery.trim();
   const has = (...words: string[]) => words.some((word) => query.includes(word));
+
+  if (has("无我", "無我", "我所", "无我义", "無我義", "补特伽罗", "補特伽羅", "身无我", "身無我")) {
+    return {
+      query,
+      status: "有充分来源",
+      title: "无我不是否认经验，而是不把身心执为固定主宰",
+      answer: [
+        "《佛说五蘊皆空经》先把问题落在五蕴：色、受、想、行、识并不听命于“我欲如是”，因此不应被执成可以随意支配的“我”。",
+        "《外道问圣大乘法无我义经》进一步把身体部件与内外观察逐层拆开：遍看身心结构，也找不到一个能被固定指认的主宰者。无我要拆的是执取方式，不是把经验整段删掉。",
+        "实践上，更稳妥的读法是：看见感受、身份、成败和关系如何被抓成“我”或“我所有”，再把这种抓取松开，而不是借“无我”逃避责任。",
+      ],
+      caution:
+        "这里仅依据《佛说五蘊皆空经》《外道问圣大乘法无我义经》与一条相关巴利段落说明最低限度边界，不替所有传统裁决“无我”的最终定义。",
+      concept: nonSelfConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《佛说五蘊皆空经》T0102",
+          quote: "汝等當知，色不是我，若是我者，色不應病及受苦惱。……是故當知，色不是我；受想行識，亦復如是。",
+          href: "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c10",
+          source: "CBETA T02n0102",
+          locator: "T0102.001.0499c10",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《佛说五蘊皆空经》T0102",
+          quote: "凡所有色，若過去未來現在，內外麁細，若勝若劣、若遠若近，悉皆無我。……觀此五取蘊，知無有我及以我所。",
+          href: "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c18",
+          source: "CBETA T02n0102",
+          locator: "T0102.001.0499c18",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《外道问圣大乘法无我义经》T0846",
+          quote: "當觀全身，髮、甲、皮、毛、兩手、雙足，至於脂、筋、脾、腸、骨髓等事，周遍內外，不見本性。",
+          href: "/jingzang/taisho-t0846/001-0934b#T0846.001.0934b01",
+          source: "CBETA T17n0846",
+          locator: "T0846.001.0934b01",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 35.85",
+          quote: "Yasmā ca kho, ānanda, suññaṁ attena vā attaniyena vā tasmā suñño lokoti vuccati.",
+          href: "/jingzang/samyutta-nikaya-sn35/068-sn35-85-0001-0013#sn35.85:1.4",
+          source: "SuttaCentral SN 35.85",
+          locator: "sn35.85:1.4",
+          relation: "相关",
+        }),
+      ],
+    };
+  }
+
+  if (has("无常", "無常", "老病死", "生者皆归死", "生者皆歸死", "一切有为法", "一切有爲法")) {
+    return {
+      query,
+      status: "有充分来源",
+      title: "无常不是悲观口号，而是如实看见生灭与衰变",
+      answer: [
+        "《佛说无常经》把无常直接放在衰变、病苦和死亡上：生者归死，容颜变衰，没有一件条件事物能完全逃过败坏。",
+        "但经文没有让人停在悲观里。它紧接着劝人“諦聽真實法”“當行不死門”，说明看见无常的目的，是松开执取、改走离苦之路，而不是把自己压垮。",
+        "《佛说五蘊皆空经》又把无常带回五蕴：身体、感受、想法和识别活动都不常住。这样理解，无常就不只是谈死亡，也是在修正你当下的抓取方式。",
+      ],
+      caution:
+        "这里主要依据《佛说无常经》与《佛说五蘊皆空经》说明最低限度边界；《佛说无常经》后段的临终劝导与仪轨，不应自动推广成所有传统的共同做法。",
+      concept: impermanenceConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《佛说无常经》T0801",
+          quote: "生者皆歸死，容顏盡變衰；強力病所侵，無能免斯者。……未曾有一事，不被無常吞。",
+          href: "/jingzang/taisho-t0801/001-0745b#T0801.001.0745b24",
+          source: "CBETA T17n0801",
+          locator: "T0801.001.0745b24",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《佛说无常经》T0801",
+          quote: "是故勸諸人，諦聽真實法，共捨無常處，當行不死門。佛法如甘露，除熱得清涼，一心應善聽，能滅諸煩惱。",
+          href: "/jingzang/taisho-t0801/001-0745c#T0801.001.0745c11",
+          source: "CBETA T17n0801",
+          locator: "T0801.001.0745c11",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《佛说五蘊皆空经》T0102",
+          quote: "復次苾芻！於汝意云何？色為是常？為是無常？」白言：「大德！色是無常。」",
+          href: "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c14",
+          source: "CBETA T02n0102",
+          locator: "T0102.001.0499c14",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《金刚般若波罗蜜经》T0235",
+          quote: "一切有爲法，如夢幻泡影，如露亦如電，應作如是觀。",
+          href: "/jingzang/jingangjing/001-0752c#T0235.001.0752c17",
+          source: "CBETA T08n0235",
+          locator: "T0235.001.0752c17",
+          relation: "相关",
+        }),
+      ],
+    };
+  }
 
   if (has("空", "五蕴", "心经", "执着", "执著")) {
     return {
@@ -77,6 +188,7 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       ],
       caution:
         "此回答不是医疗或心理危机建议。若你正处于危险或强烈痛苦中，请优先联系当地紧急服务和可信赖的专业人员。",
+      concept: observingMindConcept,
       evidence: [
         evidenceFor("fajujing", 0),
         evidenceFor("fajujing", 1),
@@ -97,6 +209,7 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       ],
       caution:
         "本说明聚焦鸠摩罗什译本的可见段落；其他汉译本及梵文本的措辞差异尚未在首版中展开。",
+      concept: nonAbidingConcept,
       evidence: [
         evidenceFor("jingangjing", 1),
         evidenceFor("jingangjing", 3),

@@ -15,12 +15,25 @@ import {
   corpusRegistry,
   sourceSnapshotInventory,
 } from "@/lib/corpus-registry";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "佛典覆盖登记册",
+export const metadata: Metadata = buildPageMetadata({
+  title: "全球佛典覆盖登记册",
   description: "foxue.ai 全球佛典覆盖登记册：公开分母、来源快照、权利状态和可复算的收录进度。",
-  alternates: { canonical: "/fugai" },
-};
+  path: "/fugai",
+});
+
+const coveragePageJsonLd = buildPageJsonLd({
+  path: "/fugai",
+  title: "全球佛典覆盖登记册",
+  description: "foxue.ai 全球佛典覆盖登记册：公开分母、来源快照、权利状态和可复算的收录进度。",
+  type: "CollectionPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "覆盖登记册", path: "/fugai" },
+  ],
+  about: ["全球佛典覆盖登记册", "覆盖分母", "来源快照", "可复算收录进度"],
+});
 
 const statusLabels: Record<string, string> = {
   candidate_snapshot_ready: "候选快照已冻结",
@@ -62,6 +75,10 @@ export default function CoveragePage() {
 
   return (
     <main className="coverage-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(coveragePageJsonLd) }}
+      />
       <header className="coverage-hero page-shell">
         <div className="coverage-hero__copy">
           <p className="eyebrow">GBCR · PUBLIC DRAFT {corpusRegistry.registry.version}</p>

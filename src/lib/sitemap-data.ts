@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { sutras } from "@/data/sutras";
 import { getSutraReading } from "@/lib/corpus-reading";
+import { allConcepts } from "@/lib/concept-hubs";
 import { libraryPageSize } from "@/lib/library-pagination";
 import { folioHref } from "@/lib/reader-routes";
 import { siteOrigin } from "@/lib/site-metadata";
@@ -11,7 +12,18 @@ let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
 
 export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   entriesPromise ??= (async () => {
-    const staticRoutes = ["", "/wenjing", "/jingzang", "/gainian/kong", "/fugai", "/fenmu", "/shenjiao", "/yuanze", "/touming"];
+    const staticRoutes = [
+      "",
+      "/wenjing",
+      "/jingzang",
+      "/gainian",
+      ...allConcepts.map((concept) => concept.href),
+      "/fugai",
+      "/fenmu",
+      "/shenjiao",
+      "/yuanze",
+      "/touming",
+    ];
     const libraryPaginationRoutes = Array.from(
       { length: Math.max(0, Math.ceil(sutras.length / libraryPageSize) - 1) },
       (_, index) => `/jingzang/page/${index + 2}`,

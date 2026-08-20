@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "foxue.ai｜从问题，回到原典",
+    name: "foxue.ai｜佛经在线阅读与 AI 问经平台",
     short_name: "foxue.ai",
-    description: "全球佛学交流的可信 AI 平台",
+    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
     start_url: "/",
     display: "standalone",
     background_color: "#f4f0e6",

@@ -1,6 +1,5 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v4.23.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
@@ -78,6 +77,35 @@ const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: str
     },
   ]),
 );
+
+const projectRoot = process.cwd().replace(/\/$/, "");
+
+function normalizeCorpusLocalPath(localPath: string) {
+  if (
+    localPath.startsWith("/") ||
+    localPath.includes("\0") ||
+    localPath.includes("\\") ||
+    localPath === ".." ||
+    localPath.startsWith("../") ||
+    localPath.includes("/../")
+  ) {
+    throw new Error(`语料路径越界：${localPath}`);
+  }
+  return localPath;
+}
+
+const registeredCorpusAssetPaths = new Map<string, string>();
+for (const asset of Object.values(completeAssets)) {
+  for (const source of asset.sources) {
+    if (!registeredCorpusAssetPaths.has(source.localPath)) {
+      const normalized = normalizeCorpusLocalPath(source.localPath);
+      registeredCorpusAssetPaths.set(
+        source.localPath,
+        `${projectRoot}/data/corpus/${normalized}`,
+      );
+    }
+  }
+}
 
 export type ReaderNavigationItem = {
   key: string;
@@ -344,82 +372,9 @@ const loadCompleteReading = cache(async (slug: string) => {
 });
 
 async function readControlledCorpusAsset(localPath: string) {
-  const root = process.cwd();
-  if (/^cbeta\/[A-Za-z0-9._-]+\.xml$/.test(localPath)) {
-    return readFile(join(root, "data", "corpus", "cbeta", localPath.slice("cbeta/".length)), "utf8");
-  }
-  const dhammapadaPrefix = "suttacentral/root/pli/ms/sutta/kn/dhp/";
-  if (localPath.startsWith(dhammapadaPrefix) && /^dhp\d+-\d+_root-pli-ms\.json$/.test(localPath.slice(dhammapadaPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "kn", "dhp", localPath.slice(dhammapadaPrefix.length)), "utf8");
-  }
-  const dighaPrefix = "suttacentral/root/pli/ms/sutta/dn/";
-  if (localPath.startsWith(dighaPrefix) && /^dn\d+_root-pli-ms\.json$/.test(localPath.slice(dighaPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "dn", localPath.slice(dighaPrefix.length)), "utf8");
-  }
-  const majjhimaPrefix = "suttacentral/root/pli/ms/sutta/mn/";
-  if (localPath.startsWith(majjhimaPrefix) && /^mn\d+_root-pli-ms\.json$/.test(localPath.slice(majjhimaPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "mn", localPath.slice(majjhimaPrefix.length)), "utf8");
-  }
-  const samyuttaPrefix = "suttacentral/root/pli/ms/sutta/sn/";
-  if (localPath.startsWith(samyuttaPrefix) && /^sn\d+\/sn\d+\.\d+(?:-\d+)?_root-pli-ms\.json$/.test(localPath.slice(samyuttaPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "sn", localPath.slice(samyuttaPrefix.length)), "utf8");
-  }
-  const anguttaraPrefix = "suttacentral/root/pli/ms/sutta/an/";
-  if (localPath.startsWith(anguttaraPrefix) && /^an\d+\/an\d+\.\d+(?:-\d+)?_root-pli-ms\.json$/.test(localPath.slice(anguttaraPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "an", localPath.slice(anguttaraPrefix.length)), "utf8");
-  }
-  const khuddakaPrefix = "suttacentral/root/pli/ms/sutta/kn/";
-  const khuddakaRelative = localPath.startsWith(khuddakaPrefix)
-    ? localPath.slice(khuddakaPrefix.length)
-    : "";
-  if (
-    /^((?:tha-ap|thi-ap|bv|cnd|cp|iti|ja|kp|mil|mnd|ne|pe|ps|pv|snp|thag|thig|ud|vv))\/(?:vagga\d+\/)?\1\d+(?:\.\d+)*_root-pli-ms\.json$/.test(khuddakaRelative)
-  ) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "sutta", "kn", khuddakaRelative), "utf8");
-  }
-  const sanskritPrefix = "suttacentral/root/san/sutta/sf/";
-  if (localPath.startsWith(sanskritPrefix) && /^sf(?:36|276)_root-san\.json$/.test(localPath.slice(sanskritPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "san", "sutta", "sf", localPath.slice(sanskritPrefix.length)), "utf8");
-  }
-  const prakritPrefix = "suttacentral/root/pra/pts/sutta/pdhp/";
-  if (localPath.startsWith(prakritPrefix) && /^pdhp\d+-\d+_root-pra-pts\.json$/.test(localPath.slice(prakritPrefix.length))) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pra", "pts", "sutta", "pdhp", localPath.slice(prakritPrefix.length)), "utf8");
-  }
-  const vinayaPrefix = "suttacentral/root/pli/ms/vinaya/";
-  const vinayaRelative = localPath.startsWith(vinayaPrefix)
-    ? localPath.slice(vinayaPrefix.length)
-    : "";
-  if (
-    /^(?:pli-tv-(?:bu|bi)-pm_root-pli-ms\.json|pli-tv-(?:bu|bi)-vb\/(?:pli-tv-(?:bu|bi)-vb-[a-z]+\/)?pli-tv-(?:bu|bi)-vb-[a-z]+\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json|pli-tv-(?:kd|pvr)\/pli-tv-(?:kd|pvr)\d+(?:\.\d+)*(?:-\d+)?_root-pli-ms\.json)$/.test(vinayaRelative)
-  ) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "vinaya", vinayaRelative), "utf8");
-  }
-  const abhidhammaPrefix = "suttacentral/root/pli/ms/abhidhamma/";
-  const abhidhammaRelative = localPath.startsWith(abhidhammaPrefix)
-    ? localPath.slice(abhidhammaPrefix.length)
-    : "";
-  if (
-    /^(?:ds\/ds\d+\/ds\d+(?:\.\d+)+(?:-\d+)?|vb\/vb\d+(?:-\d+)?|dt\/dt\d+\/dt\d+(?:\.\d+)+(?:-\d+)?|pp\/pp\d+\/pp\d+(?:\.\d+)+(?:-\d+)?|kv\/kv\d+\/kv\d+(?:\.\d+)+(?:-\d+)?|ya\/ya\d+\/ya\d+(?:\.\d+)+(?:-\d+)?|patthana\/patthana\d+\/patthana\d+(?:\.\d+)+(?:-\d+)?)_root-pli-ms\.json$/.test(abhidhammaRelative)
-  ) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "pli", "ms", "abhidhamma", abhidhammaRelative), "utf8");
-  }
-  const lzhPrefix = "suttacentral/root/lzh/sct/";
-  const lzhRelative = localPath.startsWith(lzhPrefix) ? localPath.slice(lzhPrefix.length) : "";
-  if (
-    /^(?:sutta\/ma\/ma\d+|sutta\/sa\/sa\d+-\d+\/sa\d+|sutta\/ea\/ea19\/ea19\.1|sutta\/lzh-minor\/lzh-iti\/t765\.\d+|abhidhamma\/(?:sg\/t1536\.[0-9a-z]+|lzh-dk\/t1537\.[0-9a-z]+|sag\/t1548\.[0-9a-z]+))_root-lzh-sct\.json$/.test(lzhRelative)
-  ) {
-    return readFile(join(root, "data", "corpus", "suttacentral", "root", "lzh", "sct", lzhRelative), "utf8");
-  }
-  const dergeMatch = localPath.match(
-    /^derge\/works\/(derge-kangyur-d\d{4}[a-z]?)\/(\d{3}\.txt)$/,
-  );
-  if (dergeMatch) {
-    return readFile(
-      join(root, "data", "corpus", "derge", "works", dergeMatch[1], dergeMatch[2]),
-      "utf8",
-    );
-  }
-  throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
+  const assetPath = registeredCorpusAssetPaths.get(localPath);
+  if (!assetPath) throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
+  return readFile(assetPath, "utf8");
 }
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
