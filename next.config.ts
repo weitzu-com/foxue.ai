@@ -48,6 +48,38 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  outputFileTracingIncludes: {
+    "/jingzang/*": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+    "/jingzang/*/*": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+    "/llms.txt": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+    "/llms-full.txt": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+    "/sitemap-index.xml": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+    "/sitemap/*": [
+      "data/corpus/cbeta/**/*",
+      "data/corpus/suttacentral/**/*",
+      "data/corpus/derge/**/*",
+    ],
+  },
   async headers() {
     return [
       {
