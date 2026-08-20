@@ -44,11 +44,11 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: {
-    default: "foxue.ai｜从问题，回到原典",
+    default: "佛经在线阅读与 AI 问经平台",
     template: "%s｜foxue.ai",
   },
   description:
-    "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
+    "全球佛学交流的可信 AI 平台。提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   keywords: ["佛学", "佛经", "AI", "佛典", "大藏经", "佛教", "人工智能"],
   authors: [{ name: "foxue.ai contributors" }],
   creator: "foxue.ai",
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     locale: "zh_CN",
     url: siteOrigin,
     siteName: "foxue.ai",
-    title: "foxue.ai｜从问题，回到原典",
-    description: "全球佛学交流的可信 AI 平台。让每一个问题回到可核验的原典。",
+    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
+    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "foxue.ai｜从问题，回到原典",
-    description: "全球佛学交流的可信 AI 平台。",
+    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
+    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   },
   verification: googleSiteVerification
     ? { google: googleSiteVerification }

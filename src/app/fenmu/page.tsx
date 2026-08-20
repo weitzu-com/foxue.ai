@@ -5,13 +5,26 @@ import standard from "../../../data/gbcr/global-denominator-standard-v0.1.0.json
 import sourceUniverse from "../../../data/gbcr/global-denominator-source-universe-v0.1.0.json";
 import reviewLedger from "../../../data/gbcr/global-denominator-review-ledger-v0.1.0.json";
 import { corpusRegistry } from "@/lib/corpus-registry";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 import GlobalReviewWorkbench, { type GlobalReviewSearchParams } from "./global-review-workbench";
 
-export const metadata: Metadata = {
-  title: "全球佛经作品分母",
+export const metadata: Metadata = buildPageMetadata({
+  title: "全球佛经作品分母治理",
   description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
-  alternates: { canonical: "/fenmu" },
-};
+  path: "/fenmu",
+});
+
+const denominatorPageJsonLd = buildPageJsonLd({
+  path: "/fenmu",
+  title: "全球佛经作品分母治理",
+  description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
+  type: "CollectionPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "全球分母治理", path: "/fenmu" },
+  ],
+  about: ["全球佛经作品分母", "来源宇宙", "保守公式", "G0-G7 发布门"],
+});
 
 const sourceLabels: Record<string, string> = {
   cbeta_xml_p5: "CBETA 汉文藏经",
@@ -38,6 +51,10 @@ export default async function GlobalDenominatorPage({
 
   return (
     <main className="denominator-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(denominatorPageJsonLd) }}
+      />
       <header className="denominator-hero page-shell">
         <div>
           <p className="eyebrow">GLOBAL DENOMINATOR · PUBLIC DRAFT {standard.version}</p>

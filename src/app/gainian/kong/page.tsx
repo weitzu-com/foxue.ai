@@ -11,17 +11,48 @@ import {
   Link2,
   ShieldCheck,
 } from "lucide-react";
+import {
+  absoluteUrl,
+  buildPageMetadata,
+  buildPageJsonLd,
+  serializeJsonLd,
+} from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "空｜概念 Hub",
   description:
     "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界、常见误解，并回到稳定原典段落。",
-  alternates: { canonical: "/gainian/kong" },
-  openGraph: {
-    title: "空｜概念 Hub｜foxue.ai",
-    description: "同一个“空”字，不抹平不同经藏语境；每项判断都回到稳定原典。",
-    url: "/gainian/kong",
-  },
+  path: "/gainian/kong",
+});
+
+const conceptUrl = absoluteUrl("/gainian/kong");
+const conceptPageJsonLdBase = buildPageJsonLd({
+  path: "/gainian/kong",
+  title: "空｜概念 Hub",
+  description: "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界、常见误解，并回到稳定原典段落。",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "空", path: "/gainian/kong" },
+  ],
+  about: ["空", "佛教概念", "巴利经藏", "汉译般若"],
+  mainEntityId: `${conceptUrl}#term`,
+});
+
+const conceptPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    ...(conceptPageJsonLdBase["@graph"] as Array<Record<string, unknown>>),
+    {
+      "@type": "DefinedTerm",
+      "@id": `${conceptUrl}#term`,
+      name: "空",
+      url: conceptUrl,
+      description: "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界、常见误解，并回到稳定原典段落。",
+      inLanguage: "zh-Hans",
+      termCode: "kong",
+      inDefinedTermSet: conceptUrl,
+    },
+  ],
 };
 
 const evidence = [
@@ -142,6 +173,10 @@ const readingPath = [
 export default function EmptinessConceptPage() {
   return (
     <article className="concept-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(conceptPageJsonLd) }}
+      />
       <header className="concept-hero">
         <div className="page-shell">
           <nav className="page-breadcrumb" aria-label="面包屑">

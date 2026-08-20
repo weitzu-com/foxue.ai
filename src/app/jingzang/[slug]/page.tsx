@@ -8,6 +8,7 @@ import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { getSutra } from "@/data/sutras";
 import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
 import { buildSegmentFolioMap, buildSegmentFolioRanges, folioHref } from "@/lib/reader-routes";
+import { absoluteUrl, buildPageJsonLd, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -26,9 +27,57 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
   const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
+  const description = `${sutra.title}：${sutra.summary}`;
+  const url = absoluteUrl(`/jingzang/${sutra.slug}`);
+  const schemaLanguage = derge
+    ? "bo-Tibt"
+    : sutra.language.includes("古汉") || sutra.language === "汉文"
+      ? "zh-Hant"
+      : sutra.language.startsWith("梵")
+        ? "sa-Latn"
+        : sutra.language.includes("俗语")
+          ? "pra-Latn"
+          : "pi-Latn";
+  const pageJsonLdBase = buildPageJsonLd({
+    path: `/jingzang/${sutra.slug}`,
+    title: sutra.title,
+    description,
+    type: "CollectionPage",
+    breadcrumb: [
+      { name: "首页", path: "/" },
+      { name: "经藏目录", path: "/jingzang" },
+      { name: sutra.alternateTitle, path: `/jingzang/${sutra.slug}` },
+    ],
+    about: [sutra.canonRef, sutra.tradition, sutra.language],
+    mainEntityId: `${url}#work`,
+  });
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...(pageJsonLdBase["@graph"] as Array<Record<string, unknown>>),
+      {
+        "@type": "CreativeWork",
+        "@id": `${url}#work`,
+        url,
+        name: sutra.title,
+        alternateName: sutra.alternateTitle,
+        description: sutra.summary,
+        inLanguage: schemaLanguage,
+        isPartOf: { "@id": `${siteOrigin}/#website` },
+        publisher: { "@id": `${siteOrigin}/#organization` },
+        identifier: sutra.canonRef,
+        author: { "@type": "Organization", name: sutra.sourceName },
+        isBasedOn: sutra.sourceUrl,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageJsonLd) }}
+      />
       <ReaderHeader sutra={sutra} />
       <ReaderHashRedirect
         slug={sutra.slug}

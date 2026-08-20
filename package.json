@@ -298,8 +298,11 @@
     "verify:cloudflare-edge": "NODE_USE_ENV_PROXY=1 node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai",
     "verify:preservation-mirrors": "NODE_USE_ENV_PROXY=1 node scripts/verify-preservation-mirrors.mjs",
     "preserve": "node scripts/build-preservation-bundle.mjs",
+    "test:seo:e2e": "CI=1 playwright test tests/site.spec.ts -g '关键 SEO 页面输出自指 canonical、og:url 与 twitter card|长经名目录页的 title 受控且保留品牌后缀|经藏搜索结果页 canonical 回落目录且声明 noindex|llms 文本使用 www 主域并反映真实页面职责|关键 SEO 页面输出页面级 JSON-LD|首页核心任务可见且没有水平溢出|卷页具有独立标题、H1、规范网址与分享元数据' --project=desktop",
     "test:e2e": "playwright test",
-    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm lint && pnpm typecheck && pnpm build"
+    "verify:seo:production": "node scripts/verify-google-integrations.mjs https://www.foxue.ai",
+    "verify:seo-ops-workflows": "node scripts/validate-seo-operations-workflows.mjs",
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm verify:seo-ops-workflows && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

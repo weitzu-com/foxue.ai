@@ -1,6 +1,6 @@
 import { resolveTxt } from "node:dns/promises";
 
-const baseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://foxue.ai");
+const baseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.foxue.ai");
 const expectedMeasurementId = process.env.EXPECTED_GA4_MEASUREMENT_ID;
 const failures = [];
 const successes = [];
@@ -10,8 +10,21 @@ function check(condition, success, failure) {
   else failures.push(failure);
 }
 
+async function fetchWithRetry(url, init, retries = 2) {
+  let lastError;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      return await fetch(url, init);
+    } catch (error) {
+      lastError = error;
+      if (attempt === retries) break;
+    }
+  }
+  throw lastError;
+}
+
 async function get(pathname) {
-  const response = await fetch(new URL(pathname, baseUrl), {
+  const response = await fetchWithRetry(new URL(pathname, baseUrl), {
     headers: { "user-agent": "foxue-google-integration-check/1.0" },
     signal: AbortSignal.timeout(20_000),
   });
@@ -19,6 +32,45 @@ async function get(pathname) {
   const body = await response.text();
   check(response.ok, `${pathname} 可访问`, `${pathname} 返回 ${response.status}`);
   return { body, response };
+}
+
+function extractHeadValue(html, pattern) {
+  return html.match(pattern)?.[1] ?? null;
+}
+
+function extractJsonLdItems(html) {
+  return [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+    .flatMap((match) => {
+      const parsed = JSON.parse(match[1]);
+      return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
+    });
+}
+
+function normalizeUrl(value) {
+  if (!value) return null;
+  return new URL(value).href;
+}
+
+async function loadMergedSitemap() {
+  const { body: indexBody } = await get("/sitemap-index.xml");
+  const childSitemaps = [...indexBody.matchAll(/<loc>(https:\/\/www\.foxue\.ai\/sitemap\/\d+\.xml)<\/loc>/g)]
+    .map((match) => match[1]);
+  check(childSitemaps.length > 0, "sitemap index 已声明子分片", "sitemap index 未声明子分片");
+
+  const children = await Promise.all(
+    childSitemaps.map(async (url) => {
+      const response = await fetchWithRetry(url, {
+        headers: { "user-agent": "foxue-google-integration-check/1.0" },
+        signal: AbortSignal.timeout(20_000),
+      });
+      const body = await response.text();
+      const pathname = new URL(url).pathname;
+      check(response.ok, `${pathname} 可访问`, `${pathname} 返回 ${response.status}`);
+      return body;
+    }),
+  );
+
+  return children.join("\n");
 }
 
 async function getTxtRecords(hostname) {
@@ -30,7 +82,7 @@ async function getTxtRecords(hostname) {
     endpoint.searchParams.set("type", "TXT");
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetchWithRetry(endpoint, {
         headers: { accept: "application/dns-json" },
         signal: AbortSignal.timeout(20_000),
       });
@@ -51,11 +103,156 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, robots, sitemap] = await Promise.all([
+const [home, wenjing, gainianKong, jingzang, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots] = await Promise.all([
   get("/"),
+  get("/wenjing"),
+  get("/gainian/kong"),
+  get("/jingzang"),
+  get("/jingzang/xinjing"),
+  get("/jingzang/xinjing/001-0848c"),
+  get("/fugai"),
+  get("/fenmu"),
+  get("/shenjiao"),
+  get("/touming"),
+  get("/yuanze"),
   get("/robots.txt"),
-  get("/sitemap.xml"),
 ]);
+const mergedSitemap = await loadMergedSitemap();
+
+const pageExpectations = [
+  [
+    "/",
+    home,
+    {
+      title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
+      description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
+      jsonLd: [["https://www.foxue.ai/#page", "WebPage"]],
+    },
+  ],
+  [
+    "/wenjing",
+    wenjing,
+    {
+      title: "AI问经与原典出处对照｜foxue.ai",
+      description: "输入佛学问题，查看 AI 问经答案、佛经原典出处、版本边界与证据不足提示。",
+      jsonLd: [
+        ["https://www.foxue.ai/wenjing#page", "WebPage"],
+        ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/kong",
+    gainianKong,
+    {
+      title: "空｜概念 Hub｜foxue.ai",
+      description: "从受控巴利经藏与汉译般若证据理解“空”的术语范围、传统边界、常见误解，并回到稳定原典段落。",
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/kong#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/kong#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/kong#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/jingzang",
+    jingzang,
+    {
+      title: "佛经在线阅读与经藏目录｜foxue.ai",
+      description: "浏览已登记佛典全文、来源、版本、经号与稳定行段；涵盖汉文、藏文、巴利文、梵文与俗语见证。",
+      jsonLd: [
+        ["https://www.foxue.ai/jingzang#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/jingzang/xinjing",
+    jingzangXinjing,
+    {
+      title: "般若波罗蜜多心经｜foxue.ai",
+      description: "般若波罗蜜多心经：以极精炼的篇幅呈现般若空义，并以“照见五蕴皆空”说明智慧与离苦的关系。",
+      jsonLd: [
+        ["https://www.foxue.ai/jingzang/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/xinjing#work", "CreativeWork"],
+      ],
+    },
+  ],
+  [
+    "/jingzang/xinjing/001-0848c",
+    jingzangXinjingFolio,
+    {
+      title: "般若波罗蜜多心经 · 0848c｜foxue.ai",
+      description: "般若波罗蜜多心经卷 1，大正藏 0848c 版页原文。",
+      jsonLd: [
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#page", "WebPage"],
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#folio", "DigitalDocument"],
+      ],
+    },
+  ],
+  [
+    "/fugai",
+    fugai,
+    {
+      title: "全球佛典覆盖登记册｜foxue.ai",
+      description: "foxue.ai 全球佛典覆盖登记册：公开分母、来源快照、权利状态和可复算的收录进度。",
+      jsonLd: [
+        ["https://www.foxue.ai/fugai#page", "CollectionPage"],
+        ["https://www.foxue.ai/fugai#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/fenmu",
+    fenmu,
+    {
+      title: "全球佛经作品分母治理｜foxue.ai",
+      description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
+      jsonLd: [
+        ["https://www.foxue.ai/fenmu#page", "CollectionPage"],
+        ["https://www.foxue.ai/fenmu#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/shenjiao",
+    shenjiao,
+    {
+      title: "汉巴作品关系审校台｜foxue.ai",
+      description: "foxue.ai 汉巴作品关系双人复核队列：公开反证、文本范围、证据身份与裁决门槛。",
+      jsonLd: [
+        ["https://www.foxue.ai/shenjiao#page", "CollectionPage"],
+        ["https://www.foxue.ai/shenjiao#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/touming",
+    touming,
+    {
+      title: "数据透明度与建设状态｜foxue.ai",
+      description: "公开 foxue.ai 的数据覆盖、来源、AI 能力、已知局限和当前建设状态。",
+      jsonLd: [
+        ["https://www.foxue.ai/touming#page", "AboutPage"],
+        ["https://www.foxue.ai/touming#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/yuanze",
+    yuanze,
+    {
+      title: "可信佛学系统的原则与边界｜foxue.ai",
+      description: "说明 foxue.ai 如何定义可信、纠错、多传统公平与长期传承的底层原则。",
+      jsonLd: [
+        ["https://www.foxue.ai/yuanze#page", "AboutPage"],
+        ["https://www.foxue.ai/yuanze#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+];
 
 const measurementMatch = home.body.match(
   /name=["']ga4-measurement-id["']\s+content=["'](G-[A-Z0-9]+)["']/i,
@@ -77,24 +274,62 @@ check(
 );
 
 check(
-  robots.body.includes(`Sitemap: ${new URL("/sitemap.xml", baseUrl)}`),
-  "robots.txt 已声明站点地图",
-  "robots.txt 未声明正确的站点地图地址",
+  robots.body.includes(`Sitemap: ${new URL("/sitemap-index.xml", baseUrl)}`),
+  "robots.txt 已声明 sitemap index",
+  "robots.txt 未声明正确的 sitemap index 地址",
 );
 
 check(
-  sitemap.body.includes(`<loc>${baseUrl.origin}</loc>`) ||
-    sitemap.body.includes(`<loc>${baseUrl.origin}/</loc>`),
-  "站点地图包含规范首页",
-  "站点地图缺少规范首页",
+  mergedSitemap.includes(`<loc>${baseUrl.origin}</loc>`) ||
+    mergedSitemap.includes(`<loc>${baseUrl.origin}/</loc>`),
+  "sitemap 分片包含规范首页",
+  "sitemap 分片缺少规范首页",
 );
 
+for (const [path, page, expected] of pageExpectations) {
+  const expectedUrl = new URL(path, baseUrl).href;
+  const title = extractHeadValue(page.body, /<title>([^<]+)<\/title>/i);
+  const description = extractHeadValue(page.body, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i);
+  const canonical = extractHeadValue(page.body, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i);
+  const ogUrl = extractHeadValue(page.body, /<meta[^>]+property=["']og:url["'][^>]+content=["']([^"']+)/i);
+  const twitterCard = extractHeadValue(page.body, /<meta[^>]+name=["']twitter:card["'][^>]+content=["']([^"']+)/i);
+  const jsonLdItems = extractJsonLdItems(page.body);
+
+  check(title === expected.title, `${path} title 正确`, `${path} title 非预期（实际 ${title ?? "缺失"}）`);
+  check(
+    description === expected.description,
+    `${path} description 正确`,
+    `${path} description 非预期（实际 ${description ?? "缺失"}）`,
+  );
+  check(
+    normalizeUrl(canonical) === expectedUrl,
+    `${path} canonical 自指`,
+    `${path} canonical 非自指（实际 ${canonical ?? "缺失"}）`,
+  );
+  check(
+    normalizeUrl(ogUrl) === expectedUrl,
+    `${path} og:url 自指`,
+    `${path} og:url 非自指（实际 ${ogUrl ?? "缺失"}）`,
+  );
+  check(twitterCard === "summary_large_image", `${path} twitter card 正确`, `${path} twitter card 缺失或错误`);
+  for (const [id, type] of expected.jsonLd ?? []) {
+    check(
+      jsonLdItems.some((item) => item["@id"] === id && item["@type"] === type),
+      `${path} JSON-LD 包含 ${type}`,
+      `${path} JSON-LD 缺少 ${type}（${id}）`,
+    );
+  }
+}
+
 try {
-  const records = await getTxtRecords(baseUrl.hostname);
+  const verificationHost = baseUrl.hostname.startsWith("www.")
+    ? baseUrl.hostname.slice("www.".length)
+    : baseUrl.hostname;
+  const records = await getTxtRecords(verificationHost);
   check(
     records.some((record) => record.startsWith("google-site-verification=")),
     "GSC 网域资源 DNS 验证记录存在",
-    "DNS 中缺少 google-site-verification TXT 记录",
+    `DNS 中缺少 ${verificationHost} 的 google-site-verification TXT 记录`,
   );
 } catch (error) {
   failures.push(`无法读取 DNS TXT：${error instanceof Error ? error.message : String(error)}`);

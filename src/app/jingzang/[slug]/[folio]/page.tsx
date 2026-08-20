@@ -15,7 +15,7 @@ import {
   type ReaderNavigationItem,
 } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
-import { buildPageMetadata } from "@/lib/site-metadata";
+import { absoluteUrl, buildPageJsonLd, buildPageMetadata, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 
 type PageProps = { params: Promise<{ slug: string; folio: string }> };
 
@@ -149,9 +149,53 @@ export default async function SutraFolioPage({ params }: PageProps) {
       : derge
         ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
         : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`;
+  const description = chaptered
+    ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
+    : bilara
+      ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
+      : derge
+        ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
+        : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`;
+  const url = absoluteUrl(`/jingzang/${sutra.slug}/${folio.item.key}`);
+  const workUrl = absoluteUrl(`/jingzang/${sutra.slug}`);
+  const pageJsonLdBase = buildPageJsonLd({
+    path: `/jingzang/${sutra.slug}/${folio.item.key}`,
+    title: `${sutra.title} · ${folio.item.label}`,
+    description,
+    breadcrumb: [
+      { name: "首页", path: "/" },
+      { name: "经藏目录", path: "/jingzang" },
+      { name: sutra.alternateTitle, path: `/jingzang/${sutra.slug}` },
+      { name: currentHeading, path: `/jingzang/${sutra.slug}/${folio.item.key}` },
+    ],
+    about: [sutra.canonRef, sutra.tradition, currentHeading],
+    mainEntityId: `${url}#folio`,
+  });
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...(pageJsonLdBase["@graph"] as Array<Record<string, unknown>>),
+      {
+        "@type": "DigitalDocument",
+        "@id": `${url}#folio`,
+        url,
+        name: `${sutra.title} · ${currentHeading}`,
+        description,
+        inLanguage: textLanguage,
+        isPartOf: { "@id": `${workUrl}#work` },
+        publisher: { "@id": `${siteOrigin}/#organization` },
+        identifier: folio.item.id,
+        isBasedOn: sutra.sourceUrl,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageJsonLd) }}
+      />
       <ReaderHeader sutra={sutra} currentLabel={currentHeading} />
       <ReaderHashRedirect
         slug={sutra.slug}

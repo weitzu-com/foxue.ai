@@ -4,7 +4,7 @@ import {
   libraryPageSize,
 } from "@/components/library-catalog";
 import { sutras } from "@/data/sutras";
-import { buildPageMetadata } from "@/lib/site-metadata";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
 type PageProps = {
   params: Promise<{ page: string }>;
@@ -38,9 +38,25 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function LibraryPaginationPage({ params }: PageProps) {
   const page = parsePage((await params).page);
   if (!page || page > pageCount) notFound();
+  const pageJsonLd = buildPageJsonLd({
+    path: `/jingzang/page/${page}`,
+    title: `佛经目录 · 第 ${page} 页`,
+    description: `foxue.ai 经藏目录第 ${page} 页：按来源与版本登记佛典全文、经号和稳定行段。`,
+    type: "CollectionPage",
+    breadcrumb: [
+      { name: "首页", path: "/" },
+      { name: "经藏目录", path: "/jingzang" },
+      { name: `经藏目录第 ${page} 页`, path: `/jingzang/page/${page}` },
+    ],
+    about: ["经藏分页", "佛经目录", `第 ${page} 页`],
+  });
 
   return (
     <div className="library-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pageJsonLd) }}
+      />
       <header className="library-page-marker">
         <div className="page-shell">
           <p className="eyebrow">开放经藏 · DIRECTORY</p>

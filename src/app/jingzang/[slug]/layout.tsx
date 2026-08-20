@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getSutra, sutras } from "@/data/sutras";
-import { buildPageMetadata } from "@/lib/site-metadata";
+import { buildPageMetadata, formatSiteTitle, titleLimit, truncateMetadata } from "@/lib/site-metadata";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -18,11 +18,19 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) return { title: "经典未找到" };
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title: sutra.title,
     description: `${sutra.title}：${sutra.summary}`,
     path: `/jingzang/${sutra.slug}`,
   });
+  const safeTitle = truncateMetadata(sutra.title, titleLimit);
+  return {
+    ...metadata,
+    title: {
+      default: formatSiteTitle(safeTitle),
+      template: "%s｜foxue.ai",
+    },
+  };
 }
 
 export default async function SutraLayout({ children, params }: LayoutProps) {
