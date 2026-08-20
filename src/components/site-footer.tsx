@@ -16,7 +16,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-links">
-          <Link href="/jingzang">浏览经藏</Link>
+          <Link href="/jingzang" prefetch={false}>浏览经藏</Link>
           <Link href="/fugai">佛典覆盖</Link>
           <Link href="/fenmu">全球分母</Link>
           <Link href="/shenjiao">作品审校</Link>

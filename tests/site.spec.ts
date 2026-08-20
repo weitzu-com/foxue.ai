@@ -346,6 +346,17 @@ test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
 });
 
+test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) => {
+  await page.goto("/");
+
+  const brandLink = page.getByRole("link", {
+    name: "佛 foxue.ai 全球佛学交流 AI 平台 首页",
+  });
+
+  await expect(brandLink).toBeVisible();
+  await expect(brandLink).toHaveAttribute("href", "/");
+});
+
 test("问经结果同时展示结论、范围和原典证据", async ({ page }) => {
   await page.goto("/wenjing");
   const question = "佛教里的空是什么意思？";
@@ -528,6 +539,23 @@ test("卷页具有独立标题、H1、规范网址与分享元数据", async ({ 
   await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", /法句经/);
   await expect(page).toHaveTitle(/法句经.*｜foxue\.ai$/);
   expect((await page.title()).length).toBeLessThanOrEqual(60);
+});
+
+test("经文分册页不会预取沉重的经藏目录 RSC", async ({ page }) => {
+  const prefetchedRscPaths: string[] = [];
+
+  page.on("request", (request) => {
+    const url = new URL(request.url());
+    if (url.searchParams.has("_rsc")) {
+      prefetchedRscPaths.push(url.pathname);
+    }
+  });
+
+  await page.goto("/jingzang/xinjing/001-0848c");
+  await expect(page.getByRole("link", { name: /返回文本目录/ })).toBeVisible();
+  await page.waitForTimeout(1500);
+
+  expect(prefetchedRscPaths.filter((pathname) => pathname === "/jingzang")).toEqual([]);
 });
 
 test("站点地图公开全部目录分页且不伪造统一更新时间", async ({ request }) => {

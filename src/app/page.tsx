@@ -328,7 +328,7 @@ export default function Home() {
           <p className="eyebrow">一项跨世代的公共事业</p>
           <h2>让古老智慧，<br />在未来仍可被看见、核对与传承。</h2>
           <div className="closing-actions">
-            <Link className="button-primary" href="/jingzang">
+            <Link className="button-primary" href="/jingzang" prefetch={false}>
               开始阅读 <ArrowRight aria-hidden="true" size={17} />
             </Link>
             <a
