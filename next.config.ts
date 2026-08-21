@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { buildReleaseHeaders } from "./src/lib/release-provenance";
+import corpusRuntimeTracing from "./src/data/corpus-runtime-tracing.generated.json";
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -38,12 +39,18 @@ const securityHeaders = [
 ];
 
 const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value }));
+const corpusRuntimeIncludes = Object.fromEntries(
+  corpusRuntimeTracing.buckets.map((bucket) => [
+    `/corpus-runtime/${bucket.id}/**`,
+    bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
+  ]),
+);
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   outputFileTracingIncludes: {
-    "/*": ["./data/corpus/cbeta/T08n0251.xml"],
+    ...corpusRuntimeIncludes,
   },
   experimental: {
     // Each reading page can parse a complete source witness during prerendering.

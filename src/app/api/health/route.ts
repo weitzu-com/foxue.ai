@@ -16,8 +16,8 @@ export function GET() {
         generativeAI: "disabled",
         corpusRegistry: `v${CORPUS_REGISTRY_VERSION}-public-draft`,
         corpusBackend: process.env.CORPUS_ASSET_BASE_URL
-          ? "edge_with_local_fallback"
-          : "local_controlled_assets",
+          ? "edge_with_partitioned_local_fallback"
+          : "partitioned_local_controlled_assets",
       },
       timestamp: new Date().toISOString(),
     },

@@ -33,6 +33,7 @@ requirePattern(indexNowWorkflow, "IndexNow workflow 必须复用同一份 urls.j
 const googleWorkflowPath = ".github/workflows/google-integrations.yml";
 const googleWorkflow = await readFile(googleWorkflowPath, "utf8");
 const nextConfig = await readFile("next.config.ts", "utf8");
+const googleVerifier = await readFile("scripts/verify-google-integrations.mjs", "utf8");
 
 if (/pull_request_target:/.test(googleWorkflow)) failures.push("Google integrations workflow 禁止使用 pull_request_target");
 requirePattern(googleWorkflow, "Google integrations workflow 根权限必须只读", /permissions:\n\s+contents: read/);
@@ -62,6 +63,16 @@ requirePattern(
 if (/["']\.\/data\/corpus\/(?:\*\*|\*)/.test(nextConfig)) {
   failures.push("Next config 禁止把全量 data/corpus 目录打入任意路由 trace");
 }
+requirePattern(
+  nextConfig,
+  "Next config 必须按生成清单为独立运行时路由追踪受控语料桶",
+  /corpusRuntimeTracing\.buckets\.map[\s\S]*\/corpus-runtime\/\$\{bucket\.id\}\/\*\*/,
+);
+requirePattern(
+  googleVerifier,
+  "Google integrations 必须逐桶抽查生产版页正文",
+  /for \(const smoke of corpusRuntimeSmokeRoutes\)[\s\S]*sutra-segment/,
+);
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);
