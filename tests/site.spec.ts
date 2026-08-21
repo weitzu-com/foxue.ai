@@ -741,6 +741,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(health.capabilities.corpusRegistry).toBe(
     `v${coverage.generatedFrom.registryVersion}-public-draft`,
   );
+  expect(health.capabilities.corpusBackend).toMatch(/partitioned_local/);
   expect(health.release).toMatchObject({
     sourceCommitSha: expect.stringMatching(/^[0-9a-f]{7,40}$/i),
     sourceCommitShortSha: expect.stringMatching(/^[0-9a-f]{7,12}$/i),

@@ -1,4 +1,5 @@
 import { resolveTxt } from "node:dns/promises";
+import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
 
 const fetchBaseUrl = new URL(process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.foxue.ai");
 const expectedSiteOrigin = new URL(process.env.EXPECTED_SITE_ORIGIN ?? fetchBaseUrl.origin).origin;
@@ -40,10 +41,10 @@ async function fetchWithRetry(url, init, retries = 2) {
   throw lastError;
 }
 
-async function get(pathname) {
+async function get(pathname, timeoutMs = 20_000) {
   const response = await fetchWithRetry(new URL(pathname, fetchBaseUrl), {
     headers: { "user-agent": "foxue-google-integration-check/1.0" },
-    signal: AbortSignal.timeout(20_000),
+    signal: AbortSignal.timeout(timeoutMs),
   });
 
   const body = await response.text();
@@ -147,6 +148,14 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
 ]);
 const mergedSitemap = await loadMergedSitemap();
 const healthJson = JSON.parse(health.body);
+for (const smoke of corpusRuntimeSmokeRoutes) {
+  const page = await get(smoke.path, 60_000);
+  check(
+    page.body.includes("sutra-segment") && !page.body.includes('id="__next_error__"'),
+    `${smoke.bucket} 运行时语料桶返回经文正文`,
+    `${smoke.bucket} 运行时语料桶未返回经文正文（${smoke.path}）`,
+  );
+}
 
 const pageExpectations = [
   [

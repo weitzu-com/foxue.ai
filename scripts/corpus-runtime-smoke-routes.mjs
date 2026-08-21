@@ -1,0 +1,15 @@
+export const corpusRuntimeSmokeRoutes = [
+  { bucket: "cb01", path: "/jingzang/jingangjing/001-0748c" },
+  { bucket: "cb02", path: "/jingzang/taisho-t0352/003-0209a" },
+  { bucket: "cb03", path: "/jingzang/taisho-t0656/001-0001a" },
+  { bucket: "cb04", path: "/jingzang/taisho-t1525/002-0242c" },
+  { bucket: "cb05", path: "/jingzang/taisho-t1532/001-0337a" },
+  { bucket: "cb06", path: "/jingzang/taisho-t1791/002-0447c" },
+  { bucket: "cb07", path: "/jingzang/taisho-t1828/001-0311a" },
+  { bucket: "cb08", path: "/jingzang/taisho-t2060/001-0425a" },
+  { bucket: "cb09", path: "/jingzang/xinjing/001-0848a" },
+  { bucket: "sc01", path: "/jingzang/dhammapada-pali/001-dhp1-20" },
+  { bucket: "dg01", path: "/jingzang/derge-kangyur-d0008/021-0279b" },
+  { bucket: "dg02", path: "/jingzang/derge-kangyur-d0012/033-0001b" },
+  { bucket: "dg03", path: "/jingzang/derge-kangyur-d0468/083-0160a" },
+];

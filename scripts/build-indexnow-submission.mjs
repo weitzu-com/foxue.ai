@@ -168,6 +168,10 @@ function urlsForChangedFile(file) {
 
   if (
     file.startsWith("src/app/jingzang/") ||
+    file.startsWith("src/app/corpus-runtime/") ||
+    file.startsWith("src/data/corpus-runtime-") ||
+    file === "src/proxy.ts" ||
+    file === "next.config.ts" ||
     file === "src/data/sutras.ts" ||
     file.startsWith("src/lib/corpus-reading") ||
     file.startsWith("src/lib/reader-routes") ||
