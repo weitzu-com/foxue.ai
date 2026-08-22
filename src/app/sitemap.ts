@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
-import { getSitemapEntries, getSitemapIds, sitemapChunkSize } from "@/lib/sitemap-data";
+import { getSitemapChunk, getSitemapIds } from "@/lib/sitemap-data";
+
+export const dynamic = "force-static";
+export const revalidate = 86400;
 
 export async function generateSitemaps() {
   return getSitemapIds();
@@ -10,9 +13,5 @@ export default async function sitemap({
 }: {
   id: Promise<string>;
 }): Promise<MetadataRoute.Sitemap> {
-  const chunk = Number(await id);
-  if (!Number.isSafeInteger(chunk) || chunk < 0) return [];
-  const entries = await getSitemapEntries();
-  if (chunk >= Math.ceil(entries.length / sitemapChunkSize)) return [];
-  return entries.slice(chunk * sitemapChunkSize, (chunk + 1) * sitemapChunkSize);
+  return getSitemapChunk(await id);
 }

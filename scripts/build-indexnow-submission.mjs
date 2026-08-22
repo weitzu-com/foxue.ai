@@ -171,6 +171,8 @@ function urlsForChangedFile(file) {
     file.startsWith("src/app/corpus-runtime/") ||
     file.startsWith("src/data/corpus-runtime-") ||
     file.startsWith("src/data/corpus-folio-index") ||
+    file.startsWith("src/data/corpus-sitemap-") ||
+    file.startsWith("src/lib/sitemap-") ||
     file === "src/proxy.ts" ||
     file === "next.config.ts" ||
     file === "src/data/sutras.ts" ||

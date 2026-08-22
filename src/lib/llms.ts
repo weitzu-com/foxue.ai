@@ -1,7 +1,6 @@
 import { allConcepts } from "@/lib/concept-hubs";
-import { sutras } from "@/data/sutras";
 import { absoluteUrl, siteOrigin } from "@/lib/site-metadata";
-import { getSitemapEntries, getSitemapIds } from "@/lib/sitemap-data";
+import { getSitemapSnapshot } from "@/lib/sitemap-ledger";
 
 type CorePage = {
   path: string;
@@ -70,12 +69,12 @@ function formatCount(value: number) {
   return new Intl.NumberFormat("en-US").format(value);
 }
 
-async function getLlmsSnapshot() {
-  const [entries, sitemapIds] = await Promise.all([getSitemapEntries(), getSitemapIds()]);
+function getLlmsSnapshot() {
+  const snapshot = getSitemapSnapshot();
   return {
-    totalUrls: entries.length,
-    sitemapCount: sitemapIds.length,
-    sutraCount: sutras.length,
+    totalUrls: snapshot.totalUrls,
+    sitemapCount: snapshot.sitemapCount,
+    sutraCount: snapshot.workCount,
   };
 }
 
@@ -94,7 +93,7 @@ function renderCorePageTable() {
 }
 
 export async function buildLlmsText() {
-  const { totalUrls, sitemapCount, sutraCount } = await getLlmsSnapshot();
+  const { totalUrls, sitemapCount, sutraCount } = getLlmsSnapshot();
 
   return `# foxue.ai
 
@@ -135,7 +134,7 @@ ${renderCorePageBullets()}
 }
 
 export async function buildLlmsFullText() {
-  const { totalUrls, sitemapCount, sutraCount } = await getLlmsSnapshot();
+  const { totalUrls, sitemapCount, sutraCount } = getLlmsSnapshot();
 
   return `# foxue.ai — 全站内容地图（AI 可读完整版）
 

@@ -1,6 +1,7 @@
-import { getSitemapIds } from "@/lib/sitemap-data";
+import { getSitemapIds } from "@/lib/sitemap-ledger";
 import { siteOrigin } from "@/lib/site-metadata";
 
+export const dynamic = "force-static";
 export const revalidate = 86400;
 
 function escapeXml(value: string) {
@@ -13,7 +14,7 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const sitemapIds = await getSitemapIds();
+  const sitemapIds = getSitemapIds();
   const sitemaps = sitemapIds
     .map(({ id }) => `<sitemap><loc>${escapeXml(`${siteOrigin}/sitemap/${id}.xml`)}</loc></sitemap>`)
     .join("\n");

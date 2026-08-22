@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { execFileSync, spawn } from "node:child_process";
-import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { createReadStream } from "node:fs";
+import { mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = process.cwd();
@@ -8,6 +9,15 @@ const runText = (command, args) =>
   execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim();
 const runBuffer = (command, args) => execFileSync(command, args, { cwd: root, maxBuffer: 16 * 1024 * 1024 });
 const sha256 = (content) => createHash("sha256").update(content).digest("hex");
+async function hashFile(path) {
+  const digest = createHash("sha256");
+  let bytes = 0;
+  for await (const chunk of createReadStream(path)) {
+    bytes += chunk.length;
+    digest.update(chunk);
+  }
+  return { bytes, sha256: digest.digest("hex") };
+}
 const hashGitPath = (commit, path) => new Promise((resolveHash, rejectHash) => {
   const digest = createHash("sha256");
   const child = spawn("git", ["show", `${commit}:${path}`], {
@@ -936,10 +946,10 @@ const criticalAssets = {};
 for (const path of requiredPaths) {
   criticalAssets[path] = await hashGitPath(commit, path);
 }
-const sourceArchive = await readFile(sourceArchivePath);
-const gitBundle = await readFile(gitBundlePath);
-const sourceArchiveStat = await stat(sourceArchivePath);
-const gitBundleStat = await stat(gitBundlePath);
+const [sourceArchive, gitBundle] = await Promise.all([
+  hashFile(sourceArchivePath),
+  hashFile(gitBundlePath),
+]);
 
 const manifest = {
   schema: "https://foxue.ai/schemas/preservation-manifest-v0.1",
@@ -954,8 +964,8 @@ const manifest = {
     note: "相同 Git 对象可复核内容哈希；不同 Git/OS 版本产生的容器字节不承诺完全相同。",
   },
   files: [
-    { name: sourceArchiveName, bytes: sourceArchiveStat.size, sha256: sha256(sourceArchive) },
-    { name: gitBundleName, bytes: gitBundleStat.size, sha256: sha256(gitBundle) },
+    { name: sourceArchiveName, bytes: sourceArchive.bytes, sha256: sourceArchive.sha256 },
+    { name: gitBundleName, bytes: gitBundle.bytes, sha256: gitBundle.sha256 },
   ],
   criticalAssets,
   recoveryEntryPoint: "docs/RECOVERY.md",
