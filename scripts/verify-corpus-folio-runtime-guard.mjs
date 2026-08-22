@@ -20,6 +20,7 @@ function requireNoImport(source, fileLabel, forbidden) {
 
 const [
   sitemapData,
+  sitemapIndexRoute,
   llmsSource,
   folioStub,
   workIndexPage,
@@ -31,6 +32,7 @@ const [
   folioIndex,
 ] = await Promise.all([
   readFile(resolve(root, "src/lib/sitemap-data.ts"), "utf8"),
+  readFile(resolve(root, "src/app/sitemap-index.xml/route.ts"), "utf8"),
   readFile(resolve(root, "src/lib/llms.ts"), "utf8"),
   readFile(resolve(root, "src/app/jingzang/[slug]/[folio]/page.tsx"), "utf8"),
   readFile(resolve(root, "src/app/jingzang/[slug]/page.tsx"), "utf8"),
@@ -42,8 +44,12 @@ const [
   readFile(resolve(root, "src/data/corpus-folio-index.generated.json"), "utf8").then(JSON.parse),
 ]);
 
-requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-reading/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReading/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-reading/, /corpus-folio-index/, /getSutraReading/, /getSitemapEntries/]);
+requireNoImport(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", [/corpus-reading/, /corpus-folio-index/, /sitemap-data/, /getSitemapEntries/]);
+if (!/export const dynamic = "force-static"/.test(sitemapIndexRoute)) {
+  fail("sitemap-index 必须 force-static，不能在请求时物化全量 URL");
+}
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReading/, /getSitemapEntries/, /corpus-folio-index/]);
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/]);
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);

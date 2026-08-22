@@ -1,68 +1,29 @@
 import type { MetadataRoute } from "next";
-import { sutras } from "@/data/sutras";
-import { listCatalogFolioKeys } from "@/lib/corpus-folio-index";
-import { allConcepts } from "@/lib/concept-hubs";
-import { libraryPageSize } from "@/lib/library-pagination";
-import { folioHref } from "@/lib/reader-routes";
+import { getSitemapLedger } from "@/lib/sitemap-ledger";
+import { loadSitemapChunkPaths } from "@/lib/sitemap-chunk-loaders.generated";
 import { siteOrigin } from "@/lib/site-metadata";
 
-export const sitemapChunkSize = 40_000;
+export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitemap-ledger";
 
-let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
-
-export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
-  entriesPromise ??= Promise.resolve((() => {
-    const staticRoutes = [
-      "",
-      "/wenjing",
-      "/jingzang",
-      "/xue/xinjing",
-      "/gainian",
-      ...allConcepts.map((concept) => concept.href),
-      "/fugai",
-      "/fenmu",
-      "/shenjiao",
-      "/yuanze",
-      "/touming",
-    ];
-    const libraryPaginationRoutes = Array.from(
-      { length: Math.max(0, Math.ceil(sutras.length / libraryPageSize) - 1) },
-      (_, index) => `/jingzang/page/${index + 2}`,
-    );
-    const folioRoutes = sutras.flatMap((sutra) =>
-      listCatalogFolioKeys(sutra.slug).map((key) => ({
-        url: `${siteOrigin}${folioHref(sutra.slug, key)}`,
-        changeFrequency: "yearly" as const,
-        priority: 0.6,
-      })),
-    );
-
-    return [
-      ...staticRoutes.map((path) => ({
-        url: `${siteOrigin}${path}`,
-        changeFrequency: path === "" ? ("weekly" as const) : ("monthly" as const),
-        priority: path === "" ? 1 : 0.8,
-      })),
-      ...libraryPaginationRoutes.map((path) => ({
-        url: `${siteOrigin}${path}`,
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      })),
-      ...sutras.map((sutra) => ({
-        url: `${siteOrigin}/jingzang/${sutra.slug}`,
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      })),
-      ...folioRoutes,
-    ];
-  })());
-  return entriesPromise;
+function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
+  const url = `${siteOrigin}${path}`;
+  if (path === "") {
+    return { url, changeFrequency: "weekly", priority: 1 };
+  }
+  const parts = path.split("/").filter(Boolean);
+  if (parts[0] === "jingzang" && parts.length === 3) {
+    return { url, changeFrequency: "yearly", priority: 0.6 };
+  }
+  if (parts[0] === "jingzang") {
+    return { url, changeFrequency: "monthly", priority: 0.7 };
+  }
+  return { url, changeFrequency: "monthly", priority: 0.8 };
 }
 
-export async function getSitemapIds() {
-  const entries = await getSitemapEntries();
-  return Array.from(
-    { length: Math.ceil(entries.length / sitemapChunkSize) },
-    (_, id) => ({ id: String(id) }),
-  );
+export async function getSitemapChunk(id: string | number): Promise<MetadataRoute.Sitemap> {
+  const chunk = Number(id);
+  const ledger = getSitemapLedger();
+  if (!Number.isSafeInteger(chunk) || chunk < 0 || chunk >= ledger.sitemapCount) return [];
+  const paths = await loadSitemapChunkPaths(chunk);
+  return (paths ?? []).map(sitemapEntryForPath);
 }

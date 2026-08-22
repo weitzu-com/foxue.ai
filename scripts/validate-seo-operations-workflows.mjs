@@ -85,12 +85,18 @@ if (!xinjingTrace?.paths.includes("data/corpus/cbeta/T08n0251.xml")) {
 }
 if (
   packageJson.scripts?.postbuild !==
-  "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs"
+  "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs"
 ) {
-  failures.push("生产构建必须在 postbuild 校验分桶 trace，并拒绝目录/sitemap 再打开语料母版");
+  failures.push("生产构建必须在 postbuild 校验分桶 trace，并拒绝目录/sitemap 再打开语料母版或在 sitemap-index 物化全量 URL");
 }
 if (!/verify:corpus-folio-runtime-guard/.test(JSON.stringify(packageJson.scripts))) {
   failures.push("必须提供版页运行时门禁脚本");
+}
+if (!/verify:sitemap-runtime-guard/.test(JSON.stringify(packageJson.scripts))) {
+  failures.push("必须提供 sitemap 运行时门禁脚本");
+}
+if (!/verify:corpus-sitemap-ledger/.test(JSON.stringify(packageJson.scripts))) {
+  failures.push("必须提供 sitemap 账本校验脚本");
 }
 
 if (failures.length > 0) {

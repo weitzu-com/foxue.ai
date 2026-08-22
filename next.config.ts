@@ -45,12 +45,26 @@ const corpusRuntimeIncludes = Object.fromEntries(
     bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
   ]),
 );
+const sitemapLedgerGlob = "./src/data/corpus-sitemap-ledger.generated.json";
+const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/*.json"];
+const sitemapNavigationIncludes = {
+  "/sitemap-index.xml": [sitemapLedgerGlob],
+  "/sitemap-index.xml/route": [sitemapLedgerGlob],
+  "/llms.txt": [sitemapLedgerGlob],
+  "/llms.txt/route": [sitemapLedgerGlob],
+  "/llms-full.txt": [sitemapLedgerGlob],
+  "/llms-full.txt/route": [sitemapLedgerGlob],
+  "/sitemap/[__metadata_id__]": sitemapChunkGlobs,
+  "/sitemap": sitemapChunkGlobs,
+  "/jingzang/[slug]": ["./src/data/corpus-folio-index.generated.json"],
+};
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   outputFileTracingIncludes: {
     ...corpusRuntimeIncludes,
+    ...sitemapNavigationIncludes,
   },
   experimental: {
     // Each reading page can parse a complete source witness during prerendering.
