@@ -371,10 +371,31 @@ const loadCompleteReading = cache(async (slug: string) => {
   return { segments, navigation: buildPageNavigation(segments) };
 });
 
+export class CorpusAssetMissingError extends Error {
+  readonly assetPath: string;
+
+  constructor(assetPath: string) {
+    super(`语料资产缺失：${assetPath}`);
+    this.name = "CorpusAssetMissingError";
+    this.assetPath = assetPath;
+  }
+}
+
+function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
+  return Boolean(error && typeof error === "object" && "code" in error);
+}
+
 async function readControlledCorpusAsset(localPath: string) {
   const assetPath = registeredCorpusAssetPaths.get(localPath);
   if (!assetPath) throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
-  return readFile(assetPath, "utf8");
+  try {
+    return await readFile(assetPath, "utf8");
+  } catch (error) {
+    if (isNodeErrnoException(error) && error.code === "ENOENT") {
+      throw new CorpusAssetMissingError(assetPath);
+    }
+    throw error;
+  }
 }
 
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
@@ -452,9 +473,17 @@ export async function getSutraFolio(
       item as CorpusNavigationItem,
     );
     const sampleMetadata = new Map(sutra.segments.map((segment) => [segment.id, segment]));
-    const sourceSegments = remote?.segments ?? (await loadCompleteReading(sutra.slug))?.segments.filter(
-      (segment) => segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label),
-    );
+    let sourceSegments = remote?.segments;
+    if (!sourceSegments?.length) {
+      try {
+        sourceSegments = (await loadCompleteReading(sutra.slug))?.segments.filter(
+          (segment) => segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label),
+        );
+      } catch (error) {
+        if (error instanceof CorpusAssetMissingError) return undefined;
+        throw error;
+      }
+    }
     if (!sourceSegments?.length) return undefined;
     segments = sourceSegments.map((segment) => ({
       ...segment,

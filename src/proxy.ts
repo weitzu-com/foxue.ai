@@ -1,24 +1,23 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import corpusRuntimeRouting from "@/data/corpus-runtime-routing.generated.json";
+import { rewriteCatalogFolioPath } from "@/lib/corpus-folio-proxy.mjs";
 
 const slugToBucket = corpusRuntimeRouting.slugToBucket as Record<string, string>;
-const folioPathPattern = /^\/jingzang\/([a-z0-9-]+)\/([a-z0-9.-]+)$/;
 
 export function proxy(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
-
-  const match = pathname.match(folioPathPattern);
-  if (!match) return NextResponse.next();
-  const [, slug, folio] = match;
-  const bucket = slugToBucket[slug];
-  if (!bucket) return NextResponse.next();
+  const destinationPath = rewriteCatalogFolioPath(request.nextUrl.pathname, slugToBucket);
+  if (!destinationPath) return NextResponse.next();
 
   const destination = request.nextUrl.clone();
-  destination.pathname = `/corpus-runtime/${bucket}/${slug}/${folio}`;
+  destination.pathname = destinationPath;
   return NextResponse.rewrite(destination);
 }
 
 export const config = {
-  matcher: "/jingzang/:slug/:folio",
+  matcher: [
+    "/jingzang/:slug/:folio",
+    "/jingzang/:slug/:folio/",
+    "/jingzang/:slug/:folio.rsc",
+  ],
 };

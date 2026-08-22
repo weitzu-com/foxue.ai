@@ -10,6 +10,7 @@ export default defineConfig([
     ".vercel/**",
     "artifacts/**",
     "data/corpus/**/*.xml",
+    "src/data/corpus-folio-index.generated.json",
     "infra/corpus-edge/worker-configuration.d.ts",
     "out/**",
     "build/**",
