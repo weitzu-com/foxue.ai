@@ -3,7 +3,7 @@
 // Runtime types generated with workerd@1.20260811.1 2026-08-15 nodejs_compat
 interface __BaseEnv_Env {
 	CORPUS: R2Bucket;
-	RELEASE_ID: "gbcr-6.18.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-045bebe5bf12";
+	RELEASE_ID: "gbcr-6.19.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-4cb4dfeb67de";
 	RELEASE_MANIFEST_SHA256: "8bc1fd81a26174c8342954d6761d7aa82948708d1e83e8357ea7ef348c7cbea4";
 	ORIGIN_COVERAGE_URL: "https://www.foxue.ai/api/v1/corpus/coverage";
 }

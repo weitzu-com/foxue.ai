@@ -66,7 +66,7 @@ if (/["']\.\/data\/corpus\/(?:\*\*|\*)/.test(nextConfig)) {
   failures.push("Next config 禁止把全量 data/corpus 目录打入任意路由 trace");
 }
 if (/corpusRuntimeRewrites|async rewrites\(|slugToBucket/.test(nextConfig)) {
-  failures.push("Next config 禁止展开 3875 条 slug 重写；Vercel 每部署最多 2048 条路由，必须走 Proxy");
+  failures.push("Next config 禁止展开全量 slug 重写；Vercel 每部署最多 2048 条路由，必须走 Proxy");
 }
 requirePattern(
   nextConfig,

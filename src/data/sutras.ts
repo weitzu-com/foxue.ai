@@ -1,4 +1,5 @@
 import catalog from "../../data/corpus/cbeta/catalog-v4.23.0.json";
+import nanchuanCatalog from "../../data/corpus/cbeta/nanchuan-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -343,10 +344,16 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "sinitic_taught_doctrinal_exposition_record") {
     return "来源保存后世讲说形成的教义玄释记录；平台区分讲说者、记录传统、根本经与后续再注释，不据宗派传承改写为佛陀逐字亲说。";
   }
+  if (file.sourceRole === "translated_sutta_pitaka_expression") {
+    return "元亨寺汉译南传经藏；汉译是巴利经藏的独立表达，不与巴利根本文本合并为同一作品，也不把译文等同佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_mixed_khuddaka_expression") {
+    return "元亨寺汉译南传小部混合集；与对应巴利文本保持独立作品，严格佛说经分母仍待范围政策，不自动计作佛陀逐字亲说。";
+  }
   return undefined;
 };
 
-export const sutras: Sutra[] = catalog.files.map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,

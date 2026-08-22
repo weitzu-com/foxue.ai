@@ -2,7 +2,7 @@ export const corpusRuntimeSmokeRoutes = [
   { bucket: "cb01", path: "/jingzang/jingangjing/001-0748c" },
   { bucket: "cb02", path: "/jingzang/taisho-t0352/003-0209a" },
   { bucket: "cb03", path: "/jingzang/taisho-t0656/001-0001a" },
-  { bucket: "cb04", path: "/jingzang/taisho-t1525/002-0242c" },
+  { bucket: "cb04", path: "/jingzang/taisho-t1072a/001-0155a" },
   { bucket: "cb05", path: "/jingzang/taisho-t1532/001-0337a" },
   { bucket: "cb06", path: "/jingzang/taisho-t1791/002-0447c" },
   { bucket: "cb07", path: "/jingzang/taisho-t1828/001-0311a" },

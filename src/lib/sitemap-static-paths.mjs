@@ -41,6 +41,7 @@ export const sitemapStaticPaths = [
 
 export const catalogSlugSources = [
   "data/corpus/cbeta/catalog-v4.23.0.json",
+  "data/corpus/cbeta/nanchuan-catalog-v1.0.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",
   "data/corpus/suttacentral/dn-manifest-v0.8.0.json",
   "data/corpus/suttacentral/mn-manifest-v0.9.0.json",
