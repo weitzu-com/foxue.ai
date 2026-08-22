@@ -55,8 +55,8 @@ const sitemapNavigationIncludes = {
   "/llms-full.txt": [sitemapLedgerGlob],
   "/llms-full.txt/route": [sitemapLedgerGlob],
   "/sitemap/[__metadata_id__]": sitemapChunkGlobs,
-  "/sitemap": sitemapChunkGlobs,
   "/jingzang/[slug]": ["./src/data/corpus-folio-index.generated.json"],
+  "/jingzang/[slug]/page": ["./src/data/corpus-folio-index.generated.json"],
 };
 
 const nextConfig: NextConfig = {

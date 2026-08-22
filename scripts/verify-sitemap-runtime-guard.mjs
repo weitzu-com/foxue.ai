@@ -168,6 +168,17 @@ try {
 }
 
 if (hasBuild) {
+  try {
+    const prerenderedIndex = await readFile(resolve(root, ".next/server/app/sitemap-index.xml.body"), "utf8");
+    if (!prerenderedIndex.includes("<sitemapindex") || !prerenderedIndex.includes("/sitemap/0.xml")) {
+      fail("构建产物 sitemap-index.xml.body 不是有效索引");
+    }
+    if ((prerenderedIndex.match(/<sitemap>/g) ?? []).length !== ledger.sitemapCount) {
+      fail("构建产物 sitemap-index 分片数与账本不一致");
+    }
+  } catch {
+    fail("构建必须预渲染 /sitemap-index.xml，而不能只留下请求时函数");
+  }
   async function walkNftFiles(directory, files = []) {
     const entries = await readdir(directory, { withFileTypes: true });
     for (const entry of entries) {
@@ -198,10 +209,8 @@ if (hasBuild) {
     if (routeKey.includes("sitemap-index.xml")) {
       sitemapIndexTraces += 1;
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了 sitemap-index 函数`);
-      if (hasChunk) fail(`${routeKey} 不应夹带 sitemap 分片文件`);
-      if (!hasLedger && !files.some((file) => /sitemap-index\.xml/.test(file) && file.endsWith(".js"))) {
-        fail(`${routeKey} 既没有账本也没有可服务的 sitemap-index 产物`);
-      }
+      if (hasChunk) fail(`${routeKey} 不应夹带 sitemap 分片文件；index 只能带账本`);
+      if (!hasLedger) fail(`${routeKey} 缺少 sitemap 账本`);
     }
     if (routeKey.includes("sitemap/[__metadata_id__]") || routeKey.includes("sitemap.js.nft.json")) {
       sitemapChunkTraces += 1;
