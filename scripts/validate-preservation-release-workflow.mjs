@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 
 const workflowPath = ".github/workflows/preservation-release.yml";
 const workflow = await readFile(workflowPath, "utf8");
+const preserveScript = await readFile("scripts/build-preservation-bundle.mjs", "utf8");
 
 const requiredPatterns = [
   ["pull requests run policy validation", /pull_request:\n\s+paths:/],
@@ -34,6 +35,9 @@ for (const [description, pattern] of requiredPatterns) {
 
 if (/pull_request_target:/.test(workflow)) {
   failures.push("pull_request_target is forbidden for this privileged workflow");
+}
+if (!/createReadStream/.test(preserveScript) || /readFile\(sourceArchivePath\)/.test(preserveScript)) {
+  failures.push("preservation bundle must stream-hash the source archive; Node readFile cannot open files over 2 GiB");
 }
 
 const actionReferences = [...workflow.matchAll(/^\s*uses:\s*([^\s#]+)(?:\s*#.*)?$/gm)].map(
