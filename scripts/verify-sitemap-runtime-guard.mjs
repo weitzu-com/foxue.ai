@@ -2,6 +2,7 @@ import { readFile, readdir, stat } from "node:fs/promises";
 import { dirname, relative, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import {
+  readCanonicalConceptPaths,
   sitemapChunkSize,
   sitemapLedgerSchema,
   sitemapStaticPaths,
@@ -95,6 +96,13 @@ requirePattern(
 if (ledger.schema !== sitemapLedgerSchema) fail("sitemap 账本 schema 不正确");
 if (ledger.chunkSize !== sitemapChunkSize) fail("sitemap 分片大小与常量不一致");
 if (ledger.staticPathCount !== sitemapStaticPaths.length) fail("sitemap 静态路径数量与清单不一致");
+const conceptPaths = readCanonicalConceptPaths(root);
+if (conceptPaths.some((path) => !sitemapStaticPaths.includes(path))) {
+  fail("概念 Hub 登记册有路径未进入 sitemap 静态清单");
+}
+if (new Set(conceptPaths).size !== conceptPaths.length) {
+  fail("概念 Hub 登记册含有重复的 sitemap 路径");
+}
 if (ledger.workCount !== Object.keys(folioIndex.works ?? {}).length) {
   fail("sitemap 账本文本数与版页索引不一致");
 }

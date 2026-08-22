@@ -1,20 +1,37 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 export const sitemapChunkSize = 40_000;
 export const sitemapLibraryPageSize = 60;
 export const sitemapLedgerSchema = "https://foxue.ai/schemas/corpus-sitemap-ledger-v0.1";
 
-// Keep this list identical to the static prefix previously built in sitemap-data.ts.
-// Concept href order matches allConcepts: base hubs, then expanded hubs.
+// Same order as allConcepts: base hubs, then expanded hubs.
+export const conceptHubSources = [
+  "src/lib/concept-hubs.ts",
+  "src/lib/concept-hubs-expanded.ts",
+];
+
+export function readCanonicalConceptPaths(root = process.cwd()) {
+  const hrefs = [];
+  for (const relativePath of conceptHubSources) {
+    const source = readFileSync(resolve(root, relativePath), "utf8");
+    for (const match of source.matchAll(/^\s+href: "(\/gainian\/[a-z]+)",$/gm)) {
+      hrefs.push(match[1]);
+    }
+  }
+  if (hrefs.length < 1) {
+    throw new Error("概念 Hub 登记册没有可供 sitemap 使用的 /gainian 路径");
+  }
+  return hrefs;
+}
+
 export const sitemapStaticPaths = [
   "",
   "/wenjing",
   "/jingzang",
   "/xue/xinjing",
   "/gainian",
-  "/gainian/kong",
-  "/gainian/wuzhu",
-  "/gainian/guanxin",
-  "/gainian/wuchang",
-  "/gainian/wuwo",
+  ...readCanonicalConceptPaths(),
   "/fugai",
   "/fenmu",
   "/shenjiao",
