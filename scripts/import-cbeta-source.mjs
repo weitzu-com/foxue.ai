@@ -5,16 +5,33 @@ import { dirname, resolve } from "node:path";
 import { promisify } from "node:util";
 
 const root = process.cwd();
-const catalog = JSON.parse(
-  await readFile(resolve(root, "data/corpus/cbeta/catalog-v4.23.0.json"), "utf8"),
-);
+const catalogPaths = [
+  "data/corpus/cbeta/catalog-v4.23.0.json",
+  "data/corpus/cbeta/nanchuan-catalog-v1.0.0.json",
+];
+const catalogs = await Promise.all(catalogPaths.map(async (relativePath) => {
+  const catalog = JSON.parse(await readFile(resolve(root, relativePath), "utf8"));
+  return { relativePath, catalog };
+}));
+const allFiles = catalogs.flatMap(({ catalog }) => catalog.files);
 const requested = process.argv.slice(2);
+const nanchuanOnly = requested.includes("--nanchuan");
 const selected = requested.includes("--all")
-  ? catalog.files
-  : catalog.files.filter((file) => requested.includes(file.id));
-if (selected.length === 0 || (!requested.includes("--all") && selected.length !== requested.length)) {
-  console.error(`用法：pnpm import:cbeta --all，或指定 ${catalog.files.map((file) => file.id).join("|")}`);
+  ? allFiles
+  : nanchuanOnly
+    ? catalogs.find(({ relativePath }) => relativePath.endsWith("nanchuan-catalog-v1.0.0.json")).catalog.files
+    : allFiles.filter((file) => requested.includes(file.id));
+if (
+  selected.length === 0 ||
+  (!requested.includes("--all") && !nanchuanOnly && selected.length !== requested.length)
+) {
+  console.error("用法：pnpm import:cbeta --all，或 pnpm import:cbeta --nanchuan，或指定 CBETA / 南傳經號");
   process.exit(1);
+}
+
+const catalogByFileId = new Map();
+for (const { catalog } of catalogs) {
+  for (const file of catalog.files) catalogByFileId.set(file.id, catalog);
 }
 
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
@@ -23,8 +40,12 @@ const gitBlobSha1 = (value) => createHash("sha1")
   .update(value)
   .digest("hex");
 const execFileAsync = promisify(execFile);
-const selectedSources = selected.flatMap((file) => file.sourceParts ?? [file]);
-for (const source of selectedSources) {
+const selectedSources = selected.flatMap((file) => (file.sourceParts ?? [file]).map((source) => ({
+  file,
+  source,
+  catalog: catalogByFileId.get(file.id),
+})));
+for (const { source, catalog } of selectedSources) {
   const url = `https://raw.githubusercontent.com/${catalog.source.repository}/${catalog.source.commit}/${source.upstreamPath}`;
   const { stdout: upstream } = await execFileAsync(
     "curl",

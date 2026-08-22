@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v4.23.0.json";
+import nanchuanManifest from "../../data/corpus/cbeta/nanchuan-manifest-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -51,6 +52,7 @@ type BilaraSeriesParserOptions = {
 const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: string; parser: CorpusParser; parserOptions?: BilaraSeriesParserOptions }> = Object.fromEntries(
   [
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
+    ...(nanchuanManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
     ...(dighaNikayaManifest.files as CorpusManifestFile[]),
     ...(majjhimaNikayaManifest.files as CorpusManifestFile[]),
