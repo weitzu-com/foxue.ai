@@ -1,0 +1,12 @@
+{
+  "name": "foxue.ai",
+  "install": "pnpm install --frozen-lockfile",
+  "ports": [{ "name": "next-dev", "port": 3000 }],
+  "terminals": [
+    {
+      "name": "next-dev",
+      "command": "pnpm dev",
+      "description": "Next.js 16 dev server (Turbopack) on http://localhost:3000"
+    }
+  ]
+}
