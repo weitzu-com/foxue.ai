@@ -47,6 +47,8 @@ const corpusRuntimeIncludes = Object.fromEntries(
 );
 const sitemapLedgerGlob = "./src/data/corpus-sitemap-ledger.generated.json";
 const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/*.json"];
+const workLedgerGlob = "./src/data/corpus-work-ledger.generated.json";
+const workCatalogGlobs = [workLedgerGlob, "./src/data/corpus-work-catalog-chunks/*.json"];
 const sitemapNavigationIncludes = {
   "/sitemap-index.xml": [sitemapLedgerGlob],
   "/sitemap-index.xml/route": [sitemapLedgerGlob],
@@ -55,8 +57,8 @@ const sitemapNavigationIncludes = {
   "/llms-full.txt": [sitemapLedgerGlob],
   "/llms-full.txt/route": [sitemapLedgerGlob],
   "/sitemap/[__metadata_id__]": sitemapChunkGlobs,
-  "/jingzang/[slug]": ["./src/data/corpus-folio-index.generated.json"],
-  "/jingzang/[slug]/page": ["./src/data/corpus-folio-index.generated.json"],
+  "/jingzang/[slug]": workCatalogGlobs,
+  "/jingzang/[slug]/page": workCatalogGlobs,
 };
 
 const nextConfig: NextConfig = {
