@@ -238,8 +238,7 @@ if (hasBuild) {
   const fatIndexPatternOnDisk = /corpus-folio-index\.generated\.json$/;
   const ledgerPatternOnDisk = /corpus-sitemap-ledger\.generated\.json$/;
   const chunkPatternOnDisk = /corpus-sitemap-chunks\/\d+\.json$/;
-  const workLedgerPatternOnDisk = /corpus-work-ledger\.generated\.json$/;
-  const workChunkPatternOnDisk = /corpus-work-catalog-chunks\/\d+\.json$/;
+  const workChunkPatternOnDisk = /corpus-work-catalog-chunks(?:\/|_)\d+/;
   const corpusSourcePattern = /(?:^|\/)data\/corpus\/(?:cbeta\/[^/]+\.xml|derge\/works\/.+|suttacentral\/root\/.+)$/;
 
   let sitemapIndexTraces = 0;
@@ -252,8 +251,7 @@ if (hasBuild) {
     const hasFatIndex = files.some((file) => fatIndexPatternOnDisk.test(file));
     const hasLedger = files.some((file) => ledgerPatternOnDisk.test(file));
     const hasChunk = files.some((file) => chunkPatternOnDisk.test(file));
-    const hasWorkLedger = files.some((file) => workLedgerPatternOnDisk.test(file));
-    const hasWorkChunk = files.some((file) => workChunkPatternOnDisk.test(file));
+    const workChunkCount = files.filter((file) => workChunkPatternOnDisk.test(file)).length;
     const leakedSource = files.find((file) => corpusSourcePattern.test(file));
 
     if (routeKey.includes("sitemap-index.xml")) {
@@ -275,8 +273,23 @@ if (hasBuild) {
     ) {
       workIndexTraces += 1;
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了经目页函数`);
-      if (!hasWorkLedger) fail(`${routeKey} 缺少经目账本`);
-      if (!hasWorkChunk) fail(`${routeKey} 缺少经目分片`);
+      if (workChunkCount !== workLedger.shardCount) {
+        fail(`${routeKey} 经目分片 trace 为 ${workChunkCount}，应为 ${workLedger.shardCount}（按 slug 异步加载，而不是 21MB 整包）`);
+      }
+      let hasWorkLedger = files.some((file) => /corpus-work-ledger/.test(file));
+      if (!hasWorkLedger) {
+        for (const file of files) {
+          if (!file.endsWith(".js") && !file.endsWith(".json")) continue;
+          const fileStat = await stat(file).catch(() => null);
+          if (!fileStat || fileStat.size > 2_000_000) continue;
+          const source = await readFile(file, "utf8");
+          if (source.includes(workCatalogLedgerSchema)) {
+            hasWorkLedger = true;
+            break;
+          }
+        }
+      }
+      if (!hasWorkLedger) fail(`${routeKey} 缺少经目账本（文件或打包后的 schema）`);
     }
     if (leakedSource && !/\/corpus-runtime\/[^/]+\/\[slug\]\/\[folio\]\//.test(routeKey)) {
       fail(`${routeKey} 把语料母版打进了非分桶函数：${relative(root, leakedSource)}`);
