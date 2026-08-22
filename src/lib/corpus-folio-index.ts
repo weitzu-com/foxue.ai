@@ -1,4 +1,5 @@
-import folioIndexDocument from "@/data/corpus-folio-index.generated.json";
+import workLedgerDocument from "@/data/corpus-work-ledger.generated.json";
+import { loadWorkCatalogShardWorks } from "@/lib/corpus-work-catalog-loaders.generated";
 import type { SegmentFolioRange } from "@/lib/reader-routes";
 
 export type CatalogNavigationItem = {
@@ -16,23 +17,27 @@ export type SutraCatalogView = {
   segmentFolioRanges?: Record<string, SegmentFolioRange[]>;
 };
 
-type FolioIndexWork = {
-  segmentCount: number;
-  navigation: CatalogNavigationItem[];
-  segmentFolios?: Record<string, string>;
-  segmentFolioRanges?: Record<string, SegmentFolioRange[]>;
-};
-
-const folioIndex = folioIndexDocument as {
+type WorkLedger = {
   schema: string;
-  totalWorks: number;
-  totalFolios: number;
-  works: Record<string, FolioIndexWork>;
+  workCount: number;
+  folioCount: number;
+  shardCount: number;
+  targetShardBytes: number;
+  slugToShard: Record<string, number>;
 };
 
-export function getSutraCatalogView(slug: string): SutraCatalogView | null {
-  const work = folioIndex.works[slug];
-  if (!work?.navigation?.length) return null;
+const workLedgerSchema = "https://foxue.ai/schemas/corpus-work-ledger-v0.1";
+const ledger = workLedgerDocument as WorkLedger;
+
+if (ledger.schema !== workLedgerSchema) {
+  throw new Error("经目账本 schema 不正确");
+}
+
+function asCatalogView(value: unknown): SutraCatalogView | null {
+  if (!value || typeof value !== "object") return null;
+  const work = value as SutraCatalogView;
+  if (!Array.isArray(work.navigation) || work.navigation.length < 1) return null;
+  if (!Number.isSafeInteger(work.segmentCount) || work.segmentCount < 1) return null;
   return {
     segmentCount: work.segmentCount,
     navigation: work.navigation,
@@ -41,15 +46,26 @@ export function getSutraCatalogView(slug: string): SutraCatalogView | null {
   };
 }
 
-export function listCatalogFolioKeys(slug: string): string[] {
-  return folioIndex.works[slug]?.navigation.map((item) => item.key) ?? [];
+export async function getSutraCatalogView(slug: string): Promise<SutraCatalogView | null> {
+  const shardId = ledger.slugToShard[slug];
+  if (!Number.isSafeInteger(shardId)) return null;
+  const works = await loadWorkCatalogShardWorks(shardId);
+  return asCatalogView(works?.[slug]);
+}
+
+export async function listCatalogFolioKeys(slug: string): Promise<string[]> {
+  return (await getSutraCatalogView(slug))?.navigation.map((item) => item.key) ?? [];
+}
+
+export function getWorkCatalogLedger() {
+  return ledger;
 }
 
 export function getFolioIndexStats() {
   return {
-    schema: folioIndex.schema,
-    totalWorks: folioIndex.totalWorks,
-    totalFolios: folioIndex.totalFolios,
+    schema: ledger.schema,
+    totalWorks: ledger.workCount,
+    totalFolios: ledger.folioCount,
   };
 }
 
