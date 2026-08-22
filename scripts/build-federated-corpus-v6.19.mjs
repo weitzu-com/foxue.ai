@@ -15,7 +15,7 @@ const checksumPath = "data/gbcr/checksums-v6.19.0.sha256";
 const metadataPath = "src/lib/corpus-registry-metadata.ts";
 const inputPaths = [basePath, catalogPath, manifestPath, inventoryPath, auditPath, sourceSnapshotsPath];
 const inputBytes = await Promise.all(inputPaths.map((path) => readFile(resolve(root, path))));
-const [baseBytes, catalogBytes, manifestBytes, inventoryBytes, auditBytes, sourceSnapshotsBytes] = inputBytes;
+const [, catalogBytes, manifestBytes, inventoryBytes, auditBytes] = inputBytes;
 const [base, catalog, manifest, inventory, audit, sourceSnapshots] = inputBytes.map((bytes) =>
   JSON.parse(bytes.toString("utf8")),
 );
@@ -118,6 +118,7 @@ const sourceFamilies = base.sourceFamilies.map((family) => family.id !== "cbeta_
 const registry = {
   ...base,
   registry: { ...base.registry, version: "6.19.0", publishedAt: "2026-08-22" },
+  sourceFamilies,
   claimPolicy: {
     ...base.claimPolicy,
     reason: "站内登记作品现为 3,394 部、3,920 个文本表达；其中 17 部元亨寺汉译南传经藏为新增本地持有。3,377 部既有作品仍在双人复核队列，独立真人决定仍为 0。全球分母与百分比不得发布。",

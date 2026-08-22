@@ -125,7 +125,8 @@
         "taisho_buddhist_encyclopedic_compendia_t53",
         "taisho_buddhist_reference_and_non_buddhist_sources_t54",
         "taisho_buddhist_catalogues_t55",
-        "taisho_lost_and_suspected_texts_t85"
+        "taisho_lost_and_suspected_texts_t85",
+        "yuanheng_nanchuan_tipitaka"
       ],
       "candidateExpressionRecords": 2471,
       "controlledExpressionRecords": 2471,
@@ -292,7 +293,20 @@
       "suttacentralParallelReviewQueueItems": 80,
       "suttacentralParallelAdjudicatedItems": 0,
       "suttacentralParallelReviewQueueFile": "data/gbcr/suttacentral-parallel-review-queue-v0.1.0.json",
-      "suttacentralParallelReviewQueueSha256": "e0a4f901aaffb8d04da1cabe49f1e574cbaebe8900b72ccad82d8edc704454e5"
+      "suttacentralParallelReviewQueueSha256": "e0a4f901aaffb8d04da1cabe49f1e574cbaebe8900b72ccad82d8edc704454e5",
+      "nanchuanSourceRecordDenominator": 83,
+      "nanchuanControlledSourceRecords": 45,
+      "nanchuanControlledWorks": 17,
+      "nanchuanControlledExpressions": 45,
+      "nanchuanControlledSourceBytes": 28583032,
+      "nanchuanControlledStableSegments": 158043,
+      "nanchuanInventoryFile": "data/gbcr/cbeta-nanchuan-inventory-v0.1.0.json",
+      "nanchuanInventorySha256": "b40f67c9c91b5584e80276357a9f8d260386fea35729c97791313fd739e8d57d",
+      "nanchuanCatalogFile": "data/corpus/cbeta/nanchuan-catalog-v1.0.0.json",
+      "nanchuanCatalogSha256": "7b8cb7df9c82758a68d32ceea0dee43cbfa5c6882f053584c7798f3ee91e92b8",
+      "nanchuanManifestFile": "data/corpus/cbeta/nanchuan-manifest-v1.0.0.json",
+      "nanchuanManifestSha256": "fc7f793d5f67b286371bd231086a3b289ff7491c3efab599fd5a4e971d88d732",
+      "nanchuanNote": "45/83 只表示元亨寺汉译南传大藏经中经藏（含混合小部）固定 TEI 已受控；律、论、义释、史传保持排除。文件数不是作品数，也不是全球佛说经分母。"
     },
     {
       "id": "suttacentral_early_buddhist_texts",
