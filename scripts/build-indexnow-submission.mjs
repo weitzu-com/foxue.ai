@@ -170,10 +170,13 @@ function urlsForChangedFile(file) {
     file.startsWith("src/app/jingzang/") ||
     file.startsWith("src/app/corpus-runtime/") ||
     file.startsWith("src/data/corpus-runtime-") ||
+    file.startsWith("src/data/corpus-folio-index") ||
     file === "src/proxy.ts" ||
     file === "next.config.ts" ||
     file === "src/data/sutras.ts" ||
     file.startsWith("src/lib/corpus-reading") ||
+    file.startsWith("src/lib/corpus-folio-index") ||
+    file.startsWith("src/lib/corpus-folio-proxy") ||
     file.startsWith("src/lib/reader-routes") ||
     file.startsWith("data/corpus/")
   ) {

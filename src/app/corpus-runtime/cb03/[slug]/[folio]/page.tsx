@@ -1,4 +1,4 @@
-export { default, generateMetadata } from "@/app/jingzang/[slug]/[folio]/page";
+export { default, generateMetadata } from "@/app/jingzang/_folio/page-module";
 
 export const revalidate = 86400;
 

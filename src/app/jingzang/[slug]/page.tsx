@@ -6,19 +6,31 @@ import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { getSutra } from "@/data/sutras";
-import { buildJuanNavigation, buildLegacyAliasMap, getSutraReading } from "@/lib/corpus-reading";
-import { buildSegmentFolioMap, buildSegmentFolioRanges, folioHref } from "@/lib/reader-routes";
+import {
+  buildCatalogJuanNavigation,
+  buildCatalogLegacyAliasMap,
+  getSutraCatalogView,
+} from "@/lib/corpus-folio-index";
+import { folioHref } from "@/lib/reader-routes";
 import { absoluteUrl, buildPageJsonLd, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 
 type PageProps = { params: Promise<{ slug: string }> };
+
+export const dynamic = "force-static";
 
 export default async function SutraIndexPage({ params }: PageProps) {
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
-  const reading = await getSutraReading(sutra);
+  const catalog = getSutraCatalogView(sutra.slug);
+  if (!catalog) notFound();
+  const reading = {
+    navigation: catalog.navigation,
+    segmentCount: catalog.segmentCount,
+    segments: sutra.segments,
+  };
   const firstFolio = reading.navigation[0];
-  const juanNavigation = buildJuanNavigation(reading.navigation);
+  const juanNavigation = buildCatalogJuanNavigation(reading.navigation);
   const multiJuan = juanNavigation.length > 1;
   const useCompactJuanSelector = juanNavigation.length > 200;
   const chaptered = sutra.readerMode === "bilara-chapter";
@@ -81,9 +93,9 @@ export default async function SutraIndexPage({ params }: PageProps) {
       <ReaderHeader sutra={sutra} />
       <ReaderHashRedirect
         slug={sutra.slug}
-        aliases={buildLegacyAliasMap(reading.segments)}
-        segmentFolios={sutra.readerMode === "bilara-sutta" ? buildSegmentFolioMap(reading.segments) : undefined}
-        segmentFolioRanges={sutra.readerMode === "bilara-sutta" ? buildSegmentFolioRanges(reading.segments) : undefined}
+        aliases={buildCatalogLegacyAliasMap(reading.segments)}
+        segmentFolios={catalog.segmentFolios}
+        segmentFolioRanges={catalog.segmentFolioRanges}
       />
 
       <div className="reader-index-layout">

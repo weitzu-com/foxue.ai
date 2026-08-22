@@ -65,6 +65,9 @@ requirePattern(googleWorkflow, "Google integrations workflow 必须在 deploymen
 if (/["']\.\/data\/corpus\/(?:\*\*|\*)/.test(nextConfig)) {
   failures.push("Next config 禁止把全量 data/corpus 目录打入任意路由 trace");
 }
+if (/corpusRuntimeRewrites|async rewrites\(|slugToBucket/.test(nextConfig)) {
+  failures.push("Next config 禁止展开 3875 条 slug 重写；Vercel 每部署最多 2048 条路由，必须走 Proxy");
+}
 requirePattern(
   nextConfig,
   "Next config 必须按生成清单为独立运行时路由追踪受控语料桶",
@@ -80,8 +83,14 @@ const xinjingTrace = corpusRuntimeTracing.buckets.find((bucket) => bucket.id ===
 if (!xinjingTrace?.paths.includes("data/corpus/cbeta/T08n0251.xml")) {
   failures.push("心经必须由生成的运行时分桶追踪受控语料资产");
 }
-if (packageJson.scripts?.postbuild !== "node scripts/verify-corpus-runtime-traces.mjs") {
-  failures.push("生产构建必须在 postbuild 校验运行时函数 trace");
+if (
+  packageJson.scripts?.postbuild !==
+  "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs"
+) {
+  failures.push("生产构建必须在 postbuild 校验分桶 trace，并拒绝目录/sitemap 再打开语料母版");
+}
+if (!/verify:corpus-folio-runtime-guard/.test(JSON.stringify(packageJson.scripts))) {
+  failures.push("必须提供版页运行时门禁脚本");
 }
 
 if (failures.length > 0) {
