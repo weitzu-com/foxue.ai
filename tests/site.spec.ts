@@ -90,6 +90,12 @@ const criticalRoutes = [
   "/jingzang/derge-kangyur-d0001/001-0001b",
   "/jingzang/nanchuan-digha-01",
   "/jingzang/nanchuan-digha-01/001-0001a",
+  "/jingzang/zhaochen-sanghata-a1504",
+  "/jingzang/zhaochen-sanghata-a1504/002-0353b",
+  "/jingzang/fangshan-yinguo-benqi",
+  "/jingzang/fangshan-yinguo-benqi/001-0476a",
+  "/jingzang/fangshan-hengshui-liushu",
+  "/jingzang/fangshan-hengshui-liushu/001-0003a",
   "/fugai",
   "/fenmu",
   "/shenjiao",
@@ -630,7 +636,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3874 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/3877 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -683,6 +689,16 @@ test("南传汉译卷页使用南傳标签且 JSON-LD 记为汉文", async ({ pa
   const html = await (await request.get("/jingzang/nanchuan-digha-01")).text();
   const graph = extractJsonLdItems(html);
   expect(graph.some((item) => item && typeof item === "object" && (item as { inLanguage?: string }).inLanguage === "zh-Hant")).toBeTruthy();
+});
+
+test("赵城与房山汉译卷页不使用大正藏标签", async ({ page }) => {
+  await page.goto("/jingzang/zhaochen-sanghata-a1504/002-0353b");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("趙城金藏 0353b");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
+
+  await page.goto("/jingzang/fangshan-yinguo-benqi/001-0476a");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("房山石經 0476a");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
 });
 
 test("经目页标题不重复品牌后缀并保持自指元数据", async ({ page }) => {
@@ -777,12 +793,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 30797,
   });
   expect(coverage.candidateInventory.buddhaWordScopeAudit).toMatchObject({
-    registeredWorksAudited: 3394,
+    registeredWorksAudited: 3396,
     registeredWorksUnclassified: 0,
-    ruleClassifiedWorks: 3394,
+    ruleClassifiedWorks: 3396,
     independentExpertApprovedWorks: 0,
-    strictSutraCandidateWorks: 1302,
-    strictSutraCandidateWorksWithFullSource: 1301,
+    strictSutraCandidateWorks: 1304,
+    strictSutraCandidateWorksWithFullSource: 1303,
     categoryCounts: {
       canonical_abhidhamma_or_treatise_not_strict_sutra: 168,
       canonical_vinaya_not_strict_sutra: 97,
@@ -790,14 +806,14 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     strictScopeDecisionCounts: {
       excluded_from_strict_sutra_denominator: 761,
       excluded_non_buddhist_reference: 9,
-      included_candidate: 1300,
+      included_candidate: 1302,
       included_candidate_requires_identity_review: 2,
       scope_policy_and_item_review_required: 212,
       scope_policy_required: 1110,
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.19.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.20.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -815,12 +831,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 3394,
-    registeredExpressions: 3920,
-    fullSourceTextWorks: 3367,
-    fullSourceTextExpressions: 3874,
-    stableSegments: 5814932,
-    structureVerifiedWorks: 3394,
+    registeredWorks: 3396,
+    registeredExpressions: 3923,
+    fullSourceTextWorks: 3369,
+    fullSourceTextExpressions: 3877,
+    stableSegments: 5815910,
+    structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
     denominator: 1122,
@@ -1584,13 +1600,19 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.19.0.json"),
+    registry: expect.stringContaining("registry-v6.20.0.json"),
     globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
     globalDenominatorReviewQueue: expect.stringContaining("global-denominator-review-queue-v0.1.0.json"),
     globalDenominatorReviewLedger: expect.stringContaining("global-denominator-review-ledger-v0.1.0.json"),
     globalDenominatorReviewProtocol: expect.stringContaining("GLOBAL_DENOMINATOR_REVIEW_PROTOCOL.md"),
+    chineseNanchuanInventory: expect.stringContaining("cbeta-nanchuan-inventory-v0.1.0.json"),
+    chineseNanchuanBoundaryAudit: expect.stringContaining("nanchuan-batch-v1.0.0.json"),
+    chineseZhaochenInventory: expect.stringContaining("cbeta-zhaochen-inventory-v0.1.0.json"),
+    chineseFangshanInventory: expect.stringContaining("cbeta-fangshan-inventory-v0.1.0.json"),
+    chineseBeyondTaishoSutraFilter: expect.stringContaining("cbeta-beyond-taisho-sutra-filter-v1.0.0.json"),
+    chineseBeyondTaishoSutraBoundaryAudit: expect.stringContaining("beyond-taisho-sutra-batch-v1.0.0.json"),
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
     chineseEsotericT19Inventory: expect.stringContaining("cbeta-taisho-t19-inventory-v0.1.0.json"),

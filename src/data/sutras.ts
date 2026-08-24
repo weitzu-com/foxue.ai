@@ -1,5 +1,6 @@
 import catalog from "../../data/corpus/cbeta/catalog-v4.23.0.json";
 import nanchuanCatalog from "../../data/corpus/cbeta/nanchuan-catalog-v1.0.0.json";
+import beyondTaishoSutraCatalog from "../../data/corpus/cbeta/beyond-taisho-sutra-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -52,6 +53,8 @@ export function isChineseLibraryLanguage(language: string) {
 
 export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
   if (sutra.slug.startsWith("nanchuan-") || /南傳|南传/.test(sutra.canonRef)) return "南傳";
+  if (sutra.slug.startsWith("zhaochen-") || /趙城|赵城/.test(sutra.canonRef)) return "趙城金藏";
+  if (sutra.slug.startsWith("fangshan-") || /房山/.test(sutra.canonRef)) return "房山石經";
   return "大正藏";
 }
 
@@ -363,10 +366,16 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "translated_mixed_khuddaka_expression") {
     return "元亨寺汉译南传小部混合集；与对应巴利文本保持独立作品，严格佛说经分母仍待范围政策，不自动计作佛陀逐字亲说。";
   }
+  if (file.sourceRole === "translated_canonical_record" && file.id.startsWith("A")) {
+    return "赵城金藏汉译；作为既有作品的独立表达，不与大正藏经号合并为同一来源文件，也不把译文等同佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_canonical_record" && file.id.startsWith("F")) {
+    return "房山石刻汉译；石刻本不是大正藏经号，不因题名相近自动合并作品，也不把译文等同佛陀逐字亲说。";
+  }
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,

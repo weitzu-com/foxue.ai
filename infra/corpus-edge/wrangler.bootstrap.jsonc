@@ -12,8 +12,8 @@
     }
   ],
   "vars": {
-    "RELEASE_ID": "gbcr-6.19.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-4cb4dfeb67de",
-    "RELEASE_MANIFEST_SHA256": "64bbba7592dcd4339837778a899b955c63039b2fa3479395b37b92501a27437d",
+    "RELEASE_ID": "gbcr-6.20.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-9477bb40e47f",
+    "RELEASE_MANIFEST_SHA256": "00c80c013e6069f4aebbbf9f7167d691dfef3ff6060ad55489d3ffb2d3c0ecc0",
     "ORIGIN_COVERAGE_URL": "https://www.foxue.ai/api/v1/corpus/coverage"
   },
   "observability": {

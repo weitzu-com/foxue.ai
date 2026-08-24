@@ -8,6 +8,7 @@ const root = process.cwd();
 const catalogPaths = [
   "data/corpus/cbeta/catalog-v4.23.0.json",
   "data/corpus/cbeta/nanchuan-catalog-v1.0.0.json",
+  "data/corpus/cbeta/beyond-taisho-sutra-catalog-v1.0.0.json",
 ];
 const catalogs = await Promise.all(catalogPaths.map(async (relativePath) => {
   const catalog = JSON.parse(await readFile(resolve(root, relativePath), "utf8"));
@@ -16,16 +17,19 @@ const catalogs = await Promise.all(catalogPaths.map(async (relativePath) => {
 const allFiles = catalogs.flatMap(({ catalog }) => catalog.files);
 const requested = process.argv.slice(2);
 const nanchuanOnly = requested.includes("--nanchuan");
+const beyondTaishoSutraOnly = requested.includes("--beyond-taisho-sutra");
 const selected = requested.includes("--all")
   ? allFiles
   : nanchuanOnly
     ? catalogs.find(({ relativePath }) => relativePath.endsWith("nanchuan-catalog-v1.0.0.json")).catalog.files
+    : beyondTaishoSutraOnly
+      ? catalogs.find(({ relativePath }) => relativePath.endsWith("beyond-taisho-sutra-catalog-v1.0.0.json")).catalog.files
     : allFiles.filter((file) => requested.includes(file.id));
 if (
   selected.length === 0 ||
-  (!requested.includes("--all") && !nanchuanOnly && selected.length !== requested.length)
+  (!requested.includes("--all") && !nanchuanOnly && !beyondTaishoSutraOnly && selected.length !== requested.length)
 ) {
-  console.error("用法：pnpm import:cbeta --all，或 pnpm import:cbeta --nanchuan，或指定 CBETA / 南傳經號");
+  console.error("用法：pnpm import:cbeta --all，或 pnpm import:cbeta --nanchuan，或 pnpm import:cbeta --beyond-taisho-sutra，或指定 CBETA / 南傳／趙城／房山經號");
   process.exit(1);
 }
 

@@ -74,12 +74,12 @@ assert.throws(() => validateManifest(manifest, "latest"), /标签无效/);
 
 const releases = [
   { tagName: "gbcr-v6.18.0", isDraft: false, isImmutable: true },
-  { tagName: "gbcr-v6.20.0", isDraft: true, isImmutable: true },
+  { tagName: "gbcr-v6.21.0", isDraft: true, isImmutable: true },
   { tagName: "gbcr-v7.0.0", isDraft: false, isImmutable: false },
-  { tagName: "gbcr-v6.19.0", isDraft: false, isImmutable: true },
+  { tagName: "gbcr-v6.20.0", isDraft: false, isImmutable: true },
   { tagName: "unrelated", isDraft: false, isImmutable: true },
 ];
-assert.equal(selectImmutableGbcrRelease(releases), "gbcr-v6.19.0");
+assert.equal(selectImmutableGbcrRelease(releases), "gbcr-v6.20.0");
 assert.equal(selectImmutableGbcrRelease(releases, "gbcr-v6.18.0"), "gbcr-v6.18.0");
 assert.throws(() => selectImmutableGbcrRelease(releases, "gbcr-v7.0.0"), /尚未不可变/);
 assert.throws(() => selectImmutableGbcrRelease(releases, "latest"), /标签无效/);

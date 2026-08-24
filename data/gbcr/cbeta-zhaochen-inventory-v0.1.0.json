@@ -1,0 +1,120 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/cbeta-volume-source-record-inventory-v0.1",
+  "version": "0.1.0",
+  "capturedAt": "2026-08-24",
+  "source": {
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "tree": "9e2fb08289eaad64a904077ee29fce84ad4482a5"
+  },
+  "subset": {
+    "id": "zhaochen_jinzang",
+    "label": "趙城金藏固定來源記錄",
+    "inclusionRule": "固定 Git tree 中 A/ 目錄下、檔名卷號一致的 A*.xml",
+    "denominatorCaveat": "12 份來源記錄是大正藏未收的趙城金藏補輯，混合音義、經錄、論疏與少數譯經。檔案數不是作品數，也不是嚴格佛說經數。",
+    "recordUnit": "TEI P5 source record"
+  },
+  "totals": {
+    "records": 12,
+    "upstreamBytes": 7592001,
+    "candidatePathSha256": "91af925c0f0a39a1289e39a3c15f68177dfea909394d9f46f78f3c26774550f3"
+  },
+  "records": [
+    {
+      "sourceRecordId": "A091n1057",
+      "canonWitnessId": "A091n1057",
+      "volume": "A091",
+      "upstreamPath": "A/A091/A091n1057.xml",
+      "upstreamGitBlobSha1": "0d948119fe5de46ed33958877e2cf80f7d9d77d5",
+      "upstreamBytes": 627376
+    },
+    {
+      "sourceRecordId": "A097n1267",
+      "canonWitnessId": "A097n1267",
+      "volume": "A097",
+      "upstreamPath": "A/A097/A097n1267.xml",
+      "upstreamGitBlobSha1": "88b7950a9b44282e87815a48b213059579ef3cee",
+      "upstreamBytes": 144633
+    },
+    {
+      "sourceRecordId": "A098n1267",
+      "canonWitnessId": "A098n1267",
+      "volume": "A098",
+      "upstreamPath": "A/A098/A098n1267.xml",
+      "upstreamGitBlobSha1": "29b546074fc4af3fcbba0435d99d28e7fa81e2ec",
+      "upstreamBytes": 1372997
+    },
+    {
+      "sourceRecordId": "A110n1490",
+      "canonWitnessId": "A110n1490",
+      "volume": "A110",
+      "upstreamPath": "A/A110/A110n1490.xml",
+      "upstreamGitBlobSha1": "b2cf10908e40a7c3d84e34b6120f5105e3d106e8",
+      "upstreamBytes": 165872
+    },
+    {
+      "sourceRecordId": "A111n1493",
+      "canonWitnessId": "A111n1493",
+      "volume": "A111",
+      "upstreamPath": "A/A111/A111n1493.xml",
+      "upstreamGitBlobSha1": "0d6ede501a9c208dca2957e56377ccabdecb74c0",
+      "upstreamBytes": 370277
+    },
+    {
+      "sourceRecordId": "A112n1493",
+      "canonWitnessId": "A112n1493",
+      "volume": "A112",
+      "upstreamPath": "A/A112/A112n1493.xml",
+      "upstreamGitBlobSha1": "86e0fdb894558d1da8fbc00f27a47e8af6158374",
+      "upstreamBytes": 259388
+    },
+    {
+      "sourceRecordId": "A112n1494",
+      "canonWitnessId": "A112n1494",
+      "volume": "A112",
+      "upstreamPath": "A/A112/A112n1494.xml",
+      "upstreamGitBlobSha1": "356c28052d0e684d2f801083786ea29b29794e73",
+      "upstreamBytes": 309067
+    },
+    {
+      "sourceRecordId": "A114n1504",
+      "canonWitnessId": "A114n1504",
+      "volume": "A114",
+      "upstreamPath": "A/A114/A114n1504.xml",
+      "upstreamGitBlobSha1": "3fda5fe3bc548728dda20b8220cab366ec15a190",
+      "upstreamBytes": 115825
+    },
+    {
+      "sourceRecordId": "A114n1505",
+      "canonWitnessId": "A114n1505",
+      "volume": "A114",
+      "upstreamPath": "A/A114/A114n1505.xml",
+      "upstreamGitBlobSha1": "b89d6313dca9a7051691df42bade37e4c25b2215",
+      "upstreamBytes": 51323
+    },
+    {
+      "sourceRecordId": "A119n1548",
+      "canonWitnessId": "A119n1548",
+      "volume": "A119",
+      "upstreamPath": "A/A119/A119n1548.xml",
+      "upstreamGitBlobSha1": "24de19694720028d8af1371441ec91b134ccaa16",
+      "upstreamBytes": 74925
+    },
+    {
+      "sourceRecordId": "A120n1561",
+      "canonWitnessId": "A120n1561",
+      "volume": "A120",
+      "upstreamPath": "A/A120/A120n1561.xml",
+      "upstreamGitBlobSha1": "f39afbb39e82e7a0faa6fa09e14a39de8669db8f",
+      "upstreamBytes": 3156998
+    },
+    {
+      "sourceRecordId": "A121n1561",
+      "canonWitnessId": "A121n1561",
+      "volume": "A121",
+      "upstreamPath": "A/A121/A121n1561.xml",
+      "upstreamGitBlobSha1": "4280d93e7a71d3c5b9b0a9580da4a0ce99f6bc86",
+      "upstreamBytes": 943320
+    }
+  ]
+}
