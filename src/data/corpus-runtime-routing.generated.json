@@ -1178,6 +1178,8 @@
     "digha-nikaya-dn9": "sc01",
     "fahuajing": "cb01",
     "fajujing": "cb01",
+    "fangshan-hengshui-liushu": "cb01",
+    "fangshan-yinguo-benqi": "cb01",
     "guan-wuliangshoufo-jing": "cb01",
     "jingangjing": "cb01",
     "khuddaka-nikaya-bv": "sc01",
@@ -1528,10 +1530,10 @@
     "taisho-t0046": "cb01",
     "taisho-t0047": "cb01",
     "taisho-t0048": "cb01",
-    "taisho-t0049": "cb01",
-    "taisho-t0050": "cb01",
-    "taisho-t0051": "cb01",
-    "taisho-t0052": "cb01",
+    "taisho-t0049": "cb02",
+    "taisho-t0050": "cb02",
+    "taisho-t0051": "cb02",
+    "taisho-t0052": "cb02",
     "taisho-t0053": "cb02",
     "taisho-t0054": "cb02",
     "taisho-t0055": "cb02",
@@ -3920,6 +3922,7 @@
     "yuanjuejing": "cb09",
     "zaahanjing": "cb09",
     "zengyiahanjing": "cb09",
+    "zhaochen-sanghata-a1504": "cb09",
     "zhongahanjing": "cb09"
   }
 }
