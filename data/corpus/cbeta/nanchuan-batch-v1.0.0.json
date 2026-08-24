@@ -1,0 +1,3848 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-batch-v1.0",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-22",
+  "baseCatalog": null,
+  "inventory": "data/gbcr/cbeta-nanchuan-inventory-v0.1.0.json",
+  "rightsCategory": "Individually reviewed CBETA TEI files in Yuanheng Chinese Pali sutta-pitaka translations; vinaya, abhidhamma, niddesa, histories and commentaries excluded",
+  "workOverrides": {},
+  "fileOverrides": {},
+  "collection": {
+    "id": "CBETA-NANCHUAN-SUTTA",
+    "title": "元亨寺漢譯南傳經藏固定來源記錄",
+    "sourceRecordDenominator": 83,
+    "previouslyControlledSourceRecords": 0,
+    "excludedSourceRecords": 38,
+    "newSourceRecords": 45,
+    "controlledSourceRecords": 45,
+    "newSourceBytes": 28583032,
+    "newStableSegments": 158043,
+    "newFolios": 12416,
+    "newJuans": 214,
+    "verifiedSameWorkExpressions": 34,
+    "excludedVinayaAbhidhammaCommentaryHistoryRecords": 38,
+    "newFullSourceTexts": 45,
+    "newPartialSourceWitnesses": 0,
+    "newWorks": 17,
+    "controlledWorks": 17,
+    "strictSutraWorks": 9,
+    "mixedKhuddakaWorks": 8,
+    "workCountingDecision": "45 份南傳經藏漢譯記錄登記為 17 個作品：長部、中部、相應部、增支部與 13 個小部書級文本。同一南傳經號的分冊是同一作品的多個表達。律、論、義釋、史傳、清淨道論與彌蘭王問經保持排除。跨語言作品身分不自動與巴利根本文本合併。"
+  },
+  "boundaryAudit": {
+    "status": "verified_source_integrity_sutta_pitaka_inclusion_and_non_sutra_exclusion",
+    "excludedSourceRecords": [
+      "N01n0001",
+      "N02n0001",
+      "N03n0002",
+      "N04n0002",
+      "N05n0003",
+      "N43n0019",
+      "N44n0019",
+      "N45n0022",
+      "N46n0022",
+      "N47n0023",
+      "N48n0024",
+      "N49n0025",
+      "N50n0025",
+      "N50n0026",
+      "N50n0027",
+      "N51n0028",
+      "N52n0028",
+      "N53n0028",
+      "N54n0029",
+      "N55n0029",
+      "N56n0029",
+      "N57n0029",
+      "N58n0029",
+      "N59n0029",
+      "N60n0029",
+      "N61n0030",
+      "N62n0030",
+      "N63n0031",
+      "N64n0031",
+      "N65n0032",
+      "N65n0033",
+      "N66n0034",
+      "N67n0035",
+      "N68n0035",
+      "N69n0035",
+      "N70n0036",
+      "N70n0037",
+      "N70n0038"
+    ],
+    "excludedClasses": [
+      "vinaya_suttavibhanga_khandhaka_parivara",
+      "abhidhamma_seven_books",
+      "niddesa_commentaries",
+      "patisambhidamagga",
+      "milindapanha",
+      "vamsas_and_chronicles",
+      "visuddhimagga_and_abhidhammatthasangaha",
+      "asoka_inscriptions"
+    ],
+    "relatedDistinctWorkGroups": [
+      "nanchuan-digha-yuanheng-chinese",
+      "nanchuan-majjhima-yuanheng-chinese",
+      "nanchuan-samyutta-yuanheng-chinese",
+      "nanchuan-anguttara-yuanheng-chinese",
+      "nanchuan-khuddakapatha-yuanheng-chinese",
+      "nanchuan-dhammapada-yuanheng-chinese",
+      "nanchuan-udana-yuanheng-chinese",
+      "nanchuan-itivuttaka-yuanheng-chinese",
+      "nanchuan-suttanipata-yuanheng-chinese",
+      "nanchuan-vimanavatthu-yuanheng-chinese",
+      "nanchuan-petavatthu-yuanheng-chinese",
+      "nanchuan-theragatha-yuanheng-chinese",
+      "nanchuan-therigatha-yuanheng-chinese",
+      "nanchuan-apadana-yuanheng-chinese",
+      "nanchuan-jataka-yuanheng-chinese",
+      "nanchuan-buddhavamsa-yuanheng-chinese",
+      "nanchuan-cariyapitaka-yuanheng-chinese"
+    ],
+    "candidateRelationsNotMerged": [
+      "漢譯南傳與 SuttaCentral 巴利根本文本只建立文本家族關係，不因部類名稱合併 Work",
+      "小部天宮事、餓鬼事、長老偈、譬喻、本生、佛種姓、所行藏與巴利 KN 一樣保持混合集範圍政策",
+      "律、論、義釋、史傳與彌蘭王問經不作為佛說經導入"
+    ],
+    "caveat": "本批次只證明元亨寺漢譯南傳經藏固定 TEI 被完整保存並可在經藏閱讀。它不把漢譯、巴利根本文本或部類名稱計成全球佛陀親說作品覆蓋率。"
+  },
+  "files": [
+    {
+      "id": "N06n0004",
+      "slug": "nanchuan-digha-01",
+      "workId": "gbcr:work:nanchuan-digha-nikaya",
+      "workTitle": "長部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-digha-yuanheng-chinese",
+          "label": "元亨寺漢譯《長部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《長部》巴利根本文本；漢譯是同一部類的獨立表達，不與 34 部巴利經自動合併為同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-digha-yuanheng-volumes",
+          "label": "《長部經典》元亨寺分冊表達組",
+          "evidence": "3 份固定記錄共享南傳經號 N0004，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N06n0004",
+        "nanchuanNumber": "N0004"
+      },
+      "localPath": "data/corpus/cbeta/N06n0004.xml",
+      "upstreamPath": "N/N06/N06n0004.xml",
+      "upstreamGitBlobSha1": "544c6be23a25936140b005516ca1f7697841623d",
+      "upstreamBytes": 699450,
+      "upstreamSha256": "9c33898cc2b9b69f98308349e06927f51e088ca8528a1b26d04d11338abf520f",
+      "localBytes": 699451,
+      "localSha256": "3db98b0d1cadaeb3507489322db71bc146141bb738318d05a8931c084cc7c445",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長部經典(第1卷-第14卷)",
+        "alternateTitle": "Dīgha Nikāya · 長部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0004 · N06",
+        "translator": "通妙譯",
+        "summary": "14卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N06n0004_001"
+      },
+      "verification": {
+        "segments": 4327,
+        "folios": 317,
+        "juanRange": [
+          1,
+          14
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "anchors": [
+          "N06n0004.001.0001a02",
+          "N06n0004.014.0325a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N07n0004",
+      "slug": "nanchuan-digha-02",
+      "workId": "gbcr:work:nanchuan-digha-nikaya",
+      "workTitle": "長部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-digha-yuanheng-chinese",
+          "label": "元亨寺漢譯《長部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《長部》巴利根本文本；漢譯是同一部類的獨立表達，不與 34 部巴利經自動合併為同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-digha-yuanheng-volumes",
+          "label": "《長部經典》元亨寺分冊表達組",
+          "evidence": "3 份固定記錄共享南傳經號 N0004，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N07n0004",
+        "nanchuanNumber": "N0004"
+      },
+      "localPath": "data/corpus/cbeta/N07n0004.xml",
+      "upstreamPath": "N/N07/N07n0004.xml",
+      "upstreamGitBlobSha1": "9181dcdfbe43b3f5546849066c7a2db27ed898ca",
+      "upstreamBytes": 662602,
+      "upstreamSha256": "9add754acd3e43b6b550458bafdd282653b6d8de5728144f8c2bf3f86f631db1",
+      "localBytes": 662603,
+      "localSha256": "ce84941af9eaa7b43ad40a01e7a9da40d4d0db74578fd3e57f7d61589986b2cc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長部經典(第15卷-第23卷)",
+        "alternateTitle": "Dīgha Nikāya · 長部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0004 · N07",
+        "translator": "通妙譯",
+        "summary": "9卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N07n0004_001"
+      },
+      "verification": {
+        "segments": 4464,
+        "folios": 326,
+        "juanRange": [
+          15,
+          23
+        ],
+        "juanSequence": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "anchors": [
+          "N07n0004.015.0001a03",
+          "N07n0004.023.0334a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N08n0004",
+      "slug": "nanchuan-digha-03",
+      "workId": "gbcr:work:nanchuan-digha-nikaya",
+      "workTitle": "長部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-digha-yuanheng-chinese",
+          "label": "元亨寺漢譯《長部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《長部》巴利根本文本；漢譯是同一部類的獨立表達，不與 34 部巴利經自動合併為同一作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-digha-yuanheng-volumes",
+          "label": "《長部經典》元亨寺分冊表達組",
+          "evidence": "3 份固定記錄共享南傳經號 N0004，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N06n0004",
+              "N07n0004",
+              "N08n0004"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N08n0004",
+        "nanchuanNumber": "N0004"
+      },
+      "localPath": "data/corpus/cbeta/N08n0004.xml",
+      "upstreamPath": "N/N08/N08n0004.xml",
+      "upstreamGitBlobSha1": "f63343cc2ce1adb6b7ba072e09900a6faf33d899",
+      "upstreamBytes": 638967,
+      "upstreamSha256": "3059c7c23c01eb47c76397dc2bed1506607d62a1833a524c71eece2bc8343fea",
+      "localBytes": 638968,
+      "localSha256": "4df2cc14721e4cfe2a56b4e8e43987df7fb36322ed3b97b5c703cae884d36a66",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長部經典(第24卷-第34卷)",
+        "alternateTitle": "Dīgha Nikāya · 長部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0004 · N08",
+        "translator": "通妙譯",
+        "summary": "11卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N08n0004_001"
+      },
+      "verification": {
+        "segments": 3951,
+        "folios": 291,
+        "juanRange": [
+          24,
+          34
+        ],
+        "juanSequence": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ],
+        "anchors": [
+          "N08n0004.024.0001a02",
+          "N08n0004.034.0303a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N09n0005",
+      "slug": "nanchuan-majjhima-01",
+      "workId": "gbcr:work:nanchuan-majjhima-nikaya",
+      "workTitle": "中部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-majjhima-yuanheng-chinese",
+          "label": "元亨寺漢譯《中部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《中部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆成 152 個作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-majjhima-yuanheng-volumes",
+          "label": "《中部經典》元亨寺分冊表達組",
+          "evidence": "4 份固定記錄共享南傳經號 N0005，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N09n0005",
+        "nanchuanNumber": "N0005"
+      },
+      "localPath": "data/corpus/cbeta/N09n0005.xml",
+      "upstreamPath": "N/N09/N09n0005.xml",
+      "upstreamGitBlobSha1": "9991b8653e1471454ddceb8689132a80f4038f45",
+      "upstreamBytes": 767807,
+      "upstreamSha256": "1fc8cdcfe2bb709d6ea2e42baabdc848f6324e36f804a31432f5e9a0bd1f2771",
+      "localBytes": 767808,
+      "localSha256": "81266822b0128fab54ea553d28928a25fffde4f168e9d98a4ddf809c94d652af",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中部經典(第1卷-第4卷)",
+        "alternateTitle": "Majjhima Nikāya · 中部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0005 · N09",
+        "translator": "通妙譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N09n0005_001"
+      },
+      "verification": {
+        "segments": 4975,
+        "folios": 380,
+        "juanRange": [
+          1,
+          4
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "anchors": [
+          "N09n0005.001.0001a01",
+          "N09n0005.004.0380a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N10n0005",
+      "slug": "nanchuan-majjhima-02",
+      "workId": "gbcr:work:nanchuan-majjhima-nikaya",
+      "workTitle": "中部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-majjhima-yuanheng-chinese",
+          "label": "元亨寺漢譯《中部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《中部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆成 152 個作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-majjhima-yuanheng-volumes",
+          "label": "《中部經典》元亨寺分冊表達組",
+          "evidence": "4 份固定記錄共享南傳經號 N0005，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N10n0005",
+        "nanchuanNumber": "N0005"
+      },
+      "localPath": "data/corpus/cbeta/N10n0005.xml",
+      "upstreamPath": "N/N10/N10n0005.xml",
+      "upstreamGitBlobSha1": "105823342b58021ac377351b871405bfdbc401ef",
+      "upstreamBytes": 650306,
+      "upstreamSha256": "808335029effc71f0d2ca4fcadac9184767110a35afe18b21606d188bc44085f",
+      "localBytes": 650307,
+      "localSha256": "3a8d3a3e77d31dc28feb5cb34e5acb17be12eb9035a39b027fae8a9dccb5cee0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中部經典(第5卷-第8卷)",
+        "alternateTitle": "Majjhima Nikāya · 中部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0005 · N10",
+        "translator": "通妙譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N10n0005_001"
+      },
+      "verification": {
+        "segments": 4125,
+        "folios": 318,
+        "juanRange": [
+          5,
+          8
+        ],
+        "juanSequence": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "anchors": [
+          "N10n0005.005.0001a01",
+          "N10n0005.008.0318a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N11n0005",
+      "slug": "nanchuan-majjhima-03",
+      "workId": "gbcr:work:nanchuan-majjhima-nikaya",
+      "workTitle": "中部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-majjhima-yuanheng-chinese",
+          "label": "元亨寺漢譯《中部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《中部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆成 152 個作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-majjhima-yuanheng-volumes",
+          "label": "《中部經典》元亨寺分冊表達組",
+          "evidence": "4 份固定記錄共享南傳經號 N0005，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N11n0005",
+        "nanchuanNumber": "N0005"
+      },
+      "localPath": "data/corpus/cbeta/N11n0005.xml",
+      "upstreamPath": "N/N11/N11n0005.xml",
+      "upstreamGitBlobSha1": "fa5bcd103caa3563cb47e1e672006c9dd72e2787",
+      "upstreamBytes": 607767,
+      "upstreamSha256": "c53f1a9ffcc5c8b9a00a2ebf6f7022434c5a41ef046d08a08517333ac6bdabcc",
+      "localBytes": 607768,
+      "localSha256": "3ec589a42ad55af18bd8fd3c3e8a07cf1c9dcbeeb6e7b25b2731a1dbfb754a54",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中部經典(第9卷-第12卷)",
+        "alternateTitle": "Majjhima Nikāya · 中部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0005 · N11",
+        "translator": "通妙譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N11n0005_001"
+      },
+      "verification": {
+        "segments": 4060,
+        "folios": 309,
+        "juanRange": [
+          9,
+          12
+        ],
+        "juanSequence": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "anchors": [
+          "N11n0005.009.0001a01",
+          "N11n0005.012.0309a01"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N12n0005",
+      "slug": "nanchuan-majjhima-04",
+      "workId": "gbcr:work:nanchuan-majjhima-nikaya",
+      "workTitle": "中部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-majjhima-yuanheng-chinese",
+          "label": "元亨寺漢譯《中部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《中部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆成 152 個作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-majjhima-yuanheng-volumes",
+          "label": "《中部經典》元亨寺分冊表達組",
+          "evidence": "4 份固定記錄共享南傳經號 N0005，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N09n0005",
+              "N10n0005",
+              "N11n0005",
+              "N12n0005"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N12n0005",
+        "nanchuanNumber": "N0005"
+      },
+      "localPath": "data/corpus/cbeta/N12n0005.xml",
+      "upstreamPath": "N/N12/N12n0005.xml",
+      "upstreamGitBlobSha1": "cca1a96260582cceb0f8a1a5a5825736f78f8b83",
+      "upstreamBytes": 681837,
+      "upstreamSha256": "f462da13f9c0e847cde6f70993c8e5b4dcfca4a60177ab805978a9ec763f4768",
+      "localBytes": 681838,
+      "localSha256": "e298e1f88e47075dfbceed09f35cbb1867ced3a1bed795e0bcf0c6680fdaa5b5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "中部經典(第13卷-第16卷)",
+        "alternateTitle": "Majjhima Nikāya · 中部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0005 · N12",
+        "translator": "通妙譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N12n0005_001"
+      },
+      "verification": {
+        "segments": 4321,
+        "folios": 331,
+        "juanRange": [
+          13,
+          16
+        ],
+        "juanSequence": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "anchors": [
+          "N12n0005.013.0001a01",
+          "N12n0005.016.0331a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N13n0006",
+      "slug": "nanchuan-samyutta-01",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N13n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N13n0006.xml",
+      "upstreamPath": "N/N13/N13n0006.xml",
+      "upstreamGitBlobSha1": "1b02b3fe5e79ae52540ae0ce461ad2768b333ff1",
+      "upstreamBytes": 996585,
+      "upstreamSha256": "163f517ab74525c7d1c34b2c0f9330efea32bf1b5c156b4f653d114c79d251e7",
+      "localBytes": 996586,
+      "localSha256": "7418efc8f414922545214eb5eed3b791d567a7cfc7fa70a6fc967b7658c9e4b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第1卷-第11卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N13",
+        "translator": "通妙譯",
+        "summary": "11卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：通妙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N13n0006_001"
+      },
+      "verification": {
+        "segments": 4831,
+        "folios": 358,
+        "juanRange": [
+          1,
+          11
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "anchors": [
+          "N13n0006.001.0001a01",
+          "N13n0006.011.0406a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N14n0006",
+      "slug": "nanchuan-samyutta-02",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N14n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N14n0006.xml",
+      "upstreamPath": "N/N14/N14n0006.xml",
+      "upstreamGitBlobSha1": "97bb985ee00c973dfdf411cccdfc9b6834eb7489",
+      "upstreamBytes": 881407,
+      "upstreamSha256": "882e55b2aec3c96c9874a4bee30566846823a4452a56c334fd398a8ac1905b69",
+      "localBytes": 881408,
+      "localSha256": "ca12ae6468d1962fb3107f985a49c252b059e753406d8a03c3d5bff426ee410c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第12卷-第21卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N14",
+        "translator": "雲庵譯",
+        "summary": "10卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N14n0006_001"
+      },
+      "verification": {
+        "segments": 4750,
+        "folios": 351,
+        "juanRange": [
+          12,
+          21
+        ],
+        "juanSequence": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "anchors": [
+          "N14n0006.012.0001a01",
+          "N14n0006.021.0366a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N15n0006",
+      "slug": "nanchuan-samyutta-03",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N15n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N15n0006.xml",
+      "upstreamPath": "N/N15/N15n0006.xml",
+      "upstreamGitBlobSha1": "55c16cde61325131d960ec6f2e378f33f6de78ef",
+      "upstreamBytes": 971409,
+      "upstreamSha256": "9b7f985d54a01bb168429238c247c7da3a516049c125859d95156f56b7c02b06",
+      "localBytes": 971410,
+      "localSha256": "6216e93850127809b4de53323a99865525ccaa26514fadc2b0f94d208f550cba",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第22卷-第34卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N15",
+        "translator": "雲庵譯",
+        "summary": "13卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N15n0006_001"
+      },
+      "verification": {
+        "segments": 5082,
+        "folios": 418,
+        "juanRange": [
+          22,
+          34
+        ],
+        "juanSequence": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ],
+        "anchors": [
+          "N15n0006.022.0001a01",
+          "N15n0006.034.0419a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N16n0006",
+      "slug": "nanchuan-samyutta-04",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N16n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N16n0006.xml",
+      "upstreamPath": "N/N16/N16n0006.xml",
+      "upstreamGitBlobSha1": "6d49934265d0b864687fe8bcc098fc25dfc64d1b",
+      "upstreamBytes": 864692,
+      "upstreamSha256": "ca1e8f410fd256003a33509a60a8f90c12fc7aa846e3d6d640326ef623354aac",
+      "localBytes": 864693,
+      "localSha256": "20ab31192009e64057c1cc3b5595b423dd7263aeaa3fea97558438aa179f506b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第35卷-第41卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N16",
+        "translator": "雲庵譯",
+        "summary": "7卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N16n0006_001"
+      },
+      "verification": {
+        "segments": 4839,
+        "folios": 384,
+        "juanRange": [
+          35,
+          41
+        ],
+        "juanSequence": [
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "anchors": [
+          "N16n0006.035.0001a01",
+          "N16n0006.041.0385a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N17n0006",
+      "slug": "nanchuan-samyutta-05",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N17n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N17n0006.xml",
+      "upstreamPath": "N/N17/N17n0006.xml",
+      "upstreamGitBlobSha1": "d0d33d3d2c5986cba9e4d2b0fd783e98a097fd35",
+      "upstreamBytes": 865733,
+      "upstreamSha256": "df64592c6d8559c454e7f4590e613b8019ec177a3d3ae48a33dbb39512778e5d",
+      "localBytes": 865734,
+      "localSha256": "5112ef32fb8bd6b0df2358504578b3a77be8a65718ff295a1960033dc5607356",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第42卷-第47卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N17",
+        "translator": "雲庵譯",
+        "summary": "6卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N17n0006_001"
+      },
+      "verification": {
+        "segments": 4813,
+        "folios": 393,
+        "juanRange": [
+          42,
+          47
+        ],
+        "juanSequence": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "anchors": [
+          "N17n0006.042.0001a01",
+          "N17n0006.047.0394a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N18n0006",
+      "slug": "nanchuan-samyutta-06",
+      "workId": "gbcr:work:nanchuan-samyutta-nikaya",
+      "workTitle": "相應部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-samyutta-yuanheng-chinese",
+          "label": "元亨寺漢譯《相應部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《相應部》巴利根本文本；漢譯按元亨寺卷冊保存為同一部類的六個表達。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-samyutta-yuanheng-volumes",
+          "label": "《相應部經典》元亨寺分冊表達組",
+          "evidence": "6 份固定記錄共享南傳經號 N0006，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N13n0006",
+              "N14n0006",
+              "N15n0006",
+              "N16n0006",
+              "N17n0006",
+              "N18n0006"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N18n0006",
+        "nanchuanNumber": "N0006"
+      },
+      "localPath": "data/corpus/cbeta/N18n0006.xml",
+      "upstreamPath": "N/N18/N18n0006.xml",
+      "upstreamGitBlobSha1": "07d6a0e7f7e5e8ec8e37526751552bba8060137b",
+      "upstreamBytes": 837689,
+      "upstreamSha256": "26a0ae55358cfacf62c12eeabdaae1b6b3f4bd40674e534e1f9a6a75a1a8a091",
+      "localBytes": 837690,
+      "localSha256": "99ebfe4d6841f136556acc0f93633bd8780d8a490f5b77cfb7a28b41b80a8450",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "相應部經典(第48卷-第56卷)",
+        "alternateTitle": "Saṃyutta Nikāya · 相應部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0006 · N18",
+        "translator": "雲庵譯",
+        "summary": "9卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N18n0006_001"
+      },
+      "verification": {
+        "segments": 4736,
+        "folios": 386,
+        "juanRange": [
+          48,
+          56
+        ],
+        "juanSequence": [
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "anchors": [
+          "N18n0006.048.0001a01",
+          "N18n0006.056.0387a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N19n0007",
+      "slug": "nanchuan-anguttara-01",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N19n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N19n0007.xml",
+      "upstreamPath": "N/N19/N19n0007.xml",
+      "upstreamGitBlobSha1": "b16d8ce69cb631aa6d3571c911bba55c8f674d9c",
+      "upstreamBytes": 993564,
+      "upstreamSha256": "a40591326b175719b26122b5bd8034df6fb342a268c2b35f0cb4a64e61ca7c5b",
+      "localBytes": 993565,
+      "localSha256": "a82d068e4abdc8a8081a057cabf11a9a80610712b4ee380016d9eebb8f041cc0",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第1卷-第3卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N19",
+        "translator": "葉慶春譯",
+        "summary": "3卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：葉慶春譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N19n0007_001"
+      },
+      "verification": {
+        "segments": 5511,
+        "folios": 424,
+        "juanRange": [
+          1,
+          3
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3
+        ],
+        "anchors": [
+          "N19n0007.001.0001a01",
+          "N19n0007.003.0438a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N20n0007",
+      "slug": "nanchuan-anguttara-02",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N20n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N20n0007.xml",
+      "upstreamPath": "N/N20/N20n0007.xml",
+      "upstreamGitBlobSha1": "d42ba09471711282d67c0aacb4cd7ba454d5b69e",
+      "upstreamBytes": 906273,
+      "upstreamSha256": "d90132bae30a88a6d8e0653634504cee58b1b9bb0f81053c835ce10099c67b54",
+      "localBytes": 906274,
+      "localSha256": "f420de23f26383c847a3f3c36ac826178ffd9f8a0be22a338c1aeb13aaf9818e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第4卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N20",
+        "translator": "關世謙譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：關世謙譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N20n0007_001"
+      },
+      "verification": {
+        "segments": 4665,
+        "folios": 416,
+        "juanRange": [
+          4,
+          4
+        ],
+        "juanSequence": [
+          4
+        ],
+        "anchors": [
+          "N20n0007.004.0001a01",
+          "N20n0007.004.0416a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N21n0007",
+      "slug": "nanchuan-anguttara-03",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N21n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N21n0007.xml",
+      "upstreamPath": "N/N21/N21n0007.xml",
+      "upstreamGitBlobSha1": "57e9ccd2cf4c6f6f813a8a765989313b6961f7f8",
+      "upstreamBytes": 726568,
+      "upstreamSha256": "afa5926d7b93fcfe5b9504131f3e1ba86fb16d110fe600deacc477533dcc979d",
+      "localBytes": 726569,
+      "localSha256": "c92cc16640e8e0c6876ad956de6014e26246a6097ec025e58bcdf7442a82a943",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第5卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N21",
+        "translator": "郭哲彰譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：郭哲彰譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N21n0007_001"
+      },
+      "verification": {
+        "segments": 4276,
+        "folios": 333,
+        "juanRange": [
+          5,
+          5
+        ],
+        "juanSequence": [
+          5
+        ],
+        "anchors": [
+          "N21n0007.005.0001a01",
+          "N21n0007.005.0333a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N22n0007",
+      "slug": "nanchuan-anguttara-04",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N22n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N22n0007.xml",
+      "upstreamPath": "N/N22/N22n0007.xml",
+      "upstreamGitBlobSha1": "d3e9e725beedbc029c58584c18935f903103bea9",
+      "upstreamBytes": 725964,
+      "upstreamSha256": "b7d1f57a53df0401fd85ec0263c695935f270a3294d2b0898244b5bcefb9712e",
+      "localBytes": 725965,
+      "localSha256": "d416aff227621c2d0a781f77dd47b3737b01e540360ca377cc85d3eaf0419385",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第6卷-第7卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N22",
+        "translator": "郭哲彰譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：郭哲彰譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N22n0007_001"
+      },
+      "verification": {
+        "segments": 4395,
+        "folios": 340,
+        "juanRange": [
+          6,
+          7
+        ],
+        "juanSequence": [
+          6,
+          7
+        ],
+        "anchors": [
+          "N22n0007.006.0001a01",
+          "N22n0007.007.0340a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N23n0007",
+      "slug": "nanchuan-anguttara-05",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N23n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N23n0007.xml",
+      "upstreamPath": "N/N23/N23n0007.xml",
+      "upstreamGitBlobSha1": "485d3f701c56855344999b32e22054ce331f679f",
+      "upstreamBytes": 595459,
+      "upstreamSha256": "a7bd25742ca623fc54aa296561a4e3a4df4e61bbe4515285bf0927d22445daef",
+      "localBytes": 595460,
+      "localSha256": "52741cb42a63528f97a3bb5f252e8ea3c8ae4e7fffc0c7cfe4783cabd2400970",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第8卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N23",
+        "translator": "郭哲彰譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：郭哲彰譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N23n0007_001"
+      },
+      "verification": {
+        "segments": 3747,
+        "folios": 287,
+        "juanRange": [
+          8,
+          8
+        ],
+        "juanSequence": [
+          8
+        ],
+        "anchors": [
+          "N23n0007.008.0001a02",
+          "N23n0007.008.0287a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N24n0007",
+      "slug": "nanchuan-anguttara-06",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N24n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N24n0007.xml",
+      "upstreamPath": "N/N24/N24n0007.xml",
+      "upstreamGitBlobSha1": "89a0f029b3471245570301f600a42b7cf34662f6",
+      "upstreamBytes": 653580,
+      "upstreamSha256": "7f08876fbff033df1ef3fda3c44fc5015852ce476f53b351a0c8c5f1250ee1fe",
+      "localBytes": 653581,
+      "localSha256": "168213500593a4cb9bd2edd88895eead060002e7d0d8e6b8884f1956f368a712",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第9卷-第10卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N24",
+        "translator": "郭哲彰譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：郭哲彰譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N24n0007_001"
+      },
+      "verification": {
+        "segments": 3935,
+        "folios": 306,
+        "juanRange": [
+          9,
+          10
+        ],
+        "juanSequence": [
+          9,
+          10
+        ],
+        "anchors": [
+          "N24n0007.009.0001a01",
+          "N24n0007.010.0306a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N25n0007",
+      "slug": "nanchuan-anguttara-07",
+      "workId": "gbcr:work:nanchuan-anguttara-nikaya",
+      "workTitle": "增支部經典",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-anguttara-yuanheng-chinese",
+          "label": "元亨寺漢譯《增支部經典》與巴利根本文本家族",
+          "evidence": "對應站內已收 SuttaCentral 《增支部》巴利根本文本；漢譯按元亨寺卷冊保存，不按巴利經號拆分。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-anguttara-yuanheng-volumes",
+          "label": "《增支部經典》元亨寺分冊表達組",
+          "evidence": "7 份固定記錄共享南傳經號 N0007，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N19n0007",
+              "N20n0007",
+              "N21n0007",
+              "N22n0007",
+              "N23n0007",
+              "N24n0007",
+              "N25n0007"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N25n0007",
+        "nanchuanNumber": "N0007"
+      },
+      "localPath": "data/corpus/cbeta/N25n0007.xml",
+      "upstreamPath": "N/N25/N25n0007.xml",
+      "upstreamGitBlobSha1": "2f5a70c6bc22a10a663b3291fc2c9b1e83d9961d",
+      "upstreamBytes": 664483,
+      "upstreamSha256": "9d28bf61c37a49685af855f1aa8cb901c2974e365544732181aaeef23a9818d4",
+      "localBytes": 664484,
+      "localSha256": "92c780961bc9428b5063406e0b15af223a52755288faf6009bfba39e16d7b9c8",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "增支部經典(第11卷-第12卷)",
+        "alternateTitle": "Aṅguttara Nikāya · 增支部經典",
+        "tradition": "漢譯南傳 · 經藏",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0007 · N25",
+        "translator": "郭哲彰譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：郭哲彰譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N25n0007_001"
+      },
+      "verification": {
+        "segments": 4086,
+        "folios": 315,
+        "juanRange": [
+          11,
+          12
+        ],
+        "juanSequence": [
+          11,
+          12
+        ],
+        "anchors": [
+          "N25n0007.011.0001a01",
+          "N25n0007.012.0315a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N26n0008",
+      "slug": "nanchuan-khuddakapatha",
+      "workId": "gbcr:work:nanchuan-khuddakapatha",
+      "workTitle": "小誦經",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-khuddakapatha-yuanheng-chinese",
+          "label": "元亨寺漢譯《小誦經》與巴利根本文本家族",
+          "evidence": "對應站內已收巴利《小誦》；漢譯為獨立表達。",
+          "externalIds": {
+            "cbeta": [
+              "N26n0008"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N26n0008",
+        "nanchuanNumber": "N0008"
+      },
+      "localPath": "data/corpus/cbeta/N26n0008.xml",
+      "upstreamPath": "N/N26/N26n0008.xml",
+      "upstreamGitBlobSha1": "7b25f29b1b5715360faa231b1f8883f80c96aaaf",
+      "upstreamBytes": 27926,
+      "upstreamSha256": "ca747a26e48e5c5c7da0ebdff91115cecdada10a1d81410c4a2073037468f330",
+      "localBytes": 27927,
+      "localSha256": "988d622949dec7f6ae1fc134e0972acbd3172a1130a13e3e24ae099a8c11f2d7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "小誦經",
+        "alternateTitle": "Khuddakapāṭha · 小誦經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0008 · N26",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N26n0008_001"
+      },
+      "verification": {
+        "segments": 123,
+        "folios": 12,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N26n0008.001.0001a01",
+          "N26n0008.001.0012a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N26n0009",
+      "slug": "nanchuan-dhammapada",
+      "workId": "gbcr:work:nanchuan-dhammapada",
+      "workTitle": "法句經",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-dhammapada-yuanheng-chinese",
+          "label": "元亨寺漢譯《法句經》與巴利根本文本家族",
+          "evidence": "對應站內已收巴利《法句》；漢譯為獨立表達，不與 T0210 等漢譯法句自動合併。",
+          "externalIds": {
+            "cbeta": [
+              "N26n0009"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N26n0009",
+        "nanchuanNumber": "N0009"
+      },
+      "localPath": "data/corpus/cbeta/N26n0009.xml",
+      "upstreamPath": "N/N26/N26n0009.xml",
+      "upstreamGitBlobSha1": "19611077a9a37e1710bed8a7df0092d314079f19",
+      "upstreamBytes": 120741,
+      "upstreamSha256": "9e5baf2345df836b42019a11ef7276cb9b9c97b8747ee005987b5f5c9867eb8a",
+      "localBytes": 120742,
+      "localSha256": "838a218045679b2c5139bf2724846a556fad78b9b21d3991db1f6e821032dcb3",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "法句經",
+        "alternateTitle": "Dhammapada · 法句經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0009 · N26",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N26n0009_001"
+      },
+      "verification": {
+        "segments": 508,
+        "folios": 43,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N26n0009.001.0013a01",
+          "N26n0009.001.0055a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N26n0010",
+      "slug": "nanchuan-udana",
+      "workId": "gbcr:work:nanchuan-udana",
+      "workTitle": "自說經",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-udana-yuanheng-chinese",
+          "label": "元亨寺漢譯《自說經》與巴利根本文本家族",
+          "evidence": "對應站內已收巴利《自說》；漢譯為獨立表達。",
+          "externalIds": {
+            "cbeta": [
+              "N26n0010"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N26n0010",
+        "nanchuanNumber": "N0010"
+      },
+      "localPath": "data/corpus/cbeta/N26n0010.xml",
+      "upstreamPath": "N/N26/N26n0010.xml",
+      "upstreamGitBlobSha1": "6dca744a3a5c4d255885ba50c0a169f55c9d63bb",
+      "upstreamBytes": 238160,
+      "upstreamSha256": "e894d361e62c7413d917d6945a8bebcb410f2a1e8224a1c795ac58910d2f035a",
+      "localBytes": 238161,
+      "localSha256": "e7d7b42ffdd66f5946f433546c3de74e0efdbdd83948eb91ce3747a0dc4b71b9",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "自說經",
+        "alternateTitle": "Udāna · 自說經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0010 · N26",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N26n0010_001"
+      },
+      "verification": {
+        "segments": 1338,
+        "folios": 111,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N26n0010.001.0057a01",
+          "N26n0010.001.0172a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N26n0011",
+      "slug": "nanchuan-itivuttaka",
+      "workId": "gbcr:work:nanchuan-itivuttaka",
+      "workTitle": "如是語經",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-itivuttaka-yuanheng-chinese",
+          "label": "元亨寺漢譯《如是語經》與巴利根本文本家族",
+          "evidence": "對應站內已收巴利《如是語》；漢譯為獨立表達。",
+          "externalIds": {
+            "cbeta": [
+              "N26n0011"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N26n0011",
+        "nanchuanNumber": "N0011"
+      },
+      "localPath": "data/corpus/cbeta/N26n0011.xml",
+      "upstreamPath": "N/N26/N26n0011.xml",
+      "upstreamGitBlobSha1": "34c1338651b2702fa49a943f4957a5f776c54f7a",
+      "upstreamBytes": 245498,
+      "upstreamSha256": "23eda569429839a343ec68b0e98af521eafb427d97f67716690dcebec6635811",
+      "localBytes": 245499,
+      "localSha256": "3a509d451cc374496fffc0112330d48950405978be0322110b165750c2b10f66",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "如是語經",
+        "alternateTitle": "Itivuttaka · 如是語經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0011 · N26",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N26n0011_001"
+      },
+      "verification": {
+        "segments": 1275,
+        "folios": 108,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N26n0011.001.0173a01",
+          "N26n0011.001.0290a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N27n0012",
+      "slug": "nanchuan-suttanipata",
+      "workId": "gbcr:work:nanchuan-suttanipata",
+      "workTitle": "經集",
+      "sourceRole": "translated_sutta_pitaka_expression",
+      "canonicalStatus": "traditional_sutta_pitaka_chinese_translation",
+      "buddhaWordStatus": "traditional_sutta_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_sutta_recension_distinct",
+          "groupId": "nanchuan-suttanipata-yuanheng-chinese",
+          "label": "元亨寺漢譯《經集》與巴利根本文本家族",
+          "evidence": "對應站內已收巴利《經集》；漢譯為獨立表達。",
+          "externalIds": {
+            "cbeta": [
+              "N27n0012"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N27n0012",
+        "nanchuanNumber": "N0012"
+      },
+      "localPath": "data/corpus/cbeta/N27n0012.xml",
+      "upstreamPath": "N/N27/N27n0012.xml",
+      "upstreamGitBlobSha1": "a9e0bb41d78eb81ac7536136831b591bfce7c564",
+      "upstreamBytes": 874948,
+      "upstreamSha256": "7a3f00f0c96c994d3e602733dacd80c0fb89a428d304d04fea74db68bdbb1f26",
+      "localBytes": 874949,
+      "localSha256": "5ad987561fc9639064aca9a0604aedf5194731748382d510ffe89412f9cf582a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "經集",
+        "alternateTitle": "Suttanipāta · 經集",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0012 · N27",
+        "translator": "雲庵譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N27n0012_001"
+      },
+      "verification": {
+        "segments": 3259,
+        "folios": 285,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N27n0012.001.0001a01",
+          "N27n0012.001.0320a03"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N27n0013",
+      "slug": "nanchuan-vimanavatthu",
+      "workId": "gbcr:work:nanchuan-vimanavatthu",
+      "workTitle": "天宮事經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-vimanavatthu-yuanheng-chinese",
+          "label": "元亨寺漢譯《天宮事經》與巴利根本文本家族",
+          "evidence": "小部混合集成員；與站內巴利《天宮事》對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N27n0013"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N27n0013",
+        "nanchuanNumber": "N0013"
+      },
+      "localPath": "data/corpus/cbeta/N27n0013.xml",
+      "upstreamPath": "N/N27/N27n0013.xml",
+      "upstreamGitBlobSha1": "c1e57230c78d7327a5d74c9ffe7c7a117698f95f",
+      "upstreamBytes": 273499,
+      "upstreamSha256": "7f14ea469f2666d8ac111f66d81a963c70fcfa595f210cad9f71be19cf2b7146",
+      "localBytes": 273500,
+      "localSha256": "472266e76e50abb4e371f2dbefc59786384420edb3e862754cb67bbbf472f2fd",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "天宮事經",
+        "alternateTitle": "Vimānavatthu · 天宮事經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0013 · N27",
+        "translator": "雲庵譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N27n0013_001"
+      },
+      "verification": {
+        "segments": 1387,
+        "folios": 111,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N27n0013.001.0322a01",
+          "N27n0013.001.0432a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N28n0014",
+      "slug": "nanchuan-petavatthu",
+      "workId": "gbcr:work:nanchuan-petavatthu",
+      "workTitle": "餓鬼事經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-petavatthu-yuanheng-chinese",
+          "label": "元亨寺漢譯《餓鬼事經》與巴利根本文本家族",
+          "evidence": "小部混合集成員；與站內巴利《餓鬼事》對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N28n0014"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N28n0014",
+        "nanchuanNumber": "N0014"
+      },
+      "localPath": "data/corpus/cbeta/N28n0014.xml",
+      "upstreamPath": "N/N28/N28n0014.xml",
+      "upstreamGitBlobSha1": "add8644d7d4518e1eab6394112bcdc6e4ec3cc2d",
+      "upstreamBytes": 188637,
+      "upstreamSha256": "14144abb380d46e10da31bfea6daab6dedc2d53af0e69c4c5d90d397f930358f",
+      "localBytes": 188638,
+      "localSha256": "6c809afbb45a0f4278c96d7a8fd9ca0a88d88784559cb3b7ac995e40e09c3595",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "餓鬼事經",
+        "alternateTitle": "Petavatthu · 餓鬼事經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0014 · N28",
+        "translator": "雲庵譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N28n0014_001"
+      },
+      "verification": {
+        "segments": 911,
+        "folios": 73,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N28n0014.001.0001a01",
+          "N28n0014.001.0075a06"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N28n0015",
+      "slug": "nanchuan-theragatha",
+      "workId": "gbcr:work:nanchuan-theragatha",
+      "workTitle": "長老偈經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-theragatha-yuanheng-chinese",
+          "label": "元亨寺漢譯《長老偈經》與巴利根本文本家族",
+          "evidence": "小部偈頌集；與站內巴利《長老偈》對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N28n0015"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N28n0015",
+        "nanchuanNumber": "N0015"
+      },
+      "localPath": "data/corpus/cbeta/N28n0015.xml",
+      "upstreamPath": "N/N28/N28n0015.xml",
+      "upstreamGitBlobSha1": "bae6d498893905ebc21d485bac6ce62a4315c660",
+      "upstreamBytes": 400036,
+      "upstreamSha256": "b1f97a7d448147a1cc0ce5b469e3a23a27ff49986b64656c20bc22ff4f10a903",
+      "localBytes": 400037,
+      "localSha256": "7b711318b3a0bb7ab85ae740180595f5dae044767221f1a4a5a0c8e10f73c127",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長老偈經",
+        "alternateTitle": "Theragāthā · 長老偈經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0015 · N28",
+        "translator": "雲庵譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N28n0015_001"
+      },
+      "verification": {
+        "segments": 1819,
+        "folios": 147,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N28n0015.001.0077a01",
+          "N28n0015.001.0237a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N28n0016",
+      "slug": "nanchuan-therigatha",
+      "workId": "gbcr:work:nanchuan-therigatha",
+      "workTitle": "長老尼偈經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-therigatha-yuanheng-chinese",
+          "label": "元亨寺漢譯《長老尼偈經》與巴利根本文本家族",
+          "evidence": "小部偈頌集；與站內巴利《長老尼偈》對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N28n0016"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N28n0016",
+        "nanchuanNumber": "N0016"
+      },
+      "localPath": "data/corpus/cbeta/N28n0016.xml",
+      "upstreamPath": "N/N28/N28n0016.xml",
+      "upstreamGitBlobSha1": "49fc78ce4d8dbd7d61dd12b0de42a3f70f54daef",
+      "upstreamBytes": 153770,
+      "upstreamSha256": "0cee11a17f10d7f5422c8d2751d6957533aff7cca6b629d582045bf27d9070fa",
+      "localBytes": 153771,
+      "localSha256": "6603c306c6a2521031bad2dba6c7ad49ae5ff0bb17a4a89e9a327f3d608fc39a",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "長老尼偈經",
+        "alternateTitle": "Therīgāthā · 長老尼偈經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0016 · N28",
+        "translator": "雲庵譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：雲庵譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N28n0016_001"
+      },
+      "verification": {
+        "segments": 705,
+        "folios": 60,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N28n0016.001.0239a01",
+          "N28n0016.001.0304a10"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N29n0017",
+      "slug": "nanchuan-apadana-01",
+      "workId": "gbcr:work:nanchuan-apadana",
+      "workTitle": "譬喻經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-apadana-yuanheng-chinese",
+          "label": "元亨寺漢譯《譬喻經》與巴利根本文本家族",
+          "evidence": "小部譬喻集；與站內巴利 Apadāna 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N29n0017",
+              "N30n0017"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-apadana-yuanheng-volumes",
+          "label": "《譬喻經》元亨寺分冊表達組",
+          "evidence": "2 份固定記錄共享南傳經號 N0017，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N29n0017",
+              "N30n0017"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N29n0017",
+        "nanchuanNumber": "N0017"
+      },
+      "localPath": "data/corpus/cbeta/N29n0017.xml",
+      "upstreamPath": "N/N29/N29n0017.xml",
+      "upstreamGitBlobSha1": "d8f7a079e7755f6eb42cefbc2022ea231fc40284",
+      "upstreamBytes": 1032307,
+      "upstreamSha256": "575777d39b1da63b134a095e2b8e77b302795a53153a92110fd1de792315883f",
+      "localBytes": 1032308,
+      "localSha256": "e9189201ee3adf68e319c01c68e341397a7970cefde89a55e49d2fa22b1f5b47",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "譬喻經(第1卷-第39卷)",
+        "alternateTitle": "Apadāna · 譬喻經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0017 · N29",
+        "translator": "悟醒譯",
+        "summary": "39卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N29n0017_001"
+      },
+      "verification": {
+        "segments": 4397,
+        "folios": 461,
+        "juanRange": [
+          1,
+          39
+        ],
+        "juanSequence": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "anchors": [
+          "N29n0017.001.0001a01",
+          "N29n0017.039.0449a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N30n0017",
+      "slug": "nanchuan-apadana-02",
+      "workId": "gbcr:work:nanchuan-apadana",
+      "workTitle": "譬喻經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-apadana-yuanheng-chinese",
+          "label": "元亨寺漢譯《譬喻經》與巴利根本文本家族",
+          "evidence": "小部譬喻集；與站內巴利 Apadāna 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N29n0017",
+              "N30n0017"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-apadana-yuanheng-volumes",
+          "label": "《譬喻經》元亨寺分冊表達組",
+          "evidence": "2 份固定記錄共享南傳經號 N0017，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N29n0017",
+              "N30n0017"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N30n0017",
+        "nanchuanNumber": "N0017"
+      },
+      "localPath": "data/corpus/cbeta/N30n0017.xml",
+      "upstreamPath": "N/N30/N30n0017.xml",
+      "upstreamGitBlobSha1": "27d7030080a9788c41344e12aea932c42ff4f6d4",
+      "upstreamBytes": 1053244,
+      "upstreamSha256": "2c62697d8118d2ba8d046db336ece28271bcb701ee380b5954c4e7bf5d30ab27",
+      "localBytes": 1053245,
+      "localSha256": "8215b2a7d65a5fffd22a2fcb90becbcaee8db7f05ce9530f873b53f57095543c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "譬喻經(第40卷-第59卷)",
+        "alternateTitle": "Apadāna · 譬喻經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0017 · N30",
+        "translator": "悟醒譯",
+        "summary": "20卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N30n0017_001"
+      },
+      "verification": {
+        "segments": 4946,
+        "folios": 423,
+        "juanRange": [
+          40,
+          59
+        ],
+        "juanSequence": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59
+        ],
+        "anchors": [
+          "N30n0017.040.0001a01",
+          "N30n0017.059.0416a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N31n0018",
+      "slug": "nanchuan-jataka-01",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N31n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N31n0018.xml",
+      "upstreamPath": "N/N31/N31n0018.xml",
+      "upstreamGitBlobSha1": "37d5f0babb8938104b1b69c677b08408ca91b03a",
+      "upstreamBytes": 739039,
+      "upstreamSha256": "aca0f5dd2b9dad234368fdecb6ca4fffd7e060c1057a11eda0df9fea1d5b7175",
+      "localBytes": 739040,
+      "localSha256": "e2bdec1baa3566b3a2e901be3cce622c8af527950569b28acb425a10ef273b98",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第1卷-第2卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N31",
+        "translator": "悟醒譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N31n0018_001"
+      },
+      "verification": {
+        "segments": 4254,
+        "folios": 337,
+        "juanRange": [
+          1,
+          2
+        ],
+        "juanSequence": [
+          1,
+          2
+        ],
+        "anchors": [
+          "N31n0018.001.0001a02",
+          "N31n0018.002.0339a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N32n0018",
+      "slug": "nanchuan-jataka-02",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N32n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N32n0018.xml",
+      "upstreamPath": "N/N32/N32n0018.xml",
+      "upstreamGitBlobSha1": "a429b7feeb795d1ce5af208546cd3d6cfbcb6ee9",
+      "upstreamBytes": 652065,
+      "upstreamSha256": "da925096dda3f997d994f2294a12f3330ac8c9379493b435e7ca051ea88d5429",
+      "localBytes": 652066,
+      "localSha256": "9f66907a1d5b4879d908c2c5f002a1c58f375aff3e9873e335616d74fcd92639",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第3卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N32",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N32n0018_001"
+      },
+      "verification": {
+        "segments": 4075,
+        "folios": 313,
+        "juanRange": [
+          3,
+          3
+        ],
+        "juanSequence": [
+          3
+        ],
+        "anchors": [
+          "N32n0018.003.0001a01",
+          "N32n0018.003.0314a05"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N33n0018",
+      "slug": "nanchuan-jataka-03",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N33n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N33n0018.xml",
+      "upstreamPath": "N/N33/N33n0018.xml",
+      "upstreamGitBlobSha1": "56397aaa56dd1d737a430c110ae49bf2c9f79091",
+      "upstreamBytes": 592053,
+      "upstreamSha256": "ff76eede98c26755c412528dfad73e9c3f1523829941f22d3390916b1c5c25ef",
+      "localBytes": 592054,
+      "localSha256": "125aa15b5f345fb31a8fe936105dd5dce5ecec70ad35870661e2c82d55415973",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第4卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N33",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N33n0018_001"
+      },
+      "verification": {
+        "segments": 3380,
+        "folios": 269,
+        "juanRange": [
+          4,
+          4
+        ],
+        "juanSequence": [
+          4
+        ],
+        "anchors": [
+          "N33n0018.004.0001a01",
+          "N33n0018.004.0273a14"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N34n0018",
+      "slug": "nanchuan-jataka-04",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N34n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N34n0018.xml",
+      "upstreamPath": "N/N34/N34n0018.xml",
+      "upstreamGitBlobSha1": "4e98c9b7e4bd48a6c2647e9663602395d34958c6",
+      "upstreamBytes": 746690,
+      "upstreamSha256": "264475fdbff836c74d9366fda365a2b83b9d3e680bb5222de02478ade71b6dd4",
+      "localBytes": 746691,
+      "localSha256": "d05518954c3ca1df53a8fce9723740f2af8212e41e3ac84fcd3d25a12662df50",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第5卷-第6卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N34",
+        "translator": "悟醒譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N34n0018_001"
+      },
+      "verification": {
+        "segments": 4328,
+        "folios": 341,
+        "juanRange": [
+          5,
+          6
+        ],
+        "juanSequence": [
+          5,
+          6
+        ],
+        "anchors": [
+          "N34n0018.005.0001a01",
+          "N34n0018.006.0344a13"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N35n0018",
+      "slug": "nanchuan-jataka-05",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N35n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N35n0018.xml",
+      "upstreamPath": "N/N35/N35n0018.xml",
+      "upstreamGitBlobSha1": "94d2ca8012c517980d5e79019ee7e7e566970ae7",
+      "upstreamBytes": 600238,
+      "upstreamSha256": "85759660385021ecb435aca522b6c72b154a50326a230b5c8d4120d46e08c4e9",
+      "localBytes": 600239,
+      "localSha256": "1f11cbc682f26d55f147c039b85d8b28f5e296f316f81e71c1c34fe52033e413",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第7卷-第9卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N35",
+        "translator": "悟醒譯",
+        "summary": "3卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N35n0018_001"
+      },
+      "verification": {
+        "segments": 3427,
+        "folios": 263,
+        "juanRange": [
+          7,
+          9
+        ],
+        "juanSequence": [
+          7,
+          8,
+          9
+        ],
+        "anchors": [
+          "N35n0018.007.0001a01",
+          "N35n0018.009.0266a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N36n0018",
+      "slug": "nanchuan-jataka-06",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N36n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N36n0018.xml",
+      "upstreamPath": "N/N36/N36n0018.xml",
+      "upstreamGitBlobSha1": "17b4a856ba83fc35128b23bb55597d8554618536",
+      "upstreamBytes": 649016,
+      "upstreamSha256": "6aa38ea11f28fcc1b3dd6516f40ce701766186299dab216d9972f98e78052b05",
+      "localBytes": 649017,
+      "localSha256": "d369fa7a98f2d9a9e6473c4ad6cc7bc2333a4689c0100ce7d93b77b46b510a78",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第10卷-第13卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N36",
+        "translator": "悟醒譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N36n0018_001"
+      },
+      "verification": {
+        "segments": 3713,
+        "folios": 284,
+        "juanRange": [
+          10,
+          13
+        ],
+        "juanSequence": [
+          10,
+          11,
+          12,
+          13
+        ],
+        "anchors": [
+          "N36n0018.010.0001a01",
+          "N36n0018.013.0285a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N37n0018",
+      "slug": "nanchuan-jataka-07",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N37n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N37n0018.xml",
+      "upstreamPath": "N/N37/N37n0018.xml",
+      "upstreamGitBlobSha1": "4a76aabf3477a853107472e1c55bd36a037719a4",
+      "upstreamBytes": 609948,
+      "upstreamSha256": "fdf1eb6201334dc67bfe55d25c6a76144828d4f4558fbe99b076768be357422f",
+      "localBytes": 609949,
+      "localSha256": "407365b25bda4df175c5f7432d4a58f0ca1a0e98b4e7839d344171aef38c075c",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第14卷-第16卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N37",
+        "translator": "悟醒譯",
+        "summary": "3卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N37n0018_001"
+      },
+      "verification": {
+        "segments": 3485,
+        "folios": 263,
+        "juanRange": [
+          14,
+          16
+        ],
+        "juanSequence": [
+          14,
+          15,
+          16
+        ],
+        "anchors": [
+          "N37n0018.014.0001a01",
+          "N37n0018.016.0267a09"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N38n0018",
+      "slug": "nanchuan-jataka-08",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N38n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N38n0018.xml",
+      "upstreamPath": "N/N38/N38n0018.xml",
+      "upstreamGitBlobSha1": "e4a2ef362a73b38fc2869cd8557e4581368e3d22",
+      "upstreamBytes": 580588,
+      "upstreamSha256": "f6ef666a1de0e23a3e6536880ebad71afd34c7d46ecd78af75d72c6d80d76578",
+      "localBytes": 580589,
+      "localSha256": "a5931f5a1134690ee0554013bc9da2e97f6622b456ce27f26fd8d745c6dab7a5",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第17卷-第18卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N38",
+        "translator": "悟醒譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N38n0018_001"
+      },
+      "verification": {
+        "segments": 3160,
+        "folios": 239,
+        "juanRange": [
+          17,
+          18
+        ],
+        "juanSequence": [
+          17,
+          18
+        ],
+        "anchors": [
+          "N38n0018.017.0001a01",
+          "N38n0018.018.0242a07"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N39n0018",
+      "slug": "nanchuan-jataka-09",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N39n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N39n0018.xml",
+      "upstreamPath": "N/N39/N39n0018.xml",
+      "upstreamGitBlobSha1": "b63cd281a6c23435ed8a8f286c2ff6d7ab5e5ac0",
+      "upstreamBytes": 576145,
+      "upstreamSha256": "fe94983779aaa04c625108ccdb8e1da535e81e46a16d950d4dae819c81a980aa",
+      "localBytes": 576146,
+      "localSha256": "d5767b117ad2640999cb7b12d3d7f872a36fc3dc830d3c1fe8cb35ca3b8d31bc",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第19卷-第22卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N39",
+        "translator": "悟醒譯",
+        "summary": "4卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N39n0018_001"
+      },
+      "verification": {
+        "segments": 3102,
+        "folios": 230,
+        "juanRange": [
+          19,
+          22
+        ],
+        "juanSequence": [
+          19,
+          20,
+          21,
+          22
+        ],
+        "anchors": [
+          "N39n0018.019.0001a01",
+          "N39n0018.022.0236a02"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N40n0018",
+      "slug": "nanchuan-jataka-10",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N40n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N40n0018.xml",
+      "upstreamPath": "N/N40/N40n0018.xml",
+      "upstreamGitBlobSha1": "955e73a900fb81473e4840f68a3a508331d46585",
+      "upstreamBytes": 733992,
+      "upstreamSha256": "b8f3ba3016ca7e9e5dee541f90d3bcfa8a86ed4c997611b88366c2add53e07a4",
+      "localBytes": 733993,
+      "localSha256": "2dd71bcc73f5c14d997dba4045d9bb8be0768ec3403e4c1e3b931b2482ca2ab7",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第23卷-第24卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N40",
+        "translator": "悟醒譯",
+        "summary": "2卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N40n0018_001"
+      },
+      "verification": {
+        "segments": 3834,
+        "folios": 281,
+        "juanRange": [
+          23,
+          24
+        ],
+        "juanSequence": [
+          23,
+          24
+        ],
+        "anchors": [
+          "N40n0018.023.0001a01",
+          "N40n0018.024.0297a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N41n0018",
+      "slug": "nanchuan-jataka-11",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N41n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N41n0018.xml",
+      "upstreamPath": "N/N41/N41n0018.xml",
+      "upstreamGitBlobSha1": "550c2d91a3e5eee3242ee6a94a4a39510afeaa27",
+      "upstreamBytes": 853061,
+      "upstreamSha256": "420e2d03207e094c7d7272710afc160df5eb21bda500ac177582154bb0b8951a",
+      "localBytes": 853062,
+      "localSha256": "3c077aae12d229e767ee6926aaf26018e5f38b42abe61421bd69f24f4f98e7b6",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第25卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N41",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N41n0018_001"
+      },
+      "verification": {
+        "segments": 4166,
+        "folios": 301,
+        "juanRange": [
+          25,
+          25
+        ],
+        "juanSequence": [
+          25
+        ],
+        "anchors": [
+          "N41n0018.025.0001a01",
+          "N41n0018.025.0322a04"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N42n0018",
+      "slug": "nanchuan-jataka-12",
+      "workId": "gbcr:work:nanchuan-jataka",
+      "workTitle": "本生經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-jataka-yuanheng-chinese",
+          "label": "元亨寺漢譯《本生經》與巴利根本文本家族",
+          "evidence": "小部本生集；與站內巴利 Jātaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        },
+        {
+          "type": "same_work_volume_expression_group_verified",
+          "groupId": "nanchuan-jataka-yuanheng-volumes",
+          "label": "《本生經》元亨寺分冊表達組",
+          "evidence": "12 份固定記錄共享南傳經號 N0018，按卷冊分文件保存，不拆成新作品。",
+          "externalIds": {
+            "cbeta": [
+              "N31n0018",
+              "N32n0018",
+              "N33n0018",
+              "N34n0018",
+              "N35n0018",
+              "N36n0018",
+              "N37n0018",
+              "N38n0018",
+              "N39n0018",
+              "N40n0018",
+              "N41n0018",
+              "N42n0018"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N42n0018",
+        "nanchuanNumber": "N0018"
+      },
+      "localPath": "data/corpus/cbeta/N42n0018.xml",
+      "upstreamPath": "N/N42/N42n0018.xml",
+      "upstreamGitBlobSha1": "637d8d18d92d02b6961e2a341bd742602dbe45ab",
+      "upstreamBytes": 860341,
+      "upstreamSha256": "d131e560e750cec565c9f19a95607c9371afc7df16d859d7d5217f564e91ef59",
+      "localBytes": 860342,
+      "localSha256": "5b681cc967ebf34b0b893403eacda8387fe93d1904d9d52743b599c3aebf5407",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "本生經(第26卷)",
+        "alternateTitle": "Jātaka · 本生經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0018 · N42",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N42n0018_001"
+      },
+      "verification": {
+        "segments": 4735,
+        "folios": 339,
+        "juanRange": [
+          26,
+          26
+        ],
+        "juanSequence": [
+          26
+        ],
+        "anchors": [
+          "N42n0018.026.0001a01",
+          "N42n0018.026.0339a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N44n0020",
+      "slug": "nanchuan-buddhavamsa",
+      "workId": "gbcr:work:nanchuan-buddhavamsa",
+      "workTitle": "佛種姓經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-buddhavamsa-yuanheng-chinese",
+          "label": "元亨寺漢譯《佛種姓經》與巴利根本文本家族",
+          "evidence": "小部佛種姓；與站內巴利 Buddhavaṃsa 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N44n0020"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N44n0020",
+        "nanchuanNumber": "N0020"
+      },
+      "localPath": "data/corpus/cbeta/N44n0020.xml",
+      "upstreamPath": "N/N44/N44n0020.xml",
+      "upstreamGitBlobSha1": "0ff1202bb10dcb775db85e52cb79d17cbd3d195a",
+      "upstreamBytes": 276612,
+      "upstreamSha256": "3a9c18e342a5f1bac0591cd152b32222f0602f095dde4ea983486cb89f7c3f05",
+      "localBytes": 276613,
+      "localSha256": "7b5e15407dd1c502076d635e17f3f2b2d911adce351a83ea61c1fb74c0fc5b1e",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛種姓經",
+        "alternateTitle": "Buddhavaṃsa · 佛種姓經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0020 · N44",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N44n0020_001"
+      },
+      "verification": {
+        "segments": 1381,
+        "folios": 102,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N44n0020.001.0164a02",
+          "N44n0020.001.0265a08"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "N44n0021",
+      "slug": "nanchuan-cariyapitaka",
+      "workId": "gbcr:work:nanchuan-cariyapitaka",
+      "workTitle": "所行藏經",
+      "sourceRole": "translated_mixed_khuddaka_expression",
+      "canonicalStatus": "mixed_khuddaka_chinese_translation_not_automatic_buddha_word",
+      "buddhaWordStatus": "mixed_collection_translation_scope_policy_required",
+      "bibliographicRelations": [
+        {
+          "type": "cross_language_mixed_khuddaka_recension_distinct",
+          "groupId": "nanchuan-cariyapitaka-yuanheng-chinese",
+          "label": "元亨寺漢譯《所行藏經》與巴利根本文本家族",
+          "evidence": "小部所行藏；與站內巴利 Cariyāpiṭaka 對應，不自動計入嚴格佛說經分母。",
+          "externalIds": {
+            "cbeta": [
+              "N44n0021"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "N44n0021",
+        "nanchuanNumber": "N0021"
+      },
+      "localPath": "data/corpus/cbeta/N44n0021.xml",
+      "upstreamPath": "N/N44/N44n0021.xml",
+      "upstreamGitBlobSha1": "0701b2176119e897478fd7df4569928477f6f6d3",
+      "upstreamBytes": 112336,
+      "upstreamSha256": "fa564368f54e1aeb5e16f194e571f3d9ef03ba8b4ccfcbd9aaba3856d92dd0fc",
+      "localBytes": 112337,
+      "localSha256": "14fb9e1c7482a8cb70b2ee239a150d917dbc8bf9362fc95edf54ad29d5ddee9f",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "所行藏經",
+        "alternateTitle": "Cariyāpiṭaka · 所行藏經",
+        "tradition": "漢譯南傳 · 小部",
+        "language": "漢文",
+        "canonRef": "漢譯南傳大藏經（元亨寺版） N0021 · N44",
+        "translator": "悟醒譯",
+        "summary": "1卷。完整保存固定 CBETA TEI 與元亨寺漢譯；這是巴利經藏的漢譯表達，不是新的巴利作品，也不把譯文等同佛陀逐字親說。傳統責任題記：悟醒譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/N44n0021_001"
+      },
+      "verification": {
+        "segments": 446,
+        "folios": 37,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "N44n0021.001.0266a01",
+          "N44n0021.001.0305a12"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

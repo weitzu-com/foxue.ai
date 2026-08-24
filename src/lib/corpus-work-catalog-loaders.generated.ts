@@ -171,6 +171,14 @@ export async function loadWorkCatalogShardWorks(id: number): Promise<Record<stri
       return ((await import("@/data/corpus-work-catalog-chunks/83.json")).default).works;
     case 84:
       return ((await import("@/data/corpus-work-catalog-chunks/84.json")).default).works;
+    case 85:
+      return ((await import("@/data/corpus-work-catalog-chunks/85.json")).default).works;
+    case 86:
+      return ((await import("@/data/corpus-work-catalog-chunks/86.json")).default).works;
+    case 87:
+      return ((await import("@/data/corpus-work-catalog-chunks/87.json")).default).works;
+    case 88:
+      return ((await import("@/data/corpus-work-catalog-chunks/88.json")).default).works;
     default:
       return null;
   }

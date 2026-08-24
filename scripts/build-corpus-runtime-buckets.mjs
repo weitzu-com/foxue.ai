@@ -14,7 +14,10 @@ const manifestFamilies = [
   {
     prefix: "cb",
     name: "cbeta",
-    manifests: ["data/corpus/cbeta/manifest-v4.23.0.json"],
+    manifests: [
+      "data/corpus/cbeta/manifest-v4.23.0.json",
+      "data/corpus/cbeta/nanchuan-manifest-v1.0.0.json",
+    ],
   },
   {
     prefix: "sc",
