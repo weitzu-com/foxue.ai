@@ -66,7 +66,11 @@ function normalizeUrl(value) {
 
 async function loadMergedSitemap() {
   const { body: indexBody } = await get("/sitemap-index.xml");
-  const childPaths = [...indexBody.matchAll(/<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml)<\/loc>/g)]
+  const childPaths = [
+    ...indexBody.matchAll(
+      /<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
+    ),
+  ]
     .map((match) => match[1]);
   check(childPaths.length > 0, "sitemap index 可枚举子分片", "sitemap index 未声明子分片");
 
