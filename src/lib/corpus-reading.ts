@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { open, readFile } from "node:fs/promises";
 import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v4.23.0.json";
 import nanchuanManifest from "../../data/corpus/cbeta/nanchuan-manifest-v1.0.0.json";
@@ -16,13 +16,23 @@ import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-ma
 import lzhRootManifest from "../../data/corpus/suttacentral/lzh-manifest-v1.6.0.json";
 import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
+import type { SegmentFolioRange } from "@/lib/reader-routes";
+import {
+  parseBilaraCollectionSources as parseBilaraCollectionFolio,
+  parseBilaraDhammapadaSources as parseBilaraDhammapadaFolio,
+} from "@/lib/bilara-reading-folio.mjs";
 import {
   parseBilaraDhammapadaSources,
   parseBilaraCollectionSources,
   parseBilaraSeriesSources,
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
+import { parseCbetaFolioSlice } from "@/lib/cbeta-tei-folio.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
+import { getSutraCatalogView } from "@/lib/corpus-folio-index";
+import { getFolioLocator, workUsesFolioLocator } from "@/lib/corpus-folio-locator";
+import { folioLocatorMaxSliceBytes } from "@/lib/corpus-folio-locator-paths.mjs";
+import { parseDergeFolioSlice } from "@/lib/derge-reading-folio.mjs";
 import { parseDergeSources } from "@/lib/derge-reading.mjs";
 
 type CorpusSourcePart = {
@@ -150,6 +160,8 @@ export type SutraReading = {
   segmentCount: number;
   segments: SutraSegment[];
   navigation: ReaderNavigationItem[];
+  segmentFolios?: Record<string, string>;
+  segmentFolioRanges?: Record<string, SegmentFolioRange[]>;
 };
 
 type CorpusReleasePointer = {
@@ -337,6 +349,9 @@ const loadEdgeFolio = cache(async (
 });
 
 const loadCompleteReading = cache(async (slug: string) => {
+  if (workUsesFolioLocator(slug)) {
+    throw new Error(`${slug} 是肥胖母版，禁止在请求时整本解析`);
+  }
   const asset = completeAssets[slug];
   if (!asset) return null;
   const sourceParts = await Promise.all(asset.sources.map((source) => readControlledCorpusAsset(source.localPath)));
@@ -402,6 +417,87 @@ async function readControlledCorpusAsset(localPath: string) {
   }
 }
 
+async function readControlledCorpusAssetRange(localPath: string, start: number, end: number) {
+  const assetPath = registeredCorpusAssetPaths.get(localPath);
+  if (!assetPath) throw new Error(`拒绝读取未登记的语料路径：${localPath}`);
+  if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || end <= start) {
+    throw new Error(`拒绝读取无效的语料切片：${localPath}`);
+  }
+  const length = end - start;
+  if (length > folioLocatorMaxSliceBytes) {
+    throw new Error(`${localPath} 版页切片超过 ${folioLocatorMaxSliceBytes} 字节`);
+  }
+  try {
+    const handle = await open(assetPath, "r");
+    try {
+      const bytes = Buffer.alloc(length);
+      const { bytesRead } = await handle.read(bytes, 0, length, start);
+      return bytes.subarray(0, bytesRead).toString("utf8");
+    } finally {
+      await handle.close();
+    }
+  } catch (error) {
+    if (isNodeErrnoException(error) && error.code === "ENOENT") {
+      throw new CorpusAssetMissingError(assetPath);
+    }
+    throw error;
+  }
+}
+
+function remapFolioJuan(segments: SutraSegment[], item: ReaderNavigationItem) {
+  return segments
+    .filter((segment) => segment.page === (item.sourcePage ?? item.label))
+    .map((segment) => ({
+      ...segment,
+      juan: item.juan ?? segment.juan,
+    }));
+}
+
+async function loadLocatedFolioSegments(slug: string, item: ReaderNavigationItem) {
+  const locator = await getFolioLocator(slug, item.key);
+  if (!locator) return null;
+  const asset = completeAssets[slug];
+  if (!asset) return null;
+
+  if (locator.parser === "cbeta_tei") {
+    const xml = await readControlledCorpusAssetRange(locator.partPath, locator.start, locator.end);
+    return parseCbetaFolioSlice(xml, { canonId: locator.canonId, juan: item.juan ?? "001" })
+      .filter((segment: { page: string }) => segment.page === (item.sourcePage ?? item.label));
+  }
+
+  if (locator.parser === "derge_plain_text") {
+    const source = asset.sources.find((candidate) => candidate.localPath === locator.partPath);
+    if (!source) throw new Error(`${slug} 定位分片不在受控来源中：${locator.partPath}`);
+    const text = await readControlledCorpusAssetRange(locator.partPath, locator.start, locator.end);
+    return parseDergeFolioSlice({
+      ...source,
+      filename: locator.partPath.split("/").at(-1),
+      text,
+      initialPage: item.sourcePage ?? item.label,
+      initialLine: source.initialLine ?? "1",
+    }, { canonId: locator.canonId, juan: item.juan, sourcePage: item.sourcePage ?? item.label });
+  }
+
+  const text = locator.wholePart
+    ? await readControlledCorpusAsset(locator.partPath)
+    : await readControlledCorpusAssetRange(locator.partPath, locator.start, locator.end);
+  const filename = locator.partPath.split("/").at(-1);
+  const source = { filename, localPath: locator.partPath, text };
+  let reading;
+  if (locator.parser === "bilara_root_json") {
+    reading = parseBilaraDhammapadaFolio([source]);
+  } else if (locator.parser === "bilara_single_root_json") {
+    reading = parseBilaraSuttaSource(source);
+  } else if (locator.parser === "bilara_collection_root_json") {
+    reading = parseBilaraCollectionFolio([source]);
+  } else if (locator.parser === "bilara_series_root_json") {
+    reading = parseBilaraSeriesSources([source], locator.parserOptions);
+  } else {
+    throw new Error(`${slug} 不支持的定位解析器：${locator.parser}`);
+  }
+  return remapFolioJuan(reading.segments, item);
+}
+
 export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
   const asset = completeAssets[sutra.slug];
   if (!asset) {
@@ -431,25 +527,18 @@ export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
     };
   }
 
-  const completeReading = await loadCompleteReading(sutra.slug);
-  if (!completeReading) throw new Error(`${sutra.slug} 缺少完整原文读取配置`);
-  const sampleMetadata = new Map(sutra.segments.map((segment) => [segment.id, segment]));
-  const segments = completeReading.segments.map((line) => {
-    const sample = sampleMetadata.get(line.id);
-    return {
-      ...line,
-      note: sample?.note,
-      legacyIds: sample?.legacyIds,
-    };
-  });
+  const catalog = await getSutraCatalogView(sutra.slug);
+  if (!catalog) throw new Error(`${sutra.slug} 缺少完整原文读取配置`);
 
   return {
     complete: true,
     source: "local",
     canonId: asset.canonId,
-    segmentCount: segments.length,
-    segments,
-    navigation: completeReading.navigation,
+    segmentCount: catalog.segmentCount,
+    segments: sutra.segments,
+    navigation: catalog.navigation,
+    segmentFolios: catalog.segmentFolios,
+    segmentFolioRanges: catalog.segmentFolioRanges,
   };
 }
 
@@ -480,9 +569,12 @@ export async function getSutraFolio(
     let sourceSegments = remote?.segments;
     if (!sourceSegments?.length) {
       try {
-        sourceSegments = (await loadCompleteReading(sutra.slug))?.segments.filter(
-          (segment) => segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label),
-        );
+        sourceSegments = await loadLocatedFolioSegments(sutra.slug, item) ?? undefined;
+        if (!sourceSegments?.length && !workUsesFolioLocator(sutra.slug)) {
+          sourceSegments = (await loadCompleteReading(sutra.slug))?.segments.filter(
+            (segment) => segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label),
+          );
+        }
       } catch (error) {
         if (error instanceof CorpusAssetMissingError) return undefined;
         throw error;
@@ -495,8 +587,27 @@ export async function getSutraFolio(
       legacyIds: sampleMetadata.get(segment.id)?.legacyIds,
     }));
   } else if (reading.complete) {
-    segments = reading.segments.filter((segment) =>
-      segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label));
+    try {
+      const located = await loadLocatedFolioSegments(sutra.slug, item);
+      if (located?.length) {
+        segments = located;
+      } else if (!workUsesFolioLocator(sutra.slug)) {
+        segments = (await loadCompleteReading(sutra.slug))?.segments.filter((segment) =>
+          segment.juan === item.juan && segment.page === (item.sourcePage ?? item.label)) ?? [];
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      if (error instanceof CorpusAssetMissingError) return undefined;
+      throw error;
+    }
+    if (!segments.length) return undefined;
+    const sampleMetadata = new Map(sutra.segments.map((segment) => [segment.id, segment]));
+    segments = segments.map((segment) => ({
+      ...segment,
+      note: sampleMetadata.get(segment.id)?.note,
+      legacyIds: sampleMetadata.get(segment.id)?.legacyIds,
+    }));
   } else {
     segments = [reading.segments[index]].filter(
       (segment): segment is SutraSegment => Boolean(segment),

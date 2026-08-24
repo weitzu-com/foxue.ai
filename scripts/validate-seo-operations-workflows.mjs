@@ -101,6 +101,9 @@ if (!/verify:corpus-sitemap-ledger/.test(JSON.stringify(packageJson.scripts))) {
 if (!/verify:corpus-work-catalog/.test(JSON.stringify(packageJson.scripts))) {
   failures.push("必须提供经目账本校验脚本");
 }
+if (!/verify:corpus-folio-locator/.test(JSON.stringify(packageJson.scripts))) {
+  failures.push("必须提供版页定位账本校验脚本");
+}
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);

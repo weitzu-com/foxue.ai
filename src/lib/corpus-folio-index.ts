@@ -1,3 +1,4 @@
+import { cache } from "react";
 import workLedgerDocument from "@/data/corpus-work-ledger.generated.json";
 import { loadWorkCatalogShardWorks } from "@/lib/corpus-work-catalog-loaders.generated";
 import type { SegmentFolioRange } from "@/lib/reader-routes";
@@ -46,12 +47,12 @@ function asCatalogView(value: unknown): SutraCatalogView | null {
   };
 }
 
-export async function getSutraCatalogView(slug: string): Promise<SutraCatalogView | null> {
+export const getSutraCatalogView = cache(async (slug: string): Promise<SutraCatalogView | null> => {
   const shardId = ledger.slugToShard[slug];
   if (!Number.isSafeInteger(shardId)) return null;
   const works = await loadWorkCatalogShardWorks(shardId);
   return asCatalogView(works?.[slug]);
-}
+});
 
 export async function listCatalogFolioKeys(slug: string): Promise<string[]> {
   return (await getSutraCatalogView(slug))?.navigation.map((item) => item.key) ?? [];

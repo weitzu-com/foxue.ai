@@ -176,6 +176,8 @@ function urlsForChangedFile(file) {
     file.startsWith("src/data/corpus-sitemap-") ||
     file.startsWith("src/lib/sitemap-") ||
     file.startsWith("src/lib/corpus-work-catalog") ||
+    file.startsWith("src/data/corpus-folio-locator") ||
+    file.startsWith("src/lib/corpus-folio-locator") ||
     file === "src/proxy.ts" ||
     file === "next.config.ts" ||
     file === "src/data/sutras.ts" ||
