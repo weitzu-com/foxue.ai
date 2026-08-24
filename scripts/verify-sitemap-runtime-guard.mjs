@@ -14,6 +14,7 @@ import {
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
 import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
 import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
+import { corpusAdvertisedFolioPaths } from "./corpus-advertised-folios.mjs";
 
 const root = process.cwd();
 const failures = [];
@@ -75,7 +76,7 @@ const [
   readFile(resolve(root, "src/data/corpus-work-ledger.generated.json"), "utf8").then(JSON.parse),
 ]);
 
-requireNoImport(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", [fatIndexPattern, /sitemap-data/, /sitemap-chunk-loaders/]);
+requireNoImport(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", [fatIndexPattern, /sitemap-data/, /sitemap-chunk-loaders/, /corpus-advertised-folios/]);
 requireNoImport(sitemapMetadata, "src/app/sitemap.ts", [/corpus-folio-index/, /corpus-reading/, /getSutraReading/, /getSitemapEntries/]);
 requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-index/, /corpus-reading/, /getSutraReading/, /getSitemapEntries/]);
 requireNoImport(sitemapLedgerModule, "src/lib/sitemap-ledger.ts", [fatIndexPattern, /sitemap-chunk-loaders/, /sitemap-data/]);
@@ -105,8 +106,10 @@ requirePattern(
 );
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/, /corpus-folio-existence/]);
 requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/, /corpus-folio-existence/]);
-requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-existence/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-existence/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-existence/, /corpus-advertised-folios/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-existence/, /corpus-advertised-folios/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-advertised-folios/]);
+requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-advertised-folios/]);
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /export const dynamic = "force-static"/, "必须 force-static");
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /await getSutraCatalogView/, "必须按 slug 异步读取一个经目分片");
 requirePattern(
@@ -199,6 +202,9 @@ if (!advertised.has("")) fail("sitemap 缺少站点根路径");
 
 for (const smoke of corpusRuntimeSmokeRoutes) {
   if (!advertised.has(smoke.path)) fail(`抽样版页未进入 sitemap：${smoke.path}`);
+}
+for (const path of corpusAdvertisedFolioPaths) {
+  if (!advertised.has(path)) fail(`广告预渲染版页未进入 sitemap：${path}`);
 }
 
 const slugToBucket = routing.slugToBucket;
