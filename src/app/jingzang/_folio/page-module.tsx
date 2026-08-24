@@ -363,12 +363,18 @@ export default async function SutraFolioPage({ params }: PageProps) {
           totalSegmentCount={reading.segmentCount}
           corpusScopeLabel={corpusScopeLabel}
           readingStatusLabel={readingStatusLabel}
+          scopeNote={partialWitness
+            ? "来源文件完整保存，但正文只作为局部、节译、后分、短本或残篇见证，不冒充完整母作品或完整译本。"
+            : undefined}
           bibliographicNote={sutra.bibliographicNote}
           attributionNote={sutra.attributionNote}
           parallelEvidence={getParallelEvidence(sutra.slug) ? <ParallelEvidencePanel slug={sutra.slug} /> : undefined}
           directory={{
             indexHref: `/jingzang/${sutra.slug}`,
             indexLabel: `返回文本目录：《${sutra.alternateTitle}》`,
+            summaryLabel: juanNavigation.length > 1
+              ? `${groupUnit}目录 · ${juanNavigation.length} ${groupUnit}`
+              : undefined,
             title: chaptered
               ? "分品目录"
               : bilara
