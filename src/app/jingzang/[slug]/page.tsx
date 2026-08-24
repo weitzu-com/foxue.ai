@@ -22,7 +22,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
-  const catalog = getSutraCatalogView(sutra.slug);
+  const catalog = await getSutraCatalogView(sutra.slug);
   if (!catalog) notFound();
   const reading = {
     navigation: catalog.navigation,

@@ -98,6 +98,9 @@ if (!/verify:sitemap-runtime-guard/.test(JSON.stringify(packageJson.scripts))) {
 if (!/verify:corpus-sitemap-ledger/.test(JSON.stringify(packageJson.scripts))) {
   failures.push("必须提供 sitemap 账本校验脚本");
 }
+if (!/verify:corpus-work-catalog/.test(JSON.stringify(packageJson.scripts))) {
+  failures.push("必须提供经目账本校验脚本");
+}
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);

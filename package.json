@@ -308,6 +308,8 @@
     "verify:corpus-folio-index": "node scripts/build-corpus-folio-index.mjs",
     "build:corpus-sitemap-ledger": "node scripts/build-corpus-sitemap-ledger.mjs --write",
     "verify:corpus-sitemap-ledger": "node scripts/build-corpus-sitemap-ledger.mjs",
+    "build:corpus-work-catalog": "node scripts/build-corpus-work-catalog.mjs --write",
+    "verify:corpus-work-catalog": "node scripts/build-corpus-work-catalog.mjs",
     "verify:corpus-folio-runtime-guard": "node scripts/verify-corpus-folio-runtime-guard.mjs",
     "verify:sitemap-runtime-guard": "node scripts/verify-sitemap-runtime-guard.mjs",
     "verify:corpus-runtime-traces": "node scripts/verify-corpus-runtime-traces.mjs",
@@ -325,7 +327,7 @@
     "verify:seo:local-production": "node scripts/run-local-seo-smoke.mjs",
     "verify:seo:library-metadata": "node scripts/verify-library-metadata-guards.mjs",
     "verify:seo-ops-workflows": "node scripts/validate-seo-operations-workflows.mjs",
-    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-nanchuan-catalog && pnpm verify:buddha-word-scope:v1.3 && pnpm verify:gbcr:v6.19 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm verify:corpus-runtime-buckets && pnpm verify:corpus-folio-index && pnpm verify:corpus-folio-runtime-guard && pnpm verify:corpus-sitemap-ledger && pnpm verify:sitemap-runtime-guard && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm verify:seo-ops-workflows && pnpm lint && pnpm typecheck && pnpm build"
+    "verify": "pnpm verify:bdrc-derge && pnpm verify:derge && pnpm verify:sanskrit && pnpm verify:gretil-rights && pnpm verify:suttacentral:indic && pnpm verify:suttacentral:vinaya && pnpm verify:suttacentral:abhidhamma && pnpm verify:suttacentral:lzh && pnpm verify:rkts && pnpm verify:cbeta-catalog && pnpm verify:corpus-catalog && pnpm verify:parallel-reader-index && pnpm verify:corpus && pnpm verify:gbcr:v6.15 && pnpm verify:gbcr:v6.16 && pnpm verify:buddha-word-scope && pnpm verify:gbcr:v6.17 && pnpm verify:global-review-intake && pnpm verify:global-denominator-governance && pnpm verify:gbcr:v6.18 && pnpm verify:cbeta-nanchuan-catalog && pnpm verify:buddha-word-scope:v1.3 && pnpm verify:gbcr:v6.19 && pnpm verify:cbeta-pilot && pnpm build:corpus-release && pnpm verify:corpus-release && pnpm verify:corpus-runtime-buckets && pnpm verify:corpus-folio-index && pnpm verify:corpus-folio-runtime-guard && pnpm verify:corpus-sitemap-ledger && pnpm verify:corpus-work-catalog && pnpm verify:sitemap-runtime-guard && pnpm cloudflare:types:check && pnpm cloudflare:check && pnpm cloudflare:bootstrap:check && pnpm verify:seo-ops-workflows && pnpm lint && pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "lucide-react": "1.31.0",

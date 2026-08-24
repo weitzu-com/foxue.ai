@@ -51,7 +51,7 @@ if (!/export const dynamic = "force-static"/.test(sitemapIndexRoute)) {
 }
 requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReading/, /getSitemapEntries/, /corpus-folio-index/]);
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
-requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/, /corpus-folio-index\.generated/]);
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);
 
 if (!proxySource.includes("rewriteCatalogFolioPath")) {
