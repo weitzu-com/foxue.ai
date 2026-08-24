@@ -40,6 +40,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const derge = sutra.readerMode === "derge-folio";
+  const sat = sutra.readerMode === "sat-folio";
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
   const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
@@ -53,7 +54,9 @@ export default async function SutraIndexPage({ params }: PageProps) {
         ? "sa-Latn"
         : sutra.language.includes("俗语")
           ? "pra-Latn"
-          : "pi-Latn";
+          : sutra.language.includes("日")
+            ? "ja"
+            : "pi-Latn";
   const pageJsonLdBase = buildPageJsonLd({
     path: `/jingzang/${sutra.slug}`,
     title: sutra.title,
@@ -106,7 +109,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
           <p className="eyebrow">文本目录 · READING EDITION</p>
-          <h2>{chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
+          <h2>{chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : sat ? <>按章次，<br />展开一部现代日译。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
           <p>
             {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
@@ -114,6 +117,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
                 ? `${partialWitness ? "已发布的局部见证" : "文本"}按原生段落次序确定性分页，每页最多 120 段。Bilara 标识原样保留，未加入未经审核的译文或跨本对齐。`
                 : derge
                   ? "每页只加载一个德格木刻版页；藏文 NFD 原样保存，稳定行号同时编码德格目录号、函号、版页、行号与重复序号。"
+                  : sat
+                    ? "每页只加载 SAT 现代日译的一章。CC BY 4.0，署名 SAT大蔵経テキストデータベース研究会与具名译者。日译挂接已持有汉文佛说，不另建作品。"
                 : `每页只加载一个${folioCollectionLabel(sutra)}版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。`}
           </p>
           <dl className="reader-index-stats">

@@ -4,6 +4,7 @@ import { cache } from "react";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v4.23.0.json";
 import nanchuanManifest from "../../data/corpus/cbeta/nanchuan-manifest-v1.0.0.json";
 import beyondTaishoSutraManifest from "../../data/corpus/cbeta/beyond-taisho-sutra-manifest-v1.0.0.json";
+import satModernJapaneseManifest from "../../data/corpus/sat/modern-japanese-manifest-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -28,6 +29,8 @@ import {
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
 import { parseCbetaFolioSlice } from "@/lib/cbeta-tei-folio.mjs";
+import { parseSatFolioSlice } from "@/lib/sat-tei-folio.mjs";
+import { parseSatReadingLines } from "@/lib/sat-tei.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 import { getSutraCatalogView } from "@/lib/corpus-folio-index";
 import { getFolioLocator, workUsesFolioLocator } from "@/lib/corpus-folio-locator";
@@ -45,13 +48,13 @@ type CorpusSourcePart = {
 type CorpusManifestFile = {
   id: string;
   slug: string;
-  parser?: "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
+  parser?: "cbeta_tei" | "sat_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
   localPath?: string;
   sourceParts?: CorpusSourcePart[];
   parserOptions?: BilaraSeriesParserOptions;
 };
 
-type CorpusParser = "cbeta_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
+type CorpusParser = "cbeta_tei" | "sat_tei" | "bilara_root_json" | "bilara_single_root_json" | "bilara_collection_root_json" | "bilara_series_root_json" | "derge_plain_text";
 type BilaraSeriesParserOptions = {
   maxSegments?: number;
   collectionTitle?: string;
@@ -65,6 +68,7 @@ const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: str
     ...(corpusManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(nanchuanManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
     ...(beyondTaishoSutraManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: "cbeta_tei" as const })),
+    ...(satModernJapaneseManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: (file.parser ?? "sat_tei") as CorpusParser })),
     ...(suttacentralManifest.files as CorpusManifestFile[]),
     ...(dighaNikayaManifest.files as CorpusManifestFile[]),
     ...(majjhimaNikayaManifest.files as CorpusManifestFile[]),
@@ -386,6 +390,10 @@ const loadCompleteReading = cache(async (slug: string) => {
       text,
     })), { canonId: asset.canonId });
   }
+  if (asset.parser === "sat_tei") {
+    const segments = sourceParts.flatMap((xml) => parseSatReadingLines(xml, { canonId: asset.canonId }));
+    return { segments, navigation: buildPageNavigation(segments) };
+  }
   const segments = sourceParts.flatMap((xml) => parseCbetaReadingLines(xml, { canonId: asset.canonId }));
   return { segments, navigation: buildPageNavigation(segments) };
 });
@@ -463,6 +471,11 @@ async function loadLocatedFolioSegments(slug: string, item: ReaderNavigationItem
     const xml = await readControlledCorpusAssetRange(locator.partPath, locator.start, locator.end);
     return parseCbetaFolioSlice(xml, { canonId: locator.canonId, juan: item.juan ?? "001" })
       .filter((segment: { page: string }) => segment.page === (item.sourcePage ?? item.label));
+  }
+
+  if (locator.parser === "sat_tei") {
+    const xml = await readControlledCorpusAssetRange(locator.partPath, locator.start, locator.end);
+    return parseSatFolioSlice(xml, { canonId: locator.canonId, page: item.sourcePage ?? item.label });
   }
 
   if (locator.parser === "derge_plain_text") {

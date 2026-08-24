@@ -7,6 +7,7 @@ import {
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
+import { parseSatReadingLines } from "../src/lib/sat-tei.mjs";
 import { parseDergeSources } from "../src/lib/derge-reading.mjs";
 
 function buildSegmentFolioMap(segments) {
@@ -64,6 +65,11 @@ const manifestFamilies = [
       "data/corpus/cbeta/beyond-taisho-sutra-manifest-v1.0.0.json",
     ],
     defaultParser: "cbeta_tei",
+  },
+  {
+    name: "sat",
+    manifests: ["data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
+    defaultParser: "sat_tei",
   },
   {
     name: "suttacentral",
@@ -134,6 +140,12 @@ async function parseExpression(file, defaultParser) {
   }
   if (parser === "derge_plain_text") {
     return parseDergeSources(sourceContents, { canonId: file.id });
+  }
+  if (parser === "sat_tei") {
+    const segments = sourceContents.flatMap((source) =>
+      parseSatReadingLines(source.text, { canonId: file.id }),
+    );
+    return { segments, navigation: buildPageNavigation(segments) };
   }
   const segments = sourceContents.flatMap((source) =>
     parseCbetaReadingLines(source.text, { canonId: file.id }),

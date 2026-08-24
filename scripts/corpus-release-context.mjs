@@ -8,6 +8,7 @@ export async function loadCorpusReleaseContext(root) {
     ["cbeta_xml_p5", "data/corpus/cbeta/manifest-v4.23.0.json"],
     ["cbeta_xml_p5_nanchuan_sutta", "data/corpus/cbeta/nanchuan-manifest-v1.0.0.json"],
     ["cbeta_xml_p5_beyond_taisho_sutra", "data/corpus/cbeta/beyond-taisho-sutra-manifest-v1.0.0.json"],
+    ["sat_modern_japanese", "data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
     ["suttacentral_bilara_dhammapada", "data/corpus/suttacentral/manifest-v0.7.0.json"],
     ["suttacentral_bilara_digha_nikaya", "data/corpus/suttacentral/dn-manifest-v0.8.0.json"],
     ["suttacentral_bilara_majjhima_nikaya", "data/corpus/suttacentral/mn-manifest-v0.9.0.json"],
@@ -29,6 +30,7 @@ export async function loadCorpusReleaseContext(root) {
     ["release-context", await readFile(fileURLToPath(import.meta.url))],
     ["release-builder", await readFile(resolve(root, "scripts/build-corpus-release.mjs"))],
     ["tei-parser", await readFile(resolve(root, "src/lib/cbeta-tei.mjs"))],
+    ["sat-tei-parser", await readFile(resolve(root, "src/lib/sat-tei.mjs"))],
     ["bilara-parser", await readFile(resolve(root, "src/lib/bilara-reading.mjs"))],
     ["derge-parser", await readFile(resolve(root, "src/lib/derge-reading.mjs"))],
   ];
@@ -47,7 +49,7 @@ export async function loadCorpusReleaseContext(root) {
   };
   const releaseId = [
     "gbcr",
-    "6.20.0",
+    "6.21.0",
     commitPrefix("cbeta_xml_p5"),
     commitPrefix("suttacentral_bilara_dhammapada"),
     commitPrefix("esukhia_derge_kangyur"),
