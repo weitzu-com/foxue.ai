@@ -75,7 +75,9 @@ function stripTrailingSlash(value) {
 
 async function loadMergedSitemap() {
   const { body: indexBody } = await get("/sitemap-index.xml");
-  const childSitemapPaths = [...indexBody.matchAll(/<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml)<\/loc>/g)]
+  const childSitemapPaths = [...indexBody.matchAll(
+    /<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
+  )]
     .map((match) => match[1]);
   check(childSitemapPaths.length > 0, "sitemap index 已声明子分片", "sitemap index 未声明子分片");
 
