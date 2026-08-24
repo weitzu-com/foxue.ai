@@ -15,8 +15,13 @@ function escapeXml(value: string) {
 
 export async function GET() {
   const sitemapIds = getSitemapIds();
-  const sitemaps = sitemapIds
-    .map(({ id }) => `<sitemap><loc>${escapeXml(`${siteOrigin}/sitemap/${id}.xml`)}</loc></sitemap>`)
+  const sitemapUrls = [
+    `${siteOrigin}/sitemap-hubs.xml`,
+    `${siteOrigin}/sitemap-works.xml`,
+    ...sitemapIds.map(({ id }) => `${siteOrigin}/sitemap/${id}.xml`),
+  ];
+  const sitemaps = sitemapUrls
+    .map((url) => `<sitemap><loc>${escapeXml(url)}</loc></sitemap>`)
     .join("\n");
 
   return new Response(
