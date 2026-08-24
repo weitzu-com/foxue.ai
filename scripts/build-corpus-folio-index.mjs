@@ -72,6 +72,11 @@ const manifestFamilies = [
     defaultParser: "sat_tei",
   },
   {
+    name: "wikisource",
+    manifests: ["data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json"],
+    defaultParser: "sat_tei",
+  },
+  {
     name: "suttacentral",
     manifests: [
       "data/corpus/suttacentral/manifest-v0.7.0.json",

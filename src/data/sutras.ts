@@ -2,6 +2,7 @@ import catalog from "../../data/corpus/cbeta/catalog-v4.23.0.json";
 import nanchuanCatalog from "../../data/corpus/cbeta/nanchuan-catalog-v1.0.0.json";
 import beyondTaishoSutraCatalog from "../../data/corpus/cbeta/beyond-taisho-sutra-catalog-v1.0.0.json";
 import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-catalog-v1.0.0.json";
+import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -39,8 +40,8 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "完整原文 · 现代日译" | "目录样本";
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "完整原文 · 现代日译" | "完整原文 · 文语国译" | "目录样本";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio";
   segments: SutraSegment[];
 };
 
@@ -57,6 +58,7 @@ export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
   if (sutra.slug.startsWith("zhaochen-") || /趙城|赵城/.test(sutra.canonRef)) return "趙城金藏";
   if (sutra.slug.startsWith("fangshan-") || /房山/.test(sutra.canonRef)) return "房山石經";
   if (sutra.slug.startsWith("sat-ja-") || /SAT現代日本語訳|SAT 現代日本語訳/.test(sutra.canonRef)) return "SAT日譯";
+  if (sutra.slug.startsWith("wikisource-ja-") || /國譯法句經|国译法句经/.test(sutra.canonRef)) return "國譯";
   return "大正藏";
 }
 
@@ -377,10 +379,13 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "modern_japanese_translation_expression") {
     return "SAT 现代日译；挂接已持有汉文佛说作品，不另建作品，也不把现代译文等同佛陀逐字亲说。署名 SAT大蔵経テキストデータベース研究会与具名译者，许可 CC BY 4.0。";
   }
+  if (file.sourceRole === "kokuyaku_japanese_translation_expression") {
+    return "1918 年公有领域文语国译；挂接已持有巴利法句，不另建作品，也不把国译等同佛陀逐字亲说。署名 Wikisource、1918 年國譯大藏經與譯者立花俊道。汉译 T210 只记家族平行，不逐偈对齐。";
+  }
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,
@@ -390,17 +395,25 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
     canonRef: file.presentation.canonRef,
     translator: file.presentation.translator,
     summary: file.presentation.summary,
-    sourceName: file.parser === "sat_tei" ? "SAT現代日本語訳仏典" : "CBETA Online",
+    sourceName: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "Wikisource 國譯法句經"
+      : file.parser === "sat_tei" ? "SAT現代日本語訳仏典" : "CBETA Online",
     sourceUrl: file.presentation.sourceUrl,
-    sourceLicense: file.parser === "sat_tei"
+    sourceLicense: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "公有领域；署名 Wikisource、1918 年國譯大藏經與立花俊道"
+      : file.parser === "sat_tei"
       ? "CC BY 4.0；保留 SAT 研究会与具名译者署名"
       : "CBETA 授權條款；古典原文",
     bibliographicNote: cbetaRelations(file).length
       ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
       : undefined,
     attributionNote: cbetaAttributionNote(file),
-    readerMode: file.parser === "sat_tei" ? "sat-folio" as const : undefined,
-    status: file.parser === "sat_tei"
+    readerMode: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "kokuyaku-folio" as const
+      : file.parser === "sat_tei" ? "sat-folio" as const : undefined,
+    status: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "完整原文 · 文语国译"
+      : file.parser === "sat_tei"
       ? "完整原文 · 现代日译"
       : file.completeness === "complete_source_file_partial_work_witness"
       ? file.sourceRole === "partial_text_family_witness_candidate"

@@ -49,6 +49,11 @@ const manifestFamilies = [
     manifests: ["data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
   },
   {
+    prefix: "ws",
+    name: "wikisource",
+    manifests: ["data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json"],
+  },
+  {
     prefix: "sc",
     name: "suttacentral",
     manifests: [

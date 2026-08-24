@@ -1,8 +1,8 @@
 {
   "schema": "https://foxue.ai/schemas/corpus-runtime-tracing-v0.2",
   "maxBucketBytes": 8388608,
-  "totalAssets": 11330,
-  "totalBytes": 1227495382,
+  "totalAssets": 11331,
+  "totalBytes": 1227663269,
   "buckets": [
     {
       "id": "cb01",
@@ -6841,7 +6841,6 @@
         "src/data/corpus-work-catalog-chunks/77.json",
         "src/data/corpus-work-catalog-chunks/78.json",
         "src/data/corpus-work-catalog-chunks/83.json",
-        "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/87.json"
@@ -7360,7 +7359,7 @@
         "src/data/corpus-work-catalog-chunks/46.json",
         "src/data/corpus-work-catalog-chunks/51.json",
         "src/data/corpus-work-catalog-chunks/79.json",
-        "src/data/corpus-work-catalog-chunks/81.json",
+        "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/87.json"
       ],
@@ -10658,6 +10657,24 @@
         "sat-ja-t0360",
         "sat-ja-t0365",
         "sat-ja-t0366"
+      ]
+    },
+    {
+      "id": "ws01",
+      "sourceFamily": "wikisource",
+      "bytes": 167887,
+      "smokePath": "/jingzang/wikisource-ja-dhp/001-c01",
+      "includeGlobs": [
+        "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
+        "src/data/corpus-folio-locator-ledger.generated.json",
+        "src/data/corpus-work-ledger.generated.json",
+        "src/data/corpus-work-catalog-chunks/81.json"
+      ],
+      "paths": [
+        "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml"
+      ],
+      "slugs": [
+        "wikisource-ja-dhp"
       ]
     },
     {
@@ -28867,7 +28884,6 @@
         "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/83.json",
         "src/data/corpus-work-catalog-chunks/84.json",
-        "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/88.json"
       ],
