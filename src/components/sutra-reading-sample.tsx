@@ -30,6 +30,7 @@ type ReadingDirectory = {
   indexHref: string;
   indexLabel: string;
   title: string;
+  summaryLabel?: string;
   currentLabel: string;
   groupsLabel: string;
   pagesLabel: string;
@@ -78,7 +79,17 @@ function buildReadingBlocks(segments: SutraSegment[], edition: ReadingFolioEditi
 
   for (const segment of segments) {
     const role = getReadingSegmentRole(edition, segment);
-    if (role === "registration") continue;
+
+    if (role === "registration") {
+      flushParagraph();
+      const piece: InlinePiece = {
+        key: segment.id,
+        text: displayTextForSegment(segment, edition),
+        segment,
+      };
+      blocks.push({ key: `registration-${segment.id}`, kind: "byline", pieces: [piece] });
+      continue;
+    }
 
     if (role === "heading" || role === "byline" || role === "colophon") {
       flushParagraph();
@@ -187,7 +198,7 @@ function ReadingDirectoryPanel({ directory }: { directory: ReadingDirectory }) {
       <summary>
         <span className={styles.directoryTitle}>
           <BookMarked aria-hidden="true" size={18} />
-          {directory.title}
+          {directory.summaryLabel ?? directory.title}
         </span>
         <span className={styles.directoryCurrent}>
           {directory.currentLabel}
@@ -246,6 +257,7 @@ export function SutraReadingSample({
   totalSegmentCount,
   corpusScopeLabel,
   readingStatusLabel,
+  scopeNote,
   bibliographicNote,
   attributionNote,
   parallelEvidence,
@@ -263,6 +275,7 @@ export function SutraReadingSample({
   totalSegmentCount: number;
   corpusScopeLabel: string;
   readingStatusLabel: string;
+  scopeNote?: string;
   bibliographicNote?: string;
   attributionNote?: string;
   parallelEvidence?: ReactNode;
@@ -274,9 +287,7 @@ export function SutraReadingSample({
   const registration = segments.find(
     (segment) => getReadingSegmentRole(edition, segment) === "registration",
   )?.text;
-  const visibleSegmentCount = segments.filter(
-    (segment) => getReadingSegmentRole(edition, segment) !== "registration",
-  ).length;
+  const visibleSegmentCount = segments.length;
   const titleLength = [...edition.documentTitle].length;
   const titleScale = titleLength > 18
     ? "very-long"
@@ -388,6 +399,7 @@ export function SutraReadingSample({
           <div><dt>{folioLabelTitle}</dt><dd>{folioLabel}</dd></div>
           <div><dt>可引用原文</dt><dd>{visibleSegmentCount} {segmentUnit}</dd></div>
           <div><dt>全文规模</dt><dd>{corpusScopeLabel} {totalSegmentCount} 稳定{stableSegmentUnit}</dd></div>
+          <div><dt>责任者</dt><dd>{edition.responsibility}</dd></div>
           <div><dt>正文语种</dt><dd>{textLanguageLabel}</dd></div>
           <div><dt>权利</dt><dd>{sourceLicense}</dd></div>
         </dl>
@@ -471,7 +483,6 @@ export function SutraReadingSample({
             权利说明：{sourceLicense}。
           </p>
           <dl>
-            <div><dt>责任者</dt><dd>{edition.responsibility}</dd></div>
             <div><dt>{isCbeta ? "经号" : "目录"}</dt><dd>{registration ?? canonRef}</dd></div>
             <div><dt>{folioLabelTitle}</dt><dd>{folioLabel}</dd></div>
             <div>
@@ -481,11 +492,14 @@ export function SutraReadingSample({
           </dl>
         </div>
       </details>
-      {(bibliographicNote || attributionNote || parallelEvidence) && (
+      {(scopeNote || bibliographicNote || attributionNote || parallelEvidence) && (
         <section className={styles.researchContext} aria-label="书目、归属与跨传统证据">
-          {(bibliographicNote || attributionNote) && (
+          {(scopeNote || bibliographicNote || attributionNote) && (
             <div className={styles.contextNotes}>
               <p className={styles.contextEyebrow}>研究边界</p>
+              {scopeNote && (
+                <p><strong>见证范围：</strong>{scopeNote}</p>
+              )}
               {bibliographicNote && (
                 <p><strong>书目关系边界：</strong>{bibliographicNote}</p>
               )}
