@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import { resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
@@ -416,6 +416,40 @@ if (Number.isSafeInteger(daboruoShardId)) {
   daboruoSliceMs = performance.now() - sliceStarted;
   if (daboruoSliceMs > 250) {
     fail(`大般若首尾版页切片解析耗时 ${daboruoSliceMs.toFixed(1)}ms，必须避开整本 TEI`);
+  }
+}
+
+const nextServerDir = resolve(root, ".next/server");
+let hasNextServer = false;
+try {
+  await stat(nextServerDir);
+  hasNextServer = true;
+} catch {
+  hasNextServer = false;
+}
+if (hasNextServer) {
+  async function walkJs(directory, files = []) {
+    const entries = await readdir(directory, { withFileTypes: true });
+    for (const entry of entries) {
+      const entryPath = resolve(directory, entry.name);
+      if (entry.isDirectory()) await walkJs(entryPath, files);
+      else if (entry.name.endsWith(".js")) files.push(entryPath);
+    }
+    return files;
+  }
+  const middlewareFiles = (await walkJs(nextServerDir)).filter((file) => (
+    file.includes("middleware") || file.includes("[root-of-the-server]")
+  ));
+  let proxyHasExistence = false;
+  for (const file of middlewareFiles) {
+    const source = await readFile(file, "utf8");
+    if (source.includes(folioExistenceSchema) && !/data\/corpus\/cbeta/.test(source)) {
+      proxyHasExistence = true;
+      break;
+    }
+  }
+  if (!proxyHasExistence) {
+    fail("构建后的 Proxy/middleware 必须内联版页存在账本，且不得夹带 TEI 母版");
   }
 }
 
