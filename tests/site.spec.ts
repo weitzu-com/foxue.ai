@@ -1969,6 +1969,17 @@ test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
 });
 
+test("句末引号与标点保持在同一阅读句内", async ({ page }) => {
+  await page.goto("/jingzang/xinjing/001-0848c");
+  const isolatedClosingQuotes = await page
+    .locator('p.sutra-segment > span[class*="sentence"]')
+    .evaluateAll((sentences) => sentences.filter((sentence) =>
+      /^[」』]$/u.test(sentence.textContent?.trim() ?? ""),
+    ).length);
+  expect(isolatedClosingQuotes).toBe(0);
+  await expect(page.locator('[id="T0251.001.0848c19"]')).toContainText("咒。」");
+});
+
 test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, request }) => {
   await page.goto("/jingzang/fajujing/001-0559a");
   const visibleSegments = page.locator(".sutra-segment");

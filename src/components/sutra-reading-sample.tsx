@@ -39,7 +39,7 @@ type ReadingDirectory = {
   pages: ReadingDirectoryItem[];
 };
 
-const sentenceEnding = /[。！？；」』]$/u;
+const sentenceEnding = /[。！？；][」』]*$/u;
 
 function displayTextForSegment(segment: SutraSegment, edition: ReadingFolioEdition) {
   return edition.textOverrides?.[segment.sourceLine ?? ""] ?? segment.text;
@@ -47,7 +47,7 @@ function displayTextForSegment(segment: SutraSegment, edition: ReadingFolioEditi
 
 function splitSegmentIntoPieces(segment: SutraSegment, edition: ReadingFolioEdition) {
   const displayText = displayTextForSegment(segment, edition);
-  const chunks = displayText.match(/.*?[。！？；」』]|.+$/gu) ?? [displayText];
+  const chunks = displayText.match(/.*?[。！？；][」』]*|.+$/gu) ?? [displayText];
   return chunks.map((text, index): InlinePiece => ({
     key: `${segment.id}-${index}`,
     text,
