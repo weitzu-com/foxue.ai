@@ -75,6 +75,22 @@
   background: var(--reader-surface);
 }
 
+.mastheadBackLink {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: -1rem 0 1.5rem;
+  color: var(--reader-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.mastheadBackLink:hover {
+  color: var(--reader-ink);
+}
+
 .mastheadLead {
   max-width: 48rem;
 }
@@ -104,7 +120,7 @@
   content: "";
 }
 
-.masthead h1 {
+.masthead h2 {
   max-width: 10em;
   margin: 0;
   color: var(--reader-ink);
@@ -116,14 +132,14 @@
   text-wrap: balance;
 }
 
-.masthead h1[data-title-scale="long"] {
+.masthead h2[data-title-scale="long"] {
   max-width: 13em;
   font-size: clamp(2.3rem, 9.5vw, 3.55rem);
   letter-spacing: -0.045em;
   line-height: 1.13;
 }
 
-.masthead h1[data-title-scale="very-long"] {
+.masthead h2[data-title-scale="very-long"] {
   max-width: 16em;
   font-size: clamp(1.95rem, 8vw, 2.85rem);
   letter-spacing: -0.035em;
@@ -268,20 +284,8 @@
 .directoryContent {
   display: grid;
   gap: 1.75rem;
-  padding: 0 1.5rem 2rem;
+  padding: 1.25rem 1.5rem 2rem;
   background: var(--reader-canvas);
-}
-
-.directoryIndexLink {
-  min-height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-self: start;
-  gap: 0.45rem;
-  margin-top: 1.25rem;
-  color: var(--reader-secondary);
-  font-size: 0.78rem;
-  font-weight: 600;
 }
 
 .directoryContent nav > p {
@@ -514,7 +518,7 @@
   transition: background 180ms ease, box-shadow 180ms ease, font-size 180ms ease;
 }
 
-.paper[data-annotation-mode="plain"] .masthead h1 {
+.paper[data-annotation-mode="plain"] .masthead h2 {
   font-family: var(--font-sans), sans-serif;
   letter-spacing: -0.045em;
 }
@@ -788,7 +792,7 @@
     padding: 4.5rem 3.5rem 3.5rem;
   }
 
-  .masthead h1 {
+  .masthead h2 {
     font-size: clamp(3.5rem, 9vw, 4.75rem);
   }
 
