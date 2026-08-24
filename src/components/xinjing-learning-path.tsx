@@ -320,6 +320,16 @@ export function XinjingLearningPath() {
     return () => window.removeEventListener("hashchange", applySharedDay);
   }, []);
 
+  useEffect(() => {
+    const sharedDay = dayFromHash();
+    if (sharedDay !== activeDay.id) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(`day-${sharedDay}`)?.scrollIntoView({ block: "start" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeDay.id]);
+
   function goToDay(day: number) {
     setDayHash(day);
     saveProgress({ ...progress, activeDay: day });
@@ -332,11 +342,6 @@ export function XinjingLearningPath() {
       ...progress,
       activeDay: nextDay,
       statuses: { ...progress.statuses, [String(activeDay.id)]: status },
-    });
-    trackEvent("learning_step_updated", {
-      content_id: activeDay.segmentId,
-      step_number: activeDay.id,
-      status,
     });
   }
 

@@ -483,6 +483,9 @@ test("心经分享链接直接打开指定日并保持单一 canonical", async (
   await page.goto("/xue/xinjing#day-5");
   await expect(page.getByRole("heading", { level: 2, name: "无所得，心无罣碍" })).toBeVisible();
   await expect(page.getByText("T0251.001.0848c13–15").first()).toBeVisible();
+  await expect.poll(
+    () => page.locator("#day-5").evaluate((element) => element.getBoundingClientRect().top),
+  ).toBeLessThan(80);
 
   const response = await request.get("/xue/xinjing?day=5&utm_source=share");
   const html = await response.text();
