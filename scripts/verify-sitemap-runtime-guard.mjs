@@ -78,7 +78,7 @@ requireNoImport(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", [fatInd
 requireNoImport(sitemapMetadata, "src/app/sitemap.ts", [/corpus-folio-index/, /corpus-reading/, /getSutraReading/, /getSitemapEntries/]);
 requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-index/, /corpus-reading/, /getSutraReading/, /getSitemapEntries/]);
 requireNoImport(sitemapLedgerModule, "src/lib/sitemap-ledger.ts", [fatIndexPattern, /sitemap-chunk-loaders/, /sitemap-data/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [fatIndexPattern, /sitemap-data/, /sitemap-chunk-loaders/, /getSitemapEntries/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [fatIndexPattern, /sitemap-data/, /sitemap-chunk-loaders/, /getSitemapEntries/, /corpus-work-catalog-nft/]);
 
 requirePattern(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", /export const dynamic = "force-static"/, "必须 force-static，不能在请求时从 21MB 索引物化 25 万条 URL");
 requirePattern(sitemapIndexRoute, "src/app/sitemap-index.xml/route.ts", /from "@\/lib\/sitemap-ledger"/, "只能读取预计算账本");
@@ -106,6 +106,12 @@ requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-foli
 requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/]);
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /export const dynamic = "force-static"/, "必须 force-static");
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /await getSutraCatalogView/, "必须按 slug 异步读取一个经目分片");
+requirePattern(
+  workIndexPage,
+  "src/app/jingzang/[slug]/page.tsx",
+  /loadWorkCatalogShardForTrace/,
+  "必须字面 import() 经目分片做 NFT 追踪；force-static 页不会套用 outputFileTracingIncludes",
+);
 requirePattern(workCatalogModule, "src/lib/corpus-folio-index.ts", /corpus-work-ledger\.generated\.json/, "只能静态导入经目账本");
 requirePattern(workCatalogModule, "src/lib/corpus-folio-index.ts", /loadWorkCatalogShardWorks/, "必须按分片读取经目，而不能静态导入 21MB 版页索引");
 
@@ -275,6 +281,9 @@ if (hasBuild) {
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了经目页函数`);
       if (workChunkCount !== workLedger.shardCount) {
         fail(`${routeKey} 经目分片 trace 为 ${workChunkCount}，应为 ${workLedger.shardCount}（按 slug 异步加载，而不是 21MB 整包）`);
+      }
+      if (files.some((file) => /corpus-folio-locator-chunks/.test(file))) {
+        fail(`${routeKey} 不得夹带版页定位分片`);
       }
       let hasWorkLedger = files.some((file) => /corpus-work-ledger/.test(file));
       if (!hasWorkLedger) {

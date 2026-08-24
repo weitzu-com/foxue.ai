@@ -11,9 +11,15 @@ const routing = JSON.parse(
 );
 const maxTraceBytes = 128 * 1024 * 1024;
 const corpusSourcePattern = /(?:^|\/)data\/corpus\/(?:cbeta\/[^/]+\.xml|derge\/works\/.+|suttacentral\/root\/.+)$/;
-const locatorChunkPattern = /(?:^|\/)src\/data\/corpus-folio-locator-chunks\/\d+\.json$/;
-const catalogChunkPattern = /(?:^|\/)src\/data\/corpus-work-catalog-chunks\/\d+\.json$/;
 const bucketRoutePattern = /\/corpus-runtime\/[^/]+\/\[slug\]\/\[folio\]\//;
+
+function shardKey(filePath) {
+  const locator = posix(filePath).match(/corpus-folio-locator-chunks(?:\/|_)(\d+)/);
+  if (locator) return `locator:${locator[1]}`;
+  const catalog = posix(filePath).match(/corpus-work-catalog-chunks(?:\/|_)(\d+)/);
+  if (catalog) return `catalog:${catalog[1]}`;
+  return null;
+}
 
 const daboruoLateFolio = {
   path: "/jingzang/daboruo-jing/304-0552c",
@@ -53,8 +59,11 @@ for (const bucket of tracing.buckets) {
   let corpusBytes = 0;
   const unusedSources = [];
   const extraShards = [];
+  const tracedShardKeys = new Set();
   const allowedSources = new Set(bucket.paths.map((assetPath) => resolve(root, assetPath)));
-  const allowedIncludes = new Set(bucket.includeGlobs.map((assetPath) => resolve(root, assetPath)));
+  const allowedShardKeys = new Set(
+    bucket.includeGlobs.map((assetPath) => shardKey(assetPath)).filter(Boolean),
+  );
 
   for (const relativePath of trace.files) {
     const absolutePath = resolve(dirname(tracePath), relativePath);
@@ -68,20 +77,26 @@ for (const bucket of tracing.buckets) {
         unusedSources.push(relative(root, absolutePath));
       }
     }
-    if (
-      (locatorChunkPattern.test(normalized) || catalogChunkPattern.test(normalized))
-      && !allowedIncludes.has(absolutePath)
-    ) {
-      extraShards.push(relative(root, absolutePath));
+    const key = shardKey(normalized);
+    if (key) {
+      tracedShardKeys.add(key);
+      if (!allowedShardKeys.has(key)) extraShards.push(relative(root, absolutePath));
     }
   }
 
   const missingAssets = bucket.paths.filter(
     (assetPath) => !tracedPaths.has(resolve(root, assetPath)),
   );
+  const requiredShards = bucket.includeGlobs.filter((assetPath) => shardKey(assetPath));
+  const missingShards = requiredShards.filter((assetPath) => !tracedShardKeys.has(shardKey(assetPath)));
   if (missingAssets.length > 0) {
     throw new Error(
       `${bucket.id} 的部署 trace 缺少 ${missingAssets.length} 个受控语料资产：${missingAssets[0]}`,
+    );
+  }
+  if (missingShards.length > 0) {
+    throw new Error(
+      `${bucket.id} 的部署 trace 缺少本桶经目/定位分片：${missingShards[0]}（一次版页读取不得只靠 includeGlobs；必须有字面 import()）`,
     );
   }
   if (unusedSources.length > 0) {
@@ -106,7 +121,7 @@ for (const bucket of tracing.buckets) {
   }
 
   console.log(
-    `✓ ${bucket.id} trace ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，语料 ${(corpusBytes / 1024 / 1024).toFixed(1)} MiB，${bucket.paths.length} 个受控资产，无多余母版`,
+    `✓ ${bucket.id} trace ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，语料 ${(corpusBytes / 1024 / 1024).toFixed(1)} MiB，${bucket.paths.length} 个受控资产 / ${requiredShards.length} 个本桶分片，无多余母版`,
   );
 }
 

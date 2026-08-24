@@ -10,7 +10,9 @@ import {
   buildCatalogJuanNavigation,
   buildCatalogLegacyAliasMap,
   getSutraCatalogView,
+  getWorkCatalogLedger,
 } from "@/lib/corpus-folio-index";
+import { loadWorkCatalogShardForTrace } from "@/lib/corpus-work-catalog-nft.generated";
 import { folioHref } from "@/lib/reader-routes";
 import { absoluteUrl, buildPageJsonLd, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 
@@ -22,6 +24,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
+  const shardId = getWorkCatalogLedger().slugToShard[slug];
+  if (Number.isSafeInteger(shardId)) await loadWorkCatalogShardForTrace(shardId);
   const catalog = await getSutraCatalogView(sutra.slug);
   if (!catalog) notFound();
   const reading = {

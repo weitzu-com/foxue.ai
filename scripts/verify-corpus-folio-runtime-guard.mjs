@@ -35,6 +35,7 @@ const [
   folioLocatorModule,
   folioLocatorLoaders,
   workCatalogLoaders,
+  workCatalogNft,
   jsonShard,
   proxySource,
   nextConfig,
@@ -43,6 +44,8 @@ const [
   folioIndex,
   workLedger,
   folioLocatorLedger,
+  bucketFolioPage,
+  bucketFolioNft,
 ] = await Promise.all([
   readFile(resolve(root, "src/lib/sitemap-data.ts"), "utf8"),
   readFile(resolve(root, "src/app/sitemap-index.xml/route.ts"), "utf8"),
@@ -54,6 +57,7 @@ const [
   readFile(resolve(root, "src/lib/corpus-folio-locator.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-folio-locator-loaders.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-work-catalog-loaders.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-work-catalog-nft.generated.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-json-shard.mjs"), "utf8"),
   readFile(resolve(root, "src/proxy.ts"), "utf8"),
   readFile(resolve(root, "next.config.ts"), "utf8"),
@@ -62,6 +66,8 @@ const [
   readFile(resolve(root, "src/data/corpus-folio-index.generated.json"), "utf8").then(JSON.parse),
   readFile(resolve(root, "src/data/corpus-work-ledger.generated.json"), "utf8").then(JSON.parse),
   readFile(resolve(root, "src/data/corpus-folio-locator-ledger.generated.json"), "utf8").then(JSON.parse),
+  readFile(resolve(root, "src/app/corpus-runtime/cb02/[slug]/[folio]/page.tsx"), "utf8"),
+  readFile(resolve(root, "src/app/corpus-runtime/cb02/[slug]/[folio]/nft-json.ts"), "utf8"),
 ]);
 
 requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-reading/, /corpus-folio-index/, /getSutraReading/, /getSitemapEntries/]);
@@ -73,10 +79,11 @@ requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReadi
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/, /corpus-folio-index\.generated/, /corpus-folio-locator/]);
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);
-requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-json-shard/, /corpus-folio-locator/]);
 requireNoImport(folioLocatorModule, "src/lib/corpus-folio-locator.ts", [/corpus-reading/, /getSutraReading/, /cbeta-tei/, /derge-reading/]);
+requireNoImport(folioModule, "src/app/jingzang/_folio/page-module.tsx", [/corpus-work-catalog-nft/]);
 
 if (!/getSutraCatalogView/.test(folioReading)) {
   fail("版页读取必须从经目分片取导航，而不能再整本解析 TEI");
@@ -96,15 +103,42 @@ if (!/bucket\.includeGlobs\.map/.test(nextConfig)) {
 if (/corpus-folio-locator-chunks\/\*\.json/.test(nextConfig) || /folioLocatorGlobs/.test(nextConfig)) {
   fail("next.config 不得用 locator-chunks/*.json 把全部定位分片打进 corpus-runtime");
 }
-if (!/readCorpusJsonShard/.test(folioLocatorLoaders) || !/readCorpusJsonShard/.test(workCatalogLoaders)) {
-  fail("经目/定位分片必须按 id 惰性 readFile，而不能 switch-import 全量分片");
+if (!/readRegisteredJsonFile/.test(folioLocatorLoaders) || !/readRegisteredJsonFile/.test(workCatalogLoaders)) {
+  fail("经目/定位分片必须按登记路径惰性 readFile，而不能 switch-import 全量分片");
+}
+if (!/corpus-shard-paths\.generated/.test(folioLocatorLoaders) || !/corpus-shard-paths\.generated/.test(workCatalogLoaders)) {
+  fail("分片路径必须来自生成清单，而不能在源码里用 id 拼出 *.json 通配");
 }
 if (/import\("@\/data\/corpus-(?:folio-locator|work-catalog)-chunks/.test(folioLocatorLoaders)
   || /import\("@\/data\/corpus-(?:folio-locator|work-catalog)-chunks/.test(workCatalogLoaders)) {
   fail("经目/定位加载器不得静态 import 分片 JSON");
 }
-if (!jsonShard.includes("readFile") || !jsonShard.includes("process.cwd()")) {
+if (!jsonShard.includes("readFile") || !jsonShard.includes("src/data/")) {
   fail("分片读取必须走受控 readFile，以便 NFT 只包含 includeGlobs 列出的文件");
+}
+if (/\$\{id\}\.json/.test(jsonShard) || /relativeDir/.test(jsonShard)) {
+  fail("分片 readFile 不得用动态目录或 `${id}.json` 通配，否则会把全库 JSON 扫进 NFT");
+}
+if (!/loadWorkCatalogShardForTrace/.test(workIndexPage) || !/corpus-work-catalog-nft\.generated/.test(workIndexPage)) {
+  fail("经目页必须字面 import() 经目分片做 NFT 追踪；force-static 页不会套用 outputFileTracingIncludes");
+}
+if (!/includeCorpusBucketJson/.test(bucketFolioPage) || !/nft-json/.test(bucketFolioPage)) {
+  fail("分桶版页必须字面 import() 本桶经目/定位分片，而不能只靠 includeGlobs");
+}
+if (/corpus-work-catalog-nft/.test(folioModule) || /corpus-work-catalog-nft/.test(folioReading) || /corpus-work-catalog-nft/.test(bucketFolioPage)) {
+  fail("版页读取不得导入全量经目 NFT 加载器，否则每个语料桶会装上 21MB 经目分片");
+}
+if (!/import\("@\/data\/corpus-work-catalog-chunks\/0\.json"\)/.test(workCatalogNft)) {
+  fail("经目 NFT 加载器必须对每个分片做字面 import()，与 sitemap 分片同一套追踪");
+}
+if ((workCatalogNft.match(/corpus-work-catalog-chunks\/\d+\.json/g) ?? []).length !== workLedger.shardCount) {
+  fail("经目 NFT 加载器分片数必须与账本 shardCount 一致");
+}
+if (!/corpus-folio-locator-chunks\/0\.json/.test(bucketFolioNft) || !/corpus-work-catalog-chunks\/1\.json/.test(bucketFolioNft)) {
+  fail("cb02 JSON NFT 必须追踪大般若定位分片 0 与经目分片 1");
+}
+if ((bucketFolioNft.match(/corpus-work-catalog-chunks\/\d+\.json/g) ?? []).length !== 1) {
+  fail("cb02 不得把其他文本的经目分片打进 304-0552c 的函数");
 }
 
 if (!proxySource.includes("rewriteCatalogFolioPath")) {
