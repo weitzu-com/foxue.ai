@@ -1,15 +1,24 @@
-export const corpusRuntimeSmokeRoutes = [
-  { bucket: "cb01", path: "/jingzang/jingangjing/001-0748c" },
-  { bucket: "cb02", path: "/jingzang/taisho-t0352/003-0209a" },
-  { bucket: "cb03", path: "/jingzang/taisho-t0656/001-0001a" },
-  { bucket: "cb04", path: "/jingzang/taisho-t1072a/001-0155a" },
-  { bucket: "cb05", path: "/jingzang/taisho-t1532/001-0337a" },
-  { bucket: "cb06", path: "/jingzang/taisho-t1791/002-0447c" },
-  { bucket: "cb07", path: "/jingzang/taisho-t1828/001-0311a" },
-  { bucket: "cb08", path: "/jingzang/taisho-t2060/001-0425a" },
-  { bucket: "cb09", path: "/jingzang/xinjing/001-0848a" },
-  { bucket: "sc01", path: "/jingzang/dhammapada-pali/001-dhp1-20" },
-  { bucket: "dg01", path: "/jingzang/derge-kangyur-d0008/021-0279b" },
-  { bucket: "dg02", path: "/jingzang/derge-kangyur-d0012/033-0001b" },
-  { bucket: "dg03", path: "/jingzang/derge-kangyur-d0468/083-0160a" },
+import { readFileSync } from "node:fs";
+import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
+
+const routing = JSON.parse(
+  readFileSync(new URL("../src/data/corpus-runtime-routing.generated.json", import.meta.url), "utf8"),
+);
+
+export const corpusRuntimeSmokePaths = [
+  "/jingzang/jingangjing/001-0748c",
+  "/jingzang/xinjing/001-0848a",
+  "/jingzang/daboruo-jing/001-0001a",
+  "/jingzang/daboruo-jing/304-0552c",
+  "/jingzang/zengyiahanjing/001-0549a",
+  "/jingzang/dasheng-ru-lengqiejing/001-0587a",
+  "/jingzang/changahanjing/001-0001a",
+  "/jingzang/dhammapada-pali/001-dhp1-20",
+  "/jingzang/derge-kangyur-d0008/021-0279b",
 ];
+
+export const corpusRuntimeSmokeRoutes = corpusRuntimeSmokePaths.map((path) => {
+  const rewritten = rewriteCatalogFolioPath(path, routing);
+  if (!rewritten) throw new Error(`运行时抽样路由无法改写：${path}`);
+  return { bucket: rewritten.split("/")[2], path };
+});

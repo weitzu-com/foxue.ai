@@ -198,7 +198,7 @@ for (const path of requiredAdvertisedPaths.filter((item) => item.split("/").filt
   if (!match) continue;
   const [, slug] = match;
   if (!slugToBucket[slug]) fail(`广告版页缺少分桶：${path}`);
-  if (rewriteCatalogFolioPath(path, slugToBucket) === null) {
+  if (rewriteCatalogFolioPath(path, routing) === null) {
     fail(`广告版页无法改写到分桶运行时：${path}`);
   }
 }

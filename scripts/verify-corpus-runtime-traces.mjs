@@ -1,48 +1,28 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import { dirname, resolve, relative } from "node:path";
+import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
 
 const root = process.cwd();
 const tracing = JSON.parse(
   await readFile(resolve(root, "src/data/corpus-runtime-tracing.generated.json"), "utf8"),
 );
-const maxTraceBytes = 240 * 1024 * 1024;
-
-for (const bucket of tracing.buckets) {
-  const tracePath = resolve(
-    root,
-    `.next/server/app/corpus-runtime/${bucket.id}/[slug]/[folio]/page.js.nft.json`,
-  );
-  const trace = JSON.parse(await readFile(tracePath, "utf8"));
-  const tracedPaths = new Set();
-  let totalBytes = 0;
-
-  for (const relativePath of trace.files) {
-    const absolutePath = resolve(dirname(tracePath), relativePath);
-    tracedPaths.add(absolutePath);
-    totalBytes += (await stat(absolutePath)).size;
-  }
-
-  const missingAssets = bucket.paths.filter(
-    (assetPath) => !tracedPaths.has(resolve(root, assetPath)),
-  );
-  if (missingAssets.length > 0) {
-    throw new Error(
-      `${bucket.id} 的部署 trace 缺少 ${missingAssets.length} 个受控语料资产：${missingAssets[0]}`,
-    );
-  }
-  if (totalBytes > maxTraceBytes) {
-    throw new Error(
-      `${bucket.id} 的部署 trace 为 ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，超过 240 MiB 发布门槛`,
-    );
-  }
-
-  console.log(
-    `✓ ${bucket.id} trace ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，${bucket.paths.length} 个受控语料资产完整`,
-  );
-}
-
+const routing = JSON.parse(
+  await readFile(resolve(root, "src/data/corpus-runtime-routing.generated.json"), "utf8"),
+);
+const maxTraceBytes = 128 * 1024 * 1024;
 const corpusSourcePattern = /(?:^|\/)data\/corpus\/(?:cbeta\/[^/]+\.xml|derge\/works\/.+|suttacentral\/root\/.+)$/;
+const locatorChunkPattern = /(?:^|\/)src\/data\/corpus-folio-locator-chunks\/\d+\.json$/;
+const catalogChunkPattern = /(?:^|\/)src\/data\/corpus-work-catalog-chunks\/\d+\.json$/;
 const bucketRoutePattern = /\/corpus-runtime\/[^/]+\/\[slug\]\/\[folio\]\//;
+
+const daboruoLateFolio = {
+  path: "/jingzang/daboruo-jing/304-0552c",
+  source: "data/corpus/cbeta/T06n0220b.xml",
+};
+
+function posix(filePath) {
+  return filePath.replaceAll("\\", "/");
+}
 
 async function walkNftFiles(directory, files = []) {
   let entries = [];
@@ -62,6 +42,87 @@ async function walkNftFiles(directory, files = []) {
   return files;
 }
 
+for (const bucket of tracing.buckets) {
+  const tracePath = resolve(
+    root,
+    `.next/server/app/corpus-runtime/${bucket.id}/[slug]/[folio]/page.js.nft.json`,
+  );
+  const trace = JSON.parse(await readFile(tracePath, "utf8"));
+  const tracedPaths = new Set();
+  let totalBytes = 0;
+  let corpusBytes = 0;
+  const unusedSources = [];
+  const extraShards = [];
+  const allowedSources = new Set(bucket.paths.map((assetPath) => resolve(root, assetPath)));
+  const allowedIncludes = new Set(bucket.includeGlobs.map((assetPath) => resolve(root, assetPath)));
+
+  for (const relativePath of trace.files) {
+    const absolutePath = resolve(dirname(tracePath), relativePath);
+    tracedPaths.add(absolutePath);
+    const size = (await stat(absolutePath)).size;
+    totalBytes += size;
+    const normalized = posix(absolutePath);
+    if (corpusSourcePattern.test(normalized)) {
+      corpusBytes += size;
+      if (!allowedSources.has(absolutePath)) {
+        unusedSources.push(relative(root, absolutePath));
+      }
+    }
+    if (
+      (locatorChunkPattern.test(normalized) || catalogChunkPattern.test(normalized))
+      && !allowedIncludes.has(absolutePath)
+    ) {
+      extraShards.push(relative(root, absolutePath));
+    }
+  }
+
+  const missingAssets = bucket.paths.filter(
+    (assetPath) => !tracedPaths.has(resolve(root, assetPath)),
+  );
+  if (missingAssets.length > 0) {
+    throw new Error(
+      `${bucket.id} 的部署 trace 缺少 ${missingAssets.length} 个受控语料资产：${missingAssets[0]}`,
+    );
+  }
+  if (unusedSources.length > 0) {
+    throw new Error(
+      `${bucket.id} 的部署 trace 夹带了本桶用不到的语料母版：${unusedSources[0]}`,
+    );
+  }
+  if (extraShards.length > 0) {
+    throw new Error(
+      `${bucket.id} 的部署 trace 夹带了本桶用不到的经目/定位分片：${extraShards[0]}`,
+    );
+  }
+  if (corpusBytes > bucket.bytes + 64 * 1024) {
+    throw new Error(
+      `${bucket.id} 的语料母版 ${(corpusBytes / 1024 / 1024).toFixed(1)} MiB，超过本桶 ${(bucket.bytes / 1024 / 1024).toFixed(1)} MiB`,
+    );
+  }
+  if (totalBytes > maxTraceBytes) {
+    throw new Error(
+      `${bucket.id} 的部署 trace 为 ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，超过 128 MiB 发布门槛`,
+    );
+  }
+
+  console.log(
+    `✓ ${bucket.id} trace ${(totalBytes / 1024 / 1024).toFixed(1)} MiB，语料 ${(corpusBytes / 1024 / 1024).toFixed(1)} MiB，${bucket.paths.length} 个受控资产，无多余母版`,
+  );
+}
+
+const rewrittenLate = rewriteCatalogFolioPath(daboruoLateFolio.path, routing);
+if (!rewrittenLate?.startsWith("/corpus-runtime/")) {
+  throw new Error(`大般若 ${daboruoLateFolio.path} 无法改写到分桶运行时`);
+}
+const lateBucketId = rewrittenLate.split("/")[2];
+const lateBucket = tracing.buckets.find((bucket) => bucket.id === lateBucketId);
+if (!lateBucket) throw new Error(`大般若晚页指向不存在的桶 ${lateBucketId}`);
+if (lateBucket.paths.length !== 1 || lateBucket.paths[0] !== daboruoLateFolio.source) {
+  throw new Error(
+    `${lateBucketId} 服务 ${daboruoLateFolio.path} 却追踪 ${lateBucket.paths.length} 个母版（${lateBucket.paths[0]}），一次版页读取不得夹带兄弟 TEI`,
+  );
+}
+
 const nftFiles = await walkNftFiles(resolve(root, ".next/server"));
 let inspected = 0;
 for (const nftPath of nftFiles) {
@@ -70,7 +131,7 @@ for (const nftPath of nftFiles) {
   const trace = JSON.parse(await readFile(nftPath, "utf8"));
   const leaked = (trace.files ?? []).filter((file) => {
     const absolutePath = resolve(dirname(nftPath), file);
-    return corpusSourcePattern.test(absolutePath.replaceAll("\\", "/"));
+    return corpusSourcePattern.test(posix(absolutePath));
   });
   inspected += 1;
   if (leaked.length > 0) {
@@ -81,3 +142,4 @@ for (const nftPath of nftFiles) {
 }
 
 console.log(`✓ ${inspected} 个非分桶函数 trace 未夹带语料母版`);
+console.log(`✓ 大般若 ${daboruoLateFolio.path} 由 ${lateBucketId} 只追踪 ${daboruoLateFolio.source}`);

@@ -1,10 +1,22 @@
-import { access, readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
+import { access, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { corpusRuntimeSmokePaths } from "./corpus-runtime-smoke-routes.mjs";
+import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
 
 const root = process.cwd();
 const write = process.argv.includes("--write");
-const maxBucketBytes = 96 * 1024 * 1024;
+const maxBucketBytes = 8 * 1024 * 1024;
+const runtimeRoot = resolve(root, "src/app/corpus-runtime");
+const pageSource = `export { default, generateMetadata } from "@/app/jingzang/_folio/page-module";
+
+export const revalidate = 86400;
+
+export function generateStaticParams() {
+  return [];
+}
+`;
+const layoutSource = `export { default, generateMetadata } from "@/app/jingzang/[slug]/layout";
+`;
 
 function compareText(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -66,31 +78,130 @@ function serialize(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
-async function loadExpressions(family) {
+function corpusRelativePath(localPath) {
+  return localPath.slice("data/corpus/".length);
+}
+
+function partJuanRange(locatorWork, partIndex) {
+  let from = null;
+  let to = null;
+  for (const [key, tuple] of Object.entries(locatorWork.folios ?? {})) {
+    if (tuple[0] !== partIndex) continue;
+    const juan = key.slice(0, 3);
+    if (!/^\d{3}$/.test(juan)) return null;
+    if (from === null || juan < from) from = juan;
+    if (to === null || juan > to) to = juan;
+  }
+  if (!from || !to) return null;
+  return { from, to };
+}
+
+function workIsSplittable(locatorWork, parts, totalBytes) {
+  if (!locatorWork || parts.length < 2 || totalBytes <= maxBucketBytes) return false;
+  const ranges = [];
+  for (let partIndex = 0; partIndex < parts.length; partIndex += 1) {
+    const range = partJuanRange(locatorWork, partIndex);
+    if (!range) return false;
+    ranges.push(range);
+  }
+  const ordered = [...ranges].sort((left, right) => compareText(left.from, right.from));
+  for (let index = 1; index < ordered.length; index += 1) {
+    if (ordered[index].from <= ordered[index - 1].to) return false;
+  }
+  return true;
+}
+
+function mergeJuanRanges(ranges) {
+  const ordered = [...ranges].sort((left, right) => {
+    const bucket = compareText(left.bucket, right.bucket);
+    return bucket !== 0 ? bucket : compareText(left.from, right.from);
+  });
+  const merged = [];
+  for (const range of ordered) {
+    const last = merged.at(-1);
+    if (
+      last &&
+      last.bucket === range.bucket &&
+      Number(range.from) <= Number(last.to) + 1
+    ) {
+      if (range.to > last.to) last.to = range.to;
+      continue;
+    }
+    merged.push({ bucket: range.bucket, from: range.from, to: range.to });
+  }
+  return merged.sort((left, right) => compareText(left.from, right.from));
+}
+
+function shardPaths(slugs, slugToShard, directory) {
+  const ids = [...new Set(
+    slugs
+      .map((slug) => slugToShard[slug])
+      .filter((id) => Number.isSafeInteger(id)),
+  )].sort((left, right) => left - right);
+  return ids.map((id) => `${directory}/${id}.json`);
+}
+
+async function loadLocatorWorks() {
+  const ledger = JSON.parse(
+    await readFile(resolve(root, "src/data/corpus-folio-locator-ledger.generated.json"), "utf8"),
+  );
+  const shardCache = new Map();
+  const works = {};
+  for (const [slug, shardId] of Object.entries(ledger.slugToShard ?? {})) {
+    if (!shardCache.has(shardId)) {
+      shardCache.set(
+        shardId,
+        JSON.parse(await readFile(resolve(root, `src/data/corpus-folio-locator-chunks/${shardId}.json`), "utf8")),
+      );
+    }
+    works[slug] = shardCache.get(shardId).works?.[slug] ?? null;
+  }
+  return works;
+}
+
+async function loadExpressions(family, locatorWorks) {
   const expressions = [];
   for (const manifestPath of family.manifests) {
     const manifest = JSON.parse(await readFile(resolve(root, manifestPath), "utf8"));
     for (const file of manifest.files) {
       const sources = sourceUnits(file);
       for (const source of sources) assertSource(source, file.slug);
-      expressions.push({
-        slug: file.slug,
-        bytes: sources.reduce((sum, source) => sum + source.localBytes, 0),
-        paths: sources.map((source) => source.localPath).sort(compareText),
-      });
+      const parts = sources.map((source) => ({
+        path: source.localPath,
+        bytes: source.localBytes,
+        corpusPath: corpusRelativePath(source.localPath),
+      }));
+      const bytes = parts.reduce((sum, part) => sum + part.bytes, 0);
+      const locatorWork = locatorWorks[file.slug];
+      const splittable = workIsSplittable(locatorWork, parts, bytes);
+      if (splittable) {
+        for (const [partIndex, part] of parts.entries()) {
+          const range = partJuanRange(locatorWork, partIndex);
+          expressions.push({
+            slug: file.slug,
+            bytes: part.bytes,
+            paths: [part.path],
+            juanRange: { slug: file.slug, from: range.from, to: range.to },
+            sortKey: part.path,
+          });
+        }
+      } else {
+        expressions.push({
+          slug: file.slug,
+          bytes,
+          paths: parts.map((part) => part.path).sort(compareText),
+          juanRange: null,
+          sortKey: file.slug,
+        });
+      }
     }
   }
-  return expressions.sort((left, right) => compareText(left.slug, right.slug));
+  return expressions.sort((left, right) => compareText(left.sortKey, right.sortKey));
 }
 
-function packFamily(family, expressions) {
-  const buckets = [];
+function packUnits(family, expressions, buckets) {
   let current;
-
   for (const expression of expressions) {
-    if (expression.bytes > maxBucketBytes) {
-      throw new Error(`${expression.slug} 单一文本表达超过运行时桶上限`);
-    }
     if (!current || current.bytes + expression.bytes > maxBucketBytes) {
       current = {
         id: `${family.prefix}${String(buckets.length + 1).padStart(2, "0")}`,
@@ -98,74 +209,179 @@ function packFamily(family, expressions) {
         bytes: 0,
         paths: [],
         slugs: [],
+        juanRanges: [],
       };
       buckets.push(current);
     }
     current.bytes += expression.bytes;
     current.paths.push(...expression.paths);
-    current.slugs.push(expression.slug);
+    if (!current.slugs.includes(expression.slug)) current.slugs.push(expression.slug);
+    if (expression.juanRange) current.juanRanges.push({ ...expression.juanRange });
   }
+}
 
+function packFamily(family, expressions) {
+  const buckets = [];
+  const splittableBySlug = new Map();
+  const atomic = [];
+  for (const expression of expressions) {
+    if (!expression.juanRange) {
+      atomic.push(expression);
+      continue;
+    }
+    if (!splittableBySlug.has(expression.slug)) splittableBySlug.set(expression.slug, []);
+    splittableBySlug.get(expression.slug).push(expression);
+  }
+  for (const slug of [...splittableBySlug.keys()].sort(compareText)) {
+    packUnits(family, splittableBySlug.get(slug), buckets);
+  }
+  packUnits(family, atomic, buckets);
   return buckets;
 }
 
+function smokePathForBucket(bucket, locatorWorks, folioIndex) {
+  for (const slug of bucket.slugs) {
+    const navigation = folioIndex.works?.[slug]?.navigation;
+    if (!Array.isArray(navigation) || navigation.length < 1) continue;
+    const locatorWork = locatorWorks[slug];
+    const pathSet = new Set(bucket.paths);
+    if (locatorWork) {
+      for (const item of navigation) {
+        const tuple = locatorWork.folios?.[item.key];
+        if (!tuple) continue;
+        const partPath = `data/corpus/${locatorWork.parts[tuple[0]]}`;
+        if (pathSet.has(partPath)) return `/jingzang/${slug}/${item.key}`;
+      }
+    } else {
+      return `/jingzang/${slug}/${navigation[0].key}`;
+    }
+  }
+  throw new Error(`${bucket.id} 无法选出受控抽样版页`);
+}
+
+const locatorWorks = await loadLocatorWorks();
+const folioIndex = JSON.parse(await readFile(resolve(root, "src/data/corpus-folio-index.generated.json"), "utf8"));
+const workLedger = JSON.parse(await readFile(resolve(root, "src/data/corpus-work-ledger.generated.json"), "utf8"));
+const locatorLedger = JSON.parse(
+  await readFile(resolve(root, "src/data/corpus-folio-locator-ledger.generated.json"), "utf8"),
+);
+
 const buckets = [];
 for (const family of manifestFamilies) {
-  buckets.push(...packFamily(family, await loadExpressions(family)));
+  buckets.push(...packFamily(family, await loadExpressions(family, locatorWorks)));
 }
 
 const slugToBucket = {};
+const slugJuanBuckets = {};
 const allPaths = new Set();
 for (const bucket of buckets) {
-  bucket.paths.sort(compareText);
+  bucket.paths = [...new Set(bucket.paths)].sort(compareText);
   bucket.slugs.sort(compareText);
+  bucket.smokePath = smokePathForBucket(bucket, locatorWorks, folioIndex);
+  bucket.includeGlobs = [
+    ...bucket.paths,
+    "src/data/corpus-folio-locator-ledger.generated.json",
+    "src/data/corpus-work-ledger.generated.json",
+    ...shardPaths(bucket.slugs, locatorLedger.slugToShard, "src/data/corpus-folio-locator-chunks"),
+    ...shardPaths(bucket.slugs, workLedger.slugToShard, "src/data/corpus-work-catalog-chunks"),
+  ];
   for (const slug of bucket.slugs) {
-    if (slugToBucket[slug]) throw new Error(`重复运行时 slug：${slug}`);
-    slugToBucket[slug] = bucket.id;
+    if (!slugToBucket[slug]) slugToBucket[slug] = bucket.id;
   }
   for (const assetPath of bucket.paths) {
     if (allPaths.has(assetPath)) throw new Error(`重复运行时语料路径：${assetPath}`);
     allPaths.add(assetPath);
   }
-  if (bucket.bytes > maxBucketBytes) throw new Error(`${bucket.id} 超过运行时桶上限`);
-  await access(resolve(root, `src/app/corpus-runtime/${bucket.id}/[slug]/[folio]/page.tsx`));
-  await access(resolve(root, `src/app/corpus-runtime/${bucket.id}/[slug]/layout.tsx`));
 }
 
-const bucketIds = new Set(buckets.map((bucket) => bucket.id));
-const smokeBucketIds = new Set();
-for (const smoke of corpusRuntimeSmokeRoutes) {
-  const match = smoke.path.match(/^\/jingzang\/([^/]+)\/([^/]+)$/);
-  if (!match || slugToBucket[match[1]] !== smoke.bucket || !bucketIds.has(smoke.bucket)) {
-    throw new Error(`运行时抽样路由与语料桶不一致：${smoke.bucket} ${smoke.path}`);
+const rangesBySlug = new Map();
+for (const bucket of buckets) {
+  for (const range of bucket.juanRanges) {
+    if (!rangesBySlug.has(range.slug)) rangesBySlug.set(range.slug, []);
+    rangesBySlug.get(range.slug).push({
+      bucket: bucket.id,
+      from: range.from,
+      to: range.to,
+    });
   }
-  if (smokeBucketIds.has(smoke.bucket)) throw new Error(`运行时语料桶抽样重复：${smoke.bucket}`);
-  smokeBucketIds.add(smoke.bucket);
 }
-if (smokeBucketIds.size !== bucketIds.size) {
-  throw new Error("每个运行时语料桶必须且只能有一个生产抽样路由");
+for (const [slug, ranges] of rangesBySlug) {
+  const bucketsForSlug = new Set(ranges.map((range) => range.bucket));
+  if (bucketsForSlug.size < 2) continue;
+  slugJuanBuckets[slug] = mergeJuanRanges(ranges);
 }
 
 const routing = {
-  schema: "https://foxue.ai/schemas/corpus-runtime-routing-v0.1",
-  slugToBucket: Object.fromEntries(Object.entries(slugToBucket).sort(([left], [right]) => compareText(left, right))),
+  schema: "https://foxue.ai/schemas/corpus-runtime-routing-v0.2",
+  slugToBucket: Object.fromEntries(
+    Object.entries(slugToBucket).sort(([left], [right]) => compareText(left, right)),
+  ),
+  slugJuanBuckets: Object.fromEntries(
+    Object.entries(slugJuanBuckets).sort(([left], [right]) => compareText(left, right)),
+  ),
 };
+
+for (const bucket of buckets) {
+  const rewritten = rewriteCatalogFolioPath(bucket.smokePath, routing);
+  if (rewritten !== `/corpus-runtime/${bucket.id}${bucket.smokePath.slice("/jingzang".length)}`) {
+    throw new Error(`${bucket.id} 抽样版页改写错误：${bucket.smokePath} → ${rewritten}`);
+  }
+}
+
+const bucketIds = new Set(buckets.map((bucket) => bucket.id));
+for (const path of corpusRuntimeSmokePaths) {
+  const rewritten = rewriteCatalogFolioPath(path, routing);
+  if (!rewritten) throw new Error(`运行时抽样路由无法改写：${path}`);
+  const bucket = rewritten.split("/")[2];
+  if (!bucketIds.has(bucket)) {
+    throw new Error(`运行时抽样路由指向不存在的语料桶：${path} → ${bucket}`);
+  }
+}
+
 const tracing = {
-  schema: "https://foxue.ai/schemas/corpus-runtime-tracing-v0.1",
+  schema: "https://foxue.ai/schemas/corpus-runtime-tracing-v0.2",
   maxBucketBytes,
   totalAssets: allPaths.size,
   totalBytes: buckets.reduce((sum, bucket) => sum + bucket.bytes, 0),
-  buckets: buckets.map(({ id, sourceFamily, bytes, paths, slugs }) => ({
+  buckets: buckets.map(({ id, sourceFamily, bytes, includeGlobs, paths, slugs, smokePath }) => ({
     id,
     sourceFamily,
     bytes,
-    includeGlobs: sourceFamily === "suttacentral"
-      ? ["data/corpus/suttacentral/root/**/*"]
-      : paths,
+    smokePath,
+    includeGlobs,
     paths,
     slugs,
   })),
 };
+
+async function syncRuntimeRoutes() {
+  const existing = new Set(await readdir(runtimeRoot));
+  for (const name of existing) {
+    if (bucketIds.has(name)) continue;
+    if (write) {
+      await rm(join(runtimeRoot, name), { recursive: true, force: true });
+      continue;
+    }
+    throw new Error(`多余运行时桶目录：${name}；运行 pnpm build:corpus-runtime-buckets`);
+  }
+  for (const bucket of buckets) {
+    const folioDir = join(runtimeRoot, bucket.id, "[slug]", "[folio]");
+    const layoutPath = join(runtimeRoot, bucket.id, "[slug]", "layout.tsx");
+    const pagePath = join(folioDir, "page.tsx");
+    if (write) {
+      await mkdir(folioDir, { recursive: true });
+      await writeFile(layoutPath, layoutSource);
+      await writeFile(pagePath, pageSource);
+      continue;
+    }
+    await access(pagePath);
+    await access(layoutPath);
+    const actualPage = await readFile(pagePath, "utf8");
+    const actualLayout = await readFile(layoutPath, "utf8");
+    if (actualPage !== pageSource) throw new Error(`${bucket.id} 版页模块与分桶模板不一致`);
+    if (actualLayout !== layoutSource) throw new Error(`${bucket.id} 布局模块与分桶模板不一致`);
+  }
+}
 
 const outputs = [
   ["src/data/corpus-runtime-routing.generated.json", serialize(routing)],
@@ -182,7 +398,10 @@ for (const [relativePath, expected] of outputs) {
   if (actual !== expected) throw new Error(`${relativePath} 与受控语料清单不一致；运行 pnpm build:corpus-runtime-buckets`);
 }
 
+await syncRuntimeRoutes();
+
+const splitCount = Object.keys(slugJuanBuckets).length;
 console.log(
   `${write ? "已生成" : "已验证"} ${buckets.length} 个运行时语料桶、${Object.keys(slugToBucket).length} 个文本表达、` +
-  `${allPaths.size} 个受控资产；单桶上限 ${maxBucketBytes} 字节。`,
+  `${allPaths.size} 个受控资产、${splitCount} 个按卷拆分文本；单桶上限 ${maxBucketBytes} 字节。`,
 );
