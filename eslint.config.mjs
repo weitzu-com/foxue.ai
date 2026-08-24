@@ -11,6 +11,7 @@ export default defineConfig([
     "artifacts/**",
     "data/corpus/**/*.xml",
     "src/data/corpus-folio-index.generated.json",
+    "src/data/corpus-folio-existence.generated.json",
     "src/data/corpus-sitemap-ledger.generated.json",
     "src/data/corpus-sitemap-chunks/**",
     "src/data/corpus-work-ledger.generated.json",

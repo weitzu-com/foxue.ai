@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
+import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
 
 const routing = JSON.parse(
   readFileSync(new URL("../src/data/corpus-runtime-routing.generated.json", import.meta.url), "utf8"),
@@ -18,7 +19,7 @@ export const corpusRuntimeSmokePaths = [
 ];
 
 export const corpusRuntimeSmokeRoutes = corpusRuntimeSmokePaths.map((path) => {
-  const rewritten = rewriteCatalogFolioPath(path, routing);
+  const rewritten = rewriteCatalogFolioPath(path, routing, corpusFolioExistence);
   if (!rewritten) throw new Error(`运行时抽样路由无法改写：${path}`);
   return { bucket: rewritten.split("/")[2], path };
 });

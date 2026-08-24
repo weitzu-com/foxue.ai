@@ -1,7 +1,13 @@
-export function rewriteCatalogFolioPath(pathname, routing) {
+import { catalogFolioKeyExists } from "./corpus-folio-existence.mjs";
+
+export function rewriteCatalogFolioPath(pathname, routing, existence) {
+  if (!existence) {
+    throw new Error("版页改写必须带存在账本，否则未知版页会打进肥胖函数");
+  }
   const match = pathname.match(/^\/jingzang\/([a-z0-9-]+)\/([a-z0-9.-]+?)(\.rsc)?\/?$/);
   if (!match) return null;
   const [, slug, folio, rscSuffix] = match;
+  if (!catalogFolioKeyExists(existence, slug, folio)) return null;
   const slugToBucket = routing.slugToBucket ?? routing;
   const slugJuanBuckets = routing.slugJuanBuckets ?? {};
   const ranges = slugJuanBuckets[slug];

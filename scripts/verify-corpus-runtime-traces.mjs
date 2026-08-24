@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import { dirname, resolve, relative } from "node:path";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
+import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
 
 const root = process.cwd();
 const tracing = JSON.parse(
@@ -125,7 +126,7 @@ for (const bucket of tracing.buckets) {
   );
 }
 
-const rewrittenLate = rewriteCatalogFolioPath(daboruoLateFolio.path, routing);
+const rewrittenLate = rewriteCatalogFolioPath(daboruoLateFolio.path, routing, corpusFolioExistence);
 if (!rewrittenLate?.startsWith("/corpus-runtime/")) {
   throw new Error(`大般若 ${daboruoLateFolio.path} 无法改写到分桶运行时`);
 }
