@@ -545,7 +545,7 @@ test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ pag
   );
   expect(severe).toEqual([]);
 
-  const sitemap = await request.get("/sitemap/0.xml");
+  const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
   expect(await sitemap.text()).toContain("/gainian/kong");
 });
@@ -560,7 +560,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/wuzhu"]')).toContainText("无住");
   await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
 
-  const sitemap = await request.get("/sitemap/0.xml");
+  const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
   const body = await sitemap.text();
   expect(body).toContain("/gainian");
