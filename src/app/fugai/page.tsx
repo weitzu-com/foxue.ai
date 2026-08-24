@@ -47,6 +47,7 @@ const statusLabels: Record<string, string> = {
   catalog_and_file_snapshots_ready_file_rights_audited_alignment_pending: "逐文件权利已审计，作品对齐中",
   multi_edition_catalog_snapshots_with_one_complete_public_domain_derge_text_witness: "多版本目录已冻结，并纳入一个完整公版德格全文见证",
   federated_sources_pending: "联邦来源待建",
+  translation_witness_attached_not_global_denominator: "译文见证已挂接，不计入全球分母",
 };
 
 const sourceLabels: Record<string, string> = {
