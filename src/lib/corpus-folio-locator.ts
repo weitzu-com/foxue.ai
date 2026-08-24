@@ -1,6 +1,6 @@
 import { cache } from "react";
 import folioLocatorLedgerDocument from "@/data/corpus-folio-locator-ledger.generated.json";
-import { loadFolioLocatorShardWorks } from "@/lib/corpus-folio-locator-loaders.generated";
+import { loadFolioLocatorShardWorks } from "@/lib/corpus-folio-locator-loaders";
 import {
   folioLocatorLedgerSchema,
   folioLocatorMaxSliceBytes,

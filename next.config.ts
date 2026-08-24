@@ -42,19 +42,12 @@ const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value
 const sitemapLedgerGlob = "./src/data/corpus-sitemap-ledger.generated.json";
 const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/*.json"];
 const workLedgerGlob = "./src/data/corpus-work-ledger.generated.json";
+// force-static 经目页不会套用 tracing includes；字面 import() 在 corpus-work-catalog-nft.generated.ts。
 const workCatalogGlobs = [workLedgerGlob, "./src/data/corpus-work-catalog-chunks/*.json"];
-const folioLocatorGlobs = [
-  "./src/data/corpus-folio-locator-ledger.generated.json",
-  "./src/data/corpus-folio-locator-chunks/*.json",
-  ...workCatalogGlobs,
-];
 const corpusRuntimeIncludes = Object.fromEntries(
   corpusRuntimeTracing.buckets.map((bucket) => [
     `/corpus-runtime/${bucket.id}/**`,
-    [
-      ...bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
-      ...folioLocatorGlobs,
-    ],
+    bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
   ]),
 );
 const sitemapNavigationIncludes = {

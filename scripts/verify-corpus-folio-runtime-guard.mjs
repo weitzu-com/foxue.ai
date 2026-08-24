@@ -33,6 +33,10 @@ const [
   folioModule,
   folioReading,
   folioLocatorModule,
+  folioLocatorLoaders,
+  workCatalogLoaders,
+  workCatalogNft,
+  jsonShard,
   proxySource,
   nextConfig,
   routing,
@@ -40,6 +44,8 @@ const [
   folioIndex,
   workLedger,
   folioLocatorLedger,
+  bucketFolioPage,
+  bucketFolioNft,
 ] = await Promise.all([
   readFile(resolve(root, "src/lib/sitemap-data.ts"), "utf8"),
   readFile(resolve(root, "src/app/sitemap-index.xml/route.ts"), "utf8"),
@@ -49,6 +55,10 @@ const [
   readFile(resolve(root, "src/app/jingzang/_folio/page-module.tsx"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-reading.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-folio-locator.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-folio-locator-loaders.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-work-catalog-loaders.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-work-catalog-nft.generated.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-json-shard.mjs"), "utf8"),
   readFile(resolve(root, "src/proxy.ts"), "utf8"),
   readFile(resolve(root, "next.config.ts"), "utf8"),
   readFile(resolve(root, "src/data/corpus-runtime-routing.generated.json"), "utf8").then(JSON.parse),
@@ -56,6 +66,8 @@ const [
   readFile(resolve(root, "src/data/corpus-folio-index.generated.json"), "utf8").then(JSON.parse),
   readFile(resolve(root, "src/data/corpus-work-ledger.generated.json"), "utf8").then(JSON.parse),
   readFile(resolve(root, "src/data/corpus-folio-locator-ledger.generated.json"), "utf8").then(JSON.parse),
+  readFile(resolve(root, "src/app/corpus-runtime/cb02/[slug]/[folio]/page.tsx"), "utf8"),
+  readFile(resolve(root, "src/app/corpus-runtime/cb02/[slug]/[folio]/nft-json.ts"), "utf8"),
 ]);
 
 requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-reading/, /corpus-folio-index/, /getSutraReading/, /getSitemapEntries/]);
@@ -67,9 +79,11 @@ requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReadi
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/, /corpus-folio-index\.generated/, /corpus-folio-locator/]);
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);
-requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-json-shard/, /corpus-folio-locator/]);
 requireNoImport(folioLocatorModule, "src/lib/corpus-folio-locator.ts", [/corpus-reading/, /getSutraReading/, /cbeta-tei/, /derge-reading/]);
+requireNoImport(folioModule, "src/app/jingzang/_folio/page-module.tsx", [/corpus-work-catalog-nft/]);
 
 if (!/getSutraCatalogView/.test(folioReading)) {
   fail("版页读取必须从经目分片取导航，而不能再整本解析 TEI");
@@ -83,16 +97,55 @@ if (!/肥胖母版，禁止在请求时整本解析/.test(folioReading)) {
 if (/const completeReading = await loadCompleteReading\(sutra\.slug\)/.test(folioReading)) {
   fail("getSutraReading 不得再 loadCompleteReading 整本母版");
 }
-if (!/folioLocatorGlobs[\s\S]*corpus-folio-locator-chunks\/\*\.json[\s\S]*corpusRuntimeIncludes/.test(nextConfig)
-  && !/folioLocatorGlobs[\s\S]*corpus-runtime/.test(nextConfig)) {
-  fail("分桶运行时必须把版页定位账本和经目分片打进 trace");
+if (!/bucket\.includeGlobs\.map/.test(nextConfig)) {
+  fail("next.config 必须按桶 includeGlobs 追踪，而不能把全部经目/定位分片打进每个函数");
 }
-if (!nextConfig.includes("folioLocatorGlobs")) {
-  fail("next.config 必须把 folioLocatorGlobs 打进 corpus-runtime 分桶");
+if (/corpus-folio-locator-chunks\/\*\.json/.test(nextConfig) || /folioLocatorGlobs/.test(nextConfig)) {
+  fail("next.config 不得用 locator-chunks/*.json 把全部定位分片打进 corpus-runtime");
+}
+if (!/readRegisteredJsonFile/.test(folioLocatorLoaders) || !/readRegisteredJsonFile/.test(workCatalogLoaders)) {
+  fail("经目/定位分片必须按登记路径惰性 readFile，而不能 switch-import 全量分片");
+}
+if (!/corpus-shard-paths\.generated/.test(folioLocatorLoaders) || !/corpus-shard-paths\.generated/.test(workCatalogLoaders)) {
+  fail("分片路径必须来自生成清单，而不能在源码里用 id 拼出 *.json 通配");
+}
+if (/import\("@\/data\/corpus-(?:folio-locator|work-catalog)-chunks/.test(folioLocatorLoaders)
+  || /import\("@\/data\/corpus-(?:folio-locator|work-catalog)-chunks/.test(workCatalogLoaders)) {
+  fail("经目/定位加载器不得静态 import 分片 JSON");
+}
+if (!jsonShard.includes("readFile") || !jsonShard.includes("src/data/")) {
+  fail("分片读取必须走受控 readFile，以便 NFT 只包含 includeGlobs 列出的文件");
+}
+if (/\$\{id\}\.json/.test(jsonShard) || /relativeDir/.test(jsonShard)) {
+  fail("分片 readFile 不得用动态目录或 `${id}.json` 通配，否则会把全库 JSON 扫进 NFT");
+}
+if (!/loadWorkCatalogShardForTrace/.test(workIndexPage) || !/corpus-work-catalog-nft\.generated/.test(workIndexPage)) {
+  fail("经目页必须字面 import() 经目分片做 NFT 追踪；force-static 页不会套用 outputFileTracingIncludes");
+}
+if (!/includeCorpusBucketJson/.test(bucketFolioPage) || !/nft-json/.test(bucketFolioPage)) {
+  fail("分桶版页必须字面 import() 本桶经目/定位分片，而不能只靠 includeGlobs");
+}
+if (/corpus-work-catalog-nft/.test(folioModule) || /corpus-work-catalog-nft/.test(folioReading) || /corpus-work-catalog-nft/.test(bucketFolioPage)) {
+  fail("版页读取不得导入全量经目 NFT 加载器，否则每个语料桶会装上 21MB 经目分片");
+}
+if (!/import\("@\/data\/corpus-work-catalog-chunks\/0\.json"\)/.test(workCatalogNft)) {
+  fail("经目 NFT 加载器必须对每个分片做字面 import()，与 sitemap 分片同一套追踪");
+}
+if ((workCatalogNft.match(/corpus-work-catalog-chunks\/\d+\.json/g) ?? []).length !== workLedger.shardCount) {
+  fail("经目 NFT 加载器分片数必须与账本 shardCount 一致");
+}
+if (!/corpus-folio-locator-chunks\/0\.json/.test(bucketFolioNft) || !/corpus-work-catalog-chunks\/1\.json/.test(bucketFolioNft)) {
+  fail("cb02 JSON NFT 必须追踪大般若定位分片 0 与经目分片 1");
+}
+if ((bucketFolioNft.match(/corpus-work-catalog-chunks\/\d+\.json/g) ?? []).length !== 1) {
+  fail("cb02 不得把其他文本的经目分片打进 304-0552c 的函数");
 }
 
 if (!proxySource.includes("rewriteCatalogFolioPath")) {
   fail("src/proxy.ts 必须把目录版页改写到分桶运行时，而不能再打开未分桶 folio 路由");
+}
+if (!proxySource.includes("corpusRuntimeRouting")) {
+  fail("src/proxy.ts 必须把完整 routing（含按卷拆分）交给改写函数");
 }
 if (!proxySource.includes(":folio.rsc")) {
   fail("src/proxy.ts 必须匹配 RSC 版页请求");
@@ -143,8 +196,9 @@ for (const smoke of corpusRuntimeSmokeRoutes) {
     continue;
   }
   const [, slug, folio] = match;
-  if (slugToBucket[slug] !== smoke.bucket) {
-    fail(`抽样路由分桶不一致：${smoke.path}`);
+  const rewritten = rewriteCatalogFolioPath(smoke.path, routing);
+  if (rewritten !== `/corpus-runtime/${smoke.bucket}/${slug}/${folio}`) {
+    fail(`抽样路由分桶不一致：${smoke.path} → ${rewritten}`);
   }
   const keys = folioIndex.works[slug]?.navigation.map((item) => item.key) ?? [];
   if (!keys.includes(folio)) {
@@ -159,47 +213,73 @@ for (const slug of routingSlugs) {
   }
 }
 
-const incidentRoutes = [
-  { bucket: "cb09", path: "/jingzang/zengyiahanjing/001-0549a" },
-  { bucket: "cb01", path: "/jingzang/dasheng-ru-lengqiejing/001-0587a" },
-  { bucket: "cb09", path: "/jingzang/xinjing/001-0848c" },
-  { bucket: "cb01", path: "/jingzang/jingangjing/001-0748c" },
-  { bucket: "cb09", path: "/jingzang/weimojiejing/001-0537a" },
-  { bucket: "cb01", path: "/jingzang/changahanjing/001-0001a" },
-  { bucket: "cb09", path: "/jingzang/zaahanjing/001-0001a" },
-  { bucket: "sc01", path: "/jingzang/dhammapada-pali/001-dhp1-20" },
-  { bucket: "dg01", path: "/jingzang/derge-kangyur-d0008/021-0279b" },
+const incidentPaths = [
+  "/jingzang/zengyiahanjing/001-0549a",
+  "/jingzang/dasheng-ru-lengqiejing/001-0587a",
+  "/jingzang/xinjing/001-0848c",
+  "/jingzang/jingangjing/001-0748c",
+  "/jingzang/weimojiejing/001-0537a",
+  "/jingzang/changahanjing/001-0001a",
+  "/jingzang/zaahanjing/001-0001a",
+  "/jingzang/dhammapada-pali/001-dhp1-20",
+  "/jingzang/derge-kangyur-d0008/021-0279b",
+  "/jingzang/daboruo-jing/001-0001a",
+  "/jingzang/daboruo-jing/304-0552c",
 ];
 
-for (const incident of [...corpusRuntimeSmokeRoutes, ...incidentRoutes]) {
-  const match = incident.path.match(/^\/jingzang\/([^/]+)\/([^/]+)$/);
+for (const path of [...corpusRuntimeSmokeRoutes.map((item) => item.path), ...incidentPaths]) {
+  const match = path.match(/^\/jingzang\/([^/]+)\/([^/]+)$/);
   if (!match) {
-    fail(`事故复现路由无法解析：${incident.path}`);
+    fail(`事故复现路由无法解析：${path}`);
     continue;
   }
   const [, slug, folio] = match;
-  if (slugToBucket[slug] !== incident.bucket) {
-    fail(`事故复现路由分桶不一致：${incident.path}`);
-  }
   const keys = folioIndex.works[slug]?.navigation.map((item) => item.key) ?? [];
   if (!keys.includes(folio)) {
-    fail(`事故复现版页不在索引中：${incident.path}`);
+    fail(`事故复现版页不在索引中：${path}`);
   }
-  const rewritten = rewriteCatalogFolioPath(incident.path, slugToBucket);
-  const rewrittenRsc = rewriteCatalogFolioPath(`${incident.path}.rsc`, slugToBucket);
-  if (rewritten !== `/corpus-runtime/${incident.bucket}/${slug}/${folio}`) {
-    fail(`版页 Proxy 改写错误：${incident.path} → ${rewritten}`);
+  const rewritten = rewriteCatalogFolioPath(path, routing);
+  const rewrittenRsc = rewriteCatalogFolioPath(`${path}.rsc`, routing);
+  if (!rewritten?.startsWith("/corpus-runtime/") || !bucketIds.has(rewritten.split("/")[2])) {
+    fail(`版页 Proxy 改写错误：${path} → ${rewritten}`);
   }
-  if (rewrittenRsc !== `/corpus-runtime/${incident.bucket}/${slug}/${folio}.rsc`) {
-    fail(`RSC Proxy 必须保留 .rsc 后缀：${incident.path}.rsc → ${rewrittenRsc}`);
+  if (rewrittenRsc !== `/corpus-runtime/${rewritten.split("/")[2]}/${slug}/${folio}.rsc`) {
+    fail(`RSC Proxy 必须保留 .rsc 后缀：${path}.rsc → ${rewrittenRsc}`);
   }
 }
 
-if (rewriteCatalogFolioPath("/sitemap-index.xml", slugToBucket) !== null) {
+if (rewriteCatalogFolioPath("/sitemap-index.xml", routing) !== null) {
   fail("Proxy 不得改写 sitemap");
 }
-if (rewriteCatalogFolioPath("/jingzang/xinjing", slugToBucket) !== null) {
+if (rewriteCatalogFolioPath("/jingzang/xinjing", routing) !== null) {
   fail("Proxy 不得改写文本目录页");
+}
+
+const daboruoEarly = rewriteCatalogFolioPath("/jingzang/daboruo-jing/001-0001a", routing);
+const daboruoLate = rewriteCatalogFolioPath("/jingzang/daboruo-jing/304-0552c", routing);
+if (!daboruoEarly || !daboruoLate) {
+  fail("大般若首尾版页必须改写到分桶运行时");
+} else {
+  const earlyBucketId = daboruoEarly.split("/")[2];
+  const lateBucketId = daboruoLate.split("/")[2];
+  if (earlyBucketId === lateBucketId) {
+    fail("大般若 001-0001a 与 304-0552c 不得仍落在同一语料桶，否则一次读取会装上整部 15 分册");
+  }
+  const lateBucket = tracing.buckets.find((bucket) => bucket.id === lateBucketId);
+  if (!lateBucket) fail(`大般若晚页指向不存在的桶 ${lateBucketId}`);
+  else if (lateBucket.paths.length !== 1 || lateBucket.paths[0] !== "data/corpus/cbeta/T06n0220b.xml") {
+    fail(`${lateBucketId} 仍把兄弟 TEI 打进 304-0552c 的函数：${lateBucket.paths.join(", ")}`);
+  }
+  for (const range of routing.slugJuanBuckets?.["daboruo-jing"] ?? []) {
+    const bucket = tracing.buckets.find((item) => item.id === range.bucket);
+    const leaked = bucket?.paths.filter((assetPath) => !/\/T0[567]n0220[a-o]\.xml$/.test(assetPath)) ?? ["missing"];
+    if (!bucket || leaked.length > 0) {
+      fail(`${range.bucket} 是大般若分册桶，却夹带了兄弟文本：${leaked[0]}`);
+    }
+  }
+  if ((tracing.maxBucketBytes ?? 0) > 8 * 1024 * 1024) {
+    fail("运行时单桶上限必须 ≤ 8MiB，不能再按 96MiB 把整袋兄弟母版打进冷启动");
+  }
 }
 
 if (folioLocatorLedger.schema !== folioLocatorLedgerSchema) fail("版页定位账本 schema 不正确");

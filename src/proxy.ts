@@ -3,10 +3,8 @@ import { NextResponse } from "next/server";
 import corpusRuntimeRouting from "@/data/corpus-runtime-routing.generated.json";
 import { rewriteCatalogFolioPath } from "@/lib/corpus-folio-proxy.mjs";
 
-const slugToBucket = corpusRuntimeRouting.slugToBucket as Record<string, string>;
-
 export function proxy(request: NextRequest) {
-  const destinationPath = rewriteCatalogFolioPath(request.nextUrl.pathname, slugToBucket);
+  const destinationPath = rewriteCatalogFolioPath(request.nextUrl.pathname, corpusRuntimeRouting);
   if (!destinationPath) return NextResponse.next();
 
   const destination = request.nextUrl.clone();

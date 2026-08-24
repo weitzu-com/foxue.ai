@@ -1,6 +1,6 @@
 import { cache } from "react";
 import workLedgerDocument from "@/data/corpus-work-ledger.generated.json";
-import { loadWorkCatalogShardWorks } from "@/lib/corpus-work-catalog-loaders.generated";
+import { loadWorkCatalogShardWorks } from "@/lib/corpus-work-catalog-loaders";
 import type { SegmentFolioRange } from "@/lib/reader-routes";
 
 export type CatalogNavigationItem = {
