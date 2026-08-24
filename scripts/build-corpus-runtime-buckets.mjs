@@ -1,5 +1,9 @@
 import { access, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
+import {
+  corpusAdvertisedFolioMaxCount,
+  corpusAdvertisedFolioPaths,
+} from "./corpus-advertised-folios.mjs";
 import { corpusRuntimeSmokePaths } from "./corpus-runtime-smoke-routes.mjs";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
 import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
@@ -8,7 +12,11 @@ const root = process.cwd();
 const write = process.argv.includes("--write");
 const maxBucketBytes = 8 * 1024 * 1024;
 const runtimeRoot = resolve(root, "src/app/corpus-runtime");
-const pageSource = `import { includeCorpusBucketJson } from "./nft-json";
+const layoutSource = `export { default, generateMetadata } from "@/app/jingzang/[slug]/layout";
+`;
+
+function buildPageSource(staticParams) {
+  return `import { includeCorpusBucketJson } from "./nft-json";
 
 export { default, generateMetadata } from "@/app/jingzang/_folio/page-module";
 
@@ -16,11 +24,10 @@ export const revalidate = 86400;
 
 export async function generateStaticParams() {
   await includeCorpusBucketJson(\`nft:\${process.env.NEXT_RUNTIME ?? "node"}\`);
-  return [];
+  return ${JSON.stringify(staticParams)};
 }
 `;
-const layoutSource = `export { default, generateMetadata } from "@/app/jingzang/[slug]/layout";
-`;
+}
 
 function compareText(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -394,6 +401,33 @@ for (const path of corpusRuntimeSmokePaths) {
   if (!bucketIds.has(bucket)) {
     throw new Error(`运行时抽样路由指向不存在的语料桶：${path} → ${bucket}`);
   }
+  if (!corpusAdvertisedFolioPaths.includes(path)) {
+    throw new Error(`抽样版页必须进入广告预渲染清单：${path}`);
+  }
+}
+
+if (new Set(corpusAdvertisedFolioPaths).size !== corpusAdvertisedFolioPaths.length) {
+  throw new Error("广告版页预渲染清单含有重复路径");
+}
+if (corpusAdvertisedFolioPaths.length > corpusAdvertisedFolioMaxCount) {
+  throw new Error(
+    `广告版页预渲染 ${corpusAdvertisedFolioPaths.length} 条，超过 ${corpusAdvertisedFolioMaxCount} 上限；禁止展开 261k 版页`,
+  );
+}
+
+const advertisedByBucket = new Map();
+for (const path of corpusAdvertisedFolioPaths) {
+  const rewritten = rewriteCatalogFolioPath(path, routing, corpusFolioExistence);
+  if (!rewritten) throw new Error(`广告版页无法改写到分桶运行时：${path}`);
+  const [, , bucket, slug, folio] = rewritten.split("/");
+  if (!bucketIds.has(bucket)) {
+    throw new Error(`广告版页指向不存在的语料桶：${path} → ${bucket}`);
+  }
+  if (!advertisedByBucket.has(bucket)) advertisedByBucket.set(bucket, []);
+  advertisedByBucket.get(bucket).push({ slug, folio });
+}
+for (const params of advertisedByBucket.values()) {
+  params.sort((left, right) => compareText(left.slug, right.slug) || compareText(left.folio, right.folio));
 }
 
 const tracing = {
@@ -440,6 +474,7 @@ async function syncRuntimeRoutes() {
     const pagePath = join(folioDir, "page.tsx");
     const nftPath = join(folioDir, "nft-json.ts");
     const nftSource = buildBucketJsonNftSource(bucket.includeGlobs);
+    const pageSource = buildPageSource(advertisedByBucket.get(bucket.id) ?? []);
     if (write) {
       await mkdir(folioDir, { recursive: true });
       await writeFile(layoutPath, layoutSource);
@@ -479,7 +514,9 @@ for (const [relativePath, expected] of outputs) {
 await syncRuntimeRoutes();
 
 const splitCount = Object.keys(slugJuanBuckets).length;
+const advertisedCount = corpusAdvertisedFolioPaths.length;
 console.log(
   `${write ? "已生成" : "已验证"} ${buckets.length} 个运行时语料桶、${Object.keys(slugToBucket).length} 个文本表达、` +
-  `${allPaths.size} 个受控资产、${splitCount} 个按卷拆分文本；单桶上限 ${maxBucketBytes} 字节。`,
+  `${allPaths.size} 个受控资产、${splitCount} 个按卷拆分文本；单桶上限 ${maxBucketBytes} 字节；` +
+  `广告版页预渲染 ${advertisedCount} 条（上限 ${corpusAdvertisedFolioMaxCount}）。`,
 );
