@@ -44,7 +44,6 @@ const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/
 const workLedgerGlob = "./src/data/corpus-work-ledger.generated.json";
 // force-static 经目页不会套用 tracing includes；字面 import() 在 corpus-work-catalog-nft.generated.ts。
 const workCatalogGlobs = [workLedgerGlob, "./src/data/corpus-work-catalog-chunks/*.json"];
-const workLandingGlob = "./src/data/work-landing-text.generated.json";
 const corpusRuntimeIncludes = Object.fromEntries(
   corpusRuntimeTracing.buckets.map((bucket) => [
     `/corpus-runtime/${bucket.id}/**`,
@@ -59,8 +58,8 @@ const sitemapNavigationIncludes = {
   "/llms-full.txt": [sitemapLedgerGlob],
   "/llms-full.txt/route": [sitemapLedgerGlob],
   "/sitemap/[__metadata_id__]": sitemapChunkGlobs,
-  "/jingzang/[slug]": [...workCatalogGlobs, workLandingGlob],
-  "/jingzang/[slug]/page": [...workCatalogGlobs, workLandingGlob],
+  "/jingzang/[slug]": workCatalogGlobs,
+  "/jingzang/[slug]/page": workCatalogGlobs,
 };
 
 const nextConfig: NextConfig = {
