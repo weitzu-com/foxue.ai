@@ -2895,6 +2895,11 @@ a {
 .path-share__actions svg { width: 1rem; }
 .path-share__feedback { min-height: 1.4rem; margin: 0.6rem 0 0; color: var(--muted); font-size: 0.7rem; line-height: 1.6; }
 
+@media (prefers-color-scheme: dark) {
+  .path-share__actions button:first-child { border-color: #9d3d31; background: #9d3d31; }
+  .path-share__actions button:first-child:hover { border-color: #79291f; background: #79291f; }
+}
+
 .path-day-actions {
   min-height: 72px;
   display: flex;
