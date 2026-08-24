@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked, Link2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
-import { ReaderJuanSelect } from "@/components/reader-juan-select";
-import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
-import { folioCollectionLabel, getSutra } from "@/data/sutras";
+import { SutraReadingSample } from "@/components/sutra-reading-sample";
+import { getReadingFolioEdition } from "@/data/sutra-reading-editions";
+import { folioCollectionLabel, getSutra, type Sutra } from "@/data/sutras";
 import {
   buildLegacyAliasMap,
   buildJuanNavigation,
@@ -71,28 +71,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 function FolioPager({
   slug,
-  current,
   previous,
   next,
   position,
-  bilara,
-  chaptered,
-  derge,
-  collection,
-  partialWitness,
+  unit,
+  currentLabel,
+  scopeLabel,
 }: {
   slug: string;
-  current: ReaderNavigationItem;
   previous?: ReaderNavigationItem;
   next?: ReaderNavigationItem;
   position: "top" | "bottom";
-  bilara: boolean;
-  chaptered: boolean;
-  derge: boolean;
-  collection: string;
-  partialWitness: boolean;
+  unit: string;
+  currentLabel: string;
+  scopeLabel: string;
 }) {
-  const unit = chaptered ? "品" : bilara ? "阅读页" : "版页";
   return (
     <nav className={`reader-pager reader-pager--${position}`} aria-label={`经文${unit}导航`}>
       {previous ? (
@@ -101,11 +94,11 @@ function FolioPager({
           <span>上一{unit}<small>{previous.label}</small></span>
         </Link>
       ) : (
-        <span className="reader-pager__edge">{chaptered ? "品集之首" : bilara ? (partialWitness ? "见证之首" : "全经之首") : derge ? "本经之首" : "卷首"}</span>
+        <span className="reader-pager__edge">{scopeLabel}之首</span>
       )}
       <div>
         <span>当前{unit}</span>
-        <strong>{chaptered ? `第 ${Number(current.juan)} 品 · ${current.label}` : bilara ? `第 ${Number(current.juan)} 阅读页 · ${current.label}` : derge ? `第 ${Number(current.juan)} 函 · 德格 ${current.label}` : `卷 ${Number(current.juan)} · ${collection} ${current.label}`}</strong>
+        <strong>{currentLabel}</strong>
       </div>
       {next ? (
         <Link href={folioHref(slug, next.key)} prefetch={false} rel="next">
@@ -113,9 +106,58 @@ function FolioPager({
           <ArrowRight aria-hidden="true" size={16} />
         </Link>
       ) : (
-        <span className="reader-pager__edge">{chaptered ? "品集之末" : bilara ? (partialWitness ? "见证之末" : "全经之末") : derge ? "本经之末" : "卷末"}</span>
+        <span className="reader-pager__edge">{scopeLabel}之末</span>
       )}
     </nav>
+  );
+}
+
+function CorpusAssetUnavailable({
+  sutra,
+  item,
+  segmentCount,
+}: {
+  sutra: Sutra;
+  item: ReaderNavigationItem;
+  segmentCount: number;
+}) {
+  return (
+    <div className="reader-index-layout">
+      <section className="reader-index-lead">
+        <BookMarked aria-hidden="true" />
+        <p className="eyebrow">稳定入口已登记 · SOURCE ASSET PENDING</p>
+        <h1>目录已就绪，正文资产仍在同步。</h1>
+        <p>
+          《{sutra.alternateTitle}》的版本、来源、稳定段落与当前页 {item.label} 已经进入全量登记册；
+          但承载正文的不可变边缘对象尚未完成播种。这里不会用样本文本冒充全文，也不会把暂时缺失误报成不存在。
+        </p>
+        <dl className="reader-index-stats">
+          <div><dt>文本表达</dt><dd>{sutra.canonRef}</dd></div>
+          <div><dt>登记行段</dt><dd>{segmentCount}</dd></div>
+        </dl>
+        <a className="button-primary" href={sutra.sourceUrl} target="_blank" rel="noreferrer">
+          在权威来源阅读 <ArrowUpRight aria-hidden="true" size={16} />
+        </a>
+        <Link className="source-outlink" href={`/jingzang/${sutra.slug}`}>
+          <ArrowLeft aria-hidden="true" size={14} /> 返回文本目录
+        </Link>
+      </section>
+
+      <aside className="reader-meta reader-index-meta">
+        <p className="eyebrow">版本与来源边界</p>
+        <dl>
+          <div><dt>当前入口</dt><dd>{item.label}</dd></div>
+          <div><dt>语言</dt><dd>{sutra.language}</dd></div>
+          <div><dt>责任者</dt><dd>{sutra.translator}</dd></div>
+          <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
+          <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
+          <div><dt>状态</dt><dd>目录可用 · 正文边缘资产待播种</dd></div>
+        </dl>
+        <p className="reader-meta__caution">
+          来源恢复后，同一稳定网址会直接显示正文，无需更换引用链接。
+        </p>
+      </aside>
+    </div>
   );
 }
 
@@ -123,22 +165,23 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const { slug, folio: folioKey } = await params;
   const sutra = getSutra(slug);
   if (!sutra) notFound();
-  let reading;
-  let folio;
-  try {
-    reading = await getSutraReading(sutra);
-    folio = await getSutraFolio(sutra, reading, folioKey);
-  } catch (error) {
-    if (error instanceof CorpusAssetMissingError) notFound();
-    throw error;
+  const reading = await getSutraReading(sutra);
+  const navigationItem = reading.navigation.find((item) => item.key === folioKey);
+  if (!navigationItem) notFound();
+  const folio = await getSutraFolio(sutra, reading, folioKey);
+  if (!folio) {
+    return (
+      <CorpusAssetUnavailable
+        sutra={sutra}
+        item={navigationItem}
+        segmentCount={reading.segmentCount}
+      />
+    );
   }
-  if (!folio) notFound();
   const juanNavigation = buildJuanNavigation(reading.navigation);
   const currentJuanNavigation = folio.item.juan
     ? reading.navigation.filter((item) => item.juan === folio.item.juan)
     : reading.navigation;
-  const useCompactJuanSelector = juanNavigation.length > 200;
-  const currentJuanGroup = juanNavigation.find((group) => group.juan === folio.item.juan);
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const derge = sutra.readerMode === "derge-folio";
@@ -147,7 +190,6 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const jaChapter = sat || kokuyaku;
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
-  const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : jaChapter ? "章" : "卷";
   const originalLanguageLabel = kokuyaku
     ? "文语国译"
@@ -173,7 +215,6 @@ export default async function SutraFolioPage({ params }: PageProps) {
       : bilara
         ? sutra.language.includes("古汉") ? "zh-Hant" : "pi-Latn"
         : "zh-Hant";
-  const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
   const currentHeading = chaptered
     ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}`
     : bilara
@@ -185,6 +226,50 @@ export default async function SutraFolioPage({ params }: PageProps) {
         : sat
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章 · SAT日譯`
         : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`;
+  const readingEdition = getReadingFolioEdition({
+    slug: sutra.slug,
+    folioKey: folio.item.key,
+    title: sutra.title,
+    alternateTitle: sutra.alternateTitle,
+    translator: sutra.translator,
+    language: sutra.language,
+    folioLabel: folio.item.label,
+    segments: folio.segments,
+    hasNext: Boolean(folio.next),
+    readerMode: sutra.readerMode,
+  });
+  const pageUnit = chaptered
+    ? "品"
+    : bilara
+      ? "阅读页"
+      : kokuyaku
+        ? "品"
+        : sat
+          ? "章"
+          : "版页";
+  const readerScopeLabel = chaptered
+    ? "品集"
+    : bilara
+      ? partialWitness ? "见证" : "全经"
+      : derge
+        ? "藏文本"
+        : kokuyaku
+          ? "国译"
+          : sat
+            ? "日译"
+            : "全经";
+  const currentJuanIndex = Math.max(
+    0,
+    juanNavigation.findIndex((group) => group.juan === folio.item.juan),
+  );
+  const useNearbyDirectory = juanNavigation.length > 48;
+  const nearbyDirectoryStart = Math.max(
+    0,
+    Math.min(currentJuanIndex - 4, juanNavigation.length - 9),
+  );
+  const directoryJuanNavigation = useNearbyDirectory
+    ? juanNavigation.slice(nearbyDirectoryStart, nearbyDirectoryStart + 9)
+    : juanNavigation;
   const description = chaptered
     ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
     : bilara
@@ -246,155 +331,102 @@ export default async function SutraFolioPage({ params }: PageProps) {
       />
 
       <div className="reader-layout">
-        <aside className="reader-toc">
-          <p className="eyebrow">{chaptered ? "品目录" : bilara ? "阅读目录" : derge ? "函页目录" : "版页目录"}</p>
-          <Link className="reader-toc__index-link" href={`/jingzang/${sutra.slug}`} prefetch={false}>
-            <ArrowLeft aria-hidden="true" size={13} /> 返回文本目录
-          </Link>
-          {juanNavigation.length > 1 && (
-            <>
-              <p className="reader-toc__section-label">{groupUnit}目录 · {juanNavigation.length} {groupUnit}</p>
-              {useCompactJuanSelector ? (
-                <ReaderJuanSelect
-                  slug={sutra.slug}
-                  currentKey={currentJuanGroup?.first.key}
-                  items={juanNavigation.map((group) => ({
-                    key: group.first.key,
-                    juan: group.juan,
-                    pages: group.pages,
-                  }))}
-                />
-              ) : (
-                <ol className="reader-toc__juan-list">
-                  {juanNavigation.map((group) => (
-                    <li key={group.juan}>
-                      <Link
-                        href={folioHref(sutra.slug, group.first.key)}
-                        prefetch={false}
-                        aria-current={group.juan === folio.item.juan ? "location" : undefined}
-                      >
-                        {chaptered ? `第 ${Number(group.juan)} 品` : bilara ? `第 ${Number(group.juan)} 阅读页` : derge ? `第 ${Number(group.juan)} 函` : `卷 ${Number(group.juan)}`} <span>{group.pages} {bilara ? "项" : "页"}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              )}
-            </>
-          )}
-          <p className="reader-toc__section-label">
-            {chaptered
-              ? `当前品 · ${folio.item.label}`
+        <SutraReadingSample
+          folioLabel={folio.item.label}
+          edition={readingEdition}
+          segments={folio.segments}
+          sourceName={sutra.sourceName}
+          sourceUrl={sutra.sourceUrl}
+          sourceLicense={sutra.sourceLicense}
+          canonRef={sutra.canonRef}
+          directory={{
+            indexHref: `/jingzang/${sutra.slug}`,
+            indexLabel: `返回《${sutra.alternateTitle}》文本目录`,
+            title: chaptered
+              ? "分品目录"
               : bilara
-                ? `当前阅读页 · ${folio.item.label}`
-              : derge
-                ? `当前版页 · 德格 ${folio.item.label}`
-              : (juanNavigation.length > 1 ? `本卷版页 · ${currentJuanNavigation.length} 页` : "版页目录")}
-          </p>
-          <ol className="reader-toc__page-list">
-            {currentJuanNavigation.map((item, index) => (
-              <li key={item.key}>
-                <Link
-                  href={folioHref(sutra.slug, item.key)}
-                  prefetch={false}
-                  aria-current={item.key === folio.item.key ? "page" : undefined}
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  {bilara ? item.label : derge ? `德格 ${item.label}` : (juanNavigation.length > 1 ? item.label : `卷 ${Number(item.juan)} · ${item.label}`)}
-                </Link>
-              </li>
-            ))}
-          </ol>
-          <a className="source-outlink" href={sutra.sourceUrl} target="_blank" rel="noreferrer">
-            打开来源母版 <ArrowUpRight aria-hidden="true" size={14} />
-          </a>
-        </aside>
-
-        <article className="sutra-paper sutra-paper--complete">
-          <FolioPager
-            slug={sutra.slug}
-            current={folio.item}
-            previous={folio.previous}
-            next={folio.next}
-            position="top"
-            bilara={bilara}
-            chaptered={chaptered}
-            derge={derge}
-            collection={collection}
-            partialWitness={partialWitness}
-          />
-          <div className="sutra-paper__notice">
-            <BookMarked aria-hidden="true" />
-            <p>
-              <strong>{chaptered ? "完整巴利原文 · 分品阅读" : bilara ? (partialWitness ? partialHeading : `完整${originalLanguageLabel} · 稳定分页`) : derge ? "完整藏文原文 · 德格版页" : partialWitness ? partialHeading : "完整原文 · 分页阅读"}</strong>　
-              {chaptered
-                ? `当前仅加载第 ${Number(folio.item.juan)} 品；保留 Bilara 原生段落标识，未加入未经审核的译文或跨本对齐。`
-                : bilara
-                  ? partialWitness
-                    ? `当前仅加载第 ${Number(folio.item.juan)} 阅读页；固定提交中的已发布来源文件完整保存，但这里只是母作品的局部见证。`
-                    : `当前仅加载第 ${Number(folio.item.juan)} 阅读页；保留 Bilara 原生段落标识，每页最多 120 段。`
+                ? "阅读目录"
                 : derge
-                  ? `当前仅加载第 ${Number(folio.item.juan)} 函德格 ${folio.item.label} 版页；藏文 NFD、目录标记与异常页序保留在来源切片中，重复版页行以稳定序号区分。`
-                : partialWitness
-                  ? `当前仅加载${collection} ${folio.item.label} 版页；来源文件完整保存，但正文只作为局部、节译、后分、短本或残篇见证，不冒充完整母作品或完整译本。`
-                  : `当前仅加载${collection} ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
-            </p>
-          </div>
-          {folio.segments.map((segment, index) => (
-            <section className="sutra-segment" id={segment.id} key={segment.id}>
-              {segment.legacyIds?.map((legacyId) => (
-                <span className="legacy-anchor" id={legacyId} aria-hidden="true" key={legacyId} />
-              ))}
-              <div className="segment-number">{segment.sourceLine ?? String(index + 1).padStart(2, "0")}</div>
-              <div>
-                <p className="segment-text" lang={textLanguage}>{segment.text}</p>
-                {segment.note && <p className="segment-note"><span>边注</span>{segment.note}</p>}
-                <a className="segment-anchor" href={`#${segment.id}`}>
-                  <Link2 aria-hidden="true" size={13} /> {segment.id}
-                </a>
-              </div>
-            </section>
-          ))}
-          <FolioPager
-            slug={sutra.slug}
-            current={folio.item}
-            previous={folio.previous}
-            next={folio.next}
-            position="bottom"
-            bilara={bilara}
-            chaptered={chaptered}
-            derge={derge}
-            collection={collection}
-            partialWitness={partialWitness}
-          />
-        </article>
-
-        <aside className="reader-meta">
-          <p className="eyebrow">版本与权利</p>
-          <dl>
-            <div><dt>当前</dt><dd>{chaptered ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : bilara ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}` : derge ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`}</dd></div>
-            <div><dt>{bilara || derge ? "目录" : "经号"}</dt><dd>{sutra.canonRef}</dd></div>
-            <div><dt>语言</dt><dd>{sutra.language}</dd></div>
-            <div><dt>{bilara ? "版本" : derge ? "译责" : "译者"}</dt><dd>{sutra.translator}</dd></div>
-            <div><dt>来源</dt><dd>{sutra.sourceName}</dd></div>
-            <div><dt>权利</dt><dd>{sutra.sourceLicense}</dd></div>
-            <div>
-              <dt>{chaptered ? "本品" : "本页"}</dt>
-              <dd>{bilara
-                ? `${folio.segments.length} 段 · ${partialWitness ? "局部见证" : bilaraCorpusUnit} ${reading.segmentCount} 稳定段落`
-                : `${folio.segments.length} 行 · 全经 ${reading.segmentCount} 稳定行段`}</dd>
-            </div>
-          </dl>
-          <p className="reader-meta__caution">
-            引用、研究或再分发前，请以来源网站最新授权说明为准。
-          </p>
-          {sutra.bibliographicNote ? (
-            <p className="reader-meta__caution"><strong>书目关系边界：</strong>{sutra.bibliographicNote}</p>
-          ) : null}
-          {sutra.attributionNote ? (
-            <p className="reader-meta__caution"><strong>归属边界：</strong>{sutra.attributionNote}</p>
-          ) : null}
-          <ParallelEvidencePanel slug={sutra.slug} />
-        </aside>
+                  ? "函页目录"
+                  : kokuyaku
+                    ? "国译品次"
+                    : sat
+                      ? "日译章节"
+                      : "卷页目录",
+            currentLabel: currentHeading,
+            groupsLabel: useNearbyDirectory ? `附近${groupUnit}目` : `全经${groupUnit}目`,
+            pagesLabel: chaptered
+              ? "当前品阅读页"
+              : bilara
+                ? "当前阅读页"
+                : derge
+                  ? "当前函版页"
+                  : kokuyaku
+                    ? "当前品"
+                    : sat
+                      ? "当前章"
+                      : "当前卷版页",
+            groupsNote: useNearbyDirectory
+              ? `为保持页面轻快，仅显示当前附近 9 ${groupUnit}；全文共 ${juanNavigation.length} ${groupUnit}，完整目录请返回文本目录。`
+              : undefined,
+            groups: directoryJuanNavigation.map((group) => ({
+              key: group.juan ?? group.first.key,
+              href: folioHref(sutra.slug, group.first.key),
+              label: chaptered
+                ? `第 ${Number(group.juan)} 品`
+                : bilara
+                  ? `第 ${Number(group.juan)} 阅读页`
+                  : derge
+                    ? `第 ${Number(group.juan)} 函`
+                    : kokuyaku
+                      ? `第 ${Number(group.juan)} 品`
+                      : sat
+                        ? `第 ${Number(group.juan)} 章`
+                        : `卷 ${Number(group.juan)}`,
+              meta: `${group.pages} ${bilara ? "项" : "页"}`,
+              current: group.juan === folio.item.juan,
+            })),
+            pages: currentJuanNavigation.map((item, index) => ({
+              key: item.key,
+              href: folioHref(sutra.slug, item.key),
+              label: chaptered
+                ? `本品 ${String(index + 1).padStart(2, "0")}`
+                : bilara
+                  ? `第 ${Number(item.juan)} 阅读页`
+                  : derge
+                    ? `德格 ${item.label}`
+                    : kokuyaku
+                      ? `第 ${Number(item.juan)} 品`
+                      : sat
+                        ? `第 ${Number(item.juan)} 章`
+                        : `第 ${String(index + 1).padStart(2, "0")} 页`,
+              meta: item.label,
+              current: item.key === folio.item.key,
+            })),
+          }}
+          topNavigation={(
+            <FolioPager
+              slug={sutra.slug}
+              previous={folio.previous}
+              next={folio.next}
+              position="top"
+              unit={pageUnit}
+              currentLabel={currentHeading}
+              scopeLabel={readerScopeLabel}
+            />
+          )}
+          bottomNavigation={(
+            <FolioPager
+              slug={sutra.slug}
+              previous={folio.previous}
+              next={folio.next}
+              position="bottom"
+              unit={pageUnit}
+              currentLabel={currentHeading}
+              scopeLabel={readerScopeLabel}
+            />
+          )}
+        />
       </div>
     </>
   );

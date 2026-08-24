@@ -50,7 +50,8 @@ export function catalogLanguage(language: string) {
 }
 
 export function isChineseLibraryLanguage(language: string) {
-  return catalogLanguage(language) === "汉文";
+  const normalized = catalogLanguage(language);
+  return normalized === "汉文" || normalized.startsWith("古汉语");
 }
 
 export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
