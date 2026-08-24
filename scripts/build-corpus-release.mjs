@@ -8,6 +8,7 @@ import {
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
 import { buildPageNavigation, parseCbetaReadingLines } from "../src/lib/cbeta-tei.mjs";
+import { parseSatReadingLines } from "../src/lib/sat-tei.mjs";
 import { parseDergeSources } from "../src/lib/derge-reading.mjs";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
@@ -101,6 +102,9 @@ for (const { sourceManifestEntry, sourceFile } of controlledExpressions) {
     ({ segments, navigation } = parseBilaraSeriesSources(sourceContents, sourceFile.parserOptions));
   } else if (sourceFile.parser === "derge_plain_text") {
     ({ segments, navigation } = parseDergeSources(sourceContents, { canonId: sourceFile.id }));
+  } else if (sourceFile.parser === "sat_tei") {
+    segments = sourceContents.flatMap((source) => parseSatReadingLines(source.text, { canonId: sourceFile.id }));
+    navigation = buildPageNavigation(segments);
   } else {
     navigation = buildPageNavigation(segments);
   }

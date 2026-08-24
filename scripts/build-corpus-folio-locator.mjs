@@ -19,6 +19,7 @@ import {
   folioLocatorTargetShardBytes,
 } from "../src/lib/corpus-folio-locator-paths.mjs";
 import { iterateDergeFolioRanges } from "../src/lib/derge-reading-folio.mjs";
+import { iterateSatChapterRanges, locateSatBody } from "../src/lib/sat-tei-folio.mjs";
 
 const root = process.cwd();
 const write = process.argv.includes("--write");
@@ -34,6 +35,10 @@ const manifestFamilies = [
       "data/corpus/cbeta/beyond-taisho-sutra-manifest-v1.0.0.json",
     ],
     defaultParser: "cbeta_tei",
+  },
+  {
+    manifests: ["data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
+    defaultParser: "sat_tei",
   },
   {
     manifests: [
@@ -127,6 +132,28 @@ async function locateCbetaFolios(sources) {
   return folios;
 }
 
+async function locateSatFolios(sources) {
+  const folios = {};
+  for (const [partIndex, source] of sources.entries()) {
+    const bytes = await readFile(resolve(root, source.localPath));
+    const xml = bytes.toString("utf8");
+    const body = locateSatBody(xml);
+    if (!body) throw new Error(`${source.localPath} 缺少 SAT TEI body`);
+    const ranges = iterateSatChapterRanges(body.content);
+    const needed = ranges.flatMap((range) => [body.contentStart + range.start, body.contentStart + range.end]);
+    const byteMap = stringOffsetsToByteOffsets(xml, needed);
+    for (const range of ranges) {
+      const key = `001-${range.page}`;
+      const start = byteMap.get(body.contentStart + range.start);
+      const end = byteMap.get(body.contentStart + range.end);
+      const existing = folios[key];
+      if (!existing) folios[key] = [partIndex, start, end];
+      else existing[2] = end;
+    }
+  }
+  return folios;
+}
+
 async function locateDergeFolios(sources) {
   const folios = {};
   for (const [partIndex, source] of sources.entries()) {
@@ -204,6 +231,8 @@ for (const family of manifestFamilies) {
       let folios;
       if (parser === "cbeta_tei") {
         folios = await locateCbetaFolios(sources);
+      } else if (parser === "sat_tei") {
+        folios = await locateSatFolios(sources);
       } else if (parser === "derge_plain_text") {
         folios = await locateDergeFolios(sources);
       } else {

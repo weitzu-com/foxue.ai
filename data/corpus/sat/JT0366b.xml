@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  
+<teiHeader>
+<fileDesc>
+<titleStmt>
+<title>佛説阿彌陀經</title>
+<respStmt><persName>ダニエル ウィックスロトーム</persName><resp>Translation</resp>
+</respStmt>
+<respStmt><persName>亀山隆彦</persName><resp>Translation</resp>
+</respStmt>
+<respStmt><persName>壬生泰紀</persName><resp>Translation</resp>
+</respStmt>
+<respStmt><persName>野呂靖</persName><resp>Translation</resp>
+</respStmt>
+<respStmt><persName>岡田文弘</persName><resp>Reviewer</resp>
+</respStmt>
+<respStmt><persName>蓑輪顕量</persName><resp>Reviewer</resp>
+</respStmt>
+<respStmt><persName>Kiyonori Nagasaki</persName><resp>Text Encoding</resp>
+</respStmt>
+<respStmt><persName>Tomohiro Murase</persName><resp>Text Encoding</resp>
+</respStmt>
+<funder>公益財団法人全日本仏教会</funder>
+<funder>公益財団法人仏教伝道協会</funder>
+<funder>日本学術振興会</funder>
+</titleStmt>
+<publicationStmt>
+<publisher>SAT大蔵経テキストデータベース研究会</publisher>
+<availability>
+<p xml:id="p0000000100"><ref target="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</ref></p>
+</availability>
+</publicationStmt>
+<sourceDesc>
+<p xml:id="p0000000200">仏教伝道協会による英訳大蔵経を参照しつつ大正新脩大藏経を基にして現代語訳されました。</p>
+<p xml:id="p0000000300">
+<listBibl>
+<bibl><title>佛説阿彌陀經</title>
+<editor role="translator">鳩摩羅什</editor>
+<editor>高楠順次郎</editor>
+<editor>渡辺海旭</editor>
+<editor>小野玄妙</editor>
+<publisher>大蔵出版</publisher>
+<series>大正新脩大蔵経</series>
+<date from="1924" to="1934">1924-34</date>
+<ref>http://21dzk.l.u-tokyo.ac.jp/SAT/T0366.html</ref>
+</bibl>
+<bibl>
+<title>The Smaller Sutra on Amitāyus (The Sutra on Amitāyus Buddha)</title>
+<publisher>BDK America</publisher>
+<series>Bdk English Tripitaka Translation Series</series>
+<editor role="translator">Hisao Inagaki</editor>
+<editor role="translator">Harold Stewart</editor>
+<idno type="ISBN">1-886439-01-X</idno>
+<date when="1995">1995</date>
+</bibl>
+</listBibl>
+</p>
+</sourceDesc>
+</fileDesc>
+</teiHeader>
+<text>
+<front>
+<p xml:id="p0000000400"><title>英訳者による紹介</title></p>
+<p xml:id="p0000000500">浄土教系の学派は、サンスクリット語では「アミターバ」と「アミターユス」、中国語では「阿弥陀仏」、日本語では「アミダ」として知られる、量り知れない光と寿命をもつブッダを軸として展開する大乗仏教の一形態です。このブッダは、輪廻の世界を超えた、この世界より西方のかなたに存在する極楽国土（スカーヴァティー）にいるといわれています。際限のない智慧と慈悲をもつアミダブッダは、輪廻におけるカルマ（行為）の因果に苦しむものたちを見つけ出し、その人々を苦しみから解放する手段を説きます。</p>
+<p xml:id="p0000000600">浄土教系の学派が最も大切にする経典は、この本で示される以下の3つです。1）『無量寿経』（『大無量寿経』やその略称である『大経』としても知られ、サンスクリット語のものの通称は『ラージャー・スカーヴァティーヴューハスートラ』といいます）；2）『観無量寿経』（略称は『観経』です）；3）『阿弥陀経』（『小無量寿経』やその略称である『小経』としても知られ、サンスクリット語のものの通称は『スモーラー・スカーヴァティーヴューハスートラ』といいます）</p>
+<p xml:id="p0000000700">これらの経典は、日本の法然（1133-1212年）によって選び出され、「浄土三部経」と名づけられました。実際には、他にさまざまな経典や論書がアミダブッダと極楽国土について言及しています。藤田宏達教授によれば、中国語訳の仏教聖典の中で、それに該当する経典の数は、290にもおよびます。日本で収集・編纂された『大正新脩大蔵経』と呼ばれる中国語訳の仏教聖典には、2184の文献が残されています。つまり、中国語の伝承に典拠をもつすべての経典の13%以上のものが、アミダブッダと極楽国土を認識していたことになります。</p>
+<p xml:id="p0000000800">アミダブッダは、インドでは大乗仏教の興隆当初から言及されており、ナーガールジュナ（龍樹）やヴァスバンドゥ（世親）などの、大乗仏教の形而上学的思想体系の著名な提唱者たちが、アミダブッダによる救済を説き、浄土の信仰と実践を推し進めました。アミダブッダの信仰は、当初からボーディサットヴァの理念に起源がたどれるため、ヒンドゥー教の神々への信仰とは、明確に区別されていました。さらに、アミダブッダの浄土は、輪廻のうちにある私たちのはかない世界よりも、より現実味のあるものとして考えられていました。</p>
+<p xml:id="p0000000900">浄土の経典や論書は、まず中央アジアへ、そして中国へと伝わります。『大経』の最初の中国語訳は、2世紀中頃に成立しました。現存する5つの翻訳でもっとも新しいものは、980年に翻訳されました。つまり、中国仏教の歴史は、アミダブッダの信仰によって強く特徴づけられ、中国で展開した大乗教団も、このブッダの重要さを理解し、アミダブッダを中心とする実践や信仰を、自らの思想体系に取り入れました。そして、数多くの論書や注釈書が、熱心に浄土思想を先導するものたちによって著され、さまざまな浄土に関する図像も制作されました。出家した男性や女性と同じく在家信者の間でも、アミダブッダの名前を繰り返す「念仏」と呼ばれる修行が、昔もいまも国内外で数多くの中国の仏教徒たち、そしていうまでもなく日本・韓国・ベトナム、その他アジア各国で展開した浄土教系の宗派に属する数百万の信者によって熱心に実践されています。</p>
+<p xml:id="p0000001000">よりすぐれた浄土教の修行として、『観経』と『般舟三昧経』（大正新脩大蔵経、No. 418、ポール・ハリソン訳、The Pratyutpanna samādhi sutra、沼田センター、1998年　BDK　English Tripitaka; 25-2,3）に基づくアミダブッダとその浄土に対する観想もまた、古くから広まっていました。数多くの熱心な信者が、定められた方法にしっかりとしたがって、アミダブッダとその浄土を観察するサマーディに入りました。今日、厳密で複雑な観察の方法にしたがうことは、もはや不可能なので、簡潔で融合した観想法が、さまざまな団体や個人によっておこなわれています。</p>
+<p xml:id="p0000001100">一般の人々の印象に反して、浄土教とは、過去の愚かな人々による信仰では決してありません。それは今なお活発であり、教育水準の低い人々だけでなく、知識人にも尽きることない精神的活力を供給しています。しかし、その教えの体系は、いまださまざまな視座からの研究が十分になされていません。アミダブッダの一次資料である「浄土三部経」は重要であるにも関わらず、欧米の学者や仏教徒には、BDK英訳大蔵経シリーズの一部として、この巻の初版本が1995年に出版されるまで、これら経典の読み易い英訳が長らくありませんでした。このたび、私たちは、注と付録を含む改訂第2版を出版する機会を得ました。</p>
+<p xml:id="p0000001200">この場をもちまして、この歴史的プロジェクトを始められた沼田惠範先生に、心より感謝申し上げます。また、編集委員会と出版委員会にも、原稿を編集し、出版を通じてそれらを見ていただいた時間と労力を厚く感謝いたします。</p>
+<p xml:id="p0000001300">浄土教の理論的な解説と教えの展開に興味ある方は、『浄土三部経――英訳と研究――（The Three Pure Land Sutras: A Study and Translation）』（京都：永田文昌堂、1994年、1995年、2000年〈改訂版〉）の序文をご覧ください。</p>
+<p xml:id="p0000001400">この翻訳の中で示される節の番号は、1988年に編纂された『浄土真宗聖典』（京都：浄土真宗本願寺派）所収の浄土三部経（pp. 3-128）にしたがっています。</p>
+<p xml:id="p0000001500">固有名詞に関しては、ブッダの弟子、よく名の知れた仏たち、およびボーディサットヴァの名前は、サンスクリット語で表記し、他のものに関しては英訳しています。唯一の例外として、サンスクリット語の対応関係がある程度確定できる『小経』中のブッダたちの名前は、すべてサンスクリット語で表記しています。</p>
+<p xml:id="p0000001600">「無量寿（アミターユス）」、「無量光（アミターバ）」、「阿弥陀」は、原則、「アミダ」と表記しています。</p>
+
+<p xml:id="p0000001700">『仏説阿弥陀経』の概要</p>
+<p xml:id="p0000001800">この経典は、ブッダが弟子たちや菩薩たちと一緒にいる場面から始まります。</p>
+<p xml:id="p0000001900">あるとき、ブッダはインド北東のシュラーヴァスティー（舎衛城）に、1250人の修行僧たちと、多くのボーディサットヴァたちとともにいました。ブッダは、シャーリプトラ（舎利弗）を始めとする聴衆に、「西方に、アミダブッダがおさめる〈スカーヴァティー〉と呼ばれるブッダの国土（極楽国土）があります」と語り始めました。その国土はすばらしさに満ちあふれ、心地よくて、心安らぎ、そこで生まれたものはもっともすぐれた精神的な喜びを受けられます。寿命の長さが量り知れないので、アミダブッダは〈アミターユス〉とも呼ばれます。また、その光は際限なく照らすので、〈アミターバ〉とも呼ばれます。そこにいるものたちはみな、もはやさとりから退くことのない位に到達していて、さとりを得ることが保証されています。そこに生まれるためには、アミダブッダの名前をしっかりとたもち、1日から7日の間、心を集中させなければなりません。そして命終わるとき、聖者の集団に付き添われたアミダブッダは、生まれることを願うものの前に現れて、彼らが浄土に生まれることを確かなものとします。</p>
+<p xml:id="p0000002000">6つの方角（すなわち東・西・南・北の四方と上・下）にいる量り知れない数のブッダが、すべてのブッダに守護されたこの教えを受け入れるよう、生けるものたちに勧めます。この教えに対する信心をもつものは、それらのブッダたちに守護され、もはやさとりから退かない位に到達します。このような理由で、すべての生けるものたちは、浄土に生まれたいと願うべきなのです。そして、この経典は、5つが汚れきった世（五濁）においてブッダになったシャーキャムニブッダをほめたたえて終わります。</p>
+
+<p xml:id="p0000002100">『仏説阿弥陀経』の筋書き</p>
+<p xml:id="p0000002200">概要と各節の一覧表および『大正新脩大蔵経』との照合</p>
+<p xml:id="p0000002300">アミダブッダの国土のすばらしい特徴が説明され、彼が生けるものたちを救済することに通じる教えが6つの方角にいるブッダたちによって称讃されます。</p>
+<p xml:id="p0000002400">1.　会座の時期と場所、および聴衆について。（Vol.12, 346b25）</p>
+<p xml:id="p0000002500">2.　極楽国土とアミダブッダの紹介。（346c10）</p>
+<p xml:id="p0000002600">3.　極楽国土の壮大な様子について。（346c12）</p>
+<p xml:id="p0000002700">4.　アミダブッダが「アミターバ」や「アミターユス」と呼ばれる理由について。（347a25）</p>
+<p xml:id="p0000002800">5.　極楽国土にいるボーディサットヴァの功徳と数、およびそこに生まれられるために必要なおこないについて。（347b4）</p>
+<p xml:id="p0000002900">6.　東にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347b18）</p>
+<p xml:id="p0000003000">7.　南にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347b24）</p>
+<p xml:id="p0000003100">8.　西にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347b29）</p>
+<p xml:id="p0000003200">9.　北にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347c6）</p>
+<p xml:id="p0000003300">10.　下の方にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347c11）</p>
+<p xml:id="p0000003400">11.　上の方にある世界にいる仏たちによるアミダブッダの功徳への称讃について。（347c16）</p>
+<p xml:id="p0000003500">12. この教えが、「想像もおよばない功徳をほめたたえ、すべてのブッダによって守護された教え」と呼ばれる理由と、シャーキャムニブッダによる極楽国土に生まれることを願うことへの奨励。（348a7）</p>
+<p xml:id="p0000003600">13. すべてのブッダによるシャーキャムニブッダの功徳への称讃について。（348a18）</p>
+<p xml:id="p0000003700">14.　経典を締めくくる聴衆の喜びの描写。（348a26）</p>
+</front>
+<body>
+<p xml:id="p0000003800"><title type="sutra"><s xml:id="s0000000100">仏説阿弥陀経</s><s xml:id="s0000000200">
+――<persName sameAs="#ブッダ">シャーキャムニ</persName>ブッダによって説かれた<persName sameAs="#アミダ">アミダ</persName>ブッダについての経――</s><s xml:id="s0000000300">
+姚秦の時代、クチャ国の三蔵法師<persName sameAs="#クマーラジーヴァ">クマーラジーヴァ（鳩摩羅什）</persName>による翻訳</s></title></p>
+<p xml:id="p0000003900"><title type="chapter"><s xml:id="s0000000400">1</s></title></p>
+<p xml:id="p0000004000"><s xml:id="s0000000500">次の通りに私は聞きました。</s><s xml:id="s0000000600">あるとき、<persName sameAs="#ブッダ">ブッダ（釈尊）</persName>は<placeName>シュラーヴァスティー（舎衛城）</placeName>にある<placeName>ジェータ林＝アナータピンダダ園（祇樹給孤独園）</placeName>に、1250人のよく知られた偉大なアルハット（阿羅漢）であるビクシュ（出家修行者）たちの大集団とともに滞在していました。</s><s xml:id="s0000000700">【346c】彼らの中には、長老<persName sameAs="#シャーリプトラ">シャーリプトラ（舎利弗）</persName>、<persName sameAs="#マハーマウドガリヤーヤナ">マハーマウドガリヤーヤナ（摩訶目犍連）</persName>、<persName sameAs="#マハーカーシュヤパ">マハーカーシュヤパ（摩訶迦葉）</persName>、<persName sameAs="#マハーカーティヤーヤナ">マハーカーティヤーヤナ（摩訶迦旃延）</persName>、<persName sameAs="#マハーコーシュティラ">マハーコーシュティラ（摩訶拘絺羅）</persName>、<persName sameAs="#レーヴァタ">レーヴァタ（離婆多）</persName>、<persName sameAs="#チューダパンタカ">チューダパンタカ（周梨槃陀迦）</persName>、<persName sameAs="#ナンダ">ナンダ（難陀）</persName>、<persName sameAs="#アーナンダ">アーナンダ（阿難）</persName>、<persName sameAs="#ラーフラ">ラーフラ（羅睺羅）</persName>、<persName sameAs="#ガヴァーンパティ">ガヴァーンパティ（憍梵波提）</persName>、<persName sameAs="#ピンドーラバラドヴァーシャ">ピンドーラバラドヴァーシャ（賓頭盧頗羅墮）</persName>、<persName sameAs="#カーローダイン">カーローダイン（迦留陀夷）</persName>、<persName sameAs="#マハーカッピナ">マハーカッピナ（摩訶劫賓那）</persName>、<persName sameAs="#ヴァックラ">ヴァックラ（薄倶羅）</persName>、<persName sameAs="#アニルッダ">アニルッダ（阿㝹樓馱）</persName>などの偉大な弟子たちがいました。</s><s xml:id="s0000000800">また彼は、法王の子である<persName sameAs="#マンジュシュリー">マンジュシュリー（文殊師利法王子）</persName>、<persName sameAs="#アジタ">アジタボーディサットヴァ（阿逸多菩薩）</persName>、<persName sameAs="#ケンダカダイ">〈甘い香りの象〉と呼ばれるボーディサットヴァ（乾陀訶提菩薩）</persName>、<persName sameAs="#ジョウショウジン">〈常に精進する〉と呼ばれるボーディサットヴァ（常精進菩薩）</persName>などの多くの<persName sameAs="#ボーディサットヴァマハーサットヴァ">ボーディサットヴァマハーサットヴァ（菩薩大士）</persName>たち、および神々の王<persName sameAs="#シャクラ">シャクラ（帝釈）</persName>を含む量り知れない数の神々とともにいました。</s></p>
+<p xml:id="p0000004100"><title type="chapter"><s xml:id="s0000000900">2</s></title></p>
+<p xml:id="p0000004200"><s xml:id="s0000001000">そのとき、<persName sameAs="#ブッダ">ブッダ</persName>は長老<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>にいいました。</s><said who="#ブッダ"><s xml:id="s0000001100">「ここより西の方角に向かって10万億のブッダの国土を過ぎると、〈極楽〉と呼ばれる国土にたどり着きます。そこに<persName sameAs="#アミダ">〈アミダ（阿弥陀）〉</persName>と呼ばれるブッダがいます。</s><s xml:id="s0000001200">彼はいまもそこにいて、教えを説いています。</s></said></p>
+<p xml:id="p0000004300"><title type="chapter"><s xml:id="s0000001300">3</s></title></p>
+<p xml:id="p0000004400"><said who="#ブッダ"><s xml:id="s0000001400"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、その国土はなぜ〈極楽〉と呼ばれているのでしょうか。</s><s xml:id="s0000001500">その国土の生けるものたち（衆生）にはいかなる苦しみもなく、さまざまな楽しみのみを味わいます。</s><s xml:id="s0000001600">そのため、その国土は〈極楽〉と呼ばれています。</s><s xml:id="s0000001700">また、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土には7列の手すり、7列の装飾の網、7列の木々があります。</s><s xml:id="s0000001800">それらはすべて4種の宝石でできていて、国土全体を覆っています。</s><s xml:id="s0000001900">そのため、その国土は〈極楽〉と呼ばれています。</s><s xml:id="s0000002000">また、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土には7種の宝石でできた池があり、8種のすばらしい特性をもった水で満ちあふれています。</s><s xml:id="s0000002100">【347a】池の底には金の砂がしきつめられ、4辺に金、銀、瑠璃、水晶でできた階段があります。</s><s xml:id="s0000002200">その上には金、銀、瑠璃、水晶、琥珀、赤真珠、瑪瑙で飾られた建物があります。</s><s xml:id="s0000002300">池の中には馬車の車輪ほどの大きさの蓮華があり、青色の蓮華は青く輝き、黄色の蓮華は黄色く輝き、赤色の蓮華は赤く輝き、白色の蓮華は白く輝いています。</s><s xml:id="s0000002400">それらはすばらしく、美しく芳しくて清らかです。</s><s xml:id="s0000002500"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土はこのようなすばらしい飾りで満ちあふれています。</s></said></p>
+<p xml:id="p0000004500"><said who="#ブッダ"><s xml:id="s0000002600">また、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダの国土では、天人が常に音楽を奏でています。</s><s xml:id="s0000002700">地面は金でできています。</s><s xml:id="s0000002800">1日に6度、マーンダーラヴァという花の雨が降り注ぎます。</s><s xml:id="s0000002900">毎日、静かな早朝のうちに、その国土の人々は衣の袖を美しい花でいっぱいにし、他の世界にいる10万億のブッダたちに供養しに行きます。</s><s xml:id="s0000003000">その後、朝食のために浄土（極楽国土）に帰ってきます。</s><s xml:id="s0000003100">そして、ゆっくりと歩き回ります。</s><s xml:id="s0000003200"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土はこのようなすばらしい飾りで満ちあふれています。</s></said></p>
+<p xml:id="p0000004600"><said who="#ブッダ"><s xml:id="s0000003300">また、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、その国土にはめずらしく美しい色鮮やかなさまざまな鳥がいます。</s><s xml:id="s0000003400">たとえば、白鳥、孔雀、オウム、シャーリ（舎利）、カラヴィンカ（迦陵頻伽）、ジーヴァムジーヴァカ（共命之鳥）などがいます。</s><s xml:id="s0000003500">1日に6度、それらの鳥は和やかにさえずり、五根（5つの善根）、五力（5つの力）、七菩提支（さとりにつながる7つの修行）、八聖道分（聖なる8つの道）などの教えを説いています。</s><s xml:id="s0000003600">それらを聞き終わると、その国土のすべての人々はブッダ（仏）、教え（法）、サンガ（僧）を心にとどめます。</s><s xml:id="s0000003700">しかし、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、あなたはこれらの鳥が悪いおこないの報いによって生まれたのだと思ってはいけません。</s><s xml:id="s0000003800">なぜかといいますと、そのブッダの国土には三塗（3種の悪い領域）は存在しないからです。</s><s xml:id="s0000003900"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そこに三塗の名前すら存在しないのに、どうしてその領域がありえましょうか。</s><s xml:id="s0000004000">これらの鳥は、鳴き声で教えを説き広めるために<persName sameAs="#アミダ">アミダ</persName>が現し出したものなのです。</s></said></p>
+<p xml:id="p0000004700"><said who="#ブッダ"><s xml:id="s0000004100"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダの国土では、やわらかな風が宝石の並木と宝石の網を吹き抜けるときにすばらしく美しい音が奏でられます。</s><s xml:id="s0000004200">まるで10万種の楽器がそろって演奏されるかのようです。</s><s xml:id="s0000004300">その音を聞くものはすべて、自ずとブッダ、教え、サンガ（三宝）を心にとどめます。</s><s xml:id="s0000004400"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土はこのようなすばらしい飾りで満ちあふれています。</s></said></p>
+<p xml:id="p0000004800"><title type="chapter"><s xml:id="s0000004500">4</s></title></p>
+<p xml:id="p0000004900"><said who="#ブッダ"><s xml:id="s0000004600"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダが<persName sameAs="#アミダ">〈アミターバ〉</persName>とも呼ばれる理由は何だと思いますか。</s><s xml:id="s0000004700"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダから放たれる光は十方のすべての世界を際限なく、さまたげなく照らし尽くします。</s><s xml:id="s0000004800">そのような理由で、彼は<persName sameAs="#アミダ">〈アミターバ（無量光）〉</persName>と呼ばれています。</s><s xml:id="s0000004900">しかも、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダと彼の国土に住む人々の寿命の長さは、およそ量ることも数えることもできず、際限のないほどのカルパ（時間の単位）です。</s><s xml:id="s0000005000">そのような理由で、そのブッダは<persName sameAs="#アミダ">〈アミターユス（無量寿）〉</persName>とも呼ばれています。</s><s xml:id="s0000005100"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、<persName sameAs="#アミダ">アミダ</persName>がさとりを得てから、すでに10カルパが過ぎました。</s><s xml:id="s0000005200">【347b】さらに<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、彼のもとには量ることも数えることもできないほどのシュラーヴァカ（声聞）の弟子たちがいます。</s><s xml:id="s0000005300">そのすべてがアルハットであり、その数はどのような手段をもってしても数え切れません。</s><s xml:id="s0000005400">同じく彼に仕えるボーディサットヴァの数も膨大なものです。</s><s xml:id="s0000005500"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、そのブッダの国土はこのようなすばらしい飾りで満ちあふれています。</s></said></p>
+<p xml:id="p0000005000"><title type="chapter"><s xml:id="s0000005600">5</s></title></p>
+<p xml:id="p0000005100"><said who="#ブッダ"><s xml:id="s0000005700">また、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土に往生したすべての生けるものたちは、もはやさとりから退くことのない（不退転）位にいます。</s><s xml:id="s0000005800">彼らの多くは、次の人生でブッダになる段階（一生補処）にあります。</s><s xml:id="s0000005900">その数はあまりに大きく、とても計算できません。</s><s xml:id="s0000006000">それは、量り知れない、数え切れない、際限がない、と表現するしかありません。</s></said></p>
+<p xml:id="p0000005200"><said who="#ブッダ"><s xml:id="s0000006100"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、極楽国土のことを聞いた生けるものたちは、そこに生まれたいと願うべきです。</s><s xml:id="s0000006200">なぜなら、そこで彼らはすばらしい功徳をそなえた善き人々に、ともに巡り会えるからです。</s><s xml:id="s0000006300"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、少しばかりの善のもととなるもの（善根）やごくわずかな量の功徳では、とてもその国土へ生まれることはできません。</s><s xml:id="s0000006400"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、ある善良な男性や女性が<persName sameAs="#アミダ">アミダ</persName>のことを聞いて彼の名前をしっかりとたもち、たとえば、1日、2日、3日、4日、5日、6日、あるいは7日の間、いっさい心を散らすことなく集中したならば、臨終のときに<persName sameAs="#アミダ">アミダ</persName>がたくさんの聖者をともなって彼らの目の前に現れるでしょう。</s><s xml:id="s0000006500">その結果、彼らは寿命の終わりの時がきても、心が混乱することなく、すみやかに<persName sameAs="#アミダ">アミダ</persName>の極楽国土へ生まれるでしょう。</s></said></p>
+<p xml:id="p0000005300"><said who="#ブッダ"><s xml:id="s0000006600"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、これらの利益を知っているからこそ私は、『この教えを聞いたすべての生けるものたちは、ひとえに極楽国土に生まれたいと願うべきです』というのです。</s></said></p>
+<p xml:id="p0000005400"><title type="chapter"><s xml:id="s0000006700">6</s></title></p>
+<p xml:id="p0000005500"><said who="#ブッダ"><s xml:id="s0000006800"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、私がいま想像もおよばない<persName sameAs="#アミダ">アミダ</persName>の功徳をほめたたえるように、東の方角には<seg type="target" n="#1"><persName sameAs="#アクショービヤ">アクショービヤ</persName>（<persName sameAs="#アクショービヤ">阿閦鞞</persName>）ブッダ【注1】</seg>、<persName sameAs="#メールドヴァジャ">メールドヴァジャ</persName>（<persName sameAs="#メールドヴァジャ">須弥相</persName>）ブッダ、<persName sameAs="#マハーメール">マハーメール</persName>（<persName sameAs="#マハーメール">大須弥</persName>）ブッダ、<persName sameAs="#メールプラバーサ">メールプラバーサ</persName>（<persName sameAs="#メールプラバーサ">須弥光</persName>）ブッダ、そして<persName sameAs="#マンジュスヴァラ">マンジュスヴァラ</persName>（<persName sameAs="#マンジュスヴァラ">妙音</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダたちがいて、彼らも自らの国土にいながら、その長く広い舌を伸ばして三千大千世界（10億の世界）をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばないアミダの功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000005600"><title type="chapter"><s xml:id="s0000006900">7</s></title></p>
+<p xml:id="p0000005700"><said who="#ブッダ"><s xml:id="s0000007000"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、南の方角には<persName sameAs="#チャンドラスーリヤプラディーパ">チャンドラスーリヤプラディーパ</persName>（<persName sameAs="#チャンドラスーリヤプラディーパ">日月灯</persName>）ブッダ、<persName sameAs="#ヤシャスプラバ">ヤシャスプラバ</persName>（<persName sameAs="#ヤシャスプラバ">名聞光</persName>）ブッダ、<persName sameAs="#マハールチスカンダ">マハールチスカンダ</persName>（<persName sameAs="#マハールチスカンダ">大焔肩</persName>）ブッダ、<persName sameAs="#メールプラディーパ">メールプラディーパ</persName>（<persName sameAs="#メールプラディーパ">須弥灯</persName>）ブッダ、そして<persName sameAs="#アナンタヴィーリヤ">アナンタヴィーリヤ</persName>（<persName sameAs="#アナンタヴィーリヤ">無量精進</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダがいます。</s><s xml:id="s0000007100">彼らも自らの国土にいながら、その長く広い舌を伸ばして10億の世界をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばない功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000005800"><title type="chapter"><s xml:id="s0000007200">8</s></title></p>
+<p xml:id="p0000005900"><said who="#ブッダ"><s xml:id="s0000007300">【347c】<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、西の方角には<persName sameAs="#アミダ">アミターユス</persName>（<persName sameAs="#アミダ">無量寿</persName>）ブッダ、<persName sameAs="#アミタケートゥ">アミタケートゥ</persName>（<persName sameAs="#アミタケートゥ">無量相</persName>）ブッダ、<persName sameAs="#アミタドヴァジャ">アミタドヴァジャ</persName>（<persName sameAs="#アミタドヴァジャ">無量幢</persName>）ブッダ、<persName sameAs="#マハープラバ">マハープラバ</persName>（<persName sameAs="#マハープラバ">大光</persName>）ブッダ、<persName sameAs="#マハープラバーサ">マハープラバーサ</persName>（<persName sameAs="#マハープラバーサ">大明</persName>）ブッダ、<persName sameAs="#ラトナケートゥ">ラトナケートゥ</persName>（<persName sameAs="#ラトナケートゥ">宝相</persName>）ブッダ、そして<persName sameAs="#シュッダラシュミプラバ">シュッダラシュミプラバ</persName>（<persName sameAs="#シュッダラシュミプラバ">浄光</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダがいます。</s><s xml:id="s0000007400">彼らも自らの国土にいながら、その長く広い舌を伸ばして10億の世界をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばない功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000006000"><title type="chapter"><s xml:id="s0000007500">9</s></title></p>
+<p xml:id="p0000006100"><said who="#ブッダ"><s xml:id="s0000007600"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、北の方角には<persName sameAs="#アルチスカンダ">アルチスカンダ</persName>（<persName sameAs="#アルチスカンダ">焔肩</persName>）ブッダ、<persName sameAs="#ヴァイシュヴァーナラニルゴーシャ">ヴァイシュヴァーナラニルゴーシャ</persName>（<persName sameAs="#ヴァイシュヴァーナラニルゴーシャ">最勝音</persName>）ブッダ、<persName sameAs="#ドゥシュプラダルシャ">ドゥシュプラダルシャ</persName>（<persName sameAs="#ドゥシュプラダルシャ">難沮</persName>）ブッダ、<persName sameAs="#アーディティヤサンバヴァ">アーディティヤサンバヴァ</persName>（<persName sameAs="#アーディティヤサンバヴァ">日生</persName>）ブッダ、そして<persName sameAs="#ジャーリニープラバ">ジャーリニープラバ</persName>（<persName sameAs="#ジャーリニープラバ">網明</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダがいます。</s><s xml:id="s0000007700">彼らも自らの国土にいながら、その長く広い舌を伸ばして10億の世界をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばない功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000006200"><title type="chapter"><s xml:id="s0000007800">10</s></title></p>
+<p xml:id="p0000006300"><said who="#ブッダ"><s xml:id="s0000007900"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、下方には<persName sameAs="#シンハ">シンハ</persName>（<persName sameAs="#シンハ">師子</persName>）ブッダ、<persName sameAs="#ヤシャ">ヤシャ</persName>（<persName sameAs="#ヤシャ">名聞</persName>）ブッダ、<persName sameAs="#ヤシャプラバーサ">ヤシャプラバーサ</persName>（<persName sameAs="#ヤシャプラバーサ">名光</persName>）ブッダ、<persName sameAs="#ダルマ">ダルマ</persName>（<persName sameAs="#ダルマ">達摩</persName>）ブッダ、<persName sameAs="#ダルマドヴァジャ">ダルマドヴァジャ</persName>（<persName sameAs="#ダルマドヴァジャ">法幢</persName>）ブッダ、そして<persName sameAs="#ダルマダラ">ダルマダラ</persName>（<persName sameAs="#ダルマダラ">持法</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダがいます。</s><s xml:id="s0000008000">彼らも自らの国土にいながら、その長く広い舌を伸ばして10億の世界をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばない功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000006400"><title type="chapter"><s xml:id="s0000008100">11</s></title></p>
+<p xml:id="p0000006500"><said who="#ブッダ"><s xml:id="s0000008200">【348a】<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、上方には<persName sameAs="#ブラフマゴーシャ">ブラフマゴーシャ</persName>（<persName sameAs="#ブラフマゴーシャ">梵音</persName>）ブッダ、<persName sameAs="#ナクシャトララージャ">ナクシャトララージャ</persName>（<persName sameAs="#ナクシャトララージャ">宿王</persName>）ブッダ、<persName sameAs="#ガンドーッタマ">ガンドーッタマ</persName>（<persName sameAs="#ガンドーッタマ">香上</persName>）ブッダ、<persName sameAs="#ガンダプラバーサ">ガンダプラバーサ</persName>（<persName sameAs="#ガンダプラバーサ">香光</persName>）ブッダ、<persName sameAs="#マハールチスカンダ">マハールチスカンダ</persName>（<persName sameAs="#マハールチスカンダ">大焔肩</persName>）ブッダ、<persName sameAs="#ラトナクスマサンプシュピタガートラ">ラトナクスマサンプシュピタガートラ</persName>（<persName sameAs="#ラトナクスマサンプシュピタガートラ">雑色宝華厳身</persName>）ブッダ、<persName sameAs="#サーレーンドララージャ">サーレーンドララージャ</persName>（<persName sameAs="#サーレーンドララージャ">娑羅樹王</persName>）ブッダ、<persName sameAs="#ラトノートパラシュリー">ラトノートパラシュリー</persName>（<persName sameAs="#ラトノートパラシュリー">宝華徳</persName>）ブッダ、<persName sameAs="#サルヴァールタダルシャ">サルヴァールタダルシャ</persName>（<persName sameAs="#サルヴァールタダルシャ">見一切義</persName>）ブッダ、そして<persName sameAs="#スメールカルパ">スメールカルパ</persName>（<persName sameAs="#スメールカルパ">如須弥山</persName>）ブッダなどの、ガンジス川の砂の数に等しいおびただしい数のブッダがいます。</s><s xml:id="s0000008300">彼らも自らの国土にいながら、その長く広い舌を伸ばして10億の世界をあまねく包み込み、『あなたたち生けるものたちは、想像もおよばない功徳をほめたたえ、すべてのブッダによって守護されたこの教えを信じるべきです』という真実の言葉を説いています。</s></said></p>
+<p xml:id="p0000006600"><title type="chapter"><s xml:id="s0000008400">12</s></title></p>
+<p xml:id="p0000006700"><said who="#ブッダ"><s xml:id="s0000008500"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、この教えが〈すべてのブッダに守護された教え〉と呼ばれる理由は何だと思いますか。</s><s xml:id="s0000008600"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、もしも善良な男性や女性が<seg type="target" n="#2">この教えを聞いてしっかりとたもち、ブッダたちの名前を聞くならば【注2】</seg>、善良な男性や女性はすべてのブッダに守護され、もっともすぐれた完全なさとりから退くことはありません。</s><s xml:id="s0000008700">そのため、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、あなたたちは私の言葉とすべてのブッダの教えを信じ受け入れるべきです。</s></said></p>
+<p xml:id="p0000006800"><said who="#ブッダ"><s xml:id="s0000008800"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>、誰であれ<persName sameAs="#アミダ">アミダ</persName>ブッダの国土に生まれたいと、すでに願い、あるいはいま願い、あるいは将来願うならば、彼らはみなもっともすぐれた完全なさとりから退くことはありません。</s><s xml:id="s0000008900">彼らは、その国土にすでに生まれ、あるいはいま生まれ、あるいは将来生まれるでしょう。</s><s xml:id="s0000009000">それゆえ<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、この教えを信じる善良な男性や女性はそこへ生まれたいと願うべきです。</s></said></p>
+<p xml:id="p0000006900"><title type="chapter"><s xml:id="s0000009100">13</s></title></p>
+<p xml:id="p0000007000"><said who="#ブッダ"><s xml:id="s0000009200"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、私がいま想像もおよばない他のブッダたちの功徳をほめたたえるように、彼らもまた想像もおよばない私の功徳をほめたたえ、さらに、『<persName sameAs="#ブッダ">シャーキャムニ</persName>ブッダよ、あなたはきわめて困難でまれなことをなし遂げました。</s><s xml:id="s0000009300">このサハー（娑婆）世界において、時代、見解、煩悩、生けるものたち、そして寿命の5つが汚れきった世の中（五濁悪世）で、あなたはもっともすぐれた完全なさとりを得て、さらに生けるものたちのために、この世でもっとも信じ難いこの教えを説きました。』といいます。</s></said></p>
+<p xml:id="p0000007100"><said who="#ブッダ"><s xml:id="s0000009400"><persName sameAs="#シャーリプトラ">シャーリプトラ</persName>よ、5つが汚れきった世の中で、私がこの困難なことをなし遂げたことをあなたは知らなければなりません。</s><s xml:id="s0000009500">つまり、もっともすぐれた完全なさとりを得てから、私はこの世のために人々には信じ難いこの教えを説きました。</s><s xml:id="s0000009600">実にこれはきわめて困難なことなのです」。</s></said></p>
+<p xml:id="p0000007200"><title type="chapter"><s xml:id="s0000009700">14</s></title></p>
+<p xml:id="p0000007300"><s xml:id="s0000009800">ブッダが以上の教えを説き終わると、<persName sameAs="#シャーリプトラ">シャーリプトラ</persName>とすべてのビクシュたちは、神々、人々、アスラ（阿修羅）たちを含む全世界の生けるものたちとともに、ブッダが説いた教えを聞き、喜び、うやうやしく受け入れました。</s><s xml:id="s0000009900">そして、ブッダに礼拝してから、彼らは立ち去りました。</s></p>
+<p xml:id="p0000007400"><s xml:id="s0000010000">仏説阿弥陀経</s><s xml:id="s0000010100">
+――<persName sameAs="#ブッダ">シャーキャムニ</persName>ブッダによって説かれたアミダブッダについての経――完</s></p>
+</body>
+<back><note type="translaion_notes" resp="translater">
+<p>英訳注記</p>
+<ptr target="#1"/>【注1】「アクショービヤ（阿閦鞞）ブッダ」：6つの方角にある世界のブッダの名前はサンスクリット語に基づきカタカナで表記しています。なお、サンスクリット本に名前がないものについては、漢文からサンスクリット語を推定して再現しています）。
+<ptr target="#2"/>【注2】「この教えを聞いてしっかりとたもち、ブッダたちの名前を聞くならば、」：版木等で刊行され、社会に広く行き渡った本（流布本）では「これらのブッダたちが説いた阿弥陀仏（→アミダブッダ）の名前と教えの名前を聞くならば」と読んでいます。
+</note>
+<listPerson>
+<person xml:id="ブッダ">
+<persName xml:lang="ja">ブッダ</persName>
+<persName xml:lang="ja">タターガタ</persName>
+<persName xml:lang="ja">シャーキャムニ</persName>
+<persName xml:lang="zh">釈迦牟尼</persName>
+<persName xml:lang="zh">世尊</persName>
+<persName xml:lang="zh">釈尊</persName>
+<idno type="VIAF">https://viaf.org/viaf/259214648</idno>
+</person>
+<person xml:id="アミダ">
+<persName xml:lang="ja">アミダ</persName>
+<persName xml:lang="ja">ブッダ</persName>
+<persName xml:lang="ja">タターガタ</persName>
+<persName xml:lang="zh">無量寿</persName>
+<persName xml:lang="ja">量り知れないほどの光をもつ</persName>
+<persName xml:lang="zh">無量光</persName>
+<persName xml:lang="ja">際限のない光をもつ</persName>
+<persName xml:lang="zh">無辺光</persName>
+<persName xml:lang="ja">さまたげられない光をもつ</persName>
+<persName xml:lang="zh">無礙光</persName>
+<persName xml:lang="ja">他が比類できないほどの光をもつ</persName>
+<persName xml:lang="zh">無対光</persName>
+<persName xml:lang="ja">炎の王である光をもつ</persName>
+<persName xml:lang="zh">炎王光</persName>
+<persName xml:lang="ja">清らかな光をもつ</persName>
+<persName xml:lang="zh">清浄光</persName>
+<persName xml:lang="ja">歓喜されるべき光をもつ</persName>
+<persName xml:lang="zh">歓喜光</persName>
+<persName xml:lang="ja">智慧の光をもつ</persName>
+<persName xml:lang="zh">智慧光</persName>
+<persName xml:lang="ja">絶え間ない光をもつ</persName>
+<persName xml:lang="zh">不断光</persName>
+<persName xml:lang="ja">計ることができないほどの光をもつ</persName>
+<persName xml:lang="zh">無称光</persName>
+<persName xml:lang="ja">太陽や月を超えた光をもつ</persName>
+<persName xml:lang="zh">超日月光</persName>
+<persName xml:lang="zh">阿弥陀</persName></person>
+<person xml:id="クマーラジーヴァ">
+<persName xml:lang="ja">クマーラジーヴァ</persName>
+<persName xml:lang="zh">鳩摩羅什</persName>
+</person>
+<person xml:id="シャーリプトラ">
+<persName xml:lang="ja">シャーリプトラ</persName>
+<persName xml:lang="zh">舍利弗</persName>
+</person>
+<person xml:id="マハーマウドガリヤーヤナ">
+<persName xml:lang="ja">マハーマウドガリヤーヤナ</persName>
+<persName xml:lang="ja">マウドガリヤーヤナ</persName>
+<persName xml:lang="zh">摩訶目犍連</persName>
+<persName xml:lang="zh">大目揵連</persName>
+</person>
+<person xml:id="マハーカーシュヤパ">
+<persName xml:lang="ja">マハーカーシュヤパ</persName>
+<persName xml:lang="zh">摩訶迦葉</persName>
+</person>
+<person xml:id="マハーカーティヤーヤナ">
+<persName xml:lang="ja">マハーカーティヤーヤナ</persName>
+<persName xml:lang="zh">大淨志</persName>
+<persName xml:lang="zh">摩訶迦旃延</persName>
+</person>
+<person xml:id="マハーコーシュティラ">
+<persName xml:lang="ja">マハーコーシュティラ</persName>
+<persName xml:lang="zh">摩訶拘絺羅</persName>
+</person>
+<person xml:id="レーヴァタ">
+<persName xml:lang="ja">レーヴァタ</persName>
+<persName xml:lang="zh">離婆多</persName>
+<persName xml:lang="zh">流潅</persName>
+</person>
+<person xml:id="チューダパンタカ">
+<persName xml:lang="ja">チューダパンタカ</persName>
+<persName xml:lang="zh">周梨槃陀迦</persName>
+</person>
+<person xml:id="ナンダ">
+<persName xml:lang="ja">ナンダ</persName>
+<persName xml:lang="zh">喜楽</persName>
+<persName xml:lang="zh">難陀</persName>
+</person>
+<person xml:id="アーナンダ">
+<persName xml:lang="ja">アーナンダ</persName>
+<persName xml:lang="zh">阿難</persName></person>
+<person xml:id="ラーフラ">
+<persName xml:lang="ja">ラーフラ</persName>
+<persName xml:lang="zh">羅云</persName>
+<persName xml:lang="zh">羅睺羅</persName>
+</person>
+<person xml:id="ガヴァーンパティ">
+<persName xml:lang="ja">ガヴァーンパティ</persName>
+<persName xml:lang="zh">牛王</persName>
+<persName xml:lang="zh">憍梵波提</persName></person>
+<person xml:id="ピンドーラバラドヴァーシャ">
+<persName xml:lang="ja">ピンドーラバラドヴァーシャ</persName>
+<persName xml:lang="zh">賓頭盧頗羅墮</persName>
+</person>
+<person xml:id="カーローダイン">
+<persName xml:lang="ja">カーローダイン</persName>
+<persName xml:lang="zh">迦留陀夷</persName></person>
+<person xml:id="マハーカッピナ">
+<persName xml:lang="ja">マハーカッピナ</persName>
+<persName xml:lang="zh">摩訶劫賓那</persName>
+</person>
+<person xml:id="ヴァックラ">
+<persName xml:lang="ja">ヴァックラ</persName>
+<persName xml:lang="zh">仁性</persName>
+<persName xml:lang="zh">薄倶羅</persName></person>
+<person xml:id="アニルッダ">
+<persName xml:lang="ja">アニルッダ</persName>
+<persName xml:lang="zh">阿㝹樓馱</persName>
+<persName xml:lang="zh">離障</persName></person>
+<person xml:id="マンジュシュリー">
+<persName xml:lang="ja">マンジュシュリー</persName>
+<persName xml:lang="zh">文殊師利</persName>
+<persName xml:lang="zh">妙德</persName>
+</person>
+<person xml:id="アジタ">
+<persName xml:lang="ja">アジタ</persName>
+<persName xml:lang="zh">阿逸多</persName>
+</person>
+<person xml:id="ケンダカダイ">
+<persName xml:lang="ja">ケンダカダイ</persName>
+<persName xml:lang="zh">乾陀訶提</persName>
+</person>
+<person xml:id="ジョウショウジン">
+<persName xml:lang="ja">ジョウショウジン</persName>
+<persName xml:lang="zh">常精進</persName>
+</person>
+<person xml:id="ボーディサットヴァマハーサットヴァ">
+<persName xml:lang="ja">ボーディサットヴァマハーサットヴァ</persName>
+<persName xml:lang="zh">菩薩大士</persName>
+</person>
+<person xml:id="シャクラ">
+<persName xml:lang="ja">シャクラ</persName>
+<persName xml:lang="zh">帝釈</persName>
+</person>
+<person xml:id="アクショービヤ">
+<persName xml:lang="ja">アクショービヤ</persName>
+<persName xml:lang="zh">阿閦鞞</persName></person>
+<person xml:id="メールドヴァジャ">
+<persName xml:lang="ja">メールドヴァジャ</persName>
+<persName xml:lang="zh">須弥相</persName></person>
+<person xml:id="マハーメール">
+<persName xml:lang="ja">マハーメール</persName>
+<persName xml:lang="zh">大須弥</persName></person>
+<person xml:id="メールプラバーサ">
+<persName xml:lang="ja">メールプラバーサ</persName>
+<persName xml:lang="zh">須弥光</persName></person>
+<person xml:id="マンジュスヴァラ">
+<persName xml:lang="ja">マンジュスヴァラ</persName>
+<persName xml:lang="zh">妙音</persName></person>
+<person xml:id="チャンドラスーリヤプラディーパ">
+<persName xml:lang="ja">チャンドラスーリヤプラディーパ</persName>
+<persName xml:lang="zh">日月灯</persName></person>
+<person xml:id="ヤシャスプラバ">
+<persName xml:lang="ja">ヤシャスプラバ</persName></person>
+<person xml:id="マハールチスカンダ">
+<persName xml:lang="ja">マハールチスカンダ</persName>
+<persName xml:lang="zh">大焔肩</persName></person>
+<person xml:id="メールプラディーパ">
+<persName xml:lang="ja">メールプラディーパ</persName>
+<persName xml:lang="zh">須弥灯</persName></person>
+<person xml:id="アナンタヴィーリヤ">
+<persName xml:lang="ja">アナンタヴィーリヤ</persName>
+<persName xml:lang="zh">無量精進</persName></person>
+<person xml:id="アミターユス">
+<persName xml:lang="ja">アミターユス</persName>
+<persName xml:lang="zh">無量寿</persName></person>
+<person xml:id="アミタケートゥ">
+<persName xml:lang="ja">アミタケートゥ</persName>
+<persName xml:lang="zh">無量相</persName></person>
+<person xml:id="アミタドヴァジャ">
+<persName xml:lang="ja">アミタドヴァジャ</persName>
+<persName xml:lang="zh">無量幢</persName></person>
+<person xml:id="マハープラバ">
+<persName xml:lang="ja">マハープラバ</persName>
+<persName xml:lang="zh">大光</persName></person>
+<person xml:id="マハープラバーサ">
+<persName xml:lang="ja">マハープラバーサ</persName>
+<persName xml:lang="zh">大明</persName></person>
+<person xml:id="ラトナケートゥ">
+<persName xml:lang="ja">ラトナケートゥ</persName>
+<persName xml:lang="zh">宝相</persName></person>
+<person xml:id="シュッダラシュミプラバ">
+<persName xml:lang="ja">シュッダラシュミプラバ</persName>
+<persName xml:lang="zh">浄光</persName></person>
+<person xml:id="アルチスカンダ">
+<persName xml:lang="ja">アルチスカンダ</persName>
+<persName xml:lang="zh">焔肩</persName></person>
+<person xml:id="ヴァイシュヴァーナラニルゴーシャ">
+<persName xml:lang="ja">ヴァイシュヴァーナラニルゴーシャ</persName>
+<persName xml:lang="zh">最勝音</persName></person>
+<person xml:id="ドゥシュプラダルシャ">
+<persName xml:lang="ja">ドゥシュプラダルシャ</persName>
+<persName xml:lang="zh">難沮</persName></person>
+<person xml:id="アーディティヤサンバヴァ">
+<persName xml:lang="ja">アーディティヤサンバヴァ</persName>
+<persName xml:lang="zh">日生</persName></person>
+<person xml:id="ジャーリニープラバ">
+<persName xml:lang="ja">ジャーリニープラバ</persName>
+<persName xml:lang="zh">網明</persName></person>
+<person xml:id="シンハ">
+<persName xml:lang="ja">シンハ</persName>
+<persName xml:lang="zh">師子</persName></person>
+<person xml:id="ヤシャ">
+<persName xml:lang="ja">ヤシャ</persName>
+<persName xml:lang="zh">名聞</persName></person>
+<person xml:id="ヤシャプラバーサ">
+<persName xml:lang="ja">ヤシャプラバーサ</persName>
+<persName xml:lang="zh">名光</persName></person>
+<person xml:id="ダルマ">
+<persName xml:lang="ja">ダルマ</persName>
+<persName xml:lang="zh">達摩</persName></person>
+<person xml:id="ダルマドヴァジャ">
+<persName xml:lang="ja">ダルマドヴァジャ</persName>
+<persName xml:lang="zh">法幢</persName></person>
+<person xml:id="ダルマダラ">
+<persName xml:lang="ja">ダルマダラ</persName>
+<persName xml:lang="zh">持法</persName></person>
+<person xml:id="ブラフマゴーシャ">
+<persName xml:lang="ja">ブラフマゴーシャ</persName>
+<persName xml:lang="zh">梵音</persName></person>
+<person xml:id="ナクシャトララージャ">
+<persName xml:lang="ja">ナクシャトララージャ</persName>
+<persName xml:lang="zh">宿王</persName></person>
+<person xml:id="ガンドーッタマ">
+<persName xml:lang="ja">ガンドーッタマ</persName>
+<persName xml:lang="zh">香上</persName></person>
+<person xml:id="ガンダプラバーサ">
+<persName xml:lang="ja">ガンダプラバーサ</persName>
+<persName xml:lang="zh">香上</persName></person>
+<person xml:id="ラトナクスマサンプシュピタガートラ">
+<persName xml:lang="ja">ラトナクスマサンプシュピタガートラ</persName>
+<persName xml:lang="zh">雑色宝華厳身</persName></person>
+<person xml:id="サーレーンドララージャ">
+<persName xml:lang="ja">サーレーンドララージャ</persName>
+<persName xml:lang="zh">娑羅樹王</persName></person>
+<person xml:id="ラトノートパラシュリー">
+<persName xml:lang="ja">ラトノートパラシュリー</persName>
+<persName xml:lang="zh">宝華徳</persName></person>
+<person xml:id="サルヴァールタダルシャ">
+<persName xml:lang="ja">サルヴァールタダルシャ</persName>
+<persName xml:lang="zh">見一切義</persName></person>
+<person xml:id="スメールカルパ">
+<persName xml:lang="ja">スメールカルパ</persName>
+<persName xml:lang="zh">如須弥山</persName></person>
+</listPerson>
+</back>
+</text>
+</TEI>

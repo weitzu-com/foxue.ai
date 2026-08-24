@@ -1,8 +1,8 @@
 {
   "schema": "https://foxue.ai/schemas/corpus-runtime-tracing-v0.2",
   "maxBucketBytes": 8388608,
-  "totalAssets": 11326,
-  "totalBytes": 1226852979,
+  "totalAssets": 11330,
+  "totalBytes": 1227495382,
   "buckets": [
     {
       "id": "cb01",
@@ -2207,7 +2207,7 @@
         "src/data/corpus-work-catalog-chunks/75.json",
         "src/data/corpus-work-catalog-chunks/76.json",
         "src/data/corpus-work-catalog-chunks/77.json",
-        "src/data/corpus-work-catalog-chunks/80.json",
+        "src/data/corpus-work-catalog-chunks/81.json",
         "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/83.json",
         "src/data/corpus-work-catalog-chunks/84.json",
@@ -7459,7 +7459,7 @@
         "src/data/corpus-work-catalog-chunks/74.json",
         "src/data/corpus-work-catalog-chunks/78.json",
         "src/data/corpus-work-catalog-chunks/80.json",
-        "src/data/corpus-work-catalog-chunks/81.json"
+        "src/data/corpus-work-catalog-chunks/82.json"
       ],
       "paths": [
         "data/corpus/cbeta/T34n1727.xml",
@@ -7663,7 +7663,6 @@
         "src/data/corpus-work-catalog-chunks/73.json",
         "src/data/corpus-work-catalog-chunks/78.json",
         "src/data/corpus-work-catalog-chunks/79.json",
-        "src/data/corpus-work-catalog-chunks/81.json",
         "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json"
@@ -9288,7 +9287,6 @@
         "src/data/corpus-work-catalog-chunks/75.json",
         "src/data/corpus-work-catalog-chunks/79.json",
         "src/data/corpus-work-catalog-chunks/81.json",
-        "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/88.json"
       ],
@@ -10629,6 +10627,37 @@
       ],
       "slugs": [
         "zhongahanjing"
+      ]
+    },
+    {
+      "id": "sat01",
+      "sourceFamily": "sat",
+      "bytes": 642403,
+      "smokePath": "/jingzang/sat-ja-t0353/001-c01",
+      "includeGlobs": [
+        "data/corpus/sat/JT0353b.xml",
+        "data/corpus/sat/JT0360b.xml",
+        "data/corpus/sat/JT0365b.xml",
+        "data/corpus/sat/JT0366b.xml",
+        "src/data/corpus-folio-locator-ledger.generated.json",
+        "src/data/corpus-work-ledger.generated.json",
+        "src/data/corpus-folio-locator-chunks/29.json",
+        "src/data/corpus-work-catalog-chunks/78.json",
+        "src/data/corpus-work-catalog-chunks/81.json",
+        "src/data/corpus-work-catalog-chunks/84.json",
+        "src/data/corpus-work-catalog-chunks/85.json"
+      ],
+      "paths": [
+        "data/corpus/sat/JT0353b.xml",
+        "data/corpus/sat/JT0360b.xml",
+        "data/corpus/sat/JT0365b.xml",
+        "data/corpus/sat/JT0366b.xml"
+      ],
+      "slugs": [
+        "sat-ja-t0353",
+        "sat-ja-t0360",
+        "sat-ja-t0365",
+        "sat-ja-t0366"
       ]
     },
     {
@@ -27405,6 +27434,7 @@
         "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/83.json",
         "src/data/corpus-work-catalog-chunks/85.json",
+        "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/87.json",
         "src/data/corpus-work-catalog-chunks/88.json"
       ],
@@ -27523,6 +27553,7 @@
         "src/data/corpus-work-catalog-chunks/80.json",
         "src/data/corpus-work-catalog-chunks/81.json",
         "src/data/corpus-work-catalog-chunks/83.json",
+        "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/87.json",
@@ -28998,6 +29029,7 @@
         "src/data/corpus-work-catalog-chunks/80.json",
         "src/data/corpus-work-catalog-chunks/81.json",
         "src/data/corpus-work-catalog-chunks/82.json",
+        "src/data/corpus-work-catalog-chunks/83.json",
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",

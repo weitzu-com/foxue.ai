@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const chaptered = sutra.readerMode === "bilara-chapter";
     const bilara = chaptered || sutra.readerMode === "bilara-sutta";
     const derge = sutra.readerMode === "derge-folio";
+    const sat = sutra.readerMode === "sat-folio";
     const collection = folioCollectionLabel(sutra);
     const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
     const originalLanguageLabel = derge
@@ -51,6 +52,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
         : derge
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
+          : sat
+            ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章，SAT 现代日译。`
           : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
     return buildPageMetadata({
       title: `${sutra.title} · ${folio.item.label}`,
@@ -136,11 +139,14 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const derge = sutra.readerMode === "derge-folio";
+  const sat = sutra.readerMode === "sat-folio";
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
-  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : "卷";
-  const originalLanguageLabel = derge
+  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : sat ? "章" : "卷";
+  const originalLanguageLabel = sat
+    ? "现代日译"
+    : derge
     ? "藏文原文"
     : sutra.language.includes("古汉")
       ? "古汉译原文"
@@ -149,7 +155,9 @@ export default async function SutraFolioPage({ params }: PageProps) {
     : sutra.language.includes("俗语")
       ? "俗语原文"
       : "巴利原文";
-  const textLanguage = derge
+  const textLanguage = sat
+    ? "ja"
+    : derge
     ? "bo-Tibt"
     : sutra.language.startsWith("梵")
     ? "sa-Latn"
@@ -165,6 +173,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
       ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}`
       : derge
         ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
+        : sat
+          ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章 · SAT日譯`
         : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`;
   const description = chaptered
     ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
@@ -172,6 +182,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
       ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
       : derge
         ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
+        : sat
+          ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章，SAT 现代日译。`
         : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
   const url = absoluteUrl(`/jingzang/${sutra.slug}/${folio.item.key}`);
   const workUrl = absoluteUrl(`/jingzang/${sutra.slug}`);

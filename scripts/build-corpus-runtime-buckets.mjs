@@ -44,6 +44,11 @@ const manifestFamilies = [
     ],
   },
   {
+    prefix: "sat",
+    name: "sat",
+    manifests: ["data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
+  },
+  {
     prefix: "sc",
     name: "suttacentral",
     manifests: [
