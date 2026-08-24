@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookMarked } from "lucide-react";
 import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
+import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { SutraReadingSample } from "@/components/sutra-reading-sample";
 import { getReadingFolioEdition } from "@/data/sutra-reading-editions";
 import { folioCollectionLabel, getSutra, type Sutra } from "@/data/sutras";
@@ -15,6 +16,7 @@ import {
   getSutraReading,
   type ReaderNavigationItem,
 } from "@/lib/corpus-reading";
+import { getParallelEvidence } from "@/lib/parallel-evidence";
 import { folioHref } from "@/lib/reader-routes";
 import { absoluteUrl, buildPageJsonLd, buildPageMetadata, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 
@@ -190,6 +192,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const jaChapter = sat || kokuyaku;
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
+  const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : jaChapter ? "章" : "卷";
   const originalLanguageLabel = kokuyaku
     ? "文语国译"
@@ -258,6 +261,24 @@ export default async function SutraFolioPage({ params }: PageProps) {
           : sat
             ? "日译"
             : "全经";
+  const corpusScopeLabel = bilara
+    ? partialWitness
+      ? "局部见证"
+      : /律藏|论藏|毗昙/.test(sutra.tradition)
+        ? "全书"
+        : "全经"
+    : "全经";
+  const readingStatusLabel = chaptered
+    ? "完整巴利原文 · 分品阅读"
+    : bilara
+      ? partialWitness
+        ? partialHeading
+        : `完整${originalLanguageLabel} · 稳定分页`
+      : derge
+        ? "完整藏文原文 · 德格版页"
+        : partialWitness
+          ? partialHeading
+          : "完整原文 · 分页阅读";
   const currentJuanIndex = Math.max(
     0,
     juanNavigation.findIndex((group) => group.juan === folio.item.juan),
@@ -339,6 +360,12 @@ export default async function SutraFolioPage({ params }: PageProps) {
           sourceUrl={sutra.sourceUrl}
           sourceLicense={sutra.sourceLicense}
           canonRef={sutra.canonRef}
+          totalSegmentCount={reading.segmentCount}
+          corpusScopeLabel={corpusScopeLabel}
+          readingStatusLabel={readingStatusLabel}
+          bibliographicNote={sutra.bibliographicNote}
+          attributionNote={sutra.attributionNote}
+          parallelEvidence={getParallelEvidence(sutra.slug) ? <ParallelEvidencePanel slug={sutra.slug} /> : undefined}
           directory={{
             indexHref: `/jingzang/${sutra.slug}`,
             indexLabel: `返回文本目录：《${sutra.alternateTitle}》`,

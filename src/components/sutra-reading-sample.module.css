@@ -518,6 +518,24 @@
   transition: background 180ms ease, box-shadow 180ms ease, font-size 180ms ease;
 }
 
+.paper .readingParagraph:global(.sutra-segment) {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  padding: 0.6rem 0;
+  border-top: 0;
+}
+
+.paper .sectionHeading:global(.sutra-segment),
+.paper .byline:global(.sutra-segment),
+.paper .colophon:global(.sutra-segment) {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  padding: 0;
+  border-top: 0;
+}
+
 .paper[data-annotation-mode="plain"] .masthead h2 {
   font-family: var(--font-sans), sans-serif;
   letter-spacing: -0.045em;
@@ -571,6 +589,26 @@
   content: "";
 }
 
+.segmentNote {
+  display: block;
+  margin: 0.7rem 0 1.1rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 2px solid rgb(143 61 50 / 35%);
+  color: var(--reader-secondary);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  line-height: 1.65;
+}
+
+.segmentNote > span {
+  margin-right: 0.5rem;
+  color: var(--cinnabar);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
 .ruby {
   margin-inline: 0.01em;
   ruby-align: center;
@@ -601,7 +639,23 @@
   line-height: 2.1;
 }
 
-.sourceAnchor,
+.sourceAnchor {
+  position: relative;
+  scroll-margin-top: 9.5rem;
+}
+
+.sourceTextEquivalent {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .legacyAnchor {
   position: relative;
   display: inline-block;
@@ -686,6 +740,53 @@
 .sourceDetails dd {
   margin: 0.25rem 0 0;
   color: var(--reader-ink);
+}
+
+.researchContext {
+  padding: 2.25rem 1.5rem;
+  border-bottom: 1px solid var(--reader-hairline);
+  background: var(--reader-canvas);
+}
+
+.contextNotes {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contextNotes p {
+  margin: 0;
+  color: var(--reader-secondary);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.contextNotes strong {
+  color: var(--reader-ink);
+}
+
+.contextNotes .contextEyebrow {
+  color: var(--reader-tertiary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.researchContext :global(.parallel-evidence) {
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top-color: var(--reader-hairline);
+}
+
+.researchContext :global(.parallel-evidence h3) {
+  font-family: var(--font-serif), serif;
+  font-size: 1.1rem;
+}
+
+.researchContext :global(.parallel-evidence__scope),
+.researchContext :global(.parallel-evidence__examples strong),
+.researchContext :global(.parallel-evidence__ledger) {
+  font-size: 0.78rem;
 }
 
 .primaryAction:focus-visible,
@@ -915,6 +1016,10 @@
   .sourceDetails summary,
   .sourceDetails > div {
     padding-inline: 5.5rem;
+  }
+
+  .researchContext {
+    padding: 3rem 5.5rem;
   }
 
   .sourceDetails dl {

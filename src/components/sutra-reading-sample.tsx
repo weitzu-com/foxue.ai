@@ -137,7 +137,7 @@ function PinyinText({ text, idPrefix }: { text: string; idPrefix: string }) {
   ));
 }
 
-function SourceAnchor({ segment }: { segment: SutraSegment }) {
+function SourceAnchor({ segment, children }: { segment: SutraSegment; children: ReactNode }) {
   return (
     <>
       {segment.legacyIds?.map((legacyId) => (
@@ -147,8 +147,10 @@ function SourceAnchor({ segment }: { segment: SutraSegment }) {
         className={styles.sourceAnchor}
         id={segment.id}
         data-line={segment.sourceLine?.slice(-2)}
-        aria-hidden="true"
-      />
+      >
+        <span className={styles.sourceTextEquivalent} aria-hidden="true">{segment.text}</span>
+        {children}
+      </span>
     </>
   );
 }
@@ -160,12 +162,21 @@ function ReadingPiece({
   piece: InlinePiece;
   annotationMode: ReadingFolioEdition["annotationMode"];
 }) {
+  const content = annotationMode === "pinyin"
+    ? <PinyinText text={piece.text} idPrefix={piece.key} />
+    : <span className={styles.plainText}>{piece.text}</span>;
+
+  if (!piece.segment) return content;
+
   return (
     <>
-      {piece.segment && <SourceAnchor segment={piece.segment} />}
-      {annotationMode === "pinyin"
-        ? <PinyinText text={piece.text} idPrefix={piece.key} />
-        : <span className={styles.plainText}>{piece.text}</span>}
+      <SourceAnchor segment={piece.segment}>{content}</SourceAnchor>
+      {piece.segment.note && (
+        <span className={styles.segmentNote}>
+          <span>边注</span>
+          {piece.segment.note}
+        </span>
+      )}
     </>
   );
 }
@@ -232,6 +243,12 @@ export function SutraReadingSample({
   sourceUrl,
   sourceLicense,
   canonRef,
+  totalSegmentCount,
+  corpusScopeLabel,
+  readingStatusLabel,
+  bibliographicNote,
+  attributionNote,
+  parallelEvidence,
   directory,
   topNavigation,
   bottomNavigation,
@@ -243,6 +260,12 @@ export function SutraReadingSample({
   sourceUrl: string;
   sourceLicense: string;
   canonRef: string;
+  totalSegmentCount: number;
+  corpusScopeLabel: string;
+  readingStatusLabel: string;
+  bibliographicNote?: string;
+  attributionNote?: string;
+  parallelEvidence?: ReactNode;
   directory: ReadingDirectory;
   topNavigation: ReactNode;
   bottomNavigation: ReactNode;
@@ -266,6 +289,18 @@ export function SutraReadingSample({
   const isSat = edition.sourceKind === "sat";
   const isKokuyaku = edition.sourceKind === "wikisource";
   const segmentUnit = isCbeta || isDerge || isSat || isKokuyaku ? "行" : "段";
+  const stableSegmentUnit = isCbeta || isDerge || isSat || isKokuyaku ? "行段" : "段落";
+  const textLanguageLabel = isPinyin
+    ? "汉文"
+    : isDerge
+      ? "藏文"
+      : isSat || isKokuyaku
+        ? "日文"
+        : edition.contentLanguage === "sa-Latn"
+          ? "梵文"
+          : edition.contentLanguage === "pra-Latn"
+            ? "俗语"
+            : "巴利文";
   const folioLabelTitle = isCbeta
     ? "藏经版页"
     : isDerge
@@ -333,6 +368,7 @@ export function SutraReadingSample({
             <div className={styles.mastheadKicker}>
               <span>{edition.workLabel}</span>
               <span>{edition.editionLabel}</span>
+              <span>{readingStatusLabel}</span>
             </div>
             <h2 data-title-scale={titleScale}>{edition.documentTitle}</h2>
             <p>{edition.description}</p>
@@ -351,6 +387,9 @@ export function SutraReadingSample({
           <div><dt>本页内容</dt><dd>{edition.documentKind}</dd></div>
           <div><dt>{folioLabelTitle}</dt><dd>{folioLabel}</dd></div>
           <div><dt>可引用原文</dt><dd>{visibleSegmentCount} {segmentUnit}</dd></div>
+          <div><dt>全文规模</dt><dd>{corpusScopeLabel} {totalSegmentCount} 稳定{stableSegmentUnit}</dd></div>
+          <div><dt>正文语种</dt><dd>{textLanguageLabel}</dd></div>
+          <div><dt>权利</dt><dd>{sourceLicense}</dd></div>
         </dl>
       </header>
 
@@ -377,7 +416,7 @@ export function SutraReadingSample({
           {blocks.map((block) => {
             if (block.kind === "paragraph") {
               return (
-                <p className={styles.readingParagraph} key={block.key}>
+                <p className={`${styles.readingParagraph} sutra-segment`} key={block.key}>
                   {block.sentences.map((sentence, sentenceIndex) => (
                     <span className={styles.sentence} key={`${block.key}-${sentenceIndex}`}>
                       {sentence.map((piece) => (
@@ -390,7 +429,7 @@ export function SutraReadingSample({
             }
             if (block.kind === "heading") {
               return (
-                <h2 className={styles.sectionHeading} key={block.key}>
+                <h2 className={`${styles.sectionHeading} sutra-segment`} key={block.key}>
                   {block.pieces.map((piece) => (
                     <span className={styles.headingLine} key={piece.key}>
                       <ReadingPiece piece={piece} annotationMode={edition.annotationMode} />
@@ -401,7 +440,7 @@ export function SutraReadingSample({
             }
             if (block.kind === "colophon") {
               return (
-                <p className={styles.colophon} key={block.key}>
+                <p className={`${styles.colophon} sutra-segment`} key={block.key}>
                   {block.pieces.map((piece) => (
                     <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
                   ))}
@@ -409,7 +448,7 @@ export function SutraReadingSample({
               );
             }
             return (
-              <p className={styles.byline} key={block.key}>
+              <p className={`${styles.byline} sutra-segment`} key={block.key}>
                 {block.pieces.map((piece) => (
                   <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
                 ))}
@@ -442,6 +481,22 @@ export function SutraReadingSample({
           </dl>
         </div>
       </details>
+      {(bibliographicNote || attributionNote || parallelEvidence) && (
+        <section className={styles.researchContext} aria-label="书目、归属与跨传统证据">
+          {(bibliographicNote || attributionNote) && (
+            <div className={styles.contextNotes}>
+              <p className={styles.contextEyebrow}>研究边界</p>
+              {bibliographicNote && (
+                <p><strong>书目关系边界：</strong>{bibliographicNote}</p>
+              )}
+              {attributionNote && (
+                <p><strong>归属边界：</strong>{attributionNote}</p>
+              )}
+            </div>
+          )}
+          {parallelEvidence}
+        </section>
+      )}
       <div className={styles.bottomNavigation}>{bottomNavigation}</div>
     </article>
   );
