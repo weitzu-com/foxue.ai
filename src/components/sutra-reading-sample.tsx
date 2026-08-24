@@ -184,10 +184,6 @@ function ReadingDirectoryPanel({ directory }: { directory: ReadingDirectory }) {
         </span>
       </summary>
       <div className={styles.directoryContent}>
-        <Link className={styles.directoryIndexLink} href={directory.indexHref}>
-          <ArrowLeft aria-hidden="true" size={15} />
-          {directory.indexLabel}
-        </Link>
         {directory.groups.length > 1 && (
           <nav aria-label={directory.groupsLabel}>
             <p>{directory.groupsLabel}</p>
@@ -324,13 +320,21 @@ export function SutraReadingSample({
     >
       <div className={styles.topNavigation}>{topNavigation}</div>
       <header className={styles.masthead}>
+        <Link
+          className={styles.mastheadBackLink}
+          href={directory.indexHref}
+          prefetch={false}
+        >
+          <ArrowLeft aria-hidden="true" size={15} />
+          {directory.indexLabel}
+        </Link>
         <div className={styles.mastheadLead}>
           <div>
             <div className={styles.mastheadKicker}>
               <span>{edition.workLabel}</span>
               <span>{edition.editionLabel}</span>
             </div>
-            <h1 data-title-scale={titleScale}>{edition.documentTitle}</h1>
+            <h2 data-title-scale={titleScale}>{edition.documentTitle}</h2>
             <p>{edition.description}</p>
           </div>
           {edition.primaryAction && (
