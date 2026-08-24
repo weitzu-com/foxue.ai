@@ -25,14 +25,26 @@ type PageProps = { params: Promise<{ slug: string; folio: string }> };
 export const revalidate = 86400;
 export const dynamic = "force-static";
 
+function buildPendingFolioMetadata(sutra: Sutra, item: ReaderNavigationItem) {
+  return buildPageMetadata({
+    title: `${sutra.title} · ${item.label}`,
+    description: `${sutra.title}的稳定入口 ${item.label} 已登记，正文边缘资产仍在同步；版本、来源与引用网址保持不变。`,
+    path: `/jingzang/${sutra.slug}/${item.key}`,
+  });
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, folio: folioKey } = await params;
   const sutra = getSutra(slug);
   if (!sutra) return { title: "经典未找到" };
+  let pendingMetadata: Metadata | undefined;
   try {
     const reading = await getSutraReading(sutra);
+    const navigationItem = reading.navigation.find((item) => item.key === folioKey);
+    if (!navigationItem) return { title: "版页未找到" };
+    pendingMetadata = buildPendingFolioMetadata(sutra, navigationItem);
     const folio = await getSutraFolio(sutra, reading, folioKey);
-    if (!folio) return { title: "版页未找到" };
+    if (!folio) return pendingMetadata;
     const chaptered = sutra.readerMode === "bilara-chapter";
     const bilara = chaptered || sutra.readerMode === "bilara-sutta";
     const derge = sutra.readerMode === "derge-folio";
@@ -66,7 +78,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       path: `/jingzang/${sutra.slug}/${folio.item.key}`,
     });
   } catch (error) {
-    if (error instanceof CorpusAssetMissingError) return { title: "版页未找到" };
+    if (error instanceof CorpusAssetMissingError) {
+      return pendingMetadata ?? { title: "正文资产待同步" };
+    }
     throw error;
   }
 }
