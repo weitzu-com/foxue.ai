@@ -29,7 +29,9 @@ async function readSitemaps(request: APIRequestContext) {
   expect(sitemapIndexResponse.ok()).toBeTruthy();
   const sitemapIndex = await sitemapIndexResponse.text();
 
-  const sitemapPaths = [...sitemapIndex.matchAll(/<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml)<\/loc>/g)].map(
+  const sitemapPaths = [...sitemapIndex.matchAll(
+    /<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
+  )].map(
     (match) => match[1],
   );
   expect(sitemapPaths.length).toBeGreaterThan(0);
@@ -126,10 +128,28 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("application/xml");
   const sitemapIndex = await response.text();
   const childSitemaps = [...sitemapIndex.matchAll(
-    /<loc>https:\/\/www\.foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
+    /<loc>https:\/\/www\.foxue\.ai(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
   )].map((match) => match[1]);
   expect(childSitemaps.length).toBeGreaterThan(0);
   expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
+  expect(childSitemaps).toContain("/sitemap-hubs.xml");
+  expect(childSitemaps).toContain("/sitemap-works.xml");
+});
+
+test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
+  const hubs = await (await request.get("/sitemap-hubs.xml")).text();
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
+  expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
+
+  const works = await (await request.get("/sitemap-works.xml")).text();
+  expect(works).toContain("<loc>https://www.foxue.ai/jingzang/xinjing</loc>");
+  expect(works).not.toContain("/jingzang/xinjing/001-0848c");
+
+  const folios = await (await request.get("/sitemap/0.xml")).text();
+  expect(folios).not.toContain("<loc>https://www.foxue.ai/jingzang</loc>");
+  expect(folios).toContain("<loc>https://www.foxue.ai/jingzang/xinjing/001-0848c</loc>");
+  expect(folios).not.toContain("<lastmod>");
 });
 
 test("robots.txt 声明单一 sitemap index 入口", async ({ request }) => {
@@ -155,6 +175,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
   const cases = [
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
+    ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
     ["/gainian", "https://www.foxue.ai/gainian"],
     ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
     ["/gainian/wuchang", "https://www.foxue.ai/gainian/wuchang"],
@@ -272,6 +293,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/wenjing#page", "WebPage"],
         ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/xinjing",
+      required: [
+        ["https://www.foxue.ai/xue/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/xinjing#learning-resource", "LearningResource"],
       ],
     },
     {
@@ -430,18 +459,37 @@ test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) 
 test("心经七日学习路径可访问并只在本地保存进度", async ({ page }) => {
   await page.goto("/xue/xinjing");
 
-  await expect(page.locator("h1")).toContainText("七天，不求读懂");
-  await expect(page.locator("h1")).toContainText("《心经》");
+  await expect(page.locator("h1")).toContainText("《心经》全文入门");
+  await expect(page.getByRole("heading", { name: "七天，不是七篇摘要；是七次回到原句。" })).toBeVisible();
+  await expect(page.locator(".learning-overview__grid > li")).toHaveCount(7);
+  await expect(page.getByText("当前尚未标注外部具名佛学审校")).toBeVisible();
   await expect(page.getByText("进度仅存本地")).toBeVisible();
   await expect(page.getByRole("button", { name: /读完这一日/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "分享引用卡" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "复制引文与出处" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "下载 PNG" })).toBeVisible();
 
   await page.getByRole("button", { name: /读完这一日/ }).click();
   await expect(page.locator(".path-day-list .is-completed")).toHaveCount(1);
   await expect(page.getByRole("button", { name: /第 1 天.*已完成/ })).toBeVisible();
   await expect(page.locator(".path-day-paper__header p")).toContainText("第 2 天");
+  await expect(page).toHaveURL(/#day-2$/);
 
   const stored = await page.evaluate(() => window.localStorage.getItem("foxue:xinjing-seven-day-progress:v1"));
   expect(stored).toContain('"1":"completed"');
+});
+
+test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {
+  await page.goto("/xue/xinjing#day-5");
+  await expect(page.getByRole("heading", { level: 2, name: "无所得，心无罣碍" })).toBeVisible();
+  await expect(page.getByText("T0251.001.0848c13–15").first()).toBeVisible();
+
+  const response = await request.get("/xue/xinjing?day=5&utm_source=share");
+  const html = await response.text();
+  expect(normalizeUrl(extractHeadValue(html, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i)))
+    .toBe("https://www.foxue.ai/xue/xinjing");
+  expect(html).toContain('\"@type\":\"LearningResource\"');
+  expect(html).toContain("#day-7");
 });
 
 test("问经结果同时展示结论、范围和原典证据", async ({ page }) => {
