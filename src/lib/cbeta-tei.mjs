@@ -38,15 +38,7 @@ function decodeXml(value) {
     .replace(/&apos;/g, "'");
 }
 
-export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
-  const bodyMatch = xml.match(/<body>([\s\S]*?)<\/body>/);
-  if (!bodyMatch) throw new Error(`${canonId} 缺少 TEI body`);
-
-  const body = removeElements(
-    bodyMatch[1].replace(/<!--[\s\S]*?-->/g, ""),
-    ["note", "rdg"],
-  );
-
+function parseCbetaMarkers(markup, { canonId, juan = "001", allowEmpty = false }) {
   const markerPattern = /<(?:milestone|lb)\b[^>]*\/>/g;
   const segments = [];
   const seen = new Set();
@@ -56,7 +48,7 @@ export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
 
   const appendLine = (contentEnd) => {
     if (!activeLine) return;
-    const content = decodeXml(body.slice(contentStart, contentEnd))
+    const content = decodeXml(markup.slice(contentStart, contentEnd))
       .replace(/<[^>]+>/g, "")
       .replace(/\s+/g, "")
       .trim();
@@ -75,7 +67,7 @@ export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
   };
 
   let match;
-  while ((match = markerPattern.exec(body)) !== null) {
+  while ((match = markerPattern.exec(markup)) !== null) {
     appendLine(match.index);
     activeLine = null;
 
@@ -93,10 +85,93 @@ export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
     }
     contentStart = markerPattern.lastIndex;
   }
-  appendLine(body.length);
+  appendLine(markup.length);
 
-  if (segments.length === 0) throw new Error(`${canonId} 没有可读行段`);
+  if (segments.length === 0 && !allowEmpty) throw new Error(`${canonId} 没有可读行段`);
   return segments;
+}
+
+function cleanCbetaMarkup(value) {
+  return removeElements(value.replace(/<!--[\s\S]*?-->/g, ""), ["note", "rdg"]);
+}
+
+export function parseCbetaReadingLines(xml, { canonId, juan = "001" }) {
+  const bodyMatch = xml.match(/<body>([\s\S]*?)<\/body>/);
+  if (!bodyMatch) throw new Error(`${canonId} 缺少 TEI body`);
+  return parseCbetaMarkers(cleanCbetaMarkup(bodyMatch[1]), { canonId, juan });
+}
+
+export function parseCbetaFolioSlice(xmlSlice, { canonId, juan }) {
+  if (!juan || !/^\d{3}$/.test(juan)) throw new Error(`${canonId} 版页切片缺少卷号`);
+  return parseCbetaMarkers(cleanCbetaMarkup(xmlSlice), { canonId, juan, allowEmpty: true });
+}
+
+export function locateCbetaBody(xml) {
+  const bodyMatch = xml.match(/<body>([\s\S]*?)<\/body>/);
+  if (!bodyMatch) return null;
+  return {
+    content: bodyMatch[1],
+    contentStart: bodyMatch.index + "<body>".length,
+  };
+}
+
+const skippedCbetaElements = new Set(["note", "rdg"]);
+
+export function iterateVisibleCbetaLineMarkers(body, { juan = "001" } = {}) {
+  const tagPattern = /<(\/)?([\w:.-]+)\b[^>]*>/g;
+  const markers = [];
+  let currentJuan = String(juan).padStart(3, "0");
+  let suppressedDepth = 0;
+  let match;
+
+  while ((match = tagPattern.exec(body)) !== null) {
+    const [tag, closing, name] = match;
+    if (skippedCbetaElements.has(name)) {
+      if (closing) {
+        suppressedDepth -= 1;
+        if (suppressedDepth < 0) throw new Error(`TEI ${name} 结束标签不匹配`);
+      } else if (!tag.endsWith("/>")) {
+        suppressedDepth += 1;
+      }
+      continue;
+    }
+    if (suppressedDepth > 0 || !tag.endsWith("/>")) continue;
+
+    if (name === "milestone") {
+      if (tag.match(/\bunit="([^"]+)"/)?.[1] === "juan") {
+        const milestoneJuan = tag.match(/\bn="([^"]+)"/)?.[1];
+        if (!milestoneJuan) throw new Error("存在没有 n 属性的卷标记");
+        currentJuan = milestoneJuan.padStart(3, "0");
+      }
+      continue;
+    }
+    if (name !== "lb") continue;
+    const sourceLine = tag.match(/\bn="([^"]+)"/)?.[1];
+    if (!sourceLine) throw new Error("存在没有 n 属性的 lb");
+    markers.push({
+      juan: currentJuan,
+      sourceLine,
+      page: sourceLine.slice(0, 5),
+      index: match.index,
+    });
+  }
+
+  if (suppressedDepth !== 0) throw new Error("TEI 被剔除元素的开始/结束标签不匹配");
+  return markers;
+}
+
+export function stringOffsetsToByteOffsets(text, offsets) {
+  const unique = [...new Set(offsets)].sort((left, right) => left - right);
+  const mapped = new Map();
+  let charAt = 0;
+  let byteAt = 0;
+  for (const target of unique) {
+    if (target < charAt) throw new Error("字符串偏移必须单调递增");
+    byteAt += Buffer.byteLength(text.slice(charAt, target));
+    charAt = target;
+    mapped.set(target, byteAt);
+  }
+  return mapped;
 }
 
 export function buildPageNavigation(segments) {

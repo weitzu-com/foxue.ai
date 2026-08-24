@@ -39,16 +39,24 @@ const securityHeaders = [
 ];
 
 const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value }));
-const corpusRuntimeIncludes = Object.fromEntries(
-  corpusRuntimeTracing.buckets.map((bucket) => [
-    `/corpus-runtime/${bucket.id}/**`,
-    bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
-  ]),
-);
 const sitemapLedgerGlob = "./src/data/corpus-sitemap-ledger.generated.json";
 const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/*.json"];
 const workLedgerGlob = "./src/data/corpus-work-ledger.generated.json";
 const workCatalogGlobs = [workLedgerGlob, "./src/data/corpus-work-catalog-chunks/*.json"];
+const folioLocatorGlobs = [
+  "./src/data/corpus-folio-locator-ledger.generated.json",
+  "./src/data/corpus-folio-locator-chunks/*.json",
+  ...workCatalogGlobs,
+];
+const corpusRuntimeIncludes = Object.fromEntries(
+  corpusRuntimeTracing.buckets.map((bucket) => [
+    `/corpus-runtime/${bucket.id}/**`,
+    [
+      ...bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
+      ...folioLocatorGlobs,
+    ],
+  ]),
+);
 const sitemapNavigationIncludes = {
   "/sitemap-index.xml": [sitemapLedgerGlob],
   "/sitemap-index.xml/route": [sitemapLedgerGlob],

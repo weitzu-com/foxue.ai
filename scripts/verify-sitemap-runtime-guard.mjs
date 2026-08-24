@@ -33,7 +33,7 @@ function requirePattern(source, fileLabel, pattern, message) {
   if (!pattern.test(source)) fail(`${fileLabel} ${message}`);
 }
 
-const fatIndexPattern = /corpus-folio-index\.generated|getSutraReading|corpus-reading|getSitemapEntries/;
+const fatIndexPattern = /corpus-folio-index\.generated|getSutraReading|corpus-reading|getSitemapEntries|corpus-folio-locator/;
 const requiredAdvertisedPaths = [
   "/",
   "/xue/xinjing",
@@ -102,8 +102,8 @@ requirePattern(
   /workCatalogGlobs[\s\S]*corpus-work-catalog-chunks\/\*\.json[\s\S]*"\/jingzang\/\[slug\]": workCatalogGlobs/,
   "必须把经目账本和分片打进经目页函数 trace，而不能再打进 21MB 版页索引",
 );
-requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/]);
-requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/]);
+requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/]);
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /export const dynamic = "force-static"/, "必须 force-static");
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /await getSutraCatalogView/, "必须按 slug 异步读取一个经目分片");
 requirePattern(workCatalogModule, "src/lib/corpus-folio-index.ts", /corpus-work-ledger\.generated\.json/, "只能静态导入经目账本");

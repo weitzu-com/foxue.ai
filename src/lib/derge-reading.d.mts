@@ -27,3 +27,8 @@ export function parseDergeSources(
   sources: DergeSource[],
   options: { canonId: string },
 ): { segments: DergeSegment[]; navigation: ReturnType<typeof buildDergeNavigation> };
+
+export function parseDergeFolioSlice(
+  source: DergeSource,
+  options: { canonId: string; juan?: string; sourcePage?: string },
+): DergeSegment[];

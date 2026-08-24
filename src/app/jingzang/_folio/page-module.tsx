@@ -218,6 +218,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         slug={sutra.slug}
         currentFolio={folio.item.key}
         aliases={buildLegacyAliasMap(reading.segments)}
+        segmentFolios={reading.segmentFolios}
+        segmentFolioRanges={reading.segmentFolioRanges}
       />
 
       <div className="reader-layout">
