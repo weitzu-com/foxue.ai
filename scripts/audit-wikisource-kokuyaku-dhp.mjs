@@ -282,7 +282,6 @@ let teiXml;
 let parseSha256;
 let revision;
 let work;
-let sentences;
 let license;
 
 if (verifyMode) {
@@ -335,7 +334,6 @@ if (verifyMode) {
   work = parseWork(extractPlainBody(parseHtml));
   const built = buildTei({ chapters: work.chapters, license, revision });
   teiXml = built.xml;
-  sentences = built.sentences;
   await mkdir(dirname(resolve(root, localPath)), { recursive: true });
   await writeFile(resolve(root, localPath), teiXml, "utf8");
 }
