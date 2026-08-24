@@ -2,6 +2,7 @@ import { access, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promise
 import { join, resolve } from "node:path";
 import { corpusRuntimeSmokePaths } from "./corpus-runtime-smoke-routes.mjs";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
+import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
 
 const root = process.cwd();
 const write = process.argv.includes("--write");
@@ -379,7 +380,7 @@ const routing = {
 };
 
 for (const bucket of buckets) {
-  const rewritten = rewriteCatalogFolioPath(bucket.smokePath, routing);
+  const rewritten = rewriteCatalogFolioPath(bucket.smokePath, routing, corpusFolioExistence);
   if (rewritten !== `/corpus-runtime/${bucket.id}${bucket.smokePath.slice("/jingzang".length)}`) {
     throw new Error(`${bucket.id} 抽样版页改写错误：${bucket.smokePath} → ${rewritten}`);
   }
@@ -387,7 +388,7 @@ for (const bucket of buckets) {
 
 const bucketIds = new Set(buckets.map((bucket) => bucket.id));
 for (const path of corpusRuntimeSmokePaths) {
-  const rewritten = rewriteCatalogFolioPath(path, routing);
+  const rewritten = rewriteCatalogFolioPath(path, routing, corpusFolioExistence);
   if (!rewritten) throw new Error(`运行时抽样路由无法改写：${path}`);
   const bucket = rewritten.split("/")[2];
   if (!bucketIds.has(bucket)) {

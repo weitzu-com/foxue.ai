@@ -12,6 +12,7 @@ import {
   workCatalogTargetShardBytes,
 } from "../src/lib/corpus-work-catalog-paths.mjs";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
+import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
 import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
 
 const root = process.cwd();
@@ -102,8 +103,10 @@ requirePattern(
   /workCatalogGlobs[\s\S]*corpus-work-catalog-chunks\/\*\.json[\s\S]*"\/jingzang\/\[slug\]": workCatalogGlobs/,
   "必须把经目账本和分片打进经目页函数 trace，而不能再打进 21MB 版页索引",
 );
-requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/]);
-requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/, /corpus-folio-existence/]);
+requireNoImport(workCatalogModule, "src/lib/corpus-folio-index.ts", [/corpus-folio-index\.generated/, /corpus-reading/, /getSutraReading/, /corpus-folio-locator/, /corpus-folio-existence/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-existence/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-existence/]);
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /export const dynamic = "force-static"/, "必须 force-static");
 requirePattern(workIndexPage, "src/app/jingzang/[slug]/page.tsx", /await getSutraCatalogView/, "必须按 slug 异步读取一个经目分片");
 requirePattern(
@@ -204,7 +207,7 @@ for (const path of requiredAdvertisedPaths.filter((item) => item.split("/").filt
   if (!match) continue;
   const [, slug] = match;
   if (!slugToBucket[slug]) fail(`广告版页缺少分桶：${path}`);
-  if (rewriteCatalogFolioPath(path, routing) === null) {
+  if (rewriteCatalogFolioPath(path, routing, corpusFolioExistence) === null) {
     fail(`广告版页无法改写到分桶运行时：${path}`);
   }
 }
@@ -242,6 +245,7 @@ if (hasBuild) {
 
   const nftFiles = await walkNftFiles(nextBuildDir);
   const fatIndexPatternOnDisk = /corpus-folio-index\.generated\.json$/;
+  const existencePatternOnDisk = /corpus-folio-existence\.generated\.json$/;
   const ledgerPatternOnDisk = /corpus-sitemap-ledger\.generated\.json$/;
   const chunkPatternOnDisk = /corpus-sitemap-chunks\/\d+\.json$/;
   const workChunkPatternOnDisk = /corpus-work-catalog-chunks(?:\/|_)\d+/;
@@ -255,6 +259,7 @@ if (hasBuild) {
     const trace = JSON.parse(await readFile(nftPath, "utf8"));
     const files = (trace.files ?? []).map((file) => resolve(dirname(nftPath), file).replaceAll("\\", "/"));
     const hasFatIndex = files.some((file) => fatIndexPatternOnDisk.test(file));
+    const hasExistence = files.some((file) => existencePatternOnDisk.test(file));
     const hasLedger = files.some((file) => ledgerPatternOnDisk.test(file));
     const hasChunk = files.some((file) => chunkPatternOnDisk.test(file));
     const workChunkCount = files.filter((file) => workChunkPatternOnDisk.test(file)).length;
@@ -263,6 +268,7 @@ if (hasBuild) {
     if (routeKey.includes("sitemap-index.xml")) {
       sitemapIndexTraces += 1;
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了 sitemap-index 函数`);
+      if (hasExistence) fail(`${routeKey} 不得夹带版页存在账本`);
       if (hasChunk) fail(`${routeKey} 不应夹带 sitemap 分片文件；index 只能带账本`);
       if (!hasLedger) fail(`${routeKey} 缺少 sitemap 账本`);
     }
@@ -270,8 +276,11 @@ if (hasBuild) {
       sitemapChunkTraces += 1;
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了 sitemap 分片函数`);
     }
-    if ((routeKey.includes("llms.txt") || routeKey.includes("llms-full.txt")) && hasFatIndex) {
-      fail(`${routeKey} 把 21MB 版页索引打进了 llms 函数`);
+    if ((routeKey.includes("llms.txt") || routeKey.includes("llms-full.txt")) && (hasFatIndex || hasExistence)) {
+      fail(`${routeKey} 把 21MB 版页索引或存在账本打进了 llms 函数`);
+    }
+    if (hasExistence && /\/corpus-runtime\/[^/]+\/\[slug\]\/\[folio\]\//.test(routeKey)) {
+      fail(`${routeKey} 不得把存在账本打进肥胖分桶；已知缺失版页应停在 Proxy`);
     }
     if (
       routeKey.includes("jingzang/[slug]/page.js.nft.json") ||
@@ -279,6 +288,7 @@ if (hasBuild) {
     ) {
       workIndexTraces += 1;
       if (hasFatIndex) fail(`${routeKey} 把 21MB 版页索引打进了经目页函数`);
+      if (hasExistence) fail(`${routeKey} 不得夹带版页存在账本`);
       if (workChunkCount !== workLedger.shardCount) {
         fail(`${routeKey} 经目分片 trace 为 ${workChunkCount}，应为 ${workLedger.shardCount}（按 slug 异步加载，而不是 21MB 整包）`);
       }

@@ -4,6 +4,12 @@ import { performance } from "node:perf_hooks";
 import { corpusRuntimeSmokeRoutes } from "./corpus-runtime-smoke-routes.mjs";
 import { rewriteCatalogFolioPath } from "../src/lib/corpus-folio-proxy.mjs";
 import {
+  catalogFolioKeyExists,
+  folioExistenceMaxBytes,
+  folioExistenceSchema,
+} from "../src/lib/corpus-folio-existence.mjs";
+import { corpusFolioExistence } from "./corpus-folio-existence-document.mjs";
+import {
   folioLocatorLedgerSchema,
   folioLocatorMaxSliceBytes,
 } from "../src/lib/corpus-folio-locator-paths.mjs";
@@ -38,6 +44,8 @@ const [
   workCatalogNft,
   jsonShard,
   proxySource,
+  existenceModule,
+  existenceDocument,
   nextConfig,
   routing,
   tracing,
@@ -60,6 +68,8 @@ const [
   readFile(resolve(root, "src/lib/corpus-work-catalog-nft.generated.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-json-shard.mjs"), "utf8"),
   readFile(resolve(root, "src/proxy.ts"), "utf8"),
+  readFile(resolve(root, "src/lib/corpus-folio-existence.mjs"), "utf8"),
+  readFile(resolve(root, "src/data/corpus-folio-existence.generated.json"), "utf8"),
   readFile(resolve(root, "next.config.ts"), "utf8"),
   readFile(resolve(root, "src/data/corpus-runtime-routing.generated.json"), "utf8").then(JSON.parse),
   readFile(resolve(root, "src/data/corpus-runtime-tracing.generated.json"), "utf8").then(JSON.parse),
@@ -79,11 +89,13 @@ requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReadi
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/, /corpus-folio-index\.generated/, /corpus-folio-locator/]);
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);
-requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
-requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/]);
-requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-json-shard/, /corpus-folio-locator/]);
+requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/, /corpus-folio-existence/]);
+requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/, /corpus-folio-existence/]);
+requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-json-shard/, /corpus-folio-locator/, /corpus-folio-existence/]);
 requireNoImport(folioLocatorModule, "src/lib/corpus-folio-locator.ts", [/corpus-reading/, /getSutraReading/, /cbeta-tei/, /derge-reading/]);
-requireNoImport(folioModule, "src/app/jingzang/_folio/page-module.tsx", [/corpus-work-catalog-nft/]);
+requireNoImport(folioModule, "src/app/jingzang/_folio/page-module.tsx", [/corpus-work-catalog-nft/, /corpus-folio-existence/]);
+requireNoImport(folioReading, "src/lib/corpus-reading.ts", [/corpus-folio-existence/]);
+requireNoImport(existenceModule, "src/lib/corpus-folio-existence.mjs", [/corpus-reading/, /getSutraReading/, /cbeta-tei/, /derge-reading/, /corpus-folio-locator/, /data\/corpus\//]);
 
 if (!/getSutraCatalogView/.test(folioReading)) {
   fail("版页读取必须从经目分片取导航，而不能再整本解析 TEI");
@@ -147,6 +159,9 @@ if (!proxySource.includes("rewriteCatalogFolioPath")) {
 if (!proxySource.includes("corpusRuntimeRouting")) {
   fail("src/proxy.ts 必须把完整 routing（含按卷拆分）交给改写函数");
 }
+if (!proxySource.includes("corpusFolioExistence") || !proxySource.includes("corpus-folio-existence.generated")) {
+  fail("src/proxy.ts 必须带上版页存在账本，才能在改写前拒绝已知缺失的版页键");
+}
 if (!proxySource.includes(":folio.rsc")) {
   fail("src/proxy.ts 必须匹配 RSC 版页请求");
 }
@@ -196,7 +211,7 @@ for (const smoke of corpusRuntimeSmokeRoutes) {
     continue;
   }
   const [, slug, folio] = match;
-  const rewritten = rewriteCatalogFolioPath(smoke.path, routing);
+  const rewritten = rewriteCatalogFolioPath(smoke.path, routing, corpusFolioExistence);
   if (rewritten !== `/corpus-runtime/${smoke.bucket}/${slug}/${folio}`) {
     fail(`抽样路由分桶不一致：${smoke.path} → ${rewritten}`);
   }
@@ -238,8 +253,8 @@ for (const path of [...corpusRuntimeSmokeRoutes.map((item) => item.path), ...inc
   if (!keys.includes(folio)) {
     fail(`事故复现版页不在索引中：${path}`);
   }
-  const rewritten = rewriteCatalogFolioPath(path, routing);
-  const rewrittenRsc = rewriteCatalogFolioPath(`${path}.rsc`, routing);
+  const rewritten = rewriteCatalogFolioPath(path, routing, corpusFolioExistence);
+  const rewrittenRsc = rewriteCatalogFolioPath(`${path}.rsc`, routing, corpusFolioExistence);
   if (!rewritten?.startsWith("/corpus-runtime/") || !bucketIds.has(rewritten.split("/")[2])) {
     fail(`版页 Proxy 改写错误：${path} → ${rewritten}`);
   }
@@ -248,15 +263,15 @@ for (const path of [...corpusRuntimeSmokeRoutes.map((item) => item.path), ...inc
   }
 }
 
-if (rewriteCatalogFolioPath("/sitemap-index.xml", routing) !== null) {
+if (rewriteCatalogFolioPath("/sitemap-index.xml", routing, corpusFolioExistence) !== null) {
   fail("Proxy 不得改写 sitemap");
 }
-if (rewriteCatalogFolioPath("/jingzang/xinjing", routing) !== null) {
+if (rewriteCatalogFolioPath("/jingzang/xinjing", routing, corpusFolioExistence) !== null) {
   fail("Proxy 不得改写文本目录页");
 }
 
-const daboruoEarly = rewriteCatalogFolioPath("/jingzang/daboruo-jing/001-0001a", routing);
-const daboruoLate = rewriteCatalogFolioPath("/jingzang/daboruo-jing/304-0552c", routing);
+const daboruoEarly = rewriteCatalogFolioPath("/jingzang/daboruo-jing/001-0001a", routing, corpusFolioExistence);
+const daboruoLate = rewriteCatalogFolioPath("/jingzang/daboruo-jing/304-0552c", routing, corpusFolioExistence);
 if (!daboruoEarly || !daboruoLate) {
   fail("大般若首尾版页必须改写到分桶运行时");
 } else {
@@ -310,6 +325,47 @@ const unknownElapsedMs = performance.now() - unknownStarted;
 if (unknownHit !== undefined) fail("定位账本不得收录不存在的 slug");
 if (unknownElapsedMs > 10) {
   fail(`未知文本 slug 查找耗时 ${unknownElapsedMs.toFixed(1)}ms，必须只读账本`);
+}
+
+if (corpusFolioExistence.schema !== folioExistenceSchema) fail("版页存在账本 schema 不正确");
+if (existenceDocument.length > folioExistenceMaxBytes) {
+  fail(`版页存在账本 ${existenceDocument.length} 字节，超过 ${folioExistenceMaxBytes} 上限`);
+}
+if (corpusFolioExistence.workCount !== folioIndex.totalWorks || corpusFolioExistence.folioCount !== folioIndex.totalFolios) {
+  fail("版页存在账本覆盖必须与版页索引一致，不能漏掉广告版页");
+}
+
+const knownMissingFolios = [
+  { slug: "changahanjing", key: "002-0001a", path: "/jingzang/changahanjing/002-0001a" },
+  { slug: "daboruo-jing", key: "350-0001a", path: "/jingzang/daboruo-jing/350-0001a" },
+  { slug: "daboruo-jing", key: "not-a-real-folio", path: "/jingzang/daboruo-jing/not-a-real-folio" },
+  { slug: "amituojing", key: "999-0001z", path: "/jingzang/amituojing/999-0001z" },
+  { slug: "nanchuan-digha-01", key: "999-0001z", path: "/jingzang/nanchuan-digha-01/999-0001z" },
+  { slug: "taisho-t0005", key: "999-0001z", path: "/jingzang/taisho-t0005/999-0001z" },
+  { slug: "derge-kangyur-d0002", key: "999-0001z", path: "/jingzang/derge-kangyur-d0002/999-0001z" },
+];
+
+const missingLookupStarted = performance.now();
+for (const missing of knownMissingFolios) {
+  if (catalogFolioKeyExists(corpusFolioExistence, missing.slug, missing.key)) {
+    fail(`存在账本不得收录已知缺失版页：${missing.path}`);
+  }
+  const rewrittenMissing = rewriteCatalogFolioPath(missing.path, routing, corpusFolioExistence);
+  const rewrittenMissingRsc = rewriteCatalogFolioPath(`${missing.path}.rsc`, routing, corpusFolioExistence);
+  if (rewrittenMissing !== null || rewrittenMissingRsc !== null) {
+    fail(`已知缺失版页不得改写到肥胖分桶：${missing.path} → ${rewrittenMissing}`);
+  }
+}
+const missingLookupMs = performance.now() - missingLookupStarted;
+if (missingLookupMs > 20) {
+  fail(`已知缺失版页查找耗时 ${missingLookupMs.toFixed(1)}ms，必须只读存在账本`);
+}
+
+if (!catalogFolioKeyExists(corpusFolioExistence, "daboruo-jing", "001-0001a")
+  || !catalogFolioKeyExists(corpusFolioExistence, "daboruo-jing", "304-0552c")
+  || !catalogFolioKeyExists(corpusFolioExistence, "changahanjing", "002-0011a")
+  || !catalogFolioKeyExists(corpusFolioExistence, "dhammapada-pali", "001-dhp1-20")) {
+  fail("存在账本漏掉了广告版页");
 }
 
 let daboruoSliceMs = 0;
@@ -368,6 +424,6 @@ if (failures.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    `✓ 版页运行时门禁通过：${folioIndex.totalWorks} 个文本表达、${folioIndex.totalFolios} 个版页均有分桶；${folioLocatorLedger.workCount} 个肥胖文本 / ${folioLocatorLedger.folioCount} 个版页按切片读取（大般若切片 ${daboruoSliceMs.toFixed(1)}ms），sitemap/目录/未分桶版页不再打开语料母版`,
+    `✓ 版页运行时门禁通过：${folioIndex.totalWorks} 个文本表达、${folioIndex.totalFolios} 个版页均有分桶；${folioLocatorLedger.workCount} 个肥胖文本 / ${folioLocatorLedger.folioCount} 个版页按切片读取（大般若切片 ${daboruoSliceMs.toFixed(1)}ms）；已知缺失版页不改写分桶（${missingLookupMs.toFixed(1)}ms），sitemap/目录/未分桶版页不再打开语料母版`,
   );
 }

@@ -184,6 +184,8 @@ function urlsForChangedFile(file) {
     file.startsWith("src/lib/corpus-reading") ||
     file.startsWith("src/lib/corpus-folio-index") ||
     file.startsWith("src/lib/corpus-folio-proxy") ||
+    file.startsWith("src/lib/corpus-folio-existence") ||
+    file.startsWith("src/data/corpus-folio-existence") ||
     file.startsWith("src/lib/reader-routes") ||
     file.startsWith("data/corpus/")
   ) {
