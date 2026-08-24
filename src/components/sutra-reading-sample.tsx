@@ -366,6 +366,7 @@ export function SutraReadingSample({
 
         <div
           className={styles.readingBody}
+          data-corpus-content="sutra-segment"
           lang={edition.contentLanguage}
           aria-describedby="pinyin-reading-note"
         >
