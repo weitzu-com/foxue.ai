@@ -711,6 +711,33 @@ test("经目页标题不重复品牌后缀并保持自指元数据", async ({ pa
   await expect(page).toHaveTitle("般若波罗蜜多心经原文与目录｜foxue.ai");
 });
 
+test("广告汉文佛说经目页收录可检索原文且不以 CBETA 为作者", async ({ page }) => {
+  await page.goto("/jingzang/xinjing");
+  await expect(page.locator("#yuanwen")).toContainText("觀自在菩薩");
+  await expect(page.locator("#yuanwen")).toContainText("色不異空");
+  const xinjingWork = extractJsonLdItems(await page.content()).find((item) => (
+    item && typeof item === "object" && (item as { "@id"?: string })["@id"] === "https://www.foxue.ai/jingzang/xinjing#work"
+  )) as { author?: unknown; translator?: { name?: string } } | undefined;
+  expect(xinjingWork?.author).toBeUndefined();
+  expect(xinjingWork?.translator?.name).toContain("玄奘");
+
+  await page.goto("/jingzang/jingangjing");
+  await expect(page.locator("#yuanwen")).toContainText("如是我聞");
+  const jingangWork = extractJsonLdItems(await page.content()).find((item) => (
+    item && typeof item === "object" && (item as { "@id"?: string })["@id"] === "https://www.foxue.ai/jingzang/jingangjing#work"
+  )) as { author?: unknown } | undefined;
+  expect(jingangWork?.author).toBeUndefined();
+
+  await page.goto("/jingzang/fajujing");
+  await expect(page.locator("#yuanwen")).toContainText("諸惡莫作");
+  await expect(page.locator("#yuanwen")).toContainText("心為法本");
+
+  await page.goto("/jingzang/daboruo-jing");
+  await expect(page.locator("#yuanwen")).toContainText("如是我聞");
+  await expect(page.locator("#yuanwen")).toContainText("开卷原文");
+  await expect(page.locator("#yuanwen")).not.toContainText("完整原文 · 本页阅读");
+});
+
 test("经文分册页不会预取沉重的经藏目录 RSC", async ({ page }) => {
   const prefetchedRscPaths: string[] = [];
 

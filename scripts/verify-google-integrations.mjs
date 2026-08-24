@@ -124,7 +124,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -137,6 +137,8 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
   get("/jingzang/xinjing/001-0848c"),
+  get("/jingzang/jingangjing"),
+  get("/jingzang/fajujing"),
   get("/fugai"),
   get("/fenmu"),
   get("/shenjiao"),
@@ -279,6 +281,7 @@ const pageExpectations = [
     {
       title: "般若波罗蜜多心经原文与目录｜foxue.ai",
       description: "般若波罗蜜多心经：以极精炼的篇幅呈现般若空义，并以“照见五蕴皆空”说明智慧与离苦的关系。",
+      bodyIncludes: ["觀自在菩薩", "色不異空", "先读原文"],
       jsonLd: [
         ["https://www.foxue.ai/jingzang/xinjing#page", "CollectionPage"],
         ["https://www.foxue.ai/jingzang/xinjing#breadcrumb", "BreadcrumbList"],
@@ -554,6 +557,16 @@ check(
   "/jingzang/sousuo 声明 noindex, follow",
   `/jingzang/sousuo robots 非预期（实际 ${searchRobots ?? "缺失"}）`,
 );
+
+const xinjingWork = extractJsonLdItems(jingzangXinjing.body).find((item) => item["@id"] === "https://www.foxue.ai/jingzang/xinjing#work");
+check(!xinjingWork?.author, "/jingzang/xinjing JSON-LD 不以 CBETA 为作者", "/jingzang/xinjing JSON-LD 仍把 CBETA 标成 author");
+check(
+  typeof xinjingWork?.translator?.name === "string" && xinjingWork.translator.name.includes("玄奘"),
+  "/jingzang/xinjing JSON-LD 以玄奘为译者",
+  "/jingzang/xinjing JSON-LD 缺少历史译者",
+);
+check(jingzangJingangjing.body.includes("如是我聞"), "/jingzang/jingangjing 可见如是我聞", "/jingzang/jingangjing 缺少如是我聞");
+check(jingzangFajujing.body.includes("諸惡莫作"), "/jingzang/fajujing 可见诸恶莫作", "/jingzang/fajujing 缺少诸恶莫作");
 
 if (isLocalFetch) {
   successes.push("本地验证已跳过 DNS TXT 检查");
