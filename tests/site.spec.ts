@@ -1959,7 +1959,12 @@ test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, req
   const folio = await request.get("/jingzang/fajujing/001-0559a");
   expect(landing.ok()).toBeTruthy();
   expect(folio.ok()).toBeTruthy();
-  expect((await landing.body()).byteLength).toBeLessThan(300_000);
+  const landingBody = await landing.body();
+  const landingHtml = landingBody.toString();
+  // 法句是 advertised 短经：经目 URL 收全文，版页 URL 仍只出一页。
+  expect(landingHtml).toContain("諸惡莫作");
+  expect(landingHtml).toContain("完整原文 · 本页阅读");
+  expect(landingBody.byteLength).toBeLessThan(3_000_000);
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
 
   const missing = await request.get("/jingzang/fajujing/999-9999z");
@@ -1999,7 +2004,13 @@ test("四部阿含全本可分页阅读并保持超长经稳定锚点", async ({
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const directory = await request.get("/jingzang/zaahanjing");
   expect(directory.ok()).toBeTruthy();
-  expect((await directory.body()).byteLength).toBeLessThan(300_000);
+  const directoryBody = await directory.body();
+  const directoryHtml = directoryBody.toString();
+  // 杂阿含是 advertised 长经：经目 URL 只开卷第一卷，末卷仍走版页。
+  expect(directoryHtml).toContain("如是我聞");
+  expect(directoryHtml).toContain("开卷原文 · 第一卷");
+  expect(directoryHtml).not.toContain("T0099.050.0373b");
+  expect(directoryBody.byteLength).toBeLessThan(1_500_000);
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/changahanjing/022-0149c");
   expect(sitemap).toContain("/jingzang/zengyiahanjing/051-0830b");
@@ -2033,7 +2044,13 @@ test("六百卷大般若经作为一个文本表达跨十五个来源资产完�
   const folio = await request.get("/jingzang/daboruo-jing/600-1110b");
   expect(directory.ok()).toBeTruthy();
   expect(folio.ok()).toBeTruthy();
-  expect((await directory.body()).byteLength).toBeLessThan(400_000);
+  const directoryBody = await directory.body();
+  const directoryHtml = directoryBody.toString();
+  // 大般若只开卷第一卷原文，不把六百拍进同一 HTML。
+  expect(directoryHtml).toContain("如是我聞");
+  expect(directoryHtml).toContain("开卷原文 · 第一卷");
+  expect(directoryHtml).not.toContain("T0220.600.1110b04");
+  expect(directoryBody.byteLength).toBeLessThan(1_500_000);
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");
