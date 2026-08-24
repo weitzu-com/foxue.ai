@@ -341,7 +341,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
           canonRef={sutra.canonRef}
           directory={{
             indexHref: `/jingzang/${sutra.slug}`,
-            indexLabel: `返回《${sutra.alternateTitle}》文本目录`,
+            indexLabel: `返回文本目录：《${sutra.alternateTitle}》`,
             title: chaptered
               ? "分品目录"
               : bilara
