@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.21.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.22.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.8.0.json";
 
 type Expression = {

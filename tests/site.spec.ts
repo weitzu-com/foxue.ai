@@ -636,7 +636,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3881 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/3882 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -813,7 +813,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.21.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.22.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -832,10 +832,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3396,
-    registeredExpressions: 3927,
+    registeredExpressions: 3928,
     fullSourceTextWorks: 3369,
-    fullSourceTextExpressions: 3881,
-    stableSegments: 5818378,
+    fullSourceTextExpressions: 3882,
+    stableSegments: 5818816,
     structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -1600,13 +1600,15 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.21.0.json"),
+    registry: expect.stringContaining("registry-v6.22.0.json"),
     sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
     chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
     chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
     satModernJapaneseFilter: expect.stringContaining("sat-modern-japanese-filter-v1.0.0.json"),
     satModernJapaneseBoundaryAudit: expect.stringContaining("modern-japanese-batch-v1.0.0.json"),
     eastAsianTranslationRefusal: expect.stringContaining("east-asian-translation-refusal-v1.0.0.json"),
+    wikisourceKokuyakuDhpIngest: expect.stringContaining("wikisource-kokuyaku-dhp-ingest-v1.0.0.json"),
+    wikisourceKokuyakuDhpBoundaryAudit: expect.stringContaining("kokuyaku-dhp-batch-v1.0.0.json"),
     globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
