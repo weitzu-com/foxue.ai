@@ -163,8 +163,13 @@ for (const path of requiredAdvertisedPaths.filter((item) => item.startsWith("/ji
 
 const started = performance.now();
 const sitemapIds = Array.from({ length: ledger.sitemapCount }, (_, id) => ({ id: String(id) }));
-const indexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapIds
-  .map(({ id }) => `<sitemap><loc>https://www.foxue.ai/sitemap/${id}.xml</loc></sitemap>`)
+const indexUrls = [
+  "https://www.foxue.ai/sitemap-hubs.xml",
+  "https://www.foxue.ai/sitemap-works.xml",
+  ...sitemapIds.map(({ id }) => `https://www.foxue.ai/sitemap/${id}.xml`),
+];
+const indexXml = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexUrls
+  .map((url) => `<sitemap><loc>${url}</loc></sitemap>`)
   .join("\n")}\n</sitemapindex>\n`;
 const indexElapsedMs = performance.now() - started;
 if (indexElapsedMs > 50) {
@@ -172,6 +177,9 @@ if (indexElapsedMs > 50) {
 }
 if (!indexXml.includes("/sitemap/0.xml") || !indexXml.includes(`/sitemap/${ledger.sitemapCount - 1}.xml`)) {
   fail("sitemap-index XML 缺少首尾分片");
+}
+if (!indexXml.includes("/sitemap-hubs.xml") || !indexXml.includes("/sitemap-works.xml")) {
+  fail("sitemap-index XML 缺少 Hub 或经目模板分片");
 }
 
 const chunkFiles = (await readdir(resolve(root, "src/data/corpus-sitemap-chunks")))
@@ -233,8 +241,8 @@ if (hasBuild) {
     if (!prerenderedIndex.includes("<sitemapindex") || !prerenderedIndex.includes("/sitemap/0.xml")) {
       fail("构建产物 sitemap-index.xml.body 不是有效索引");
     }
-    if ((prerenderedIndex.match(/<sitemap>/g) ?? []).length !== ledger.sitemapCount) {
-      fail("构建产物 sitemap-index 分片数与账本不一致");
+    if ((prerenderedIndex.match(/<sitemap>/g) ?? []).length !== ledger.sitemapCount + 2) {
+      fail("构建产物 sitemap-index 分片数与账本及两个模板分片不一致");
     }
   } catch {
     fail("构建必须预渲染 /sitemap-index.xml，而不能只留下请求时函数");

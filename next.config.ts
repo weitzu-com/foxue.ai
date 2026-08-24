@@ -53,6 +53,10 @@ const corpusRuntimeIncludes = Object.fromEntries(
 const sitemapNavigationIncludes = {
   "/sitemap-index.xml": [sitemapLedgerGlob],
   "/sitemap-index.xml/route": [sitemapLedgerGlob],
+  "/sitemap-hubs.xml": sitemapChunkGlobs,
+  "/sitemap-hubs.xml/route": sitemapChunkGlobs,
+  "/sitemap-works.xml": sitemapChunkGlobs,
+  "/sitemap-works.xml/route": sitemapChunkGlobs,
   "/llms.txt": [sitemapLedgerGlob],
   "/llms.txt/route": [sitemapLedgerGlob],
   "/llms-full.txt": [sitemapLedgerGlob],
