@@ -3,7 +3,6 @@ import type { ReaderNavigationItem } from "@/lib/corpus-reading";
 
 export function parseBilaraDhammapadaSources(
   sources: Array<{ filename?: string; localPath?: string; text: string }>,
-  options?: { allowPartial?: boolean },
 ): { segments: SutraSegment[]; navigation: ReaderNavigationItem[] };
 
 export function parseBilaraSuttaSource(
@@ -24,7 +23,7 @@ export function parseBilaraSamyuttaSources(
 
 export function parseBilaraCollectionSources(
   sources: Array<{ filename?: string; localPath?: string; text: string }>,
-  options?: { maxSegments?: number; allowPartial?: boolean },
+  options?: { maxSegments?: number },
 ): {
   segments: SutraSegment[];
   navigation: ReaderNavigationItem[];

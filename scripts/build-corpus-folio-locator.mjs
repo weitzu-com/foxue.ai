@@ -3,6 +3,8 @@ import { basename, resolve } from "node:path";
 import {
   parseBilaraCollectionSources,
   parseBilaraDhammapadaSources,
+} from "../src/lib/bilara-reading-folio.mjs";
+import {
   parseBilaraSeriesSources,
   parseBilaraSuttaSource,
 } from "../src/lib/bilara-reading.mjs";
@@ -10,13 +12,13 @@ import {
   iterateVisibleCbetaLineMarkers,
   locateCbetaBody,
   stringOffsetsToByteOffsets,
-} from "../src/lib/cbeta-tei.mjs";
+} from "../src/lib/cbeta-tei-folio.mjs";
 import {
   folioLocatorLedgerSchema,
   folioLocatorMinSourceBytes,
   folioLocatorTargetShardBytes,
 } from "../src/lib/corpus-folio-locator-paths.mjs";
-import { iterateDergeFolioRanges } from "../src/lib/derge-reading.mjs";
+import { iterateDergeFolioRanges } from "../src/lib/derge-reading-folio.mjs";
 
 const root = process.cwd();
 const write = process.argv.includes("--write");
@@ -165,13 +167,13 @@ function parseBilaraPart(source, parser, parserOptions) {
     text: source.text,
   };
   if (parser === "bilara_root_json") {
-    return parseBilaraDhammapadaSources([input], { allowPartial: true });
+    return parseBilaraDhammapadaSources([input]);
   }
   if (parser === "bilara_single_root_json") {
     return parseBilaraSuttaSource(input);
   }
   if (parser === "bilara_collection_root_json") {
-    return parseBilaraCollectionSources([input], { allowPartial: true });
+    return parseBilaraCollectionSources([input]);
   }
   if (parser === "bilara_series_root_json") {
     return parseBilaraSeriesSources([input], parserOptions);

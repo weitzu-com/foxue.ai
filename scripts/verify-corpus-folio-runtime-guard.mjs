@@ -7,7 +7,7 @@ import {
   folioLocatorLedgerSchema,
   folioLocatorMaxSliceBytes,
 } from "../src/lib/corpus-folio-locator-paths.mjs";
-import { parseCbetaFolioSlice } from "../src/lib/cbeta-tei.mjs";
+import { parseCbetaFolioSlice } from "../src/lib/cbeta-tei-folio.mjs";
 
 const root = process.cwd();
 const failures = [];

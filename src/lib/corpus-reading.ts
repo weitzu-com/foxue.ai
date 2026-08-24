@@ -18,16 +18,22 @@ import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 import type { Sutra, SutraSegment } from "@/data/sutras";
 import type { SegmentFolioRange } from "@/lib/reader-routes";
 import {
+  parseBilaraCollectionSources as parseBilaraCollectionFolio,
+  parseBilaraDhammapadaSources as parseBilaraDhammapadaFolio,
+} from "@/lib/bilara-reading-folio.mjs";
+import {
   parseBilaraDhammapadaSources,
   parseBilaraCollectionSources,
   parseBilaraSeriesSources,
   parseBilaraSuttaSource,
 } from "@/lib/bilara-reading.mjs";
-import { buildPageNavigation, parseCbetaFolioSlice, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
+import { parseCbetaFolioSlice } from "@/lib/cbeta-tei-folio.mjs";
+import { buildPageNavigation, parseCbetaReadingLines } from "@/lib/cbeta-tei.mjs";
 import { getSutraCatalogView } from "@/lib/corpus-folio-index";
 import { getFolioLocator, workUsesFolioLocator } from "@/lib/corpus-folio-locator";
 import { folioLocatorMaxSliceBytes } from "@/lib/corpus-folio-locator-paths.mjs";
-import { parseDergeFolioSlice, parseDergeSources } from "@/lib/derge-reading.mjs";
+import { parseDergeFolioSlice } from "@/lib/derge-reading-folio.mjs";
+import { parseDergeSources } from "@/lib/derge-reading.mjs";
 
 type CorpusSourcePart = {
   localPath: string;
@@ -479,11 +485,11 @@ async function loadLocatedFolioSegments(slug: string, item: ReaderNavigationItem
   const source = { filename, localPath: locator.partPath, text };
   let reading;
   if (locator.parser === "bilara_root_json") {
-    reading = parseBilaraDhammapadaSources([source], { allowPartial: true });
+    reading = parseBilaraDhammapadaFolio([source]);
   } else if (locator.parser === "bilara_single_root_json") {
     reading = parseBilaraSuttaSource(source);
   } else if (locator.parser === "bilara_collection_root_json") {
-    reading = parseBilaraCollectionSources([source], { allowPartial: true });
+    reading = parseBilaraCollectionFolio([source]);
   } else if (locator.parser === "bilara_series_root_json") {
     reading = parseBilaraSeriesSources([source], locator.parserOptions);
   } else {

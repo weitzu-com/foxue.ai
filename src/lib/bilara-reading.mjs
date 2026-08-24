@@ -23,7 +23,7 @@ function renderEditorialMarkup(text, filename) {
   return rendered;
 }
 
-export function parseBilaraDhammapadaSources(sources, options = {}) {
+export function parseBilaraDhammapadaSources(sources) {
   const segments = [];
   const navigation = [];
   const stableIds = new Set();
@@ -35,7 +35,7 @@ export function parseBilaraDhammapadaSources(sources, options = {}) {
     if (!range) throw new Error(`无法识别 Bilara 法句经分片：${filename}`);
     const start = Number(range[1]);
     const end = Number(range[2]);
-    if ((start !== expectedStart && !options.allowPartial) || end < start) {
+    if (start !== expectedStart || end < start) {
       throw new Error(`${filename} 偈号范围不连续`);
     }
 
@@ -94,7 +94,7 @@ export function parseBilaraDhammapadaSources(sources, options = {}) {
     expectedStart = end + 1;
   }
 
-  if (!options.allowPartial && (expectedStart !== 424 || sources.length !== 26 || navigation.length !== 27)) {
+  if (expectedStart !== 424 || sources.length !== 26 || navigation.length !== 27) {
     throw new Error("巴利《法句经》必须完整覆盖 26 品、第 1–423 偈");
   }
   return { segments, navigation };
@@ -192,7 +192,7 @@ export function parseBilaraCollectionSources(sources, options = {}) {
     if (groupNumber === undefined) groupNumber = currentGroup;
     if (
       currentPrefix !== collectionPrefix || currentGroup !== groupNumber ||
-      (start !== expectedStart && !options.allowPartial) || end < start
+      start !== expectedStart || end < start
     ) {
       throw new Error(`${filename} 的经集、分组或经号范围不连续`);
     }
