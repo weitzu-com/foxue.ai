@@ -6,7 +6,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
-import { getSutra } from "@/data/sutras";
+import { folioCollectionLabel, getSutra } from "@/data/sutras";
 import {
   buildLegacyAliasMap,
   buildJuanNavigation,
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const chaptered = sutra.readerMode === "bilara-chapter";
     const bilara = chaptered || sutra.readerMode === "bilara-sutta";
     const derge = sutra.readerMode === "derge-folio";
+    const collection = folioCollectionLabel(sutra);
     const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
     const originalLanguageLabel = derge
       ? "藏文原文"
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
         : derge
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
-          : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`;
+          : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
     return buildPageMetadata({
       title: `${sutra.title} · ${folio.item.label}`,
       description,
@@ -71,6 +72,7 @@ function FolioPager({
   bilara,
   chaptered,
   derge,
+  collection,
   partialWitness,
 }: {
   slug: string;
@@ -81,6 +83,7 @@ function FolioPager({
   bilara: boolean;
   chaptered: boolean;
   derge: boolean;
+  collection: string;
   partialWitness: boolean;
 }) {
   const unit = chaptered ? "品" : bilara ? "阅读页" : "版页";
@@ -96,7 +99,7 @@ function FolioPager({
       )}
       <div>
         <span>当前{unit}</span>
-        <strong>{chaptered ? `第 ${Number(current.juan)} 品 · ${current.label}` : bilara ? `第 ${Number(current.juan)} 阅读页 · ${current.label}` : derge ? `第 ${Number(current.juan)} 函 · 德格 ${current.label}` : `卷 ${Number(current.juan)} · 大正藏 ${current.label}`}</strong>
+        <strong>{chaptered ? `第 ${Number(current.juan)} 品 · ${current.label}` : bilara ? `第 ${Number(current.juan)} 阅读页 · ${current.label}` : derge ? `第 ${Number(current.juan)} 函 · 德格 ${current.label}` : `卷 ${Number(current.juan)} · ${collection} ${current.label}`}</strong>
       </div>
       {next ? (
         <Link href={folioHref(slug, next.key)} prefetch={false} rel="next">
@@ -133,6 +136,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const chaptered = sutra.readerMode === "bilara-chapter";
   const bilara = chaptered || sutra.readerMode === "bilara-sutta";
   const derge = sutra.readerMode === "derge-folio";
+  const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
   const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : "卷";
@@ -161,14 +165,14 @@ export default async function SutraFolioPage({ params }: PageProps) {
       ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}`
       : derge
         ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
-        : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`;
+        : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`;
   const description = chaptered
     ? `${sutra.title}第 ${Number(folio.item.juan)} 品，${folio.item.label} 巴利原文。`
     : bilara
       ? `${sutra.title}第 ${Number(folio.item.juan)} 阅读页，${folio.item.label} ${partialWitness ? "局部见证" : originalLanguageLabel}。`
       : derge
         ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
-        : `${sutra.title}卷 ${Number(folio.item.juan)}，大正藏 ${folio.item.label} 版页原文。`;
+        : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
   const url = absoluteUrl(`/jingzang/${sutra.slug}/${folio.item.key}`);
   const workUrl = absoluteUrl(`/jingzang/${sutra.slug}`);
   const pageJsonLdBase = buildPageJsonLd({
@@ -290,6 +294,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             bilara={bilara}
             chaptered={chaptered}
             derge={derge}
+            collection={collection}
             partialWitness={partialWitness}
           />
           <div className="sutra-paper__notice">
@@ -305,8 +310,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                 : derge
                   ? `当前仅加载第 ${Number(folio.item.juan)} 函德格 ${folio.item.label} 版页；藏文 NFD、目录标记与异常页序保留在来源切片中，重复版页行以稳定序号区分。`
                 : partialWitness
-                  ? `当前仅加载大正藏 ${folio.item.label} 版页；来源文件完整保存，但正文只作为局部、节译、后分、短本或残篇见证，不冒充完整母作品或完整译本。`
-                  : `当前仅加载大正藏 ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
+                  ? `当前仅加载${collection} ${folio.item.label} 版页；来源文件完整保存，但正文只作为局部、节译、后分、短本或残篇见证，不冒充完整母作品或完整译本。`
+                  : `当前仅加载${collection} ${folio.item.label} 版页；异文与注释未混入正文，稳定行号可直接引用。`}
             </p>
           </div>
           {folio.segments.map((segment, index) => (
@@ -333,6 +338,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
             bilara={bilara}
             chaptered={chaptered}
             derge={derge}
+            collection={collection}
             partialWitness={partialWitness}
           />
         </article>
@@ -340,7 +346,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
         <aside className="reader-meta">
           <p className="eyebrow">版本与权利</p>
           <dl>
-            <div><dt>当前</dt><dd>{chaptered ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : bilara ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}` : derge ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · 大正藏 ${folio.item.label}`}</dd></div>
+            <div><dt>当前</dt><dd>{chaptered ? `第 ${Number(folio.item.juan)} 品 · ${folio.item.label}` : bilara ? `第 ${Number(folio.item.juan)} 阅读页 · ${folio.item.label}` : derge ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}` : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`}</dd></div>
             <div><dt>{bilara || derge ? "目录" : "经号"}</dt><dd>{sutra.canonRef}</dd></div>
             <div><dt>语言</dt><dd>{sutra.language}</dd></div>
             <div><dt>{bilara ? "版本" : derge ? "译责" : "译者"}</dt><dd>{sutra.translator}</dd></div>

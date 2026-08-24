@@ -42,6 +42,19 @@ export type Sutra = {
   segments: SutraSegment[];
 };
 
+export function catalogLanguage(language: string) {
+  return language === "漢文" ? "汉文" : language;
+}
+
+export function isChineseLibraryLanguage(language: string) {
+  return catalogLanguage(language) === "汉文";
+}
+
+export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
+  if (sutra.slug.startsWith("nanchuan-") || /南傳|南传/.test(sutra.canonRef)) return "南傳";
+  return "大正藏";
+}
+
 const curatedSutras: Sutra[] = [
   {
     slug: "xinjing",
@@ -359,7 +372,7 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files].map(
     title: file.presentation.title,
     alternateTitle: file.presentation.alternateTitle,
     tradition: file.presentation.tradition,
-    language: file.presentation.language,
+    language: catalogLanguage(file.presentation.language),
     canonRef: file.presentation.canonRef,
     translator: file.presentation.translator,
     summary: file.presentation.summary,

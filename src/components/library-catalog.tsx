@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpenText, Search } from "lucide-react";
-import type { Sutra } from "@/data/sutras";
+import { isChineseLibraryLanguage, type Sutra } from "@/data/sutras";
 import { libraryPageSize } from "@/lib/library-pagination";
 
 export { libraryPageSize } from "@/lib/library-pagination";
@@ -25,7 +25,7 @@ function belongsTo(sutra: Sutra, filter: LibraryFilterId) {
   if (filter === "tibetan") return sutra.readerMode === "derge-folio";
   if (filter === "pali") return sutra.language.includes("巴利");
   if (filter === "indic") return sutra.language.startsWith("梵") || sutra.language.includes("俗语");
-  return sutra.language === "汉文";
+  return isChineseLibraryLanguage(sutra.language);
 }
 
 export function parseLibrarySearchParams(searchParams: LibrarySearchParams) {

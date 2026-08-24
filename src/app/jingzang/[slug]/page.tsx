@@ -5,7 +5,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
-import { getSutra } from "@/data/sutras";
+import { folioCollectionLabel, getSutra, isChineseLibraryLanguage } from "@/data/sutras";
 import {
   buildCatalogJuanNavigation,
   buildCatalogLegacyAliasMap,
@@ -43,7 +43,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const url = absoluteUrl(`/jingzang/${sutra.slug}`);
   const schemaLanguage = derge
     ? "bo-Tibt"
-    : sutra.language.includes("古汉") || sutra.language === "汉文"
+    : sutra.language.includes("古汉") || isChineseLibraryLanguage(sutra.language)
       ? "zh-Hant"
       : sutra.language.startsWith("梵")
         ? "sa-Latn"
@@ -110,7 +110,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
                 ? `${partialWitness ? "已发布的局部见证" : "文本"}按原生段落次序确定性分页，每页最多 120 段。Bilara 标识原样保留，未加入未经审核的译文或跨本对齐。`
                 : derge
                   ? "每页只加载一个德格木刻版页；藏文 NFD 原样保存，稳定行号同时编码德格目录号、函号、版页、行号与重复序号。"
-                : "每页只加载一个大正藏版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。"}
+                : `每页只加载一个${folioCollectionLabel(sutra)}版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。`}
           </p>
           <dl className="reader-index-stats">
             <div><dt>{chaptered ? "品" : bilara ? "阅读页" : "版页"}</dt><dd>{chaptered ? juanNavigation.length : reading.navigation.length}</dd></div>
@@ -127,7 +127,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
           <div className="reader-folio-directory__heading">
             <div>
               <p className="eyebrow">{chaptered ? "品次目录" : bilara ? "阅读目录" : derge ? "函页目录" : "卷页目录"}</p>
-              <h2 id="folio-directory-title">{chaptered ? "二十六品，次第展开" : bilara ? "原生段落，次第展开" : derge ? (multiJuan ? "先选函，再读德格版页" : "德格物理版页") : (multiJuan ? "先选卷，再读版页" : "大正藏物理版页")}</h2>
+              <h2 id="folio-directory-title">{chaptered ? "二十六品，次第展开" : bilara ? "原生段落，次第展开" : derge ? (multiJuan ? "先选函，再读德格版页" : "德格物理版页") : (multiJuan ? "先选卷，再读版页" : `${folioCollectionLabel(sutra)}物理版页`)}</h2>
             </div>
             <span>{chaptered ? `${juanNavigation.length} 品 · 423 偈` : bilara ? `${reading.navigation.length} 阅读页 · ${reading.segmentCount} 段` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
           </div>
@@ -149,14 +149,14 @@ export default async function SutraIndexPage({ params }: PageProps) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="reader-folio-card__label">
-                      <strong>{chaptered ? `第 ${Number(group.first.juan)} 品` : bilara ? `第 ${Number(group.first.juan)} 阅读页` : derge ? (multiJuan ? `第 ${Number(group.first.juan)} 函` : `德格 ${group.first.label}`) : (multiJuan ? `卷 ${Number(group.first.juan)}` : `大正藏 ${group.first.label}`)}</strong>
+                      <strong>{chaptered ? `第 ${Number(group.first.juan)} 品` : bilara ? `第 ${Number(group.first.juan)} 阅读页` : derge ? (multiJuan ? `第 ${Number(group.first.juan)} 函` : `德格 ${group.first.label}`) : (multiJuan ? `卷 ${Number(group.first.juan)}` : `${folioCollectionLabel(sutra)} ${group.first.label}`)}</strong>
                       <small>
                         {bilara
                           ? group.first.label
                           : derge
                           ? (multiJuan ? `${group.pages} 个版页 · 从德格 ${group.first.label} 开始` : `第 ${Number(group.first.juan)} 函 · ${group.first.id}`)
                           : multiJuan
-                          ? `${group.pages} 个版页 · 从大正藏 ${group.first.label} 开始`
+                          ? `${group.pages} 个版页 · 从${folioCollectionLabel(sutra)} ${group.first.label} 开始`
                           : `单卷 · ${group.first.id.split(".").at(-1)}`}
                       </small>
                     </span>

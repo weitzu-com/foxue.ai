@@ -88,6 +88,8 @@ const criticalRoutes = [
   "/jingzang/suttacentral-benshi-jing-t0765/001-t765-1-0001-0024",
   "/jingzang/derge-kangyur-d0001",
   "/jingzang/derge-kangyur-d0001/001-0001b",
+  "/jingzang/nanchuan-digha-01",
+  "/jingzang/nanchuan-digha-01/001-0001a",
   "/fugai",
   "/fenmu",
   "/shenjiao",
@@ -668,6 +670,19 @@ test("卷页具有独立标题、H1、规范网址与分享元数据", async ({ 
   await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", /法句经/);
   await expect(page).toHaveTitle(/法句经.*｜foxue\.ai$/);
   expect((await page.title()).length).toBeLessThanOrEqual(60);
+});
+
+test("南传汉译卷页使用南傳标签且 JSON-LD 记为汉文", async ({ page, request }) => {
+  const path = "/jingzang/nanchuan-digha-01/001-0001a";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("南傳 0001a");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
+  await expect(page.getByText("汉文", { exact: true }).first()).toBeVisible();
+
+  const html = await (await request.get("/jingzang/nanchuan-digha-01")).text();
+  const graph = extractJsonLdItems(html);
+  expect(graph.some((item) => item && typeof item === "object" && (item as { inLanguage?: string }).inLanguage === "zh-Hant")).toBeTruthy();
 });
 
 test("经目页标题不重复品牌后缀并保持自指元数据", async ({ page }) => {
