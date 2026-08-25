@@ -126,10 +126,10 @@ Vercel 恢复顺序：
 
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
-截至 2026-08-16 的生产事实必须与目标状态分开记录：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health` 和 `v1/latest.json` 均已从公网验证；Worker 当前运行 `infra/corpus-edge/wrangler.bootstrap.jsonc`，`storage=bootstrap`、`preservationReady=false`，`/ready` 返回 503。Cloudflare 账户仍未完成 R2 首次订阅，因此私有桶和 263,682 个上传对象尚未存在。Vercel 生产环境不得设置 `CORPUS_ASSET_BASE_URL`，直到 `/ready` 返回 200 且代表性不可变对象逐哈希通过。
+截至 2026-08-25 的生产事实：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health`、`/ready` 与 `v1/latest.json` 均已从公网验证。Worker 正在从私有 R2 桶 `foxue-ai-corpus` 以只读方式提供当前发行 `gbcr-6.22.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-cd4264170b73`；`storage=ready`、`preservationReady=true`，公开指针的清单 SHA-256 为 `17754f9d63eedbc9c930d77f86dfe355316e79bbd3a44fbadc9607e749c05391`。Vercel Production 已设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 并完成重新部署。此为单一已验证发行与服务状态，不构成全球佛经覆盖率或百年可用性保证。
 
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
-2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`；当前基准发布 ID 为 `gbcr-6.18.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-045bebe5bf12`，应复现 3,875 个表达、248,527 个阅读单元、5,656,889 个稳定行段、263,680 个不可变正文对象、2,774,367,815 个不可变对象字节，以及含清单与指针在内的 263,682 个上传对象、2,872,401,422 个上传字节；版本清单 SHA-256 应为 `8bc1fd81a26174c8342954d6761d7aa82948708d1e83e8357ea7ef348c7cbea4`，指针 SHA-256 应为 `2e016e96081d2e6f25d5a10757568a039cd74093811f767530c59187d37041e8`；
+2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`，记录本次构建输出的发布 ID、清单 SHA-256、对象计数、对象字节数与 `upload-plan.json`；不得把历史 v6.18 的计数或哈希当作后续内容寻址发行的预期值；
 3. 在已认证的维护环境运行 `pnpm publish:corpus:r2`。发布器先传不可变对象，重试并核对完成后最后更新 `v1/latest.json`；
 4. 运行 `pnpm cloudflare:types:check`、`pnpm cloudflare:check` 与 `pnpm cloudflare:bootstrap:check`，再用 `wrangler deploy --config infra/corpus-edge/wrangler.jsonc` 把现有 bootstrap 版本升级为带 R2 绑定的只读 Worker；
 5. 保持 `canon.foxue.ai` 绑定不变，验证 `/health` 与 `/ready` 均为 200、`/v1/latest.json`、代表性作品索引、代表性版页、ETag/304、CORS、404 与写入 405；再运行 `pnpm verify:cloudflare-edge`；

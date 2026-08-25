@@ -126,7 +126,19 @@ jobs:
           EXPECTED_RELEASE_ID: ${{ steps.release.outputs.id }}
           EXPECTED_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
           REQUIRE_READY: "true"
-        run: node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai
+        run: |
+          set -Eeuo pipefail
+          deadline=$((SECONDS + 180))
+          attempt=0
+          until node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai; do
+            attempt=$((attempt + 1))
+            if (( SECONDS >= deadline )); then
+              echo "Cloudflare custom-domain propagation did not reach ready state within 180 seconds." >&2
+              exit 1
+            fi
+            echo "Edge deployment has not propagated to canon.foxue.ai yet; retrying in 5 seconds (attempt $attempt)." >&2
+            sleep 5
+          done
 
       - name: Record publication evidence
         if: always()
