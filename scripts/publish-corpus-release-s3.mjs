@@ -398,7 +398,7 @@ async function putObjectOnce(entry, config, immutable) {
     if (!headers) throw new Error(`${entry.key} 条件写入冲突后对象不存在`);
     try {
       verifyRemoteMetadata(entry, headers);
-    } catch (error) {
+    } catch {
       // `latest.json` is written only after every immutable object succeeds.
       // A mismatching immutable key therefore cannot belong to a published
       // release: it is an incomplete orphan left by an interrupted upload.
