@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CircleCheck } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getSutra, sutras } from "@/data/sutras";
+import { buildPageMetadata, buildQualifiedTitle } from "@/lib/site-metadata";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -17,10 +18,18 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   const { slug } = await params;
   const sutra = getSutra(slug);
   if (!sutra) return { title: "经典未找到" };
-  return {
-    title: sutra.alternateTitle,
+  const pageTitle = buildQualifiedTitle(sutra.title, "原文与目录");
+  const metadata = buildPageMetadata({
+    title: pageTitle,
     description: `${sutra.title}：${sutra.summary}`,
-    alternates: { canonical: `/jingzang/${sutra.slug}` },
+    path: `/jingzang/${sutra.slug}`,
+  });
+  return {
+    ...metadata,
+    title: {
+      default: pageTitle,
+      template: "%s｜foxue.ai",
+    },
   };
 }
 
@@ -32,23 +41,10 @@ export default async function SutraLayout({ children, params }: LayoutProps) {
   return (
     <div className="reader-page page-shell">
       <div className="page-breadcrumb">
-        <Link href="/jingzang"><ArrowLeft aria-hidden="true" size={15} /> 经藏</Link>
+        <Link href="/jingzang" prefetch={false}><ArrowLeft aria-hidden="true" size={15} /> 经藏</Link>
         <span>/</span>
-        <Link href={`/jingzang/${sutra.slug}`}>{sutra.alternateTitle}</Link>
+        <Link href={`/jingzang/${sutra.slug}`} prefetch={false}>{sutra.alternateTitle}</Link>
       </div>
-
-      <header className="reader-header">
-        <div className="reader-header__mark" aria-hidden="true">经</div>
-        <div className="reader-header__title">
-          <p className="eyebrow">{sutra.tradition}</p>
-          <h1>{sutra.title}</h1>
-          <p>{sutra.alternateTitle} · {sutra.translator}</p>
-        </div>
-        <div className="reader-header__status">
-          <span><CircleCheck aria-hidden="true" /> {sutra.status}</span>
-          <span>{sutra.canonRef}</span>
-        </div>
-      </header>
 
       {children}
     </div>

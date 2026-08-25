@@ -6,7 +6,7 @@ import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 const root = process.cwd();
 const { releaseFingerprint, releaseId, sourceManifests } = await loadCorpusReleaseContext(root);
 const registry = JSON.parse(
-  await readFile(resolve(root, "data/gbcr/registry-v6.18.0.json"), "utf8"),
+  await readFile(resolve(root, "data/gbcr/registry-v6.22.0.json"), "utf8"),
 );
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
@@ -96,7 +96,7 @@ for (const work of releaseManifest.expressions) {
       ? await readFile(resolve(outputRoot, source.objectKey))
       : Buffer.alloc(0);
     requireValue(sha256(sourceBytes) === expectedSource.localSha256, `${expectedSource.id} 来源哈希不一致`);
-    if ((sourceFile.parser ?? "cbeta_tei") === "cbeta_tei") {
+    if ((sourceFile.parser ?? "cbeta_tei") === "cbeta_tei" || sourceFile.parser === "sat_tei") {
       requireValue(sourceBytes.includes(Buffer.from("<teiHeader>")), `${expectedSource.id} TEI 头部缺失`);
     } else if (sourceFile.parser === "derge_plain_text") {
       if (position === 0) requireValue(sourceBytes.includes(Buffer.from(`{${work.canonId}}`)), `${expectedSource.id} 德格顶层目录标记缺失`);

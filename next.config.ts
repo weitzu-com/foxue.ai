@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import { buildReleaseHeaders } from "./src/lib/release-provenance";
+import corpusRuntimeTracing from "./src/data/corpus-runtime-tracing.generated.json";
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -36,9 +38,41 @@ const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
 ];
 
+const releaseHeaders = buildReleaseHeaders().map(([key, value]) => ({ key, value }));
+const sitemapLedgerGlob = "./src/data/corpus-sitemap-ledger.generated.json";
+const sitemapChunkGlobs = [sitemapLedgerGlob, "./src/data/corpus-sitemap-chunks/*.json"];
+const workLedgerGlob = "./src/data/corpus-work-ledger.generated.json";
+// force-static 经目页不会套用 tracing includes；字面 import() 在 corpus-work-catalog-nft.generated.ts。
+const workCatalogGlobs = [workLedgerGlob, "./src/data/corpus-work-catalog-chunks/*.json"];
+const corpusRuntimeIncludes = Object.fromEntries(
+  corpusRuntimeTracing.buckets.map((bucket) => [
+    `/corpus-runtime/${bucket.id}/**`,
+    bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
+  ]),
+);
+const sitemapNavigationIncludes = {
+  "/sitemap-index.xml": [sitemapLedgerGlob],
+  "/sitemap-index.xml/route": [sitemapLedgerGlob],
+  "/sitemap-hubs.xml": sitemapChunkGlobs,
+  "/sitemap-hubs.xml/route": sitemapChunkGlobs,
+  "/sitemap-works.xml": sitemapChunkGlobs,
+  "/sitemap-works.xml/route": sitemapChunkGlobs,
+  "/llms.txt": [sitemapLedgerGlob],
+  "/llms.txt/route": [sitemapLedgerGlob],
+  "/llms-full.txt": [sitemapLedgerGlob],
+  "/llms-full.txt/route": [sitemapLedgerGlob],
+  "/sitemap/[__metadata_id__]": sitemapChunkGlobs,
+  "/jingzang/[slug]": workCatalogGlobs,
+  "/jingzang/[slug]/page": workCatalogGlobs,
+};
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+  outputFileTracingIncludes: {
+    ...corpusRuntimeIncludes,
+    ...sitemapNavigationIncludes,
+  },
   experimental: {
     // Each reading page can parse a complete source witness during prerendering.
     // Bound per-worker concurrency so large witnesses do not exhaust the 4 GiB
@@ -52,7 +86,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [...securityHeaders, ...releaseHeaders],
       },
     ];
   },

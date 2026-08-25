@@ -1,16 +1,33 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, CircleDashed, ExternalLink, FileCheck2, Scale } from "lucide-react";
 import standard from "../../../data/gbcr/global-denominator-standard-v0.1.0.json";
 import sourceUniverse from "../../../data/gbcr/global-denominator-source-universe-v0.1.0.json";
 import reviewLedger from "../../../data/gbcr/global-denominator-review-ledger-v0.1.0.json";
 import { corpusRegistry } from "@/lib/corpus-registry";
+import { buildGlobalReviewWorkbenchPayload } from "@/lib/global-review-queue";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
+import GlobalReviewWorkbench from "./global-review-workbench";
+import GlobalReviewWorkbenchClient from "./global-review-workbench-client";
 
-export const metadata: Metadata = {
-  title: "全球佛经作品分母",
+export const metadata: Metadata = buildPageMetadata({
+  title: "全球佛经作品分母治理",
   description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
-  alternates: { canonical: "/fenmu" },
-};
+  path: "/fenmu",
+});
+
+const denominatorPageJsonLd = buildPageJsonLd({
+  path: "/fenmu",
+  title: "全球佛经作品分母治理",
+  description: "foxue.ai 全球佛经作品分母治理：公开来源宇宙、保守公式、审校队列和 G0–G7 发布门。",
+  type: "CollectionPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "全球分母治理", path: "/fenmu" },
+  ],
+  about: ["全球佛经作品分母", "来源宇宙", "保守公式", "G0-G7 发布门"],
+});
 
 const sourceLabels: Record<string, string> = {
   cbeta_xml_p5: "CBETA 汉文藏经",
@@ -27,11 +44,18 @@ const statusLabels: Record<string, string> = {
   pending: "待完成",
 };
 
+export const dynamic = "force-static";
+
 export default function GlobalDenominatorPage() {
   const governance = corpusRegistry.globalDenominatorGovernance;
+  const initialReviewPayload = buildGlobalReviewWorkbenchPayload({});
 
   return (
     <main className="denominator-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(denominatorPageJsonLd) }}
+      />
       <header className="denominator-hero page-shell">
         <div>
           <p className="eyebrow">GLOBAL DENOMINATOR · PUBLIC DRAFT {standard.version}</p>
@@ -155,6 +179,10 @@ export default function GlobalDenominatorPage() {
           ))}
         </dl>
       </section>
+
+      <Suspense fallback={<GlobalReviewWorkbench payload={initialReviewPayload} />}>
+        <GlobalReviewWorkbenchClient initialPayload={initialReviewPayload} />
+      </Suspense>
 
       <section className="denominator-artifacts page-shell">
         <h2>所有判断，都能回到原始文件。</h2>

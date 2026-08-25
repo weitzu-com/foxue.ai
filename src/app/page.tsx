@@ -18,10 +18,21 @@ import {
 } from "lucide-react";
 import { SearchConsole } from "@/components/search-console";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
+import { allConcepts } from "@/lib/concept-hubs";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "佛经在线阅读与 AI 问经平台",
+  description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
+  path: "/",
+});
+
+const homeJsonLd = buildPageJsonLd({
+  path: "/",
+  title: "佛经在线阅读与 AI 问经平台",
+  description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
+  about: ["佛经在线阅读", "AI 问经", "佛经原典查询", "心经原文定位"],
+});
 
 const tasks = [
   {
@@ -41,9 +52,9 @@ const tasks = [
   {
     number: "叁",
     icon: BookMarked,
-    title: "读一部经典",
-    description: "保留经号、版本、段号和上下文，让阅读不被 AI 遮蔽。",
-    link: "/jingzang/xinjing",
+    title: "七日读《心经》",
+    description: "每天一小段和一个理解提示；可随时跳过，进度只留在本地。",
+    link: "/xue/xinjing",
   },
   {
     number: "肆",
@@ -65,6 +76,10 @@ export default function Home() {
   const coverage = buildCoverageSnapshot();
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd) }}
+      />
       <section className="hero-section">
         <div className="hero-orbit" aria-hidden="true" />
         <div className="page-shell hero-grid">
@@ -75,12 +90,12 @@ export default function Home() {
               <span>立愿于 2026</span>
             </div>
             <h1 className="reveal-2">
-              从问题，<br />
-              <em>回到原典。</em>
+              佛经在线阅读与<br />
+              <em>AI 问经平台</em>
             </h1>
             <p className="hero-lead reveal-3">
-              foxue.ai 是面向世界的佛学交流 AI 平台。它不替佛陀说话，
-              只帮助你找到原文、理解语境、看见分歧，并保留继续求证的路。
+              从问题，回到原典。foxue.ai 面向世界提供佛经在线阅读、原典查询与引证式问经。
+              它不替佛陀说话，只帮助你找到原文、理解语境、定位版本，并保留继续求证的路。
             </p>
             <div className="reveal-4">
               <SearchConsole />
@@ -162,6 +177,35 @@ export default function Home() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="intent-section section-space">
+        <div className="page-shell">
+          <div className="section-heading section-heading--split">
+            <div>
+              <p className="eyebrow">主题层入口</p>
+              <h2>先理解问题类型，<br />再进入原典。</h2>
+            </div>
+            <p>
+              问题不是都该直接打到经文目录。对于高频主题，先进入受控概念 Hub，
+              能更快看清术语边界、常见误读和最值得先打开的原典入口。
+            </p>
+          </div>
+          <div className="task-grid">
+            {allConcepts.map((concept, index) => (
+              <Link href={concept.href} className="task-card" key={concept.slug}>
+                <span className="task-card__number">{`题 ${index + 1}`}</span>
+                <CircleDot aria-hidden="true" />
+                <h3>{concept.title}</h3>
+                <p>{concept.summary}</p>
+                <p>入口问题：{concept.prompt}</p>
+                <span className="task-card__link">
+                  进入概念 Hub <ArrowRight aria-hidden="true" size={16} />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -284,7 +328,7 @@ export default function Home() {
           <p className="eyebrow">一项跨世代的公共事业</p>
           <h2>让古老智慧，<br />在未来仍可被看见、核对与传承。</h2>
           <div className="closing-actions">
-            <Link className="button-primary" href="/jingzang">
+            <Link className="button-primary" href="/jingzang" prefetch={false}>
               开始阅读 <ArrowRight aria-hidden="true" size={17} />
             </Link>
             <a

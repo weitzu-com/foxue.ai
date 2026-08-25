@@ -1,0 +1,69 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/wikisource-kokuyaku-dhp-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-24",
+  "cut": "first_principles_after_pr68",
+  "ingest": {
+    "title": "國譯法句經",
+    "translator": "立花俊道",
+    "year": 1918,
+    "expressionSlug": "wikisource-ja-dhp",
+    "workId": "gbcr:work:dhammapada-pali",
+    "newWorks": 0,
+    "newExpressions": 1,
+    "completeTexts": 1,
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "mapping": "Chinese T210 and Pali Dhp are separate works. This 1918 kokuyaku is the Pali 423-verse recension, so it attaches to gbcr:work:dhammapada-pali. T210 is recorded only as a family-level parallel.",
+    "rights": {
+      "wikitext": "{{PD-Japan-auto-expired|deathyear=1955}}",
+      "category": "PD-old-70-expired",
+      "japan": "この著作物は、1955年に著作者が亡くなって（団体著作物にあっては公表又は創作されて）いるため、著作権の保護期間が著作者（共同著作物にあっては、最終に死亡した著作者）の没後（団体著作物にあっては公表後又は創作後）70年以下である国や地域でパブリックドメインの状態にあります。",
+      "us": "この著作物は、1931年1月1日より前に発行された（もしくはアメリカ合衆国著作権局に登録された）ため、アメリカ合衆国においてパブリックドメインの状態にあります。",
+      "japanTemplate": "この著作物は、環太平洋パートナーシップに関する包括的及び先進的な協定の発効日（2018年12月30日）の時点で著作者の没後50年以上経過しているため、日本においてパブリックドメインの状態にあります。"
+    }
+  },
+  "refusals": [
+    {
+      "id": "sat_leftovers",
+      "result": "already_refused_in_pr68_still_refused",
+      "note": "SAT 傳記、歎異抄、T2887 疑偽保持排除；不重做 #68。"
+    },
+    {
+      "id": "sat_2018_chinese_body",
+      "result": "refused_non_redistributable",
+      "note": "SAT 2018 漢文本文庫不可再分發；漢文已由 CBETA 持有。"
+    },
+    {
+      "id": "korean_pd_self_jingang_xinjing",
+      "result": "not_ingested_this_cut",
+      "note": "朝鮮／韓文維基上的金剛經、心經若只是維基志願者奉獻，不是 1918 年已出版的書，本切入不收。"
+    },
+    {
+      "id": "showa_shinsan_amidakyo",
+      "result": "skipped_already_covered_by_sat_jt0366b",
+      "note": "昭和新纂國譯大藏經阿彌陀經不收；SAT JT0366b 已是該作品的日文表達。"
+    },
+    {
+      "id": "kokuyaku_theragatha_therigatha_milinda",
+      "result": "refused_not_fosuo_jing",
+      "note": "同一 Index 的國譯長老偈、長老尼偈、彌蘭陀王問經不是佛說經，本切入不收。"
+    },
+    {
+      "id": "g0_g7_dual_human_or_gandhari_or_sat_taisho_crosscheck",
+      "result": "out_of_scope",
+      "note": "不啟動雙人覆核、SAT 大正對勘總帳或犍陀羅目錄。"
+    },
+    {
+      "id": "global_coverage_claim",
+      "result": "left_null",
+      "note": "不宣稱 99.9%，不把全球覆蓋率從 null 改成數字。"
+    },
+    {
+      "id": "prerender_261k_folios",
+      "result": "not_retouched",
+      "note": "不重做 #66/#67 的全量版頁預渲染。"
+    }
+  ],
+  "caveat": "本總帳只證明一份 1918 年公有領域國譯被掛接為既有巴利法句的日文表達。它不構成全球佛陀親說覆蓋率。"
+}

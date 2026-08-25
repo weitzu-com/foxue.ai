@@ -1,10 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getSitemapIds } from "@/lib/sitemap-data";
+import { siteOrigin } from "@/lib/site-metadata";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
-  const sitemapIds = await getSitemapIds();
-
   return {
     rules: [
       // Tier 1: AI Answer Engines (ChatGPT, Perplexity, Claude, Gemini)
@@ -29,7 +26,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       // General: allow everything
       { userAgent: "*", allow: "/" },
     ],
-    sitemap: sitemapIds.map(({ id }) => `${baseUrl}/sitemap/${id}.xml`),
-    host: baseUrl,
+    sitemap: `${siteOrigin}/sitemap-index.xml`,
+    host: siteOrigin,
   };
 }

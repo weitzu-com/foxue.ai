@@ -1,0 +1,127 @@
+{
+  "schema": "https://foxue.ai/schemas/wikisource-kokuyaku-dhp-batch-v1.0",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-24",
+  "collection": "Wikisource 國譯法句經 1918",
+  "rightsCategory": "Wikisource PD Japanese kokuyaku of Pali Dhammapada, 1918 book, translator died 1955",
+  "upstreamRevision": {
+    "revid": 213933,
+    "sha1": "3fedcfdefd0a2e2a685d22b8852626e88e663e1f",
+    "timestamp": "2023-11-19T03:32:35Z",
+    "pageid": 23782
+  },
+  "parseHtmlSha256": "987387ebc4abf0771874fd99c75264e7b3dc7fc07aa9920a542dfac77abda13a",
+  "rightsDecision": {
+    "status": "approved_public_domain_with_attribution",
+    "commercialUse": "allowed_public_domain",
+    "redistribution": "allowed",
+    "quotedFromPage": {
+      "wikitext": "{{PD-Japan-auto-expired|deathyear=1955}}",
+      "category": "PD-old-70-expired",
+      "japan": "この著作物は、1955年に著作者が亡くなって（団体著作物にあっては公表又は創作されて）いるため、著作権の保護期間が著作者（共同著作物にあっては、最終に死亡した著作者）の没後（団体著作物にあっては公表後又は創作後）70年以下である国や地域でパブリックドメインの状態にあります。",
+      "us": "この著作物は、1931年1月1日より前に発行された（もしくはアメリカ合衆国著作権局に登録された）ため、アメリカ合衆国においてパブリックドメインの状態にあります。",
+      "japanTemplate": "この著作物は、環太平洋パートナーシップに関する包括的及び先進的な協定の発効日（2018年12月30日）の時点で著作者の没後50年以上経過しているため、日本においてパブリックドメインの状態にあります。"
+    },
+    "attribution": "Wikisource + 1918 國譯大藏經 經部第十二卷（國民文庫刊行會）+ 譯者 立花俊道",
+    "reviewedAt": "2026-08-24",
+    "note": "只收這一本 1918 年已出版的公有領域國譯。不收同一 Index 裡的長老偈、長老尼偈、彌蘭陀王問經。"
+  },
+  "files": [
+    {
+      "id": "KOKUYAKU-DHP-1918",
+      "slug": "wikisource-ja-dhp",
+      "workId": "gbcr:work:dhammapada-pali",
+      "workTitle": "Dhammapada",
+      "attachToExistingWork": true,
+      "sourceRole": "kokuyaku_japanese_translation_expression",
+      "canonicalStatus": "pali_dhammapada_kokuyaku_japanese_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "wikisource-ja-dhp",
+          "label": "國譯法句經／巴利法句",
+          "evidence": "立花俊道 1918 年《國譯法句經》是巴利《法句》423 偈（雙雙品＝Yamakavagga）的文語國譯／訓讀體日文，不是漢譯 T210 的訓讀。掛接既有作品 gbcr:work:dhammapada-pali，不另建作品，也不把國譯等同佛陀逐字親說。",
+          "externalIds": {
+            "wikisource": [
+              "國譯法句經"
+            ],
+            "suttacentral": [
+              "dhp"
+            ],
+            "translator": [
+              "立花俊道"
+            ]
+          }
+        },
+        {
+          "type": "related_recension_parallel_not_aligned",
+          "groupId": "dhammapada-family-t0210",
+          "label": "法句文本家族／T210 平行",
+          "evidence": "漢譯 T210（gbcr:work:dharmapada-t0210，39 品）與巴利 Dhp 同屬 gbcr:text-family:dhammapada。本表達記錄該家族平行，不與 T210 逐偈對齊，也不合併或新建作品。",
+          "externalIds": {
+            "cbeta": [
+              "T0210"
+            ],
+            "suttacentral": [
+              "dhp"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "wikisource": "國譯法句經",
+        "suttacentral": "dhp",
+        "translator": "立花俊道",
+        "year": "1918",
+        "parallelWorkId": "gbcr:work:dharmapada-t0210"
+      },
+      "localPath": "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
+      "upstreamPath": "國譯法句經",
+      "upstreamUrl": "https://ja.wikisource.org/wiki/國譯法句經",
+      "upstreamBytes": 427,
+      "upstreamSha256": "20f09a18301fe0eaa767f4927298ec1e2f2f12f7845a7d2f83971ec35a095ee0",
+      "localBytes": 167887,
+      "localSha256": "746d597db6f90ff342c41797074d62fc31d846954033b9a60ac76e4355a1d94b",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "國譯法句經（立花俊道譯）",
+        "alternateTitle": "Dhammapada",
+        "tradition": "上座部佛教 · 小部",
+        "language": "日文",
+        "canonRef": "Wikisource 國譯法句經 · 1918",
+        "translator": "立花俊道",
+        "summary": "1918 年公有領域文語國譯。對應已持有巴利《法句》，作為既有作品的日文表達，不另建作品。漢譯 T210 只記家族平行，不逐偈對齊。",
+        "sourceUrl": "https://ja.wikisource.org/wiki/國譯法句經"
+      },
+      "verification": {
+        "segments": 438,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "KOKUYAKU-DHP-1918.001.s0000000100",
+          "KOKUYAKU-DHP-1918.001.s0000043800"
+        ],
+        "verseCount": 423,
+        "chapterCount": 26,
+        "humanSampleVerified": false
+      }
+    }
+  ],
+  "collectionTotals": {
+    "newWorks": 0,
+    "attachedExistingWorks": 1,
+    "newExpressions": 1,
+    "newStableSegments": 438,
+    "newFolios": 26,
+    "workCountingDecision": "國譯法句經掛接既有巴利法句作品，不另建作品，不提高全球佛說作品數，也不改全球覆蓋率。"
+  }
+}

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "foxue.ai｜从问题，回到原典";
+export const alt = "foxue.ai｜佛经在线阅读与 AI 问经平台";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,10 +33,10 @@ export default function OpenGraphImage() {
               justifyContent: "center",
             }}
           >佛</div>
-          foxue.ai · 全球佛学交流 AI 平台
+          foxue.ai · 佛经在线阅读与 AI 问经
         </div>
-        <div style={{ fontSize: 82, fontWeight: 600, letterSpacing: "-3px" }}>从问题，回到原典。</div>
-        <div style={{ fontSize: 29, color: "#667067" }}>可引用 · 可验证 · 可纠错 · 可传承</div>
+        <div style={{ fontSize: 74, fontWeight: 600, letterSpacing: "-3px" }}>佛经在线阅读与 AI 问经平台</div>
+        <div style={{ fontSize: 29, color: "#667067" }}>从问题，回到原典 · 可引用 · 可验证 · 可纠错</div>
       </div>
       <div
         style={{

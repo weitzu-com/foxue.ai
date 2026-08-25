@@ -1,0 +1,297 @@
+{
+  "schema": "https://foxue.ai/schemas/sat-modern-japanese-batch-v1.0",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-24",
+  "rightsCategory": "SAT modern Japanese sutra translations, CC BY 4.0, attribution to SAT Daizokyo Text Database Study Group and named translators",
+  "collection": {
+    "id": "SAT-MODERN-JAPANESE-FOSUO",
+    "title": "SAT 現代日本語訳佛說經批次",
+    "sourceRecordDenominator": 9,
+    "includedSourceRecords": 4,
+    "excludedSourceRecords": 5,
+    "newWorks": 0,
+    "attachedExistingWorks": 4,
+    "newSourceBytes": 642399,
+    "newStableSegments": 2468,
+    "newFolios": 110,
+    "workCountingDecision": "9 份 SAT 現代日本語訳中只收 4 份已持有佛說的日譯：T0353、T0360、T0365、T0366。T2046/T2047/T2063 是傳記，T2661 是歎異抄，T2887 父母恩重經是疑偽／中國撰述。日譯掛接既有作品，提高譯文覆蓋，不增加全球佛說作品數。"
+  },
+  "boundaryAudit": {
+    "status": "verified_cc_by_4_and_fosuo_subset",
+    "refusedSatTitles": {
+      "T2046": "biography_not_fosuo",
+      "T2047": "biography_not_fosuo",
+      "T2063": "biography_not_fosuo",
+      "T2661": "tannisho_not_fosuo",
+      "T2887": "suspected_or_indigenous_buddhist_text"
+    },
+    "note": "SAT現代日本語訳仏典 CC BY 4.0 固定下載；不抓 SAT 2018 漢文本文庫",
+    "caveat": "本批次只證明 4 份 CC BY 4.0 日譯被完整保存並可在經藏閱讀。它不把 SAT 2018 漢文本文庫、國譯大藏經殘缺條目或國譯一切經現代重印計入。"
+  },
+  "files": [
+    {
+      "id": "JT0353b",
+      "slug": "sat-ja-t0353",
+      "workId": "gbcr:work:taisho-t0353",
+      "workTitle": "勝鬘師子吼一乘大方便方廣經",
+      "attachToExistingWork": true,
+      "sourceRole": "modern_japanese_translation_expression",
+      "canonicalStatus": "traditional_sutra_modern_japanese_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sat-ja-t0353",
+          "label": "SAT 現代日本語訳／勝鬘師子吼一乘大方便方廣經",
+          "evidence": "SAT現代日本語訳仏典 JT0353b 對應已持有漢文 T0353；掛接既有作品，不新建作品，也不把現代日譯等同佛陀逐字親說。",
+          "externalIds": {
+            "cbeta": [
+              "T0353"
+            ],
+            "sat": [
+              "JT0353b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "satText": "JT0353b",
+        "cbetaText": "T0353"
+      },
+      "localPath": "data/corpus/sat/JT0353b.xml",
+      "upstreamPath": "JT0353b.xml",
+      "upstreamUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/JT0353b.xml",
+      "upstreamBytes": 143022,
+      "upstreamSha256": "bd7ecfae691a5a414f15babf1e9c39ce8b2740a3bd11252b94a374638f00dcdf",
+      "localBytes": 143023,
+      "localSha256": "a03a4daef0ef6fe3ccba06e09ab270589711ef8753a2477c2b033a55767bbb20",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "勝鬘師子吼一乗大方便方広経（現代日本語訳）",
+        "alternateTitle": "勝鬘師子吼一乘大方便方廣經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "日文",
+        "canonRef": "SAT現代日本語訳 T0353",
+        "translator": "松本知己 · 真野新也 · 大久保良峻 · SAT大蔵経テキストデータベース研究会",
+        "summary": "SAT 現代日本語訳。CC BY 4.0。對應已持有漢文 T0353，作為既有作品的日文表達，不另建作品。署名：SAT大蔵経テキストデータベース研究会；譯者 松本知己、真野新也、大久保良峻。",
+        "sourceUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/"
+      },
+      "verification": {
+        "segments": 748,
+        "folios": 15,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "JT0353b.001.s0000000100",
+          "JT0353b.001.s0000076000"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "JT0360b",
+      "slug": "sat-ja-t0360",
+      "workId": "gbcr:work:larger-sukhavati-vyuha-t0360",
+      "workTitle": "佛說無量壽經",
+      "attachToExistingWork": true,
+      "sourceRole": "modern_japanese_translation_expression",
+      "canonicalStatus": "traditional_sutra_modern_japanese_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sat-ja-t0360",
+          "label": "SAT 現代日本語訳／佛說無量壽經",
+          "evidence": "SAT現代日本語訳仏典 JT0360b 對應已持有漢文 T0360；掛接既有作品，不新建作品，也不把現代日譯等同佛陀逐字親說。",
+          "externalIds": {
+            "cbeta": [
+              "T0360"
+            ],
+            "sat": [
+              "JT0360b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "satText": "JT0360b",
+        "cbetaText": "T0360"
+      },
+      "localPath": "data/corpus/sat/JT0360b.xml",
+      "upstreamPath": "JT0360b.xml",
+      "upstreamUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/JT0360b.xml",
+      "upstreamBytes": 295888,
+      "upstreamSha256": "de9a7afa7b36c84e618271a30a5feb62195704c639a121eb87e99386a7824221",
+      "localBytes": 295889,
+      "localSha256": "cb0aa9243eba4d728c38d59f8f6d77ffed03259d7f0746ff3876990846291571",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "佛説無量壽經（現代日本語訳）",
+        "alternateTitle": "佛說無量壽經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "日文",
+        "canonRef": "SAT現代日本語訳 T0360",
+        "translator": "ダニエル ウィックスロトーム · 亀山隆彦 · 壬生泰紀 · 野呂靖 · SAT大蔵経テキストデータベース研究会",
+        "summary": "SAT 現代日本語訳。CC BY 4.0。對應已持有漢文 T0360，作為既有作品的日文表達，不另建作品。署名：SAT大蔵経テキストデータベース研究会；譯者 ダニエル ウィックスロトーム、亀山隆彦、壬生泰紀、野呂靖。",
+        "sourceUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/"
+      },
+      "verification": {
+        "segments": 1088,
+        "folios": 48,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "JT0360b.001.s0000000100",
+          "JT0360b.001.s0000138100"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "JT0365b",
+      "slug": "sat-ja-t0365",
+      "workId": "gbcr:work:amitayurdhyana-sutra-t0365",
+      "workTitle": "佛說觀無量壽佛經",
+      "attachToExistingWork": true,
+      "sourceRole": "modern_japanese_translation_expression",
+      "canonicalStatus": "traditional_sutra_modern_japanese_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sat-ja-t0365",
+          "label": "SAT 現代日本語訳／佛說觀無量壽佛經",
+          "evidence": "SAT現代日本語訳仏典 JT0365b 對應已持有漢文 T0365；掛接既有作品，不新建作品，也不把現代日譯等同佛陀逐字親說。",
+          "externalIds": {
+            "cbeta": [
+              "T0365"
+            ],
+            "sat": [
+              "JT0365b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "satText": "JT0365b",
+        "cbetaText": "T0365"
+      },
+      "localPath": "data/corpus/sat/JT0365b.xml",
+      "upstreamPath": "JT0365b.xml",
+      "upstreamUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/JT0365b.xml",
+      "upstreamBytes": 145456,
+      "upstreamSha256": "58c38de07e61682701ab0780e74289837ac1e3691f777820f7c682393e500dea",
+      "localBytes": 145457,
+      "localSha256": "0f962edd14a96edcb3c0b4a3e3619d43adf357b57418c8588dc05e5082312330",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "佛説觀無量壽佛經（現代日本語訳）",
+        "alternateTitle": "佛說觀無量壽佛經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "日文",
+        "canonRef": "SAT現代日本語訳 T0365",
+        "translator": "ダニエル ウィックスロトーム · 亀山隆彦 · 壬生泰紀 · 野呂靖 · SAT大蔵経テキストデータベース研究会",
+        "summary": "SAT 現代日本語訳。CC BY 4.0。對應已持有漢文 T0365，作為既有作品的日文表達，不另建作品。署名：SAT大蔵経テキストデータベース研究会；譯者 ダニエル ウィックスロトーム、亀山隆彦、壬生泰紀、野呂靖。",
+        "sourceUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/"
+      },
+      "verification": {
+        "segments": 545,
+        "folios": 33,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "JT0365b.001.s0000000100",
+          "JT0365b.001.s0000057800"
+        ],
+        "humanSampleVerified": false
+      }
+    },
+    {
+      "id": "JT0366b",
+      "slug": "sat-ja-t0366",
+      "workId": "gbcr:work:smaller-sukhavati-vyuha-t0366",
+      "workTitle": "佛說阿彌陀經",
+      "attachToExistingWork": true,
+      "sourceRole": "modern_japanese_translation_expression",
+      "canonicalStatus": "traditional_sutra_modern_japanese_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sat-ja-t0366",
+          "label": "SAT 現代日本語訳／佛說阿彌陀經",
+          "evidence": "SAT現代日本語訳仏典 JT0366b 對應已持有漢文 T0366；掛接既有作品，不新建作品，也不把現代日譯等同佛陀逐字親說。",
+          "externalIds": {
+            "cbeta": [
+              "T0366"
+            ],
+            "sat": [
+              "JT0366b"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "satText": "JT0366b",
+        "cbetaText": "T0366"
+      },
+      "localPath": "data/corpus/sat/JT0366b.xml",
+      "upstreamPath": "JT0366b.xml",
+      "upstreamUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/JT0366b.xml",
+      "upstreamBytes": 58033,
+      "upstreamSha256": "fab590ef907310e272dad229fecd0ec5473656066742d6b519ad0a293842fd19",
+      "localBytes": 58034,
+      "localSha256": "675f42e59c08371b09f6414f243a6c5e72297c00b4e00c30ca9b947c988d8356",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "佛説阿彌陀經（現代日本語訳）",
+        "alternateTitle": "佛說阿彌陀經",
+        "tradition": "漢傳佛教 · 寶積部",
+        "language": "日文",
+        "canonRef": "SAT現代日本語訳 T0366",
+        "translator": "ダニエル ウィックスロトーム · 亀山隆彦 · 壬生泰紀 · 野呂靖 · SAT大蔵経テキストデータベース研究会",
+        "summary": "SAT 現代日本語訳。CC BY 4.0。對應已持有漢文 T0366，作為既有作品的日文表達，不另建作品。署名：SAT大蔵経テキストデータベース研究会；譯者 ダニエル ウィックスロトーム、亀山隆彦、壬生泰紀、野呂靖。",
+        "sourceUrl": "https://21dzk.l.u-tokyo.ac.jp/SATm/"
+      },
+      "verification": {
+        "segments": 87,
+        "folios": 14,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "JT0366b.001.s0000000100",
+          "JT0366b.001.s0000010100"
+        ],
+        "humanSampleVerified": false
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-import registryDocument from "../../data/gbcr/registry-v6.18.0.json";
-import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.5.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.22.0.json";
+import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.8.0.json";
 
 type Expression = {
   id: string;
@@ -792,7 +792,7 @@ export function buildCoverageSnapshot() {
         strictScopeDecisionCounts: corpusRegistry.buddhaWordScopeAudit.strictScopeDecisionCounts,
         globalDenominatorImpact: corpusRegistry.buddhaWordScopeAudit.globalDenominatorImpact,
         auditSha256: corpusRegistry.buddhaWordScopeAudit.auditSha256,
-        unit: "GBCR v6.18 继承的 3,377 部已登记作品保守规则范围分类",
+        unit: "GBCR v6.21 继承的 3,396 部已登记作品保守规则范围分类",
         caveat: corpusRegistry.buddhaWordScopeAudit.caveat,
       },
       dergeKangyurFullTextWitness: {

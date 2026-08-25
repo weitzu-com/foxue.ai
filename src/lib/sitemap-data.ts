@@ -1,51 +1,84 @@
 import type { MetadataRoute } from "next";
-import { sutras } from "@/data/sutras";
-import { getSutraReading } from "@/lib/corpus-reading";
-import { folioHref } from "@/lib/reader-routes";
+import { getSitemapLedger } from "@/lib/sitemap-ledger";
+import { loadSitemapChunkPaths } from "@/lib/sitemap-chunk-loaders.generated";
+import { siteOrigin } from "@/lib/site-metadata";
 
-export const sitemapChunkSize = 40_000;
+export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitemap-ledger";
 
-let entriesPromise: Promise<MetadataRoute.Sitemap> | null = null;
-
-export function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
-  entriesPromise ??= (async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
-    const staticRoutes = ["", "/wenjing", "/jingzang", "/fugai", "/fenmu", "/shenjiao", "/yuanze", "/touming"];
-    const readings = await Promise.all(
-      sutras.map(async (sutra) => ({ sutra, reading: await getSutraReading(sutra) })),
-    );
-    const folioRoutes = readings.flatMap(({ sutra, reading }) =>
-      reading.navigation.map((item) => ({
-        url: `${baseUrl}${folioHref(sutra.slug, item.key)}`,
-        lastModified: new Date("2026-08-14"),
-        changeFrequency: "yearly" as const,
-        priority: 0.6,
-      })),
-    );
-
-    return [
-      ...staticRoutes.map((path) => ({
-        url: `${baseUrl}${path}`,
-        lastModified: new Date("2026-08-14"),
-        changeFrequency: path === "" ? ("weekly" as const) : ("monthly" as const),
-        priority: path === "" ? 1 : 0.8,
-      })),
-      ...sutras.map((sutra) => ({
-        url: `${baseUrl}/jingzang/${sutra.slug}`,
-        lastModified: new Date("2026-08-14"),
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      })),
-      ...folioRoutes,
-    ];
-  })();
-  return entriesPromise;
+function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
+  const url = `${siteOrigin}${path}`;
+  if (path === "") {
+    return { url, changeFrequency: "weekly", priority: 1 };
+  }
+  const parts = path.split("/").filter(Boolean);
+  if (parts[0] === "jingzang" && parts.length === 3) {
+    return { url, changeFrequency: "yearly", priority: 0.6 };
+  }
+  if (parts[0] === "jingzang") {
+    return { url, changeFrequency: "monthly", priority: 0.7 };
+  }
+  return { url, changeFrequency: "monthly", priority: 0.8 };
 }
 
-export async function getSitemapIds() {
-  const entries = await getSitemapEntries();
-  return Array.from(
-    { length: Math.ceil(entries.length / sitemapChunkSize) },
-    (_, id) => ({ id: String(id) }),
-  );
+export async function getSitemapChunk(id: string | number): Promise<MetadataRoute.Sitemap> {
+  const chunk = Number(id);
+  const ledger = getSitemapLedger();
+  if (!Number.isSafeInteger(chunk) || chunk < 0 || chunk >= ledger.sitemapCount) return [];
+  const paths = await loadSitemapChunkPaths(chunk);
+  if (!paths) return [];
+
+  // The ledger is ordered as hubs -> paginated library -> works -> folios.
+  // Keep folios in their own shards so Search Console can report each template
+  // independently instead of hiding demand pages inside a 40k mixed URL file.
+  const folioOffset = ledger.staticPathCount + ledger.libraryPageCount + ledger.workCount;
+  const chunkStart = chunk * ledger.chunkSize;
+  const localFolioOffset = Math.max(0, folioOffset - chunkStart);
+  return paths.slice(localFolioOffset).map(sitemapEntryForPath);
+}
+
+export async function getHubSitemap(): Promise<MetadataRoute.Sitemap> {
+  const ledger = getSitemapLedger();
+  const paths = await loadSitemapChunkPaths(0);
+  if (!paths) return [];
+  return paths
+    .slice(0, ledger.staticPathCount + ledger.libraryPageCount)
+    .map(sitemapEntryForPath);
+}
+
+export async function getWorkSitemap(): Promise<MetadataRoute.Sitemap> {
+  const ledger = getSitemapLedger();
+  const paths = await loadSitemapChunkPaths(0);
+  if (!paths) return [];
+  const workOffset = ledger.staticPathCount + ledger.libraryPageCount;
+  return paths
+    .slice(workOffset, workOffset + ledger.workCount)
+    .map(sitemapEntryForPath);
+}
+
+export function serializeSitemap(entries: MetadataRoute.Sitemap) {
+  const body = entries.map((entry) => {
+    const fields = [
+      `<loc>${escapeXml(entry.url)}</loc>`,
+      entry.changeFrequency ? `<changefreq>${entry.changeFrequency}</changefreq>` : "",
+      typeof entry.priority === "number" ? `<priority>${entry.priority}</priority>` : "",
+    ].filter(Boolean);
+    return `<url>${fields.join("")}</url>`;
+  }).join("\n");
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    body,
+    "</urlset>",
+    "",
+  ].join("\n");
+}
+
+function escapeXml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
 }

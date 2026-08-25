@@ -1,4 +1,5 @@
 import { buildCoverageSnapshot, corpusRegistry } from "@/lib/corpus-registry";
+import { absoluteUrl } from "@/lib/site-metadata";
 
 export const dynamic = "force-static";
 
@@ -7,17 +8,32 @@ export function GET() {
     {
       ...buildCoverageSnapshot(),
       links: {
-        human: "https://foxue.ai/fugai",
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.18.0.json",
-        globalDenominatorHuman: "https://foxue.ai/fenmu",
+        human: absoluteUrl("/fugai"),
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.22.0.json",
+        globalDenominatorHuman: absoluteUrl("/fenmu"),
         globalDenominatorStandard: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-standard-v0.1.0.json",
         globalDenominatorSourceUniverse: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-source-universe-v0.1.0.json",
         globalDenominatorReviewQueue: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-review-queue-v0.1.0.json",
         globalDenominatorReviewLedger: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-review-ledger-v0.1.0.json",
         globalDenominatorReviewProtocol: "https://github.com/weitzu-com/foxue.ai/blob/main/docs/GLOBAL_DENOMINATOR_REVIEW_PROTOCOL.md",
-        buddhaWordScopeAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/buddha-word-scope-audit-v1.2.0.json",
+        buddhaWordScopeAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/buddha-word-scope-audit-v1.4.0.json",
         methodology: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/README.md",
-        sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v4.5.0.json",
+        sourceSnapshot: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/source-snapshots-v4.8.0.json",
+        chineseNanchuanInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-nanchuan-inventory-v0.1.0.json",
+        chineseNanchuanBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/cbeta/nanchuan-batch-v1.0.0.json",
+        chineseZhaochenInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-zhaochen-inventory-v0.1.0.json",
+        chineseFangshanInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-fangshan-inventory-v0.1.0.json",
+        chineseBeyondTaishoSutraFilter: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-beyond-taisho-sutra-filter-v1.0.0.json",
+        chineseBeyondTaishoSutraBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/cbeta/beyond-taisho-sutra-batch-v1.0.0.json",
+        chineseRemainingCollectionsInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-remaining-collections-inventory-v0.1.0.json",
+        chineseRemainingFosuoFilter: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-remaining-fosuo-filter-v1.0.0.json",
+        satModernJapaneseFilter: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/sat-modern-japanese-filter-v1.0.0.json",
+        satModernJapaneseBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/sat/modern-japanese-batch-v1.0.0.json",
+        eastAsianTranslationRefusal: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/east-asian-translation-refusal-v1.0.0.json",
+        wikisourceKokuyakuDhpIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/wikisource-kokuyaku-dhp-ingest-v1.0.0.json",
+        wikisourceKokuyakuDhpBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/wikisource/kokuyaku-dhp-batch-v1.0.0.json",
+        chineseXuzangjingInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-xuzangjing-inventory-v0.1.0.json",
+        chineseDazangjingBubianInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-dazangjing-bubian-inventory-v0.1.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",
         chineseEsotericT18Inventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-t18-inventory-v0.1.0.json",
         chineseEsotericT18BoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/cbeta/batch-v2.5.0.json",

@@ -1,13 +1,15 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight, BookOpenText, Search, Sparkles, Languages } from "lucide-react";
+import { ArrowRight, BookOpenText, Search, Sparkles, Languages, Network } from "lucide-react";
 import {
   QUESTION_MAX_LENGTH,
   saveQuestionToSession,
 } from "@/lib/question-session";
 import { trackEvent } from "@/lib/analytics";
+import { conceptForQuery } from "@/lib/concepts";
 
 const modes = [
   { id: "scripture", label: "找经文", icon: BookOpenText },
@@ -18,16 +20,31 @@ const modes = [
 
 const examples = [
   "佛教里的“空”是什么意思？",
+  "无常是不是悲观？",
   "无住是不是消极？",
   "烦恼生起时，怎样观察自己的心？",
+  "无我是不是否定‘我’的存在？",
 ];
 
 export function SearchConsole() {
   const router = useRouter();
   const [mode, setMode] = useState("meaning");
   const [query, setQuery] = useState("");
+  const conceptMatch = conceptForQuery(query);
 
   function openQuestion(question: string, exampleUsed = false) {
+    const relatedConcept = conceptForQuery(question);
+    if (mode === "term" && relatedConcept) {
+      trackEvent("concept_opened", {
+        entry_point: "home_search",
+        input_length: question.trim().length,
+        mode,
+        concept: relatedConcept.slug,
+      });
+      router.push(relatedConcept.href);
+      return;
+    }
+
     saveQuestionToSession(question, mode);
     trackEvent("question_started", {
       entry_point: "home",
@@ -81,6 +98,25 @@ export function SearchConsole() {
           <ArrowRight aria-hidden="true" size={19} />
         </button>
       </form>
+      {conceptMatch && (
+        <div className="search-concept-hit" role="status">
+          <Network aria-hidden="true" size={17} />
+          <div>
+            <span>概念 Hub</span>
+            <strong>{conceptMatch.title}</strong>
+            <p>{conceptMatch.summary}</p>
+          </div>
+          <Link
+            href={conceptMatch.href}
+            onClick={() => trackEvent("concept_opened", {
+              entry_point: "home_suggestion",
+              concept: conceptMatch.slug,
+            })}
+          >
+            进入概念页 <ArrowRight aria-hidden="true" size={15} />
+          </Link>
+        </div>
+      )}
       <div className="search-examples" aria-label="问题示例">
         <span>可以这样问</span>
         {examples.map((example) => (

@@ -1,0 +1,35 @@
+name: Global denominator review intake
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: global-review-intake-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: startsWith(github.event.issue.title, '[全球分母复核]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - name: Validate untrusted Issue Form submission
+        run: >-
+          node scripts/global-review-intake.mjs validate-issue
+          --event "$GITHUB_EVENT_PATH"
+          --output "$RUNNER_TEMP/review-intake/github-issue-${{ github.event.issue.number }}.json"
+      - name: Preserve validated candidate for maintainer review
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: global-review-candidate-issue-${{ github.event.issue.number }}
+          path: ${{ runner.temp }}/review-intake/
+          if-no-files-found: error
+          retention-days: 90

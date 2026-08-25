@@ -1,13 +1,41 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type APIRequestContext } from "@playwright/test";
 
+function extractHeadValue(html: string, pattern: RegExp) {
+  return html.match(pattern)?.[1] ?? null;
+}
+
+function normalizeUrl(value: string | null) {
+  if (!value) return null;
+  return new URL(value).href;
+}
+
+function extractJsonLdItems(html: string) {
+  return [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+    .flatMap((match) => {
+      const parsed = JSON.parse(match[1]) as { "@graph"?: unknown[] };
+      return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
+    });
+}
+
 async function readSitemaps(request: APIRequestContext) {
   const robotsResponse = await request.get("/robots.txt");
   expect(robotsResponse.ok()).toBeTruthy();
   const robots = await robotsResponse.text();
-  const sitemapPaths = [...robots.matchAll(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap\/\d+\.xml)$/gm)]
-    .map((match) => match[1]);
+  const sitemapIndexPath = robots.match(/^Sitemap:\s+https?:\/\/[^/]+(\/sitemap-index\.xml)$/m)?.[1];
+  expect(sitemapIndexPath).toBeTruthy();
+
+  const sitemapIndexResponse = await request.get(sitemapIndexPath ?? "/sitemap-index.xml");
+  expect(sitemapIndexResponse.ok()).toBeTruthy();
+  const sitemapIndex = await sitemapIndexResponse.text();
+
+  const sitemapPaths = [...sitemapIndex.matchAll(
+    /<loc>https?:\/\/[^/]+(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
+  )].map(
+    (match) => match[1],
+  );
   expect(sitemapPaths.length).toBeGreaterThan(0);
+
   const responses = await Promise.all(sitemapPaths.map((path) => request.get(path)));
   expect(responses.every((response) => response.ok())).toBeTruthy();
   return (await Promise.all(responses.map((response) => response.text()))).join("\n");
@@ -16,6 +44,13 @@ async function readSitemaps(request: APIRequestContext) {
 const criticalRoutes = [
   "/",
   "/wenjing",
+  "/gainian",
+  "/xue/xinjing",
+  "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -55,6 +90,14 @@ const criticalRoutes = [
   "/jingzang/suttacentral-benshi-jing-t0765/001-t765-1-0001-0024",
   "/jingzang/derge-kangyur-d0001",
   "/jingzang/derge-kangyur-d0001/001-0001b",
+  "/jingzang/nanchuan-digha-01",
+  "/jingzang/nanchuan-digha-01/001-0001a",
+  "/jingzang/zhaochen-sanghata-a1504",
+  "/jingzang/zhaochen-sanghata-a1504/002-0353b",
+  "/jingzang/fangshan-yinguo-benqi",
+  "/jingzang/fangshan-yinguo-benqi/001-0476a",
+  "/jingzang/fangshan-hengshui-liushu",
+  "/jingzang/fangshan-hengshui-liushu/001-0003a",
   "/fugai",
   "/fenmu",
   "/shenjiao",
@@ -64,6 +107,13 @@ const criticalRoutes = [
 const sitemapLandingRoutes = [
   "/",
   "/wenjing",
+  "/gainian",
+  "/xue/xinjing",
+  "/gainian/kong",
+  "/gainian/wuchang",
+  "/gainian/wuwo",
+  "/gainian/wuzhu",
+  "/gainian/guanxin",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -78,10 +128,38 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("application/xml");
   const sitemapIndex = await response.text();
   const childSitemaps = [...sitemapIndex.matchAll(
-    /<loc>https:\/\/foxue\.ai(\/sitemap\/\d+\.xml)<\/loc>/g,
+    /<loc>https:\/\/www\.foxue\.ai(\/sitemap\/\d+\.xml|\/sitemap-(?:hubs|works)\.xml)<\/loc>/g,
   )].map((match) => match[1]);
   expect(childSitemaps.length).toBeGreaterThan(0);
   expect(new Set(childSitemaps).size).toBe(childSitemaps.length);
+  expect(childSitemaps).toContain("/sitemap-hubs.xml");
+  expect(childSitemaps).toContain("/sitemap-works.xml");
+});
+
+test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
+  const hubs = await (await request.get("/sitemap-hubs.xml")).text();
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
+  expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
+
+  const works = await (await request.get("/sitemap-works.xml")).text();
+  expect(works).toContain("<loc>https://www.foxue.ai/jingzang/xinjing</loc>");
+  expect(works).not.toContain("/jingzang/xinjing/001-0848c");
+
+  const folios = await (await request.get("/sitemap/0.xml")).text();
+  expect(folios).not.toContain("<loc>https://www.foxue.ai/jingzang</loc>");
+  expect(folios).toContain("<loc>https://www.foxue.ai/jingzang/xinjing/001-0848c</loc>");
+  expect(folios).not.toContain("<lastmod>");
+});
+
+test("robots.txt 声明单一 sitemap index 入口", async ({ request }) => {
+  const response = await request.get("/robots.txt");
+  expect(response.ok()).toBeTruthy();
+
+  const robots = await response.text();
+  const sitemapEntries = [...robots.matchAll(/^Sitemap:\s+(.+)$/gm)].map((match) => match[1]);
+
+  expect(sitemapEntries).toEqual(["https://www.foxue.ai/sitemap-index.xml"]);
 });
 
 test("站点地图入口页使用自引用 canonical", async ({ page }) => {
@@ -89,20 +167,332 @@ test("站点地图入口页使用自引用 canonical", async ({ page }) => {
     await page.goto(path);
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     expect(canonical).not.toBeNull();
-    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://foxue.ai").href);
+    expect(new URL(canonical ?? "").href).toBe(new URL(path, "https://www.foxue.ai").href);
+  }
+});
+
+test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async ({ request }) => {
+  const cases = [
+    ["/", "https://www.foxue.ai/"],
+    ["/wenjing", "https://www.foxue.ai/wenjing"],
+    ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
+    ["/gainian", "https://www.foxue.ai/gainian"],
+    ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
+    ["/gainian/wuchang", "https://www.foxue.ai/gainian/wuchang"],
+    ["/gainian/wuwo", "https://www.foxue.ai/gainian/wuwo"],
+    ["/gainian/wuzhu", "https://www.foxue.ai/gainian/wuzhu"],
+    ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
+    ["/jingzang", "https://www.foxue.ai/jingzang"],
+    ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
+    ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
+    ["/jingzang/xinjing/001-0848c", "https://www.foxue.ai/jingzang/xinjing/001-0848c"],
+    ["/fugai", "https://www.foxue.ai/fugai"],
+    ["/fenmu", "https://www.foxue.ai/fenmu"],
+    ["/shenjiao", "https://www.foxue.ai/shenjiao"],
+    ["/touming", "https://www.foxue.ai/touming"],
+    ["/yuanze", "https://www.foxue.ai/yuanze"],
+  ] as const;
+
+  for (const [path, canonicalUrl] of cases) {
+    const response = await request.get(path);
+    expect(response.ok(), `${path} should be reachable`).toBeTruthy();
+    const html = await response.text();
+
+    expect(
+      normalizeUrl(extractHeadValue(html, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i)),
+      `${path} should expose self canonical`,
+    ).toBe(new URL(canonicalUrl).href);
+    expect(
+      normalizeUrl(extractHeadValue(html, /<meta[^>]+property="og:url"[^>]+content="([^"]+)"/i)),
+      `${path} should expose self og:url`,
+    ).toBe(new URL(canonicalUrl).href);
+    expect(
+      extractHeadValue(html, /<meta[^>]+name="twitter:card"[^>]+content="([^"]+)"/i),
+      `${path} should expose twitter card`,
+    ).toBe("summary_large_image");
+  }
+});
+
+test("长经名目录页的 title 受控且保留品牌后缀", async ({ request }) => {
+  const response = await request.get("/jingzang/taisho-t1067");
+  expect(response.ok()).toBeTruthy();
+  const html = await response.text();
+  const title = extractHeadValue(html, /<title>([^<]+)<\/title>/i);
+
+  expect(title).not.toBeNull();
+  expect(title).toContain("攝無礙大悲心大陀羅尼經");
+  expect(title).toMatch(/｜foxue\.ai$/);
+  expect(Array.from(title ?? "").length).toBeLessThanOrEqual(60);
+});
+
+test("经藏搜索结果页 canonical 回落目录且声明 noindex", async ({ request }) => {
+  const response = await request.get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F");
+  expect(response.ok()).toBeTruthy();
+  const html = await response.text();
+
+  expect(
+    normalizeUrl(extractHeadValue(html, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i)),
+  ).toBe("https://www.foxue.ai/jingzang");
+  expect(
+    extractHeadValue(html, /<meta[^>]+name="robots"[^>]+content="([^"]+)"/i),
+  ).toBe("noindex, follow");
+  expect(
+    normalizeUrl(extractHeadValue(html, /<meta[^>]+property="og:url"[^>]+content="([^"]+)"/i)),
+  ).toBe("https://www.foxue.ai/jingzang");
+});
+
+test("llms 文本使用 www 主域并反映真实页面职责", async ({ request }) => {
+  const [llmsResponse, fullResponse] = await Promise.all([
+    request.get("/llms.txt"),
+    request.get("/llms-full.txt"),
+  ]);
+  expect(llmsResponse.ok()).toBeTruthy();
+  expect(fullResponse.ok()).toBeTruthy();
+
+  const [llms, full] = await Promise.all([llmsResponse.text(), fullResponse.text()]);
+
+  for (const body of [llms, full]) {
+    expect(body).toContain("https://www.foxue.ai/");
+    expect(body).not.toContain("https://foxue.ai/");
+  }
+
+  expect(llms).toContain("AI 问经与原典出处对照");
+  expect(llms).toContain("全球佛经作品分母治理");
+  expect(llms).toContain("汉巴作品关系双人复核队列");
+  expect(full).toContain("/gainian/wuchang");
+  expect(full).toContain("/gainian/wuwo");
+  expect(full).toContain("/sitemap-index.xml");
+  expect(full).toContain("当前登记");
+});
+
+test("ai.txt 公布 canonical 主域与 AI 使用边界", async ({ request }) => {
+  const response = await request.get("/ai.txt");
+  expect(response.ok()).toBeTruthy();
+  const body = await response.text();
+
+  expect(body).toContain("Canonical site: https://www.foxue.ai");
+  expect(body).not.toContain("https://foxue.ai");
+  expect(body).toContain("Allowed:");
+  expect(body).toContain("Not granted by this file:");
+  expect(body).toContain("Disallowed:");
+  expect(body).toContain("Trust principles: https://www.foxue.ai/yuanze");
+  expect(body).toContain("Transparency and known limits: https://www.foxue.ai/touming");
+  expect(body).toContain("Blanket permission to use foxue.ai content in AI training datasets or model fine-tuning.");
+  expect(body).toContain("source-level rights");
+  expect(body).not.toContain("Use in AI training datasets for preserving and improving access to Buddhist textual heritage.");
+});
+
+test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
+  const cases = [
+    {
+      path: "/",
+      required: [["https://www.foxue.ai/#page", "WebPage"]],
+    },
+    {
+      path: "/wenjing",
+      required: [
+        ["https://www.foxue.ai/wenjing#page", "WebPage"],
+        ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/xinjing",
+      required: [
+        ["https://www.foxue.ai/xue/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/xinjing#learning-resource", "LearningResource"],
+      ],
+    },
+    {
+      path: "/gainian",
+      required: [
+        ["https://www.foxue.ai/gainian#page", "CollectionPage"],
+        ["https://www.foxue.ai/gainian#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/gainian#list", "ItemList"],
+      ],
+    },
+    {
+      path: "/gainian/kong",
+      required: [
+        ["https://www.foxue.ai/gainian/kong#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/kong#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/kong#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuchang",
+      required: [
+        ["https://www.foxue.ai/gainian/wuchang#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuchang#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuchang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuwo",
+      required: [
+        ["https://www.foxue.ai/gainian/wuwo#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuwo#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuwo#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuzhu",
+      required: [
+        ["https://www.foxue.ai/gainian/wuzhu#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuzhu#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuzhu#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/guanxin",
+      required: [
+        ["https://www.foxue.ai/gainian/guanxin#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/guanxin#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/guanxin#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/jingzang",
+      required: [
+        ["https://www.foxue.ai/jingzang#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/jingzang/page/2",
+      required: [
+        ["https://www.foxue.ai/jingzang/page/2#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang/page/2#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/jingzang/xinjing",
+      required: [
+        ["https://www.foxue.ai/jingzang/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/xinjing#work", "CreativeWork"],
+      ],
+    },
+    {
+      path: "/jingzang/xinjing/001-0848c",
+      required: [
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#page", "WebPage"],
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/xinjing/001-0848c#folio", "DigitalDocument"],
+      ],
+    },
+    {
+      path: "/fugai",
+      required: [
+        ["https://www.foxue.ai/fugai#page", "CollectionPage"],
+        ["https://www.foxue.ai/fugai#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/fenmu",
+      required: [
+        ["https://www.foxue.ai/fenmu#page", "CollectionPage"],
+        ["https://www.foxue.ai/fenmu#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/shenjiao",
+      required: [
+        ["https://www.foxue.ai/shenjiao#page", "CollectionPage"],
+        ["https://www.foxue.ai/shenjiao#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/touming",
+      required: [
+        ["https://www.foxue.ai/touming#page", "AboutPage"],
+        ["https://www.foxue.ai/touming#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/yuanze",
+      required: [
+        ["https://www.foxue.ai/yuanze#page", "AboutPage"],
+        ["https://www.foxue.ai/yuanze#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ] as const;
+
+  for (const { path, required } of cases) {
+    const response = await request.get(path);
+    expect(response.ok(), `${path} should be reachable`).toBeTruthy();
+    const html = await response.text();
+    const items = extractJsonLdItems(html) as Array<Record<string, unknown>>;
+
+    for (const [id, type] of required) {
+      expect(
+        items.some((item) => item["@id"] === id && item["@type"] === type),
+        `${path} should include ${type} ${id}`,
+      ).toBeTruthy();
+    }
   }
 });
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1, name: /从问题/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /佛经在线阅读与.*AI 问经平台/ })).toBeVisible();
   await expect(page.getByRole("button", { name: "回到原典" })).toBeVisible();
   await expect(page.getByText("每条主张可追溯")).toBeVisible();
 
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+});
+
+test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) => {
+  await page.goto("/");
+
+  const brandLink = page.getByRole("link", {
+    name: "佛 foxue.ai 全球佛学交流 AI 平台 首页",
+  });
+
+  await expect(brandLink).toBeVisible();
+  await expect(brandLink).toHaveAttribute("href", "/");
+});
+
+test("心经七日学习路径可访问并只在本地保存进度", async ({ page }) => {
+  await page.goto("/xue/xinjing");
+
+  await expect(page.locator("h1")).toContainText("《心经》全文入门");
+  await expect(page.getByRole("heading", { name: "七天，不是七篇摘要；是七次回到原句。" })).toBeVisible();
+  await expect(page.locator(".learning-overview__grid > li")).toHaveCount(7);
+  await expect(page.getByText("当前尚未标注外部具名佛学审校")).toBeVisible();
+  await expect(page.getByText("进度仅存本地")).toBeVisible();
+  await expect(page.getByRole("button", { name: /读完这一日/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "分享引用卡" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "复制引文与出处" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "下载 PNG" })).toBeVisible();
+
+  await page.getByRole("button", { name: /读完这一日/ }).click();
+  await expect(page.locator(".path-day-list .is-completed")).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /第 1 天.*已完成/ })).toBeVisible();
+  await expect(page.locator(".path-day-paper__header p")).toContainText("第 2 天");
+  await expect(page).toHaveURL(/#day-2$/);
+
+  const stored = await page.evaluate(() => window.localStorage.getItem("foxue:xinjing-seven-day-progress:v1"));
+  expect(stored).toContain('"1":"completed"');
+});
+
+test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {
+  await page.goto("/xue/xinjing#day-5");
+  await expect(page.getByRole("heading", { level: 2, name: "无所得，心无罣碍" })).toBeVisible();
+  await expect(page.getByText("T0251.001.0848c13–15").first()).toBeVisible();
+  await expect.poll(
+    () => page.locator("#day-5").evaluate((element) => element.getBoundingClientRect().top),
+  ).toBeLessThan(80);
+
+  const response = await request.get("/xue/xinjing?day=5&utm_source=share");
+  const html = await response.text();
+  expect(normalizeUrl(extractHeadValue(html, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i)))
+    .toBe("https://www.foxue.ai/xue/xinjing");
+  expect(html).toContain('\"@type\":\"LearningResource\"');
+  expect(html).toContain("#day-7");
 });
 
 test("问经结果同时展示结论、范围和原典证据", async ({ page }) => {
@@ -122,6 +512,172 @@ test("问经结果同时展示结论、范围和原典证据", async ({ page }) 
   expect(page.url()).not.toContain(encodeURIComponent(question));
 });
 
+test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ page, request }) => {
+  await page.goto("/gainian/kong");
+
+  await expect(page.getByRole("heading", { level: 1, name: /空.*不是一个.*脱离语境的答案/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "同一个汉字，不抹平三种文本层次。" })).toBeVisible();
+  await expect(page.getByText("suñña · suññatā", { exact: true })).toBeVisible();
+  await expect(page.getByText("中观 · 唯识 · 禅等", { exact: true })).toBeVisible();
+  await expect(page.getByText("空 = 什么都不存在", { exact: true })).toBeVisible();
+
+  const originalLinks = page.getByRole("link", { name: "站内稳定原文" });
+  await expect(originalLinks).toHaveCount(4);
+  await expect(originalLinks.nth(0)).toHaveAttribute(
+    "href",
+    "/jingzang/samyutta-nikaya-sn35/068-sn35-85-0001-0013#sn35.85:1.4",
+  );
+  await expect(originalLinks.nth(1)).toHaveAttribute(
+    "href",
+    "/jingzang/majjhima-nikaya-mn121/001-mn121-0001-0102#mn121:4.10",
+  );
+  await expect(originalLinks.nth(2)).toHaveAttribute(
+    "href",
+    "/jingzang/xinjing/001-0848c#T0251.001.0848c07",
+  );
+
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+
+  const sitemap = await request.get("/sitemap-hubs.xml");
+  expect(sitemap.ok()).toBeTruthy();
+  expect(await sitemap.text()).toContain("/gainian/kong");
+});
+
+test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ page, request }) => {
+  await page.goto("/gainian");
+
+  await expect(page.getByRole("heading", { level: 1, name: /先进入主题层/ })).toBeVisible();
+  await expect(page.locator('a[href="/gainian/kong"]')).toContainText("空");
+  await expect(page.locator('a[href="/gainian/wuchang"]')).toContainText("无常");
+  await expect(page.locator('a[href="/gainian/wuwo"]')).toContainText("无我");
+  await expect(page.locator('a[href="/gainian/wuzhu"]')).toContainText("无住");
+  await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
+
+  const sitemap = await request.get("/sitemap-hubs.xml");
+  expect(sitemap.ok()).toBeTruthy();
+  const body = await sitemap.text();
+  expect(body).toContain("/gainian");
+  expect(body).toContain("/gainian/wuchang");
+  expect(body).toContain("/gainian/wuwo");
+  expect(body).toContain("/gainian/wuzhu");
+  expect(body).toContain("/gainian/guanxin");
+});
+
+test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
+  await page.goto("/gainian/wuchang");
+  await expect(page.getByRole("heading", { level: 1, name: /无常.*不是一句/ })).toBeVisible();
+  await expect(page.getByText("未曾有一事，不被無常吞。")).toBeVisible();
+  await expect(page.getByText("无常 = 悲观或倒霉预言", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/taisho-t0801/001-0745b#T0801.001.0745b24",
+  );
+
+  await page.goto("/gainian/wuwo");
+  await expect(page.getByRole("heading", { level: 1, name: /无我.*不是把经验/ })).toBeVisible();
+  await expect(page.getByText("汝等當知，色不是我，若是我者，色不應病及受苦惱。", { exact: false })).toBeVisible();
+  await expect(page.getByText("无我 = 什么都不存在", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c10",
+  );
+
+  await page.goto("/gainian/wuzhu");
+  await expect(page.getByRole("heading", { level: 1, name: /无住.*不是退场/ })).toBeVisible();
+  await expect(page.getByText("应无所住而生其心。", { exact: true })).toBeVisible();
+  await expect(page.getByText("无住 = 什么都不要做", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/jingangjing/001-0749c#T0235.001.0749c22",
+  );
+
+  await page.goto("/gainian/guanxin");
+  await expect(page.getByRole("heading", { level: 1, name: /观心.*不是压住情绪/ })).toBeVisible();
+  await expect(page.getByText("心为法本，心尊心使；中心念恶，即言即行，罪苦自追，车轹于辙。")).toBeVisible();
+  await expect(page.getByText("痛苦都是自己想出来的", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/fajujing/001-0559a#T0210.001.0562a13",
+  );
+});
+
+test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("空");
+  const searchHubLink = page.getByRole("link", { name: /进入概念页/ });
+  await expect(searchHubLink).toBeVisible();
+  await searchHubLink.click();
+  await page.waitForURL(/\/gainian\/kong$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("佛教里的空是什么意思？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const askHubLink = page.getByRole("link", { name: /进入“空”概念 Hub/ });
+  await expect(askHubLink).toBeVisible();
+  await askHubLink.click();
+  await page.waitForURL(/\/gainian\/kong$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无常");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuchang$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无常是不是悲观？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const impermanenceHubLink = page.getByRole("link", { name: /进入“无常”概念 Hub/ });
+  await expect(impermanenceHubLink).toBeVisible();
+  await impermanenceHubLink.click();
+  await page.waitForURL(/\/gainian\/wuchang$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无我");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuwo$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无我是不是否定‘我’的存在？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const nonSelfHubLink = page.getByRole("link", { name: /进入“无我”概念 Hub/ });
+  await expect(nonSelfHubLink).toBeVisible();
+  await nonSelfHubLink.click();
+  await page.waitForURL(/\/gainian\/wuwo$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("无住");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuzhu$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("无住是不是消极？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const nonAbidingHubLink = page.getByRole("link", { name: /进入“无住”概念 Hub/ });
+  await expect(nonAbidingHubLink).toBeVisible();
+  await nonAbidingHubLink.click();
+  await page.waitForURL(/\/gainian\/wuzhu$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("烦恼生起时，怎样观察自己的心？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const mindHubLink = page.getByRole("link", { name: /进入“观心”概念 Hub/ });
+  await expect(mindHubLink).toBeVisible();
+  await mindHubLink.click();
+  await page.waitForURL(/\/gainian\/guanxin$/);
+});
+
 test("旧查询参数不会被读取或显示", async ({ page }) => {
   await page.goto("/wenjing?q=这是不应进入页面的私密问题");
 
@@ -129,22 +685,131 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
   await expect(page.getByText("这是不应进入页面的私密问题")).toHaveCount(0);
 });
 
-test("经藏目录支持元数据检索、语种筛选与渐进显示", async ({ page }) => {
+test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3829 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/3882 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
+  await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
   const search = page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者");
   await search.fill("'dul ba gzhi/");
+  await page.getByRole("button", { name: "检索" }).click();
+  await page.waitForURL(/\/jingzang\/sousuo\?q=/);
   await expect(page.getByText(/找到 1 个文本表达/)).toBeVisible();
   await expect(page.getByRole("link", { name: "阅读德格《甘珠尔》D1" })).toBeVisible();
 
-  await search.fill("");
-  await page.getByRole("button", { name: "藏文" }).click();
+  await page.goto("/jingzang");
+  await page.getByRole("link", { name: "藏文" }).click();
+  await page.waitForURL(/\/jingzang\/sousuo\?language=tibetan/);
   await expect(page.getByText(/找到 1122 个文本表达/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
-  await page.getByRole("button", { name: /再显示 60 项/ }).click();
-  await expect(page.locator(".sutra-row")).toHaveCount(120);
+
+  await page.goto("/jingzang/page/2");
+  await expect(page.getByRole("heading", { level: 1, name: /经藏目录.*第 2 页/ })).toBeVisible();
+  await expect(page.locator(".sutra-row")).toHaveCount(60);
+  await expect(page.locator(".sutra-row__index").first()).toHaveText("61");
+
+  const response = await request.get("/jingzang");
+  const html = await response.text();
+  expect(Buffer.byteLength(html)).toBeLessThan(400_000);
+});
+
+test("卷页具有独立标题、H1、规范网址与分享元数据", async ({ page }) => {
+  const path = "/jingzang/fajujing/001-0559a";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("法句经");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("大正藏 0559a");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", /法句经/);
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", /法句经/);
+  await expect(page).toHaveTitle(/法句经.*｜foxue\.ai$/);
+  expect((await page.title()).length).toBeLessThanOrEqual(60);
+});
+
+test("南传汉译卷页使用南傳标签且 JSON-LD 记为汉文", async ({ page, request }) => {
+  const path = "/jingzang/nanchuan-digha-01/001-0001a";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("南傳 0001a");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
+  await expect(page.getByText("汉文", { exact: true }).first()).toBeVisible();
+
+  const html = await (await request.get("/jingzang/nanchuan-digha-01")).text();
+  const graph = extractJsonLdItems(html);
+  expect(graph.some((item) => item && typeof item === "object" && (item as { inLanguage?: string }).inLanguage === "zh-Hant")).toBeTruthy();
+});
+
+test("赵城与房山汉译卷页不使用大正藏标签", async ({ page }) => {
+  await page.goto("/jingzang/zhaochen-sanghata-a1504/002-0353b");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("趙城金藏 0353b");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
+
+  await page.goto("/jingzang/fangshan-yinguo-benqi/001-0476a");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("房山石經 0476a");
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText("大正藏");
+});
+
+test("经目页标题不重复品牌后缀并保持自指元数据", async ({ page }) => {
+  const path = "/jingzang/xinjing";
+  await page.goto(path);
+
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("般若波罗蜜多心经");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://www.foxue.ai${path}`);
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `https://www.foxue.ai${path}`);
+  await expect(page).toHaveTitle("般若波罗蜜多心经原文与目录｜foxue.ai");
+});
+
+test("广告汉文佛说经目页收录可检索原文且不以 CBETA 为作者", async ({ page }) => {
+  await page.goto("/jingzang/xinjing");
+  await expect(page.locator("#yuanwen")).toContainText("觀自在菩薩");
+  await expect(page.locator("#yuanwen")).toContainText("色不異空");
+  const xinjingWork = extractJsonLdItems(await page.content()).find((item) => (
+    item && typeof item === "object" && (item as { "@id"?: string })["@id"] === "https://www.foxue.ai/jingzang/xinjing#work"
+  )) as { author?: unknown; translator?: { name?: string } } | undefined;
+  expect(xinjingWork?.author).toBeUndefined();
+  expect(xinjingWork?.translator?.name).toContain("玄奘");
+
+  await page.goto("/jingzang/jingangjing");
+  await expect(page.locator("#yuanwen")).toContainText("如是我聞");
+  const jingangWork = extractJsonLdItems(await page.content()).find((item) => (
+    item && typeof item === "object" && (item as { "@id"?: string })["@id"] === "https://www.foxue.ai/jingzang/jingangjing#work"
+  )) as { author?: unknown } | undefined;
+  expect(jingangWork?.author).toBeUndefined();
+
+  await page.goto("/jingzang/fajujing");
+  await expect(page.locator("#yuanwen")).toContainText("諸惡莫作");
+  await expect(page.locator("#yuanwen")).toContainText("心為法本");
+
+  await page.goto("/jingzang/daboruo-jing");
+  await expect(page.locator("#yuanwen")).toContainText("如是我聞");
+  await expect(page.locator("#yuanwen")).toContainText("开卷原文");
+  await expect(page.locator("#yuanwen")).not.toContainText("完整原文 · 本页阅读");
+});
+
+test("经文分册页不会预取沉重的经藏目录 RSC", async ({ page }) => {
+  const prefetchedRscPaths: string[] = [];
+
+  page.on("request", (request) => {
+    const url = new URL(request.url());
+    if (url.searchParams.has("_rsc")) {
+      prefetchedRscPaths.push(url.pathname);
+    }
+  });
+
+  await page.goto("/jingzang/xinjing/001-0848c");
+  await expect(page.getByRole("link", { name: /返回文本目录/ })).toBeVisible();
+  await page.waitForTimeout(1500);
+
+  expect(prefetchedRscPaths.filter((pathname) => pathname === "/jingzang")).toEqual([]);
+});
+
+test("站点地图公开全部目录分页且不伪造统一更新时间", async ({ request }) => {
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("https://www.foxue.ai/jingzang/page/65");
+  expect(sitemap).not.toContain("<lastmod>");
 });
 
 test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async ({ page, request }) => {
@@ -176,12 +841,28 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   const response = await request.get("/api/v1/corpus/coverage");
   expect(response.ok()).toBeTruthy();
   const coverage = await response.json();
+  const homeResponse = await request.get("/");
+  expect(homeResponse.ok()).toBeTruthy();
   const healthResponse = await request.get("/api/health");
   expect(healthResponse.ok()).toBeTruthy();
+  expect(healthResponse.headers()["x-robots-tag"]).toBe("noindex, nofollow");
   const health = await healthResponse.json();
   expect(health.capabilities.corpusRegistry).toBe(
     `v${coverage.generatedFrom.registryVersion}-public-draft`,
   );
+  expect(health.capabilities.corpusBackend).toMatch(/partitioned_local/);
+  expect(health.release).toMatchObject({
+    sourceCommitSha: expect.stringMatching(/^[0-9a-f]{7,40}$/i),
+    sourceCommitShortSha: expect.stringMatching(/^[0-9a-f]{7,12}$/i),
+    sourceCommitRef: expect.any(String),
+  });
+  expect(["vercel_system_env", "git_fallback"]).toContain(health.release.provenanceSource);
+  expect(homeResponse.headers()["x-foxue-source-commit"]).toBe(health.release.sourceCommitSha);
+  expect(homeResponse.headers()["x-foxue-source-ref"]).toBe(health.release.sourceCommitRef);
+  if (health.release.deploymentId) {
+    expect(homeResponse.headers()["x-foxue-deploy-id"]).toBe(health.release.deploymentId);
+  }
+  expect(homeResponse.headers()["x-foxue-deploy-env"]).toBeTruthy();
   expect(coverage.claim.publishable).toBe(false);
   expect(coverage.globalDenominators.catalogWorks).toBeNull();
   expect(coverage.globalPercentages.catalog).toBeNull();
@@ -190,12 +871,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     totalSourceRecords: 30797,
   });
   expect(coverage.candidateInventory.buddhaWordScopeAudit).toMatchObject({
-    registeredWorksAudited: 3377,
+    registeredWorksAudited: 3396,
     registeredWorksUnclassified: 0,
-    ruleClassifiedWorks: 3377,
+    ruleClassifiedWorks: 3396,
     independentExpertApprovedWorks: 0,
-    strictSutraCandidateWorks: 1293,
-    strictSutraCandidateWorksWithFullSource: 1292,
+    strictSutraCandidateWorks: 1304,
+    strictSutraCandidateWorksWithFullSource: 1303,
     categoryCounts: {
       canonical_abhidhamma_or_treatise_not_strict_sutra: 168,
       canonical_vinaya_not_strict_sutra: 97,
@@ -203,14 +884,14 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     strictScopeDecisionCounts: {
       excluded_from_strict_sutra_denominator: 761,
       excluded_non_buddhist_reference: 9,
-      included_candidate: 1291,
+      included_candidate: 1302,
       included_candidate_requires_identity_review: 2,
       scope_policy_and_item_review_required: 212,
-      scope_policy_required: 1102,
+      scope_policy_required: 1110,
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.18.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.22.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -228,12 +909,12 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
-    registeredWorks: 3377,
-    registeredExpressions: 3875,
-    fullSourceTextWorks: 3350,
-    fullSourceTextExpressions: 3829,
-    stableSegments: 5656889,
-    structureVerifiedWorks: 3377,
+    registeredWorks: 3396,
+    registeredExpressions: 3928,
+    fullSourceTextWorks: 3369,
+    fullSourceTextExpressions: 3882,
+    stableSegments: 5818816,
+    structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
     denominator: 1122,
@@ -996,13 +1677,28 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     relatedDistinctWorkGroups: 12,
   });
   expect(coverage.links).toMatchObject({
-    registry: expect.stringContaining("registry-v6.18.0.json"),
-    globalDenominatorHuman: "https://foxue.ai/fenmu",
+    human: "https://www.foxue.ai/fugai",
+    registry: expect.stringContaining("registry-v6.22.0.json"),
+    sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
+    chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
+    chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
+    satModernJapaneseFilter: expect.stringContaining("sat-modern-japanese-filter-v1.0.0.json"),
+    satModernJapaneseBoundaryAudit: expect.stringContaining("modern-japanese-batch-v1.0.0.json"),
+    eastAsianTranslationRefusal: expect.stringContaining("east-asian-translation-refusal-v1.0.0.json"),
+    wikisourceKokuyakuDhpIngest: expect.stringContaining("wikisource-kokuyaku-dhp-ingest-v1.0.0.json"),
+    wikisourceKokuyakuDhpBoundaryAudit: expect.stringContaining("kokuyaku-dhp-batch-v1.0.0.json"),
+    globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
     globalDenominatorReviewQueue: expect.stringContaining("global-denominator-review-queue-v0.1.0.json"),
     globalDenominatorReviewLedger: expect.stringContaining("global-denominator-review-ledger-v0.1.0.json"),
     globalDenominatorReviewProtocol: expect.stringContaining("GLOBAL_DENOMINATOR_REVIEW_PROTOCOL.md"),
+    chineseNanchuanInventory: expect.stringContaining("cbeta-nanchuan-inventory-v0.1.0.json"),
+    chineseNanchuanBoundaryAudit: expect.stringContaining("nanchuan-batch-v1.0.0.json"),
+    chineseZhaochenInventory: expect.stringContaining("cbeta-zhaochen-inventory-v0.1.0.json"),
+    chineseFangshanInventory: expect.stringContaining("cbeta-fangshan-inventory-v0.1.0.json"),
+    chineseBeyondTaishoSutraFilter: expect.stringContaining("cbeta-beyond-taisho-sutra-filter-v1.0.0.json"),
+    chineseBeyondTaishoSutraBoundaryAudit: expect.stringContaining("beyond-taisho-sutra-batch-v1.0.0.json"),
     chineseEsotericT18Inventory: expect.stringContaining("cbeta-taisho-t18-inventory-v0.1.0.json"),
     chineseEsotericT18BoundaryAudit: expect.stringContaining("batch-v2.5.0.json"),
     chineseEsotericT19Inventory: expect.stringContaining("cbeta-taisho-t19-inventory-v0.1.0.json"),
@@ -1212,6 +1908,31 @@ test("全球分母页公开保守公式、外部空白和真人审校门", async
     "href",
     "https://github.com/weitzu-com/foxue.ai/issues/new?template=global-denominator-review.yml",
   );
+  await expect(page.getByRole("heading", { level: 2, name: /把 3,377 个未知/ })).toBeVisible();
+  await expect(page.locator(".global-review-card")).toHaveCount(20);
+  await expect(page.getByText("机器初筛 · 不是学术结论").first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /下一页/ })).toHaveAttribute(
+    "href",
+    "/fenmu?reviewPage=2#global-review-queue",
+  );
+
+  await page.getByRole("searchbox", { name: "检索 3377 项全球分母任务" }).fill("sf276");
+  await page.getByRole("button", { name: /应用筛选/ }).click();
+  await expect.poll(() => new URL(page.url()).searchParams.get("q")).toBe("sf276");
+  expect(new URL(page.url()).hash).toBe("#global-review-queue");
+  await expect(page.locator(".global-review-card")).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 3, name: "月经（梵文本）" })).toBeVisible();
+  const itemReviewHref = await page.getByRole("link", { name: /填写本项具名复核/ }).getAttribute("href");
+  expect(itemReviewHref).not.toBeNull();
+  const itemReviewUrl = new URL(itemReviewHref!);
+  expect(itemReviewUrl.searchParams.get("template")).toBe("global-denominator-review.yml");
+  expect(itemReviewUrl.searchParams.get("queue_id")).toBe("gdrq:candrasutra-sanskrit-sf276");
+  expect(itemReviewUrl.searchParams.get("source_scope")).toContain("suttacentral: sf276");
+  expect(itemReviewUrl.searchParams.get("source_scope")).toContain("人工核验补充（必填）：");
+
+  await page.goto("/fenmu?priority=P0#global-review-queue");
+  await expect(page.locator(".global-review-card")).toHaveCount(2);
+  await expect(page.locator(".global-review-results__header strong")).toHaveText("2");
 
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/fenmu");
@@ -1275,6 +1996,17 @@ test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
 });
 
+test("句末引号与标点保持在同一阅读句内", async ({ page }) => {
+  await page.goto("/jingzang/xinjing/001-0848c");
+  const isolatedClosingQuotes = await page
+    .locator('p.sutra-segment > span[class*="sentence"]')
+    .evaluateAll((sentences) => sentences.filter((sentence) =>
+      /^[」』]$/u.test(sentence.textContent?.trim() ?? ""),
+    ).length);
+  expect(isolatedClosingQuotes).toBe(0);
+  await expect(page.locator('[id="T0251.001.0848c19"]')).toContainText("咒。」");
+});
+
 test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, request }) => {
   await page.goto("/jingzang/fajujing/001-0559a");
   const visibleSegments = page.locator(".sutra-segment");
@@ -1289,7 +2021,12 @@ test("长经按版页加载，不再输出整部巨型 HTML", async ({ page, req
   const folio = await request.get("/jingzang/fajujing/001-0559a");
   expect(landing.ok()).toBeTruthy();
   expect(folio.ok()).toBeTruthy();
-  expect((await landing.body()).byteLength).toBeLessThan(300_000);
+  const landingBody = await landing.body();
+  const landingHtml = landingBody.toString();
+  // 法句是 advertised 短经：经目 URL 收全文，版页 URL 仍只出一页。
+  expect(landingHtml).toContain("諸惡莫作");
+  expect(landingHtml).toContain("完整原文 · 本页阅读");
+  expect(landingBody.byteLength).toBeLessThan(3_000_000);
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
 
   const missing = await request.get("/jingzang/fajujing/999-9999z");
@@ -1329,7 +2066,13 @@ test("四部阿含全本可分页阅读并保持超长经稳定锚点", async ({
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const directory = await request.get("/jingzang/zaahanjing");
   expect(directory.ok()).toBeTruthy();
-  expect((await directory.body()).byteLength).toBeLessThan(300_000);
+  const directoryBody = await directory.body();
+  const directoryHtml = directoryBody.toString();
+  // 杂阿含是 advertised 长经：经目 URL 只开卷第一卷，末卷仍走版页。
+  expect(directoryHtml).toContain("如是我聞");
+  expect(directoryHtml).toContain("开卷原文 · 第一卷");
+  expect(directoryHtml).not.toContain("T0099.050.0373b");
+  expect(directoryBody.byteLength).toBeLessThan(1_500_000);
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/changahanjing/022-0149c");
   expect(sitemap).toContain("/jingzang/zengyiahanjing/051-0830b");
@@ -1363,7 +2106,13 @@ test("六百卷大般若经作为一个文本表达跨十五个来源资产完�
   const folio = await request.get("/jingzang/daboruo-jing/600-1110b");
   expect(directory.ok()).toBeTruthy();
   expect(folio.ok()).toBeTruthy();
-  expect((await directory.body()).byteLength).toBeLessThan(400_000);
+  const directoryBody = await directory.body();
+  const directoryHtml = directoryBody.toString();
+  // 大般若只开卷第一卷原文，不把六百拍进同一 HTML。
+  expect(directoryHtml).toContain("如是我聞");
+  expect(directoryHtml).toContain("开卷原文 · 第一卷");
+  expect(directoryHtml).not.toContain("T0220.600.1110b04");
+  expect(directoryBody.byteLength).toBeLessThan(1_500_000);
   expect((await folio.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/daboruo-jing/600-1110b");

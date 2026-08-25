@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 const gaMeasurementId = /^G-[A-Z0-9]+$/.test(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "")
   ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -15,13 +15,13 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://foxue.ai/#organization",
+      "@id": `${siteOrigin}/#organization`,
       name: "foxue.ai",
-      url: "https://foxue.ai",
+      url: siteOrigin,
       slogan: "从问题，回到原典",
       description:
         "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
-      logo: "https://foxue.ai/icon.svg",
+      logo: `${siteOrigin}/icon.svg`,
       areaServed: ["CN", "US", "Global"],
       knowsAbout: ["佛学", "佛经", "佛典", "大藏经", "佛教", "人工智能", "数字人文学"],
       contactPoint: {
@@ -32,38 +32,38 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://foxue.ai/#website",
-      url: "https://foxue.ai",
+      "@id": `${siteOrigin}/#website`,
+      url: siteOrigin,
       name: "foxue.ai",
-      inLanguage: ["zh-Hans", "en"],
-      publisher: { "@id": "https://foxue.ai/#organization" },
+      inLanguage: "zh-Hans",
+      publisher: { "@id": `${siteOrigin}/#organization` },
     },
   ],
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteOrigin),
   title: {
-    default: "foxue.ai｜从问题，回到原典",
+    default: "佛经在线阅读与 AI 问经平台",
     template: "%s｜foxue.ai",
   },
   description:
-    "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
+    "全球佛学交流的可信 AI 平台。提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   keywords: ["佛学", "佛经", "AI", "佛典", "大藏经", "佛教", "人工智能"],
   authors: [{ name: "foxue.ai contributors" }],
   creator: "foxue.ai",
   openGraph: {
     type: "website",
     locale: "zh_CN",
-    url: siteUrl,
+    url: siteOrigin,
     siteName: "foxue.ai",
-    title: "foxue.ai｜从问题，回到原典",
-    description: "全球佛学交流的可信 AI 平台。让每一个问题回到可核验的原典。",
+    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
+    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "foxue.ai｜从问题，回到原典",
-    description: "全球佛学交流的可信 AI 平台。",
+    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
+    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
   },
   verification: googleSiteVerification
     ? { google: googleSiteVerification }
@@ -84,11 +84,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-Hans">
+    <html lang="zh-Hans" data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </head>
       <body>

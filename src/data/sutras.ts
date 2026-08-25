@@ -1,4 +1,8 @@
 import catalog from "../../data/corpus/cbeta/catalog-v4.23.0.json";
+import nanchuanCatalog from "../../data/corpus/cbeta/nanchuan-catalog-v1.0.0.json";
+import beyondTaishoSutraCatalog from "../../data/corpus/cbeta/beyond-taisho-sutra-catalog-v1.0.0.json";
+import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-catalog-v1.0.0.json";
+import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -36,10 +40,28 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "目录样本";
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "完整原文 · 现代日译" | "完整原文 · 文语国译" | "目录样本";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio";
   segments: SutraSegment[];
 };
+
+export function catalogLanguage(language: string) {
+  return language === "漢文" ? "汉文" : language;
+}
+
+export function isChineseLibraryLanguage(language: string) {
+  const normalized = catalogLanguage(language);
+  return normalized === "汉文" || normalized.startsWith("古汉语");
+}
+
+export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
+  if (sutra.slug.startsWith("nanchuan-") || /南傳|南传/.test(sutra.canonRef)) return "南傳";
+  if (sutra.slug.startsWith("zhaochen-") || /趙城|赵城/.test(sutra.canonRef)) return "趙城金藏";
+  if (sutra.slug.startsWith("fangshan-") || /房山/.test(sutra.canonRef)) return "房山石經";
+  if (sutra.slug.startsWith("sat-ja-") || /SAT現代日本語訳|SAT 現代日本語訳/.test(sutra.canonRef)) return "SAT日譯";
+  if (sutra.slug.startsWith("wikisource-ja-") || /國譯法句經|国译法句经/.test(sutra.canonRef)) return "國譯";
+  return "大正藏";
+}
 
 const curatedSutras: Sutra[] = [
   {
@@ -343,27 +365,58 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "sinitic_taught_doctrinal_exposition_record") {
     return "来源保存后世讲说形成的教义玄释记录；平台区分讲说者、记录传统、根本经与后续再注释，不据宗派传承改写为佛陀逐字亲说。";
   }
+  if (file.sourceRole === "translated_sutta_pitaka_expression") {
+    return "元亨寺汉译南传经藏；汉译是巴利经藏的独立表达，不与巴利根本文本合并为同一作品，也不把译文等同佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_mixed_khuddaka_expression") {
+    return "元亨寺汉译南传小部混合集；与对应巴利文本保持独立作品，严格佛说经分母仍待范围政策，不自动计作佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_canonical_record" && file.id.startsWith("A")) {
+    return "赵城金藏汉译；作为既有作品的独立表达，不与大正藏经号合并为同一来源文件，也不把译文等同佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "translated_canonical_record" && file.id.startsWith("F")) {
+    return "房山石刻汉译；石刻本不是大正藏经号，不因题名相近自动合并作品，也不把译文等同佛陀逐字亲说。";
+  }
+  if (file.sourceRole === "modern_japanese_translation_expression") {
+    return "SAT 现代日译；挂接已持有汉文佛说作品，不另建作品，也不把现代译文等同佛陀逐字亲说。署名 SAT大蔵経テキストデータベース研究会与具名译者，许可 CC BY 4.0。";
+  }
+  if (file.sourceRole === "kokuyaku_japanese_translation_expression") {
+    return "1918 年公有领域文语国译；挂接已持有巴利法句，不另建作品，也不把国译等同佛陀逐字亲说。署名 Wikisource、1918 年國譯大藏經與譯者立花俊道。汉译 T210 只记家族平行，不逐偈对齐。";
+  }
   return undefined;
 };
 
-export const sutras: Sutra[] = catalog.files.map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,
     alternateTitle: file.presentation.alternateTitle,
     tradition: file.presentation.tradition,
-    language: file.presentation.language,
+    language: catalogLanguage(file.presentation.language),
     canonRef: file.presentation.canonRef,
     translator: file.presentation.translator,
     summary: file.presentation.summary,
-    sourceName: "CBETA Online",
+    sourceName: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "Wikisource 國譯法句經"
+      : file.parser === "sat_tei" ? "SAT現代日本語訳仏典" : "CBETA Online",
     sourceUrl: file.presentation.sourceUrl,
-    sourceLicense: "CBETA 授權條款；古典原文",
+    sourceLicense: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "公有领域；署名 Wikisource、1918 年國譯大藏經與立花俊道"
+      : file.parser === "sat_tei"
+      ? "CC BY 4.0；保留 SAT 研究会与具名译者署名"
+      : "CBETA 授權條款；古典原文",
     bibliographicNote: cbetaRelations(file).length
       ? cbetaRelations(file).map((relation) => `${relation.label}：${relation.evidence}`).join(" ")
       : undefined,
     attributionNote: cbetaAttributionNote(file),
-    status: file.completeness === "complete_source_file_partial_work_witness"
+    readerMode: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "kokuyaku-folio" as const
+      : file.parser === "sat_tei" ? "sat-folio" as const : undefined,
+    status: file.sourceRole === "kokuyaku_japanese_translation_expression"
+      ? "完整原文 · 文语国译"
+      : file.parser === "sat_tei"
+      ? "完整原文 · 现代日译"
+      : file.completeness === "complete_source_file_partial_work_witness"
       ? file.sourceRole === "partial_text_family_witness_candidate"
         ? "残篇候选 · 完整来源记录"
         : file.sourceRole === "partial_continuation_witness"

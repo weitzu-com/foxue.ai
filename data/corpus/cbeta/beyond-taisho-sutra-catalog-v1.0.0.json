@@ -1,0 +1,219 @@
+{
+  "schema": "https://foxue.ai/schemas/cbeta-controlled-catalog-v0.2",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-24",
+  "source": {
+    "name": "CBETA XML P5",
+    "repository": "cbeta-org/xml-p5",
+    "commit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "copyrightUrl": "https://cbeta.org/copyright",
+    "formatUrl": "https://archive2.cbeta.org/en/format/xml.php",
+    "collection": "趙城金藏與房山石經過濾佛說經"
+  },
+  "rightsDecision": {
+    "status": "approved_noncommercial_with_attribution_and_header",
+    "category": "Individually reviewed CBETA TEI files in Zhaochen Jinzang and Fangshan Shijing translated sutras not already held by Taisho; Xuzangjing commentaries, tantra, vinaya, suspected texts and Taisho duplicates excluded",
+    "commercialUse": "prohibited_without_additional_permission",
+    "headerMustRemain": true,
+    "reviewedAt": "2026-08-24",
+    "note": "每個文件內的 availability 聲明與 CBETA 官方版權頁共同構成審核依據；代碼許可證不覆蓋這些 XML。"
+  },
+  "normalization": {
+    "id": "append-terminal-lf-v1",
+    "description": "僅在上游文件末尾追加一個 LF；TEI 內容、標記與頭部不變。"
+  },
+  "files": [
+    {
+      "id": "A114n1504",
+      "slug": "zhaochen-sanghata-a1504",
+      "workId": "gbcr:work:sanghata-sutra",
+      "workTitle": "佛說大乘僧伽吒法義經",
+      "attachToExistingWork": true,
+      "sourceRole": "translated_canonical_record",
+      "canonicalStatus": "traditional_sutra_chinese_translation",
+      "buddhaWordStatus": "traditional_sutra_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "sanghata-sutra-chinese",
+          "label": "Saṅghāṭasūtra／《僧伽吒经》汉译组",
+          "evidence": "題名《佛說大乘僧伽吒法義經》對應 T0424 已登記梵名 Saṅghāṭīsūtradharmaparyāya；宋金總持等譯是大正藏未收的第三個漢譯表達。平台把它加到既有《僧伽吒經》作品，不新建作品，也不把譯文等同佛陀逐字親說。",
+          "externalIds": {
+            "cbeta": [
+              "T0423",
+              "T0424",
+              "A114n1504"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "A114n1504"
+      },
+      "localPath": "data/corpus/cbeta/A114n1504.xml",
+      "upstreamPath": "A/A114/A114n1504.xml",
+      "upstreamGitBlobSha1": "3fda5fe3bc548728dda20b8220cab366ec15a190",
+      "upstreamBytes": 115825,
+      "upstreamSha256": "51f3dd75f7be5bceb88397515178ccaf1fdeff44e2c911b1b8a276254f150817",
+      "localBytes": 115826,
+      "localSha256": "6d57ec75413832c7a5c48249f27bf4836e9431c5843452372999d3d805562455",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說大乘僧伽吒法義經",
+        "alternateTitle": "佛說大乘僧伽吒法義經",
+        "tradition": "漢傳佛教 · 大集部",
+        "language": "漢文",
+        "canonRef": "趙城金藏 A114, no. 1504",
+        "translator": "宋 · 金總持等譯",
+        "summary": "3卷。完整保存固定 CBETA TEI；這是大正藏未收的漢譯經文表達，不是新的梵本，也不把譯文等同佛陀逐字親說。傳統責任題記：宋 金總持等譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/A114n1504_001"
+      },
+      "verification": {
+        "segments": 906,
+        "folios": 80,
+        "juans": [
+          "002",
+          "006",
+          "007"
+        ],
+        "anchors": [
+          "A114n1504.002.0353b01",
+          "A114n1504.007.0394b13"
+        ],
+        "humanSampleVerified": false
+      },
+      "juanRange": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": "F02n0069",
+      "slug": "fangshan-yinguo-benqi",
+      "workId": "gbcr:work:fangshan-yinguo-benqi-jing",
+      "workTitle": "因果本起經",
+      "attachToExistingWork": false,
+      "sourceRole": "translated_canonical_record",
+      "canonicalStatus": "traditional_sutra_chinese_translation",
+      "buddhaWordStatus": "traditional_sutra_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "related_benqi_recension_distinct",
+          "groupId": "fangshan-yinguo-benqi-distinct",
+          "label": "房山《因果本起經》與大正藏本起經家族",
+          "evidence": "劉宋求那跋陀羅譯《因果本起經》不見於大正藏 T0184《修行本起經》、T0185《太子瑞應本起經》、T0188《異出菩薩本起經》、T0196《中本起經》。平台建立獨立作品，只保留本起部類關係，不因題名含「本起」而合併。",
+          "externalIds": {
+            "cbeta": [
+              "F02n0069",
+              "T0184",
+              "T0185",
+              "T0188",
+              "T0196"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "F02n0069"
+      },
+      "localPath": "data/corpus/cbeta/F02n0069.xml",
+      "upstreamPath": "F/F02/F02n0069.xml",
+      "upstreamGitBlobSha1": "a3d89960b5596ada013d562391d000e14e65520c",
+      "upstreamBytes": 76697,
+      "upstreamSha256": "c064ff94ccb762d3472e7cbc12904c7d891f31c5911a0fd4ac2ebdb5713d36fb",
+      "localBytes": 76698,
+      "localSha256": "38117937961c995f99e8b7381c32848cd14b9650c734c40a0d3ef3237fac9bae",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "因果本起經",
+        "alternateTitle": "因果本起經",
+        "tradition": "漢傳佛教 · 本緣部",
+        "language": "漢文",
+        "canonRef": "房山石經 F02, no. 69",
+        "translator": "宋 · 求那跋陀羅譯",
+        "summary": "1卷。完整保存固定 CBETA TEI；這是大正藏未收的漢譯經文表達，不是新的梵本，也不把譯文等同佛陀逐字親說。傳統責任題記：宋 求那跋陀羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/F02n0069_001"
+      },
+      "verification": {
+        "segments": 44,
+        "folios": 2,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "F02n0069.001.0476a01",
+          "F02n0069.001.0476b22"
+        ],
+        "humanSampleVerified": false
+      },
+      "juanRange": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "F03n0089",
+      "slug": "fangshan-hengshui-liushu",
+      "workId": "gbcr:work:fangshan-hengshui-liushu-jing",
+      "workTitle": "佛說恒水流樹經",
+      "attachToExistingWork": false,
+      "sourceRole": "translated_canonical_record",
+      "canonicalStatus": "traditional_sutra_chinese_translation",
+      "buddhaWordStatus": "traditional_sutra_translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "related_agama_recension_distinct",
+          "groupId": "fangshan-hengshui-liushu-distinct",
+          "label": "房山《佛說恒水流樹經》與大正藏《恒水經》",
+          "evidence": "劉宋求那跋陀羅譯《佛說恒水流樹經》與西晉法炬譯 T0033《恒水經》題名相近但譯者不同，且為房山石刻補輯。平台建立獨立作品，不自動與 T0033 合併。",
+          "externalIds": {
+            "cbeta": [
+              "F03n0089",
+              "T0033"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "cbetaText": "F03n0089"
+      },
+      "localPath": "data/corpus/cbeta/F03n0089.xml",
+      "upstreamPath": "F/F03/F03n0089.xml",
+      "upstreamGitBlobSha1": "714cfcd5661ed1e06a4068b8d990de0dfe39b9b7",
+      "upstreamBytes": 19675,
+      "upstreamSha256": "dfbab42bcf36945211db030fa2a1d3c0fe2cebac2103d33089b6e7584a2c769a",
+      "localBytes": 19676,
+      "localSha256": "a2cc310c07e677454342f39ab1b1794202c47cda6f67108412e6521ea1fa3734",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "presentation": {
+        "title": "佛說恒水流樹經",
+        "alternateTitle": "佛說恒水流樹經",
+        "tradition": "漢傳佛教 · 阿含部",
+        "language": "漢文",
+        "canonRef": "房山石經 F03, no. 89",
+        "translator": "劉宋 · 天竺三藏求那跋陀羅譯",
+        "summary": "1卷。完整保存固定 CBETA TEI；這是大正藏未收的漢譯經文表達，不是新的梵本，也不把譯文等同佛陀逐字親說。傳統責任題記：劉宋 天竺三藏求那跋陀羅譯。",
+        "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/F03n0089_001"
+      },
+      "verification": {
+        "segments": 28,
+        "folios": 2,
+        "juans": [
+          "001"
+        ],
+        "anchors": [
+          "F03n0089.001.0003a01",
+          "F03n0089.001.0003b03"
+        ],
+        "humanSampleVerified": false
+      },
+      "juanRange": [
+        1,
+        1
+      ]
+    }
+  ]
+}

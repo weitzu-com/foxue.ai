@@ -1,5 +1,7 @@
-import { getSitemapIds } from "@/lib/sitemap-data";
+import { getSitemapIds } from "@/lib/sitemap-ledger";
+import { siteOrigin } from "@/lib/site-metadata";
 
+export const dynamic = "force-static";
 export const revalidate = 86400;
 
 function escapeXml(value: string) {
@@ -12,10 +14,14 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://foxue.ai").replace(/\/+$/, "");
-  const sitemapIds = await getSitemapIds();
-  const sitemaps = sitemapIds
-    .map(({ id }) => `<sitemap><loc>${escapeXml(`${baseUrl}/sitemap/${id}.xml`)}</loc></sitemap>`)
+  const sitemapIds = getSitemapIds();
+  const sitemapUrls = [
+    `${siteOrigin}/sitemap-hubs.xml`,
+    `${siteOrigin}/sitemap-works.xml`,
+    ...sitemapIds.map(({ id }) => `${siteOrigin}/sitemap/${id}.xml`),
+  ];
+  const sitemaps = sitemapUrls
+    .map((url) => `<sitemap><loc>${escapeXml(url)}</loc></sitemap>`)
     .join("\n");
 
   return new Response(

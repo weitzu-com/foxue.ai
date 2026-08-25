@@ -1,0 +1,43 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/sat-modern-japanese-filter-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-24",
+  "source": {
+    "site": "https://21dzk.l.u-tokyo.ac.jp/SATm/",
+    "license": "CC BY 4.0",
+    "attribution": "SAT大蔵経テキストデータベース研究会 and named translators"
+  },
+  "totals": {
+    "titlesAdvertised": 9,
+    "included": 4,
+    "excluded": 5
+  },
+  "included": [
+    "JT0353b",
+    "JT0360b",
+    "JT0365b",
+    "JT0366b"
+  ],
+  "excluded": [
+    {
+      "id": "T2046",
+      "reason": "biography_not_fosuo"
+    },
+    {
+      "id": "T2047",
+      "reason": "biography_not_fosuo"
+    },
+    {
+      "id": "T2063",
+      "reason": "biography_not_fosuo"
+    },
+    {
+      "id": "T2661",
+      "reason": "tannisho_not_fosuo"
+    },
+    {
+      "id": "T2887",
+      "reason": "suspected_or_indigenous_buddhist_text"
+    }
+  ]
+}

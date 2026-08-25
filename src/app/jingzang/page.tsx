@@ -1,19 +1,35 @@
-import type { Metadata } from "next";
 import { Database } from "lucide-react";
 import { LibraryCatalog } from "@/components/library-catalog";
 import { corpusPrinciples, sutras } from "@/data/sutras";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
+import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "经藏",
-  description: "浏览已登记佛典全文、来源、版本、经号与稳定行段。",
-  alternates: { canonical: "/jingzang" },
-};
+export const metadata = buildPageMetadata({
+  title: "佛经在线阅读与经藏目录",
+  description: "浏览已登记佛典全文、来源、版本、经号与稳定行段；涵盖汉文、藏文、巴利文、梵文与俗语见证。",
+  path: "/jingzang",
+});
+
+const libraryPageJsonLd = buildPageJsonLd({
+  path: "/jingzang",
+  title: "佛经在线阅读与经藏目录",
+  description: "浏览已登记佛典全文、来源、版本、经号与稳定行段；涵盖汉文、藏文、巴利文、梵文与俗语见证。",
+  type: "CollectionPage",
+  breadcrumb: [
+    { name: "首页", path: "/" },
+    { name: "经藏目录", path: "/jingzang" },
+  ],
+  about: ["佛经在线阅读", "经藏目录", "稳定行段", "来源与版本"],
+});
 
 export default function LibraryPage() {
   const snapshot = buildCoverageSnapshot();
   return (
     <div className="library-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(libraryPageJsonLd) }}
+      />
       <header className="subpage-hero">
         <div className="page-shell subpage-hero__grid">
           <div>
@@ -35,7 +51,7 @@ export default function LibraryPage() {
       </header>
 
       <div className="page-shell library-content">
-        <LibraryCatalog sutras={sutras} />
+        <LibraryCatalog sutras={sutras} page={1} query="" filter="all" />
 
         <section className="corpus-rules">
           <div>
