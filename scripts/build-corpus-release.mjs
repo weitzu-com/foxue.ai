@@ -13,6 +13,10 @@ import { parseDergeSources } from "../src/lib/derge-reading.mjs";
 import { loadCorpusReleaseContext } from "./corpus-release-context.mjs";
 
 const root = process.cwd();
+// A failed immutable upload is never repaired in place. This policy marker is
+// deliberately part of the release builder fingerprint, so the next release
+// receives a fresh immutable namespace rather than reusing suspect object keys.
+const publicationPolicy = "fresh-release-on-immutable-conflict-v1";
 const {
   releaseId,
   releaseFingerprint,
@@ -189,6 +193,7 @@ const releaseManifest = {
     rights: source.manifest.rightsDecision,
   })),
   releaseFingerprint,
+  publicationPolicy,
   totals: {
     expressions: expressionEntries.length,
     segments: expressionEntries.reduce((sum, expression) => sum + expression.segments, 0),

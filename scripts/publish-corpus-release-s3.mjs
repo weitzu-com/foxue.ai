@@ -310,53 +310,6 @@ async function headObject(entry, config) {
   return response.headers;
 }
 
-async function deleteObject(entry, config) {
-  const signed = requestConfig(entry, config, "DELETE");
-  const response = await fetch(signed.url, {
-    method: "DELETE",
-    headers: {
-      authorization: signed.authorization,
-      "x-amz-content-sha256": signed.payloadHash,
-      "x-amz-date": signed.amzDate,
-    },
-    signal: AbortSignal.timeout(config.timeoutMs),
-  });
-  if (response.status === 404) return;
-  if (!response.ok) {
-    const error = new Error(`DELETE ${entry.key} 返回 ${response.status}：${await responseSummary(response)}`);
-    error.retryable = response.status === 429 || response.status >= 500;
-    error.retryAfter = Number(response.headers.get("retry-after"));
-    throw error;
-  }
-}
-
-async function currentPublishedReleaseId(config) {
-  const signed = requestConfig({ key: "v1/latest.json" }, config, "GET");
-  const response = await fetch(signed.url, {
-    method: "GET",
-    headers: {
-      authorization: signed.authorization,
-      "x-amz-content-sha256": signed.payloadHash,
-      "x-amz-date": signed.amzDate,
-    },
-    signal: AbortSignal.timeout(config.timeoutMs),
-  });
-  if (response.status === 404) return null;
-  if (!response.ok) {
-    throw new Error(`GET v1/latest.json 返回 ${response.status}：${await responseSummary(response)}`);
-  }
-  let latest;
-  try {
-    latest = JSON.parse(await response.text());
-  } catch {
-    throw new Error("v1/latest.json 不是有效 JSON；拒绝删除不可变对象");
-  }
-  if (typeof latest.releaseId !== "string") {
-    throw new Error("v1/latest.json 缺少 releaseId；拒绝删除不可变对象");
-  }
-  return latest.releaseId;
-}
-
 function verifyRemoteMetadata(entry, headers) {
   const etag = cleanEtag(headers.get("etag"));
   if (etag !== entry.md5) throw new Error(`${entry.key} 的远端 ETag 与本地 MD5 不一致`);
@@ -396,23 +349,7 @@ async function putObjectOnce(entry, config, immutable) {
   if (immutable && response.status === 412) {
     const headers = await headObject(entry, config);
     if (!headers) throw new Error(`${entry.key} 条件写入冲突后对象不存在`);
-    try {
-      verifyRemoteMetadata(entry, headers);
-    } catch {
-      // `latest.json` is written only after every immutable object succeeds.
-      // A mismatching immutable key therefore cannot belong to a published
-      // release: it is an incomplete orphan left by an interrupted upload.
-      // Remove exactly that proven-corrupt object, then retry its conditional
-      // write. We never overwrite a matching immutable object.
-      const publishedReleaseId = await currentPublishedReleaseId(config);
-      if (publishedReleaseId === config.releaseId) {
-        throw new Error(`${entry.key} 属于已发布发行版，拒绝删除不匹配的不可变对象`);
-      }
-      await deleteObject(entry, config);
-      const repair = new Error(`${entry.key} 已删除不完整孤立对象，准备重传`);
-      repair.retryable = true;
-      throw repair;
-    }
+    verifyRemoteMetadata(entry, headers);
     return { reused: true };
   }
   if (!response.ok) {
@@ -497,7 +434,6 @@ async function main() {
     attempts: 4,
     bucket,
     secretAccessKey,
-    releaseId: validated.releaseId,
     timeoutMs: 120_000,
   };
   let reused = 0;
