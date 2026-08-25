@@ -1276,6 +1276,11 @@ a {
 .reader-index-stats div + div { padding-left: 15px; border-left: 1px solid var(--line); }
 .reader-index-stats dt { color: var(--muted); font-size: 0.61rem; }
 .reader-index-stats dd { margin: 4px 0 0; color: var(--cinnabar); font-family: var(--font-serif), serif; font-size: 1.45rem; }
+.reader-index-main { min-width: 0; display: grid; gap: 48px; }
+.reader-index-yuanwen { min-width: 0; }
+.reader-index-yuanwen__folio header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 22px 24px 0; }
+.reader-index-yuanwen__folio header h3 { margin: 0; color: var(--cinnabar); font-family: var(--font-serif), serif; font-size: 1.05rem; font-weight: 500; }
+.reader-index-yuanwen__folio header a { color: var(--cinnabar); font-size: 0.68rem; }
 .reader-folio-directory { min-width: 0; }
 .reader-folio-directory__heading { min-height: 74px; display: flex; align-items: start; justify-content: space-between; gap: 20px; padding-bottom: 18px; border-bottom: 1px solid var(--ink); }
 .reader-folio-directory__heading h2 { margin: 7px 0 0; font-family: var(--font-serif), serif; font-size: 1.55rem; font-weight: 500; }
@@ -1883,7 +1888,8 @@ a {
   .reader-header { grid-template-columns: 75px 1fr; }
   .reader-header__status { grid-column: 2; align-items: flex-start; }
   .reader-index-layout { grid-template-columns: 1fr; }
-  .reader-index-lead, .reader-index-meta { position: static; grid-column: 1; }
+  .reader-index-lead, .reader-index-main, .reader-index-meta { position: static; grid-column: 1; }
+  .reader-index-yuanwen__folio header { flex-wrap: wrap; padding-inline: 18px; }
   .reader-folio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .reader-layout { grid-template-columns: minmax(0, 1fr); }
   .reader-toc { max-width: 100%; position: static; overflow: hidden; }

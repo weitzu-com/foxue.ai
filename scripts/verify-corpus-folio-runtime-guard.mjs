@@ -40,6 +40,7 @@ const [
   llmsSource,
   folioStub,
   workIndexPage,
+  workLandingText,
   folioModule,
   folioReading,
   folioLocatorModule,
@@ -64,6 +65,7 @@ const [
   readFile(resolve(root, "src/lib/llms.ts"), "utf8"),
   readFile(resolve(root, "src/app/jingzang/[slug]/[folio]/page.tsx"), "utf8"),
   readFile(resolve(root, "src/app/jingzang/[slug]/page.tsx"), "utf8"),
+  readFile(resolve(root, "src/lib/work-landing-text.ts"), "utf8"),
   readFile(resolve(root, "src/app/jingzang/_folio/page-module.tsx"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-reading.ts"), "utf8"),
   readFile(resolve(root, "src/lib/corpus-folio-locator.ts"), "utf8"),
@@ -92,10 +94,14 @@ if (!/export const dynamic = "force-static"/.test(sitemapIndexRoute)) {
 requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-reading/, /getSutraReading/, /getSitemapEntries/, /corpus-folio-index/]);
 requireNoImport(folioStub, "src/app/jingzang/[slug]/[folio]/page.tsx", [/corpus-reading/, /getSutraReading/, /getSutraFolio/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-reading/, /getSutraReading/, /corpus-folio-index\.generated/, /corpus-folio-locator/]);
+if (!/getWorkLandingText/.test(workIndexPage) || !/work-landing-text/.test(workIndexPage)) {
+  fail("广告汉文佛说经目页必须从预提取着陆原文取正文，而不能打开语料母版");
+}
 requireNoImport(nextConfig, "next.config.ts", [/corpusRuntimeRouting/, /async rewrites\(/, /slugToBucket/]);
 requireNoImport(sitemapData, "src/lib/sitemap-data.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/, /corpus-folio-existence/]);
 requireNoImport(llmsSource, "src/lib/llms.ts", [/corpus-folio-locator/, /corpus-json-shard/, /corpus-work-catalog-nft/, /corpus-folio-existence/]);
 requireNoImport(workIndexPage, "src/app/jingzang/[slug]/page.tsx", [/corpus-json-shard/, /corpus-folio-locator/, /corpus-folio-existence/]);
+requireNoImport(workLandingText, "src/lib/work-landing-text.ts", [/corpus-reading/, /getSutraReading/, /corpus-folio-locator/, /cbeta-tei/, /data\/corpus\//]);
 requireNoImport(folioLocatorModule, "src/lib/corpus-folio-locator.ts", [/corpus-reading/, /getSutraReading/, /cbeta-tei/, /derge-reading/]);
 requireNoImport(folioModule, "src/app/jingzang/_folio/page-module.tsx", [/corpus-work-catalog-nft/, /corpus-folio-existence/, /corpus-advertised-folios/]);
 requireNoImport(folioReading, "src/lib/corpus-reading.ts", [/corpus-folio-existence/, /corpus-advertised-folios/]);

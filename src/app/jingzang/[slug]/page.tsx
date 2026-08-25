@@ -13,8 +13,10 @@ import {
   getWorkCatalogLedger,
 } from "@/lib/corpus-folio-index";
 import { loadWorkCatalogShardForTrace } from "@/lib/corpus-work-catalog-nft.generated";
+import { WorkLandingTextPanel } from "@/components/work-landing-text";
 import { folioHref } from "@/lib/reader-routes";
 import { absoluteUrl, buildPageJsonLd, serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
+import { buildWorkLandingAttribution, getWorkLandingText } from "@/lib/work-landing-text";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -34,6 +36,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
     segments: sutra.segments,
   };
   const firstFolio = reading.navigation[0];
+  const landing = getWorkLandingText(sutra.slug);
   const juanNavigation = buildCatalogJuanNavigation(reading.navigation);
   const multiJuan = juanNavigation.length > 1;
   const useCompactJuanSelector = juanNavigation.length > 200;
@@ -86,8 +89,12 @@ export default async function SutraIndexPage({ params }: PageProps) {
         isPartOf: { "@id": `${siteOrigin}/#website` },
         publisher: { "@id": `${siteOrigin}/#organization` },
         identifier: sutra.canonRef,
-        author: { "@type": "Organization", name: sutra.sourceName },
-        isBasedOn: sutra.sourceUrl,
+        ...(landing
+          ? buildWorkLandingAttribution(sutra)
+          : {
+              author: { "@type": "Organization", name: sutra.sourceName },
+              isBasedOn: sutra.sourceUrl,
+            }),
       },
     ],
   };
@@ -110,7 +117,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
           <p className="eyebrow">文本目录 · READING EDITION</p>
-          <h2>{chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : kokuyaku ? <>按品次，<br />展开一部文语国译。</> : sat ? <>按章次，<br />展开一部现代日译。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
+          <h2>{landing ? (landing.mode === "full" ? <>先读原文，<br />再按版页引用。</> : <>先读开卷原文，<br />再入其余卷次。</>) : chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : kokuyaku ? <>按品次，<br />展开一部文语国译。</> : sat ? <>按章次，<br />展开一部现代日译。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
           <p>
             {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
@@ -122,20 +129,30 @@ export default async function SutraIndexPage({ params }: PageProps) {
                     ? "每页只加载 1918 年公有领域国译的一品。署名 Wikisource、國譯大藏經與立花俊道。国译挂接已持有巴利法句，不另建作品。"
                   : sat
                     ? "每页只加载 SAT 现代日译的一章。CC BY 4.0，署名 SAT大蔵経テキストデータベース研究会与具名译者。日译挂接已持有汉文佛说，不另建作品。"
+                : landing
+                  ? landing.mode === "full"
+                    ? `本页收录${sutra.translator}全文，稳定行号可引用。下方目录仍按${folioCollectionLabel(sutra)}版页展开，供出处定位，不替代本页原文。`
+                    : `本页先录第 ${Number(landing.juan)} 卷原文，不把${folioCollectionLabel(sutra)}其余卷次堆进同一 HTML。下方目录进入其余卷页。`
                 : `每页只加载一个${folioCollectionLabel(sutra)}版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。`}
           </p>
           <dl className="reader-index-stats">
             <div><dt>{chaptered ? "品" : bilara ? "阅读页" : "版页"}</dt><dd>{chaptered ? juanNavigation.length : reading.navigation.length}</dd></div>
             <div><dt>{bilara ? "稳定段落" : "稳定行段"}</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
-          {firstFolio && (
+          {landing ? (
+            <Link className="button-primary" href="#yuanwen">
+              <BookOpenText aria-hidden="true" size={17} /> {landing.mode === "full" ? "阅读本页原文" : "阅读开卷原文"}
+            </Link>
+          ) : firstFolio ? (
             <Link className="button-primary" href={folioHref(sutra.slug, firstFolio.key)} prefetch={false}>
               <BookOpenText aria-hidden="true" size={17} /> 从第一页开始
             </Link>
-          )}
+          ) : null}
         </section>
 
-        <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
+        <div className="reader-index-main">
+          {landing ? <WorkLandingTextPanel sutra={sutra} landing={landing} /> : null}
+          <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">
             <div>
               <p className="eyebrow">{chaptered ? "品次目录" : bilara ? "阅读目录" : derge ? "函页目录" : "卷页目录"}</p>
@@ -178,7 +195,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
               ))}
             </ol>
           )}
-        </section>
+          </section>
+        </div>
 
         <aside className="reader-meta reader-index-meta">
           <p className="eyebrow">版本与权利</p>
