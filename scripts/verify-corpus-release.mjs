@@ -25,7 +25,11 @@ const controlledFiles = sourceManifests.flatMap((source) =>
   source.manifest.files.map((file) => ({ file, source })));
 
 requireValue(uploadPlan.releaseId === releaseId, "上传计划 releaseId 不一致");
-requireValue(workerConfig.vars?.RELEASE_ID === releaseId, "Worker RELEASE_ID 与发布包不一致");
+requireValue(
+  workerConfig.vars?.RELEASE_ID === "__SET_BY_CORPUS_RELEASE_WORKFLOW__" &&
+    workerConfig.vars?.RELEASE_MANIFEST_SHA256 === "__SET_BY_CORPUS_RELEASE_WORKFLOW__",
+  "Worker 发布变量必须由受控发布工作流注入",
+);
 requireValue(uploadPlan.bucket === "foxue-ai-corpus", "上传计划存储桶不一致");
 requireValue(uploadPlan.entries.at(-1)?.key === "v1/latest.json", "latest 指针必须最后发布");
 
