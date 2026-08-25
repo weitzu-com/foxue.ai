@@ -370,7 +370,17 @@ async function putObjectWithRetry(entry, config, immutable) {
       return await putObjectOnce(entry, config, immutable);
     } catch (error) {
       lastError = error;
-      if (!error.retryable || attempt === config.attempts) break;
+      // Node's fetch rejects (rather than returning an HTTP response) for
+      // transient socket, TLS and connection-reset failures.  R2 publishing
+      // can span hundreds of thousands of objects, so treating one such
+      // rejection as permanent makes an otherwise atomic, resumable release
+      // fail near the finish line.  HTTP failures remain retryable only when
+      // explicitly marked by putObjectOnce.
+      const retryable = error?.retryable === true ||
+        error?.name === "AbortError" ||
+        error?.name === "TimeoutError" ||
+        error?.message === "fetch failed";
+      if (!retryable || attempt === config.attempts) break;
       const retryAfter = Number.isFinite(error.retryAfter) && error.retryAfter > 0
         ? error.retryAfter * 1_000
         : 500 * (2 ** (attempt - 1));
