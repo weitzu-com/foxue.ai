@@ -34,26 +34,26 @@ pnpm preserve
 
 保存包不包含 `.env`、访问令牌、平台密钥、用户数据或未经许可的第三方全文。
 
-### 2.1 GBCR v6.18 公开恢复基线
+### 2.1 GBCR v6.22 公开恢复基线
 
-首个受 GitHub Release Immutability 保护的公开恢复基线是 [`gbcr-v6.18.0`](https://github.com/weitzu-com/foxue.ai/releases/tag/gbcr-v6.18.0)，精确对应提交 `8f2a8a7fa3dd88cfbfd0fd12fe82190575cfc1ff`。主归档为 `foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst`，大小 469,942,187 字节，SHA-256 为 `f66f8988cff5492a12c38704b5a4f56b1a47f4e76bc6a5b161ed9659933c26fd`。GitHub 的发行证明同时绑定注释标签对象、提交和四项资产摘要；这条链独立于 30 天后会过期的 Actions 工件。
+当前受 GitHub Release Immutability 保护的公开恢复基线是 [`gbcr-v6.22.0`](https://github.com/weitzu-com/foxue.ai/releases/tag/gbcr-v6.22.0)，精确对应提交 `168c78e0ca1f7413dc17937c00027aceee4e9d2b`。主归档为 `foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst`，大小 470,688,854 字节，SHA-256 为 `4117dd352606f1f5268e97df0802057ccab1a23c1ae1b2ed62c20ed8b11ca45c`。GitHub 的发行证明同时绑定注释标签对象、提交和四项资产摘要；这条链独立于 30 天后会过期的 Actions 工件。首个不可变基线 `gbcr-v6.18.0` 保留为历史恢复证据。
 
 从公开 Release 恢复并验证：
 
 ```bash
-gh release download gbcr-v6.18.0 --repo weitzu-com/foxue.ai
-gh release verify gbcr-v6.18.0 --repo weitzu-com/foxue.ai
+gh release download gbcr-v6.22.0 --repo weitzu-com/foxue.ai
+gh release verify gbcr-v6.22.0 --repo weitzu-com/foxue.ai
 shasum -a 256 -c RELEASE-SHA256SUMS
-zstd -t foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst
-gh release verify-asset gbcr-v6.18.0 foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst --repo weitzu-com/foxue.ai
-zstd -dc foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst | tar -xf -
-cd 8f2a8a7fa3dd
+zstd -t foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst
+gh release verify-asset gbcr-v6.22.0 foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst --repo weitzu-com/foxue.ai
+zstd -dc foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst | tar -xf -
+cd 168c78e0ca1f
 shasum -a 256 -c SHA256SUMS
 git init --bare bundle-check.git
-git -C bundle-check.git bundle verify ../foxue.ai-8f2a8a7fa3dd-history.bundle
+git -C bundle-check.git bundle verify ../foxue.ai-168c78e0ca1f-history.bundle
 ```
 
-Software Heritage 的仓库 Origin SWHID 是 `swh:1:ori:5a6f589df03f216f92122303aa0a427521e77e24`，首次保存请求 [`2428947`](https://archive.softwareheritage.org/api/1/origin/save/2428947/) 已以 `succeeded/full` 完成，对应完整快照 [`swh:1:snp:37c001ea9c766f079f18fe995b29929879f6f815`](https://archive.softwareheritage.org/api/1/snapshot/37c001ea9c766f079f18fe995b29929879f6f815/)。仓库 webhook `666408348` 仅订阅 `push`，以 JSON 和 TLS 证书校验模式调用 Software Heritage 官方 GitHub 接收端；首次 ping 返回 200。`pnpm verify:preservation-mirrors` 与每日 `preservation-mirrors-health.yml` 必须同时证明不可变 Release、发行证明和这份 Software Heritage 完整快照存在。Software Heritage 保存 Git 仓库对象，不替代 Release 二进制、R2、机构副本或离线介质。
+Software Heritage 的仓库 Origin SWHID 是 `swh:1:ori:5a6f589df03f216f92122303aa0a427521e77e24`。v6.22 基线保存请求 [`2452194`](https://archive.softwareheritage.org/api/1/origin/save/2452194/) 已以 `succeeded/full` 完成，对应完整快照 [`swh:1:snp:0add4f1457ddf7634cca36714eddee9b7d17a077`](https://archive.softwareheritage.org/api/1/snapshot/0add4f1457ddf7634cca36714eddee9b7d17a077/)，其中 `main` 固定到 `168c78e0ca1f7413dc17937c00027aceee4e9d2b`，并包含 `gbcr-v6.22.0` 注释标签。仓库 webhook `666408348` 仅订阅 `push`，以 JSON 和 TLS 证书校验模式调用 Software Heritage 官方 GitHub 接收端；首次 ping 返回 200。`pnpm verify:preservation-mirrors` 与每日 `preservation-mirrors-health.yml` 必须同时证明不可变 Release、发行证明和这份 Software Heritage 完整快照存在。Software Heritage 保存 Git 仓库对象，不替代 Release 二进制、R2、机构副本或离线介质。
 
 ## 3. 从零恢复代码
 
