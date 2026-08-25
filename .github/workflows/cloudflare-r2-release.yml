@@ -113,7 +113,13 @@ jobs:
         run: node scripts/publish-corpus-release-s3.mjs --plan="$CORPUS_UPLOAD_PLAN"
 
       - name: Deploy the R2-bound read-only Worker
-        run: pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc
+        env:
+          RELEASE_ID: ${{ steps.release.outputs.id }}
+          RELEASE_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
+        run: |
+          pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc \
+            --var "RELEASE_ID:$RELEASE_ID" \
+            --var "RELEASE_MANIFEST_SHA256:$RELEASE_MANIFEST_SHA256"
 
       - name: Prove production readiness from the public Internet
         env:
