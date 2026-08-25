@@ -28,4 +28,4 @@ jobs:
       - name: Verify GitHub release attestation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release verify gbcr-v6.18.0 --repo weitzu-com/foxue.ai
+        run: gh release verify gbcr-v6.22.0 --repo weitzu-com/foxue.ai

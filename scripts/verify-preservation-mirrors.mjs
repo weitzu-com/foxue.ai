@@ -1,40 +1,40 @@
 const repository = "weitzu-com/foxue.ai";
-const releaseTag = "gbcr-v6.18.0";
-const releaseCommit = "8f2a8a7fa3dd88cfbfd0fd12fe82190575cfc1ff";
-const releaseTagObject = "ad1e808556b93c5daa7ef194f8644eaaed81d9b5";
-const softwareHeritageRequestId = 2428947;
+const releaseTag = "gbcr-v6.22.0";
+const releaseCommit = "168c78e0ca1f7413dc17937c00027aceee4e9d2b";
+const releaseTagObject = "b045008dc2ac0c07019c3e3de75115007ad9692b";
+const softwareHeritageRequestId = 2452194;
 const softwareHeritageOrigin = "https://github.com/weitzu-com/foxue.ai.git";
-const softwareHeritageSnapshot = "swh:1:snp:37c001ea9c766f079f18fe995b29929879f6f815";
+const softwareHeritageSnapshot = "swh:1:snp:0add4f1457ddf7634cca36714eddee9b7d17a077";
 const releaseChecksum =
-  "f66f8988cff5492a12c38704b5a4f56b1a47f4e76bc6a5b161ed9659933c26fd  foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst\n";
+  "4117dd352606f1f5268e97df0802057ccab1a23c1ae1b2ed62c20ed8b11ca45c  foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst\n1e7e46013c5b79a0a320a6ec8fa6c7b71ae8acdea5bfae5367f5a2a6d6ab5236  preservation-manifest.json\n7b2b0321de48edb78ff792344be49461763188f81f0659afd3946d3827a8d563  SHA256SUMS\n";
 
 const expectedAssets = new Map([
   [
-    "foxue-ai-preservation-gbcr-v6.18.0-8f2a8a7f.tar.zst",
+    "foxue-ai-preservation-gbcr-v6.22.0-168c78e0ca1f.tar.zst",
     {
-      size: 469_942_187,
-      digest: "sha256:f66f8988cff5492a12c38704b5a4f56b1a47f4e76bc6a5b161ed9659933c26fd",
+      size: 470_688_854,
+      digest: "sha256:4117dd352606f1f5268e97df0802057ccab1a23c1ae1b2ed62c20ed8b11ca45c",
     },
   ],
   [
     "preservation-manifest.json",
     {
-      size: 1_518_783,
-      digest: "sha256:f8880a2b1d812f5bb620ef26ea6ff50341ebed4dde00cffbd3d31026fd2327b6",
+      size: 1_519_476,
+      digest: "sha256:1e7e46013c5b79a0a320a6ec8fa6c7b71ae8acdea5bfae5367f5a2a6d6ab5236",
     },
   ],
   [
     "RELEASE-SHA256SUMS",
     {
-      size: 118,
-      digest: "sha256:10fb9d35ac3479ca08272362a6367906797192cb73d7b5c0c9c774765547d7c0",
+      size: 292,
+      digest: "sha256:5508a223a596a92c3bf1090975adacbb68221147180ca86bcb511d9b953438b9",
     },
   ],
   [
     "SHA256SUMS",
     {
       size: 295,
-      digest: "sha256:16b7ac7ebe088c200002dcffa305cbfaf816294b6cd80095b5c0bae1ee85ab6a",
+      digest: "sha256:7b2b0321de48edb78ff792344be49461763188f81f0659afd3946d3827a8d563",
     },
   ],
 ]);
