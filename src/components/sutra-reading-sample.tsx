@@ -7,6 +7,7 @@ import {
   type ReadingFolioEdition,
 } from "@/data/sutra-reading-editions";
 import { SutraReaderPreferences } from "@/components/sutra-reader-preferences";
+import { FolioStudySelection } from "@/components/folio-study-selection";
 import { pinyinForBuddhistText } from "@/lib/buddhist-pinyin.mjs";
 import styles from "./sutra-reading-sample.module.css";
 
@@ -14,6 +15,7 @@ type InlinePiece = {
   key: string;
   text: string;
   segment?: SutraSegment;
+  startsSegment?: boolean;
 };
 
 type SpecialBlock = { key: string; kind: "heading" | "byline" | "colophon"; pieces: InlinePiece[] };
@@ -51,7 +53,8 @@ function splitSegmentIntoPieces(segment: SutraSegment, edition: ReadingFolioEdit
   return chunks.map((text, index): InlinePiece => ({
     key: `${segment.id}-${index}`,
     text,
-    segment: index === 0 ? segment : undefined,
+    segment,
+    startsSegment: index === 0,
   }));
 }
 
@@ -86,6 +89,7 @@ function buildReadingBlocks(segments: SutraSegment[], edition: ReadingFolioEditi
         key: segment.id,
         text: displayTextForSegment(segment, edition),
         segment,
+        startsSegment: true,
       };
       blocks.push({ key: `registration-${segment.id}`, kind: "byline", pieces: [piece] });
       continue;
@@ -97,6 +101,7 @@ function buildReadingBlocks(segments: SutraSegment[], edition: ReadingFolioEditi
         key: segment.id,
         text: displayTextForSegment(segment, edition),
         segment,
+        startsSegment: true,
       };
       const previousBlock = blocks.at(-1);
       if (previousBlock?.kind === role) previousBlock.pieces.push(piece);
@@ -109,6 +114,7 @@ function buildReadingBlocks(segments: SutraSegment[], edition: ReadingFolioEditi
         key: segment.id,
         text: displayTextForSegment(segment, edition),
         segment,
+        startsSegment: true,
       };
       currentParagraph.push([piece]);
       paragraphCharacters += [...piece.text].length;
@@ -158,8 +164,9 @@ function SourceAnchor({ segment, children }: { segment: SutraSegment; children: 
         className={styles.sourceAnchor}
         id={segment.id}
         data-line={segment.sourceLine?.slice(-2)}
+        data-study-segment-id={segment.id}
       >
-        <span className={styles.sourceTextEquivalent} aria-hidden="true">{segment.text}</span>
+        <span className={styles.sourceTextEquivalent} data-source-text-equivalent aria-hidden="true">{segment.text}</span>
         {children}
       </span>
     </>
@@ -178,6 +185,10 @@ function ReadingPiece({
     : <span className={styles.plainText}>{piece.text}</span>;
 
   if (!piece.segment) return content;
+
+  if (!piece.startsSegment) {
+    return <span data-study-segment-id={piece.segment.id}>{content}</span>;
+  }
 
   return (
     <>
@@ -247,6 +258,10 @@ function ReadingDirectoryPanel({ directory }: { directory: ReadingDirectory }) {
 }
 
 export function SutraReadingSample({
+  slug,
+  folioKey,
+  workTitle,
+  passageLabel,
   folioLabel,
   edition,
   segments,
@@ -265,6 +280,10 @@ export function SutraReadingSample({
   topNavigation,
   bottomNavigation,
 }: {
+  slug: string;
+  folioKey: string;
+  workTitle: string;
+  passageLabel: string;
   folioLabel: string;
   edition: ReadingFolioEdition;
   segments: SutraSegment[];
@@ -438,13 +457,20 @@ export function SutraReadingSample({
           )}
         </div>
 
-        <div
-          className={styles.readingBody}
-          data-corpus-content="sutra-segment"
-          lang={edition.contentLanguage}
-          aria-describedby="pinyin-reading-note"
+        <FolioStudySelection
+          slug={slug}
+          folioKey={folioKey}
+          workTitle={workTitle}
+          passageLabel={passageLabel}
+          quoteLang={edition.contentLanguage}
         >
-          {blocks.map((block) => {
+          <div
+            className={styles.readingBody}
+            data-corpus-content="sutra-segment"
+            lang={edition.contentLanguage}
+            aria-describedby="pinyin-reading-note"
+          >
+            {blocks.map((block) => {
             if (block.kind === "paragraph") {
               return (
                 <p className={`${styles.readingParagraph} sutra-segment`} key={block.key}>
@@ -485,9 +511,10 @@ export function SutraReadingSample({
                 ))}
               </p>
             );
-          })}
-          <div className={styles.closingMark} aria-hidden="true">{edition.closingMark}</div>
-        </div>
+            })}
+            <div className={styles.closingMark} aria-hidden="true">{edition.closingMark}</div>
+          </div>
+        </FolioStudySelection>
       </SutraReaderPreferences>
 
       <details className={styles.sourceDetails}>

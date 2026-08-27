@@ -653,6 +653,143 @@ test("研读笺把个人笔记、稳定坐标与原典链接一起留在本地",
   expect(severe).toEqual([]);
 });
 
+test("任意经文卷页可从后半句生成稳定引文与本地研读笺", async ({ page }) => {
+  await page.goto("/jingzang/xinjing/001-0848c");
+
+  const selected = await page.evaluate(() => {
+    const pieces = [...document.querySelectorAll<HTMLElement>("[data-study-segment-id]")];
+    const repeatedId = pieces.find((piece, index) =>
+      pieces.findIndex((candidate) => candidate.dataset.studySegmentId === piece.dataset.studySegmentId) < index,
+    )?.dataset.studySegmentId;
+    const target = [...pieces].reverse().find((piece) => piece.dataset.studySegmentId === repeatedId);
+    if (!target || !repeatedId) throw new Error("Expected a stable segment split into multiple visible pieces");
+    const source = document.getElementById(repeatedId)
+      ?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim();
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return { id: repeatedId, source };
+  });
+
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect(dock).toBeVisible();
+  await expect(dock.getByText("已按完整稳定行段取文")).toBeVisible();
+  await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
+  await expect(dock.locator("blockquote")).toHaveText(selected.source ?? "");
+
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await dock.getByRole("button", { name: "复制引文" }).click();
+  await expect(dock.getByText("已复制原文、稳定坐标、链接与访问日期。")).toBeVisible();
+  const citation = await page.evaluate(() => navigator.clipboard.readText());
+  expect(citation).toContain(`稳定坐标：${selected.id}`);
+  expect(citation).toContain(`/jingzang/xinjing/001-0848c#${selected.id}`);
+  expect(citation).toContain("访问日期：");
+
+  await dock.getByRole("button", { name: /写研读笺/ }).click();
+  const noteText = "从后半句选文，也应回到完整稳定行段，而不是保存失去上下文的半句。";
+  await dock.getByPlaceholder("写给未来回到这里的自己……").fill(noteText);
+  await dock.getByRole("button", { name: "保存研读笺" }).click();
+  await expect(dock.getByText("已保存在这台设备，并带上原典坐标。")).toBeVisible();
+
+  const stored = await page.evaluate(() => JSON.parse(
+    window.localStorage.getItem("foxue:study-notes:v1") ?? '{"notes":[]}',
+  ));
+  expect(stored.notes).toEqual(expect.arrayContaining([
+    expect.objectContaining({
+      locator: selected.id,
+      quote: selected.source,
+      quoteLang: "zh-Hant",
+      sourceHref: `/jingzang/xinjing/001-0848c#${selected.id}`,
+      studyHref: `/jingzang/xinjing/001-0848c#${selected.id}`,
+      body: noteText,
+    }),
+  ]));
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(page.viewportSize()?.width ?? pageWidth);
+
+  await page.goto("/xue/biji");
+  await expect(page.getByText(noteText, { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /核对原典/ })).toHaveAttribute(
+    "href",
+    `/jingzang/xinjing/001-0848c#${selected.id}`,
+  );
+});
+
+test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
+  await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
+
+  const selected = await page.evaluate(() => {
+    const target = document.querySelector<HTMLElement>("[data-study-segment-id]");
+    const id = target?.dataset.studySegmentId;
+    if (!target || !id) throw new Error("Expected a selectable Pali segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return id;
+  });
+
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect(dock).toBeVisible();
+  await expect(dock.locator("blockquote")).toHaveAttribute("lang", "pi");
+  await dock.getByRole("button", { name: /写研读笺/ }).click();
+  await dock.getByPlaceholder("写给未来回到这里的自己……").fill("保留巴利原文语种，稍后再与汉译核对。");
+  await dock.getByRole("button", { name: "保存研读笺" }).click();
+
+  const storedNote = await page.evaluate(() => {
+    const snapshot = JSON.parse(window.localStorage.getItem("foxue:study-notes:v1") ?? '{"notes":[]}');
+    return snapshot.notes[0];
+  });
+  expect(storedNote).toEqual(expect.objectContaining({
+    locator: selected,
+    quoteLang: "pi",
+    sourceHref: `/jingzang/dhammapada-pali/001-dhp1-20#${selected}`,
+  }));
+});
+
+test("旧锚点与规范锚点同名时仍从规范行段取文", async ({ page }) => {
+  await page.goto("/jingzang/xinjing/001-0848c");
+
+  const selected = await page.evaluate(() => {
+    const id = "T0251.001.0848c08";
+    const matchingIds = document.querySelectorAll(`#${CSS.escape(id)}`);
+    const target = [...document.querySelectorAll<HTMLElement>("[data-study-segment-id]")].find((element) =>
+      element.dataset.studySegmentId === id
+      && element.querySelector("[data-source-text-equivalent]"),
+    );
+    const source = target?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim();
+    if (!target || !source || matchingIds.length < 2) {
+      throw new Error("Expected colliding legacy and canonical anchors for the stable line");
+    }
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return { id, source };
+  });
+
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect(dock).toBeVisible();
+  await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
+  await expect(dock.locator("blockquote")).toHaveText(selected.source);
+});
+
 test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {
   await page.goto("/xue/xinjing#day-5");
   await expect(page.getByRole("heading", { level: 2, name: "无所得，心无罣碍" })).toBeVisible();
