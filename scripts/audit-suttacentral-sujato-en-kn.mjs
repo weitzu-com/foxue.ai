@@ -231,7 +231,6 @@ for (const prefix of attachedPrefixes) {
   if (!groupFiles || groupFiles.length !== bookMeta[prefix].expectedRecords) {
     throw new Error(`${prefix} 表达缺少已持有巴利记录`);
   }
-  const first = groupFiles[0];
   const meta = bookMeta[prefix];
   const pub = publication[meta.publication];
   const sources = groupFiles.map((file) => ({
