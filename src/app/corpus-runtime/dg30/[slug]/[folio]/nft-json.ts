@@ -17,12 +17,12 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
       return import("@/data/corpus-folio-locator-chunks/31.json");
     case "catalog:59":
       return import("@/data/corpus-work-catalog-chunks/59.json");
-    case "catalog:61":
-      return import("@/data/corpus-work-catalog-chunks/61.json");
+    case "catalog:62":
+      return import("@/data/corpus-work-catalog-chunks/62.json");
     case "catalog:63":
       return import("@/data/corpus-work-catalog-chunks/63.json");
-    case "catalog:65":
-      return import("@/data/corpus-work-catalog-chunks/65.json");
+    case "catalog:66":
+      return import("@/data/corpus-work-catalog-chunks/66.json");
     case "catalog:67":
       return import("@/data/corpus-work-catalog-chunks/67.json");
     case "catalog:68":
@@ -35,10 +35,10 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
       return import("@/data/corpus-work-catalog-chunks/76.json");
     case "catalog:78":
       return import("@/data/corpus-work-catalog-chunks/78.json");
+    case "catalog:79":
+      return import("@/data/corpus-work-catalog-chunks/79.json");
     case "catalog:80":
       return import("@/data/corpus-work-catalog-chunks/80.json");
-    case "catalog:81":
-      return import("@/data/corpus-work-catalog-chunks/81.json");
     case "catalog:82":
       return import("@/data/corpus-work-catalog-chunks/82.json");
     case "catalog:84":
@@ -55,6 +55,8 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
       return import("@/data/corpus-work-catalog-chunks/89.json");
     case "catalog:90":
       return import("@/data/corpus-work-catalog-chunks/90.json");
+    case "catalog:91":
+      return import("@/data/corpus-work-catalog-chunks/91.json");
     default:
       return null;
   }
