@@ -294,7 +294,7 @@ for (const [slug, groupFiles] of filesByExpression) {
     : nikayaMeta[nikaya];
   const title = nikaya === "dhp"
     ? "法句经（Sujato 英译）"
-    : groupedTitle(nikaya, first, reading);
+    : groupedTitle(nikaya, first);
   const sourceParts = groupFiles.map((file, index) => ({
     part: index + 1,
     id: file.id,
@@ -378,7 +378,7 @@ for (const [slug, groupFiles] of filesByExpression) {
   });
 }
 
-function groupedTitle(nikaya, first, reading) {
+function groupedTitle(nikaya, first) {
   const meta = nikayaMeta[nikaya];
   if (nikaya === "sn" || nikaya === "an") {
     return `${meta.titleZh}第 ${first.groupNumber} ${meta.groupLabel}（Sujato 英译）`;
