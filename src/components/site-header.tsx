@@ -18,11 +18,11 @@ export function SiteHeader() {
         <Link
           href="/"
           className="brand"
-          aria-label="佛 foxue.ai 全球佛学交流 AI 平台 首页"
+          aria-label="佛 foxue.ai 可核验佛典阅读与问经 首页"
         >
           <BrandMark compact />
           <span className="brand__wordmark">foxue.ai</span>
-          <span className="brand__descriptor">全球佛学交流 AI 平台</span>
+          <span className="brand__descriptor">可核验佛典阅读与问经</span>
         </Link>
 
         <nav className="desktop-nav" aria-label="主要导航">

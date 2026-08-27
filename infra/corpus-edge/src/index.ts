@@ -1,4 +1,9 @@
-const immutableObjectPattern = /^v1\/releases\/[a-z0-9][a-z0-9.-]{0,95}\/(?:manifest\.json|works\/(?:T\d{4}[A-Za-z]?|D\d{1,4}[a-z]?|DHP|DN\d{1,2}|MN\d{1,3}|SN\d{1,2}|AN\d{1,2}|LZH-(?:MA|SA|EA|T0765|T1536|T1537|T1548)|BV|CND|CP|ITI|JA|KP|MIL|MND|NE|PE|PS|PV|SNP|THA-AP|THAG|THI-AP|THIG|UD|VV)\/(?:index\.json|source\.(?:xml|json|txt)|sources\/\d{2,4}-[A-Za-z0-9._-]+\.(?:xml|json|txt)|folios\/[a-z0-9][a-z0-9.-]{0,95}\.json))$/;
+import objectKeyPolicy from "../object-key-policy.json";
+
+// Release builders only publish public reading objects below this layout. A
+// bounded canonical identifier keeps the path policy source-agnostic without
+// exposing arbitrary R2 keys when a new controlled corpus family is added.
+const immutableObjectPattern = new RegExp(objectKeyPolicy.immutableObjectPattern);
 
 const corsOrigins = new Set(["https://www.foxue.ai", "https://foxue.ai"]);
 

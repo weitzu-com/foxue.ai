@@ -202,6 +202,20 @@ if (manifestPath && health) {
   }
 }
 
+if (health?.body?.releaseId) {
+  const mullerIndexPath =
+    `/v1/releases/${health.body.releaseId}/works/WIKISOURCE-DHP-MULLER-1881/index.json`;
+  const mullerIndex = await request(mullerIndexPath, { method: "HEAD" });
+  if (mullerIndex) {
+    const shouldBeReady = health.body?.storage === "ready";
+    check(
+      mullerIndex.response.status === (shouldBeReady ? 200 : 503),
+      `Müller《法句经》英译索引可用性与存储状态一致（${mullerIndex.response.status}）`,
+      `Müller《法句经》英译索引未通过公网对象键门禁（${mullerIndex.response.status}）`,
+    );
+  }
+}
+
 const writeAttempt = await request("/health", { method: "POST" });
 if (writeAttempt) {
   check(

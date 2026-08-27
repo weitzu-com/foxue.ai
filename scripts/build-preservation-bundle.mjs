@@ -934,6 +934,7 @@ const requiredPaths = [
   "src/app/shenjiao/page.tsx",
   "src/app/shenjiao/review-queue-workbench.tsx",
   ".github/ISSUE_TEMPLATE/han-pali-review.yml",
+  "infra/corpus-edge/object-key-policy.json",
   "infra/corpus-edge/src/index.ts",
   "infra/corpus-edge/wrangler.jsonc",
   "infra/corpus-edge/worker-configuration.d.ts",

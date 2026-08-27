@@ -3,7 +3,7 @@
 import { type FormEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight, BookOpenText, Search, Sparkles, Languages, Network } from "lucide-react";
+import { ArrowRight, BookOpenText, Info, Search, Sparkles, Languages, Network } from "lucide-react";
 import {
   QUESTION_MAX_LENGTH,
   saveQuestionToSession,
@@ -124,6 +124,13 @@ export function SearchConsole() {
             {example}
           </button>
         ))}
+      </div>
+      <div className="search-prototype-note">
+        <Info aria-hidden="true" size={15} />
+        <span>
+          可信原型：当前问经仅检索三部人工复核样本，尚未启用生成式模型。{" "}
+          <Link href="/wenjing">查看能力边界</Link>
+        </span>
       </div>
     </div>
   );

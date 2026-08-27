@@ -1,0 +1,4 @@
+{
+  "schema": "https://foxue.ai/schemas/corpus-edge-object-key-policy-v0.1",
+  "immutableObjectPattern": "^v1/releases/[a-z0-9][a-z0-9.-]{0,95}/(?:manifest\\.json|works/[A-Za-z0-9][A-Za-z0-9-]{0,95}/(?:index\\.json|source\\.(?:xml|json|txt)|sources/\\d{2,4}-[A-Za-z0-9._-]+\\.(?:xml|json|txt)|folios/[a-z0-9][a-z0-9.-]{0,95}\\.json))$"
+}
