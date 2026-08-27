@@ -116,7 +116,7 @@ export function getReadingFolioEdition({
   folioLabel: string;
   segments: SutraSegment[];
   hasNext: boolean;
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio" | "english-translation-folio";
 }): ReadingFolioEdition {
   return readingEditions[slug]?.[folioKey] ?? buildDefaultReadingEdition({
     slug,

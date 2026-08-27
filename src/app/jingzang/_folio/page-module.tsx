@@ -50,6 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const derge = sutra.readerMode === "derge-folio";
     const sat = sutra.readerMode === "sat-folio";
     const kokuyaku = sutra.readerMode === "kokuyaku-folio";
+    const englishTranslation = sutra.readerMode === "english-translation-folio";
     const collection = folioCollectionLabel(sutra);
     const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
     const originalLanguageLabel = derge
@@ -69,6 +70,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
           : kokuyaku
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
+          : englishTranslation
+            ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
           : sat
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章，SAT 现代日译。`
           : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
@@ -203,13 +206,16 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const derge = sutra.readerMode === "derge-folio";
   const sat = sutra.readerMode === "sat-folio";
   const kokuyaku = sutra.readerMode === "kokuyaku-folio";
-  const jaChapter = sat || kokuyaku;
+  const englishTranslation = sutra.readerMode === "english-translation-folio";
+  const translationChapter = sat || kokuyaku || englishTranslation;
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
-  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : jaChapter ? "章" : "卷";
+  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : englishTranslation ? "品" : translationChapter ? "章" : "卷";
   const originalLanguageLabel = kokuyaku
     ? "文语国译"
+    : englishTranslation
+    ? "公版英译"
     : sat
     ? "现代日译"
     : derge
@@ -223,8 +229,10 @@ export default async function SutraFolioPage({ params }: PageProps) {
       : sutra.language.includes("英")
         ? "英文译本"
       : "巴利原文";
-  const textLanguage = jaChapter
+  const textLanguage = sat || kokuyaku
     ? "ja"
+    : englishTranslation
+    ? "en"
     : derge
     ? "bo-Tibt"
     : sutra.language.startsWith("梵")
@@ -244,6 +252,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
         : kokuyaku
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 國譯`
+        : englishTranslation
+          ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 英譯`
         : sat
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章 · SAT日譯`
         : `卷 ${Number(folio.item.juan)} · ${collection} ${folio.item.label}`;
@@ -265,6 +275,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
       ? "阅读页"
       : kokuyaku
         ? "品"
+        : englishTranslation
+          ? "品"
         : sat
           ? "章"
           : "版页";
@@ -276,6 +288,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? "藏文本"
         : kokuyaku
           ? "国译"
+          : englishTranslation
+            ? "英译"
           : sat
             ? "日译"
             : "全经";
@@ -294,6 +308,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         : `完整${originalLanguageLabel} · 稳定分页`
       : derge
         ? "完整藏文原文 · 德格版页"
+        : englishTranslation
+          ? "完整公版英译 · 分品阅读"
         : partialWitness
           ? partialHeading
           : "完整原文 · 分页阅读";
@@ -317,6 +333,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
         : kokuyaku
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
+        : englishTranslation
+          ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
         : sat
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 章，SAT 现代日译。`
         : `${sutra.title}卷 ${Number(folio.item.juan)}，${collection} ${folio.item.label} 版页原文。`;
@@ -401,11 +419,15 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   ? "函页目录"
                   : kokuyaku
                     ? "国译品次"
+                    : englishTranslation
+                      ? "英译品次"
                     : sat
                       ? "日译章节"
                       : "卷页目录",
             currentLabel: currentHeading,
-            groupsLabel: useNearbyDirectory ? `附近${groupUnit}目` : `全经${groupUnit}目`,
+            groupsLabel: englishTranslation
+              ? "英译品目"
+              : useNearbyDirectory ? `附近${groupUnit}目` : `全经${groupUnit}目`,
             pagesLabel: chaptered
               ? "当前品阅读页"
               : bilara
@@ -414,6 +436,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   ? "当前函版页"
                   : kokuyaku
                     ? "当前品"
+                    : englishTranslation
+                      ? "英译品次"
                     : sat
                       ? "当前章"
                       : "当前卷版页",
@@ -431,6 +455,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? `第 ${Number(group.juan)} 函`
                     : kokuyaku
                       ? `第 ${Number(group.juan)} 品`
+                      : englishTranslation
+                        ? `第 ${Number(String(group.first.label).replace(/^c/, ""))} 品`
                       : sat
                         ? `第 ${Number(group.juan)} 章`
                         : `卷 ${Number(group.juan)}`,
@@ -448,6 +474,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? `德格 ${item.label}`
                     : kokuyaku
                       ? `第 ${Number(item.juan)} 品`
+                      : englishTranslation
+                        ? `第 ${Number(String(item.label).replace(/^c/, ""))} 品`
                       : sat
                         ? `第 ${Number(item.juan)} 章`
                         : `第 ${String(index + 1).padStart(2, "0")} 页`,

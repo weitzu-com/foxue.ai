@@ -1,0 +1,33 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/wikisource-muller-dhp-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-27",
+  "cut": "first_principles_multilingual_translation_gap",
+  "ingest": {
+    "title": "The Dhammapada: A Collection of Verses",
+    "translator": "Friedrich Max Müller",
+    "year": 1881,
+    "expressionSlug": "wikisource-en-dhp-muller",
+    "workId": "gbcr:work:dhammapada-pali",
+    "newWorks": 0,
+    "newExpressions": 1,
+    "completeTexts": 1,
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "mapping": "The 423-verse English translation attaches to the existing Pāli Dhammapada work. Chinese T210 remains a separate recension-level work and is only a family parallel.",
+    "rights": {
+      "status": "approved_public_domain_with_attribution",
+      "commercialUse": "allowed_public_domain",
+      "redistribution": "allowed",
+      "workCategory": "Category:PD-old",
+      "authorCategory": "Category:Author-PD-old",
+      "publicationYear": 1881,
+      "translatorDeathYear": 1900,
+      "attribution": "Wikisource + Sacred Books of the East Volume X (Clarendon Press, 1881) + translator Friedrich Max Müller",
+      "reviewedAt": "2026-08-27",
+      "note": "The complete Wikisource transcription is structurally verified. Its own quality category says it still needs migration to scans, so the platform does not claim scan collation or human sample verification."
+    },
+    "qualityBoundary": "Complete transcription and verse structure verified; scan collation and human sample verification remain false."
+  },
+  "caveat": "This ledger proves one public-domain English translation witness was attached to an existing work. It does not prove global Buddhist-canon coverage or the accuracy of every translated sentence."
+}

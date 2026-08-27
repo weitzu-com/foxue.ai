@@ -41,7 +41,10 @@ const manifestFamilies = [
     defaultParser: "sat_tei",
   },
   {
-    manifests: ["data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json"],
+    manifests: [
+      "data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json",
+      "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json",
+    ],
     defaultParser: "sat_tei",
   },
   {

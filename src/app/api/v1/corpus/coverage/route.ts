@@ -9,7 +9,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: absoluteUrl("/fugai"),
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.24.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.25.0.json",
         globalDenominatorHuman: absoluteUrl("/fenmu"),
         globalDenominatorStandard: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-standard-v0.1.0.json",
         globalDenominatorSourceUniverse: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-source-universe-v0.1.0.json",
@@ -32,6 +32,8 @@ export function GET() {
         eastAsianTranslationRefusal: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/east-asian-translation-refusal-v1.0.0.json",
         wikisourceKokuyakuDhpIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/wikisource-kokuyaku-dhp-ingest-v1.0.0.json",
         wikisourceKokuyakuDhpBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/wikisource/kokuyaku-dhp-batch-v1.0.0.json",
+        wikisourceMullerDhpIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/wikisource-muller-dhp-ingest-v1.0.0.json",
+        wikisourceMullerDhpBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/wikisource/muller-dhp-batch-v1.0.0.json",
         suttacentralSujatoEnglishIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-ingest-v1.0.0.json",
         suttacentralSujatoEnglishRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-rights-audit-v1.0.0.json",
         suttacentralSujatoEnglishBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/suttacentral/sujato-en-batch-v1.0.0.json",

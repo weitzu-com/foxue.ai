@@ -51,7 +51,10 @@ const manifestFamilies = [
   {
     prefix: "ws",
     name: "wikisource",
-    manifests: ["data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json"],
+    manifests: [
+      "data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json",
+      "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json",
+    ],
   },
   {
     prefix: "sc",
