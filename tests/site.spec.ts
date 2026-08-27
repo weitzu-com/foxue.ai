@@ -4375,6 +4375,10 @@ test("1881 年公版英文法句经完整生成二十六品并保留稳定锚点
     "All that we are is the result of what we have thought",
   );
   await expect(page.getByText(/完整公版英译 · 分品阅读/)).toBeVisible();
+  const englishDirectory = page.getByText("英译品次", { exact: true }).first();
+  await expect(englishDirectory).toBeVisible();
+  await englishDirectory.click();
+  await expect(page.getByRole("link", { name: /^第 26 品 c26$/ })).toBeVisible();
 
   await page.goto("/jingzang/wikisource-en-dhp-muller/001-c26");
   await expect(page.locator('[id="WIKISOURCE-DHP-MULLER-1881.001.s0000041400"]')).toContainText(
