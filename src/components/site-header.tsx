@@ -5,8 +5,8 @@ import { BrandMark } from "@/components/brand-mark";
 const navigation: Array<{ href: string; label: string; prefetch?: false }> = [
   { href: "/wenjing", label: "问经" },
   { href: "/jingzang", label: "经藏", prefetch: false },
+  { href: "/xue", label: "研读" },
   { href: "/fugai", label: "覆盖" },
-  { href: "/fenmu", label: "分母" },
   { href: "/yuanze", label: "原则" },
   { href: "/touming", label: "透明" },
 ];

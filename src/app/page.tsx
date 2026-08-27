@@ -47,11 +47,11 @@ const tasks = [
   {
     number: "01",
     icon: BookMarked,
-    eyebrow: "第一次读经",
-    title: "七日读《心经》",
-    description: "每天一小段、一个理解提示，再回到稳定原文。进度只保存在本地。",
-    link: "/xue/xinjing",
-    action: "开始第一天",
+    eyebrow: "想认真读一部经",
+    title: "进入研读中心",
+    description: "七日读《心经》，或并读汉译、巴利与历史英译《法句》；每一步都回到稳定原文。",
+    link: "/xue",
+    action: "选择研读路径",
   },
   {
     number: "02",
@@ -427,8 +427,8 @@ export default function Home() {
           <h2>先读一段原文，<br />再决定相信什么。</h2>
         </div>
         <div className={styles.closingActions}>
-          <Link href="/xue/xinjing">
-            开始七日阅读 <ArrowRight aria-hidden="true" size={17} />
+          <Link href="/xue">
+            选择研读路径 <ArrowRight aria-hidden="true" size={17} />
           </Link>
           <Link href="/jingzang">浏览全部经藏</Link>
         </div>
