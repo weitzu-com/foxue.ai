@@ -761,6 +761,35 @@ test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
   }));
 });
 
+test("旧锚点与规范锚点同名时仍从规范行段取文", async ({ page }) => {
+  await page.goto("/jingzang/xinjing/001-0848c");
+
+  const selected = await page.evaluate(() => {
+    const id = "T0251.001.0848c08";
+    const matchingIds = document.querySelectorAll(`#${CSS.escape(id)}`);
+    const target = [...document.querySelectorAll<HTMLElement>("[data-study-segment-id]")].find((element) =>
+      element.dataset.studySegmentId === id
+      && element.querySelector("[data-source-text-equivalent]"),
+    );
+    const source = target?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim();
+    if (!target || !source || matchingIds.length < 2) {
+      throw new Error("Expected colliding legacy and canonical anchors for the stable line");
+    }
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return { id, source };
+  });
+
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect(dock).toBeVisible();
+  await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
+  await expect(dock.locator("blockquote")).toHaveText(selected.source);
+});
+
 test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {
   await page.goto("/xue/xinjing#day-5");
   await expect(page.getByRole("heading", { level: 2, name: "无所得，心无罣碍" })).toBeVisible();

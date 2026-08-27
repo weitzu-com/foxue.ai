@@ -73,6 +73,18 @@ export function FolioStudySelection({
   const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
+    if (!activeSelection) return;
+    const timeout = window.setTimeout(() => {
+      trackEvent("folio_text_selected", {
+        source_id: activeSelection.seed.id,
+        segment_count: activeSelection.segmentCount,
+        source_language: quoteLang,
+      });
+    }, 500);
+    return () => window.clearTimeout(timeout);
+  }, [activeSelection, quoteLang]);
+
+  useEffect(() => {
     let animationFrame = 0;
 
     function readSelection() {
@@ -92,7 +104,8 @@ export function FolioStudySelection({
 
       const segmentIds: string[] = [];
       const seenIds = new Set<string>();
-      root.querySelectorAll<HTMLElement>("[data-study-segment-id]").forEach((element) => {
+      const segmentElements = [...root.querySelectorAll<HTMLElement>("[data-study-segment-id]")];
+      segmentElements.forEach((element) => {
         const segmentId = element.dataset.studySegmentId;
         if (!segmentId || seenIds.has(segmentId) || !intersectsRange(range, element)) return;
         seenIds.add(segmentId);
@@ -101,7 +114,10 @@ export function FolioStudySelection({
       if (segmentIds.length === 0) return;
 
       const sourceTexts = segmentIds.map((segmentId) => {
-        const anchor = document.getElementById(segmentId);
+        const anchor = segmentElements.find((element) =>
+          element.dataset.studySegmentId === segmentId
+          && element.querySelector("[data-source-text-equivalent]"),
+        );
         return anchor?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim() ?? "";
       }).filter(Boolean);
       if (sourceTexts.length === 0) return;
@@ -135,11 +151,6 @@ export function FolioStudySelection({
           studyHref: sourceHref,
           defaultKind: "understanding",
         },
-      });
-      trackEvent("folio_text_selected", {
-        source_id: id,
-        segment_count: segmentIds.length,
-        source_language: quoteLang,
       });
     }
 
