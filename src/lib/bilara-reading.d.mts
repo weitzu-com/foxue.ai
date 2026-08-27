@@ -7,8 +7,13 @@ export function parseBilaraDhammapadaSources(
 
 export function parseBilaraSuttaSource(
   source: { filename?: string; localPath?: string; text: string },
-  options?: { maxSegments?: number },
-): { segments: SutraSegment[]; navigation: ReaderNavigationItem[]; title: string };
+  options?: { maxSegments?: number; omitEmptySegments?: boolean },
+): {
+  segments: SutraSegment[];
+  navigation: ReaderNavigationItem[];
+  title: string;
+  omittedEmptySegmentIds: string[];
+};
 
 export function parseBilaraSamyuttaSources(
   sources: Array<{ filename?: string; localPath?: string; text: string }>,

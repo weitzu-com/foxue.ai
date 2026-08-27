@@ -689,7 +689,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3883 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/4137 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -705,6 +705,12 @@ test("经藏目录以服务端分页支持元数据检索与语种筛选", async
   await page.waitForURL(/\/jingzang\/sousuo\?language=tibetan/);
   await expect(page.getByText(/找到 1122 个文本表达/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
+
+  await page.goto("/jingzang");
+  await page.getByRole("link", { name: "英文" }).click();
+  await page.waitForURL(/\/jingzang\/sousuo\?language=english/);
+  await expect(page.getByText(/找到 254 个文本表达/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /法句经（Sujato 英译）/ })).toBeVisible();
 
   await page.goto("/jingzang/page/2");
   await expect(page.getByRole("heading", { level: 1, name: /经藏目录.*第 2 页/ })).toBeVisible();
@@ -893,7 +899,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.23.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.24.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -912,10 +918,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3396,
-    registeredExpressions: 3929,
+    registeredExpressions: 4183,
     fullSourceTextWorks: 3369,
-    fullSourceTextExpressions: 3883,
-    stableSegments: 5819230,
+    fullSourceTextExpressions: 4137,
+    stableSegments: 5932721,
     structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -969,6 +975,16 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     partialWitnessGroups: 3,
     existingWorksReused: 7,
     newWorksCreated: 0,
+    filesApprovedForModelTraining: 0,
+  });
+  expect(coverage.candidateInventory.suttacentralSujatoEnglish).toMatchObject({
+    controlledExpressions: 254,
+    attachedExistingWorks: 254,
+    newWorks: 0,
+    sourceRecords: 3439,
+    stableSegments: 113491,
+    sourceBytes: 10715938,
+    filesApprovedForReadingAndRetrieval: 3439,
     filesApprovedForModelTraining: 0,
   });
   expect(coverage.candidateInventory.chineseSutraRecordSubset).toMatchObject({
@@ -1680,7 +1696,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.23.0.json"),
+    registry: expect.stringContaining("registry-v6.24.0.json"),
     sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
     chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
     chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
@@ -1691,6 +1707,9 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     wikisourceKokuyakuDhpBoundaryAudit: expect.stringContaining("kokuyaku-dhp-batch-v1.0.0.json"),
     wikisourceMullerDhpIngest: expect.stringContaining("wikisource-muller-dhp-ingest-v1.0.0.json"),
     wikisourceMullerDhpBoundaryAudit: expect.stringContaining("muller-dhp-batch-v1.0.0.json"),
+    suttacentralSujatoEnglishIngest: expect.stringContaining("suttacentral-sujato-en-ingest-v1.0.0.json"),
+    suttacentralSujatoEnglishRightsAudit: expect.stringContaining("suttacentral-sujato-en-rights-audit-v1.0.0.json"),
+    suttacentralSujatoEnglishBoundaryAudit: expect.stringContaining("sujato-en-batch-v1.0.0.json"),
     globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
@@ -4366,6 +4385,29 @@ test("1881 年公版英文法句经完整生成二十六品并保留稳定锚点
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller");
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c01");
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c26");
+});
+
+test("Sujato CC0 英译挂接既有巴利作品并保留 Bilara 段落标识", async ({ page, request }) => {
+  await page.goto("/jingzang/suttacentral-en-dhp#dhp1:1");
+  await page.waitForURL(/\/jingzang\/suttacentral-en-dhp\/001-dhp1-20#dhp1:1$/);
+  await expect(page.locator('[id="dhp1:1"]')).toContainText("Intention is the leader of things");
+  await expect(page.getByText("Bhikkhu Sujato").first()).toBeVisible();
+  await expect(page.getByText("CC0").first()).toBeVisible();
+  await expect(page.getByText(/英文译本/).first()).toBeVisible();
+
+  await page.goto("/jingzang/suttacentral-en-dn1#dn1:1.1.1");
+  await page.waitForURL(/\/jingzang\/suttacentral-en-dn1\/001-dn1-0001-0120#dn1:1\.1\.1$/);
+  await expect(page.locator('[id="dn1:1.1.1"]')).toContainText("So I have heard");
+
+  const directory = await request.get("/jingzang/suttacentral-en-dhp");
+  const chapter = await request.get("/jingzang/suttacentral-en-dhp/001-dhp1-20");
+  const dn1 = await request.get("/jingzang/suttacentral-en-dn1/001-dn1-0001-0120");
+  expect(directory.ok()).toBeTruthy();
+  expect(chapter.ok()).toBeTruthy();
+  expect(dn1.ok()).toBeTruthy();
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/suttacentral-en-dhp/001-dhp1-20");
+  expect(sitemap).toContain("/jingzang/suttacentral-en-dn1/001-dn1-0001-0120");
 });
 
 test("巴利长部三十四经保留 Bilara 原生锚点并受控分页", async ({ page, request }) => {

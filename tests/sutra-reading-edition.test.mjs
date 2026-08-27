@@ -6,6 +6,7 @@ import beyondTaishoCatalog from "../data/corpus/cbeta/beyond-taisho-sutra-catalo
 import satCatalog from "../data/corpus/sat/modern-japanese-catalog-v1.0.0.json" with { type: "json" };
 import kokuyakuCatalog from "../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json" with { type: "json" };
 import mullerDhpCatalog from "../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json" with { type: "json" };
+import sujatoEnglishCatalog from "../data/corpus/suttacentral/sujato-en-catalog-v1.0.0.json" with { type: "json" };
 import dhammapadaManifest from "../data/corpus/suttacentral/manifest-v0.7.0.json" with { type: "json" };
 import dighaManifest from "../data/corpus/suttacentral/dn-manifest-v0.8.0.json" with { type: "json" };
 import majjhimaManifest from "../data/corpus/suttacentral/mn-manifest-v0.9.0.json" with { type: "json" };
@@ -23,7 +24,7 @@ import {
   inferReadingSegmentRoles,
 } from "../src/lib/sutra-reading-edition.mjs";
 
-test("全部 3,929 個文本表達都由語種與來源生成正確閱讀模式", () => {
+test("全部 4,183 個文本表達都由語種與來源生成正確閱讀模式", () => {
   const collections = [
     [catalog.files, "cbeta-folio"],
     [nanchuanCatalog.files, "cbeta-folio"],
@@ -31,6 +32,8 @@ test("全部 3,929 個文本表達都由語種與來源生成正確閱讀模式"
     [satCatalog.files, "sat-folio"],
     [kokuyakuCatalog.files, "kokuyaku-folio"],
     [mullerDhpCatalog.files, "english-translation-folio"],
+    [sujatoEnglishCatalog.files.filter((file) => file.parser === "bilara_root_json"), "bilara-chapter"],
+    [sujatoEnglishCatalog.files.filter((file) => file.parser !== "bilara_root_json"), "bilara-sutta"],
     [dhammapadaManifest.files, "bilara-chapter"],
     [dighaManifest.files, "bilara-sutta"],
     [majjhimaManifest.files, "bilara-sutta"],
@@ -58,9 +61,13 @@ test("全部 3,929 個文本表達都由語種與來源生成正確閱讀模式"
     });
     const chinese = language === "漢文" || language === "汉文" || language.startsWith("古汉语");
     assert.equal(edition.annotationMode, chinese ? "pinyin" : "plain", file.slug);
+    if (language === "英文") {
+      assert.equal(edition.contentLanguage, "en", file.slug);
+      assert.equal(edition.editionLabel, readerMode === "english-translation-folio" ? "公版英译" : "英文译本", file.slug);
+    }
     return edition;
   }));
-  assert.equal(editions.length, 3929);
+  assert.equal(editions.length, 4183);
 });
 
 test("保守識別註冊號、經題、譯者與品題", () => {

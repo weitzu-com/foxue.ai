@@ -63,6 +63,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
           ? "pra-Latn"
           : sutra.language.includes("日")
             ? "ja"
+            : sutra.language.includes("英")
+              ? "en"
             : "pi-Latn";
   const pageJsonLdBase = buildPageJsonLd({
     path: `/jingzang/${sutra.slug}`,

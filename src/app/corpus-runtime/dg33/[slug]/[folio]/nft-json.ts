@@ -3,30 +3,32 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
   switch (kind) {
     case "locator:12":
       return import("@/data/corpus-folio-locator-chunks/12.json");
-    case "locator:19":
-      return import("@/data/corpus-folio-locator-chunks/19.json");
-    case "locator:27":
-      return import("@/data/corpus-folio-locator-chunks/27.json");
+    case "locator:20":
+      return import("@/data/corpus-folio-locator-chunks/20.json");
     case "locator:29":
       return import("@/data/corpus-folio-locator-chunks/29.json");
+    case "locator:31":
+      return import("@/data/corpus-folio-locator-chunks/31.json");
     case "catalog:27":
       return import("@/data/corpus-work-catalog-chunks/27.json");
-    case "catalog:44":
-      return import("@/data/corpus-work-catalog-chunks/44.json");
-    case "catalog:70":
-      return import("@/data/corpus-work-catalog-chunks/70.json");
-    case "catalog:77":
-      return import("@/data/corpus-work-catalog-chunks/77.json");
-    case "catalog:81":
-      return import("@/data/corpus-work-catalog-chunks/81.json");
-    case "catalog:85":
-      return import("@/data/corpus-work-catalog-chunks/85.json");
-    case "catalog:86":
-      return import("@/data/corpus-work-catalog-chunks/86.json");
+    case "catalog:45":
+      return import("@/data/corpus-work-catalog-chunks/45.json");
+    case "catalog:71":
+      return import("@/data/corpus-work-catalog-chunks/71.json");
+    case "catalog:78":
+      return import("@/data/corpus-work-catalog-chunks/78.json");
+    case "catalog:83":
+      return import("@/data/corpus-work-catalog-chunks/83.json");
     case "catalog:87":
       return import("@/data/corpus-work-catalog-chunks/87.json");
     case "catalog:88":
       return import("@/data/corpus-work-catalog-chunks/88.json");
+    case "catalog:89":
+      return import("@/data/corpus-work-catalog-chunks/89.json");
+    case "catalog:90":
+      return import("@/data/corpus-work-catalog-chunks/90.json");
+    case "catalog:91":
+      return import("@/data/corpus-work-catalog-chunks/91.json");
     default:
       return null;
   }

@@ -226,6 +226,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
     ? "梵文原文"
     : sutra.language.includes("俗语")
       ? "俗语原文"
+      : sutra.language.includes("英")
+        ? "英文译本"
       : "巴利原文";
   const textLanguage = sat || kokuyaku
     ? "ja"
@@ -236,7 +238,9 @@ export default async function SutraFolioPage({ params }: PageProps) {
     : sutra.language.startsWith("梵")
     ? "sa-Latn"
     : sutra.language.includes("俗语")
-      ? "pra-Latn"
+    ? "pra-Latn"
+      : sutra.language.includes("英")
+        ? "en"
       : bilara
         ? sutra.language.includes("古汉") ? "zh-Hant" : "pi-Latn"
         : "zh-Hant";

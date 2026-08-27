@@ -3,20 +3,18 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
   switch (kind) {
     case "locator:8":
       return import("@/data/corpus-folio-locator-chunks/8.json");
-    case "locator:20":
-      return import("@/data/corpus-folio-locator-chunks/20.json");
-    case "locator:26":
-      return import("@/data/corpus-folio-locator-chunks/26.json");
+    case "locator:21":
+      return import("@/data/corpus-folio-locator-chunks/21.json");
+    case "locator:27":
+      return import("@/data/corpus-folio-locator-chunks/27.json");
     case "catalog:16":
       return import("@/data/corpus-work-catalog-chunks/16.json");
     case "catalog:48":
       return import("@/data/corpus-work-catalog-chunks/48.json");
-    case "catalog:66":
-      return import("@/data/corpus-work-catalog-chunks/66.json");
-    case "catalog:87":
-      return import("@/data/corpus-work-catalog-chunks/87.json");
-    case "catalog:88":
-      return import("@/data/corpus-work-catalog-chunks/88.json");
+    case "catalog:67":
+      return import("@/data/corpus-work-catalog-chunks/67.json");
+    case "catalog:90":
+      return import("@/data/corpus-work-catalog-chunks/90.json");
     default:
       return null;
   }

@@ -314,6 +314,8 @@ export function SutraReadingSample({
           ? "梵文"
           : edition.contentLanguage === "pra-Latn"
             ? "俗语"
+            : edition.contentLanguage === "en"
+              ? "英文"
             : "巴利文";
   const folioLabelTitle = isCbeta
     ? "藏经版页"
@@ -354,6 +356,11 @@ export function SutraReadingSample({
               title: "忠实保留俗语原典。",
               body: "拉丁转写、原生次序与稳定段落标识保持不变；不加入机器译文。",
             }
+          : edition.contentLanguage === "en"
+            ? {
+                title: "忠实保留 Sujato 英译。",
+                body: "Bhikkhu Sujato CC0 英译、Bilara 原生段落标识与 SuttaCentral 来源署名保持不变；不用于生成式模型训练。",
+              }
           : {
               title: "忠实保留巴利原典。",
               body: "Bilara 段落标识与原生次序保持不变；不加入机器译文或未经审核的跨本对齐。",
