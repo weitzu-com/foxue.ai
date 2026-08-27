@@ -528,6 +528,7 @@ test("法句三源档案保留稳定引文与比较边界", async ({ page, reque
 
   await expect(page.getByRole("heading", { level: 1, name: /同一句熟悉的话.*三份原文.*各自站稳/ })).toBeVisible();
   await expect(page.getByText("《法句经》双要品", { exact: true })).toBeVisible();
+  await expect(page.getByText("即言即行，罪苦自追，車轢于轍；", { exact: true })).toBeVisible();
   await expect(page.getByText("Yamakavagga", { exact: true })).toBeVisible();
   await expect(page.getByText("The Dhammapada", { exact: true })).toBeVisible();
 

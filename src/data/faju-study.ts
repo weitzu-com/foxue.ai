@@ -34,7 +34,7 @@ export const fajuStudySources: FajuStudySource[] = [
         label: "双要品 · 第一组",
         locator: "T0210.001.0562a13–14",
         href: "/jingzang/fajujing/001-0562a#T0210.001.0562a13",
-        text: "心為法本，心尊心使，中心念惡，\n即言即行，罪苦自追，車轢于轍。",
+        text: "心為法本，心尊心使，中心念惡，\n即言即行，罪苦自追，車轢于轍；",
       },
       {
         label: "双要品 · 第二组",
