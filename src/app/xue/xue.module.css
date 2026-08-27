@@ -1315,6 +1315,34 @@
     background: #2a332c;
   }
 
+  .heroActions a:first-child,
+  .studyFinder a:first-child {
+    border-color: #8d3024;
+    background: #8d3024;
+    color: #fffdf8;
+  }
+
+  .heroActions a:first-child:hover,
+  .studyFinder a:first-child:hover {
+    border-color: #79291f;
+    background: #79291f;
+    color: #fffdf8;
+  }
+
+  .studyFinder > div:first-child > p:last-child,
+  .studyFinder > ul li {
+    color: #c0c8bf;
+  }
+
+  .studyFinder .eyebrow,
+  .sourceCard > footer > a {
+    color: #f1a18f;
+  }
+
+  .sourceCard > footer > a:hover {
+    color: #f5ad9d;
+  }
+
   .pathDark,
   .pathWarm,
   .fajuSpecimen,

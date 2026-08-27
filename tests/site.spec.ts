@@ -515,7 +515,7 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByText("研究者 · 可复核引用", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
   await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
-  await expect(page.getByRole("link", { name: "研读", exact: true }).first()).toHaveAttribute("href", "/xue");
+  await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
 
   await page.setViewportSize({ width: 390, height: 844 });
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
