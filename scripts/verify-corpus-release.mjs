@@ -67,7 +67,6 @@ requireValue(releaseManifest.totals.expressions === controlledFiles.length, "发
 requireValue(releaseManifest.totals.segments === expectedSegments, "发布行段数与 GBCR 不一致");
 requireValue(releaseManifest.objects.length === releaseManifest.totals.immutableObjects, "不可变对象计数不一致");
 
-const stableIds = new Set();
 let verifiedSegments = 0;
 let verifiedFolios = 0;
 
@@ -107,8 +106,8 @@ for (const work of releaseManifest.expressions) {
     } else {
       try {
         const value = JSON.parse(sourceBytes.toString("utf8"));
-        requireValue(Boolean(value[expectedSource.firstSegmentId]), `${expectedSource.id} JSON 首段缺失`);
-        requireValue(Boolean(value[expectedSource.lastSegmentId]), `${expectedSource.id} JSON 末段缺失`);
+        requireValue(Object.hasOwn(value, expectedSource.firstSegmentId), `${expectedSource.id} JSON 首段缺失`);
+        requireValue(Object.hasOwn(value, expectedSource.lastSegmentId), `${expectedSource.id} JSON 末段缺失`);
       } catch {
         requireValue(false, `${expectedSource.id} 不是有效 JSON`);
       }
@@ -116,6 +115,7 @@ for (const work of releaseManifest.expressions) {
   }
 
   let workSegments = 0;
+  const expressionStableIds = new Set();
   for (const [position, navigation] of index.navigation.entries()) {
     requireValue(navigation.position === position + 1, `${work.canonId} 导航顺序不连续`);
     const folioBytes = await readFile(resolve(outputRoot, navigation.objectKey));
@@ -126,8 +126,8 @@ for (const work of releaseManifest.expressions) {
     requireValue(folio.segments.length > 0, `${navigation.key} 没有正文行段`);
 
     for (const segment of folio.segments) {
-      requireValue(!stableIds.has(segment.id), `稳定行号重复：${segment.id}`);
-      stableIds.add(segment.id);
+      requireValue(!expressionStableIds.has(segment.id), `稳定行号重复：${work.canonId} ${segment.id}`);
+      expressionStableIds.add(segment.id);
       requireValue(segment.juan === navigation.juan, `${segment.id} 卷号与版页不一致`);
       requireValue(segment.page === (navigation.sourcePage ?? navigation.label), `${segment.id} 页码与导航不一致`);
       if ((sourceFile.parser ?? "cbeta_tei") === "bilara_root_json") {
