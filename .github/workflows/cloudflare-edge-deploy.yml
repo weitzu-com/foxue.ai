@@ -1,0 +1,104 @@
+name: Deploy verified corpus edge Worker
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type deploy-foxue-corpus-edge to deploy the Worker against the current immutable release
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-r2-corpus-release
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Require explicit production confirmation
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: |
+          set -Eeuo pipefail
+          if [[ "$CONFIRMATION" != "deploy-foxue-corpus-edge" ]]; then
+            echo "Production confirmation did not match" >&2
+            exit 1
+          fi
+          for name in CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Required secret is missing: $name" >&2
+              exit 1
+            fi
+          done
+
+      - name: Check out the verified revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up pnpm
+        uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Verify the Worker package
+        run: pnpm cloudflare:types:check && pnpm cloudflare:check
+
+      - name: Resolve the current immutable release pointer
+        id: release
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          curl -fsS --retry 3 https://canon.foxue.ai/v1/latest.json -o /tmp/foxue-corpus-latest.json
+          release_id="$(jq -r '.releaseId' /tmp/foxue-corpus-latest.json)"
+          manifest_sha="$(jq -r '.manifestSha256' /tmp/foxue-corpus-latest.json)"
+          if [[ ! "$release_id" =~ ^[a-z0-9][a-z0-9.-]{0,95}$ ]]; then
+            echo "Current release id is invalid" >&2
+            exit 1
+          fi
+          if [[ ! "$manifest_sha" =~ ^[a-f0-9]{64}$ ]]; then
+            echo "Current manifest hash is invalid" >&2
+            exit 1
+          fi
+          {
+            echo "id=$release_id"
+            echo "manifest_sha=$manifest_sha"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Deploy the R2-bound read-only Worker
+        env:
+          RELEASE_ID: ${{ steps.release.outputs.id }}
+          RELEASE_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
+        run: |
+          pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc \
+            --var "RELEASE_ID:$RELEASE_ID" \
+            --var "RELEASE_MANIFEST_SHA256:$RELEASE_MANIFEST_SHA256"
+
+      - name: Prove production readiness from the public Internet
+        env:
+          EXPECTED_RELEASE_ID: ${{ steps.release.outputs.id }}
+          EXPECTED_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
+          REQUIRE_READY: "true"
+        run: |
+          set -Eeuo pipefail
+          deadline=$((SECONDS + 180))
+          attempt=0
+          until node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai; do
+            attempt=$((attempt + 1))
+            if (( SECONDS >= deadline )); then
+              echo "Cloudflare custom-domain propagation did not pass public verification within 180 seconds." >&2
+              exit 1
+            fi
+            echo "Edge deployment has not propagated yet; retrying in 5 seconds (attempt $attempt)." >&2
+            sleep 5
+          done
