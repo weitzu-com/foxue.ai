@@ -179,6 +179,12 @@ export async function loadWorkCatalogShardForTrace(id: number): Promise<unknown>
       return import("@/data/corpus-work-catalog-chunks/87.json");
     case 88:
       return import("@/data/corpus-work-catalog-chunks/88.json");
+    case 89:
+      return import("@/data/corpus-work-catalog-chunks/89.json");
+    case 90:
+      return import("@/data/corpus-work-catalog-chunks/90.json");
+    case 91:
+      return import("@/data/corpus-work-catalog-chunks/91.json");
     default:
       return null;
   }

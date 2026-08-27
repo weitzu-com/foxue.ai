@@ -10,6 +10,7 @@ export const libraryFilters = [
   { id: "chinese", label: "汉文" },
   { id: "tibetan", label: "藏文" },
   { id: "pali", label: "巴利" },
+  { id: "english", label: "英文" },
   { id: "indic", label: "梵文与俗语" },
 ] as const;
 
@@ -24,6 +25,7 @@ function belongsTo(sutra: Sutra, filter: LibraryFilterId) {
   if (filter === "all") return true;
   if (filter === "tibetan") return sutra.readerMode === "derge-folio";
   if (filter === "pali") return sutra.language.includes("巴利");
+  if (filter === "english") return sutra.language.includes("英");
   if (filter === "indic") return sutra.language.startsWith("梵") || sutra.language.includes("俗语");
   return isChineseLibraryLanguage(sutra.language);
 }

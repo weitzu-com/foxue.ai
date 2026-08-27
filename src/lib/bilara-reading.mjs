@@ -1,7 +1,8 @@
-const RANGE_FILE = /^dhp(\d+)-(\d+)_root-pli-ms\.json$/;
+const RANGE_FILE = /^dhp(\d+)-(\d+)_(?:root-pli-ms|translation-en-sujato)\.json$/;
 const SEGMENT_ID = /^dhp(\d+):(\d+(?:\.\d+)?)$/;
-const SINGLE_SUTTA_FILE = /^((?:dn|mn)\d+)_root-pli-ms\.json$/;
-const GROUPED_NIKAYA_FILE = /^(sn|an)(\d+)\.(\d+)(?:-(\d+))?_root-pli-ms\.json$/;
+const SINGLE_SUTTA_FILE = /^((?:dn|mn)\d+)_(?:root-pli-ms|translation-en-sujato)\.json$/;
+const GROUPED_NIKAYA_FILE = /^(sn|an)(\d+)\.(\d+)(?:-(\d+))?_(?:root-pli-ms|translation-en-sujato)\.json$/;
+const TRANSLATION_FILE = /_translation-en-sujato\.json$/;
 const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
@@ -16,11 +17,19 @@ function renderEditorialMarkup(text, filename) {
     .replace(/<supplied>(.*?)<\/supplied>/gs, "[$1]")
     .replace(/<unclear>(.*?)<\/unclear>/gs, "⟨$1?⟩")
     .replace(/<i\b[^>]*>(.*?)<\/i>/gs, "$1")
+    .replace(/<em\b[^>]*>(.*?)<\/em>/gs, "$1")
+    .replace(/<a\b[^>]*>(.*?)<\/a>/gs, "$1")
+    .replace(/<\/?j\b[^>]*>/g, "")
     .trim();
   if (/<\/?[a-z][^>]*>/i.test(rendered)) {
     throw new Error(`${filename} 含未处理的编辑标记`);
   }
   return rendered;
+}
+
+function normalizeBilaraText(text, filename) {
+  if (TRANSLATION_FILE.test(filename)) return renderEditorialMarkup(text, filename);
+  return text.trim();
 }
 
 export function parseBilaraDhammapadaSources(sources) {
@@ -59,8 +68,11 @@ export function parseBilaraDhammapadaSources(sources) {
       const verse = Number(match[1]);
       if (verse < start || verse > end) throw new Error(`${id} 超出来源分片范围`);
       if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
-      if (typeof rawText !== "string" || rawText.trim().length === 0) {
-        throw new Error(`${id} 缺少文本`);
+      const text = typeof rawText === "string" ? normalizeBilaraText(rawText, filename) : "";
+      if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
+      if (!text) {
+        if (!TRANSLATION_FILE.test(filename)) throw new Error(`${id} 缺少文本`);
+        continue;
       }
       stableIds.add(id);
       seenVerses.add(verse);
@@ -69,7 +81,7 @@ export function parseBilaraDhammapadaSources(sources) {
       if (!readingRange) throw new Error(`${id} 缺少阅读页范围`);
       segments.push({
         id,
-        text: rawText.trim(),
+        text,
         juan,
         page: `dhp${readingRange[0]}-${readingRange[1]}`,
         sourceLine: match[2],
@@ -119,16 +131,24 @@ export function parseBilaraSuttaSource(source, options = {}) {
   }
 
   const stableIds = new Set();
-  const parsed = entries.map(([id, rawText], index) => {
+  const omittedEmptySegmentIds = [];
+  const omitEmpty = TRANSLATION_FILE.test(filename) || options.omitEmptySegments === true;
+  const parsed = [];
+  for (const [id, rawText] of entries) {
     const match = id.match(new RegExp(`^${suttaId}:(\\d+(?:[.-]\\d+)*)$`));
     if (!match) throw new Error(`${filename} 含无效原生段落标识 ${id}`);
     if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
-    if (typeof rawText !== "string" || rawText.trim().length === 0) {
-      throw new Error(`${id} 缺少文本`);
-    }
+    if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
+    const text = normalizeBilaraText(rawText, filename);
     stableIds.add(id);
-    return { id, text: rawText.trim(), sourceLine: match[1], ordinal: index + 1 };
-  });
+    if (!text) {
+      if (!omitEmpty) throw new Error(`${id} 缺少文本`);
+      omittedEmptySegmentIds.push(id);
+      continue;
+    }
+    parsed.push({ id, text, sourceLine: match[1], ordinal: parsed.length + 1 });
+  }
+  if (parsed.length === 0) throw new Error(`${filename} 没有可读段落`);
 
   const segments = [];
   const navigation = [];
@@ -158,7 +178,7 @@ export function parseBilaraSuttaSource(source, options = {}) {
     });
   }
 
-  return { segments, navigation, title };
+  return { segments, navigation, title, omittedEmptySegmentIds };
 }
 
 export function parseBilaraCollectionSources(sources, options = {}) {
@@ -229,13 +249,14 @@ export function parseBilaraCollectionSources(sources, options = {}) {
       if (stableIds.has(id)) throw new Error(`Bilara 稳定段落标识重复：${id}`);
       if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
       stableIds.add(id);
-      if (!rawText.trim()) {
+      const text = normalizeBilaraText(rawText, filename);
+      if (!text) {
         omittedEmptySegmentIds.push(id);
         continue;
       }
       parsed.push({
         id,
-        text: rawText.trim(),
+        text,
         sourceLine: match[4],
         ordinal: parsed.length + 1,
       });

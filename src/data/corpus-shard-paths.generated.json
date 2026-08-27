@@ -89,7 +89,10 @@
     "src/data/corpus-work-catalog-chunks/85.json",
     "src/data/corpus-work-catalog-chunks/86.json",
     "src/data/corpus-work-catalog-chunks/87.json",
-    "src/data/corpus-work-catalog-chunks/88.json"
+    "src/data/corpus-work-catalog-chunks/88.json",
+    "src/data/corpus-work-catalog-chunks/89.json",
+    "src/data/corpus-work-catalog-chunks/90.json",
+    "src/data/corpus-work-catalog-chunks/91.json"
   ],
   "locator": [
     "src/data/corpus-folio-locator-chunks/0.json",
@@ -121,6 +124,8 @@
     "src/data/corpus-folio-locator-chunks/26.json",
     "src/data/corpus-folio-locator-chunks/27.json",
     "src/data/corpus-folio-locator-chunks/28.json",
-    "src/data/corpus-folio-locator-chunks/29.json"
+    "src/data/corpus-folio-locator-chunks/29.json",
+    "src/data/corpus-folio-locator-chunks/30.json",
+    "src/data/corpus-folio-locator-chunks/31.json"
   ]
 }

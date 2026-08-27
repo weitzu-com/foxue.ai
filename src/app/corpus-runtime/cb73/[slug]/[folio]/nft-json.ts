@@ -3,30 +3,32 @@ export async function includeCorpusBucketJson(kind: string): Promise<unknown> {
   switch (kind) {
     case "locator:10":
       return import("@/data/corpus-folio-locator-chunks/10.json");
-    case "locator:21":
-      return import("@/data/corpus-folio-locator-chunks/21.json");
-    case "locator:25":
-      return import("@/data/corpus-folio-locator-chunks/25.json");
-    case "locator:27":
-      return import("@/data/corpus-folio-locator-chunks/27.json");
+    case "locator:22":
+      return import("@/data/corpus-folio-locator-chunks/22.json");
+    case "locator:26":
+      return import("@/data/corpus-folio-locator-chunks/26.json");
     case "locator:29":
       return import("@/data/corpus-folio-locator-chunks/29.json");
+    case "locator:30":
+      return import("@/data/corpus-folio-locator-chunks/30.json");
+    case "locator:31":
+      return import("@/data/corpus-folio-locator-chunks/31.json");
     case "catalog:26":
       return import("@/data/corpus-work-catalog-chunks/26.json");
-    case "catalog:55":
-      return import("@/data/corpus-work-catalog-chunks/55.json");
-    case "catalog:66":
-      return import("@/data/corpus-work-catalog-chunks/66.json");
-    case "catalog:72":
-      return import("@/data/corpus-work-catalog-chunks/72.json");
+    case "catalog:56":
+      return import("@/data/corpus-work-catalog-chunks/56.json");
+    case "catalog:68":
+      return import("@/data/corpus-work-catalog-chunks/68.json");
     case "catalog:74":
       return import("@/data/corpus-work-catalog-chunks/74.json");
-    case "catalog:78":
-      return import("@/data/corpus-work-catalog-chunks/78.json");
+    case "catalog:76":
+      return import("@/data/corpus-work-catalog-chunks/76.json");
     case "catalog:80":
       return import("@/data/corpus-work-catalog-chunks/80.json");
     case "catalog:82":
       return import("@/data/corpus-work-catalog-chunks/82.json");
+    case "catalog:84":
+      return import("@/data/corpus-work-catalog-chunks/84.json");
     default:
       return null;
   }

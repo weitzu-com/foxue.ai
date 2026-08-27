@@ -1,0 +1,107 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/suttacentral-sujato-en-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-27",
+  "cut": "first_principles_sujato_cc0_english",
+  "ingest": {
+    "title": "Bhikkhu Sujato CC0 English Nikāya translations",
+    "translator": "Bhikkhu Sujato",
+    "source": "SuttaCentral / Bilara published snapshot",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "publicationNumbers": [
+      "scpub2",
+      "scpub3",
+      "scpub4",
+      "scpub5",
+      "scpub7"
+    ],
+    "newWorks": 0,
+    "newExpressions": 254,
+    "completeTexts": 254,
+    "sourceRecords": 3439,
+    "attachedExistingWorks": 254,
+    "collections": {
+      "dn": {
+        "expressions": 34,
+        "sourceRecords": 34,
+        "publication": "scpub2"
+      },
+      "mn": {
+        "expressions": 152,
+        "sourceRecords": 152,
+        "publication": "scpub3"
+      },
+      "sn": {
+        "expressions": 56,
+        "sourceRecords": 1819,
+        "publication": "scpub4"
+      },
+      "an": {
+        "expressions": 11,
+        "sourceRecords": 1408,
+        "publication": "scpub5"
+      },
+      "dhp": {
+        "expressions": 1,
+        "sourceRecords": 26,
+        "publication": "scpub7",
+        "workId": "gbcr:work:dhammapada-pali"
+      }
+    },
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "filesApprovedForModelTraining": 0,
+    "mapping": "Each Sujato file attaches to the already-registered Pali work of the same SuttaCentral uid. SN/AN stay grouped as 56+11 works. Dhp English attaches to gbcr:work:dhammapada-pali, the same work-family as the 1918 國譯法句經.",
+    "rights": {
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "quotedFromLicenseMd": "All translations created in Bilara and supported by SuttaCentral are dedicated to the Public Domain by means of the Creative Commons Public Domain (CC0) license.",
+      "attribution": "Bhikkhu Sujato, SuttaCentral / Bilara published snapshot",
+      "training": "SuttaCentral asks that its data not be used for generative-model training. Display/retrieval on foxue.ai is allowed. filesApprovedForModelTraining remains 0."
+    }
+  },
+  "refusals": [
+    {
+      "id": "dsbc_sanskrit_body",
+      "result": "refused_not_license_clean",
+      "source": "https://www.dsbcproject.org/pages/usage-policy",
+      "quoted": [
+        "These e-texts are provided for review, indexing and word search purposes only.",
+        "Reproduction of DSBC contents without permission is prohibited."
+      ],
+      "note": "The 2026-08 report claimed DSBC is license-clean / direct ingest. That claim is false. University of the West holds rights in compilation, indexing, and transliteration. This cut does not ingest DSBC bodies."
+    },
+    {
+      "id": "gretil_mirror",
+      "result": "already_zero_mirror_still_refused",
+      "note": "GRETIL remains 0-mirror in site GBCR. This cut does not start a GRETIL body ingest."
+    },
+    {
+      "id": "brahmali_vinaya",
+      "result": "skipped_not_fosuo_jing_this_cut",
+      "publication": "scpub8",
+      "note": "Bhikkhu Brahmali Vinaya is 律, not 佛说经 this cut."
+    },
+    {
+      "id": "legacy_suttacentral_mixed_license_translations",
+      "result": "skipped_not_cc0_sujato_publication",
+      "note": "Only Bilara translation/en/sujato files whose publication record is CC0 / sujato are ingested. Legacy SC translations with mixed licenses are not imported."
+    },
+    {
+      "id": "sujato_kn_beyond_dhammapada",
+      "result": "ledgered_next_cut",
+      "note": "Held KN Sujato books beyond Dhp (iti, snp, ud, kp, cp) remain for a later cut. thag/thig are sujato-walton collaborations and stay out. ja is incomplete in this snapshot."
+    },
+    {
+      "id": "dual_human_review",
+      "result": "left_zero",
+      "note": "Dual-human review stays 0/80. This cut is a code ingest, not a staffing change."
+    },
+    {
+      "id": "global_coverage_claim",
+      "result": "left_null",
+      "note": "Do not claim 99.9%. Global coverage percent stays null."
+    }
+  ],
+  "caveat": "本总帐只证明 254 份 Sujato CC0 英译被挂接为既有巴利作品的新表达。它不构成全球佛陀亲说覆盖率，也不批准把 SuttaCentral 文本用于生成式模型训练。"
+}
