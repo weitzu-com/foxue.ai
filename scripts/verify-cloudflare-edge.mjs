@@ -4,6 +4,7 @@ const edgeBase = new URL(process.argv[2] ?? "https://canon.foxue.ai");
 const expectedReleaseId = process.env.EXPECTED_RELEASE_ID;
 const expectedManifestSha256 = process.env.EXPECTED_MANIFEST_SHA256;
 const requireReady = process.env.REQUIRE_READY === "true";
+const requireMullerIndex = process.env.REQUIRE_MULLER_INDEX === "true";
 const failures = [];
 const successes = [];
 
@@ -202,7 +203,7 @@ if (manifestPath && health) {
   }
 }
 
-if (health?.body?.releaseId) {
+if (requireMullerIndex && health?.body?.releaseId) {
   const mullerIndexPath =
     `/v1/releases/${health.body.releaseId}/works/WIKISOURCE-DHP-MULLER-1881/index.json`;
   const mullerIndex = await request(mullerIndexPath, { method: "HEAD" });

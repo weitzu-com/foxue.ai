@@ -89,6 +89,7 @@ jobs:
           EXPECTED_RELEASE_ID: ${{ steps.release.outputs.id }}
           EXPECTED_MANIFEST_SHA256: ${{ steps.release.outputs.manifest_sha }}
           REQUIRE_READY: "true"
+          REQUIRE_MULLER_INDEX: "true"
         run: |
           set -Eeuo pipefail
           deadline=$((SECONDS + 180))
