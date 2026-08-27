@@ -45,6 +45,8 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/gainian",
+  "/xue",
+  "/xue/faju",
   "/xue/xinjing",
   "/gainian/kong",
   "/gainian/wuchang",
@@ -110,6 +112,8 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/gainian",
+  "/xue",
+  "/xue/faju",
   "/xue/xinjing",
   "/gainian/kong",
   "/gainian/wuchang",
@@ -140,6 +144,8 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
 
 test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
@@ -177,6 +183,8 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
   const cases = [
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
+    ["/xue", "https://www.foxue.ai/xue"],
+    ["/xue/faju", "https://www.foxue.ai/xue/faju"],
     ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
     ["/gainian", "https://www.foxue.ai/gainian"],
     ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
@@ -295,6 +303,21 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/wenjing#page", "WebPage"],
         ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue",
+      required: [
+        ["https://www.foxue.ai/xue#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/faju",
+      required: [
+        ["https://www.foxue.ai/xue/faju#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/faju#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/faju#source-dossier", "LearningResource"],
       ],
     },
     {
@@ -480,6 +503,61 @@ test("心经七日学习路径可访问并只在本地保存进度", async ({ pa
 
   const stored = await page.evaluate(() => window.localStorage.getItem("foxue:xinjing-seven-day-progress:v1"));
   expect(stored).toContain('"1":"completed"');
+});
+
+test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
+  await page.goto("/xue");
+
+  await expect(page.getByRole("heading", { level: 1, name: /读经.*不是更快地.*得到一个结论/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "你不必先成为专家，才能认真读经。" })).toBeVisible();
+  await expect(page.getByText("佛教徒 · 日常静读", { exact: true })).toBeVisible();
+  await expect(page.getByText("爱好者 · 理解脉络", { exact: true })).toBeVisible();
+  await expect(page.getByText("研究者 · 可复核引用", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
+  await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
+  await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(390);
+});
+
+test("法句三源档案保留稳定引文与比较边界", async ({ page, request }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/xue/faju");
+
+  await expect(page.getByRole("heading", { level: 1, name: /同一句熟悉的话.*三份原文.*各自站稳/ })).toBeVisible();
+  await expect(page.getByText("《法句经》双要品", { exact: true })).toBeVisible();
+  await expect(page.getByText("即言即行，罪苦自追，車轢于轍；", { exact: true })).toBeVisible();
+  await expect(page.getByText("Yamakavagga", { exact: true })).toBeVisible();
+  await expect(page.getByText("The Dhammapada", { exact: true })).toBeVisible();
+
+  await expect(page.locator('a[href="/jingzang/fajujing/001-0562a#T0210.001.0562a13"]'))
+    .toContainText("T0210.001.0562a13–14");
+  await expect(page.locator('a[href="/jingzang/dhammapada-pali/001-dhp1-20#dhp1:1"]'))
+    .toContainText("dhp1:1–6");
+  await expect(page.locator('a[href="/jingzang/wikisource-en-dhp-muller/001-c01#WIKISOURCE-DHP-MULLER-1881.001.s0000000100"]'))
+    .toContainText("WIKISOURCE-DHP-MULLER-1881.001.s0000000100");
+  await expect(page.getByText("相近，不等于相同。", { exact: true })).toBeVisible();
+  await expect(page.getByText(/不发布未经人工校勘的逐词或逐偈对齐结论/)).toBeVisible();
+  await expect(page.getByText(/尚未标注外部具名佛学审校/)).toBeVisible();
+
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(390);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+
+  const sitemap = await request.get("/sitemap-hubs.xml");
+  expect(sitemap.ok()).toBeTruthy();
+  const body = await sitemap.text();
+  expect(body).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(body).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
 });
 
 test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {

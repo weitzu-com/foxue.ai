@@ -5,6 +5,11 @@ import { siteOrigin } from "@/lib/site-metadata";
 
 export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitemap-ledger";
 
+// Editorial study pages can ship independently of the large corpus ledger.
+// Keep them in the lightweight hub sitemap without shifting every precomputed
+// corpus shard; a future full corpus rebuild may absorb them into the ledger.
+const editorialHubPaths = ["/xue", "/xue/faju"];
+
 function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
   const url = `${siteOrigin}${path}`;
   if (path === "") {
@@ -40,9 +45,14 @@ export async function getHubSitemap(): Promise<MetadataRoute.Sitemap> {
   const ledger = getSitemapLedger();
   const paths = await loadSitemapChunkPaths(0);
   if (!paths) return [];
-  return paths
+  const generated = paths
     .slice(0, ledger.staticPathCount + ledger.libraryPageCount)
     .map(sitemapEntryForPath);
+  const generatedUrls = new Set(generated.map((entry) => entry.url));
+  const editorial = editorialHubPaths
+    .map(sitemapEntryForPath)
+    .filter((entry) => !generatedUrls.has(entry.url));
+  return [...generated, ...editorial];
 }
 
 export async function getWorkSitemap(): Promise<MetadataRoute.Sitemap> {
