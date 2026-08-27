@@ -45,6 +45,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const derge = sutra.readerMode === "derge-folio";
   const sat = sutra.readerMode === "sat-folio";
   const kokuyaku = sutra.readerMode === "kokuyaku-folio";
+  const englishTranslation = sutra.readerMode === "english-translation-folio";
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const sourceRecordLabel = sutra.status.replace(" · 完整来源记录", "");
   const bilaraCorpusUnit = /律藏|论藏|毗昙/.test(sutra.tradition) ? "全书" : "全经";
@@ -52,6 +53,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
   const url = absoluteUrl(`/jingzang/${sutra.slug}`);
   const schemaLanguage = derge
     ? "bo-Tibt"
+    : englishTranslation
+      ? "en"
     : sutra.language.includes("古汉") || isChineseLibraryLanguage(sutra.language)
       ? "zh-Hant"
       : sutra.language.startsWith("梵")
@@ -117,7 +120,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
         <section className="reader-index-lead">
           <Layers3 aria-hidden="true" />
           <p className="eyebrow">文本目录 · READING EDITION</p>
-          <h2>{landing ? (landing.mode === "full" ? <>先读原文，<br />再按版页引用。</> : <>先读开卷原文，<br />再入其余卷次。</>) : chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : kokuyaku ? <>按品次，<br />展开一部文语国译。</> : sat ? <>按章次，<br />展开一部现代日译。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
+          <h2>{landing ? (landing.mode === "full" ? <>先读原文，<br />再按版页引用。</> : <>先读开卷原文，<br />再入其余卷次。</>) : chaptered ? <>按品次，<br />展开一部经典。</> : bilara ? <>按阅读单元，<br />展开一部文本。</> : derge ? <>按函与木刻版页，<br />展开一部藏文经典。</> : kokuyaku ? <>按品次，<br />展开一部文语国译。</> : englishTranslation ? <>按品次，<br />展开一部公版英译。</> : sat ? <>按章次，<br />展开一部现代日译。</> : <>按卷与版页，<br />展开一部经典。</>}</h2>
           <p>
             {chaptered
               ? "每个阅读页只加载一品或大品的一部分，Bilara 原生段落标识保持可引用。不同传本的对应关系只有通过审核后才会加入。"
@@ -127,6 +130,8 @@ export default async function SutraIndexPage({ params }: PageProps) {
                   ? "每页只加载一个德格木刻版页；藏文 NFD 原样保存，稳定行号同时编码德格目录号、函号、版页、行号与重复序号。"
                   : kokuyaku
                     ? "每页只加载 1918 年公有领域国译的一品。署名 Wikisource、國譯大藏經與立花俊道。国译挂接已持有巴利法句，不另建作品。"
+                  : englishTranslation
+                    ? "每页只加载 1881 年公有领域英译的一品。署名 Wikisource、Sacred Books of the East 与 Friedrich Max Müller。英译挂接已持有巴利法句，不另建作品；结构与锚点已验证，扫描本逐页校勘仍待完成。"
                   : sat
                     ? "每页只加载 SAT 现代日译的一章。CC BY 4.0，署名 SAT大蔵経テキストデータベース研究会与具名译者。日译挂接已持有汉文佛说，不另建作品。"
                 : landing
@@ -136,7 +141,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
                 : `每页只加载一个${folioCollectionLabel(sutra)}版页，稳定行号依然可引用。这使长经也能快速阅读，并为未来数千部经典留出空间。`}
           </p>
           <dl className="reader-index-stats">
-            <div><dt>{chaptered ? "品" : bilara ? "阅读页" : "版页"}</dt><dd>{chaptered ? juanNavigation.length : reading.navigation.length}</dd></div>
+            <div><dt>{chaptered || englishTranslation ? "品" : bilara ? "阅读页" : "版页"}</dt><dd>{chaptered ? juanNavigation.length : reading.navigation.length}</dd></div>
             <div><dt>{bilara ? "稳定段落" : "稳定行段"}</dt><dd>{reading.segmentCount}</dd></div>
           </dl>
           {landing ? (
@@ -155,10 +160,10 @@ export default async function SutraIndexPage({ params }: PageProps) {
           <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">
             <div>
-              <p className="eyebrow">{chaptered ? "品次目录" : bilara ? "阅读目录" : derge ? "函页目录" : "卷页目录"}</p>
-              <h2 id="folio-directory-title">{chaptered ? "二十六品，次第展开" : bilara ? "原生段落，次第展开" : derge ? (multiJuan ? "先选函，再读德格版页" : "德格物理版页") : (multiJuan ? "先选卷，再读版页" : `${folioCollectionLabel(sutra)}物理版页`)}</h2>
+              <p className="eyebrow">{chaptered || englishTranslation ? "品次目录" : bilara ? "阅读目录" : derge ? "函页目录" : "卷页目录"}</p>
+              <h2 id="folio-directory-title">{chaptered || englishTranslation ? "二十六品，次第展开" : bilara ? "原生段落，次第展开" : derge ? (multiJuan ? "先选函，再读德格版页" : "德格物理版页") : (multiJuan ? "先选卷，再读版页" : `${folioCollectionLabel(sutra)}物理版页`)}</h2>
             </div>
-            <span>{chaptered ? `${juanNavigation.length} 品 · 423 偈` : bilara ? `${reading.navigation.length} 阅读页 · ${reading.segmentCount} 段` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
+            <span>{chaptered ? `${juanNavigation.length} 品 · 423 偈` : englishTranslation ? `${reading.navigation.length} 品 · 423 偈` : bilara ? `${reading.navigation.length} 阅读页 · ${reading.segmentCount} 段` : (multiJuan ? `${juanNavigation.length} 卷 · ${reading.navigation.length} 页` : `${reading.navigation.length} 页`)}</span>
           </div>
           {useCompactJuanSelector ? (
             <ReaderJuanSelect
@@ -178,7 +183,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="reader-folio-card__label">
-                      <strong>{chaptered ? `第 ${Number(group.first.juan)} 品` : bilara ? `第 ${Number(group.first.juan)} 阅读页` : derge ? (multiJuan ? `第 ${Number(group.first.juan)} 函` : `德格 ${group.first.label}`) : (multiJuan ? `卷 ${Number(group.first.juan)}` : `${folioCollectionLabel(sutra)} ${group.first.label}`)}</strong>
+                      <strong>{chaptered ? `第 ${Number(group.first.juan)} 品` : englishTranslation ? `第 ${Number(String(group.first.label).replace(/^c/, ""))} 品` : bilara ? `第 ${Number(group.first.juan)} 阅读页` : derge ? (multiJuan ? `第 ${Number(group.first.juan)} 函` : `德格 ${group.first.label}`) : (multiJuan ? `卷 ${Number(group.first.juan)}` : `${folioCollectionLabel(sutra)} ${group.first.label}`)}</strong>
                       <small>
                         {bilara
                           ? group.first.label

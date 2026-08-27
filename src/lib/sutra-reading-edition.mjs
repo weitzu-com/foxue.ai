@@ -111,6 +111,7 @@ export function buildDefaultReadingEdition({
   const derge = readerMode === "derge-folio";
   const sat = readerMode === "sat-folio";
   const kokuyaku = readerMode === "kokuyaku-folio";
+  const englishTranslation = readerMode === "english-translation-folio";
 
   if (chinese && !sat && !derge) {
     const segmentRoles = bilara
@@ -146,11 +147,13 @@ export function buildDefaultReadingEdition({
     };
   }
 
-  const sourceKind = derge ? "derge" : sat ? "sat" : kokuyaku ? "wikisource" : "bilara";
+  const sourceKind = derge ? "derge" : sat ? "sat" : kokuyaku || englishTranslation ? "wikisource" : "bilara";
   const contentLanguage = derge
     ? "bo-Tibt"
     : sat || kokuyaku
       ? "ja"
+      : englishTranslation
+        ? "en"
       : language?.startsWith("梵")
         ? "sa-Latn"
         : language?.includes("俗语")
@@ -162,12 +165,14 @@ export function buildDefaultReadingEdition({
       ? "现代日译"
       : kokuyaku
         ? "文语国译"
+      : englishTranslation
+        ? "公版英译"
       : language?.startsWith("梵")
         ? "梵文原典"
         : language?.includes("俗语")
           ? "俗语原典"
           : "巴利原典";
-  const pageKind = derge ? "德格版页" : sat ? "日译章节" : kokuyaku ? "国译品次" : "稳定分页";
+  const pageKind = derge ? "德格版页" : sat ? "日译章节" : kokuyaku ? "国译品次" : englishTranslation ? "英译品次" : "稳定分页";
 
   return {
     annotationMode: "plain",
@@ -184,6 +189,8 @@ export function buildDefaultReadingEdition({
         ? `当前为 ${folioLabel} 章节。现代日译原文与 SAT 来源署名保持不变。`
         : kokuyaku
           ? `当前为 ${folioLabel} 品次。1918 年文语国译与 Wikisource 来源署名保持不变。`
+        : englishTranslation
+          ? `当前为 ${folioLabel} 品次。1881 年公版英译、译者责任与 Wikisource 来源署名保持不变。`
         : `当前为 ${folioLabel} 阅读页。保留原文、原生次序与 Bilara 稳定段落标识，不加入未经审核的机器译文。`,
     closingMark: hasNext ? "下页续读" : "全经读毕",
     segmentRoles: bilara ? inferBilaraSegmentRoles({ segments }) : {},

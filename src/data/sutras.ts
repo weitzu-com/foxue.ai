@@ -3,6 +3,7 @@ import nanchuanCatalog from "../../data/corpus/cbeta/nanchuan-catalog-v1.0.0.jso
 import beyondTaishoSutraCatalog from "../../data/corpus/cbeta/beyond-taisho-sutra-catalog-v1.0.0.json";
 import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-catalog-v1.0.0.json";
 import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
+import wikisourceMullerDhpCatalog from "../../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -40,8 +41,8 @@ export type Sutra = {
   sourceLicense: string;
   bibliographicNote?: string;
   attributionNote?: string;
-  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "完整原文 · 现代日译" | "完整原文 · 文语国译" | "目录样本";
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio";
+  status: "完整原文 · 行段试行" | "节译见证 · 完整来源记录" | "局部见证 · 完整来源记录" | "后分见证 · 完整来源记录" | "节本见证 · 完整来源记录" | "短本见证 · 完整来源记录" | "残篇候选 · 完整来源记录" | "残存旧译见证 · 完整来源记录" | "合部见证 · 完整原文" | "完整原文 · 原生段落" | "完整原文 · 德格版页" | "完整原文 · 现代日译" | "完整原文 · 文语国译" | "完整原文 · 公版英译" | "目录样本";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio" | "english-translation-folio";
   segments: SutraSegment[];
 };
 
@@ -60,6 +61,7 @@ export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
   if (sutra.slug.startsWith("fangshan-") || /房山/.test(sutra.canonRef)) return "房山石經";
   if (sutra.slug.startsWith("sat-ja-") || /SAT現代日本語訳|SAT 現代日本語訳/.test(sutra.canonRef)) return "SAT日譯";
   if (sutra.slug.startsWith("wikisource-ja-") || /國譯法句經|国译法句经/.test(sutra.canonRef)) return "國譯";
+  if (sutra.slug.startsWith("wikisource-en-") || /Sacred Books of the East/.test(sutra.canonRef)) return "英譯";
   return "大正藏";
 }
 
@@ -383,10 +385,13 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "kokuyaku_japanese_translation_expression") {
     return "1918 年公有领域文语国译；挂接已持有巴利法句，不另建作品，也不把国译等同佛陀逐字亲说。署名 Wikisource、1918 年國譯大藏經與譯者立花俊道。汉译 T210 只记家族平行，不逐偈对齐。";
   }
+  if (file.sourceRole === "public_domain_english_translation_expression") {
+    return "1881 年公有领域英译；挂接已持有巴利法句，不另建作品，也不把英译等同佛陀逐字亲说。署名 Wikisource、Sacred Books of the East 与译者 Friedrich Max Müller。结构与锚点已验证，扫描本逐页校勘仍待完成；汉译 T210 只记家族平行，不逐偈对齐。";
+  }
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...wikisourceMullerDhpCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,
@@ -398,10 +403,14 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
     summary: file.presentation.summary,
     sourceName: file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "Wikisource 國譯法句經"
+      : file.sourceRole === "public_domain_english_translation_expression"
+      ? "Wikisource · Sacred Books of the East"
       : file.parser === "sat_tei" ? "SAT現代日本語訳仏典" : "CBETA Online",
     sourceUrl: file.presentation.sourceUrl,
     sourceLicense: file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "公有领域；署名 Wikisource、1918 年國譯大藏經與立花俊道"
+      : file.sourceRole === "public_domain_english_translation_expression"
+      ? "公有领域；署名 Wikisource、1881 年 Sacred Books of the East 与 Friedrich Max Müller"
       : file.parser === "sat_tei"
       ? "CC BY 4.0；保留 SAT 研究会与具名译者署名"
       : "CBETA 授權條款；古典原文",
@@ -411,9 +420,13 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
     attributionNote: cbetaAttributionNote(file),
     readerMode: file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "kokuyaku-folio" as const
+      : file.sourceRole === "public_domain_english_translation_expression"
+      ? "english-translation-folio" as const
       : file.parser === "sat_tei" ? "sat-folio" as const : undefined,
     status: file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "完整原文 · 文语国译"
+      : file.sourceRole === "public_domain_english_translation_expression"
+      ? "完整原文 · 公版英译"
       : file.parser === "sat_tei"
       ? "完整原文 · 现代日译"
       : file.completeness === "complete_source_file_partial_work_witness"

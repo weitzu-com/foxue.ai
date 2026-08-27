@@ -76,6 +76,8 @@ const criticalRoutes = [
   "/jingzang/taisho-t1579/100-0882a",
   "/jingzang/taisho-t1583/001-1013c",
   "/jingzang/dhammapada-pali/001-dhp1-20",
+  "/jingzang/wikisource-en-dhp-muller",
+  "/jingzang/wikisource-en-dhp-muller/001-c01",
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
   "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
@@ -687,7 +689,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/3882 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/3883 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -891,7 +893,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.22.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.23.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -910,10 +912,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3396,
-    registeredExpressions: 3928,
+    registeredExpressions: 3929,
     fullSourceTextWorks: 3369,
-    fullSourceTextExpressions: 3882,
-    stableSegments: 5818816,
+    fullSourceTextExpressions: 3883,
+    stableSegments: 5819230,
     structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -1678,7 +1680,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.22.0.json"),
+    registry: expect.stringContaining("registry-v6.23.0.json"),
     sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
     chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
     chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
@@ -1687,6 +1689,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     eastAsianTranslationRefusal: expect.stringContaining("east-asian-translation-refusal-v1.0.0.json"),
     wikisourceKokuyakuDhpIngest: expect.stringContaining("wikisource-kokuyaku-dhp-ingest-v1.0.0.json"),
     wikisourceKokuyakuDhpBoundaryAudit: expect.stringContaining("kokuyaku-dhp-batch-v1.0.0.json"),
+    wikisourceMullerDhpIngest: expect.stringContaining("wikisource-muller-dhp-ingest-v1.0.0.json"),
+    wikisourceMullerDhpBoundaryAudit: expect.stringContaining("muller-dhp-batch-v1.0.0.json"),
     globalDenominatorHuman: "https://www.foxue.ai/fenmu",
     globalDenominatorStandard: expect.stringContaining("global-denominator-standard-v0.1.0.json"),
     globalDenominatorSourceUniverse: expect.stringContaining("global-denominator-source-universe-v0.1.0.json"),
@@ -4339,6 +4343,29 @@ test("巴利法句经保留二十六品与 Bilara 原生稳定段落", async ({ 
   expect((await chapter.body()).byteLength).toBeLessThan(300_000);
   const sitemap = await readSitemaps(request);
   expect(sitemap).toContain("/jingzang/dhammapada-pali/026-dhp410-423");
+});
+
+test("1881 年公版英文法句经完整生成二十六品并保留稳定锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/wikisource-en-dhp-muller");
+  await expect(page.getByRole("heading", { level: 1, name: "The Dhammapada (Max Müller, 1881)" })).toBeVisible();
+  await expect(page.getByText("26 品 · 423 偈")).toBeVisible();
+  await expect(page.getByText(/扫描本逐页校勘仍待完成/).first()).toBeVisible();
+
+  await page.goto("/jingzang/wikisource-en-dhp-muller/001-c01");
+  await expect(page.locator('[id="WIKISOURCE-DHP-MULLER-1881.001.s0000000100"]')).toContainText(
+    "All that we are is the result of what we have thought",
+  );
+  await expect(page.getByText(/完整公版英译 · 分品阅读/)).toBeVisible();
+
+  await page.goto("/jingzang/wikisource-en-dhp-muller/001-c26");
+  await expect(page.locator('[id="WIKISOURCE-DHP-MULLER-1881.001.s0000041400"]')).toContainText(
+    "Him I call indeed a Brahmana",
+  );
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller");
+  expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c01");
+  expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c26");
 });
 
 test("巴利长部三十四经保留 Bilara 原生锚点并受控分页", async ({ page, request }) => {

@@ -1,0 +1,143 @@
+{
+  "schema": "https://foxue.ai/schemas/wikisource-muller-dhp-batch-v1.0",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-27",
+  "collection": "Wikisource Max Müller Dhammapada 1881",
+  "rightsCategory": "Public-domain English translation of the Pāli Dhammapada, published 1881; translator died 1900",
+  "upstreamRevisions": {
+    "work": {
+      "title": "Dhammapada (Muller)",
+      "pageid": 3444,
+      "revid": 15504575,
+      "sha1": "3296d567320d2961361b186b431751ddfd1785f8",
+      "timestamp": "2025-11-09T18:20:00Z"
+    },
+    "index": {
+      "title": "Index:Sacred Books of the East - Volume 10.djvu",
+      "pageid": 1040717,
+      "revid": 16091006,
+      "sha1": "6447149f17b781255129971e37c03209a24d2327",
+      "timestamp": "2026-07-07T07:32:10Z"
+    },
+    "author": {
+      "title": "Author:Friedrich Max Müller",
+      "pageid": 1156461,
+      "revid": 15504568,
+      "sha1": "67fa342127520e6bfd3c6e4d375c0d92ea0f6cfe",
+      "timestamp": "2025-11-09T18:17:31Z"
+    }
+  },
+  "rightsDecision": {
+    "status": "approved_public_domain_with_attribution",
+    "commercialUse": "allowed_public_domain",
+    "redistribution": "allowed",
+    "workCategory": "Category:PD-old",
+    "authorCategory": "Category:Author-PD-old",
+    "publicationYear": 1881,
+    "translatorDeathYear": 1900,
+    "attribution": "Wikisource + Sacred Books of the East Volume X (Clarendon Press, 1881) + translator Friedrich Max Müller",
+    "reviewedAt": "2026-08-27",
+    "note": "The complete Wikisource transcription is structurally verified. Its own quality category says it still needs migration to scans, so the platform does not claim scan collation or human sample verification."
+  },
+  "files": [
+    {
+      "id": "WIKISOURCE-DHP-MULLER-1881",
+      "slug": "wikisource-en-dhp-muller",
+      "workId": "gbcr:work:dhammapada-pali",
+      "workTitle": "Dhammapada",
+      "attachToExistingWork": true,
+      "sourceRole": "public_domain_english_translation_expression",
+      "canonicalStatus": "pali_dhammapada_english_translation",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "wikisource-en-dhp-muller",
+          "label": "Müller English Dhammapada / Pāli Dhammapada",
+          "evidence": "The 1881 title page identifies Max Müller’s work as a translation from Pāli of the 423-verse Dhammapada. It attaches to gbcr:work:dhammapada-pali, creates no new work, and is not represented as the Buddha’s verbatim English speech.",
+          "externalIds": {
+            "wikisource": [
+              "Dhammapada (Muller)"
+            ],
+            "suttacentral": [
+              "dhp"
+            ],
+            "translator": [
+              "Friedrich Max Müller"
+            ]
+          }
+        },
+        {
+          "type": "related_recension_parallel_not_aligned",
+          "groupId": "dhammapada-family-t0210",
+          "label": "Dhammapada textual family / T210 parallel",
+          "evidence": "Chinese T210 and Pāli Dhp remain distinct works in gbcr:text-family:dhammapada. This expression is not aligned verse-by-verse to T210 and does not merge the recensions.",
+          "externalIds": {
+            "cbeta": [
+              "T0210"
+            ],
+            "suttacentral": [
+              "dhp"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "wikisource": "Dhammapada (Muller)",
+        "suttacentral": "dhp",
+        "translator": "Friedrich Max Müller",
+        "year": "1881",
+        "parallelWorkId": "gbcr:work:dharmapada-t0210"
+      },
+      "localPath": "data/corpus/wikisource/muller-dhp-1881.xml",
+      "upstreamPath": "Dhammapada (Muller)",
+      "upstreamUrl": "https://en.wikisource.org/wiki/Dhammapada_(Muller)",
+      "upstreamBytes": 77304,
+      "upstreamSha256": "d893d0aae1a4780f056d8cc400f3bbc6ea27402dcaa90b9b51dcb560518334ac",
+      "localBytes": 82335,
+      "localSha256": "60b6c31f57c3beb3585a8d83cb3775dd42fff3a21c5b8ddcb3579e079730f784",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "The Dhammapada (Max Müller, 1881)",
+        "alternateTitle": "法句经 · 英译",
+        "tradition": "Theravāda Buddhism · Khuddaka Nikāya",
+        "language": "English",
+        "canonRef": "Wikisource · Sacred Books of the East, Vol. X · 1881",
+        "translator": "Friedrich Max Müller",
+        "summary": "A public-domain 1881 English translation of the 423-verse Pāli Dhammapada. It is attached to the existing Pāli work and does not create a new canonical work. Structure is verified; scan collation remains pending.",
+        "sourceUrl": "https://en.wikisource.org/wiki/Dhammapada_(Muller)"
+      },
+      "verification": {
+        "segments": 414,
+        "folios": 26,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "WIKISOURCE-DHP-MULLER-1881.001.s0000000100",
+          "WIKISOURCE-DHP-MULLER-1881.001.s0000041400"
+        ],
+        "verseCount": 423,
+        "chapterCount": 26,
+        "groupedVerseSegments": 9,
+        "upstreamChapterMetadataDefects": 41,
+        "humanSampleVerified": false,
+        "scanCollated": false
+      }
+    }
+  ],
+  "collectionTotals": {
+    "newWorks": 0,
+    "attachedExistingWorks": 1,
+    "newExpressions": 1,
+    "newStableSegments": 414,
+    "newFolios": 26,
+    "workCountingDecision": "The English translation attaches to the existing Pāli Dhammapada work. It does not increase the global Buddhist-work denominator or make a global coverage claim."
+  }
+}

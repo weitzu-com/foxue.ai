@@ -298,15 +298,18 @@ export function SutraReadingSample({
   const isCbeta = edition.sourceKind === "cbeta";
   const isDerge = edition.sourceKind === "derge";
   const isSat = edition.sourceKind === "sat";
-  const isKokuyaku = edition.sourceKind === "wikisource";
-  const segmentUnit = isCbeta || isDerge || isSat || isKokuyaku ? "行" : "段";
-  const stableSegmentUnit = isCbeta || isDerge || isSat || isKokuyaku ? "行段" : "段落";
+  const isKokuyaku = edition.sourceKind === "wikisource" && edition.contentLanguage === "ja";
+  const isEnglishWikisource = edition.sourceKind === "wikisource" && edition.contentLanguage === "en";
+  const segmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行" : "段";
+  const stableSegmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行段" : "段落";
   const textLanguageLabel = isPinyin
     ? "汉文"
     : isDerge
       ? "藏文"
       : isSat || isKokuyaku
         ? "日文"
+        : isEnglishWikisource
+          ? "英文"
         : edition.contentLanguage === "sa-Latn"
           ? "梵文"
           : edition.contentLanguage === "pra-Latn"
@@ -318,6 +321,8 @@ export function SutraReadingSample({
       ? "德格版页"
       : isSat || isKokuyaku
         ? "当前章节"
+        : isEnglishWikisource
+          ? "当前品次"
         : "当前阅读页";
   const plainNotice = isDerge
     ? {
@@ -333,6 +338,11 @@ export function SutraReadingSample({
         ? {
             title: "忠实保留文语国译。",
             body: "1918 年国译品次、责任署名与公有领域来源边界保持不变。",
+          }
+      : isEnglishWikisource
+        ? {
+            title: "忠实保留公版英译。",
+            body: "1881 年英译品次、译者责任与公有领域来源边界保持不变；扫描本逐页校勘状态如实公开。",
           }
       : edition.contentLanguage === "sa-Latn"
         ? {
@@ -356,6 +366,8 @@ export function SutraReadingSample({
         ? "本页仅重组显示层；SAT 现代日译、章节次序、译者署名与稳定行号均未改动。"
         : isKokuyaku
           ? "本页仅重组显示层；1918 年文语国译、品次、责任署名与稳定行号均未改动。"
+        : isEnglishWikisource
+          ? "本页仅重组显示层；1881 年公版英译、品次、译者责任与稳定行号均未改动。"
         : "本页仅重组显示层；原文、原生次序与 Bilara 段落标识均未改动。";
 
   return (

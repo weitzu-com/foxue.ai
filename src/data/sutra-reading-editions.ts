@@ -6,7 +6,7 @@ export type ReadingSegmentRole = "registration" | "heading" | "byline" | "coloph
 export type ReadingFolioEdition = {
   annotationMode: "pinyin" | "plain";
   sourceKind: "cbeta" | "bilara" | "derge" | "sat" | "wikisource";
-  contentLanguage: "zh-Hant" | "pi" | "bo-Tibt" | "ja" | "sa-Latn" | "pra-Latn";
+  contentLanguage: "zh-Hant" | "pi" | "bo-Tibt" | "ja" | "en" | "sa-Latn" | "pra-Latn";
   workLabel: string;
   editionLabel: string;
   documentKind: string;
@@ -116,7 +116,7 @@ export function getReadingFolioEdition({
   folioLabel: string;
   segments: SutraSegment[];
   hasNext: boolean;
-  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio";
+  readerMode?: "cbeta-folio" | "bilara-chapter" | "bilara-sutta" | "derge-folio" | "sat-folio" | "kokuyaku-folio" | "english-translation-folio";
 }): ReadingFolioEdition {
   return readingEditions[slug]?.[folioKey] ?? buildDefaultReadingEdition({
     slug,
