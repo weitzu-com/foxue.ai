@@ -166,9 +166,9 @@ const pageExpectations = [
     "/",
     home,
     {
-      title: "佛经在线阅读与 AI 问经平台",
-      description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
-      bodyIncludes: ["佛经在线阅读与", "AI 问经平台", "每条主张可追溯"],
+      title: "佛经原典在线阅读与可核验问经",
+      description: "foxue.ai 提供可核验的佛经原典阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。",
+      bodyIncludes: ["从问题，", "回到原典。", "每条主张可追溯"],
       jsonLd: [["https://www.foxue.ai/#page", "WebPage"]],
     },
   ],
@@ -176,9 +176,9 @@ const pageExpectations = [
     "/wenjing",
     wenjing,
     {
-      title: "AI问经与原典出处对照｜foxue.ai",
-      description: "输入佛学问题，查看 AI 问经答案、佛经原典出处、版本边界与证据不足提示。",
-      bodyIncludes: ["AI 问经，先回到原典出处。", "当前问经原型仅检索三部已完成人工样本复核的经典"],
+      title: "证据问经与佛经原典出处对照｜foxue.ai",
+      description: "输入佛学问题，在可信原型中查看佛经原典出处、版本边界、平台综合与证据不足提示。",
+      bodyIncludes: ["先看证据，再听综合。", "当前问经原型仅检索三部已完成人工样本复核的经典"],
       jsonLd: [
         ["https://www.foxue.ai/wenjing#page", "WebPage"],
         ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
