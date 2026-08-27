@@ -896,19 +896,19 @@
   border-right: 1px solid var(--line);
 }
 
-.stanzaList > section > div {
+.stanzaHeading {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
 }
 
-.stanzaList strong {
+.stanzaHeading > strong {
   font-family: var(--font-serif), serif;
   font-size: 0.85rem;
 }
 
-.stanzaList a {
+.stanzaHeading > a {
   max-width: 68%;
   display: inline-flex;
   align-items: center;
@@ -921,11 +921,11 @@
   overflow-wrap: anywhere;
 }
 
-.stanzaList a:hover {
+.stanzaHeading > a:hover {
   color: var(--cinnabar-deep);
 }
 
-.stanzaList a svg {
+.stanzaHeading > a svg {
   width: 12px;
   flex: 0 0 auto;
 }
@@ -1311,12 +1311,12 @@
     padding: 25px 22px;
   }
 
-  .stanzaList > section > div {
+  .stanzaHeading {
     flex-direction: column;
     gap: 7px;
   }
 
-  .stanzaList a {
+  .stanzaHeading > a {
     max-width: 100%;
     justify-content: flex-start;
     text-align: left;

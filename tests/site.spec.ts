@@ -510,6 +510,21 @@ test("心经七日学习路径可访问并只在本地保存进度", async ({ pa
   expect(stored).toContain('"1":"completed"');
 });
 
+test("心经切换段落时不会把未保存草稿带到新一天", async ({ page }) => {
+  await page.goto("/xue/xinjing");
+
+  await page.getByRole("button", { name: /写研读笺/ }).click();
+  await page.getByPlaceholder("写给未来回到这里的自己……").fill("只属于第一天的未保存草稿");
+  await page.getByRole("button", { name: /第 2 天.*未标记/ }).click();
+
+  await expect(page.locator(".path-day-paper__header p")).toContainText("第 2 天");
+  const secondDayComposer = page.getByRole("button", { name: /写研读笺/ });
+  await expect(secondDayComposer).toBeVisible();
+  await secondDayComposer.click();
+  await expect(page.getByPlaceholder("写给未来回到这里的自己……")).toHaveValue("");
+  await expect(page.getByText("T0251.001.0848c07–09").first()).toBeVisible();
+});
+
 test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
   await page.goto("/xue");
 
@@ -573,6 +588,9 @@ test("研读笺把个人笔记、稳定坐标与原典链接一起留在本地",
   const composer = page.getByRole("button", { name: /写研读笺/ }).first();
   await expect(composer).toBeVisible();
   await composer.click();
+  const openComposer = page.locator('[id^="study-note-"]').first();
+  await expect(openComposer).toBeVisible();
+  expect(await openComposer.evaluate((element) => getComputedStyle(element).display)).toBe("block");
   await expect(page.getByRole("button", { name: /求证.*哪一点仍需/ }).first()).toHaveAttribute("aria-pressed", "true");
 
   const noteText = "需要继续核对“心为法本”与 manopubbaṅgamā 的语义范围，不能直接当作逐词对应。";

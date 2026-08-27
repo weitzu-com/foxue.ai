@@ -19,7 +19,7 @@ const prompts: Record<StudyNoteKind, string> = {
   verify: "哪一点仍需回到上下文、注疏或其他版本求证？",
 };
 
-export function StudyNoteComposer({ seed }: { seed: StudyNoteSeed }) {
+function StudyNoteComposerForSeed({ seed }: { seed: StudyNoteSeed }) {
   const notes = useStudyNotes();
   const existing = notes.find((note) => note.id === seed.id);
   const [isOpen, setIsOpen] = useState(false);
@@ -155,4 +155,8 @@ export function StudyNoteComposer({ seed }: { seed: StudyNoteSeed }) {
       <p className={styles.feedback} role="status" aria-live="polite">{feedback}</p>
     </div>
   );
+}
+
+export function StudyNoteComposer({ seed }: { seed: StudyNoteSeed }) {
+  return <StudyNoteComposerForSeed key={seed.id} seed={seed} />;
 }

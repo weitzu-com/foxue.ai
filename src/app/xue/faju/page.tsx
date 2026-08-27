@@ -202,7 +202,7 @@ export default function FajuStudyPage() {
                     const studyAnchor = `faju-${source.id}-${stanzaIndex + 1}`;
                     return (
                       <section key={stanza.locator} id={studyAnchor}>
-                        <div>
+                        <div className={styles.stanzaHeading}>
                           <strong>{stanza.label}</strong>
                           <Link href={stanza.href}>
                             {stanza.locator} <ArrowUpRight aria-hidden="true" />
