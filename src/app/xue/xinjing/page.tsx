@@ -25,9 +25,9 @@ import {
 
 const title = "心经全文入门｜7天逐句学习与原典出处";
 const description =
-  "《心经》全文入门学习路径：7 天逐句阅读玄奘译本，理解五蕴、色即是空、无所得与心无罣碍；每一日附大正藏经号、稳定行段和可核验原典出处。";
+  "《心经》全文入门学习路径：7 天逐句阅读玄奘译本，理解五蕴、色即是空、无所得与心无罣碍；每一日附大正藏经号、稳定行段、可核验原典出处与本地研读笺。";
 const pagePath = "/xue/xinjing";
-const modifiedDate = "2026-08-24";
+const modifiedDate = "2026-08-28";
 
 export const metadata: Metadata = buildPageMetadata({ title, description, path: pagePath });
 
@@ -188,7 +188,7 @@ export default function XinjingLearningPage() {
             </div>
             <div>
               <dt>本次修订</dt>
-              <dd><time dateTime={modifiedDate}>2026-08-24</time> · 增加七日索引、编辑说明与引用卡</dd>
+              <dd><time dateTime={modifiedDate}>2026-08-28</time> · 增加七日索引、引用卡与本地研读笺</dd>
             </div>
           </dl>
           <div className="learning-editorial__actions">

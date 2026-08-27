@@ -1,0 +1,317 @@
+.composer {
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgb(235 229 216 / 42%);
+  color: var(--ink);
+}
+
+.saved {
+  border-color: rgb(72 99 69 / 45%);
+  background: rgb(72 99 69 / 7%);
+}
+
+.openButton {
+  width: 100%;
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 14px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.openButton > span,
+.heading > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.openButton svg,
+.heading > div > svg {
+  width: 18px;
+  flex: 0 0 auto;
+  color: var(--cinnabar);
+}
+
+.openButton > svg {
+  width: 16px;
+}
+
+.openButton strong,
+.openButton small,
+.heading strong,
+.heading small {
+  display: block;
+}
+
+.openButton strong,
+.heading strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.83rem;
+}
+
+.openButton small,
+.heading small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.57rem;
+  overflow-wrap: anywhere;
+}
+
+.open {
+  padding: 18px;
+  border: 1px solid var(--line-dark);
+  background: var(--paper);
+}
+
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.heading > button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.heading > button svg {
+  width: 15px;
+}
+
+.kinds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 20px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.kinds legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.kinds button {
+  min-width: 0;
+  min-height: 74px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  text-align: left;
+  cursor: pointer;
+}
+
+.kinds button[aria-pressed="true"] {
+  border-color: var(--cinnabar);
+  background: rgb(159 57 43 / 7%);
+  color: var(--cinnabar);
+}
+
+.kinds strong,
+.kinds span {
+  display: block;
+}
+
+.kinds strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.76rem;
+}
+
+.kinds span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.53rem;
+  line-height: 1.55;
+}
+
+.editor {
+  position: relative;
+  display: block;
+  margin-top: 16px;
+}
+
+.editor > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 0.76rem;
+}
+
+.editor textarea {
+  width: 100%;
+  min-height: 126px;
+  display: block;
+  resize: vertical;
+  padding: 14px 14px 30px;
+  border: 1px solid var(--line-dark);
+  border-radius: 0;
+  outline: 0;
+  background: #fffdf8;
+  color: var(--ink);
+  font: 0.78rem/1.85 var(--font-sans), sans-serif;
+}
+
+.editor textarea:focus-visible {
+  border-color: var(--cinnabar);
+  outline: 2px solid var(--cinnabar);
+  outline-offset: 2px;
+}
+
+.editor > small {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  color: var(--muted);
+  font-size: 0.52rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.actions > p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.56rem;
+}
+
+.actions > p svg {
+  width: 14px;
+  color: var(--success);
+}
+
+.actions > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions a,
+.actions button {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px;
+  border: 1px solid var(--cinnabar);
+  font-size: 0.59rem;
+  font-weight: 800;
+}
+
+.actions a {
+  border-color: var(--line-dark);
+}
+
+.actions button {
+  background: var(--cinnabar);
+  color: #fffdf8;
+  cursor: pointer;
+}
+
+.actions a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.actions button:hover {
+  background: var(--cinnabar-deep);
+}
+
+.feedback {
+  min-height: 1.5em;
+  margin: 8px 0 0;
+  color: var(--cinnabar);
+  font-size: 0.56rem;
+}
+
+@media (max-width: 620px) {
+  .kinds {
+    grid-template-columns: 1fr;
+  }
+
+  .kinds button {
+    min-height: 0;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions > div {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .actions a,
+  .actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .composer {
+    background: rgb(255 255 255 / 3%);
+  }
+
+  .saved {
+    background: rgb(104 143 99 / 10%);
+  }
+
+  .open,
+  .editor textarea {
+    background: #202821;
+    color: #f4eee3;
+  }
+
+  .kinds button {
+    color: #d9ded8;
+  }
+
+  .kinds button[aria-pressed="true"] {
+    background: rgb(223 128 111 / 10%);
+    color: #f1a18f;
+  }
+
+  .actions button {
+    border-color: #8d3024;
+    background: #8d3024;
+    color: #fffdf8;
+  }
+
+  .actions button:hover {
+    background: #79291f;
+  }
+}
