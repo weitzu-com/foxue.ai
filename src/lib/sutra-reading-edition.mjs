@@ -155,7 +155,9 @@ export function buildDefaultReadingEdition({
         ? "sa-Latn"
         : language?.includes("俗语")
           ? "pra-Latn"
-          : "pi";
+          : language?.includes("英")
+            ? "en"
+            : "pi";
   const languageLabel = derge
     ? "藏文原典"
     : sat
@@ -166,7 +168,9 @@ export function buildDefaultReadingEdition({
         ? "梵文原典"
         : language?.includes("俗语")
           ? "俗语原典"
-          : "巴利原典";
+          : language?.includes("英")
+            ? "英文译本"
+            : "巴利原典";
   const pageKind = derge ? "德格版页" : sat ? "日译章节" : kokuyaku ? "国译品次" : "稳定分页";
 
   return {
@@ -184,6 +188,8 @@ export function buildDefaultReadingEdition({
         ? `当前为 ${folioLabel} 章节。现代日译原文与 SAT 来源署名保持不变。`
         : kokuyaku
           ? `当前为 ${folioLabel} 品次。1918 年文语国译与 Wikisource 来源署名保持不变。`
+        : language?.includes("英")
+          ? `当前为 ${folioLabel} 阅读页。Bhikkhu Sujato CC0 英译与 SuttaCentral / Bilara 原生段落标识保持不变；不用于生成式模型训练。`
         : `当前为 ${folioLabel} 阅读页。保留原文、原生次序与 Bilara 稳定段落标识，不加入未经审核的机器译文。`,
     closingMark: hasNext ? "下页续读" : "全经读毕",
     segmentRoles: bilara ? inferBilaraSegmentRoles({ segments }) : {},

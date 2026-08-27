@@ -6,7 +6,7 @@ export type ReadingSegmentRole = "registration" | "heading" | "byline" | "coloph
 export type ReadingFolioEdition = {
   annotationMode: "pinyin" | "plain";
   sourceKind: "cbeta" | "bilara" | "derge" | "sat" | "wikisource";
-  contentLanguage: "zh-Hant" | "pi" | "bo-Tibt" | "ja" | "sa-Latn" | "pra-Latn";
+  contentLanguage: "zh-Hant" | "pi" | "bo-Tibt" | "ja" | "en" | "sa-Latn" | "pra-Latn";
   workLabel: string;
   editionLabel: string;
   documentKind: string;

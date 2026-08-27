@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.22.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.23.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.8.0.json";
 
 type Expression = {
@@ -2040,6 +2040,19 @@ export function buildCoverageSnapshot() {
         sha256: corpusRegistry.suttacentralChineseParallelAudit.sha256,
         unit: "SuttaCentral 固定关系表中与站内巴利及汉译作品可定位的去重证据边",
         caveat: corpusRegistry.suttacentralChineseParallelAudit.warning,
+      },
+      suttacentralSujatoEnglish: {
+        controlledExpressions: corpusRegistry.suttacentralSujatoEnglishRightsAudit.controlledExpressions,
+        attachedExistingWorks: corpusRegistry.suttacentralSujatoEnglishRightsAudit.attachedExistingWorks,
+        newWorks: corpusRegistry.suttacentralSujatoEnglishRightsAudit.newWorks,
+        sourceRecords: corpusRegistry.suttacentralSujatoEnglishRightsAudit.sourceRecords,
+        stableSegments: corpusRegistry.suttacentralSujatoEnglishRightsAudit.stableSegments,
+        sourceBytes: corpusRegistry.suttacentralSujatoEnglishRightsAudit.sourceBytes,
+        filesApprovedForReadingAndRetrieval: corpusRegistry.suttacentralSujatoEnglishRightsAudit.filesApprovedForReadingAndRetrieval,
+        filesApprovedForModelTraining: corpusRegistry.suttacentralSujatoEnglishRightsAudit.filesApprovedForModelTraining,
+        rightsAuditSha256: corpusRegistry.suttacentralSujatoEnglishRightsAudit.rightsAuditSha256,
+        unit: "SuttaCentral Bilara published translation/en/sujato 且出版记录为 CC0 的四部与法句英译",
+        caveat: corpusRegistry.suttacentralSujatoEnglishRightsAudit.caveat,
       },
       suttacentralParallelReviewQueue: {
         queueItems: corpusRegistry.suttacentralParallelReviewQueue.queueItems,
