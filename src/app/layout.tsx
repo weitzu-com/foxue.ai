@@ -20,7 +20,7 @@ const jsonLd = {
       url: siteOrigin,
       slogan: "从问题，回到原典",
       description:
-        "全球佛学交流的可信 AI 平台。检索、阅读与理解佛典，每一项结论都回到可核验的原文与版本。",
+        "可核验的佛经原典阅读与证据问经平台。检索、阅读与理解佛典，每一项结论都回到原文、版本与范围边界。",
       logo: `${siteOrigin}/icon.svg`,
       areaServed: ["CN", "US", "Global"],
       knowsAbout: ["佛学", "佛经", "佛典", "大藏经", "佛教", "人工智能", "数字人文学"],
@@ -44,12 +44,12 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: {
-    default: "佛经在线阅读与 AI 问经平台",
+    default: "佛经原典阅读与可核验问经",
     template: "%s｜foxue.ai",
   },
   description:
-    "全球佛学交流的可信 AI 平台。提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
-  keywords: ["佛学", "佛经", "AI", "佛典", "大藏经", "佛教", "人工智能"],
+    "提供可核验的佛经原典阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。",
+  keywords: ["佛学", "佛经", "佛经原文", "佛典", "大藏经", "佛教", "原典检索", "AI 问经"],
   authors: [{ name: "foxue.ai contributors" }],
   creator: "foxue.ai",
   openGraph: {
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     locale: "zh_CN",
     url: siteOrigin,
     siteName: "foxue.ai",
-    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
-    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
+    title: "佛经原典阅读与可核验问经｜foxue.ai",
+    description: "提供佛经原典阅读、稳定行段定位与证据问经，每一项关键结论都回到可核验出处。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "佛经在线阅读与 AI 问经平台｜foxue.ai",
-    description: "提供佛经在线阅读、原典查询与 AI 问经，每一项关键结论都回到可核验的原文与版本。",
+    title: "佛经原典阅读与可核验问经｜foxue.ai",
+    description: "提供佛经原典阅读、稳定行段定位与证据问经，每一项关键结论都回到可核验出处。",
   },
   verification: googleSiteVerification
     ? { google: googleSiteVerification }

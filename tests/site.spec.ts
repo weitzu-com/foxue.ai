@@ -438,9 +438,10 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1, name: /佛经在线阅读与.*AI 问经平台/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /从问题.*回到原典/ })).toBeVisible();
   await expect(page.getByRole("button", { name: "回到原典" })).toBeVisible();
   await expect(page.getByText("每条主张可追溯")).toBeVisible();
+  await expect(page.getByRole("tab", { name: "做研究" })).toBeInViewport({ ratio: 1 });
 
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
@@ -451,7 +452,7 @@ test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) 
   await page.goto("/");
 
   const brandLink = page.getByRole("link", {
-    name: "佛 foxue.ai 全球佛学交流 AI 平台 首页",
+    name: "佛 foxue.ai 可核验佛典阅读与问经 首页",
   });
 
   await expect(brandLink).toBeVisible();
@@ -616,7 +617,7 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
 test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ page }) => {
   await page.goto("/");
   await page.getByLabel("输入佛学问题、经名、句子或术语").fill("空");
-  const searchHubLink = page.getByRole("link", { name: /进入概念页/ });
+  const searchHubLink = page.getByRole("link", { name: "进入概念页", exact: true });
   await expect(searchHubLink).toBeVisible();
   await searchHubLink.click();
   await page.waitForURL(/\/gainian\/kong$/);

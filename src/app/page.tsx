@@ -6,342 +6,433 @@ import {
   BookOpenText,
   CheckCircle2,
   CircleDot,
+  CircleAlert,
   Database,
   FileSearch,
-  Globe2,
-  LibraryBig,
+  Fingerprint,
+  Languages,
+  Layers3,
+  Link2,
   MessagesSquare,
+  Network,
   Quote,
   Scale,
-  SearchCheck,
   ShieldCheck,
+  Users,
 } from "lucide-react";
 import { SearchConsole } from "@/components/search-console";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 import { allConcepts } from "@/lib/concept-hubs";
 import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
+import styles from "./home.module.css";
+
+const homeTitle = "佛经原典在线阅读与可核验问经";
+const homeDescription =
+  "foxue.ai 提供可核验的佛经原典阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "佛经在线阅读与 AI 问经平台",
-  description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
+  title: homeTitle,
+  description: homeDescription,
   path: "/",
 });
 
 const homeJsonLd = buildPageJsonLd({
   path: "/",
-  title: "佛经在线阅读与 AI 问经平台",
-  description: "foxue.ai 提供佛经在线阅读、原典查询、心经原文定位与 AI 问经，所有关键结论回到可核验出处。",
-  about: ["佛经在线阅读", "AI 问经", "佛经原典查询", "心经原文定位"],
+  title: homeTitle,
+  description: homeDescription,
+  about: ["佛经原典阅读", "佛经检索", "证据问经", "佛典版本", "数字人文学"],
 });
 
 const tasks = [
   {
-    number: "壹",
-    icon: FileSearch,
-    title: "找一句经文",
-    description: "用现代语言、原句或主题检索，结果直接落到稳定段落。",
-    link: "/jingzang",
-  },
-  {
-    number: "贰",
-    icon: MessagesSquare,
-    title: "问一个问题",
-    description: "先看来源是否充分，再综合回答；证据不足就诚实停下。",
-    link: "/wenjing",
-  },
-  {
-    number: "叁",
+    number: "01",
     icon: BookMarked,
+    eyebrow: "第一次读经",
     title: "七日读《心经》",
-    description: "每天一小段和一个理解提示；可随时跳过，进度只留在本地。",
+    description: "每天一小段、一个理解提示，再回到稳定原文。进度只保存在本地。",
     link: "/xue/xinjing",
+    action: "开始第一天",
   },
   {
-    number: "肆",
-    icon: SearchCheck,
-    title: "核对一个说法",
-    description: "区分原典、译文、注疏、学术观点与机器候选。",
-    link: "/yuanze",
+    number: "02",
+    icon: BookOpenText,
+    eyebrow: "已经知道经名",
+    title: "浏览完整经藏",
+    description: "按作品、文本表达与版本阅读；拼音只是显示辅助，不改动原始底本。",
+    link: "/jingzang",
+    action: "打开经藏",
+  },
+  {
+    number: "03",
+    icon: MessagesSquare,
+    eyebrow: "有一个具体疑问",
+    title: "用证据核对说法",
+    description: "当前仅检索三部人工复核样本；先展示出处，再给综合与范围边界。",
+    link: "/wenjing",
+    action: "进入可信原型",
+  },
+  {
+    number: "04",
+    icon: FileSearch,
+    eyebrow: "想做进一步研究",
+    title: "查看覆盖与缺口",
+    description: "分别核对目录、原文、译文、权利与质量，不把不同分母混成一个百分比。",
+    link: "/fugai",
+    action: "打开覆盖账本",
   },
 ];
 
-const centuries = [
-  { year: "现在", title: "可信原型", text: "开放代码、稳定段落、来源账本" },
-  { year: "3 年", title: "多语经藏", text: "跨藏检索、公开 API、年度典藏版" },
-  { year: "20 年", title: "99% 计划", text: "按公开注册表审计原文覆盖" },
-  { year: "100 年", title: "世代传承", text: "任何维护者都能从公开包恢复" },
+const priorities = [
+  {
+    number: "一",
+    icon: Languages,
+    title: "补足梵文与俗语",
+    description: "优先接入许可清晰的数字语料，让“多语”从目录候选变成可读原文。",
+    status: "语系短板",
+  },
+  {
+    number: "二",
+    icon: Network,
+    title: "完成 EBT 平行层",
+    description: "把汉译阿含、巴利尼柯耶、梵文残片与藏文对应经组织成可审校的对照关系。",
+    status: "产品机会",
+  },
+  {
+    number: "三",
+    icon: Users,
+    title: "扩展真人复核",
+    description: "引入法师、学者、译者与不同传统用户，持续公开复核比例和争议记录。",
+    status: "质量工程",
+  },
 ];
+
+const formatCount = new Intl.NumberFormat("zh-CN").format;
 
 export default function Home() {
   const coverage = buildCoverageSnapshot();
+  const reviewRate = coverage.localHoldings.registeredWorks > 0
+    ? (
+        coverage.localHoldings.qualityVerifiedSampleWorks /
+        coverage.localHoldings.registeredWorks *
+        100
+      ).toFixed(2)
+    : "0.00";
+
   return (
-    <>
+    <div className={styles.home}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd) }}
       />
-      <section className="hero-section">
-        <div className="hero-orbit" aria-hidden="true" />
-        <div className="page-shell hero-grid">
-          <div className="hero-copy">
-            <div className="hero-kicker reveal-1">
-              <span>可信佛典知识基础设施</span>
-              <span className="hero-kicker__line" />
-              <span>立愿于 2026</span>
+      <section className={styles.hero} aria-labelledby="home-title">
+        <div className={styles.heroGrid}>
+          <div className={styles.heroCopy}>
+            <div className={`${styles.kicker} ${styles.revealOne}`}>
+              <span>可核验佛典阅读</span>
+              <span aria-hidden="true" />
+              <span>登记册 v{coverage.generatedFrom.registryVersion}</span>
             </div>
-            <h1 className="reveal-2">
-              佛经在线阅读与<br />
-              <em>AI 问经平台</em>
+            <h1 id="home-title" className={styles.revealTwo}>
+              从问题，<br />
+              <em>回到原典。</em>
             </h1>
-            <p className="hero-lead reveal-3">
-              从问题，回到原典。foxue.ai 面向世界提供佛经在线阅读、原典查询与引证式问经。
-              它不替佛陀说话，只帮助你找到原文、理解语境、定位版本，并保留继续求证的路。
+            <p className={`${styles.heroLead} ${styles.revealThree}`}>
+              先找到原句，再看上下文、版本与解释边界。foxue.ai 不替佛陀说话，
+              也不把机器综合伪装成经典原文。
             </p>
-            <div className="reveal-4">
+            <div className={`${styles.searchArea} ${styles.revealFour}`}>
               <SearchConsole />
             </div>
-            <ul className="trust-row reveal-5" aria-label="平台承诺">
-              <li>
-                <ShieldCheck aria-hidden="true" /> 每条主张可追溯
-              </li>
-              <li>
-                <Scale aria-hidden="true" /> 多传统不强行合一
-              </li>
-              <li>
-                <Globe2 aria-hidden="true" /> 为全球文字系统设计
-              </li>
+            <ul className={`${styles.trustRow} ${styles.revealFive}`} aria-label="平台承诺">
+              <li><ShieldCheck aria-hidden="true" /> 每条主张可追溯</li>
+              <li><Scale aria-hidden="true" /> 多传统不强行合一</li>
+              <li><CircleAlert aria-hidden="true" /> 证据不足就明确停下</li>
             </ul>
           </div>
 
-          <aside className="today-passage reveal-3" aria-labelledby="today-title">
-            <div className="today-passage__index" aria-hidden="true">
-              <span>今</span>
-              <span>日</span>
-              <span>一</span>
-              <span>段</span>
+          <aside className={`${styles.passage} ${styles.revealThree}`} aria-labelledby="passage-title">
+            <div className={styles.passageRail} aria-hidden="true">
+              <span>原</span><span>文</span><span>不</span><span>藏</span><span>在</span><span>答</span><span>案</span><span>后</span>
             </div>
-            <div className="today-passage__paper">
-              <div className="passage-meta">
-                <span>般若部</span>
-                <span>已核验样本</span>
+            <div className={styles.passagePaper}>
+              <div className={styles.passageMeta}>
+                <span>般若部 · 原典样本</span>
+                <span>稳定锚点已核验</span>
               </div>
               <Quote aria-hidden="true" />
-              <h2 id="today-title">照见五蕴皆空，度一切苦厄。</h2>
-              <p>
-                空并非把生活抹去，而是看见身体、感受和念头都依条件而起，
-                因此不必把它们紧握成永恒的“我”。
-              </p>
-              <div className="passage-citation">
+              <blockquote id="passage-title">照见五蕴皆空，度一切苦厄。</blockquote>
+              <div className={styles.interpretation}>
+                <span>理解提示 · 平台释义</span>
+                <p>
+                  “空”不是把生活抹去，而是提醒我们：身体、感受和念头都依条件而起，
+                  不必把它们紧握成永恒不变的“我”。
+                </p>
+                <small>此提示不是经文直译，当前未标注外部具名审校。</small>
+              </div>
+              <div className={styles.passageCitation}>
                 <div>
                   <strong>《般若波罗蜜多心经》</strong>
-                  <span>唐·玄奘译 · T0251</span>
+                  <span>唐 · 玄奘译 · T0251</span>
                 </div>
                 <Link href="/jingzang/xinjing/001-0848c#T0251.001.0848c06">
-                  打开原文 <ArrowRight aria-hidden="true" size={15} />
+                  打开原句 <ArrowRight aria-hidden="true" size={15} />
                 </Link>
               </div>
             </div>
-            <span className="paper-registration" aria-hidden="true">T08 · 251</span>
           </aside>
         </div>
-        <div className="page-shell hero-footnote">
-          <span>01</span>
-          <p>AI 可以暂时离线，经典阅读必须仍然可用。</p>
-        </div>
+
+        <dl className={styles.heroLedger} aria-label="当前可核验能力">
+          <div>
+            <dt>完整原文表达</dt>
+            <dd>{formatCount(coverage.localHoldings.fullSourceTextExpressions)}</dd>
+            <dd className={styles.ledgerNote}>不等于去重作品数</dd>
+          </div>
+          <div>
+            <dt>稳定行段</dt>
+            <dd>{formatCount(coverage.localHoldings.stableSegments)}</dd>
+            <dd className={styles.ledgerNote}>可直达、可引用</dd>
+          </div>
+          <div>
+            <dt>结构与锚点已验作品</dt>
+            <dd>{formatCount(coverage.localHoldings.structureVerifiedWorks)}</dd>
+            <dd className={styles.ledgerNote}>继承层质量</dd>
+          </div>
+          <div className={styles.ledgerWarning}>
+            <dt>人工质量复核作品</dt>
+            <dd>{formatCount(coverage.localHoldings.qualityVerifiedSampleWorks)}</dd>
+            <dd className={styles.ledgerNote}>自有层 {reviewRate}%</dd>
+          </div>
+        </dl>
       </section>
 
-      <section className="intent-section section-space">
-        <div className="page-shell">
-          <div className="section-heading section-heading--split">
-            <div>
-              <p className="eyebrow">不止是一个聊天框</p>
-              <h2>你可以这样接近佛法</h2>
-            </div>
-            <p>
-              我们从真实任务出发：寻找、阅读、理解、核对。
-              AI 退居到证据之后，让经文本身成为界面的主角。
-            </p>
+      <section className={styles.pathSection} aria-labelledby="paths-title">
+        <div className={styles.sectionHeading}>
+          <div>
+            <p className={styles.eyebrow}>从你的任务出发</p>
+            <h2 id="paths-title">不必先理解整座大藏经。</h2>
           </div>
-          <div className="task-grid">
-            {tasks.map((task) => {
-              const Icon = task.icon;
-              return (
-                <Link href={task.link} className="task-card" key={task.title}>
-                  <span className="task-card__number">{task.number}</span>
+          <p>
+            有人第一次接触佛经，有人只记得半句话，也有人要做跨版本研究。
+            入口应跟随问题，而不是要求每个人先学会同一套术语。
+          </p>
+        </div>
+        <div className={styles.taskGrid}>
+          {tasks.map((task) => {
+            const Icon = task.icon;
+            return (
+              <Link href={task.link} className={styles.taskCard} key={task.title}>
+                <div className={styles.taskTopline}>
+                  <span>{task.number}</span>
                   <Icon aria-hidden="true" />
-                  <h3>{task.title}</h3>
-                  <p>{task.description}</p>
-                  <span className="task-card__link">
-                    开始 <ArrowRight aria-hidden="true" size={16} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="intent-section section-space">
-        <div className="page-shell">
-          <div className="section-heading section-heading--split">
-            <div>
-              <p className="eyebrow">主题层入口</p>
-              <h2>先理解问题类型，<br />再进入原典。</h2>
-            </div>
-            <p>
-              问题不是都该直接打到经文目录。对于高频主题，先进入受控概念 Hub，
-              能更快看清术语边界、常见误读和最值得先打开的原典入口。
-            </p>
-          </div>
-          <div className="task-grid">
-            {allConcepts.map((concept, index) => (
-              <Link href={concept.href} className="task-card" key={concept.slug}>
-                <span className="task-card__number">{`题 ${index + 1}`}</span>
-                <CircleDot aria-hidden="true" />
-                <h3>{concept.title}</h3>
-                <p>{concept.summary}</p>
-                <p>入口问题：{concept.prompt}</p>
-                <span className="task-card__link">
-                  进入概念 Hub <ArrowRight aria-hidden="true" size={16} />
-                </span>
+                </div>
+                <p>{task.eyebrow}</p>
+                <h3>{task.title}</h3>
+                <span>{task.description}</span>
+                <strong>{task.action} <ArrowRight aria-hidden="true" size={16} /></strong>
               </Link>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      <section className="evidence-demo section-space">
-        <div className="page-shell evidence-demo__grid">
-          <div className="evidence-demo__statement">
-            <p className="eyebrow">答案契约 · ANSWER CONTRACT</p>
-            <h2>答案不是终点，<br />证据才是入口。</h2>
+      <section className={styles.conceptSection} aria-labelledby="concepts-title">
+        <div className={styles.sectionHeading}>
+          <div>
+            <p className={styles.eyebrow}>按主题进入原典</p>
+            <h2 id="concepts-title">先辨清概念，<br />再打开经文。</h2>
+          </div>
+          <p>
+            面对“空、无常、无我、观心、无住”等高频问题，先看术语边界、常见误读与原典入口，
+            再自行核对上下文；概念页不是替代经典的标准答案。
+          </p>
+        </div>
+        <div className={styles.conceptGrid}>
+          {allConcepts.map((concept, index) => (
+            <Link href={concept.href} className={styles.conceptCard} key={concept.slug}>
+              <div>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <CircleDot aria-hidden="true" />
+              </div>
+              <h3>{concept.title}</h3>
+              <p>{concept.summary}</p>
+              <small>入口问题：{concept.prompt}</small>
+              <strong>进入概念页 <ArrowRight aria-hidden="true" size={15} /></strong>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.qualitySection} aria-labelledby="quality-title">
+        <div className={styles.qualityIntro}>
+          <p className={styles.eyebrow}>质量必须分两层看</p>
+          <h2 id="quality-title">底本可靠，<br />不等于解释已经完成。</h2>
+          <p>
+            报告指出，foxue.ai 的底本继承层已具学术引用条件；真正需要投入的，
+            是平台自己的翻译、注释、异本对照与真人复核。
+          </p>
+          <Link href="/touming">
+            查看完整质量账本 <ArrowRight aria-hidden="true" size={16} />
+          </Link>
+        </div>
+        <div className={styles.qualityLedger}>
+          <article>
+            <div className={styles.qualityLabel}>
+              <CheckCircle2 aria-hidden="true" />
+              <span>继承层 · 已可用</span>
+            </div>
+            <h3>可定位、可复算的原典底座</h3>
+            <ul>
+              <li><Fingerprint aria-hidden="true" /> 固定上游版本与 SHA-256 指纹</li>
+              <li><Link2 aria-hidden="true" /> 字符级或段落级稳定锚点</li>
+              <li><Database aria-hidden="true" /> 版本、译者、来源与权利逐项登记</li>
+            </ul>
+            <p>这里的“已验”主要指结构、锚点、来源与权利，不自动等于内容已由真人逐部审定。</p>
+          </article>
+          <article className={styles.qualityPending}>
+            <div className={styles.qualityLabel}>
+              <Layers3 aria-hidden="true" />
+              <span>自有层 · 起步中</span>
+            </div>
+            <h3>让普通人真正读懂的辅助层</h3>
+            <ul>
+              <li><Users aria-hidden="true" /> 人工质量样本复核 {formatCount(coverage.localHoldings.qualityVerifiedSampleWorks)} / {formatCount(coverage.localHoldings.registeredWorks)} 部</li>
+              <li><Languages aria-hidden="true" /> 白话导读与现代译文尚未形成全库覆盖</li>
+              <li><FileSearch aria-hidden="true" /> 校勘记、异本对照与朗诵仍待产品化</li>
+            </ul>
+            <p>因此，站内解释必须明确标注为“综合”或“理解提示”，并保留回到原文继续求证的路径。</p>
+          </article>
+        </div>
+      </section>
+
+      <section className={styles.answerSection} aria-labelledby="answer-title">
+        <div className={styles.answerGrid}>
+          <div className={styles.answerCopy}>
+            <p className={styles.eyebrow}>答案契约 · ANSWER CONTRACT</p>
+            <h2 id="answer-title">答案不是终点，<br />证据才是入口。</h2>
             <p>
-              每一个关键判断旁边，都应该能打开原句、上下文、版本和许可。
+              关键判断旁边，应当能打开原句、上下文、版本与许可；
               找不到可靠来源时，系统必须明确说“不知道”。
             </p>
-            <Link className="text-link" href="/wenjing">
-              查看完整回答示例 <ArrowRight aria-hidden="true" size={16} />
+            <Link href="/wenjing">
+              查看问经原型 <ArrowRight aria-hidden="true" size={16} />
             </Link>
           </div>
-          <div className="claim-board">
-            <div className="claim-board__topline">
-              <span className="status-pill status--verified">
-                <CheckCircle2 aria-hidden="true" size={14} /> 有充分来源
-              </span>
-              <span>可信原型 · 回答 001</span>
+          <article className={styles.answerBoard}>
+            <div className={styles.answerTopline}>
+              <span><CheckCircle2 aria-hidden="true" size={14} /> 有充分来源</span>
+              <span>可信原型 · 回答样本 001</span>
             </div>
             <h3>无住不是消极不做，而是不以占有心行动。</h3>
             <p>
               《金刚经》把“不住”与“生心”放在同一句中：仍然发心和行动，
               但不把身份、成果和功德固定为“我所有”。
             </p>
-            <div className="inline-evidence">
-              <span className="inline-evidence__marker">原典 01</span>
+            <div className={styles.inlineEvidence}>
+              <span>原典证据 01</span>
               <blockquote>“应无所住而生其心。”</blockquote>
               <Link href="/jingzang/jingangjing/001-0749c#T0235.001.0749c22">
                 T0235.001.0749c22 <ArrowRight aria-hidden="true" size={14} />
               </Link>
             </div>
-            <div className="claim-board__legend">
-              <span><span className="legend-dot legend-dot--source" /> 原典证据</span>
-              <span><span className="legend-dot legend-dot--synthesis" /> AI 综合</span>
-              <span><span className="legend-dot legend-dot--boundary" /> 范围边界</span>
+            <div className={styles.answerLegend}>
+              <span><i className={styles.sourceDot} /> 原典证据</span>
+              <span><i className={styles.synthesisDot} /> 平台综合</span>
+              <span><i className={styles.boundaryDot} /> 范围边界</span>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section className="corpus-section section-space">
-        <div className="page-shell corpus-grid">
-          <div className="corpus-visual" aria-hidden="true">
-            <div className="corpus-ring corpus-ring--outer" />
-            <div className="corpus-ring corpus-ring--middle" />
-            <div className="corpus-ring corpus-ring--inner" />
-            <span className="corpus-glyph">藏</span>
-            <span className="corpus-label corpus-label--one">汉文</span>
-            <span className="corpus-label corpus-label--two">巴利</span>
-            <span className="corpus-label corpus-label--three">藏文</span>
-            <span className="corpus-label corpus-label--four">梵文</span>
+      <section className={styles.parallelSection} aria-labelledby="parallel-title">
+        <div className={styles.parallelVisual} aria-label="同一佛说的四类文本见证示意">
+          <div className={`${styles.witness} ${styles.witnessChinese}`}>
+            <span>汉译</span><strong>阿含</strong><small>完整经与行段</small>
           </div>
-          <div className="corpus-copy">
-            <p className="eyebrow">99% 佛典计划</p>
-            <h2>先定义分母，<br />再谈收录率。</h2>
-            <p>
-              “收录 99%”不是一句无法核验的宣传。我们将建立全球佛典覆盖登记册，
-              按目录项、原文、段落、译文和版权状态分别计算，并让任何人都能复算。
-            </p>
-            <div className="corpus-status">
-              <div>
-                <span>覆盖登记册</span>
-                <strong>v1.5 公开</strong>
-              </div>
-              <div>
-                <span>受控完整原文</span>
-                <strong>{coverage.localHoldings.fullSourceTextExpressions} 个文本</strong>
-              </div>
-              <div>
-                <span>目标时间尺度</span>
-                <strong>5—20 年</strong>
-              </div>
-            </div>
-            <Link className="button-secondary" href="/fugai">
-              打开覆盖登记册 <ArrowRight aria-hidden="true" size={16} />
-            </Link>
+          <div className={`${styles.witness} ${styles.witnessPali}`}>
+            <span>巴利</span><strong>尼柯耶</strong><small>原文与段号</small>
+          </div>
+          <div className={`${styles.witness} ${styles.witnessSanskrit}`}>
+            <span>梵文</span><strong>写本残片</strong><small>候选与见证</small>
+          </div>
+          <div className={`${styles.witness} ${styles.witnessTibetan}`}>
+            <span>藏文</span><strong>对应经</strong><small>异本关系</small>
+          </div>
+          <div className={styles.parallelCore}>
+            <Network aria-hidden="true" />
+            <strong>同一佛说</strong>
+            <span>EBT 平行层</span>
           </div>
         </div>
-      </section>
-
-      <section className="century-section section-space">
-        <div className="page-shell">
-          <div className="section-heading section-heading--split">
+        <div className={styles.parallelCopy}>
+          <p className={styles.eyebrow}>下一阶段 · 建设中</p>
+          <h2 id="parallel-title">让不同传承的文本，<br />在差异中彼此照见。</h2>
+          <p>
+            报告把 EBT 平行层识别为最大的差异化机会。目标不是把四种语言强行译成同一个答案，
+            而是保留各自原文、版本与分歧，再说明它们为什么可能对应。
+          </p>
+          <dl className={styles.parallelStats}>
             <div>
-              <p className="eyebrow">运行 100 年</p>
-              <h2>为交接而建，<br />不为锁定而建。</h2>
+              <dt>汉巴平行证据边</dt>
+              <dd>{formatCount(coverage.candidateInventory.suttacentralChineseParallelEvidence.deduplicatedParallelEdges)}</dd>
             </div>
-            <p>
-              域名和服务器只是表层。真正的长期性来自开放格式、多个保存节点、
-              年度典藏版、可替换模型，以及清晰的组织继任。
-            </p>
-          </div>
-          <ol className="century-timeline">
-            {centuries.map((item, index) => (
-              <li key={item.year}>
-                <span className="timeline-index">0{index + 1}</span>
-                <CircleDot aria-hidden="true" />
-                <span className="timeline-year">{item.year}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
-            ))}
-          </ol>
-          <div className="resilience-strip">
-            <span><Database aria-hidden="true" /> 开放数据包</span>
-            <span><LibraryBig aria-hidden="true" /> 多机构保存</span>
-            <span><BookOpenText aria-hidden="true" /> 静态阅读救生艇</span>
-            <span><ShieldCheck aria-hidden="true" /> 年度恢复演练</span>
-          </div>
+            <div>
+              <dt>人工裁决队列</dt>
+              <dd>
+                {formatCount(coverage.candidateInventory.suttacentralParallelReviewQueue.adjudicatedItems)} / {formatCount(coverage.candidateInventory.suttacentralParallelReviewQueue.queueItems)}
+              </dd>
+            </div>
+          </dl>
+          <p className={styles.parallelCaveat}>
+            关系边不等于整经对应；在真人完成裁决前，不把候选关系冒充学术结论。
+          </p>
+          <Link href="/shenjiao">
+            进入汉巴作品审校台 <ArrowRight aria-hidden="true" size={16} />
+          </Link>
         </div>
       </section>
 
-      <section className="closing-vow">
-        <div className="page-shell closing-vow__inner">
-          <p className="eyebrow">一项跨世代的公共事业</p>
-          <h2>让古老智慧，<br />在未来仍可被看见、核对与传承。</h2>
-          <div className="closing-actions">
-            <Link className="button-primary" href="/jingzang" prefetch={false}>
-              开始阅读 <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-            <a
-              className="button-ghost"
-              href="https://github.com/weitzu-com/foxue.ai"
-              target="_blank"
-              rel="noreferrer"
-            >
-              参与共建
-            </a>
+      <section className={styles.prioritySection} aria-labelledby="priority-title">
+        <div className={styles.sectionHeading}>
+          <div>
+            <p className={styles.eyebrow}>未来 12 个月</p>
+            <h2 id="priority-title">接下来，只聚焦三件事。</h2>
           </div>
+          <p>
+            许可清洁度决定能不能做，学术与用户价值决定先做什么。
+            每一步都要能在公开登记册中被复算，而不是只写进愿景。
+          </p>
+        </div>
+        <ol className={styles.priorityGrid}>
+          {priorities.map((priority) => {
+            const Icon = priority.icon;
+            return (
+              <li key={priority.title}>
+                <div>
+                  <span>{priority.number}</span>
+                  <Icon aria-hidden="true" />
+                </div>
+                <small>{priority.status}</small>
+                <h3>{priority.title}</h3>
+                <p>{priority.description}</p>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      <section className={styles.closingSection}>
+        <div>
+          <p className={styles.eyebrow}>从一部经开始</p>
+          <h2>先读一段原文，<br />再决定相信什么。</h2>
+        </div>
+        <div className={styles.closingActions}>
+          <Link href="/xue/xinjing">
+            开始七日阅读 <ArrowRight aria-hidden="true" size={17} />
+          </Link>
+          <Link href="/jingzang">浏览全部经藏</Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

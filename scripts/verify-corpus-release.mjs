@@ -11,6 +11,10 @@ const registry = JSON.parse(
 const workerConfig = JSON.parse(
   await readFile(resolve(root, "infra/corpus-edge/wrangler.jsonc"), "utf8"),
 );
+const objectKeyPolicy = JSON.parse(
+  await readFile(resolve(root, "infra/corpus-edge/object-key-policy.json"), "utf8"),
+);
+const publicImmutableObjectPattern = new RegExp(objectKeyPolicy.immutableObjectPattern);
 const outputRoot = resolve(root, "artifacts", "corpus-release", releaseId);
 const uploadPlan = JSON.parse(await readFile(resolve(outputRoot, "upload-plan.json"), "utf8"));
 const errors = [];
@@ -159,6 +163,10 @@ requireValue(verifiedSegments === releaseManifest.totals.segments, "逐版页复
 requireValue(verifiedFolios === releaseManifest.totals.folios, "逐版页复算版页总数不一致");
 
 for (const object of releaseManifest.objects) {
+  requireValue(
+    publicImmutableObjectPattern.test(object.key),
+    `Worker 公网对象键策略拒绝受控发布对象：${object.key}`,
+  );
   const planObject = planByKey.get(object.key);
   requireValue(Boolean(planObject), `发布清单对象不在上传计划：${object.key}`);
   requireValue(planObject?.sha256 === object.sha256, `发布清单对象哈希不一致：${object.key}`);

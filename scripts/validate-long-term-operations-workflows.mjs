@@ -3,8 +3,12 @@ import { readFile } from "node:fs/promises";
 const workflowPaths = [
   ".github/workflows/cloudflare-r2-release.yml",
   ".github/workflows/preservation-recovery-drill.yml",
+  ".github/workflows/cloudflare-edge-deploy.yml",
+  ".github/workflows/cloudflare-edge-health.yml",
 ];
-const [r2, recovery] = await Promise.all(workflowPaths.map((path) => readFile(path, "utf8")));
+const [r2, recovery, edgeDeploy, edgeHealth] = await Promise.all(
+  workflowPaths.map((path) => readFile(path, "utf8")),
+);
 const failures = [];
 
 function requirePattern(document, description, pattern) {
@@ -22,10 +26,13 @@ function requireOrder(document, description, fragments) {
   }
 }
 
-for (const [path, document] of workflowPaths.map((path, index) => [path, index === 0 ? r2 : recovery])) {
+for (const [path, document] of workflowPaths.map((path, index) => [
+  path,
+  [r2, recovery, edgeDeploy, edgeHealth][index],
+])) {
   if (/pull_request_target:/.test(document)) failures.push(`${path} 禁止使用 pull_request_target`);
   requirePattern(document, `${path} 根权限必须只读`, /permissions:\n\s+contents: read/);
-  const actions = [...document.matchAll(/^\s*uses:\s*([^\s#]+)(?:\s*#.*)?$/gm)].map(([, action]) => action);
+  const actions = [...document.matchAll(/^\s*(?:-\s*)?uses:\s*([^\s#]+)(?:\s*#.*)?$/gm)].map(([, action]) => action);
   if (actions.length === 0) failures.push(`${path} 没有 GitHub Action 引用`);
   for (const action of actions) {
     const revision = action.slice(action.lastIndexOf("@") + 1);
@@ -44,6 +51,7 @@ for (const secret of [
   requirePattern(r2, `R2 发布缺少 ${secret}`, new RegExp(secret));
 }
 requirePattern(r2, "R2 发布未要求公开 ready", /REQUIRE_READY: "true"/);
+requirePattern(r2, "R2 发布未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
 requireOrder(r2, "R2 发布门禁必须先验证、再上传、再部署、最后公开验证", [
   "run: pnpm verify",
   "--dry-run --plan",
@@ -65,6 +73,41 @@ requireOrder(recovery, "恢复演练必须先验证证明，再执行从零恢�
   "node scripts/verify-preservation-recovery.mjs",
 ]);
 requirePattern(recovery, "恢复演练必须保存报告", /RECOVERY-DRILL-REPORT\.json/);
+
+requirePattern(
+  edgeDeploy,
+  "Worker 独立部署只能由 workflow_dispatch 进入",
+  /on:\n  workflow_dispatch:/,
+);
+requirePattern(edgeDeploy, "Worker 独立部署缺少精确人工确认", /deploy-foxue-corpus-edge/);
+for (const secret of ["CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"]) {
+  requirePattern(edgeDeploy, `Worker 独立部署缺少 ${secret}`, new RegExp(secret));
+}
+if (/R2_(?:ACCESS_KEY_ID|SECRET_ACCESS_KEY)/.test(edgeDeploy)) {
+  failures.push("Worker 独立部署不得读取 R2 上传凭据");
+}
+requirePattern(
+  edgeDeploy,
+  "Worker 独立部署必须与 R2 发布共享并发锁",
+  /group: cloudflare-r2-corpus-release/,
+);
+requirePattern(edgeDeploy, "Worker 独立部署未要求公开 ready", /REQUIRE_READY: "true"/);
+requirePattern(edgeDeploy, "Worker 独立部署未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
+requireOrder(edgeDeploy, "Worker 独立部署必须先验证、读取原子指针、部署、再公开验证", [
+  "pnpm cloudflare:types:check && pnpm cloudflare:check",
+  "https://canon.foxue.ai/v1/latest.json",
+  "wrangler deploy --config infra/corpus-edge/wrangler.jsonc",
+  "node scripts/verify-cloudflare-edge.mjs",
+]);
+
+requirePattern(edgeHealth, "Worker 健康检查必须每日运行", /schedule:\n\s+- cron: "41 2 \* \* \*"/);
+requirePattern(edgeHealth, "Worker 健康检查未要求公开 ready", /REQUIRE_READY: "true"/);
+requirePattern(edgeHealth, "Worker 健康检查未按发行能力要求穆勒经目", /REQUIRE_MULLER_INDEX: "true"/);
+requirePattern(
+  edgeHealth,
+  "Worker 健康检查缺少公开验证",
+  /node scripts\/verify-cloudflare-edge\.mjs https:\/\/canon\.foxue\.ai/,
+);
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);
