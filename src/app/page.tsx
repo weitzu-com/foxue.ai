@@ -21,6 +21,7 @@ import {
   Users,
 } from "lucide-react";
 import { SearchConsole } from "@/components/search-console";
+import { ReadingShelf } from "@/components/reading-shelf";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
 import { allConcepts } from "@/lib/concept-hubs";
 import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-metadata";
@@ -205,6 +206,8 @@ export default function Home() {
           </div>
         </dl>
       </section>
+
+      <ReadingShelf variant="home" />
 
       <section className={styles.pathSection} aria-labelledby="paths-title">
         <div className={styles.sectionHeading}>

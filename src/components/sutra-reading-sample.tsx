@@ -8,6 +8,7 @@ import {
 } from "@/data/sutra-reading-editions";
 import { SutraReaderPreferences } from "@/components/sutra-reader-preferences";
 import { FolioStudySelection } from "@/components/folio-study-selection";
+import { FolioReadingTrail } from "@/components/folio-reading-trail";
 import { pinyinForBuddhistText } from "@/lib/buddhist-pinyin.mjs";
 import styles from "./sutra-reading-sample.module.css";
 
@@ -457,64 +458,73 @@ export function SutraReadingSample({
           )}
         </div>
 
-        <FolioStudySelection
+        <FolioReadingTrail
           slug={slug}
           folioKey={folioKey}
           workTitle={workTitle}
           passageLabel={passageLabel}
           quoteLang={edition.contentLanguage}
+          languageLabel={textLanguageLabel}
         >
-          <div
-            className={styles.readingBody}
-            data-corpus-content="sutra-segment"
-            lang={edition.contentLanguage}
-            aria-describedby="pinyin-reading-note"
+          <FolioStudySelection
+            slug={slug}
+            folioKey={folioKey}
+            workTitle={workTitle}
+            passageLabel={passageLabel}
+            quoteLang={edition.contentLanguage}
           >
-            {blocks.map((block) => {
-            if (block.kind === "paragraph") {
-              return (
-                <p className={`${styles.readingParagraph} sutra-segment`} key={block.key}>
-                  {block.sentences.map((sentence, sentenceIndex) => (
-                    <span className={styles.sentence} key={`${block.key}-${sentenceIndex}`}>
-                      {sentence.map((piece) => (
+            <div
+              className={styles.readingBody}
+              data-corpus-content="sutra-segment"
+              lang={edition.contentLanguage}
+              aria-describedby="pinyin-reading-note"
+            >
+              {blocks.map((block) => {
+                if (block.kind === "paragraph") {
+                  return (
+                    <p className={`${styles.readingParagraph} sutra-segment`} key={block.key}>
+                      {block.sentences.map((sentence, sentenceIndex) => (
+                        <span className={styles.sentence} key={`${block.key}-${sentenceIndex}`}>
+                          {sentence.map((piece) => (
+                            <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
+                          ))}
+                        </span>
+                      ))}
+                    </p>
+                  );
+                }
+                if (block.kind === "heading") {
+                  return (
+                    <h2 className={`${styles.sectionHeading} sutra-segment`} key={block.key}>
+                      {block.pieces.map((piece) => (
+                        <span className={styles.headingLine} key={piece.key}>
+                          <ReadingPiece piece={piece} annotationMode={edition.annotationMode} />
+                        </span>
+                      ))}
+                    </h2>
+                  );
+                }
+                if (block.kind === "colophon") {
+                  return (
+                    <p className={`${styles.colophon} sutra-segment`} key={block.key}>
+                      {block.pieces.map((piece) => (
                         <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
                       ))}
-                    </span>
-                  ))}
-                </p>
-              );
-            }
-            if (block.kind === "heading") {
-              return (
-                <h2 className={`${styles.sectionHeading} sutra-segment`} key={block.key}>
-                  {block.pieces.map((piece) => (
-                    <span className={styles.headingLine} key={piece.key}>
-                      <ReadingPiece piece={piece} annotationMode={edition.annotationMode} />
-                    </span>
-                  ))}
-                </h2>
-              );
-            }
-            if (block.kind === "colophon") {
-              return (
-                <p className={`${styles.colophon} sutra-segment`} key={block.key}>
-                  {block.pieces.map((piece) => (
-                    <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
-                  ))}
-                </p>
-              );
-            }
-            return (
-              <p className={`${styles.byline} sutra-segment`} key={block.key}>
-                {block.pieces.map((piece) => (
-                  <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
-                ))}
-              </p>
-            );
-            })}
-            <div className={styles.closingMark} aria-hidden="true">{edition.closingMark}</div>
-          </div>
-        </FolioStudySelection>
+                    </p>
+                  );
+                }
+                return (
+                  <p className={`${styles.byline} sutra-segment`} key={block.key}>
+                    {block.pieces.map((piece) => (
+                      <ReadingPiece piece={piece} annotationMode={edition.annotationMode} key={piece.key} />
+                    ))}
+                  </p>
+                );
+              })}
+              <div className={styles.closingMark} aria-hidden="true">{edition.closingMark}</div>
+            </div>
+          </FolioStudySelection>
+        </FolioReadingTrail>
       </SutraReaderPreferences>
 
       <details className={styles.sourceDetails}>

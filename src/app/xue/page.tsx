@@ -22,6 +22,7 @@ import {
   buildPageMetadata,
   serializeJsonLd,
 } from "@/lib/site-metadata";
+import { ReadingShelf } from "@/components/reading-shelf";
 import styles from "./xue.module.css";
 
 const title = "佛经研读中心｜从静读到版本校勘";
@@ -150,6 +151,8 @@ export default function StudyPage() {
             </ol>
           </aside>
         </header>
+
+        <ReadingShelf />
 
         <section className={styles.modeSection} aria-labelledby="study-for-whom">
           <div className={styles.sectionHeading}>

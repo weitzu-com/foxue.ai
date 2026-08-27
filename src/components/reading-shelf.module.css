@@ -1,0 +1,482 @@
+.studyShelf {
+  padding: 112px 0;
+  border-bottom: 1px solid var(--line-dark);
+  scroll-margin-top: 5rem;
+}
+
+.shelfHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 50px;
+}
+
+.shelfHeading > div > p {
+  margin: 0 0 18px;
+  color: var(--cinnabar);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.shelfHeading h2 {
+  max-width: 830px;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.1rem, 4.4vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.shelfHeading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+
+.emptyShelf {
+  min-height: 14rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  border: 1px solid var(--line-dark);
+  background: rgb(255 253 247 / 45%);
+}
+
+.emptyShelf > div:first-child {
+  width: 4.5rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--cinnabar);
+  border-radius: 50%;
+  color: var(--cinnabar);
+}
+
+.emptyShelf svg {
+  width: 1.5rem;
+}
+
+.emptyShelf h3 {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.45rem;
+}
+
+.emptyShelf p {
+  max-width: 58ch;
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.85;
+}
+
+.emptyShelf > a,
+.entryActions > a {
+  min-height: 2.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.emptyShelf > a:hover,
+.entryActions > a:hover {
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.emptyShelf > a svg,
+.entryActions svg {
+  width: 0.9rem;
+}
+
+.shelfGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.primaryEntry,
+.shelfEntry {
+  min-width: 0;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.7rem;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: rgb(255 253 247 / 45%);
+}
+
+.primaryEntry {
+  grid-column: 1 / -1;
+  min-height: 25rem;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background: #202a23;
+  color: #f7f1e7;
+}
+
+.entryTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.primaryEntry .entryTopline {
+  color: #abb5ad;
+}
+
+.entryTopline span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cinnabar);
+  font-weight: 800;
+}
+
+.primaryEntry .entryTopline span:first-child {
+  color: #f1a18f;
+}
+
+.entryTopline svg {
+  width: 0.9rem;
+}
+
+.entryCopy {
+  min-width: 0;
+  margin-top: 2.4rem;
+}
+
+.entryCopy h3 {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.35rem, 2.7vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.primaryEntry .entryCopy h3 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.entryCopy > p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.primaryEntry .entryCopy > p {
+  color: #adb7af;
+}
+
+.entryCopy blockquote {
+  max-width: 62ch;
+  margin: 1.35rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+.primaryEntry .entryCopy blockquote {
+  color: #dce2dc;
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+}
+
+.entryCopy small {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--cinnabar);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+.primaryEntry .entryCopy small {
+  color: #f1a18f;
+}
+
+.entryActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.entryActions button {
+  min-width: 2.9rem;
+  min-height: 2.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding-inline: 0.8rem;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  color: currentColor;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.primaryEntry .entryActions button {
+  border-color: #687269;
+}
+
+.entryActions button:hover,
+.entryActions button[aria-pressed="true"] {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.primaryEntry .entryActions button:hover,
+.primaryEntry .entryActions button[aria-pressed="true"] {
+  border-color: #f1a18f;
+  color: #f1a18f;
+}
+
+.shelfPrivacy {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.63rem;
+}
+
+.shelfPrivacy > svg {
+  width: 0.9rem;
+  color: var(--cinnabar);
+}
+
+.shelfPrivacy > span {
+  color: var(--ink);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.shelfPrivacy p {
+  margin: 0;
+}
+
+.shelfPrivacy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  color: var(--cinnabar);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.shelfPrivacy a svg {
+  width: 0.85rem;
+}
+
+.homeResume {
+  width: min(1180px, calc(100vw - 48px));
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2.5rem auto 0;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--home-line, var(--line));
+  border-left: 3px solid var(--home-red, var(--cinnabar));
+  background: rgb(255 253 247 / 55%);
+  color: var(--home-ink, var(--ink));
+}
+
+.homeResumeMark {
+  width: 3.1rem;
+  height: 3.1rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--home-red, var(--cinnabar));
+  border-radius: 50%;
+  color: var(--home-red, var(--cinnabar));
+}
+
+.homeResumeMark svg {
+  width: 1.05rem;
+}
+
+.homeResumeMark span {
+  display: none;
+}
+
+.homeResumeCopy p,
+.homeResumeCopy h2,
+.homeResumeCopy > span {
+  margin: 0;
+}
+
+.homeResumeCopy p {
+  color: var(--home-red, var(--cinnabar));
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.homeResumeCopy h2 {
+  margin-top: 0.25rem;
+  font-family: var(--font-serif), serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.homeResumeCopy > span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #626b63;
+  font-size: 0.62rem;
+}
+
+.homeResumeActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.homeResumeActions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--home-red, var(--cinnabar));
+  font-size: 0.69rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.homeResumeActions a:last-child {
+  color: #626b63;
+}
+
+.homeResumeActions svg {
+  width: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .shelfHeading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .emptyShelf {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .emptyShelf > a {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .shelfGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeResume {
+    width: min(100% - 32px, 1180px);
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .homeResumeActions {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .studyShelf {
+    padding: 76px 0;
+  }
+
+  .emptyShelf {
+    grid-template-columns: 1fr;
+    padding: 1.6rem;
+  }
+
+  .emptyShelf > a {
+    grid-column: 1;
+  }
+
+  .primaryEntry,
+  .shelfEntry {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .entryTopline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .entryActions button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .shelfPrivacy {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .shelfPrivacy p {
+    flex-basis: calc(100% - 4rem);
+  }
+
+  .shelfPrivacy a {
+    margin-left: 0;
+  }
+
+  .homeResume {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.15rem;
+  }
+
+  .homeResumeMark {
+    display: none;
+  }
+
+  .homeResumeActions {
+    grid-column: 1;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .emptyShelf,
+  .shelfEntry {
+    background: #202821;
+  }
+
+  .primaryEntry {
+    background: #111713;
+  }
+}
