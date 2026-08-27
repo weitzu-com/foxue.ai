@@ -1,6 +1,7 @@
 export const READING_SHELF_STORAGE_KEY = "foxue:reading-shelf:v1";
 export const READING_SHELF_CHANGE_EVENT = "foxue:reading-shelf-change";
 export const EMPTY_READING_SHELF_SNAPSHOT = '{"version":1,"entries":[]}';
+export const READING_RESUME_HASH_PREFIX = "foxue-resume=";
 
 const MAX_PINNED_ENTRIES = 50;
 const MAX_RECENT_ENTRIES = 12;
@@ -131,6 +132,20 @@ export function parseReadingShelf(snapshot: string): ReadingShelfEntry[] {
 
 export function serializeReadingShelf(entries: ReadingShelfEntry[]) {
   return JSON.stringify({ version: 1, entries: normalizeReadingShelf(entries) } satisfies ReadingShelfStore);
+}
+
+export function readingResumeHref(pageHref: string, locator: string) {
+  return `${pageHref}#${READING_RESUME_HASH_PREFIX}${encodeURIComponent(locator)}`;
+}
+
+export function readingResumeLocator(hash: string) {
+  try {
+    const decoded = decodeURIComponent(hash.replace(/^#/u, ""));
+    if (!decoded.startsWith(READING_RESUME_HASH_PREFIX)) return "";
+    return decoded.slice(READING_RESUME_HASH_PREFIX.length).slice(0, 300);
+  } catch {
+    return "";
+  }
 }
 
 export function recordReadingVisit(

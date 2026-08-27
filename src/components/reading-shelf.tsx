@@ -97,7 +97,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
         </div>
       ) : (
         <div className={styles.shelfGrid} aria-live="polite">
-          {entries.slice(0, 6).map((entry, index) => (
+          {entries.map((entry, index) => (
             <article className={index === 0 ? styles.primaryEntry : styles.shelfEntry} key={entry.id}>
               <div className={styles.entryTopline}>
                 <span>

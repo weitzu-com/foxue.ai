@@ -760,7 +760,7 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
     quoteLang: "zh-Hant",
     languageLabel: "汉文",
     pageHref: path,
-    resumeHref: `${path}#${locator}`,
+    resumeHref: `${path}#foxue-resume=${locator}`,
     locator,
     preview: source,
     pinned: false,
@@ -777,13 +777,13 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
   await expect(page.locator("blockquote").filter({ hasText: source ?? "" })).toHaveAttribute("lang", "zh-Hant");
   await expect(page.getByRole("link", { name: /回到原文位置/ }).first()).toHaveAttribute(
     "href",
-    `${path}#${locator}`,
+    `${path}#foxue-resume=${locator}`,
   );
 
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /般若波罗蜜多心经/ })).toBeVisible();
   const resumeLink = page.getByRole("link", { name: /回到上次读到的地方/ });
-  await expect(resumeLink).toHaveAttribute("href", `${path}#${locator}`);
+  await expect(resumeLink).toHaveAttribute("href", `${path}#foxue-resume=${locator}`);
 
   const accessibility = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
@@ -797,10 +797,43 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
   expect(pageWidth).toBeLessThanOrEqual(page.viewportSize()?.width ?? pageWidth);
 
   await resumeLink.click();
-  await page.waitForURL(new RegExp(`${path}#${locator.replaceAll(".", "\\.")}$`));
-  await expect(page.locator(`[data-study-segment-id="${locator}"][id]`).filter({
+  await page.waitForURL(new RegExp(`${path}#foxue-resume=${locator.replaceAll(".", "\\.")}$`));
+  const resumeTarget = page.locator(`[data-study-segment-id="${locator}"][id]`).filter({
     has: page.locator("[data-source-text-equivalent]"),
-  })).toBeVisible();
+  });
+  await expect(resumeTarget).toHaveAttribute("data-reading-resume-target", "true");
+  await expect(resumeTarget).toBeInViewport();
+});
+
+test("书房完整呈现所有保留收藏而不是只显示前六条", async ({ page }) => {
+  await page.addInitScript(() => {
+    const entries = Array.from({ length: 7 }, (_, index) => {
+      const number = index + 1;
+      const timestamp = new Date(Date.UTC(2026, 7, 20, 0, number)).toISOString();
+      return {
+        id: `saved-work-${number}/001-page`,
+        slug: `saved-work-${number}`,
+        folioKey: "001-page",
+        workTitle: `《保留收藏 ${number}》`,
+        passageLabel: `第 ${number} 页`,
+        quoteLang: "zh-Hant",
+        languageLabel: "汉文",
+        pageHref: `/jingzang/saved-work-${number}/001-page`,
+        resumeHref: `/jingzang/saved-work-${number}/001-page#foxue-resume=line-${number}`,
+        locator: `line-${number}`,
+        preview: `第 ${number} 条保留收藏的原文快照。`,
+        pinned: true,
+        firstReadAt: timestamp,
+        lastReadAt: timestamp,
+      };
+    });
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({ version: 1, entries }));
+  });
+
+  await page.goto("/xue#reading-shelf");
+  await expect(page.getByRole("heading", { name: "《保留收藏 1》" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "《保留收藏 7》" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
 });
 
 test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {

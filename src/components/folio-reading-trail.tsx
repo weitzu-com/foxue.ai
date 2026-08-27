@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Bookmark, BookmarkCheck, Clock3, LibraryBig, LockKeyhole } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import {
+  readingResumeHref,
+  readingResumeLocator,
   recordReadingLocation,
   recordReadingVisit,
   setReadingPinned,
@@ -60,6 +62,14 @@ export function FolioReadingTrail({
 
     const anchors = [...root.querySelectorAll<HTMLElement>("[data-study-segment-id][id]")]
       .filter((anchor) => anchor.querySelector("[data-source-text-equivalent]"));
+    const resumeLocator = readingResumeLocator(window.location.hash);
+    if (resumeLocator) {
+      const resumeTarget = anchors.find((anchor) => anchor.dataset.studySegmentId === resumeLocator);
+      if (resumeTarget) {
+        resumeTarget.dataset.readingResumeTarget = "true";
+        resumeTarget.scrollIntoView({ block: "center" });
+      }
+    }
     let pendingWrite: number | undefined;
 
     const observer = new IntersectionObserver((observations) => {
@@ -81,7 +91,7 @@ export function FolioReadingTrail({
           {
             locator,
             preview: source,
-            resumeHref: `${pageHref}#${encodeURIComponent(locator)}`,
+            resumeHref: readingResumeHref(pageHref, locator),
           },
           new Date().toISOString(),
         ));
