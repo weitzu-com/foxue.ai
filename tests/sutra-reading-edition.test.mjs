@@ -7,6 +7,7 @@ import satCatalog from "../data/corpus/sat/modern-japanese-catalog-v1.0.0.json" 
 import kokuyakuCatalog from "../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json" with { type: "json" };
 import mullerDhpCatalog from "../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json" with { type: "json" };
 import sujatoEnglishCatalog from "../data/corpus/suttacentral/sujato-en-catalog-v1.0.0.json" with { type: "json" };
+import sujatoEnglishKnCatalog from "../data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json" with { type: "json" };
 import dhammapadaManifest from "../data/corpus/suttacentral/manifest-v0.7.0.json" with { type: "json" };
 import dighaManifest from "../data/corpus/suttacentral/dn-manifest-v0.8.0.json" with { type: "json" };
 import majjhimaManifest from "../data/corpus/suttacentral/mn-manifest-v0.9.0.json" with { type: "json" };
@@ -24,7 +25,7 @@ import {
   inferReadingSegmentRoles,
 } from "../src/lib/sutra-reading-edition.mjs";
 
-test("全部 4,183 個文本表達都由語種與來源生成正確閱讀模式", () => {
+test("全部 4,188 個文本表達都由語種與來源生成正確閱讀模式", () => {
   const collections = [
     [catalog.files, "cbeta-folio"],
     [nanchuanCatalog.files, "cbeta-folio"],
@@ -34,6 +35,7 @@ test("全部 4,183 個文本表達都由語種與來源生成正確閱讀模式"
     [mullerDhpCatalog.files, "english-translation-folio"],
     [sujatoEnglishCatalog.files.filter((file) => file.parser === "bilara_root_json"), "bilara-chapter"],
     [sujatoEnglishCatalog.files.filter((file) => file.parser !== "bilara_root_json"), "bilara-sutta"],
+    [sujatoEnglishKnCatalog.files, "bilara-sutta"],
     [dhammapadaManifest.files, "bilara-chapter"],
     [dighaManifest.files, "bilara-sutta"],
     [majjhimaManifest.files, "bilara-sutta"],
@@ -67,7 +69,7 @@ test("全部 4,183 個文本表達都由語種與來源生成正確閱讀模式"
     }
     return edition;
   }));
-  assert.equal(editions.length, 4183);
+  assert.equal(editions.length, 4188);
 });
 
 test("保守識別註冊號、經題、譯者與品題", () => {

@@ -191,7 +191,9 @@ const checksumRaw = [
   ...inputPaths.map((path, index) => `${sha256(inputBytes[index])}  ${path.split("/").at(-1)}`),
 ].join("\n") + "\n";
 if (verifyMode) {
-  // 历史登记册只校验自身与校验和；当前版本指针由后续发布维护。
+  // v6.23 is now a historical release. Reproduce and verify its immutable
+  // registry and checksums without requiring the mutable current-version
+  // pointer to move backwards from v6.24.
   for (const [path, expectedRaw] of [[outputPath, registryRaw], [checksumPath, checksumRaw]]) {
     if (await readFile(resolve(root, path), "utf8") !== expectedRaw) throw new Error(`${path} 不可复现`);
   }

@@ -1,0 +1,169 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/suttacentral-sujato-en-kn-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-27",
+  "cut": "first_principles_sujato_cc0_english_held_kn",
+  "pin": {
+    "repository": "suttacentral/bilara-data",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "note": "Same Bilara published snapshot as #79. Still valid for scpub16/17/18/19/86 on 2026-08-27."
+  },
+  "ingest": {
+    "title": "Bhikkhu Sujato CC0 English held Khuddaka translations",
+    "translator": "Bhikkhu Sujato",
+    "source": "SuttaCentral / Bilara published snapshot",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "publicationNumbers": [
+      "scpub16",
+      "scpub17",
+      "scpub18",
+      "scpub19",
+      "scpub86"
+    ],
+    "newWorks": 0,
+    "newExpressions": 5,
+    "completeTexts": 5,
+    "sourceRecords": 309,
+    "attachedExistingWorks": 5,
+    "attachedUids": [
+      "iti",
+      "snp",
+      "ud",
+      "kp",
+      "cp"
+    ],
+    "collections": {
+      "iti": {
+        "expressions": 1,
+        "sourceRecords": 112,
+        "publication": "scpub16",
+        "workId": "gbcr:work:khuddaka-nikaya-iti-pali",
+        "uid": "iti"
+      },
+      "snp": {
+        "expressions": 1,
+        "sourceRecords": 73,
+        "publication": "scpub17",
+        "workId": "gbcr:work:khuddaka-nikaya-snp-pali",
+        "uid": "snp"
+      },
+      "ud": {
+        "expressions": 1,
+        "sourceRecords": 80,
+        "publication": "scpub18",
+        "workId": "gbcr:work:khuddaka-nikaya-ud-pali",
+        "uid": "ud"
+      },
+      "kp": {
+        "expressions": 1,
+        "sourceRecords": 9,
+        "publication": "scpub19",
+        "workId": "gbcr:work:khuddaka-nikaya-kp-pali",
+        "uid": "kp"
+      },
+      "cp": {
+        "expressions": 1,
+        "sourceRecords": 35,
+        "publication": "scpub86",
+        "workId": "gbcr:work:khuddaka-nikaya-cp-pali",
+        "uid": "cp"
+      }
+    },
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "filesApprovedForModelTraining": 0,
+    "mapping": "Each held KN book attaches one Sujato EN expression to the already-registered book-level Pali work. No new Works. Slugs follow /jingzang/suttacentral-en-{uid}.",
+    "rights": {
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "quotedFromLicenseMd": "All translations created in Bilara and supported by SuttaCentral are dedicated to the Public Domain by means of the Creative Commons Public Domain (CC0) license.",
+      "attribution": "Bhikkhu Sujato, SuttaCentral / Bilara published snapshot",
+      "training": "SuttaCentral asks that its data not be used for generative-model training. Display/retrieval on foxue.ai is allowed. filesApprovedForModelTraining remains 0."
+    }
+  },
+  "refusals": [
+    {
+      "id": "dsbc_sanskrit_body",
+      "result": "still_refused_not_license_clean",
+      "source": "https://www.dsbcproject.org/pages/usage-policy",
+      "quoted": [
+        "These e-texts are provided for review, indexing and word search purposes only.",
+        "Reproduction of DSBC contents without permission is prohibited."
+      ],
+      "note": "DSBC remains refused. This cut does not ingest DSBC bodies."
+    },
+    {
+      "id": "gretil_mirror",
+      "result": "already_zero_mirror_still_refused",
+      "note": "GRETIL remains 0-mirror. This cut does not start a GRETIL body ingest."
+    },
+    {
+      "id": "sujato_walton_theragatha_therigatha",
+      "result": "skipped_sujato_walton_collaboration",
+      "publications": [
+        "scpub1",
+        "scpub6"
+      ],
+      "uids": [
+        "thag",
+        "thig"
+      ],
+      "note": "thag/thig stay out. They are sujato-walton collaborations, not sole-author Sujato publications."
+    },
+    {
+      "id": "brahmali_vinaya",
+      "result": "skipped_not_fosuo_jing_this_cut",
+      "publication": "scpub8",
+      "note": "Bhikkhu Brahmali Vinaya is 律, not 佛说经 this cut."
+    },
+    {
+      "id": "sujato_patimokkha",
+      "result": "skipped_vinaya_not_this_cut",
+      "publications": [
+        "scpub79",
+        "scpub80"
+      ],
+      "note": "Sujato patimokkha publications are 律, unpublished in this snapshot, and out of this cut."
+    },
+    {
+      "id": "legacy_suttacentral_mixed_license_translations",
+      "result": "skipped_not_cc0_sujato_publication",
+      "note": "Only Bilara translation/en/sujato files whose publication record is CC0 / sujato are ingested."
+    },
+    {
+      "id": "other_held_kn_books",
+      "result": "skipped_not_in_this_cut",
+      "uids": [
+        "ja",
+        "bv",
+        "cnd",
+        "mil",
+        "mnd",
+        "ne",
+        "pe",
+        "ps",
+        "pv",
+        "tha-ap",
+        "thi-ap",
+        "vv"
+      ],
+      "note": "Other held KN Pali books are not in the Sujato sole-author CC0 publication set for this cut. ja remains incomplete in this snapshot."
+    },
+    {
+      "id": "sabbamitta_or_non_en_non_sujato",
+      "result": "skipped_out_of_scope",
+      "note": "No Sabbamitta or any non-en / non-sujato translation is imported."
+    },
+    {
+      "id": "dual_human_review",
+      "result": "left_zero",
+      "note": "Dual-human review stays 0/80. This cut is a code ingest, not a staffing change."
+    },
+    {
+      "id": "global_coverage_claim",
+      "result": "left_null",
+      "note": "Do not claim 99.9%. Global coverage percent stays null."
+    }
+  ],
+  "caveat": "本总帐只证明已持有小部五书（iti/snp/ud/kp/cp）的 Sujato CC0 英译被挂接为既有巴利作品的新表达。它不构成全球佛陀亲说覆盖率，也不批准把 SuttaCentral 文本用于生成式模型训练。"
+}

@@ -9,7 +9,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: absoluteUrl("/fugai"),
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.24.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.25.0.json",
         globalDenominatorHuman: absoluteUrl("/fenmu"),
         globalDenominatorStandard: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-standard-v0.1.0.json",
         globalDenominatorSourceUniverse: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-source-universe-v0.1.0.json",
@@ -37,6 +37,9 @@ export function GET() {
         suttacentralSujatoEnglishIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-ingest-v1.0.0.json",
         suttacentralSujatoEnglishRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-rights-audit-v1.0.0.json",
         suttacentralSujatoEnglishBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/suttacentral/sujato-en-batch-v1.0.0.json",
+        suttacentralSujatoEnglishKnIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-kn-ingest-v1.0.0.json",
+        suttacentralSujatoEnglishKnRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-kn-rights-audit-v1.0.0.json",
+        suttacentralSujatoEnglishKnBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/suttacentral/sujato-en-kn-batch-v1.0.0.json",
         chineseXuzangjingInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-xuzangjing-inventory-v0.1.0.json",
         chineseDazangjingBubianInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-dazangjing-bubian-inventory-v0.1.0.json",
         chineseSutraInventory: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/cbeta-taisho-sutra-inventory-v0.2.1.json",

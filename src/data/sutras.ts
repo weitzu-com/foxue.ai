@@ -5,6 +5,7 @@ import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-cata
 import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
 import wikisourceMullerDhpCatalog from "../../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json";
 import sujatoEnglishCatalog from "../../data/corpus/suttacentral/sujato-en-catalog-v1.0.0.json";
+import sujatoEnglishKnCatalog from "../../data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
 import dighaNikayaManifest from "../../data/corpus/suttacentral/dn-manifest-v0.8.0.json";
 import majjhimaNikayaManifest from "../../data/corpus/suttacentral/mn-manifest-v0.9.0.json";
@@ -396,7 +397,7 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...wikisourceMullerDhpCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...sujatoEnglishKnCatalog.files, ...wikisourceMullerDhpCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,

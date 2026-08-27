@@ -5,34 +5,60 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const verifyMode = process.argv.includes("--verify");
 const basePath = "data/gbcr/registry-v6.23.0.json";
-const catalogPath = "data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json";
-const manifestPath = "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json";
-const ledgerPath = "data/gbcr/wikisource-muller-dhp-ingest-v1.0.0.json";
+const catalogPath = "data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json";
+const manifestPath = "data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json";
+const ledgerPath = "data/gbcr/suttacentral-sujato-en-kn-ingest-v1.0.0.json";
+const rightsPath = "data/gbcr/suttacentral-sujato-en-kn-rights-audit-v1.0.0.json";
 const outputPath = "data/gbcr/registry-v6.24.0.json";
 const checksumPath = "data/gbcr/checksums-v6.24.0.sha256";
-const metadataPath = "src/lib/corpus-registry-metadata.ts";
-const inputPaths = [basePath, catalogPath, manifestPath, ledgerPath];
+const inputPaths = [basePath, catalogPath, manifestPath, ledgerPath, rightsPath];
 const inputBytes = await Promise.all(inputPaths.map((path) => readFile(resolve(root, path))));
-const [, catalogBytes, manifestBytes, ledgerBytes] = inputBytes;
-const [base, catalog, manifest, ledger] = inputBytes.map((bytes) => JSON.parse(bytes.toString("utf8")));
+const [, catalogBytes, manifestBytes, ledgerBytes, rightsBytes] = inputBytes;
+const [base, catalog, manifest, ledger, rights] = inputBytes.map((bytes) => JSON.parse(bytes.toString("utf8")));
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const jsonRaw = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
-if (base.registry.version !== "6.23.0" || base.works.length !== 3396 || base.works.flatMap((work) => work.expressions).length !== 4182) {
-  throw new Error("GBCR v6.23 基线漂移");
+if (base.registry.version !== "6.23.0" || base.works.length !== 3396) throw new Error("GBCR v6.23 基线漂移");
+if (catalog.version !== "1.0.0" || catalog.files.length !== 5 || catalog.collection.newWorks !== 0) {
+  throw new Error("Sujato 小部英译目录漂移");
 }
-if (catalog.version !== "1.0.0" || catalog.files.length !== 1) throw new Error("Müller Dhammapada 目录漂移");
-if (manifest.version !== "1.0.0" || manifest.files.length !== 1) throw new Error("Müller Dhammapada 清单漂移");
-if (ledger.ingest.newWorks !== 0 || ledger.ingest.newExpressions !== 1) throw new Error("Müller Dhammapada 总账计数漂移");
+if (manifest.version !== "1.0.0" || manifest.files.length !== 5) throw new Error("Sujato 小部英译清单漂移");
+if (ledger.ingest.newWorks !== 0 || ledger.ingest.newExpressions !== 5 || ledger.ingest.filesApprovedForModelTraining !== 0) {
+  throw new Error("Sujato 小部英译总帐计数漂移");
+}
+if (rights.summary.filesApprovedForModelTraining !== 0 || rights.summary.newWorks !== 0) {
+  throw new Error("Sujato 小部英译权利审计不得批准训练或新建作品");
+}
 if (base.globalDenominatorGovernance.independentHumanDecisions !== 0) throw new Error("不得伪造独立真人复核");
 
+const requiredWorkIds = [
+  "gbcr:work:khuddaka-nikaya-iti-pali",
+  "gbcr:work:khuddaka-nikaya-snp-pali",
+  "gbcr:work:khuddaka-nikaya-ud-pali",
+  "gbcr:work:khuddaka-nikaya-kp-pali",
+  "gbcr:work:khuddaka-nikaya-cp-pali",
+];
+
+function sourceUnits(file) {
+  return file.sourceParts ?? [file];
+}
+
 function expressionFromFile(file) {
+  const units = sourceUnits(file);
+  const assets = units.map((unit, index) => ({
+    part: unit.part ?? index + 1,
+    id: unit.id ?? file.id,
+    path: unit.localPath,
+    format: unit.format ?? file.format,
+    sha256: unit.localSha256,
+    rightsStatus: "cc0",
+  }));
   return {
     id: `gbcr:expression:${file.id}-en`,
     language: "en",
     title: file.presentation.title,
     translator: file.presentation.translator,
-    sourceSnapshotId: "wikisource_muller_dhp_1881",
+    sourceSnapshotId: "suttacentral_bilara_sujato_en_kn",
     localSlug: file.slug,
     cataloged: true,
     fullSourceText: true,
@@ -40,28 +66,25 @@ function expressionFromFile(file) {
     sampled: file.verification.humanSampleVerified,
     stableSegments: file.verification.segments,
     rightsReviewed: true,
-    qualityStatus: "verified_structure_and_anchors_scan_collation_pending",
+    qualityStatus: "verified_structure_and_anchors",
     sourceRole: file.sourceRole,
     canonicalStatus: file.canonicalStatus,
     buddhaWordStatus: file.buddhaWordStatus,
     bibliographicRelations: file.bibliographicRelations,
-    sourceTextAsset: {
-      path: file.localPath,
-      format: file.format,
-      sha256: file.localSha256,
-      rightsStatus: "public_domain",
-    },
+    filesApprovedForModelTraining: 0,
+    ...(assets.length === 1
+      ? { sourceTextAsset: { path: assets[0].path, format: assets[0].format, sha256: assets[0].sha256, rightsStatus: "cc0" } }
+      : { sourceTextAssets: assets }),
   };
 }
 
 const attachedWorkIds = new Set(catalog.files.map((file) => file.workId));
 const baseIds = new Set(base.works.map((work) => work.id));
-for (const workId of attachedWorkIds) {
-  if (!baseIds.has(workId)) throw new Error(`挂接作品不在既有登记册：${workId}`);
+for (const workId of requiredWorkIds) {
+  if (!baseIds.has(workId)) throw new Error(`掛接作品不在既有登記冊：${workId}`);
+  if (!attachedWorkIds.has(workId)) throw new Error(`缺少已持有小部挂接：${workId}`);
 }
-if (attachedWorkIds.size !== 1 || !attachedWorkIds.has("gbcr:work:dhammapada-pali")) {
-  throw new Error(`英译法句经应只挂接巴利法句，实际 ${[...attachedWorkIds].join(",")}`);
-}
+if (attachedWorkIds.size !== 5) throw new Error(`Sujato 小部英译应挂接 5 部既有作品，实际 ${attachedWorkIds.size}`);
 
 const works = base.works.map((work) => {
   if (!attachedWorkIds.has(work.id)) return work;
@@ -80,26 +103,30 @@ const works = base.works.map((work) => {
 const sourceFamilies = [
   ...base.sourceFamilies,
   {
-    id: "wikisource_muller_dhp_1881",
-    title: "Wikisource Max Müller Dhammapada 1881",
+    id: "suttacentral_bilara_sujato_en_kn",
+    title: "SuttaCentral Bilara Sujato 小部英译",
     traditions: ["上座部佛教"],
     languages: ["en"],
-    primarySources: ["wikisource_muller_dhp_1881"],
+    primarySources: ["suttacentral_bilara_sujato_en_kn"],
     denominatorStatus: "translation_witness_attached_not_global_denominator",
     denominatorWorks: null,
-    deduplicationNote: "公版英译挂接已持有巴利法句，不另建作品，也不进入全球佛说作品分母。",
-    controlledExpressions: catalog.files.length,
-    attachedExistingWorks: attachedWorkIds.size,
-    newWorks: 0,
-    controlledSourceBytes: catalog.files.reduce((sum, file) => sum + file.localBytes, 0),
-    controlledStableSegments: catalog.files.reduce((sum, file) => sum + file.verification.segments, 0),
-    catalogFile: catalogPath,
-    catalogSha256: sha256(catalogBytes),
-    manifestFile: manifestPath,
-    manifestSha256: sha256(manifestBytes),
-    ledgerFile: ledgerPath,
-    ledgerSha256: sha256(ledgerBytes),
-    qualityBoundary: "423 偈与 26 品结构已验证；Wikisource 标记仍待迁移至扫描本，故扫描对勘和人工抽样均不得写成已完成。",
+    deduplicationNote: "Sujato CC0 英译挂接已持有巴利小部五书，不另建作品，也不进入全球佛说作品分母。",
+    sujatoEnglishKnControlledExpressions: catalog.files.length,
+    sujatoEnglishKnAttachedExistingWorks: attachedWorkIds.size,
+    sujatoEnglishKnNewWorks: 0,
+    sujatoEnglishKnControlledSourceRecords: catalog.files.reduce((sum, file) => sum + file.verification.sourceRecords, 0),
+    sujatoEnglishKnControlledSourceBytes: catalog.collection.sourceBytes,
+    sujatoEnglishKnControlledStableSegments: catalog.files.reduce((sum, file) => sum + file.verification.segments, 0),
+    sujatoEnglishKnFilesApprovedForModelTraining: 0,
+    sujatoEnglishKnCatalogFile: catalogPath,
+    sujatoEnglishKnCatalogSha256: sha256(catalogBytes),
+    sujatoEnglishKnManifestFile: manifestPath,
+    sujatoEnglishKnManifestSha256: sha256(manifestBytes),
+    sujatoEnglishKnLedgerFile: ledgerPath,
+    sujatoEnglishKnLedgerSha256: sha256(ledgerBytes),
+    sujatoEnglishKnRightsAuditFile: rightsPath,
+    sujatoEnglishKnRightsAuditSha256: sha256(rightsBytes),
+    sujatoEnglishKnNote: "只收 Bilara published translation/en/sujato 且出版记录为 CC0 的 iti/snp/ud/kp/cp。不收 thag/thig、DSBC、GRETIL、Brahmali 律。",
   },
 ];
 
@@ -109,27 +136,30 @@ const registry = {
   sourceFamilies,
   claimPolicy: {
     ...base.claimPolicy,
-    reason: "站内登记作品仍为 3,396 部；文本表达增至 4,183 个，其中新增 1 个是已持有巴利《法句》的 1881 年公有领域英语译本。3,377 部既有作品仍在双人复核队列，独立真人决定仍为 0。全球分母与百分比不得发布。",
+    reason: "站内登记作品仍为 3,396 部；文本表达增至 4,187 个，其中 5 个是已持有巴利小部作品的 Sujato CC0 英译。3,377 部既有作品仍在双人复核队列，独立真人决定仍为 0。全球分母与百分比不得发布。",
   },
-  wikisourceMullerDhpFullTextAudit: {
-    status: "complete_public_domain_translation_witness_structure_verified_scan_collation_pending",
-    sourceSnapshotId: "wikisource_muller_dhp_1881",
+  suttacentralSujatoEnglishKnRightsAudit: {
+    status: "complete_cc0_translation_witness_with_global_denominator_unknown",
+    sourceSnapshotId: "suttacentral_bilara_sujato_en_kn",
+    commit: catalog.source.commit,
     controlledExpressions: catalog.files.length,
     newWorks: 0,
     attachedExistingWorks: attachedWorkIds.size,
+    attachedUids: ledger.ingest.attachedUids,
+    sourceRecords: catalog.files.reduce((sum, file) => sum + file.verification.sourceRecords, 0),
     stableSegments: catalog.files.reduce((sum, file) => sum + file.verification.segments, 0),
-    sourceBytes: catalog.files.reduce((sum, file) => sum + file.localBytes, 0),
-    verseCount: catalog.files[0].verification.verseCount,
-    chapterCount: catalog.files[0].verification.chapterCount,
-    humanSampleVerified: false,
-    scanCollated: false,
+    sourceBytes: catalog.collection.sourceBytes,
+    filesApprovedForReadingAndRetrieval: catalog.files.reduce((sum, file) => sum + file.verification.sourceRecords, 0),
+    filesApprovedForModelTraining: 0,
     catalogFile: catalogPath,
     catalogSha256: sha256(catalogBytes),
     manifestFile: manifestPath,
     manifestSha256: sha256(manifestBytes),
     ledgerFile: ledgerPath,
     ledgerSha256: sha256(ledgerBytes),
-    caveat: "本审计只证明一份 1881 年公版英译的来源完整性、423 偈编号完整性与 26 品结构；不证明逐句扫描对勘、人工译文复核或全球佛典覆盖。",
+    rightsAuditFile: rightsPath,
+    rightsAuditSha256: sha256(rightsBytes),
+    caveat: "本审计证明 iti/snp/ud/kp/cp 五份 Sujato CC0 英译的来源完整性与结构完整性；不把英译、未收入的 DSBC/GRETIL/律藏或其余小部计成全球佛陀亲说覆盖率，也不批准训练。",
   },
   works,
 };
@@ -144,14 +174,12 @@ const totals = {
 };
 const expected = {
   works: 3396,
-  expressions: 4183,
-  fullSourceExpressions: 4137,
+  expressions: 4187,
+  fullSourceExpressions: 4141,
   worksWithFullSource: 3369,
-  stableSegments: 5932721,
+  stableSegments: 5932307 + catalog.files.reduce((sum, file) => sum + file.verification.segments, 0),
 };
-if (JSON.stringify(totals) !== JSON.stringify(expected)) {
-  throw new Error(`GBCR v6.24 统计不一致：${JSON.stringify(totals)} vs ${JSON.stringify(expected)}`);
-}
+if (JSON.stringify(totals) !== JSON.stringify(expected)) throw new Error(`GBCR v6.24 统计不一致：${JSON.stringify(totals)} vs ${JSON.stringify(expected)}`);
 if (
   registry.claimPolicy.publishable !== false ||
   registry.buddhaWordScopeAudit.globalPercentagePublishable !== false ||
@@ -171,10 +199,9 @@ const checksumRaw = [
   `${sha256(Buffer.from(registryRaw))}  registry-v6.24.0.json`,
   ...inputPaths.map((path, index) => `${sha256(inputBytes[index])}  ${path.split("/").at(-1)}`),
 ].join("\n") + "\n";
-const metadataRaw = `// Generated by scripts/build-federated-corpus-v6.24.mjs. Do not edit manually.\nexport const CORPUS_REGISTRY_VERSION = "6.24.0" as const;\n`;
-
 if (verifyMode) {
-  for (const [path, expectedRaw] of [[outputPath, registryRaw], [checksumPath, checksumRaw], [metadataPath, metadataRaw]]) {
+  // v6.24 是历史登记册；当前版本指针由后续发布维护。
+  for (const [path, expectedRaw] of [[outputPath, registryRaw], [checksumPath, checksumRaw]]) {
     if (await readFile(resolve(root, path), "utf8") !== expectedRaw) throw new Error(`${path} 不可复现`);
   }
   console.log(`GBCR v6.24 可复现：${totals.works} 部作品、${totals.expressions} 个表达、${totals.fullSourceExpressions} 个完整来源表达；全球分母和百分比保持 null。`);
@@ -182,7 +209,6 @@ if (verifyMode) {
   await Promise.all([
     writeFile(resolve(root, outputPath), registryRaw),
     writeFile(resolve(root, checksumPath), checksumRaw),
-    writeFile(resolve(root, metadataPath), metadataRaw),
   ]);
-  console.log("GBCR v6.24 已生成：新增 1 个公版英语法句表达、0 部新作品；独立真人复核仍为 0。");
+  console.log(`GBCR v6.24 已生成：新增 5 个 Sujato 小部英译表达、0 部新作品；独立真人复核仍为 0。`);
 }

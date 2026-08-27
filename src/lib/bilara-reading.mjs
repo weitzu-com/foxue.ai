@@ -7,7 +7,7 @@ const GROUPED_NIKAYA_TITLES = {
   sn: "Saṁyutta Nikāya",
   an: "Aṅguttara Nikāya",
 };
-const SERIES_FILE = /^([a-z][a-z0-9.-]*)_root-(?:pli-ms|san|pra-pts|lzh-sct)\.json$/;
+const SERIES_FILE = /^([a-z][a-z0-9.-]*)_(?:root-(?:pli-ms|san|pra-pts|lzh-sct)|translation-en-sujato)\.json$/;
 const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function renderEditorialMarkup(text, filename) {
@@ -400,7 +400,7 @@ export function parseBilaraSeriesSources(sources, options = {}) {
       if (typeof rawText !== "string") throw new Error(`${id} 文本类型无效`);
       stableIds.add(id);
       if (!rawText.trim()) {
-        if (!omitEmptySegments) throw new Error(`${id} 缺少文本`);
+        if (!omitEmptySegments && !TRANSLATION_FILE.test(filename)) throw new Error(`${id} 缺少文本`);
         omittedEmptySegmentIds.push(id);
         return [];
       }

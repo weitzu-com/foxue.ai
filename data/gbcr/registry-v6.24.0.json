@@ -13,7 +13,7 @@
   "claimPolicy": {
     "target": "99%",
     "publishable": false,
-    "reason": "站内登记作品仍为 3,396 部；文本表达增至 4,183 个，其中新增 1 个是已持有巴利《法句》的 1881 年公有领域英语译本。3,377 部既有作品仍在双人复核队列，独立真人决定仍为 0。全球分母与百分比不得发布。",
+    "reason": "站内登记作品仍为 3,396 部；文本表达增至 4,187 个，其中 5 个是已持有巴利小部作品的 Sujato CC0 英译。3,377 部既有作品仍在双人复核队列，独立真人决定仍为 0。全球分母与百分比不得发布。",
     "rule": "目录、完整原文、稳定段落、译文、权利和质量必须分别计算；未知分母不得以零代替，也不得合并成单一营销数字。",
     "reviewGate": "只有 G0–G6 全部通过，且某一单独覆盖维度按未决项最保守计入分母后的下界不低于 99%，才可发布该维度声明；禁止发布加权总体 99%。"
   },
@@ -615,8 +615,8 @@
       "sujatoEnglishNote": "只收 Bilara published translation/en/sujato 且出版记录为 CC0 的 DN/MN/SN/AN/Dhp。不收 DSBC、GRETIL、Brahmali 律、旧版混合许可译文。"
     },
     {
-      "id": "wikisource_muller_dhp_1881",
-      "title": "Wikisource Max Müller Dhammapada 1881",
+      "id": "suttacentral_bilara_sujato_en_kn",
+      "title": "SuttaCentral Bilara Sujato 小部英译",
       "traditions": [
         "上座部佛教"
       ],
@@ -624,23 +624,27 @@
         "en"
       ],
       "primarySources": [
-        "wikisource_muller_dhp_1881"
+        "suttacentral_bilara_sujato_en_kn"
       ],
       "denominatorStatus": "translation_witness_attached_not_global_denominator",
       "denominatorWorks": null,
-      "deduplicationNote": "公版英译挂接已持有巴利法句，不另建作品，也不进入全球佛说作品分母。",
-      "controlledExpressions": 1,
-      "attachedExistingWorks": 1,
-      "newWorks": 0,
-      "controlledSourceBytes": 82335,
-      "controlledStableSegments": 414,
-      "catalogFile": "data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json",
-      "catalogSha256": "b3dd72c7ea05855737ae188a96ba646a0f6c476b5fe49f75b3b338db386efd80",
-      "manifestFile": "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json",
-      "manifestSha256": "00096c9bf6f39d3aa9d017d33d5527023769323fd1b078fef2bf67e53159f09c",
-      "ledgerFile": "data/gbcr/wikisource-muller-dhp-ingest-v1.0.0.json",
-      "ledgerSha256": "905249d34db827f177dee5d305f53b4b3ff3491df3c0e28166fd97bd14af2162",
-      "qualityBoundary": "423 偈与 26 品结构已验证；Wikisource 标记仍待迁移至扫描本，故扫描对勘和人工抽样均不得写成已完成。"
+      "deduplicationNote": "Sujato CC0 英译挂接已持有巴利小部五书，不另建作品，也不进入全球佛说作品分母。",
+      "sujatoEnglishKnControlledExpressions": 5,
+      "sujatoEnglishKnAttachedExistingWorks": 5,
+      "sujatoEnglishKnNewWorks": 0,
+      "sujatoEnglishKnControlledSourceRecords": 309,
+      "sujatoEnglishKnControlledSourceBytes": 824746,
+      "sujatoEnglishKnControlledStableSegments": 12524,
+      "sujatoEnglishKnFilesApprovedForModelTraining": 0,
+      "sujatoEnglishKnCatalogFile": "data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json",
+      "sujatoEnglishKnCatalogSha256": "931140c210d5450bf98ee5dc5354ef83cb614a533f993d62aeafd95517b19ecc",
+      "sujatoEnglishKnManifestFile": "data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json",
+      "sujatoEnglishKnManifestSha256": "a9d3bb41bbf093334ffb6e08ab9a11475900f9d276507f56c583149eb2cbf7c6",
+      "sujatoEnglishKnLedgerFile": "data/gbcr/suttacentral-sujato-en-kn-ingest-v1.0.0.json",
+      "sujatoEnglishKnLedgerSha256": "992549ee177d8efb81dba0373868d1c83f9718374f1b6904c526d5309f5e147b",
+      "sujatoEnglishKnRightsAuditFile": "data/gbcr/suttacentral-sujato-en-kn-rights-audit-v1.0.0.json",
+      "sujatoEnglishKnRightsAuditSha256": "0df105bc25d22326cfbdb9697d569d7db69b3a9c199c9105ef3dc7a04e8e4e76",
+      "sujatoEnglishKnNote": "只收 Bilara published translation/en/sujato 且出版记录为 CC0 的 iti/snp/ud/kp/cp。不收 thag/thig、DSBC、GRETIL、Brahmali 律。"
     }
   ],
   "sourceSnapshots": [
@@ -2092,69 +2096,11 @@
               "rightsStatus": "cc0"
             }
           ]
-        },
-        {
-          "id": "gbcr:expression:WIKISOURCE-DHP-MULLER-1881-en",
-          "language": "en",
-          "title": "The Dhammapada (Max Müller, 1881)",
-          "translator": "Friedrich Max Müller",
-          "sourceSnapshotId": "wikisource_muller_dhp_1881",
-          "localSlug": "wikisource-en-dhp-muller",
-          "cataloged": true,
-          "fullSourceText": true,
-          "completeSourceRecord": true,
-          "sampled": false,
-          "stableSegments": 414,
-          "rightsReviewed": true,
-          "qualityStatus": "verified_structure_and_anchors_scan_collation_pending",
-          "sourceRole": "public_domain_english_translation_expression",
-          "canonicalStatus": "pali_dhammapada_english_translation",
-          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
-          "bibliographicRelations": [
-            {
-              "type": "same_work_translation_group_verified",
-              "groupId": "wikisource-en-dhp-muller",
-              "label": "Müller English Dhammapada / Pāli Dhammapada",
-              "evidence": "The 1881 title page identifies Max Müller’s work as a translation from Pāli of the 423-verse Dhammapada. It attaches to gbcr:work:dhammapada-pali, creates no new work, and is not represented as the Buddha’s verbatim English speech.",
-              "externalIds": {
-                "wikisource": [
-                  "Dhammapada (Muller)"
-                ],
-                "suttacentral": [
-                  "dhp"
-                ],
-                "translator": [
-                  "Friedrich Max Müller"
-                ]
-              }
-            },
-            {
-              "type": "related_recension_parallel_not_aligned",
-              "groupId": "dhammapada-family-t0210",
-              "label": "Dhammapada textual family / T210 parallel",
-              "evidence": "Chinese T210 and Pāli Dhp remain distinct works in gbcr:text-family:dhammapada. This expression is not aligned verse-by-verse to T210 and does not merge the recensions.",
-              "externalIds": {
-                "cbeta": [
-                  "T0210"
-                ],
-                "suttacentral": [
-                  "dhp"
-                ]
-              }
-            }
-          ],
-          "sourceTextAsset": {
-            "path": "data/corpus/wikisource/muller-dhp-1881.xml",
-            "format": "application/tei+xml",
-            "sha256": "60b6c31f57c3beb3585a8d83cb3775dd42fff3a21c5b8ddcb3579e079730f784",
-            "rightsStatus": "public_domain"
-          }
         }
       ],
       "sourceRoles": [
         "kokuyaku_japanese_translation_expression",
-        "sujato_english_translation_expression",
-        "public_domain_english_translation_expression"
+        "sujato_english_translation_expression"
       ],
       "bibliographicRelations": [
         {
@@ -2196,23 +2142,6 @@
           "externalIds": {
             "suttacentral": [
               "dhp"
-            ]
-          }
-        },
-        {
-          "type": "same_work_translation_group_verified",
-          "groupId": "wikisource-en-dhp-muller",
-          "label": "Müller English Dhammapada / Pāli Dhammapada",
-          "evidence": "The 1881 title page identifies Max Müller’s work as a translation from Pāli of the 423-verse Dhammapada. It attaches to gbcr:work:dhammapada-pali, creates no new work, and is not represented as the Buddha’s verbatim English speech.",
-          "externalIds": {
-            "wikisource": [
-              "Dhammapada (Muller)"
-            ],
-            "suttacentral": [
-              "dhp"
-            ],
-            "translator": [
-              "Friedrich Max Müller"
             ]
           }
         }
@@ -73955,6 +73884,336 @@
               "rightsStatus": "public_domain"
             }
           ]
+        },
+        {
+          "id": "gbcr:expression:EN-CP-en",
+          "language": "en",
+          "title": "所行藏（Sujato 英译）",
+          "translator": "Bhikkhu Sujato",
+          "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+          "localSlug": "suttacentral-en-cp",
+          "cataloged": true,
+          "fullSourceText": true,
+          "completeSourceRecord": true,
+          "sampled": false,
+          "stableSegments": 1617,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceRole": "sujato_english_translation_expression",
+          "canonicalStatus": "pali_sutta_sujato_english_translation",
+          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+          "bibliographicRelations": [
+            {
+              "type": "same_work_translation_group_verified",
+              "groupId": "suttacentral-en-cp",
+              "label": "Sujato 英译／所行藏（Sujato 英译）",
+              "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-cp-pali；挂接既有作品，不新建作品。出版记录 scpub86 为 CC0。",
+              "externalIds": {
+                "suttacentral": [
+                  "cp"
+                ]
+              }
+            }
+          ],
+          "filesApprovedForModelTraining": 0,
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "EN-CP1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "62fdf9d95aa00c7da82cdbd701842921b9eddd53f142982bf53aeaa906de4637",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 2,
+              "id": "EN-CP2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3489beee6f99fbe4a8ce40ff75ff9b19feded6694dc5c8d916fd9d132d957787",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 3,
+              "id": "EN-CP3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1808f88538b1ca59e7e3ab927cb6727ed70ddb69d78ac9e9da746df493dc5a55",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 4,
+              "id": "EN-CP4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a0d237e95091817845440d9c2efceb66577412766c2adfb637f746c644626ff1",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 5,
+              "id": "EN-CP5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "21d22b9f17288e8ee46eba3c70e03df0ca79bf98b1a3bd160446996d7047db27",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 6,
+              "id": "EN-CP6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e2f4567cedb32c542033cafa406d1766629858826db22f161cdc9cf58c69c04b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 7,
+              "id": "EN-CP7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9d98ce57571fb9f2d494dfecee440dbea605ccc90c5700b7f497a6deeef0fb2e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 8,
+              "id": "EN-CP8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "dccaf96b903be7466eaca682b0defb2e3f503c6f90ab5fbaa18217d514182689",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 9,
+              "id": "EN-CP9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fe8ff6ed6eaee0ac36ac7357f7e539fc6616b1b6d82d1ce91d4ab46ee4fb6f47",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 10,
+              "id": "EN-CP10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f7ac9d980ed977c75885305321d338974c26a3a1646cdc7c0f7f1ce9cf899938",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 11,
+              "id": "EN-CP11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5ccbd3bb16d6ce56ffb444954fc8e9e23595bd381d3274f66c77024e5e6fd4bd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 12,
+              "id": "EN-CP12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2d05755f051b38805d4a4caf49badf1e39da39ac4f0c4649ebd9afdf5d74d9f4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 13,
+              "id": "EN-CP13",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp13_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "df3697a01b8097964bee340f8b211371bfbca268d64f87fbb40ddb4046f21be6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 14,
+              "id": "EN-CP14",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp14_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "65543c12fdfdeba9a8eaebaea576be12e0760db66fcdefc7a4cf7af83495f910",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 15,
+              "id": "EN-CP15",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp15_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "63e8e5adf64916a960487ca391496bab569ab9f18cfbcd54b00bf2ab66da071e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 16,
+              "id": "EN-CP16",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp16_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "455e9a916dd1718553f8d42578fd83bdb7a31716908672546ecb876320b96e28",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 17,
+              "id": "EN-CP17",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp17_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f46a32ea3bfebd3ebf6d0b78a4f3610614e518a3ae4e43ba6d7fa19ac56a07fe",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 18,
+              "id": "EN-CP18",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp18_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "cc7315bb5125d0f8c36f758e0562df123202711991abcc6eb586d8bc557f2e07",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 19,
+              "id": "EN-CP19",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp19_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "028e58c2dd361f16a79339789a560a229db50b294c71a9f0c5e351a644b1c67e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 20,
+              "id": "EN-CP20",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp20_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "93a6af41ce6de2ceee7f72d8bd9bd3a9b855d5094c16647e01716edf4093e82a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 21,
+              "id": "EN-CP21",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp21_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1f027a23e2a16fdba2ff6cbc75fb8dc84ee8981b64ba18442966fcfadc6c7ae4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 22,
+              "id": "EN-CP22",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp22_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5a4d6c459cf5e12344f35aad3f5570bf4c927ff16f51609b6711fea05fac4a2b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 23,
+              "id": "EN-CP23",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp23_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "50b65d29de2bc3d52bc029443e1524b085714ea02d33f86208e50d4a1c37e470",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 24,
+              "id": "EN-CP24",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp24_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "732ea974358803afcd4f116f0bf3d0dc48d40a7db319ba405521ba10783b9596",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 25,
+              "id": "EN-CP25",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp25_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "790103582b7f062f726b077ef11307ad0db986728345962183e1742ec00b9569",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 26,
+              "id": "EN-CP26",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp26_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0a7048ba4d46c0f4acb4e162e2a525892e2be2ede598573a9b68e72b4b327656",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 27,
+              "id": "EN-CP27",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp27_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ebe6fd0551de87c556014840988965053a549f3fbfec463d2d5e9c67c6018c42",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 28,
+              "id": "EN-CP28",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp28_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ef9806329909f837328f7a7259f98e22ff642fceaea11238e56574468604c10e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 29,
+              "id": "EN-CP29",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp29_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e481b39e6f97361ddfbd45037a9471f602cabf8e5c3ba248fb725048c536a055",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 30,
+              "id": "EN-CP30",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp30_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "312992eb12ca5798a0ac7c8d1134a2963cb720166be8acadcede807934d4393d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 31,
+              "id": "EN-CP31",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp31_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5da81b6e21a4cbed11d1c4a046c874df7d821d9ae226f6a2fc8c8ddc2cadaa8d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 32,
+              "id": "EN-CP32",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp32_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "243e7e8243b9583e97f654baff67a5b6f3faebed11217aa5ee7f7bd175f645c2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 33,
+              "id": "EN-CP33",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp33_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d406b45910575a2c9a721bfb05081fcccb64a87864f1c805236f72fbbaca7514",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 34,
+              "id": "EN-CP34",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp34_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3698d89dff0f47127f6cef00b4e5defbfbae7f585c81d0636e9e0f2b4116a4d5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 35,
+              "id": "EN-CP35",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/cp/cp35_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c6eaf83629b98c7d054ea0231b25ff772238df07df4c5c5f495458dbc15691f4",
+              "rightsStatus": "cc0"
+            }
+          ]
+        }
+      ],
+      "sourceRoles": [
+        "sujato_english_translation_expression"
+      ],
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "suttacentral-en-cp",
+          "label": "Sujato 英译／所行藏（Sujato 英译）",
+          "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-cp-pali；挂接既有作品，不新建作品。出版记录 scpub86 为 CC0。",
+          "externalIds": {
+            "suttacentral": [
+              "cp"
+            ]
+          }
         }
       ]
     },
@@ -74774,6 +75033,952 @@
               "rightsStatus": "public_domain"
             }
           ]
+        },
+        {
+          "id": "gbcr:expression:EN-ITI-en",
+          "language": "en",
+          "title": "如是语（Sujato 英译）",
+          "translator": "Bhikkhu Sujato",
+          "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+          "localSlug": "suttacentral-en-iti",
+          "cataloged": true,
+          "fullSourceText": true,
+          "completeSourceRecord": true,
+          "sampled": false,
+          "stableSegments": 2733,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceRole": "sujato_english_translation_expression",
+          "canonicalStatus": "pali_sutta_sujato_english_translation",
+          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+          "bibliographicRelations": [
+            {
+              "type": "same_work_translation_group_verified",
+              "groupId": "suttacentral-en-iti",
+              "label": "Sujato 英译／如是语（Sujato 英译）",
+              "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-iti-pali；挂接既有作品，不新建作品。出版记录 scpub16 为 CC0。",
+              "externalIds": {
+                "suttacentral": [
+                  "iti"
+                ]
+              }
+            }
+          ],
+          "filesApprovedForModelTraining": 0,
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "EN-ITI1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "371795e916610681586ba2b1733636353156e722643d03a3bb25d6c6866afec9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 2,
+              "id": "EN-ITI2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "bd391ffc186916620f56a0d3e249f5bd02f702d1d9c0aa776628ce3067597e2b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 3,
+              "id": "EN-ITI3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2ca93b39fd4a0f66da40624176fd26328c2e416cc891006502e79c891ee8d1ee",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 4,
+              "id": "EN-ITI4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "00a3718842b4958b2c46087d3cf572d72b0543af0bf83ed24f8af0eccf89a3fd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 5,
+              "id": "EN-ITI5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "34a3dbc870a7b354b56f1d5b1dadc8a8f9b3c790e101a8da3a663f8d5464630a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 6,
+              "id": "EN-ITI6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ef9cdc083bbc456fd28ab85592a6fbc66d4f72c1da63aa133bfb00d1f47d6eae",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 7,
+              "id": "EN-ITI7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2776134e855158aad123ded4e1e7428a49253b1b3ccd0b31917ce2c3b9ff10ff",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 8,
+              "id": "EN-ITI8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1f0e2e93f64ce86637be2853bda4b734e86a4b76886ffa861d591266a79a71e8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 9,
+              "id": "EN-ITI9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ffa6c9ed44d8940d2b7661582663f0180faaa07c21bdc584d98120d93a6462f5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 10,
+              "id": "EN-ITI10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga1/iti10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "cd584ac879ccaefe0d029057c1eccee337488a4a8c92081be261dd522ca9eb98",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 11,
+              "id": "EN-ITI11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "27495f600cebbb9279d1c161f8e5f92fcd8c88911c3977499e1dfc0e3c667c11",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 12,
+              "id": "EN-ITI12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1efbef3acf5ea51121502b867d4174ca1314c06693962f4d33173a31edaf4981",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 13,
+              "id": "EN-ITI13",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti13_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7cf8bd6c0fcc9a99355f9eb5860f76320e5a94b899c80513d8532a7c50cc2cb3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 14,
+              "id": "EN-ITI14",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti14_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "cbc0dd76e898c6788ebf016018db4ddf2cf73d145b3afd5325f242fa15f77f9f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 15,
+              "id": "EN-ITI15",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti15_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f3b6ed486fd69c09302645c07f781c1941eb23d3b9f68750e7fa192efa8d854a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 16,
+              "id": "EN-ITI16",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti16_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7f181603a4ce4c84835053347dc2a71a8187fb1c8511bd294ab91ebc74f5aed8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 17,
+              "id": "EN-ITI17",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti17_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1fff734305ed59f994aeaffbcb1949cafe687f201ea3ebc69e2359f060e1efcb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 18,
+              "id": "EN-ITI18",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti18_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6603d5cd8226bd944d8cc871d06077c8d87128b93afe7f2983e3f82ba1f5ae31",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 19,
+              "id": "EN-ITI19",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti19_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0d881829c23f2b7ff251adcc8df5937b2a51c3aea3813b2698a451d61af9bc66",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 20,
+              "id": "EN-ITI20",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga2/iti20_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "609120406b1262edf7de68572a965373978eea3d26b6d9e12e0ba70af50431c9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 21,
+              "id": "EN-ITI21",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti21_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "45a542fc838cd35df7094a3b3b4d0870d0c00a1321b268ec868007014a5fd7b2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 22,
+              "id": "EN-ITI22",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti22_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "abd909da223299b5455fb5d7a405dea619e4bf3613a4c631e397087b6b9d3108",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 23,
+              "id": "EN-ITI23",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti23_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a47c7cf25b052259f66e525d556b4dcef2511cd1c85ee1bde494afd8ba9f9222",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 24,
+              "id": "EN-ITI24",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti24_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "af69df518cefa3c0a956e5b2d8230b8a727ebcc93c89c05d11eeea8e282e2095",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 25,
+              "id": "EN-ITI25",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti25_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "64cce3b3123860f6638a1edf6b1727e8c9f6c1f94398af31ef1bb2e0707b45d3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 26,
+              "id": "EN-ITI26",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti26_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "00fc110c7d02104ff5960993437004bfed96e72ead770679758a88f975ea7482",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 27,
+              "id": "EN-ITI27",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga3/iti27_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f46bbd80aac9fa796a65723df91308e7a7040ee1219df52a84f8ebd7770b389e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 28,
+              "id": "EN-ITI28",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti28_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d6bd21e5f4fc5d90d8bf84d5d3104bf03f8d53214de06d3abd266a0616701d86",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 29,
+              "id": "EN-ITI29",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti29_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2c483f5599e994300df6fc3f5e8a998fcc9bab6c126dca491a80de911c8170da",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 30,
+              "id": "EN-ITI30",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti30_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "34fac7f0ea249d6da1b699cff68141d6ced3750df3fc2fbaefec04d773d44ac2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 31,
+              "id": "EN-ITI31",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti31_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "56073666c6304810d88d1dd8c24b52ee1876b0d0c83cd79cf900ec9715d40d31",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 32,
+              "id": "EN-ITI32",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti32_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1679e13389b200b5b499e867ea7430ab0e3dfa141db8a8d93cfae6dcc9959ed5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 33,
+              "id": "EN-ITI33",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti33_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "eda687bc03b1932ff8d4b45448ce1ae503bac0fd5f8877c3cc12ee527fd3f77a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 34,
+              "id": "EN-ITI34",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti34_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "80ab63035530d5c424e1ea683863abb88bd02990907cb8ea69533967e93bc8b2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 35,
+              "id": "EN-ITI35",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti35_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2aa3f58f893a6d7518a87b7e7867bda400869b815857b66b33a8f1d09fc6ffd2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 36,
+              "id": "EN-ITI36",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti36_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f8c93117197167e91a9630e556b5094fe61dbf120ab0863e367f2df2854ea021",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 37,
+              "id": "EN-ITI37",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga4/iti37_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d0cfcacf2c3eb1a7419bb9cf6e7ba6db7911232f8798bc493eaff457b474c267",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 38,
+              "id": "EN-ITI38",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti38_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c50c0357273295d156e68b92ed38b6d33e7e0a4491fc691b59568888accac9e4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 39,
+              "id": "EN-ITI39",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti39_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e70cab61551edbbd5b3199241435ac2b7bfe32a2159dd03194bfec9521fdcf93",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 40,
+              "id": "EN-ITI40",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti40_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "64a6302c997c15513c5a8b272a27d3911eafa87ace342435547d28b6cd2d2268",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 41,
+              "id": "EN-ITI41",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti41_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7d98cab91f4ad8748b1d533e9af096faf51f1dc234df321c0a89ebe6142e5101",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 42,
+              "id": "EN-ITI42",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti42_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8a2d30aab5490839debdad0e13bc50dd4a0c8effc280a331d689da85998792cd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 43,
+              "id": "EN-ITI43",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti43_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a58c9956d4ac4e0ff4e32bf2342ce707221b05114aabb151c3b7b32a9fd360c5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 44,
+              "id": "EN-ITI44",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti44_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "16e5cedb1fd79d09097ad7edde355eb38427b1083629f9d749866df537cd4dbb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 45,
+              "id": "EN-ITI45",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti45_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8b000a143c14da8be3407c3a1b67b9bc1342c866033dd8cb8116e8c8c9f17bbf",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 46,
+              "id": "EN-ITI46",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti46_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d38c9e36548d7f51fbd6ef519df2dcff53e332b129037777c5422c3045009aca",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 47,
+              "id": "EN-ITI47",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti47_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "43b6ff7082990262acbcff7127dcafbb5024691b1d9710041e4a1d4217277626",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 48,
+              "id": "EN-ITI48",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti48_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "70f5713c9168e555e9e42a28d87fc27a3b6d653a359920fe8f7704959e3126fc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 49,
+              "id": "EN-ITI49",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga5/iti49_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9a91090a501ae2609104d0f93a824f875a58dadebff7dfe1a52d9a0ec3ce8ac4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 50,
+              "id": "EN-ITI50",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti50_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ead41b543f90052eb9b0cb2027416871f4278dd295ce9c0243031fb8805ccfa8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 51,
+              "id": "EN-ITI51",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti51_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ee44ae9b1a69f7e3a86832a11ea0d09c8474342c0becbbc2b002d82ac9e79eb7",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 52,
+              "id": "EN-ITI52",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti52_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "183e518a4f4728941cdaacacdfed2ddc6fa4d47352e7d83a2a9714c51dc30ecf",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 53,
+              "id": "EN-ITI53",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti53_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "63097108659b6549f71c98b73a238d4535a12cf2374dc9cfc93490faf4e8351f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 54,
+              "id": "EN-ITI54",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti54_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "50452b09ab14273c528495d689477cac474e82119d9104da835e42b1ab3c7c33",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 55,
+              "id": "EN-ITI55",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti55_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "74bf3a0c6d042184d73b646e5cd6d1c7c931b60ab8be13c4a302bd71b008a425",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 56,
+              "id": "EN-ITI56",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti56_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c9419a14c1600de74b37f135f263ac013aedcf8439f8ba8b59194866b070ef1c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 57,
+              "id": "EN-ITI57",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti57_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e46955bfe3e4ef406648c16633bdf9befc5fccb88087c2221cf0939658d9267b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 58,
+              "id": "EN-ITI58",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti58_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "975ffb2264399190786d47a182cb19956f6a71b530f0ab4f81fc913c4f1a4793",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 59,
+              "id": "EN-ITI59",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga6/iti59_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "48f604384336db49d0bb22f43478baaa28169ed26a1cbf4cc26cf7d88d422762",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 60,
+              "id": "EN-ITI60",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti60_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "adcdb76ec9b9f26dadea790c65cc642a82865085dd24b52094c4316909889cd6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 61,
+              "id": "EN-ITI61",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti61_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "26cd694975639d9bcdd899fe050ce2eac3bb32c310b9d224326de99f3adad0c2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 62,
+              "id": "EN-ITI62",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti62_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "890b4c5ceb6562d75977c1e0a07f19e169fbc4493373aab97cdff326121aeb07",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 63,
+              "id": "EN-ITI63",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti63_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "297db053d055ec03af1ec95118334e7de8c99e6e602fd41658d2f735b9b05879",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 64,
+              "id": "EN-ITI64",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti64_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f9762df35f4e677b898873e7c7499febb435865231424ed9f77324cfbd40c082",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 65,
+              "id": "EN-ITI65",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti65_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "38260b075b162230adedc9dcf6a0417bb0c454f20b645a35e2d9be6ecec8c669",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 66,
+              "id": "EN-ITI66",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti66_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a93ff2ff139750b93ba275d26e205e9ef7a211ef02b9225cf1d06c555c3ed0a2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 67,
+              "id": "EN-ITI67",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti67_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ab3abed72792a9acaa1864a00f7b1ba2c9fb19dbc8d9eedf90df4b69a9a5b18c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 68,
+              "id": "EN-ITI68",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti68_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "efc31d4f75bf80b300cc08248b2eb8b7d92db7fa7dfd5cb716ab5311e9d4378c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 69,
+              "id": "EN-ITI69",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga7/iti69_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "89d08007205de2f5f69618bd9fe5aab08dd10c41094a595b9692745877dce2df",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 70,
+              "id": "EN-ITI70",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti70_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5e9ddf469b6e1d4a642921e06ff7b1124daf6d0797a3f7afc6c14ae9b479a80c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 71,
+              "id": "EN-ITI71",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti71_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7699b220cce5cc501ce43cf01c54f41b4dc6aea1b06246f79e3ee1abfc763b11",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 72,
+              "id": "EN-ITI72",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti72_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7fd110d35d5cac43114364182e0fa62ab2c10569aaf6c72b34fed255132461d9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 73,
+              "id": "EN-ITI73",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti73_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c5f37c2e8c3d477780c184e8733d11d61b89be3efeeed4929a8ebaec94dad145",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 74,
+              "id": "EN-ITI74",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti74_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "84c4d92671e2708da04223d17a71c2a56ef2d88a038c3d3b1f8c173a6d3a865e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 75,
+              "id": "EN-ITI75",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti75_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fdb9c307747c51c05dc3876448aac3d8c04dd6171c2ae108f8e96f5be917686d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 76,
+              "id": "EN-ITI76",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti76_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5d4ae17cedd3f7c3321c8c557b2c0348ea3447622369b1e64ce4f539158acd27",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 77,
+              "id": "EN-ITI77",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti77_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fbbc6cb938055cbd413e428d51095a3b47aa2273a57cdebb6d4ee65b2cd4288f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 78,
+              "id": "EN-ITI78",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti78_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "42c1da489adc3ddefcc6e7a9eb3daf5631b62337461b836f9e44acca54a9ca8a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 79,
+              "id": "EN-ITI79",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga8/iti79_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a1c4dde19a1d418a12a6cb4a64c7b985b74f76967940e188b221ebf57064a32e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 80,
+              "id": "EN-ITI80",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti80_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4089f92afca8a08fe7eca65d864016d35ce5302b59030f5be2c726fa921b7926",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 81,
+              "id": "EN-ITI81",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti81_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "851ecaa44d984ac73eba43446c930798a455830fb5cfe9558b6f7110495f841c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 82,
+              "id": "EN-ITI82",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti82_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f37801508cdedae0741e659f99d4a1e537acfdb705d6e40ac8c92640c97b6075",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 83,
+              "id": "EN-ITI83",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti83_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "870e2b32e8a5bfbd0c87851145d344f83a52e31abf51dc438b5eed0a2362412d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 84,
+              "id": "EN-ITI84",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti84_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2e655f111e0be94f68faca8bd57bd61f745a79aa9f1ad1e17bde3e0dc4587f7c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 85,
+              "id": "EN-ITI85",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti85_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9ed6304b1737eea89ad038192ef9fa5e562be49874be27288eddfa9e7c16b80d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 86,
+              "id": "EN-ITI86",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti86_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6f8130c5319c8557f5055d570bb9ca9aeaf5e1bae37bf882bb18974210fdc745",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 87,
+              "id": "EN-ITI87",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti87_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "98ab43f9651defb6e05eed2306219e5a25e77be9b46add6f0bf979a43db236b3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 88,
+              "id": "EN-ITI88",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti88_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "45bb1c19efd17c9aeedb139f20db220f121776ea09f8a48343f2b87d802a2fd8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 89,
+              "id": "EN-ITI89",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga9/iti89_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "aacf44b43cc47b2c2215dd810886e7529fad2a43b2bdbb02fbbbdd9da8881ae4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 90,
+              "id": "EN-ITI90",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti90_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "bf83acf2f9458eee7ac9ebcabacc884b60f9b4b71a3069db292d6a1d7dc2a012",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 91,
+              "id": "EN-ITI91",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti91_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d892e5227fbac8759485b93479871cc2b773ae0caa0535b730f3fc1bb4ee4aae",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 92,
+              "id": "EN-ITI92",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti92_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d17032843d785ec0bc3621debbe77855b5f98438b2a74256f6d96baf392c7693",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 93,
+              "id": "EN-ITI93",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti93_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "add98f74bbc276a1247771230271196a4af48199e99e2cdc9b97d739291a0ede",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 94,
+              "id": "EN-ITI94",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti94_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "99b0f14eee5c8e8d4ee7b7269619a880ebccd291184fb4775f2f294099f8bd24",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 95,
+              "id": "EN-ITI95",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti95_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "774d6f88eb0cdfe767ba1ed58a96509e87fdd9eff68f47cadae55e2ad7454989",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 96,
+              "id": "EN-ITI96",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti96_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "385f3eaad2fb83e1dcf49e5faf71daed21aa59efe9cc16b28f75b168fc477268",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 97,
+              "id": "EN-ITI97",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti97_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f6852ebcf4ef1525c1f0b433307c717548251ac33a5ed1310d3ad6584a4f092e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 98,
+              "id": "EN-ITI98",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti98_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "078b0f46deb7b58e766b8fd2f1c2477bcc2ba272b45266cba0336249f6d3dfd9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 99,
+              "id": "EN-ITI99",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga10/iti99_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "94429571980431c37792e4772f70c29c2fc74947cf1f06525154544d2b925f84",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 100,
+              "id": "EN-ITI100",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti100_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0d33e2c0cc75a40e1733f5000a0208ea6b2457cdd8d9280a10eedbcad7084930",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 101,
+              "id": "EN-ITI101",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti101_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6330e6446f70573cef71a13738694b39b2375d2f99384ed512e12df14f1cc4d3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 102,
+              "id": "EN-ITI102",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti102_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "75a23f4ad02a93c627f414a1e8f65519f3f0dae140f66f95c998196f01c7bd2c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 103,
+              "id": "EN-ITI103",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti103_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3dce4bbff7fd1f83fb0506d95c39a1bef8ee1bf0542b905d409064ee308c201c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 104,
+              "id": "EN-ITI104",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti104_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2f628d50be9add276bb7aad47879697e97ae725b2ec15e6034fe1696b1daaba0",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 105,
+              "id": "EN-ITI105",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti105_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "61dee42d2bd4fd2458eda3432dc195ee106a0306ab0ef4dbf5ed67c4b4df5f06",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 106,
+              "id": "EN-ITI106",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti106_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3ab590afe98cb96c22ce541b3dec8f999046470a099788fd4eb13a54dfa80ffb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 107,
+              "id": "EN-ITI107",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti107_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fba498a09bae7ba22c4dd5b426b0b44f70957848e07e588b2d044eeb6faf9dfb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 108,
+              "id": "EN-ITI108",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti108_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "eca708efaafa590e66d5748ac11f9c954b5c022db67817801d9ca098952e1850",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 109,
+              "id": "EN-ITI109",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti109_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2eb5b4f90ce52ae753201f2546ca9ef589835cd194a4144c2c9eb53773280b00",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 110,
+              "id": "EN-ITI110",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti110_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ffbf870bfd9c70985fde7b00be7bafcdaf3d31002187eebfc62fc19dd40967c2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 111,
+              "id": "EN-ITI111",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti111_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "96322748bf292d2dca68c1f4e532107debd8597cceac42ec7d9ca353a86088f4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 112,
+              "id": "EN-ITI112",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/iti/vagga11/iti112_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "086bbd52d2cdf5a3c6314befe85197de5f4ec4b6d81ebf6f8cc545289e560707",
+              "rightsStatus": "cc0"
+            }
+          ]
+        }
+      ],
+      "sourceRoles": [
+        "sujato_english_translation_expression"
+      ],
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "suttacentral-en-iti",
+          "label": "Sujato 英译／如是语（Sujato 英译）",
+          "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-iti-pali；挂接既有作品，不新建作品。出版记录 scpub16 为 CC0。",
+          "externalIds": {
+            "suttacentral": [
+              "iti"
+            ]
+          }
         }
       ]
     },
@@ -78736,6 +79941,128 @@
               "rightsStatus": "public_domain"
             }
           ]
+        },
+        {
+          "id": "gbcr:expression:EN-KP-en",
+          "language": "en",
+          "title": "小诵（Sujato 英译）",
+          "translator": "Bhikkhu Sujato",
+          "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+          "localSlug": "suttacentral-en-kp",
+          "cataloged": true,
+          "fullSourceText": true,
+          "completeSourceRecord": true,
+          "sampled": false,
+          "stableSegments": 357,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceRole": "sujato_english_translation_expression",
+          "canonicalStatus": "pali_sutta_sujato_english_translation",
+          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+          "bibliographicRelations": [
+            {
+              "type": "same_work_translation_group_verified",
+              "groupId": "suttacentral-en-kp",
+              "label": "Sujato 英译／小诵（Sujato 英译）",
+              "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-kp-pali；挂接既有作品，不新建作品。出版记录 scpub19 为 CC0。",
+              "externalIds": {
+                "suttacentral": [
+                  "kp"
+                ]
+              }
+            }
+          ],
+          "filesApprovedForModelTraining": 0,
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "EN-KP1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7f1ad2c2c1d69d705eb872fe16bbc5cf5ef2d2179b1eda4d33103cc4bc888e39",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 2,
+              "id": "EN-KP2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a77c9df9649984d659fd360d47efc45d1cc81e193599369ac27eb0219e85d807",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 3,
+              "id": "EN-KP3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ab62674643d93c3127634385e2704038003b40af2e71df016dd254153e1163e6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 4,
+              "id": "EN-KP4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "24a053cc6070e0b25d07c47b598395f8f6826370c61045ede6b28546a126f036",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 5,
+              "id": "EN-KP5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "aae855c23d555b0f7cf21437e010980579646fdaca778221dda37ac28376c6cf",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 6,
+              "id": "EN-KP6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "da880c614237fc6989259ec3eb57f5966bfe318ccf0e0d9792c88af7a2fbcf17",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 7,
+              "id": "EN-KP7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "92dc2446fa7d8bf0089ede0a04e45231587636cfdd064e0aa9bfe21e9dee84de",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 8,
+              "id": "EN-KP8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "33aeacc829ed732f5c5cb755cd1f1181f9f444f48664f4b837a16614ab3d2c91",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 9,
+              "id": "EN-KP9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/kp/kp9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "87f0cb61b935816ba226ced625516c15536c4bceaa5bb325ff8228bf08ba9699",
+              "rightsStatus": "cc0"
+            }
+          ]
+        }
+      ],
+      "sourceRoles": [
+        "sujato_english_translation_expression"
+      ],
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "suttacentral-en-kp",
+          "label": "Sujato 英译／小诵（Sujato 英译）",
+          "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-kp-pali；挂接既有作品，不新建作品。出版记录 scpub19 为 CC0。",
+          "externalIds": {
+            "suttacentral": [
+              "kp"
+            ]
+          }
         }
       ]
     },
@@ -82236,6 +83563,640 @@
               "rightsStatus": "public_domain"
             }
           ]
+        },
+        {
+          "id": "gbcr:expression:EN-SNP-en",
+          "language": "en",
+          "title": "经集（Sujato 英译）",
+          "translator": "Bhikkhu Sujato",
+          "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+          "localSlug": "suttacentral-en-snp",
+          "cataloged": true,
+          "fullSourceText": true,
+          "completeSourceRecord": true,
+          "sampled": false,
+          "stableSegments": 5549,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceRole": "sujato_english_translation_expression",
+          "canonicalStatus": "pali_sutta_sujato_english_translation",
+          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+          "bibliographicRelations": [
+            {
+              "type": "same_work_translation_group_verified",
+              "groupId": "suttacentral-en-snp",
+              "label": "Sujato 英译／经集（Sujato 英译）",
+              "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-snp-pali；挂接既有作品，不新建作品。出版记录 scpub17 为 CC0。",
+              "externalIds": {
+                "suttacentral": [
+                  "snp"
+                ]
+              }
+            }
+          ],
+          "filesApprovedForModelTraining": 0,
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "EN-SNP1.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "70a2726f9c934a2c7f093de7068252703801f34a64b1d83e19658d73137866d2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 2,
+              "id": "EN-SNP1.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f031df6782979a8d70fa89814ea740287ffe7ec85b1940f124c08fcc4c6de175",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 3,
+              "id": "EN-SNP1.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e65ef8d3d92cc1a41f4745a0b020160814dad95dbb1f6ee17733323e9f17ab87",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 4,
+              "id": "EN-SNP1.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "50d133382399ffbbd66a355cf93b5f95e8ab0903fcda9b939978c8e718f089cf",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 5,
+              "id": "EN-SNP1.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b319dd3d38f677cf8cb4f19b136b7d591bb85f741537705cfeba08a37e0a2b6f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 6,
+              "id": "EN-SNP1.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "680ec282118b35924589f0e5dac6e6f735a8c71512ab19cfeffd25e89dfab2e7",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 7,
+              "id": "EN-SNP1.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9e21be868401a8fc94e3bf4d5838933c340a8efe5adf8394a3917117f7f86d1d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 8,
+              "id": "EN-SNP1.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0b8f00b0885752691d0d1fe58eb26363a91e9e8472ec5d62185b9f6ff7e7929c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 9,
+              "id": "EN-SNP1.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c75fb28c5f6826cfd038914ec121e06482f2c47817f1a0fad7b9295300664915",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 10,
+              "id": "EN-SNP1.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "60c8c937bd02228065445ca69a27df3668593d6bcb70958415938985c8d71a15",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 11,
+              "id": "EN-SNP1.11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1c550ef4570312f28735032dd995494042107c72513ac6fd45c01cef1dcfb70f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 12,
+              "id": "EN-SNP1.12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga1/snp1.12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "af2dddb2bff670dd0429ddf4bdf1ef4a998ff38ce2d2f1ea4c0e1e00329a5086",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 13,
+              "id": "EN-SNP2.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "278869fec2aa00599af0ab9f3581f873db3b86c777b32cae939f6238de0b3fe3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 14,
+              "id": "EN-SNP2.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "af3c8f762a993570f53fbcf665950be1b97d8ee4ab821346a1a7621d8aedf929",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 15,
+              "id": "EN-SNP2.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2ec2d38c0b014111aaaae7a3cd6dab83424e4649decd4b4bfe7a8a7e936d019e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 16,
+              "id": "EN-SNP2.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5dd9785d22da8fd0a508348655f0eccde54729c6b448501513f2d6e072c17c76",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 17,
+              "id": "EN-SNP2.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fe5d37e87846c3e567d4e9fead689e9bac8e678dc46c3cf14caa949dc41d2c9f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 18,
+              "id": "EN-SNP2.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c3dd72dc58384e1654637d2b83b800627aa3995311dd6391849f7c8f6be48364",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 19,
+              "id": "EN-SNP2.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "891237fda97b3226d152139eef52022a2e72fa403948c833cad4d6b1aea3148d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 20,
+              "id": "EN-SNP2.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e4c4d66453b4325b33608a9ef07bfbc2b8c4e1722380543ddfb31421a5114bbc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 21,
+              "id": "EN-SNP2.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "257272d8d888e0e39981da012d4da757e2ac7d22afa9b38bfdf9a0307495fdb3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 22,
+              "id": "EN-SNP2.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "aab2f8ecbd3345d1ae1dd83ac98faf04dd937fb463373b940792d9e1c775e1a9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 23,
+              "id": "EN-SNP2.11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "246b360bb2c6bb568d10f92fee81fc29fbffdaed78cbedc0f05b7ad5c3da6707",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 24,
+              "id": "EN-SNP2.12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b7f2164eeb232716d85c6a582652c576bdc7ce6d61d15cf04fc53b15e21cbee0",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 25,
+              "id": "EN-SNP2.13",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.13_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2a2ab76ad6e0709fb3c0df954092cad54112323094aea9d5a685e09726069674",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 26,
+              "id": "EN-SNP2.14",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga2/snp2.14_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "327f5da885daee3f8459009ebf947eeeba5cf9481ea40948c82eb5c97daf4c3c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 27,
+              "id": "EN-SNP3.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d7c1b5c79277b89a3ac42d1bc829296e3e69797d927764d58f62ea3dc44e2295",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 28,
+              "id": "EN-SNP3.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d535b01d98c1a8b27dbc41532fafc38485a05e68653e5adeef9fa2b4056b87a5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 29,
+              "id": "EN-SNP3.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b6b04ad7bce67586913aef59a4e1b9ab7c87be9425bfec20932f40884ac33d1e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 30,
+              "id": "EN-SNP3.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ca4ef8fa6cb6f59fa1a780305084d427c357f456334433f94b4372a42cf02cb4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 31,
+              "id": "EN-SNP3.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6a19f3e02704eae5152496f1399cf96b3f5ce0209f91ca1f55ae372adc7739bb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 32,
+              "id": "EN-SNP3.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3a716805d47452c77ea40009ac5ea15f9ed8e5963aed5be642cced91386499fb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 33,
+              "id": "EN-SNP3.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b65bc79cb9f15da145877175c68e036aa69369cf08804eb4678ef335acbd540e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 34,
+              "id": "EN-SNP3.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "99b5c3e144e8d85ba1d31dd16854ed340b690cc6e525822bb2c0547e5f2c80fc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 35,
+              "id": "EN-SNP3.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "41d015a7c872a0227e0ee9fe1f40b348d7c7c35f00405b2db6d12581c27eb324",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 36,
+              "id": "EN-SNP3.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d7b56694441735a5a34608791bdba193f97a23125ffd5be375c4507f65b5e7a3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 37,
+              "id": "EN-SNP3.11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f5ac8a5530cb80dd8b540db5f50ac295686fe4ceb98e632131890fc9273a81e0",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 38,
+              "id": "EN-SNP3.12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga3/snp3.12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2aab87db5579e3e9bd600db52bfae7521749e4f031d0b676f3897a94e38a37a8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 39,
+              "id": "EN-SNP4.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a6588cce469a30a84fae2592266410382bbf0a43858e01d827b702f1338a4e5a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 40,
+              "id": "EN-SNP4.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1977abcff5565c1707958c59ad5a71755fb82b97140a0c410f1ec61fd0ef3f0d",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 41,
+              "id": "EN-SNP4.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ea8c44712c777ad8074ec6b7c8a5dfbea8b892870a07e323d71cff80a2a3282c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 42,
+              "id": "EN-SNP4.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "fdaa038f937f85e077a9f6389279126074a005baeee413d22f98a5d9d21a6bd9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 43,
+              "id": "EN-SNP4.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ed49a5a1cdbfa6a519018b4bfb4469bba7555a43212d9fb2803cce28afe641f8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 44,
+              "id": "EN-SNP4.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8bcb3b77c33f8bd4bba9bf475f938ce54f32166b436624fef1847d74d97984bc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 45,
+              "id": "EN-SNP4.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8297974975fea086ebb3fac07423f34484f3b50c37b3f9c26a2c6bf6a6a4e674",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 46,
+              "id": "EN-SNP4.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9c7242a10f1ccf24cf38f151d4e71e6228580cb47af3f3e2ae44e02dcc99a322",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 47,
+              "id": "EN-SNP4.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f8d561393a99640a8f3d3747610bc4410b618d148d53eceb3c6f833e1c53edb3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 48,
+              "id": "EN-SNP4.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "afb4f12358f08dbbfb6f7a211e07e38e41fb5a2d4fcd2980e08d215e2cfb9dc5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 49,
+              "id": "EN-SNP4.11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "947f7f0c41a1084f8dfba6a6430fc4a9c8a79970da4ef1e9f6433edb0bdb5758",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 50,
+              "id": "EN-SNP4.12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6f5e8300f37904c5ba25eed8df24bbccbb1922c38325bc59cac424f40d5034e8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 51,
+              "id": "EN-SNP4.13",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.13_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "de93e9082de29b6ab9b688dac52972132b234302c408d805383684a04c107a0f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 52,
+              "id": "EN-SNP4.14",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.14_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4b2f03ef7475158c2f3f2f3ca2f239389057f3edd0a18aa4f9b13bbf9dd4f240",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 53,
+              "id": "EN-SNP4.15",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.15_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5f0bcebf2998688f78cd6848ea75ee42fb1edd2b1ef1f21c59a1732abf90187c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 54,
+              "id": "EN-SNP4.16",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga4/snp4.16_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "61dda8cfdad86226f7819cd2c3845ea2393fc734dfb6f42b8c2bd8ce9f7b74d2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 55,
+              "id": "EN-SNP5.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9d1c1ec4e1943952d69eb1dbb28bc6d41b75514d8ae4138e5684ade2d7589028",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 56,
+              "id": "EN-SNP5.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d9a697dee9ab9732e180379add0a61203c944e0e23009e488de16d729152434c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 57,
+              "id": "EN-SNP5.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "92c2582e9de124d21d527be3a2ef8189d6245e15f567ee3981c139d3d7771cbb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 58,
+              "id": "EN-SNP5.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "03da6c8da3d2cd88f7de4538a9360ee4f3804c1af9ebcc5a764a6390088a181e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 59,
+              "id": "EN-SNP5.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5f8535df41c7668afe6db19beba65a8420842d399158d4384a7160be1c9be6c6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 60,
+              "id": "EN-SNP5.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d7dd7785cda3bd2351f4ab94a7b044fecbf834111519a9b0439c22692fb4f7d1",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 61,
+              "id": "EN-SNP5.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6b5ee04389c74a5acd94c8675cb8813864c2fec104835f60ea566c73762b8a37",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 62,
+              "id": "EN-SNP5.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "7480b997ef653b322c9a2bdaddd5fdce72ffbda18dab509b1b66b28faf7b28a6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 63,
+              "id": "EN-SNP5.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e85644fc63fccd018afcca4fa5f97fcaec386f74a9a5c3ed70840e7de2cf4529",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 64,
+              "id": "EN-SNP5.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "04f4fa75a5b609ba35b137bfa23edd1181c8a83e30bce52af555dd541e2888e2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 65,
+              "id": "EN-SNP5.11",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.11_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2f63ed41096e1c8260d76cfeb677e4a2ad81220549bcbc1a22fa07920536b62b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 66,
+              "id": "EN-SNP5.12",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.12_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5b68a3493abbed717b04dee9126ab3e31979c0fa9e91dc589d70537e1ff9d1a7",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 67,
+              "id": "EN-SNP5.13",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.13_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "00c419d4487030be6ced7b388bf193216ca3c52c1c1b9de2562c5743cf2bbdfd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 68,
+              "id": "EN-SNP5.14",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.14_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1aad6bf3caa332476152391dfd356fc12ac5bff0f2b313ed5cb2fd951d4ce3fc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 69,
+              "id": "EN-SNP5.15",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.15_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "18e0e7afe9db6a57175595b2eff0ab7753287438c48914e441a02f2ff04c294f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 70,
+              "id": "EN-SNP5.16",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.16_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "62da8476f24d1d2e436834ef53bf8b9b7f34208972dfa0ce5934ac13c092d9d9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 71,
+              "id": "EN-SNP5.17",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.17_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "631d4104bc0033df01f8127e568220081428442982bcc076cb0bfe80b14b20ff",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 72,
+              "id": "EN-SNP5.18",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.18_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "90700217d9a85b45f3858156d917994e5fe16dbcdc90d449ffa46c701301bc8c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 73,
+              "id": "EN-SNP5.19",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/snp/vagga5/snp5.19_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f0686fa44a07e34e507e9d1696b15b2db5feb020a8a8e8dd771ee807fc2abb92",
+              "rightsStatus": "cc0"
+            }
+          ]
+        }
+      ],
+      "sourceRoles": [
+        "sujato_english_translation_expression"
+      ],
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "suttacentral-en-snp",
+          "label": "Sujato 英译／经集（Sujato 英译）",
+          "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-snp-pali；挂接既有作品，不新建作品。出版记录 scpub17 为 CC0。",
+          "externalIds": {
+            "suttacentral": [
+              "snp"
+            ]
+          }
         }
       ]
     },
@@ -89551,6 +91512,696 @@
               "rightsStatus": "public_domain"
             }
           ]
+        },
+        {
+          "id": "gbcr:expression:EN-UD-en",
+          "language": "en",
+          "title": "自说（Sujato 英译）",
+          "translator": "Bhikkhu Sujato",
+          "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+          "localSlug": "suttacentral-en-ud",
+          "cataloged": true,
+          "fullSourceText": true,
+          "completeSourceRecord": true,
+          "sampled": false,
+          "stableSegments": 2268,
+          "rightsReviewed": true,
+          "qualityStatus": "verified_structure_and_anchors",
+          "sourceRole": "sujato_english_translation_expression",
+          "canonicalStatus": "pali_sutta_sujato_english_translation",
+          "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+          "bibliographicRelations": [
+            {
+              "type": "same_work_translation_group_verified",
+              "groupId": "suttacentral-en-ud",
+              "label": "Sujato 英译／自说（Sujato 英译）",
+              "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-ud-pali；挂接既有作品，不新建作品。出版记录 scpub18 为 CC0。",
+              "externalIds": {
+                "suttacentral": [
+                  "ud"
+                ]
+              }
+            }
+          ],
+          "filesApprovedForModelTraining": 0,
+          "sourceTextAssets": [
+            {
+              "part": 1,
+              "id": "EN-UD1.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f3a0852699516d1dd9973ab7ea05c939d87a98eb17c62624190dfc8166320b4e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 2,
+              "id": "EN-UD1.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e089f796a8256c862e7751eb75668c77babdb595e6c6fa4b3c1fc0e2322033cb",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 3,
+              "id": "EN-UD1.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8eb9cdc6ec33cbd02fa8068624255678651315c1ab1fe8979311519934d8eef4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 4,
+              "id": "EN-UD1.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "922131f0d21238fb5fa4c9fa3cb3c6f7f51dc2629491729ed9803733bf3601ae",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 5,
+              "id": "EN-UD1.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "41341e590eb505ee57d4f095122f9f97129f697592f40cff9c90c59594a5b136",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 6,
+              "id": "EN-UD1.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "84d525c1558dcd03a07883535078b6158397faeb1c750be1d1661550b1651aae",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 7,
+              "id": "EN-UD1.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "482f3efc08f8a1f5d3feea5487710278428e49f1d0a05b75bf2242e36b508ac4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 8,
+              "id": "EN-UD1.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a9314e09338bebc3b3016147947ede8cdf63638d124744dc4026ae829c9983b8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 9,
+              "id": "EN-UD1.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b24e42cd1b9f021bb7bcf10434b687743f87d9785ab994472c72ab2269957396",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 10,
+              "id": "EN-UD1.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga1/ud1.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "54d761caa11838f9f6e9bfaf911fbd8463dee53b5a76f06a05ad700e504d12cf",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 11,
+              "id": "EN-UD2.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "99d28a226f99ad3a6bfed8d94c43f297dff1adbb9193fc008bb6e6af67e29edd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 12,
+              "id": "EN-UD2.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3290dd342ae029db1198e860d2a9fd27127dc18c0b79c58530d8e5dd7478da2e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 13,
+              "id": "EN-UD2.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "35536c46337a456dd31f303a650593c6fb18d74d06548119361dec823cd84b46",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 14,
+              "id": "EN-UD2.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b3267356a1f8b1e55e96100326c2a37ef22937dbf041b7a0ee8341787538c05a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 15,
+              "id": "EN-UD2.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4fafd6ffe2d2b951b4d56526ab3b0a4b29baca3f5ee19cfccfda66d134bf0a63",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 16,
+              "id": "EN-UD2.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "285a01de9c7cfb4c18c923528c8b366088cdb25ae797d4acf06839a696886f3b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 17,
+              "id": "EN-UD2.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "9f2f9ea2e46e724f80d74f6300efada4a51fb7d4d2fa04b6e46fc55d3348cf70",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 18,
+              "id": "EN-UD2.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e68e0282a3bbd02cc649736697f9714b09464629c61b54eeed8baf9969658df6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 19,
+              "id": "EN-UD2.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d9beaf477424d8822268ce55672bfb3dca0adbe7600569ce0b4f2b2a069961de",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 20,
+              "id": "EN-UD2.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga2/ud2.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c4dc89c6a68d30dc09d3686ee289f8a2b307bd07760446bd2946696323f02d9e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 21,
+              "id": "EN-UD3.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "30b65d9fda86d9857e835bfc7e18f1313368990ca57518a5e7237d65b026c350",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 22,
+              "id": "EN-UD3.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3b43b16d4e5164c5ceb215bd7e95eedd25480b3b204ffa7a01a8ce243fb99885",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 23,
+              "id": "EN-UD3.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0d7a2eafec0b6b7650caa16354a9495a49fb6520b08995952c1f6410663d16a1",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 24,
+              "id": "EN-UD3.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ca0b51f268f2c43f2f9d0bc33c154bb037af3ec57e323ecfab3083ec383c9865",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 25,
+              "id": "EN-UD3.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b619b34dfc5f197b119871f637b9eb3ae3c00bb5022ddcd5a1b9ac615dfa556c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 26,
+              "id": "EN-UD3.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "758a15b6926b239af2760197b1d82443041aedaec3ab9a4713478bc7f46e1fa3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 27,
+              "id": "EN-UD3.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4f82a823875e58313530625145b4765b6ae082830dbdcab16fda1309f135d553",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 28,
+              "id": "EN-UD3.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2b4227459fd45adecfc4180f3a9b9106cafb925033aa113bd664473e8928ffd8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 29,
+              "id": "EN-UD3.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ad391d4171b86375b65a58da4b6685419e63822e86e05f1f527b8f293018eb11",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 30,
+              "id": "EN-UD3.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga3/ud3.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e9c33bfc1a917902db3d0e85645c56d837b6ab65e98b0adf522bb8ff2b00c3df",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 31,
+              "id": "EN-UD4.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "358b49dbe52c933be2fc58eb1aea1faefe3b07ae4219051433be6dfda1fc1fc0",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 32,
+              "id": "EN-UD4.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0d38e61389aca80f22a7c0c335d8139021329c68bc5ab5c2a9de674dc3b03264",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 33,
+              "id": "EN-UD4.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "bcc5f41250edc28d126d01e12223d65c6a0d97853d33f7ea258e91d719d0a766",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 34,
+              "id": "EN-UD4.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ca4fc8e76c5cb2c3826bdac28e2721f09f1fd92300f67294051c817885a0eb26",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 35,
+              "id": "EN-UD4.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "af8becaafd8ba1b37a6a5cd1c4da4732a20a106986fbd2b4f3c78203a137c9dc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 36,
+              "id": "EN-UD4.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8e64c7860beefbf627aa13f30522d2e6f0c15f3339d964bea47d3cebd51d77ff",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 37,
+              "id": "EN-UD4.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "757b911f010d7e4874306943682b2f8c30275d515368605e69c99d0df79b58f9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 38,
+              "id": "EN-UD4.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6c568c4a30b2e58561868e55b6b62f5b3e3640f0ca2a42f5ef35722e6cf43237",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 39,
+              "id": "EN-UD4.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2c94b0743bea4a21e24d23dc29f54e9a4b4549b2a895eb364d0f5d4c9484ee34",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 40,
+              "id": "EN-UD4.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga4/ud4.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "561cabd20a4dc1f2dd47c88376b1bc638a81a60103abb6f665eef4f6ed3c7c44",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 41,
+              "id": "EN-UD5.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d66643e26dbfbb2ba0c8613e89a74b5774fcc724d7f24c1a007197847d03a32e",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 42,
+              "id": "EN-UD5.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5f2002ef7fe5111377b0309ffc7c73bdefc8626ddeb752d60d96b9228e2bebf8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 43,
+              "id": "EN-UD5.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "dd8a9a45cd42c21e0d9839db81d927f0f0902fd6cf98e155a7cf64fe2e15df71",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 44,
+              "id": "EN-UD5.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "cb2ce8f01c3cf621f1ab487138552da56b2c15619bf745c4aafe74693caff0ed",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 45,
+              "id": "EN-UD5.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "3484a246248034d1fdb7610995ec0fe8c51721c0c0eec073a102c9bfcd06e8fc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 46,
+              "id": "EN-UD5.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5d612e0b1c8433b9cb27fc96adfef37ade86a09251c3cde411f1e314020ca646",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 47,
+              "id": "EN-UD5.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2b3abc79e59232b8db9c1399756e5eff6498aea750bf97f687703088a8d71fdd",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 48,
+              "id": "EN-UD5.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0155d494ae2a6181dee1f73d98ee259016b8648427bd22afb720ea56585e7050",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 49,
+              "id": "EN-UD5.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "94397dc1988e48c295302e2d3565ca719d65c1ea21db60ed901ee82c4a07c010",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 50,
+              "id": "EN-UD5.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga5/ud5.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c76932e09838d372b99f43e635249db527c0c006fed8e72c96bb6a2ab11529e8",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 51,
+              "id": "EN-UD6.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "52b89c18d38bdaaac33833512b9bc689b7ff2fd12b7eca1fc2c9f3378ee15eb7",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 52,
+              "id": "EN-UD6.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1dd8dba693fb185da02abe3ef93e2f31cf4b8adcb63e6b1583c52ee4826a5f2b",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 53,
+              "id": "EN-UD6.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "1a9779d27b514eeca8bd04bc410d9841bff573c402576dfacf79f33c8383e3c3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 54,
+              "id": "EN-UD6.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "6be7cf82575396408ed122cccb8c6616f7b30e842a3de47ec670791ced5de6c9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 55,
+              "id": "EN-UD6.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "5e79098a8976a36058406af30d1b69aec6027ac0d4231ea53ffdd2de19c4dd93",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 56,
+              "id": "EN-UD6.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c78295d957b97f362e9f63c24a727b4a6aaeabed9535e5a08cdbf2e32c070dc6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 57,
+              "id": "EN-UD6.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f21c6c7844d57622a3b5c61a7616b226b4c52a2656b2d007e0fbc3a311933a28",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 58,
+              "id": "EN-UD6.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4dbf4c8e7c7306baba1b9989c6ae1b6cc95d87711fde571c1e3046c9a06a8007",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 59,
+              "id": "EN-UD6.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8ef8521a0c7d21ad9708a2c4bce369b10cd8ad61c34760994cbc23e0bc5c8327",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 60,
+              "id": "EN-UD6.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga6/ud6.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "c17bac208254ca7c2094e4ec92fe284729c38111a8b5eaa3776f2bd7f393caa9",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 61,
+              "id": "EN-UD7.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "42ef4fa517b85036b80e3788d4cea88f9a159a7daa645fd3ca9f0a66143274d6",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 62,
+              "id": "EN-UD7.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a1ea3edac797d5b608f73f452cf4073df7d4064ae429d3a3fe658da41aa2489c",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 63,
+              "id": "EN-UD7.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "2d95d45c159c3ea44d6134f2188ec537de44f57a5524c4b612d6d02cbd3b7bdc",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 64,
+              "id": "EN-UD7.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "b556193cd750816aad60f1c01f24a353e7d77e9e329914fdc1db66b0142e3561",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 65,
+              "id": "EN-UD7.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "ae85aed7de5afafa61657d4848837c3232d5ad5e6ef32f510623e7473fd9a9a1",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 66,
+              "id": "EN-UD7.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "51d23f4b34d39d8c87dd23326c40a8e685805fa00f86cd31f3201962b975fe46",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 67,
+              "id": "EN-UD7.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "a6820074d9b61f779ac585f7816db438f97bbd44d8d1ed5d8330d2cdfdd6c802",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 68,
+              "id": "EN-UD7.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "e0800fd9d791facf5ac991366429f2754417b3fe32d135804caca2756fc069c7",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 69,
+              "id": "EN-UD7.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "395dca52a614dede305ee62177861d2164aa4b8eb6ac8312c6a713881374a3a4",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 70,
+              "id": "EN-UD7.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga7/ud7.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "39acf2b47c23fbd388c92796abe4c8a9e4226d27df72bc2189ce7077e59d25fe",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 71,
+              "id": "EN-UD8.1",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.1_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "4731c5ad96b19fd75c88b4da10feb5832f5211b78dce4a1eeb26e7d084ef1d94",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 72,
+              "id": "EN-UD8.2",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.2_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d0a5aee06855c6591b53cc03ee5530d31b6d2a593a03fc936f4e174fad9d9031",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 73,
+              "id": "EN-UD8.3",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.3_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "d63c54f00eec99af969c5bb313d156490f024f188e42e505f00931af320ca36f",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 74,
+              "id": "EN-UD8.4",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.4_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "cdc1284282807d884211e43e5a870c4a93bb62edfde0223934635fd9c958b8e2",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 75,
+              "id": "EN-UD8.5",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.5_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8fcc9048b3a89eb31d664a615aac4b5f16e8bbf07325caec96b45a2d10c5d9b5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 76,
+              "id": "EN-UD8.6",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.6_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "8df6f1ef935e1f0ac1229154eb67a8da8b1de0b346c4013d0159a19a5cbd8c72",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 77,
+              "id": "EN-UD8.7",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.7_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "f730eeca8450882a34fa075a9d1bc481580452be966152cfe100781fa6f8d6b3",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 78,
+              "id": "EN-UD8.8",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.8_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "686822a1b24748c51fd9bc596aa43e0b4b3d6ddbeb97c89ad4ebc07fcef910b5",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 79,
+              "id": "EN-UD8.9",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.9_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "0d51a47e6667e08a115ef156d80956db4af3febdd471722e282e850a3989442a",
+              "rightsStatus": "cc0"
+            },
+            {
+              "part": 80,
+              "id": "EN-UD8.10",
+              "path": "data/corpus/suttacentral/translation/en/sujato/sutta/kn/ud/vagga8/ud8.10_translation-en-sujato.json",
+              "format": "application/json",
+              "sha256": "39f11066aa837c7c93e7db5ebb4676617ceb503621a708bc3d6c7357dbbe8309",
+              "rightsStatus": "cc0"
+            }
+          ]
+        }
+      ],
+      "sourceRoles": [
+        "sujato_english_translation_expression"
+      ],
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "suttacentral-en-ud",
+          "label": "Sujato 英译／自说（Sujato 英译）",
+          "evidence": "Bilara published eac6c24781dd1eefdc17dc2f787b54bf6fe31719 translation/en/sujato 对应已持有巴利作品 gbcr:work:khuddaka-nikaya-ud-pali；挂接既有作品，不新建作品。出版记录 scpub18 为 CC0。",
+          "externalIds": {
+            "suttacentral": [
+              "ud"
+            ]
+          }
         }
       ]
     },
@@ -478612,24 +481263,33 @@
     "rightsAuditSha256": "fa25e2a79d001689ccb031c36823862fd491f8cb708c5688f40b9a38778f1d1e",
     "caveat": "本审计证明 254 份 Sujato CC0 英译的来源完整性与结构完整性；不把英译、未收入的 DSBC/GRETIL/律藏或其余小部计成全球佛陀亲说覆盖率，也不批准训练。"
   },
-  "wikisourceMullerDhpFullTextAudit": {
-    "status": "complete_public_domain_translation_witness_structure_verified_scan_collation_pending",
-    "sourceSnapshotId": "wikisource_muller_dhp_1881",
-    "controlledExpressions": 1,
+  "suttacentralSujatoEnglishKnRightsAudit": {
+    "status": "complete_cc0_translation_witness_with_global_denominator_unknown",
+    "sourceSnapshotId": "suttacentral_bilara_sujato_en_kn",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "controlledExpressions": 5,
     "newWorks": 0,
-    "attachedExistingWorks": 1,
-    "stableSegments": 414,
-    "sourceBytes": 82335,
-    "verseCount": 423,
-    "chapterCount": 26,
-    "humanSampleVerified": false,
-    "scanCollated": false,
-    "catalogFile": "data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json",
-    "catalogSha256": "b3dd72c7ea05855737ae188a96ba646a0f6c476b5fe49f75b3b338db386efd80",
-    "manifestFile": "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json",
-    "manifestSha256": "00096c9bf6f39d3aa9d017d33d5527023769323fd1b078fef2bf67e53159f09c",
-    "ledgerFile": "data/gbcr/wikisource-muller-dhp-ingest-v1.0.0.json",
-    "ledgerSha256": "905249d34db827f177dee5d305f53b4b3ff3491df3c0e28166fd97bd14af2162",
-    "caveat": "本审计只证明一份 1881 年公版英译的来源完整性、423 偈编号完整性与 26 品结构；不证明逐句扫描对勘、人工译文复核或全球佛典覆盖。"
+    "attachedExistingWorks": 5,
+    "attachedUids": [
+      "iti",
+      "snp",
+      "ud",
+      "kp",
+      "cp"
+    ],
+    "sourceRecords": 309,
+    "stableSegments": 12524,
+    "sourceBytes": 824746,
+    "filesApprovedForReadingAndRetrieval": 309,
+    "filesApprovedForModelTraining": 0,
+    "catalogFile": "data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json",
+    "catalogSha256": "931140c210d5450bf98ee5dc5354ef83cb614a533f993d62aeafd95517b19ecc",
+    "manifestFile": "data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json",
+    "manifestSha256": "a9d3bb41bbf093334ffb6e08ab9a11475900f9d276507f56c583149eb2cbf7c6",
+    "ledgerFile": "data/gbcr/suttacentral-sujato-en-kn-ingest-v1.0.0.json",
+    "ledgerSha256": "992549ee177d8efb81dba0373868d1c83f9718374f1b6904c526d5309f5e147b",
+    "rightsAuditFile": "data/gbcr/suttacentral-sujato-en-kn-rights-audit-v1.0.0.json",
+    "rightsAuditSha256": "0df105bc25d22326cfbdb9697d569d7db69b3a9c199c9105ef3dc7a04e8e4e76",
+    "caveat": "本审计证明 iti/snp/ud/kp/cp 五份 Sujato CC0 英译的来源完整性与结构完整性；不把英译、未收入的 DSBC/GRETIL/律藏或其余小部计成全球佛陀亲说覆盖率，也不批准训练。"
   }
 }

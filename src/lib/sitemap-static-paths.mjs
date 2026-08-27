@@ -57,5 +57,6 @@ export const catalogSlugSources = [
   "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json",
   "data/corpus/suttacentral/lzh-manifest-v1.6.0.json",
   "data/corpus/suttacentral/sujato-en-manifest-v1.0.0.json",
+  "data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json",
   "data/corpus/derge/manifest-v0.1.0.json",
 ];

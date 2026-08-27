@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.24.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.25.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.8.0.json";
 
 type Expression = {
@@ -2054,6 +2054,20 @@ export function buildCoverageSnapshot() {
         rightsAuditSha256: corpusRegistry.suttacentralSujatoEnglishRightsAudit.rightsAuditSha256,
         unit: "SuttaCentral Bilara published translation/en/sujato 且出版记录为 CC0 的四部与法句英译",
         caveat: corpusRegistry.suttacentralSujatoEnglishRightsAudit.caveat,
+      },
+      suttacentralSujatoEnglishKn: {
+        controlledExpressions: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.controlledExpressions,
+        attachedExistingWorks: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.attachedExistingWorks,
+        attachedUids: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.attachedUids,
+        newWorks: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.newWorks,
+        sourceRecords: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.sourceRecords,
+        stableSegments: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.stableSegments,
+        sourceBytes: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.sourceBytes,
+        filesApprovedForReadingAndRetrieval: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.filesApprovedForReadingAndRetrieval,
+        filesApprovedForModelTraining: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.filesApprovedForModelTraining,
+        rightsAuditSha256: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.rightsAuditSha256,
+        unit: "SuttaCentral Bilara published translation/en/sujato 且出版记录为 CC0 的已持有小部五书英译",
+        caveat: corpusRegistry.suttacentralSujatoEnglishKnRightsAudit.caveat,
       },
       suttacentralParallelReviewQueue: {
         queueItems: corpusRegistry.suttacentralParallelReviewQueue.queueItems,
