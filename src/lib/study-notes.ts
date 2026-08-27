@@ -17,7 +17,7 @@ export type StudyNoteSeed = {
   passageLabel: string;
   locator: string;
   quote: string;
-  quoteLang: "zh-Hant" | "pi" | "en";
+  quoteLang: string;
   sourceHref: string;
   studyHref: string;
   defaultKind: StudyNoteKind;
@@ -43,6 +43,12 @@ function isStudyNoteKind(value: unknown): value is StudyNoteKind {
   return value === "practice" || value === "understanding" || value === "verify";
 }
 
+function isLanguageTag(value: unknown): value is string {
+  return isString(value)
+    && value.length <= 35
+    && /^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$/u.test(value);
+}
+
 function validatedNote(value: unknown): StudyNote | undefined {
   if (!value || typeof value !== "object") return undefined;
   const note = value as Partial<StudyNote>;
@@ -52,7 +58,7 @@ function validatedNote(value: unknown): StudyNote | undefined {
     || !isString(note.passageLabel)
     || !isString(note.locator)
     || !isString(note.quote)
-    || (note.quoteLang !== "zh-Hant" && note.quoteLang !== "pi" && note.quoteLang !== "en")
+    || !isLanguageTag(note.quoteLang)
     || !isString(note.sourceHref)
     || !isString(note.studyHref)
     || !isStudyNoteKind(note.kind)

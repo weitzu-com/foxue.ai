@@ -216,7 +216,7 @@ export default function StudyPage() {
             <p className={styles.eyebrow}>读完以后 · KEEP THE LOCATOR</p>
             <h2 id="study-notes-title">感想会淡，坐标不要丢。</h2>
             <p>
-              在经文旁写下观照、理解或待求证问题；每则研读笺都会把引文、稳定段号和原典链接一起留在当前浏览器。
+              全藏经卷页都可选文：选中一行或一段，写下观照、理解或待求证问题；引文、稳定段号和原典链接会一起留在当前浏览器。
             </p>
             <Link href="/xue/biji">
               打开本地研读笺 <ArrowRight aria-hidden="true" />

@@ -389,6 +389,10 @@ export default async function SutraFolioPage({ params }: PageProps) {
 
       <div className="reader-layout">
         <SutraReadingSample
+          slug={sutra.slug}
+          folioKey={folio.item.key}
+          workTitle={`《${sutra.title}》`}
+          passageLabel={currentHeading}
           folioLabel={folio.item.label}
           edition={readingEdition}
           segments={folio.segments}

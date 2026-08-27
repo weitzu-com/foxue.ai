@@ -1,0 +1,312 @@
+.studySurface {
+  min-width: 0;
+}
+
+.selectionHint {
+  max-width: 42rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem auto -1.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--reader-hairline, var(--line));
+  border-left: 2px solid var(--cinnabar);
+  background: color-mix(in srgb, var(--reader-canvas, var(--wash)) 64%, transparent);
+  color: var(--reader-secondary, var(--ink-soft));
+}
+
+.selectionHint > svg {
+  width: 1rem;
+  color: var(--cinnabar);
+}
+
+.selectionHint p,
+.selectionHint strong,
+.selectionHint span {
+  display: block;
+  margin: 0;
+}
+
+.selectionHint strong {
+  color: var(--reader-ink, var(--ink));
+  font-family: var(--font-serif), serif;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.selectionHint span {
+  margin-top: 0.1rem;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.selectionHint a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 0.75rem;
+  border: 1px solid var(--reader-hairline, var(--line));
+  color: var(--reader-ink, var(--ink));
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selectionHint a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.dock {
+  position: fixed;
+  z-index: 80;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  width: min(48rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid var(--line-dark);
+  border-top: 3px solid var(--cinnabar);
+  background:
+    linear-gradient(90deg, rgb(159 57 43 / 4%) 1px, transparent 1px) 1.5rem 0 / 2.25rem 100%,
+    var(--paper);
+  box-shadow: 0 1.5rem 4rem rgb(31 25 16 / 24%);
+  color: var(--ink);
+  overscroll-behavior: contain;
+}
+
+.dockHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dockHeader > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.dockHeader > div > svg {
+  width: 1.05rem;
+  flex: 0 0 auto;
+  color: var(--cinnabar);
+}
+
+.dockHeader strong,
+.dockHeader small {
+  display: block;
+}
+
+.dockHeader strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.85rem;
+}
+
+.dockHeader small {
+  margin-top: 0.12rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  overflow-wrap: anywhere;
+}
+
+.dockHeader > button,
+.warningDock > button {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.dockHeader button svg,
+.warningDock button svg {
+  width: 1rem;
+}
+
+.dock blockquote {
+  max-height: 8.4rem;
+  margin: 0.85rem 0 0;
+  overflow: auto;
+  padding: 0.7rem 0.9rem;
+  border-left: 2px solid var(--cinnabar);
+  background: rgb(159 57 43 / 5%);
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 0.76rem;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.quickActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.quickActions button,
+.quickActions a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding-inline: 0.8rem;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.quickActions button {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.quickActions button:hover {
+  background: var(--cinnabar-deep);
+}
+
+.quickActions a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.quickActions svg {
+  width: 0.9rem;
+}
+
+.quickActions > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.quickActions > span svg {
+  color: var(--success);
+}
+
+.dock :global([class*="study-note-composer_composer"]) {
+  margin-top: 0.85rem;
+}
+
+.feedback {
+  min-height: 1.35em;
+  margin: 0.45rem 0 0;
+  color: var(--cinnabar);
+  font-size: 0.62rem;
+}
+
+.warningDock {
+  width: min(30rem, calc(100vw - 2rem));
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.warningDock > svg {
+  width: 1.1rem;
+  color: var(--cinnabar);
+}
+
+.warningDock p,
+.warningDock strong,
+.warningDock span {
+  display: block;
+  margin: 0;
+}
+
+.warningDock strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.82rem;
+}
+
+.warningDock span {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+@media (max-width: 620px) {
+  .selectionHint {
+    grid-template-columns: auto minmax(0, 1fr);
+    margin: 1rem 1rem -1.75rem;
+  }
+
+  .selectionHint a {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .dock {
+    right: 0.5rem;
+    bottom: max(0.5rem, env(safe-area-inset-bottom));
+    width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem);
+    padding: 0.85rem;
+  }
+
+  .dock blockquote {
+    max-height: 6.4rem;
+  }
+
+  .quickActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quickActions button,
+  .quickActions a {
+    width: 100%;
+  }
+
+  .quickActions > span {
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock {
+    background:
+      linear-gradient(90deg, rgb(219 117 100 / 5%) 1px, transparent 1px) 1.5rem 0 / 2.25rem 100%,
+      var(--paper);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 48%);
+  }
+
+  .dock blockquote {
+    background: rgb(219 117 100 / 7%);
+  }
+
+  .quickActions button {
+    border-color: #8d3024;
+    background: #8d3024;
+  }
+
+  .quickActions button:hover {
+    background: #79291f;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dock {
+    scroll-behavior: auto;
+  }
+}

@@ -138,8 +138,8 @@ export function StudyNotebook() {
             写下观照、理解或待求证问题时，系统会把当时的引文、稳定段号和原典链接一起保存。
           </span>
           <div>
+            <Link href="/jingzang">从藏经中选一部原典</Link>
             <Link href="/xue/xinjing">从《心经》七日路径开始</Link>
-            <Link href="/xue/faju">从《法句》三源档案开始</Link>
           </div>
         </div>
       ) : (
