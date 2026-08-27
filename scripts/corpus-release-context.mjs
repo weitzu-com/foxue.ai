@@ -21,6 +21,7 @@ export async function loadCorpusReleaseContext(root) {
     ["suttacentral_bilara_abhidhamma_roots", "data/corpus/suttacentral/abhidhamma-manifest-v1.5.0.json"],
     ["suttacentral_bilara_lzh_roots", "data/corpus/suttacentral/lzh-manifest-v1.6.0.json"],
     ["suttacentral_bilara_sujato_en", "data/corpus/suttacentral/sujato-en-manifest-v1.0.0.json"],
+    ["suttacentral_bilara_sujato_en_kn", "data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json"],
     ["esukhia_derge_kangyur", "data/corpus/derge/manifest-v0.1.0.json"],
   ];
   const sourceManifests = await Promise.all(manifestInputs.map(async ([id, relativePath]) => {
@@ -51,7 +52,7 @@ export async function loadCorpusReleaseContext(root) {
   };
   const releaseId = [
     "gbcr",
-    "6.23.0",
+    "6.24.0",
     commitPrefix("cbeta_xml_p5"),
     commitPrefix("suttacentral_bilara_dhammapada"),
     commitPrefix("esukhia_derge_kangyur"),

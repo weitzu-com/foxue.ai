@@ -1,0 +1,107 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/suttacentral-sujato-en-kn-rights-audit-v0.1",
+  "version": "1.0.0",
+  "capturedAt": "2026-08-27",
+  "status": "approved_cc0_sujato_translations_no_training_import",
+  "source": {
+    "repository": "suttacentral/bilara-data",
+    "commit": "eac6c24781dd1eefdc17dc2f787b54bf6fe31719",
+    "branchSemantics": "published",
+    "licensingUrl": "https://suttacentral.net/licensing",
+    "repositoryLicense": {
+      "path": "LICENSE.md",
+      "sha256": "fb244eaafc121b9f5b14dbecb20ac407b3acf6eec8c5028fc1e3bd0afb1a6f3f",
+      "quoted": "All translations created in Bilara and supported by SuttaCentral are dedicated to the Public Domain by means of the Creative Commons Public Domain (CC0) license."
+    },
+    "publicationMetadata": {
+      "path": "_publication.json",
+      "sha256": "d027c7cd67595af91e8ebcef68bbbb90c797431b92e67efbb7e81d1c9768f94f"
+    }
+  },
+  "rightsDecision": {
+    "status": "approved_cc0_sujato_bilara_translations_no_training",
+    "sourceTexts": "cc0_public_domain_dedication",
+    "translations": "cc0_by_publication_record",
+    "attributionRequested": true,
+    "trainingUse": "prohibited_by_suttacentral_and_foxue_policy",
+    "filesApprovedForModelTraining": 0,
+    "summary": "Bilara LICENSE.md 与 scpub16/17/18/19/86 出版记录将 Sujato 小部英译奉献为 CC0。foxue.ai 仅用于阅读、研究与有来源检索，不把这些文件标为训练许可。"
+  },
+  "publicationEvidence": {
+    "iti": {
+      "publicationNumber": "scpub16",
+      "authorUid": "sujato",
+      "authorName": "Bhikkhu Sujato",
+      "translationLanguage": "en",
+      "recordedLicense": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isPublished": true,
+      "importedTranslation": true
+    },
+    "snp": {
+      "publicationNumber": "scpub17",
+      "authorUid": "sujato",
+      "authorName": "Bhikkhu Sujato",
+      "translationLanguage": "en",
+      "recordedLicense": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isPublished": true,
+      "importedTranslation": true
+    },
+    "ud": {
+      "publicationNumber": "scpub18",
+      "authorUid": "sujato",
+      "authorName": "Bhikkhu Sujato",
+      "translationLanguage": "en",
+      "recordedLicense": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isPublished": true,
+      "importedTranslation": true
+    },
+    "kp": {
+      "publicationNumber": "scpub19",
+      "authorUid": "sujato",
+      "authorName": "Bhikkhu Sujato",
+      "translationLanguage": "en",
+      "recordedLicense": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isPublished": true,
+      "importedTranslation": true
+    },
+    "cp": {
+      "publicationNumber": "scpub86",
+      "authorUid": "sujato",
+      "authorName": "Bhikkhu Sujato",
+      "translationLanguage": "en",
+      "recordedLicense": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isPublished": true,
+      "importedTranslation": true
+    }
+  },
+  "skippedPublicationEvidence": {
+    "thag": {
+      "publicationNumber": "scpub1",
+      "authorUid": "sujato-walton",
+      "importedTranslation": false
+    },
+    "thig": {
+      "publicationNumber": "scpub6",
+      "authorUid": "sujato-walton",
+      "importedTranslation": false
+    }
+  },
+  "summary": {
+    "filesAudited": 309,
+    "filesApprovedForReadingAndRetrieval": 309,
+    "filesApprovedForModelTraining": 0,
+    "expressions": 5,
+    "attachedExistingWorks": 5,
+    "newWorks": 0,
+    "thirdPartyNonSujatoTranslationFilesImported": 0,
+    "sujatoWaltonFilesImported": 0,
+    "brahmaliVinayaFilesImported": 0,
+    "dsbcFilesImported": 0,
+    "gretilFilesMirrored": 0
+  }
+}
