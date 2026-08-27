@@ -17,6 +17,7 @@ import {
   fajuComparisonBoundary,
   fajuStudySources,
 } from "@/data/faju-study";
+import { StudyNoteComposer } from "@/components/study-note-composer";
 import {
   absoluteUrl,
   buildPageJsonLd,
@@ -197,19 +198,35 @@ export default function FajuStudyPage() {
                 </header>
 
                 <div className={styles.stanzaList}>
-                  {source.stanzas.map((stanza) => (
-                    <section key={stanza.locator}>
-                      <div>
-                        <strong>{stanza.label}</strong>
-                        <Link href={stanza.href}>
-                          {stanza.locator} <ArrowUpRight aria-hidden="true" />
-                        </Link>
-                      </div>
-                      <blockquote lang={source.lang}>
-                        {stanza.text.split("\n").map((line) => <span key={line}>{line}</span>)}
-                      </blockquote>
-                    </section>
-                  ))}
+                  {source.stanzas.map((stanza, stanzaIndex) => {
+                    const studyAnchor = `faju-${source.id}-${stanzaIndex + 1}`;
+                    return (
+                      <section key={stanza.locator} id={studyAnchor}>
+                        <div>
+                          <strong>{stanza.label}</strong>
+                          <Link href={stanza.href}>
+                            {stanza.locator} <ArrowUpRight aria-hidden="true" />
+                          </Link>
+                        </div>
+                        <blockquote lang={source.lang}>
+                          {stanza.text.split("\n").map((line) => <span key={line}>{line}</span>)}
+                        </blockquote>
+                        <StudyNoteComposer
+                          seed={{
+                            id: `faju:${source.id}:${stanza.locator}`,
+                            workTitle: source.title,
+                            passageLabel: stanza.label,
+                            locator: stanza.locator,
+                            quote: stanza.text,
+                            quoteLang: source.lang,
+                            sourceHref: stanza.href,
+                            studyHref: `/xue/faju#${studyAnchor}`,
+                            defaultKind: "verify",
+                          }}
+                        />
+                      </section>
+                    );
+                  })}
                 </div>
 
                 <footer>
@@ -263,6 +280,7 @@ export default function FajuStudyPage() {
             <li><span>04</span><div><strong>写边界</strong><p>公开尚未核对的版本与无法推出的结论。</p></div></li>
           </ol>
           <div className={styles.researchActions}>
+            <Link href="/xue/biji">打开我的研读笺</Link>
             <Link href="/touming">查看语料与来源方法</Link>
             <a
               href="https://github.com/weitzu-com/foxue.ai/issues/new"

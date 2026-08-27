@@ -21,6 +21,7 @@ import {
   xinjingLearningDays,
   type XinjingLearningDay,
 } from "@/data/xinjing-learning-path";
+import { StudyNoteComposer } from "@/components/study-note-composer";
 import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "foxue:xinjing-seven-day-progress:v1";
@@ -483,6 +484,20 @@ export function XinjingLearningPath() {
           </div>
           <p>{activeDay.pause}</p>
         </section>
+
+        <StudyNoteComposer
+          seed={{
+            id: `xinjing:${activeDay.segmentId}`,
+            workTitle: "《般若波罗蜜多心经》",
+            passageLabel: `第 ${activeDay.id} 天 · ${activeDay.title}`,
+            locator: activeDay.locator,
+            quote: activeDay.reading,
+            quoteLang: "zh-Hant",
+            sourceHref: activeDay.href,
+            studyHref: `/xue/xinjing#day-${activeDay.id}`,
+            defaultKind: "practice",
+          }}
+        />
 
         <XinjingCitationShare day={activeDay} />
 

@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type APIRequestContext } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 
 function extractHeadValue(html: string, pattern: RegExp) {
   return html.match(pattern)?.[1] ?? null;
@@ -46,6 +47,7 @@ const criticalRoutes = [
   "/wenjing",
   "/gainian",
   "/xue",
+  "/xue/biji",
   "/xue/faju",
   "/xue/xinjing",
   "/gainian/kong",
@@ -113,6 +115,7 @@ const sitemapLandingRoutes = [
   "/wenjing",
   "/gainian",
   "/xue",
+  "/xue/biji",
   "/xue/faju",
   "/xue/xinjing",
   "/gainian/kong",
@@ -145,6 +148,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
 test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
@@ -494,6 +498,7 @@ test("心经七日学习路径可访问并只在本地保存进度", async ({ pa
   await expect(page.getByRole("button", { name: "分享引用卡" })).toBeVisible();
   await expect(page.getByRole("button", { name: "复制引文与出处" })).toBeVisible();
   await expect(page.getByRole("button", { name: "下载 PNG" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /写研读笺/ })).toBeVisible();
 
   await page.getByRole("button", { name: /读完这一日/ }).click();
   await expect(page.locator(".path-day-list .is-completed")).toHaveCount(1);
@@ -515,6 +520,7 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByText("研究者 · 可复核引用", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
   await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
+  await expect(page.getByRole("link", { name: /打开本地研读笺/ })).toHaveAttribute("href", "/xue/biji");
   await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
 
   await page.setViewportSize({ width: 390, height: 844 });
@@ -557,7 +563,76 @@ test("法句三源档案保留稳定引文与比较边界", async ({ page, reque
   expect(sitemap.ok()).toBeTruthy();
   const body = await sitemap.text();
   expect(body).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(body).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
+});
+
+test("研读笺把个人笔记、稳定坐标与原典链接一起留在本地", async ({ page }) => {
+  await page.goto("/xue/faju");
+
+  const composer = page.getByRole("button", { name: /写研读笺/ }).first();
+  await expect(composer).toBeVisible();
+  await composer.click();
+  await expect(page.getByRole("button", { name: /求证.*哪一点仍需/ }).first()).toHaveAttribute("aria-pressed", "true");
+
+  const noteText = "需要继续核对“心为法本”与 manopubbaṅgamā 的语义范围，不能直接当作逐词对应。";
+  await page.getByPlaceholder("写给未来回到这里的自己……").first().fill(noteText);
+  await page.getByRole("button", { name: "保存研读笺" }).first().click();
+  await expect(page.getByText("已保存在这台设备，并带上原典坐标。")).toBeVisible();
+
+  const composerAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const composerSevere = composerAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(composerSevere).toEqual([]);
+
+  const stored = await page.evaluate(() => window.localStorage.getItem("foxue:study-notes:v1"));
+  expect(stored).toContain("T0210.001.0562a13–14");
+  expect(stored).toContain(noteText);
+
+  await page.goto("/xue/biji");
+  await expect(page.getByRole("heading", { level: 1, name: /把读过的经文.*可回到原典.*的一页/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "我的研读笺" })).toBeVisible();
+  await expect(page.getByText(noteText, { exact: true })).toBeVisible();
+  await expect(page.getByText("求证 · T0210.001.0562a13–14", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /核对原典/ })).toHaveAttribute(
+    "href",
+    "/jingzang/fajujing/001-0562a#T0210.001.0562a13",
+  );
+  await expect(page.getByRole("link", { name: "回到研读现场" })).toHaveAttribute(
+    "href",
+    "/xue/faju#faju-chinese-1",
+  );
+  const exportButton = page.getByRole("button", { name: /导出全部 Markdown/ });
+  await expect(exportButton).toBeEnabled();
+  const downloadPromise = page.waitForEvent("download");
+  await exportButton.click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^foxue-ai-study-notes-\d{4}-\d{2}-\d{2}\.md$/);
+  const downloadPath = await download.path();
+  expect(downloadPath).not.toBeNull();
+  const markdown = await readFile(downloadPath ?? "", "utf8");
+  expect(markdown).toContain("# foxue.ai 研读笺");
+  expect(markdown).toContain("T0210.001.0562a13–14");
+  expect(markdown).toContain("https://www.foxue.ai/jingzang/fajujing/001-0562a#T0210.001.0562a13");
+  expect(markdown).toContain(noteText);
+
+  await page.reload();
+  await expect(page.getByText(noteText, { exact: true })).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(390);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
 });
 
 test("心经分享链接直接打开指定日并保持单一 canonical", async ({ page, request }) => {

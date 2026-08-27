@@ -6,12 +6,15 @@ import {
   BookOpenText,
   CircleAlert,
   Clock3,
+  Download,
   Fingerprint,
   Languages,
   LibraryBig,
+  NotebookPen,
   Route,
   Scale,
   Search,
+  ShieldCheck,
 } from "lucide-react";
 import {
   absoluteUrl,
@@ -118,6 +121,7 @@ export default function StudyPage() {
                 从《心经》开始 <ArrowRight aria-hidden="true" />
               </Link>
               <Link href="/xue/faju">并读《法句》三种表达</Link>
+              <Link href="/xue/biji">打开我的研读笺</Link>
             </div>
           </div>
 
@@ -205,6 +209,33 @@ export default function StudyPage() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className={styles.notesSection} aria-labelledby="study-notes-title">
+          <div className={styles.notesSectionCopy}>
+            <p className={styles.eyebrow}>读完以后 · KEEP THE LOCATOR</p>
+            <h2 id="study-notes-title">感想会淡，坐标不要丢。</h2>
+            <p>
+              在经文旁写下观照、理解或待求证问题；每则研读笺都会把引文、稳定段号和原典链接一起留在当前浏览器。
+            </p>
+            <Link href="/xue/biji">
+              打开本地研读笺 <ArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+          <ol>
+            <li>
+              <NotebookPen aria-hidden="true" />
+              <span><strong>写</strong><small>在原句旁留下自己的话</small></span>
+            </li>
+            <li>
+              <ShieldCheck aria-hidden="true" />
+              <span><strong>存</strong><small>不登录，不上传到服务器</small></span>
+            </li>
+            <li>
+              <Download aria-hidden="true" />
+              <span><strong>带走</strong><small>连同出处导出 Markdown</small></span>
+            </li>
+          </ol>
         </section>
 
         <section className={styles.promiseSection} aria-labelledby="study-promise-title">

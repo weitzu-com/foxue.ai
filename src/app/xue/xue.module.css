@@ -407,6 +407,100 @@
   width: 15px;
 }
 
+.notesSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 68px;
+  align-items: center;
+  padding: 72px;
+  margin-top: 112px;
+  background: #202a23;
+  color: #f7f1e7;
+}
+
+.notesSectionCopy h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.12;
+}
+
+.notesSection .eyebrow {
+  color: #f1a18f;
+}
+
+.notesSectionCopy > p:nth-child(3) {
+  max-width: 60ch;
+  margin: 24px 0 0;
+  color: #bec7bf;
+  font-size: 0.75rem;
+  line-height: 1.95;
+}
+
+.notesSectionCopy > a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 0 16px;
+  border: 1px solid #e08370;
+  color: #f1a18f;
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.notesSectionCopy > a:hover {
+  background: #9f392b;
+  color: #fffdf8;
+}
+
+.notesSectionCopy > a svg {
+  width: 14px;
+}
+
+.notesSection > ol {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #5a655c;
+  list-style: none;
+}
+
+.notesSection > ol li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid #5a655c;
+}
+
+.notesSection > ol svg {
+  width: 22px;
+  color: #e08370;
+  stroke-width: 1.4;
+}
+
+.notesSection > ol strong,
+.notesSection > ol small {
+  display: block;
+}
+
+.notesSection > ol strong {
+  font-family: var(--font-serif), serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.notesSection > ol small {
+  margin-top: 2px;
+  color: #aeb8b0;
+  font-size: 0.58rem;
+}
+
 .promiseSection {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
@@ -1111,7 +1205,8 @@
   }
 
   .boundarySection,
-  .promiseSection {
+  .promiseSection,
+  .notesSection {
     grid-template-columns: 1fr;
   }
 
@@ -1180,6 +1275,12 @@
     grid-template-columns: 1fr;
     gap: 34px;
     padding: 38px 28px;
+    margin-top: 76px;
+  }
+
+  .notesSection {
+    gap: 48px;
+    padding: 42px 28px;
     margin-top: 76px;
   }
 
@@ -1294,7 +1395,8 @@
   }
 
   .hubHeroMap,
-  .pathDark {
+  .pathDark,
+  .notesSection {
     background: #111713;
   }
 
