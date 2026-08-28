@@ -1,13 +1,23 @@
 "use client";
 
-import { Languages, Type } from "lucide-react";
+import { Hash, Languages, Type } from "lucide-react";
 import { useSyncExternalStore, type ReactNode } from "react";
 import styles from "./sutra-reading-sample.module.css";
 
 const preferenceStorageKey = "foxue.reader.preferences.v1";
 const preferenceChangeEvent = "foxue-reader-preferences";
-const defaultPreferenceSnapshot = JSON.stringify({ showPinyin: true, largeText: false });
+const defaultPreferenceSnapshot = JSON.stringify({
+  showPinyin: true,
+  largeText: false,
+  showLocators: false,
+});
 let memoryPreferenceSnapshot = defaultPreferenceSnapshot;
+
+type ReaderPreferences = {
+  showPinyin: boolean;
+  largeText: boolean;
+  showLocators: boolean;
+};
 
 function validatedPreferenceSnapshot(value: string | null) {
   if (!value) return null;
@@ -17,6 +27,7 @@ function validatedPreferenceSnapshot(value: string | null) {
     return JSON.stringify({
       showPinyin: parsed.showPinyin,
       largeText: parsed.largeText,
+      showLocators: typeof parsed.showLocators === "boolean" ? parsed.showLocators : false,
     });
   } catch {
     return null;
@@ -44,8 +55,8 @@ function subscribeToPreferences(onStoreChange: () => void) {
   };
 }
 
-function savePreferenceSnapshot(showPinyin: boolean, largeText: boolean) {
-  memoryPreferenceSnapshot = JSON.stringify({ showPinyin, largeText });
+function savePreferenceSnapshot(preferences: ReaderPreferences) {
+  memoryPreferenceSnapshot = JSON.stringify(preferences);
   try {
     window.localStorage.setItem(preferenceStorageKey, memoryPreferenceSnapshot);
   } catch {
@@ -66,15 +77,13 @@ export function SutraReaderPreferences({
     readPreferenceSnapshot,
     () => defaultPreferenceSnapshot,
   );
-  const { showPinyin, largeText } = JSON.parse(preferenceSnapshot) as {
-    showPinyin: boolean;
-    largeText: boolean;
-  };
+  const { showPinyin, largeText, showLocators } = JSON.parse(preferenceSnapshot) as ReaderPreferences;
 
   return (
     <section
-      className={`${styles.experience} ${showPinyin ? styles.pinyinOn : styles.pinyinOff} ${largeText ? styles.largeText : ""}`}
+      className={`${styles.experience} ${showPinyin ? styles.pinyinOn : styles.pinyinOff} ${largeText ? styles.largeText : ""} ${showLocators ? styles.locatorsOn : ""}`}
       aria-label="经文阅读区"
+      data-show-locators={showLocators}
     >
       <div className={styles.toolbar} aria-label="阅读设置">
         <div className={styles.toolbarLabel}>
@@ -87,7 +96,15 @@ export function SutraReaderPreferences({
               type="button"
               aria-label={showPinyin ? "隐藏拼音" : "显示拼音"}
               aria-pressed={showPinyin}
-              onClick={() => savePreferenceSnapshot(!showPinyin, largeText)}
+              data-analytics-event="reader_preference_changed"
+              data-analytics-content-id="pinyin"
+              data-analytics-label={showPinyin ? "disable" : "enable"}
+              data-analytics-location="scripture_reader_toolbar"
+              onClick={() => savePreferenceSnapshot({
+                showPinyin: !showPinyin,
+                largeText,
+                showLocators,
+              })}
             >
               <Languages aria-hidden="true" size={16} />
               拼音
@@ -97,10 +114,35 @@ export function SutraReaderPreferences({
             type="button"
             aria-label={largeText ? "使用标准字号" : "放大经文"}
             aria-pressed={largeText}
-            onClick={() => savePreferenceSnapshot(showPinyin, !largeText)}
+            data-analytics-event="reader_preference_changed"
+            data-analytics-content-id="large_text"
+            data-analytics-label={largeText ? "disable" : "enable"}
+            data-analytics-location="scripture_reader_toolbar"
+            onClick={() => savePreferenceSnapshot({
+              showPinyin,
+              largeText: !largeText,
+              showLocators,
+            })}
           >
             <Type aria-hidden="true" size={16} />
             大字
+          </button>
+          <button
+            type="button"
+            aria-label={showLocators ? "隐藏稳定坐标" : "显示稳定坐标"}
+            aria-pressed={showLocators}
+            data-analytics-event="reader_preference_changed"
+            data-analytics-content-id="stable_locators"
+            data-analytics-label={showLocators ? "disable" : "enable"}
+            data-analytics-location="scripture_reader_toolbar"
+            onClick={() => savePreferenceSnapshot({
+              showPinyin,
+              largeText,
+              showLocators: !showLocators,
+            })}
+          >
+            <Hash aria-hidden="true" size={16} />
+            坐标
           </button>
         </div>
       </div>

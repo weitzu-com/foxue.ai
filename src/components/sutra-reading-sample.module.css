@@ -647,6 +647,32 @@
   scroll-margin-top: 9.5rem;
 }
 
+.sourceAnchor::before {
+  content: "";
+  display: none;
+}
+
+.locatorsOn .sourceAnchor::before {
+  content: attr(id);
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.45rem 0.25rem 0;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--reader-hairline);
+  border-radius: 999px;
+  background: var(--reader-control);
+  color: var(--reader-secondary);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  vertical-align: 0.2em;
+  word-break: break-all;
+}
+
 .sourceTextEquivalent {
   position: absolute;
   width: 1px;
@@ -892,6 +918,15 @@
 }
 
 @media (max-width: 559px) {
+  .toolbarLabel small {
+    display: none;
+  }
+
+  .toolbarActions button {
+    min-width: 4.2rem;
+    padding-inline: 0.45rem;
+  }
+
   .paper :global(.reader-pager) {
     grid-template-columns: 1fr 1fr;
     padding: 0.8rem 1rem 1rem;

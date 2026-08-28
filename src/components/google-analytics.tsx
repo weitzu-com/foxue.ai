@@ -146,8 +146,9 @@ export function GoogleAnalytics() {
       });
     }
 
-    document.addEventListener("click", handleTrackedClick);
-    return () => document.removeEventListener("click", handleTrackedClick);
+    // Read state-dependent metadata before React click handlers can update the target.
+    document.addEventListener("click", handleTrackedClick, true);
+    return () => document.removeEventListener("click", handleTrackedClick, true);
   }, []);
 
   if (!validMeasurementId || consent !== null) return null;
