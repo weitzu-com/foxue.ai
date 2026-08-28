@@ -3047,8 +3047,10 @@ test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
   await expect(locatorButton).toHaveAttribute("data-analytics-content-id", "stable_locators");
   await expect(locatorButton).toHaveAttribute("data-analytics-label", "enable");
 
-  const firstChineseLocator = page.locator("[data-source-locator]").first();
-  await expect(firstChineseLocator).toBeHidden();
+  const firstChineseLocator = page.locator('[data-study-segment-id="T0251.001.0848c03"]');
+  await expect.poll(() => firstChineseLocator.evaluate((element) =>
+    window.getComputedStyle(element, "::before").display,
+  )).toBe("none");
   await locatorButton.click();
   await expect(page.getByRole("button", { name: "隐藏稳定坐标" })).toHaveAttribute(
     "aria-pressed",
@@ -3058,8 +3060,10 @@ test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
     "data-analytics-label",
     "disable",
   );
-  await expect(firstChineseLocator).toBeVisible();
-  await expect(firstChineseLocator).toHaveText(/稳定坐标 T0251\.001\.0848c03/);
+  await expect.poll(() => firstChineseLocator.evaluate((element) => ({
+    content: window.getComputedStyle(element, "::before").content,
+    display: window.getComputedStyle(element, "::before").display,
+  }))).toEqual({ content: '"T0251.001.0848c03"', display: "inline-flex" });
   const preferenceAnalyticsEvents = await page.evaluate(() => {
     const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
     return calls.filter((call: unknown[]) => (
@@ -3085,7 +3089,9 @@ test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
     "aria-pressed",
     "true",
   );
-  await expect(page.locator('[data-source-locator="T0251.001.0848c03"]')).toBeVisible();
+  await expect.poll(() => page.locator('[data-study-segment-id="T0251.001.0848c03"]')
+    .evaluate((element) => window.getComputedStyle(element, "::before").content))
+    .toBe('"T0251.001.0848c03"');
 
   await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
   await expect(page.getByRole("button", { name: /拼音/ })).toHaveCount(0);
@@ -3094,7 +3100,9 @@ test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
     "aria-pressed",
     "true",
   );
-  await expect(page.locator('[data-source-locator="dhp1:1"]')).toBeVisible();
+  await expect.poll(() => page.locator('[data-study-segment-id="dhp1:1"]')
+    .evaluate((element) => window.getComputedStyle(element, "::before").content))
+    .toBe('"dhp1:1"');
 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);

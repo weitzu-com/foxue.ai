@@ -647,11 +647,13 @@
   scroll-margin-top: 9.5rem;
 }
 
-.sourceLocator {
+.sourceAnchor::before {
+  content: "";
   display: none;
 }
 
-.locatorsOn .sourceLocator {
+.locatorsOn .sourceAnchor::before {
+  content: attr(id);
   max-width: 100%;
   display: inline-flex;
   align-items: center;
@@ -668,6 +670,7 @@
   line-height: 1.4;
   overflow-wrap: anywhere;
   vertical-align: 0.2em;
+  word-break: break-all;
 }
 
 .sourceTextEquivalent {
