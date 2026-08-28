@@ -97,6 +97,7 @@ export function inferBilaraSegmentRoles({ segments }) {
 }
 
 export function buildDefaultReadingEdition({
+  slug,
   title,
   alternateTitle,
   translator,
@@ -112,6 +113,7 @@ export function buildDefaultReadingEdition({
   const sat = readerMode === "sat-folio";
   const kokuyaku = readerMode === "kokuyaku-folio";
   const englishTranslation = readerMode === "english-translation-folio";
+  const gemmellTranslation = slug === "gutenberg-en-diamond-gemmell";
 
   if (chinese && !sat && !derge) {
     const segmentRoles = bilara
@@ -176,7 +178,7 @@ export function buildDefaultReadingEdition({
           : language?.includes("英")
             ? "英文译本"
             : "巴利原典";
-  const pageKind = derge ? "德格版页" : sat ? "日译章节" : kokuyaku ? "国译品次" : englishTranslation ? "英译品次" : "稳定分页";
+  const pageKind = derge ? "德格版页" : sat ? "日译章节" : kokuyaku ? "国译品次" : gemmellTranslation ? "英译分次" : englishTranslation ? "英译品次" : "稳定分页";
 
   return {
     annotationMode: "plain",
@@ -193,6 +195,8 @@ export function buildDefaultReadingEdition({
         ? `当前为 ${folioLabel} 章节。现代日译原文与 SAT 来源署名保持不变。`
         : kokuyaku
           ? `当前为 ${folioLabel} 品次。1918 年文语国译与 Wikisource 来源署名保持不变。`
+        : gemmellTranslation
+          ? `当前为 ${folioLabel} 原书分次。1912 年 Gemmell 公版英译、鸠摩罗什汉译来源关系与 Project Gutenberg 来源边界保持不变。`
         : englishTranslation
           ? `当前为 ${folioLabel} 品次。1881 年公版英译、译者责任与 Wikisource 来源署名保持不变。`
         : language?.includes("英")

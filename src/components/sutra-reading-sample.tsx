@@ -320,6 +320,7 @@ export function SutraReadingSample({
   const isSat = edition.sourceKind === "sat";
   const isKokuyaku = edition.sourceKind === "wikisource" && edition.contentLanguage === "ja";
   const isEnglishWikisource = edition.sourceKind === "wikisource" && edition.contentLanguage === "en";
+  const isGemmellTranslation = slug === "gutenberg-en-diamond-gemmell";
   const segmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行" : "段";
   const stableSegmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行段" : "段落";
   const textLanguageLabel = isPinyin
@@ -343,6 +344,8 @@ export function SutraReadingSample({
       ? "德格版页"
       : isSat || isKokuyaku
         ? "当前章节"
+        : isGemmellTranslation
+          ? "当前分次"
         : isEnglishWikisource
           ? "当前品次"
         : "当前阅读页";
@@ -360,6 +363,11 @@ export function SutraReadingSample({
         ? {
             title: "忠实保留文语国译。",
             body: "1918 年国译品次、责任署名与公有领域来源边界保持不变。",
+          }
+      : isGemmellTranslation
+        ? {
+            title: "忠实保留 Gemmell 公版英译。",
+            body: "1912 年英译原书分次、译者责任、鸠摩罗什汉译来源关系与 Project Gutenberg 的美国公有领域边界保持不变；扫描本逐页校勘状态如实公开。",
           }
       : isEnglishWikisource
         ? {
@@ -393,6 +401,8 @@ export function SutraReadingSample({
         ? "本页仅重组显示层；SAT 现代日译、章节次序、译者署名与稳定行号均未改动。"
         : isKokuyaku
           ? "本页仅重组显示层；1918 年文语国译、品次、责任署名与稳定行号均未改动。"
+        : isGemmellTranslation
+          ? "本页仅重组显示层；1912 年 Gemmell 公版英译、原书分次、译者责任与稳定行号均未改动；Chapter 3 and 4 的合并边界如实保留。"
         : isEnglishWikisource
           ? "本页仅重组显示层；1881 年公版英译、品次、译者责任与稳定行号均未改动。"
         : "本页仅重组显示层；原文、原生次序与 Bilara 段落标识均未改动。";
@@ -472,6 +482,11 @@ export function SutraReadingSample({
             workTitle={workTitle}
             passageLabel={passageLabel}
             quoteLang={edition.contentLanguage}
+            responsibility={edition.responsibility}
+            canonRef={canonRef}
+            sourceName={sourceName}
+            sourceUrl={sourceUrl}
+            sourceLicense={sourceLicense}
           >
             <div
               className={styles.readingBody}

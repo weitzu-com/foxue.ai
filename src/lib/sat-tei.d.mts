@@ -11,6 +11,8 @@ export function locateSatBody(xml: string): {
   contentStart: number;
 } | null;
 
+export function satChapterPage(value: string): string;
+
 export function parseSatReadingLines(
   xml: string,
   options?: { canonId?: string },

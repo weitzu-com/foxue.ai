@@ -7,6 +7,7 @@ import beyondTaishoSutraManifest from "../../data/corpus/cbeta/beyond-taisho-sut
 import satModernJapaneseManifest from "../../data/corpus/sat/modern-japanese-manifest-v1.0.0.json";
 import wikisourceKokuyakuDhpManifest from "../../data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json";
 import wikisourceMullerDhpManifest from "../../data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json";
+import gutenbergGemmellDiamondManifest from "../../data/corpus/gutenberg/diamond-sutra-gemmell-manifest-v1.0.0.json";
 import sujatoEnglishManifest from "../../data/corpus/suttacentral/sujato-en-manifest-v1.0.0.json";
 import sujatoEnglishKnManifest from "../../data/corpus/suttacentral/sujato-en-kn-manifest-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
@@ -75,6 +76,7 @@ const completeAssets: Record<string, { sources: CorpusSourcePart[]; canonId: str
     ...(satModernJapaneseManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: (file.parser ?? "sat_tei") as CorpusParser })),
     ...(wikisourceKokuyakuDhpManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: (file.parser ?? "sat_tei") as CorpusParser })),
     ...(wikisourceMullerDhpManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: (file.parser ?? "sat_tei") as CorpusParser })),
+    ...(gutenbergGemmellDiamondManifest.files as CorpusManifestFile[]).map((file) => ({ ...file, parser: (file.parser ?? "sat_tei") as CorpusParser })),
     ...(sujatoEnglishManifest.files as CorpusManifestFile[]),
     ...(sujatoEnglishKnManifest.files as CorpusManifestFile[]),
     ...(suttacentralManifest.files as CorpusManifestFile[]),

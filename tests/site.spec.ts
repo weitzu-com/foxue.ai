@@ -83,6 +83,10 @@ const criticalRoutes = [
   "/jingzang/dhammapada-pali/001-dhp1-20",
   "/jingzang/wikisource-en-dhp-muller",
   "/jingzang/wikisource-en-dhp-muller/001-c01",
+  "/jingzang/gutenberg-en-diamond-gemmell",
+  "/jingzang/gutenberg-en-diamond-gemmell/001-c01",
+  "/jingzang/gutenberg-en-diamond-gemmell/001-c03-04",
+  "/jingzang/gutenberg-en-diamond-gemmell/001-c32",
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
   "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
@@ -698,12 +702,48 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
   await expect(dock.locator("blockquote")).toHaveText(selected.source ?? "");
 
   await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
-  await dock.getByRole("button", { name: "复制引文" }).click();
-  await expect(dock.getByText("已复制原文、稳定坐标、链接与访问日期。")).toBeVisible();
+  await dock.getByRole("button", { name: "复制书目引文" }).click();
+  await expect(dock.getByText("已复制书目引文；原文、责任者、坐标与永久链接均已带上。")).toBeVisible();
   const citation = await page.evaluate(() => navigator.clipboard.readText());
-  expect(citation).toContain(`稳定坐标：${selected.id}`);
+  expect(citation).toContain(`稳定坐标 ${selected.id}`);
   expect(citation).toContain(`/jingzang/xinjing/001-0848c#${selected.id}`);
-  expect(citation).toContain("访问日期：");
+  expect(citation).toContain("唐玄奘译");
+  expect(citation).toContain("大正藏 T08, no. 251");
+
+  await dock.getByRole("button", { name: /引用工作台/ }).click();
+  await expect(dock.getByRole("heading", { name: "把这段带走，仍能回到原典" })).toBeVisible();
+  await expect(dock.getByText("CBETA Online", { exact: true })).toBeVisible();
+  await dock.getByRole("button", { name: "复制 Markdown" }).click();
+  const markdownCitation = await page.evaluate(() => navigator.clipboard.readText());
+  expect(markdownCitation).toContain(`- 稳定坐标：\`${selected.id}\``);
+  expect(markdownCitation).toContain("[在 foxue.ai 核对原典]");
+  expect(markdownCitation).toContain("权利说明：CBETA 授权条款；古典原文");
+
+  const citationDownloadPromise = page.waitForEvent("download");
+  await dock.getByRole("button", { name: "下载结构化 JSON" }).click();
+  const citationDownload = await citationDownloadPromise;
+  expect(citationDownload.suggestedFilename()).toMatch(/^foxue-ai-citation-xinjing-001-0848c-.+-\d{4}-\d{2}-\d{2}\.json$/);
+  const citationDownloadPath = await citationDownload.path();
+  expect(citationDownloadPath).not.toBeNull();
+  const citationRecord = JSON.parse(await readFile(citationDownloadPath ?? "", "utf8"));
+  expect(citationRecord).toMatchObject({
+    format: "foxue.ai/folio-citation/v1",
+    work: {
+      title: "《般若波罗蜜多心经》",
+      responsibility: "唐玄奘译",
+      canonRef: "大正藏 T08, no. 251",
+    },
+    passage: {
+      language: "zh-Hant",
+      stableLocator: selected.id,
+      quote: selected.source,
+    },
+    source: {
+      name: "CBETA Online",
+      url: "https://cbetaonline.dila.edu.tw/zh/T0251_001",
+    },
+  });
+  expect(citationRecord.permalink).toContain(`/jingzang/xinjing/001-0848c#${selected.id}`);
 
   await dock.getByRole("button", { name: /写研读笺/ }).click();
   const noteText = "从后半句选文，也应回到完整稳定行段，而不是保存失去上下文的半句。";
@@ -1272,7 +1312,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/4142 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/4143 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -1482,7 +1522,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.25.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.26.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -1501,10 +1541,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3396,
-    registeredExpressions: 4188,
+    registeredExpressions: 4189,
     fullSourceTextWorks: 3369,
-    fullSourceTextExpressions: 4142,
-    stableSegments: 5945245,
+    fullSourceTextExpressions: 4143,
+    stableSegments: 5945340,
     structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -2290,7 +2330,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.25.0.json"),
+    registry: expect.stringContaining("registry-v6.26.0.json"),
     sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
     chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
     chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
@@ -2301,6 +2341,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     wikisourceKokuyakuDhpBoundaryAudit: expect.stringContaining("kokuyaku-dhp-batch-v1.0.0.json"),
     wikisourceMullerDhpIngest: expect.stringContaining("wikisource-muller-dhp-ingest-v1.0.0.json"),
     wikisourceMullerDhpBoundaryAudit: expect.stringContaining("muller-dhp-batch-v1.0.0.json"),
+    gutenbergGemmellDiamondIngest: expect.stringContaining("gutenberg-diamond-gemmell-ingest-v1.0.0.json"),
+    gutenbergGemmellDiamondBoundaryAudit: expect.stringContaining("diamond-sutra-gemmell-batch-v1.0.0.json"),
     suttacentralSujatoEnglishIngest: expect.stringContaining("suttacentral-sujato-en-ingest-v1.0.0.json"),
     suttacentralSujatoEnglishRightsAudit: expect.stringContaining("suttacentral-sujato-en-rights-audit-v1.0.0.json"),
     suttacentralSujatoEnglishBoundaryAudit: expect.stringContaining("sujato-en-batch-v1.0.0.json"),
@@ -4986,6 +5028,37 @@ test("1881 年公版英文法句经完整生成二十六品并保留稳定锚点
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller");
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c01");
   expect(sitemap).toContain("/jingzang/wikisource-en-dhp-muller/001-c26");
+});
+
+test("1912 年 Gemmell《金刚经》英译保留原书合并章界与稳定锚点", async ({ page, request }) => {
+  await page.goto("/jingzang/gutenberg-en-diamond-gemmell");
+  await expect(page.getByRole("heading", { level: 1, name: "The Diamond Sutra (William Gemmell, 1912)" })).toBeVisible();
+  await expect(page.getByText(/William Gemmell/).first()).toBeVisible();
+  await expect(page.getByText(/Project Gutenberg 标记美国公有领域/).first()).toBeVisible();
+  await expect(page.getByText(/32 章标签由 31 个来源阅读单元覆盖/).first()).toBeVisible();
+
+  await page.goto("/jingzang/gutenberg-en-diamond-gemmell/001-c01");
+  await expect(page.locator('[id="GUTENBERG-DIAMOND-GEMMELL-1912.001.s0000000100"]')).toContainText(
+    "Thus have I heard concerning our Lord Buddha",
+  );
+  await expect(page.getByText(/完整公版英译 · 原书分次/)).toBeVisible();
+  await expect(page.getByText("Gemmell 英译分次", { exact: true })).toBeVisible();
+
+  await page.goto("/jingzang/gutenberg-en-diamond-gemmell/001-c03-04");
+  await expect(page.getByText(/第 3–4 分 · Gemmell 英譯/).first()).toBeVisible();
+  await expect(page.locator('[id="GUTENBERG-DIAMOND-GEMMELL-1912.001.s0000000700"]')).toContainText(
+    "By this wisdom shall enlightened disciples",
+  );
+
+  await page.goto("/jingzang/gutenberg-en-diamond-gemmell/001-c32");
+  await expect(page.locator('[id="GUTENBERG-DIAMOND-GEMMELL-1912.001.s0000009500"]')).toContainText(
+    "they received it and departed",
+  );
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell");
+  expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell/001-c03-04");
+  expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell/001-c32");
 });
 
 test("Sujato CC0 英译挂接既有巴利作品并保留 Bilara 段落标识", async ({ page, request }) => {

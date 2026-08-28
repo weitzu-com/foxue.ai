@@ -46,6 +46,7 @@ export const catalogSlugSources = [
   "data/corpus/sat/modern-japanese-catalog-v1.0.0.json",
   "data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json",
   "data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json",
+  "data/corpus/gutenberg/diamond-sutra-gemmell-catalog-v1.0.0.json",
   "data/corpus/suttacentral/manifest-v0.7.0.json",
   "data/corpus/suttacentral/dn-manifest-v0.8.0.json",
   "data/corpus/suttacentral/mn-manifest-v0.9.0.json",

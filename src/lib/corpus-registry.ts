@@ -1,4 +1,4 @@
-import registryDocument from "../../data/gbcr/registry-v6.25.0.json";
+import registryDocument from "../../data/gbcr/registry-v6.26.0.json";
 import sourceSnapshotsDocument from "../../data/gbcr/source-snapshots-v4.8.0.json";
 
 type Expression = {
@@ -27,7 +27,8 @@ export function buildCoverageSnapshot() {
     (item) => item.qualityStatus === "verified_sample" ||
       item.qualityStatus === "verified_structure_and_anchors" ||
       item.qualityStatus === "verified_structure_rights_and_anchors" ||
-      item.qualityStatus === "verified_structure_and_anchors_scan_collation_pending",
+      item.qualityStatus === "verified_structure_and_anchors_scan_collation_pending" ||
+      item.qualityStatus === "verified_structure_source_boundaries_and_anchors_scan_collation_pending",
   );
   const chineseFamily = corpusRegistry.sourceFamilies.find(
     (family) => family.id === "cbeta_chinese",

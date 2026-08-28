@@ -11,6 +11,7 @@ export async function loadCorpusReleaseContext(root) {
     ["sat_modern_japanese", "data/corpus/sat/modern-japanese-manifest-v1.0.0.json"],
     ["wikisource_kokuyaku_dhp_1918", "data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json"],
     ["wikisource_muller_dhp_1881", "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json"],
+    ["project_gutenberg_gemmell_diamond_1912", "data/corpus/gutenberg/diamond-sutra-gemmell-manifest-v1.0.0.json"],
     ["suttacentral_bilara_dhammapada", "data/corpus/suttacentral/manifest-v0.7.0.json"],
     ["suttacentral_bilara_digha_nikaya", "data/corpus/suttacentral/dn-manifest-v0.8.0.json"],
     ["suttacentral_bilara_majjhima_nikaya", "data/corpus/suttacentral/mn-manifest-v0.9.0.json"],
@@ -53,7 +54,7 @@ export async function loadCorpusReleaseContext(root) {
   };
   const releaseId = [
     "gbcr",
-    "6.25.0",
+    "6.26.0",
     commitPrefix("cbeta_xml_p5"),
     commitPrefix("suttacentral_bilara_dhammapada"),
     commitPrefix("esukhia_derge_kangyur"),

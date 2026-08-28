@@ -44,6 +44,7 @@ const manifestFamilies = [
     manifests: [
       "data/corpus/wikisource/kokuyaku-dhp-manifest-v1.0.0.json",
       "data/corpus/wikisource/muller-dhp-manifest-v1.0.0.json",
+      "data/corpus/gutenberg/diamond-sutra-gemmell-manifest-v1.0.0.json",
     ],
     defaultParser: "sat_tei",
   },

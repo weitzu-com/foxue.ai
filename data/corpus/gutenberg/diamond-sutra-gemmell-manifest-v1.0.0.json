@@ -1,0 +1,122 @@
+{
+  "schema": "https://foxue.ai/schemas/corpus-asset-manifest-v0.5",
+  "version": "1.0.0",
+  "source": {
+    "name": "Project Gutenberg William Gemmell Diamond Sutra 1912",
+    "site": "https://www.gutenberg.org/ebooks/64623",
+    "commit": "797f4dd6fc1e7a8a2713db952cbb89d3b06213e94cd8e911ef5ffb60f20f95a0",
+    "copyrightUrl": "https://www.gutenberg.org/policy/permission.html",
+    "collection": "Project Gutenberg William Gemmell Diamond Sutra 1912"
+  },
+  "rightsDecision": {
+    "status": "approved_us_public_domain_with_jurisdiction_notice",
+    "commercialUse": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+    "redistribution": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+    "sourceRightsLabel": "Public domain in the USA.",
+    "publicationYear": 1912,
+    "attribution": "Project Gutenberg eBook 64623 + 1912 London edition + translator William Gemmell + Kumārajīva Chinese recension",
+    "reviewedAt": "2026-08-28",
+    "note": "Project Gutenberg's metadata makes a United States public-domain statement, not a worldwide claim. The reading asset contains only the normalized scripture body and preserves source attribution.",
+    "headerMustRemain": true
+  },
+  "normalization": {
+    "id": "gutenberg-plain-text-to-tei-scripture-body-v1",
+    "description": "Freeze Project Gutenberg eBook 64623, retain only Gemmell's translated scripture body, preserve all source paragraphs and the combined Chapter 3 and 4 boundary, remove numeric note calls and formatting underscores, and emit sat_tei-compatible TEI. Introduction, commentary, footnotes, index, and Project Gutenberg license text are excluded from the reading body."
+  },
+  "collection": "Project Gutenberg William Gemmell Diamond Sutra 1912",
+  "files": [
+    {
+      "id": "GUTENBERG-DIAMOND-GEMMELL-1912",
+      "slug": "gutenberg-en-diamond-gemmell",
+      "workId": "gbcr:work:vajracchedika-prajnaparamita",
+      "workTitle": "Vajracchedikā Prajñāpāramitā",
+      "attachToExistingWork": true,
+      "sourceRole": "public_domain_english_translation_from_chinese_expression",
+      "canonicalStatus": "vajracchedika_english_translation_from_kumarajiva_chinese",
+      "buddhaWordStatus": "translation_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "vajracchedika-gemmell-english",
+          "label": "Gemmell English Diamond Sutra / Kumārajīva Chinese Vajracchedikā",
+          "evidence": "The 1912 title page and preface identify William Gemmell's work as an English translation from Kumārajīva's Chinese text. It attaches to the existing Vajracchedikā work, creates no new canonical work, and is not represented as the Buddha's verbatim English speech.",
+          "externalIds": {
+            "projectGutenberg": [
+              "64623"
+            ],
+            "cbeta": [
+              "T0235"
+            ],
+            "translator": [
+              "William Gemmell"
+            ]
+          }
+        },
+        {
+          "type": "translation_of_expression_verified_not_aligned",
+          "groupId": "gemmell-1912-from-t0235-recension",
+          "label": "Gemmell 1912 / Kumārajīva Chinese recension",
+          "evidence": "Gemmell explicitly states that the English version was translated from Kumarajiva's Chinese text. The expression is linked to the T0235 recension but is not asserted to be line-by-line aligned to the CBETA file.",
+          "externalIds": {
+            "cbeta": [
+              "T0235"
+            ],
+            "projectGutenberg": [
+              "64623"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "projectGutenberg": "64623",
+        "cbetaRecension": "T0235",
+        "translator": "William Gemmell",
+        "year": "1912"
+      },
+      "localPath": "data/corpus/gutenberg/diamond-sutra-gemmell-1912.xml",
+      "upstreamPath": "Project Gutenberg eBook 64623 plain text",
+      "upstreamUrl": "https://www.gutenberg.org/cache/epub/64623/pg64623.txt",
+      "upstreamBytes": 212888,
+      "upstreamSha256": "2270381d29e65687a486eb6e04b1731a150826f13e64e3b4d8050d49713c0dec",
+      "localBytes": 52154,
+      "localSha256": "c7fedfee10f49a36deab3c8db42d20eadd9528c023cfeb0c00d3365d5343a95d",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "The Diamond Sutra (William Gemmell, 1912)",
+        "alternateTitle": "金刚经 · Gemmell 英译",
+        "tradition": "Mahāyāna Buddhism · Prajñāpāramitā",
+        "language": "English",
+        "canonRef": "Project Gutenberg eBook 64623 · Gemmell English translation · 1912",
+        "translator": "William Gemmell，英译自鸠摩罗什汉译本",
+        "summary": "William Gemmell's 1912 English translation from Kumārajīva's Chinese Vajracchedikā. It is attached to the existing Diamond Sutra work, not counted as a new scripture. The complete translated scripture body is present; image collation remains pending.",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/64623"
+      },
+      "verification": {
+        "segments": 95,
+        "folios": 31,
+        "anchors": [
+          "GUTENBERG-DIAMOND-GEMMELL-1912.001.s0000000100",
+          "GUTENBERG-DIAMOND-GEMMELL-1912.001.s0000009500"
+        ],
+        "chapterCount": 32,
+        "sourceHeadingCount": 31,
+        "combinedChapterLabels": [
+          "Chapter 3 and 4"
+        ],
+        "excludedIntroduction": true,
+        "excludedCommentaryAndFootnotes": true,
+        "humanSampleVerified": false,
+        "scanCollated": false,
+        "juans": [
+          "001"
+        ]
+      },
+      "juanRange": [
+        1,
+        1
+      ]
+    }
+  ]
+}
