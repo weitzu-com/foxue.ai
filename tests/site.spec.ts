@@ -641,6 +641,9 @@ test("金刚经七日研读保留原典、版本边界与本地进度", async ({
   expect(await page.evaluate(() =>
     window.localStorage.getItem("foxue:jingangjing-seven-day-progress:v1"),
   )).toBeNull();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"jingangjing"');
 
   const source = await request.get("/jingzang/jingangjing/001-0749c");
   expect(source.ok()).toBeTruthy();
@@ -736,6 +739,84 @@ test("阿弥陀经七日净读分开修持、理解与双译校读", async ({ pa
   expect(accessibility.violations.filter((item) =>
     item.impact === "serious" || item.impact === "critical",
   )).toEqual([]);
+
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "清除本地进度" }).click();
+  expect(await page.evaluate(() =>
+    window.localStorage.getItem("foxue:amituojing-seven-day-progress:v1"),
+  )).toBeNull();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"amituojing"');
+});
+
+test("七日路径在首页和研读中心保留下一步而不制造连续打卡", async ({ page }) => {
+  await page.goto("/xue/xinjing#day-3");
+  await expect(page.getByRole("heading", { level: 2, name: "不落在两边" })).toBeVisible();
+  await page.getByRole("button", { name: /读完这一日/ }).click();
+  await expect(page).toHaveURL(/\/xue\/xinjing#day-4$/);
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).toContain('"id":"xinjing","activeDay":4');
+
+  await page.goto("/");
+  const homeResume = page.locator('[data-study-path-resume="xinjing"]');
+  await expect(homeResume).toBeVisible();
+  await expect(homeResume.getByRole("heading", { name: "《心经》七日慢读 · 第 4 天" }))
+    .toBeVisible();
+  await expect(homeResume.getByText("已标记 1 / 7 · 不计连续天数，什么时候回来都可以。"))
+    .toBeVisible();
+  const resumeLink = homeResume.getByRole("link", { name: /继续第 4 天/ });
+  await expect(resumeLink).toHaveAttribute("href", "/xue/xinjing#day-4");
+  await resumeLink.click();
+  await expect(page).toHaveURL(/\/xue\/xinjing#day-4$/);
+  await expect(page.getByRole("heading", { level: 2, name: "读一连串的“无”" })).toBeVisible();
+
+  await page.goto("/xue/amituojing#day-6");
+  await expect(page.getByRole("heading", { level: 2, name: "执持名号" })).toBeVisible();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).toContain('"id":"amituojing","activeDay":6');
+
+  await page.goto("/xue");
+  const pathCards = page.locator("[data-study-path-card]");
+  await expect(pathCards).toHaveCount(2);
+  await expect(pathCards.first()).toHaveAttribute("data-study-path-card", "amituojing");
+  await expect(pathCards.first().getByText("下一步：第 6 天 · 已标记 0 / 7")).toBeVisible();
+  await expect(pathCards.first().getByRole("link", { name: /继续第 6 天/ }))
+    .toHaveAttribute("href", "/xue/amituojing#day-6");
+  await expect(page.getByText("不追连续天数，只保留下一步。")).toBeVisible();
+  await expect(page.getByText(/不登录，不上传阅读轨迹/)).toBeVisible();
+
+  const desktopAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(desktopAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const mobileAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(mobileAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.goto("/xue/xinjing#day-4");
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "清除本地进度" }).click();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"xinjing"');
+
+  await page.goto("/xue");
+  await expect(page.locator('[data-study-path-card="xinjing"]')).toHaveCount(0);
+  await expect(page.locator('[data-study-path-card="amituojing"]')).toBeVisible();
+  await page.goto("/");
+  await expect(page.locator('[data-study-path-resume="xinjing"]')).toHaveCount(0);
+  await expect(page.locator('[data-study-path-resume="amituojing"]')).toBeVisible();
 });
 
 test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
