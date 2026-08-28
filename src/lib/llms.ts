@@ -23,6 +23,11 @@ const corePages: CorePage[] = [
     summary: "AI 问经与原典出处对照；输入问题后返回结论、范围提醒、证据与不足提示。",
   },
   {
+    path: "/hedui",
+    label: "核对说法",
+    summary: "佛经名句与“佛说”语录出处核对；区分逐字出处、近似转述与当前证据不足。",
+  },
+  {
     path: "/jingzang",
     label: "经藏",
     summary: "佛经在线阅读目录；按来源、版本、经号与稳定行段浏览已登记文本。",
@@ -111,6 +116,7 @@ ${renderCorePageBullets()}
 - 当前 sitemap 共 ${sitemapCount} 个分片，登记 ${formatCount(totalUrls)} 个 canonical URL
 - 当前经藏目录登记 ${formatCount(sutraCount)} 部文本表达；全文阅读规模以 /jingzang 与 /fugai 为准
 - /wenjing 当前是可信原型：回答范围只覆盖已完成样本复核的主题，不把未知内容伪装成结论
+- /hedui 当前核对 5 个逐字复核的高频条目；未命中不等于所有佛典都不存在相似表达
 
 ## AI Entry Points
 
@@ -166,6 +172,12 @@ ${renderCorePageTable()}
 - 当已登记样本足以支撑结论时，页面展示结论、范围提醒与原典证据
 - 当索引不足、证据分歧或超出当前覆盖时，系统会明确回答“未找到可靠来源”或提示范围不足
 - 完整经藏阅读规模与文本来源边界，应分别以 ${absoluteUrl("/jingzang")}、${absoluteUrl("/fugai")}、${absoluteUrl("/touming")} 为准
+
+## 说法核对边界
+
+- ${absoluteUrl("/hedui")} 区分“原句可核验”“找到近似原句”与“当前证据不足”
+- 首批核验表含 5 个逐字复核条目，输入仅在浏览器标签页中处理，不写入网址
+- 未命中只说明当前受控范围不足，不能据此宣称全部佛典都没有相似表达
 
 ## AI 入口点
 

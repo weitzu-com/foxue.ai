@@ -66,11 +66,11 @@ const tasks = [
   {
     number: "03",
     icon: MessagesSquare,
-    eyebrow: "有一个具体疑问",
+    eyebrow: "只记得一句流行说法",
     title: "用证据核对说法",
-    description: "当前仅检索三部人工复核样本；先展示出处，再给综合与范围边界。",
-    link: "/wenjing",
-    action: "进入可信原型",
+    description: "分清佛经原句、现代转述与当前未知；命中后直达经号与稳定行段。",
+    link: "/hedui",
+    action: "核对一句话",
   },
   {
     number: "04",
