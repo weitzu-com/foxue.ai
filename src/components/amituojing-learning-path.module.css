@@ -1,0 +1,280 @@
+.path {
+  --pureland-blue: #1f3443;
+  --pureland-gold: #74471d;
+  --pureland-pale: #f1ead9;
+}
+
+.progress {
+  border-color: color-mix(in srgb, var(--pureland-blue) 58%, var(--line));
+}
+
+.progress :global(.path-progress__topline strong) {
+  color: var(--pureland-gold);
+}
+
+.progress :global(.path-progress__track span) {
+  background: var(--pureland-gold);
+}
+
+.dayList button:hover,
+.dayList button[aria-current="step"] {
+  border-left-color: var(--pureland-gold);
+  background: color-mix(in srgb, var(--pureland-pale) 62%, var(--paper));
+}
+
+.paper {
+  border-color: color-mix(in srgb, var(--pureland-blue) 32%, var(--line));
+  background:
+    linear-gradient(90deg, transparent 0 98%, rgb(166 117 47 / 5%) 98% 100%),
+    var(--paper);
+  background-size: 2.75rem 100%;
+}
+
+.paper::before {
+  border-color: rgb(40 61 75 / 16%);
+}
+
+.watermark {
+  color: rgb(31 52 67 / 4.5%);
+}
+
+.sourceBoundary {
+  border-color: color-mix(in srgb, var(--pureland-blue) 54%, var(--line));
+  background: color-mix(in srgb, var(--pureland-blue) 7%, var(--paper));
+}
+
+.sourceBoundary > svg,
+.sourceBoundary a {
+  color: var(--pureland-blue);
+}
+
+.lensSection {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.7rem;
+  border: 1px solid color-mix(in srgb, var(--pureland-blue) 52%, var(--line));
+  background: color-mix(in srgb, var(--pureland-pale) 36%, var(--paper));
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid color-mix(in srgb, var(--pureland-blue) 52%, var(--line));
+}
+
+.tabs button {
+  min-width: 0;
+  min-height: 4.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-right: 1px solid color-mix(in srgb, var(--pureland-blue) 28%, var(--line));
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.tabs button:last-child {
+  border-right: 0;
+}
+
+.tabs button[aria-selected="true"] {
+  background: var(--pureland-blue);
+  color: #fffaf0;
+}
+
+.tabs button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid color-mix(in srgb, var(--pureland-gold) 72%, white);
+  outline-offset: -3px;
+}
+
+.tabs svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  color: var(--pureland-gold);
+}
+
+.tabs button[aria-selected="true"] svg {
+  color: #e2bb74;
+}
+
+.tabs small,
+.tabs strong {
+  display: block;
+}
+
+.tabs small {
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}
+
+.tabs strong {
+  margin-top: 0.13rem;
+  color: inherit;
+  font-family: var(--font-serif), serif;
+  font-size: 0.85rem;
+}
+
+.lensPanel {
+  min-height: 15rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.lensHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.lensHeading > svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  color: var(--pureland-gold);
+  stroke-width: 1.45;
+}
+
+.lensHeading small,
+.lensHeading h3 {
+  display: block;
+}
+
+.lensHeading small {
+  color: var(--muted);
+  font-size: 0.54rem;
+  letter-spacing: 0.09em;
+}
+
+.lensHeading h3 {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.lensPanel > p {
+  max-width: 62ch;
+  margin: 1.35rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 1.02rem;
+  line-height: 2;
+}
+
+.boundaryLabel {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid color-mix(in srgb, var(--pureland-blue) 24%, var(--line));
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.7;
+}
+
+.parallelLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--pureland-gold);
+  background: var(--paper);
+}
+
+.parallelLink strong,
+.parallelLink small {
+  display: block;
+}
+
+.parallelLink strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.78rem;
+}
+
+.parallelLink small {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.58rem;
+}
+
+.parallelLink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+  color: var(--pureland-blue);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.parallelLink a:hover {
+  color: var(--cinnabar);
+}
+
+.parallelLink svg {
+  width: 0.8rem;
+}
+
+.fullTextLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+}
+
+@media (max-width: 560px) {
+  .tabs button {
+    min-height: 3.8rem;
+    justify-content: center;
+    padding: 0.7rem 0.35rem;
+  }
+
+  .tabs svg,
+  .tabs small {
+    display: none;
+  }
+
+  .tabs strong {
+    font-size: 0.78rem;
+  }
+
+  .lensPanel {
+    min-height: 17rem;
+  }
+
+  .parallelLink {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .parallelLink a {
+    flex: 1 1 auto;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .path {
+    --pureland-blue: #a9c3d2;
+    --pureland-gold: #e0b66c;
+    --pureland-pale: #28343b;
+  }
+
+  .tabs button[aria-selected="true"] {
+    background: #172731;
+    color: #fffaf0;
+  }
+
+  .paper {
+    background:
+      linear-gradient(90deg, transparent 0 98%, rgb(224 182 108 / 4%) 98% 100%),
+      var(--paper);
+    background-size: 2.75rem 100%;
+  }
+}

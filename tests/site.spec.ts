@@ -48,6 +48,7 @@ const criticalRoutes = [
   "/hedui",
   "/gainian",
   "/xue",
+  "/xue/amituojing",
   "/xue/biji",
   "/xue/faju",
   "/xue/jingangjing",
@@ -125,6 +126,7 @@ const sitemapLandingRoutes = [
   "/hedui",
   "/gainian",
   "/xue",
+  "/xue/amituojing",
   "/xue/biji",
   "/xue/faju",
   "/xue/jingangjing",
@@ -159,6 +161,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
 test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
@@ -202,6 +205,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/hedui", "https://www.foxue.ai/hedui"],
     ["/xue", "https://www.foxue.ai/xue"],
+    ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
     ["/xue/jingangjing", "https://www.foxue.ai/xue/jingangjing"],
     ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
@@ -365,6 +369,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/xue/jingangjing#page", "CollectionPage"],
         ["https://www.foxue.ai/xue/jingangjing#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/xue/jingangjing#learning-resource", "LearningResource"],
+      ],
+    },
+    {
+      path: "/xue/amituojing",
+      required: [
+        ["https://www.foxue.ai/xue/amituojing#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/amituojing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/amituojing#learning-resource", "LearningResource"],
       ],
     },
     {
@@ -671,6 +683,61 @@ test("金刚经研读在本地存储被禁用时仍可阅读和推进", async ({
   await expect(page).toHaveURL(/#day-7$/);
 });
 
+test("阿弥陀经七日净读分开修持、理解与双译校读", async ({ page, request }) => {
+  await page.goto("/xue/amituojing");
+
+  await expect(page.locator("h1")).toContainText("《阿弥陀经》入门");
+  await expect(page.getByRole("heading", { name: "七段原文，先完整站在解释之前。" })).toBeVisible();
+  await expect(page.locator(".learning-overview__grid > li")).toHaveCount(7);
+  await expect(page.getByText("当前阅读底本：姚秦·鸠摩罗什译 T0366")).toBeVisible();
+  await expect(page.getByText(/相关不等于逐句、逐词对应/)).toBeVisible();
+  await expect(page.getByRole("tab", { name: /修持/ })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByText("练习不是经文，也不代替师承。")).toBeVisible();
+
+  await page.getByRole("tab", { name: /修持/ }).press("ArrowRight");
+  await expect(page.getByRole("tab", { name: /理解/ })).toBeFocused();
+  await expect(page.getByRole("tab", { name: /理解/ })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByText(/理解提示由 foxue.ai 编辑组整理/)).toBeVisible();
+
+  await page.getByRole("tab", { name: /校读/ }).click();
+  await expect(page.getByText(/相关开篇同样交代西方、极乐世界与无量寿佛/)).toBeVisible();
+  await expect(page.locator('a[href="/jingzang/taisho-t0367/001-0348c#T0367.001.0348c08"]'))
+    .toContainText("T0367.001.0348c08–13");
+
+  await page.getByRole("button", { name: /第 6 天.*未标记/ }).click();
+  await expect(page).toHaveURL(/#day-6$/);
+  await expect(page.getByRole("heading", { level: 2, name: "执持名号" })).toBeVisible();
+  await expect(page.locator('a[href="/jingzang/amituojing/001-0347b#T0366.001.0347b10"]'))
+    .toContainText("T0366.001.0347b10–13");
+  await page.getByRole("tab", { name: /校读/ }).click();
+  const versionPanel = page.getByRole("tabpanel");
+  await expect(versionPanel.getByText(/执持名号.*一心不乱/)).toBeVisible();
+  await expect(versionPanel.getByText(/闻已思惟.*系念不乱/)).toBeVisible();
+  await expect(page.locator('a[href="/jingzang/taisho-t0367/001-0350a#T0367.001.0350a07"]'))
+    .toBeVisible();
+
+  await page.getByRole("button", { name: /读完这一日/ }).click();
+  expect(await page.evaluate(() =>
+    window.localStorage.getItem("foxue:amituojing-seven-day-progress:v1"),
+  )).toContain('"6":"completed"');
+
+  const primarySource = await request.get("/jingzang/amituojing/001-0347b");
+  expect(primarySource.ok()).toBeTruthy();
+  expect(await primarySource.text()).toContain('id="T0366.001.0347b10"');
+  const parallelSource = await request.get("/jingzang/taisho-t0367/001-0350a");
+  expect(parallelSource.ok()).toBeTruthy();
+  expect(await parallelSource.text()).toContain('id="T0367.001.0350a07"');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
 test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
   await page.goto("/xue");
 
@@ -685,6 +752,8 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
   await expect(page.getByRole("link", { name: /开始《金刚经》七日研读/ }))
     .toHaveAttribute("href", "/xue/jingangjing");
+  await expect(page.getByRole("link", { name: /开始《阿弥陀经》七日净读/ }))
+    .toHaveAttribute("href", "/xue/amituojing");
   await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
   await expect(page.getByRole("link", { name: /打开本地研读笺/ })).toHaveAttribute("href", "/xue/biji");
   await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
@@ -729,6 +798,7 @@ test("法句三源档案保留稳定引文与比较边界", async ({ page, reque
   expect(sitemap.ok()).toBeTruthy();
   const body = await sitemap.text();
   expect(body).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(body).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");

@@ -27,7 +27,7 @@ import styles from "./xue.module.css";
 
 const title = "佛经研读中心｜从静读到版本校勘";
 const description =
-  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：七日读《心经》与《金刚经》，从汉译、巴利与历史英译并读《法句》，每一步都能回到稳定原典。";
+  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：七日读《心经》《金刚经》与《阿弥陀经》，从汉译、巴利与历史英译并读《法句》，每一步都能回到稳定原典。";
 const pagePath = "/xue";
 
 export const metadata: Metadata = buildPageMetadata({ title, description, path: pagePath });
@@ -41,7 +41,7 @@ const pageJsonLd = buildPageJsonLd({
     { name: "首页", path: "/" },
     { name: "研读", path: pagePath },
   ],
-  about: ["佛经研读", "心经", "金刚经", "法句经", "巴利三藏", "佛典版本研究"],
+  about: ["佛经研读", "心经", "金刚经", "阿弥陀经", "法句经", "巴利三藏", "佛典版本研究"],
   mainEntityId: `${absoluteUrl(pagePath)}#study-paths`,
 });
 
@@ -70,6 +70,17 @@ const studyPaths = [
   },
   {
     number: "03",
+    status: "七日净读",
+    title: "《阿弥陀经》：从闻说进入愿、持与信",
+    description:
+      "以鸠摩罗什译为底本，在修持、理解与校读之间切换；玄奘译只在需要比较时出现。",
+    meta: ["鸠摩罗什译 T0366", "玄奘译 T0367 相关段", "3 种文本表达"],
+    href: "/xue/amituojing",
+    action: "开始《阿弥陀经》七日净读",
+    tone: "blue",
+  },
+  {
+    number: "04",
     status: "三源研读档案",
     title: "《法句》：让汉译、巴利与英译各自站稳",
     description:
@@ -133,6 +144,7 @@ export default function StudyPage() {
                 从《心经》开始 <ArrowRight aria-hidden="true" />
               </Link>
               <Link href="/xue/jingangjing">研读《金刚经》七段原文</Link>
+              <Link href="/xue/amituojing">净读《阿弥陀经》</Link>
               <Link href="/xue/biji">打开我的研读笺</Link>
             </div>
           </div>
@@ -198,9 +210,9 @@ export default function StudyPage() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>现在可读 · OPEN PATHS</p>
-              <h2 id="study-paths-title">三条路径，三种进入方式。</h2>
+              <h2 id="study-paths-title">四条路径，三种进入方式。</h2>
             </div>
-            <p>两条七日路径分别练习逐段慢读与版本核读；一份三源档案适合在一小时内完成有边界的跨语种观察。</p>
+            <p>三条七日路径分别练习逐段慢读、版本核读与净土原典修持；一份三源档案适合在一小时内完成有边界的跨语种观察。</p>
           </div>
           <div className={styles.pathGrid}>
             {studyPaths.map((path) => (
@@ -211,7 +223,9 @@ export default function StudyPage() {
                     ? styles.pathWarm
                     : path.tone === "gold"
                       ? styles.pathGold
-                      : styles.pathDark
+                      : path.tone === "blue"
+                        ? styles.pathBlue
+                        : styles.pathDark
                 }
               >
                 <div className={styles.pathTopline}>
