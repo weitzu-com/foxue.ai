@@ -29,4 +29,7 @@ jobs:
           EXPECTED_MANIFEST_SHA256: dfdd6ba0a8a0e7c658401741736a044267ca081d7864ab8aebc8ec3ab9dbb3dc
           REQUIRE_READY: "true"
           REQUIRE_MULLER_INDEX: "true"
+          # Enable together with the v6.26 release id and manifest hash after
+          # the immutable Gemmell objects are live in production R2.
+          REQUIRE_GEMMELL_INDEX: "false"
         run: node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai

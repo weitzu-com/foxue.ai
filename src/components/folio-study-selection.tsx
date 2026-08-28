@@ -3,9 +3,17 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { BookMarked, Check, Copy, Highlighter, ShieldCheck, X } from "lucide-react";
+import { BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, ShieldCheck, X } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
 import { trackEvent } from "@/lib/analytics";
+import {
+  buildFolioCitationRecord,
+  folioCitationFilename,
+  formatFolioBibliographicCitation,
+  formatFolioCitationMarkdown,
+  serializeFolioCitationJson,
+  type FolioCitationRecord,
+} from "@/lib/folio-citation";
 import {
   STUDY_NOTES_CANONICAL_ORIGIN,
   type StudyNoteSeed,
@@ -36,22 +44,6 @@ function intersectsRange(range: Range, element: Element) {
   }
 }
 
-function citationForSelection(selection: ActiveStudySelection) {
-  const { seed } = selection;
-  const accessedOn = new Date().toISOString().slice(0, 10);
-  const sourceUrl = new URL(seed.sourceHref, STUDY_NOTES_CANONICAL_ORIGIN).toString();
-
-  return [
-    `${seed.workTitle} · ${seed.passageLabel}`,
-    "",
-    seed.quote,
-    "",
-    `稳定坐标：${seed.locator}`,
-    `原典：${sourceUrl}`,
-    `访问日期：${accessedOn}`,
-  ].join("\n");
-}
-
 export function FolioStudySelection({
   children,
   slug,
@@ -59,6 +51,11 @@ export function FolioStudySelection({
   workTitle,
   passageLabel,
   quoteLang,
+  responsibility,
+  canonRef,
+  sourceName,
+  sourceUrl,
+  sourceLicense,
 }: {
   children: ReactNode;
   slug: string;
@@ -66,11 +63,17 @@ export function FolioStudySelection({
   workTitle: string;
   passageLabel: string;
   quoteLang: string;
+  responsibility: string;
+  canonRef: string;
+  sourceName: string;
+  sourceUrl: string;
+  sourceLicense: string;
 }) {
   const selectionRootRef = useRef<HTMLDivElement>(null);
   const [activeSelection, setActiveSelection] = useState<ActiveStudySelection | null>(null);
   const [warning, setWarning] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [workbenchOpen, setWorkbenchOpen] = useState(false);
 
   useEffect(() => {
     if (!activeSelection) return;
@@ -138,6 +141,7 @@ export function FolioStudySelection({
 
       setWarning("");
       setFeedback("");
+      setWorkbenchOpen(false);
       setActiveSelection({
         segmentCount: segmentIds.length,
         seed: {
@@ -170,21 +174,83 @@ export function FolioStudySelection({
     setActiveSelection(null);
     setWarning("");
     setFeedback("");
+    setWorkbenchOpen(false);
     window.getSelection()?.removeAllRanges();
   }
 
-  async function copyCitation() {
-    if (!activeSelection) return;
+  function citationRecord(): FolioCitationRecord | null {
+    if (!activeSelection) return null;
+    const { seed } = activeSelection;
+    return buildFolioCitationRecord({
+      workTitle: seed.workTitle,
+      responsibility,
+      canonRef,
+      passageLabel: seed.passageLabel,
+      quote: seed.quote,
+      quoteLang: seed.quoteLang,
+      locator: seed.locator,
+      permalink: new URL(seed.sourceHref, STUDY_NOTES_CANONICAL_ORIGIN).toString(),
+      sourceName,
+      sourceUrl,
+      sourceLicense,
+      accessedOn: new Date().toISOString().slice(0, 10),
+    });
+  }
+
+  async function copyCitation(format: "bibliographic" | "markdown") {
+    const record = citationRecord();
+    if (!record || !activeSelection) return;
     try {
-      await navigator.clipboard.writeText(citationForSelection(activeSelection));
-      setFeedback("已复制原文、稳定坐标、链接与访问日期。");
+      const value = format === "markdown"
+        ? formatFolioCitationMarkdown(record)
+        : formatFolioBibliographicCitation(record);
+      await navigator.clipboard.writeText(value);
+      setFeedback(format === "markdown"
+        ? "已复制 Markdown；引文与核对信息可直接贴入笔记。"
+        : "已复制书目引文；原文、责任者、坐标与永久链接均已带上。");
       trackEvent("folio_citation_copied", {
         source_id: activeSelection.seed.id,
         segment_count: activeSelection.segmentCount,
+        citation_format: format,
       });
     } catch {
-      setFeedback("浏览器未允许复制；可先写入研读笺，再从笔记页导出。");
+      setFeedback("浏览器未允许复制；可下载结构化 JSON，或先写入研读笺。");
     }
+  }
+
+  function downloadCitationJson() {
+    const record = citationRecord();
+    if (!record || !activeSelection) return;
+    const blob = new Blob([serializeFolioCitationJson(record)], { type: "application/json;charset=utf-8" });
+    const objectUrl = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = objectUrl;
+    anchor.download = folioCitationFilename({
+      slug,
+      folioKey,
+      locator: activeSelection.seed.locator,
+      accessedOn: record.accessedOn,
+    });
+    anchor.click();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+    setFeedback("已下载结构化 JSON；内容只在本机生成，不会上传。 ");
+    trackEvent("folio_citation_json_downloaded", {
+      source_id: activeSelection.seed.id,
+      segment_count: activeSelection.segmentCount,
+    });
+  }
+
+  function toggleWorkbench() {
+    setWorkbenchOpen((open) => {
+      const next = !open;
+      if (next && activeSelection) {
+        trackEvent("folio_citation_workbench_opened", {
+          source_id: activeSelection.seed.id,
+          segment_count: activeSelection.segmentCount,
+        });
+      }
+      return next;
+    });
   }
 
   const dock = activeSelection ? (
@@ -205,13 +271,50 @@ export function FolioStudySelection({
       <blockquote lang={activeSelection.seed.quoteLang}>{activeSelection.seed.quote}</blockquote>
 
       <div className={styles.quickActions}>
-        <button type="button" onClick={copyCitation}>
-          {feedback.startsWith("已复制") ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
-          复制引文
+        <button type="button" onClick={() => copyCitation("bibliographic")}>
+          {feedback.startsWith("已复制书目") ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
+          复制书目引文
+        </button>
+        <button
+          type="button"
+          className={styles.workbenchToggle}
+          aria-expanded={workbenchOpen}
+          aria-controls="folio-citation-workbench"
+          onClick={toggleWorkbench}
+        >
+          <Braces aria-hidden="true" /> 引用工作台 <ChevronDown aria-hidden="true" />
         </button>
         <Link href="/xue/biji"><BookMarked aria-hidden="true" /> 我的研读笺</Link>
         <span><ShieldCheck aria-hidden="true" /> 笔记不登录、不上传</span>
       </div>
+
+      {workbenchOpen && (
+        <section className={styles.citationWorkbench} id="folio-citation-workbench" aria-labelledby="folio-citation-title">
+          <div className={styles.workbenchHeader}>
+            <div>
+              <p>PORTABLE CITATION</p>
+              <h3 id="folio-citation-title">把这段带走，仍能回到原典</h3>
+            </div>
+            <span>{canonRef}</span>
+          </div>
+          <dl>
+            <div><dt>责任者</dt><dd>{responsibility}</dd></div>
+            <div><dt>母版</dt><dd>{sourceName}</dd></div>
+            <div><dt>稳定坐标</dt><dd>{activeSelection.seed.locator}</dd></div>
+          </dl>
+          <div className={styles.exportActions}>
+            <button type="button" onClick={() => copyCitation("markdown")}>
+              <Copy aria-hidden="true" /> 复制 Markdown
+            </button>
+            <button type="button" onClick={downloadCitationJson}>
+              <Download aria-hidden="true" /> 下载结构化 JSON
+            </button>
+          </div>
+          <p className={styles.workbenchNote}>
+            两种复制与 JSON 使用同一稳定坐标；文件仅在浏览器生成，不上传选文。
+          </p>
+        </section>
+      )}
 
       <StudyNoteComposer seed={activeSelection.seed} />
       <p className={styles.feedback} role="status" aria-live="polite">{feedback}</p>
@@ -230,7 +333,7 @@ export function FolioStudySelection({
         <Highlighter aria-hidden="true" />
         <p>
           <strong>选一句，留下可回到原典的研读笺。</strong>
-          <span>选中任意经文，即可按完整稳定行段写笔记或复制引用。</span>
+          <span>选中任意经文，即可按完整稳定行段写笔记，或导出可复核引用。</span>
         </p>
         <Link href="/xue/biji">我的研读笺</Link>
       </div>

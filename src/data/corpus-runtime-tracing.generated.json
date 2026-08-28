@@ -1,8 +1,8 @@
 {
   "schema": "https://foxue.ai/schemas/corpus-runtime-tracing-v0.2",
   "maxBucketBytes": 8388608,
-  "totalAssets": 15080,
-  "totalBytes": 1239290036,
+  "totalAssets": 15081,
+  "totalBytes": 1239342190,
   "buckets": [
     {
       "id": "cb01",
@@ -1065,7 +1065,6 @@
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",
-        "src/data/corpus-work-catalog-chunks/87.json",
         "src/data/corpus-work-catalog-chunks/88.json",
         "src/data/corpus-work-catalog-chunks/89.json",
         "src/data/corpus-work-catalog-chunks/90.json",
@@ -2779,6 +2778,7 @@
         "src/data/corpus-work-catalog-chunks/80.json",
         "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/83.json",
+        "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/88.json",
@@ -6115,7 +6115,7 @@
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",
         "src/data/corpus-work-catalog-chunks/88.json",
-        "src/data/corpus-work-catalog-chunks/89.json"
+        "src/data/corpus-work-catalog-chunks/90.json"
       ],
       "paths": [
         "data/corpus/cbeta/T23n1447.xml",
@@ -6764,6 +6764,7 @@
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/87.json",
         "src/data/corpus-work-catalog-chunks/89.json",
+        "src/data/corpus-work-catalog-chunks/90.json",
         "src/data/corpus-work-catalog-chunks/91.json"
       ],
       "paths": [
@@ -8348,7 +8349,6 @@
         "src/data/corpus-work-catalog-chunks/86.json",
         "src/data/corpus-work-catalog-chunks/87.json",
         "src/data/corpus-work-catalog-chunks/88.json",
-        "src/data/corpus-work-catalog-chunks/89.json",
         "src/data/corpus-work-catalog-chunks/90.json",
         "src/data/corpus-work-catalog-chunks/91.json"
       ],
@@ -10696,20 +10696,24 @@
     {
       "id": "ws01",
       "sourceFamily": "wikisource",
-      "bytes": 250222,
-      "smokePath": "/jingzang/wikisource-en-dhp-muller/001-c01",
+      "bytes": 302376,
+      "smokePath": "/jingzang/gutenberg-en-diamond-gemmell/001-c01",
       "includeGlobs": [
+        "data/corpus/gutenberg/diamond-sutra-gemmell-1912.xml",
         "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
         "data/corpus/wikisource/muller-dhp-1881.xml",
         "src/data/corpus-folio-locator-ledger.generated.json",
         "src/data/corpus-work-ledger.generated.json",
+        "src/data/corpus-work-catalog-chunks/81.json",
         "src/data/corpus-work-catalog-chunks/83.json"
       ],
       "paths": [
+        "data/corpus/gutenberg/diamond-sutra-gemmell-1912.xml",
         "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
         "data/corpus/wikisource/muller-dhp-1881.xml"
       ],
       "slugs": [
+        "gutenberg-en-diamond-gemmell",
         "wikisource-en-dhp-muller",
         "wikisource-ja-dhp"
       ]
@@ -36929,7 +36933,6 @@
         "src/data/corpus-work-catalog-chunks/77.json",
         "src/data/corpus-work-catalog-chunks/78.json",
         "src/data/corpus-work-catalog-chunks/81.json",
-        "src/data/corpus-work-catalog-chunks/82.json",
         "src/data/corpus-work-catalog-chunks/83.json",
         "src/data/corpus-work-catalog-chunks/84.json",
         "src/data/corpus-work-catalog-chunks/85.json",

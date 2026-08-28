@@ -15,11 +15,13 @@ function toAsciiDigits(value) {
   return String(value).replace(/[０-９]/g, (digit) => String.fromCharCode(digit.charCodeAt(0) - 0xFEE0));
 }
 
-function padChapter(value) {
+export function satChapterPage(value) {
   const ascii = toAsciiDigits(value);
+  const range = ascii.match(/Chapter\s+(\d+)\s+(?:and|[-–])\s*(\d+)/i);
+  if (range) return `c${range[1].padStart(2, "0")}-${range[2].padStart(2, "0")}`;
   const numbered = ascii.match(/第\s*(\d+)\s*章/) ?? ascii.match(/^\s*(\d+)\s*$/) ?? ascii.match(/(\d+)/);
-  if (!numbered) return "01";
-  return numbered[1].padStart(2, "0");
+  if (!numbered) return "c01";
+  return `c${numbered[1].padStart(2, "0")}`;
 }
 
 export function locateSatBody(xml) {
@@ -48,8 +50,7 @@ export function parseSatReadingLines(xml, { canonId } = {}) {
     const chapterTitle = inner.match(/<title type="chapter">([\s\S]*?)<\/title>/);
     if (chapterTitle) {
       const label = stripXml(chapterTitle[1]);
-      const next = padChapter(label);
-      chapter = next;
+      chapter = satChapterPage(label).slice(1);
       sawChapter = true;
       continue;
     }

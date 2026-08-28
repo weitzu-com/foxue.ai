@@ -5,6 +5,7 @@ const expectedReleaseId = process.env.EXPECTED_RELEASE_ID;
 const expectedManifestSha256 = process.env.EXPECTED_MANIFEST_SHA256;
 const requireReady = process.env.REQUIRE_READY === "true";
 const requireMullerIndex = process.env.REQUIRE_MULLER_INDEX === "true";
+const requireGemmellIndex = process.env.REQUIRE_GEMMELL_INDEX === "true";
 const failures = [];
 const successes = [];
 
@@ -213,6 +214,26 @@ if (requireMullerIndex && health?.body?.releaseId) {
       mullerIndex.response.status === (shouldBeReady ? 200 : 503),
       `Müller《法句经》英译索引可用性与存储状态一致（${mullerIndex.response.status}）`,
       `Müller《法句经》英译索引未通过公网对象键门禁（${mullerIndex.response.status}）`,
+    );
+  }
+}
+
+if (requireGemmellIndex && health?.body?.releaseId) {
+  const base = `/v1/releases/${health.body.releaseId}/works/GUTENBERG-DIAMOND-GEMMELL-1912`;
+  const requiredObjects = [
+    ["索引", `${base}/index.json`],
+    ["首分", `${base}/folios/001-c01.json`],
+    ["合并 3–4 分", `${base}/folios/001-c03-04.json`],
+    ["末分", `${base}/folios/001-c32.json`],
+  ];
+  for (const [label, pathname] of requiredObjects) {
+    const object = await request(pathname, { method: "HEAD" });
+    if (!object) continue;
+    const shouldBeReady = health.body?.storage === "ready";
+    check(
+      object.response.status === (shouldBeReady ? 200 : 503),
+      `Gemmell《金刚经》${label}可用性与存储状态一致（${object.response.status}）`,
+      `Gemmell《金刚经》${label}未通过公网对象键门禁（${object.response.status}）`,
     );
   }
 }

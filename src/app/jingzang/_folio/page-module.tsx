@@ -25,6 +25,14 @@ type PageProps = { params: Promise<{ slug: string; folio: string }> };
 export const revalidate = 86400;
 export const dynamic = "force-static";
 
+function translatedChapterNumber(label: string) {
+  return label
+    .replace(/^c/, "")
+    .split("-")
+    .map((part) => String(Number(part)))
+    .join("–");
+}
+
 function buildPendingFolioMetadata(sutra: Sutra, item: ReaderNavigationItem) {
   return buildPageMetadata({
     title: `${sutra.title} · ${item.label}`,
@@ -51,6 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const sat = sutra.readerMode === "sat-folio";
     const kokuyaku = sutra.readerMode === "kokuyaku-folio";
     const englishTranslation = sutra.readerMode === "english-translation-folio";
+    const gemmellTranslation = sutra.slug === "gutenberg-en-diamond-gemmell";
     const collection = folioCollectionLabel(sutra);
     const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
     const originalLanguageLabel = derge
@@ -70,6 +79,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
           : kokuyaku
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
+          : gemmellTranslation
+            ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 分，1912 年 William Gemmell 公版英译。`
           : englishTranslation
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
           : sat
@@ -207,11 +218,12 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const sat = sutra.readerMode === "sat-folio";
   const kokuyaku = sutra.readerMode === "kokuyaku-folio";
   const englishTranslation = sutra.readerMode === "english-translation-folio";
+  const gemmellTranslation = sutra.slug === "gutenberg-en-diamond-gemmell";
   const translationChapter = sat || kokuyaku || englishTranslation;
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
-  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : englishTranslation ? "品" : translationChapter ? "章" : "卷";
+  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : gemmellTranslation ? "分" : englishTranslation ? "品" : translationChapter ? "章" : "卷";
   const originalLanguageLabel = kokuyaku
     ? "文语国译"
     : englishTranslation
@@ -252,6 +264,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? `第 ${Number(folio.item.juan)} 函 · 德格 ${folio.item.label}`
         : kokuyaku
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 國譯`
+        : gemmellTranslation
+          ? `第 ${translatedChapterNumber(folio.item.label)} 分 · Gemmell 英譯`
         : englishTranslation
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 英譯`
         : sat
@@ -275,6 +289,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
       ? "阅读页"
       : kokuyaku
         ? "品"
+        : gemmellTranslation
+          ? "分"
         : englishTranslation
           ? "品"
         : sat
@@ -308,6 +324,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         : `完整${originalLanguageLabel} · 稳定分页`
       : derge
         ? "完整藏文原文 · 德格版页"
+        : gemmellTranslation
+          ? "完整公版英译 · 原书分次"
         : englishTranslation
           ? "完整公版英译 · 分品阅读"
         : partialWitness
@@ -333,6 +351,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? `${sutra.title}第 ${Number(folio.item.juan)} 函，德格 ${folio.item.label} 版页藏文原文。`
         : kokuyaku
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
+        : gemmellTranslation
+          ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 分，1912 年 William Gemmell 公版英译。`
         : englishTranslation
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
         : sat
@@ -393,7 +413,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
           folioKey={folio.item.key}
           workTitle={`《${sutra.title}》`}
           passageLabel={currentHeading}
-          folioLabel={folio.item.label}
+          folioLabel={gemmellTranslation ? `第 ${translatedChapterNumber(folio.item.label)} 分` : folio.item.label}
           edition={readingEdition}
           segments={folio.segments}
           sourceName={sutra.sourceName}
@@ -423,13 +443,17 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   ? "函页目录"
                   : kokuyaku
                     ? "国译品次"
+                    : gemmellTranslation
+                      ? "Gemmell 英译分次"
                     : englishTranslation
                       ? "英译品次"
                     : sat
                       ? "日译章节"
                       : "卷页目录",
             currentLabel: currentHeading,
-            groupsLabel: englishTranslation
+            groupsLabel: gemmellTranslation
+              ? "原书英译分目"
+              : englishTranslation
               ? "英译品目"
               : useNearbyDirectory ? `附近${groupUnit}目` : `全经${groupUnit}目`,
             pagesLabel: chaptered
@@ -440,6 +464,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                   ? "当前函版页"
                   : kokuyaku
                     ? "当前品"
+                    : gemmellTranslation
+                      ? "当前分次"
                     : englishTranslation
                       ? "英译品次"
                     : sat
@@ -459,6 +485,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? `第 ${Number(group.juan)} 函`
                     : kokuyaku
                       ? `第 ${Number(group.juan)} 品`
+                      : gemmellTranslation
+                        ? `第 ${translatedChapterNumber(group.first.label)} 分`
                       : englishTranslation
                         ? `第 ${Number(String(group.first.label).replace(/^c/, ""))} 品`
                       : sat
@@ -478,6 +506,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? `德格 ${item.label}`
                     : kokuyaku
                       ? `第 ${Number(item.juan)} 品`
+                      : gemmellTranslation
+                        ? `第 ${translatedChapterNumber(item.label)} 分`
                       : englishTranslation
                         ? `第 ${Number(String(item.label).replace(/^c/, ""))} 品`
                       : sat

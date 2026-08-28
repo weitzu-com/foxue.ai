@@ -1,0 +1,31 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/gutenberg-diamond-gemmell-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "cut": "first_principles_missing_legal_translation_expression",
+  "ingest": {
+    "title": "The Diamond Sutra (Chin-Kang-Ching) or Prajna-Paramita",
+    "translator": "William Gemmell",
+    "year": 1912,
+    "expressionSlug": "gutenberg-en-diamond-gemmell",
+    "workId": "gbcr:work:vajracchedika-prajnaparamita",
+    "newWorks": 0,
+    "newExpressions": 1,
+    "completeTexts": 1,
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "mapping": "The 1912 English translation attaches to the existing Vajracchedikā work and records its stated dependence on Kumārajīva's Chinese recension without claiming line alignment.",
+    "rights": {
+      "status": "approved_us_public_domain_with_jurisdiction_notice",
+      "commercialUse": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+      "redistribution": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+      "sourceRightsLabel": "Public domain in the USA.",
+      "publicationYear": 1912,
+      "attribution": "Project Gutenberg eBook 64623 + 1912 London edition + translator William Gemmell + Kumārajīva Chinese recension",
+      "reviewedAt": "2026-08-28",
+      "note": "Project Gutenberg's metadata makes a United States public-domain statement, not a worldwide claim. The reading asset contains only the normalized scripture body and preserves source attribution."
+    },
+    "qualityBoundary": "All 32 source chapter labels are covered in 31 reading units; Chapter 3 and 4 remains combined as printed. Introduction, notes and index are excluded. Scan collation and independent human translation review remain false."
+  },
+  "caveat": "This ledger proves one complete public-domain-in-the-USA English translation witness was attached to an existing work. It does not prove worldwide public-domain status, sentence-level translation accuracy, or global Buddhist-canon coverage."
+}

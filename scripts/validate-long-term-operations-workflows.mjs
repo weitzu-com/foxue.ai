@@ -26,6 +26,23 @@ function requireOrder(document, description, fragments) {
   }
 }
 
+function requireReleaseCapabilityGate(document, {
+  description,
+  environmentName,
+  minimumMinorVersion,
+}) {
+  const releaseMatch = document.match(/EXPECTED_RELEASE_ID:\s+gbcr-6\.(\d+)\.0-[a-z0-9-]+/);
+  const gateMatch = document.match(new RegExp(`${environmentName}: "(true|false)"`));
+  if (!releaseMatch || !gateMatch) {
+    failures.push(`${description}（缺少发行版本或能力门禁）`);
+    return;
+  }
+  const shouldRequire = Number(releaseMatch[1]) >= minimumMinorVersion;
+  if ((gateMatch[1] === "true") !== shouldRequire) {
+    failures.push(`${description}（门禁与固定发行版本不一致）`);
+  }
+}
+
 for (const [path, document] of workflowPaths.map((path, index) => [
   path,
   [r2, recovery, edgeDeploy, edgeHealth][index],
@@ -52,6 +69,7 @@ for (const secret of [
 }
 requirePattern(r2, "R2 发布未要求公开 ready", /REQUIRE_READY: "true"/);
 requirePattern(r2, "R2 发布未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
+requirePattern(r2, "R2 发布未要求 Gemmell《金刚经》可用", /REQUIRE_GEMMELL_INDEX: "true"/);
 requireOrder(r2, "R2 发布门禁必须先验证、再上传、再部署、最后公开验证", [
   "run: pnpm verify",
   "--dry-run --plan",
@@ -93,6 +111,7 @@ requirePattern(
 );
 requirePattern(edgeDeploy, "Worker 独立部署未要求公开 ready", /REQUIRE_READY: "true"/);
 requirePattern(edgeDeploy, "Worker 独立部署未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
+requirePattern(edgeDeploy, "Worker 独立部署未要求 Gemmell《金刚经》可用", /REQUIRE_GEMMELL_INDEX: "true"/);
 requireOrder(edgeDeploy, "Worker 独立部署必须先验证、读取原子指针、部署、再公开验证", [
   "pnpm cloudflare:types:check && pnpm cloudflare:check",
   "https://canon.foxue.ai/v1/latest.json",
@@ -103,6 +122,11 @@ requireOrder(edgeDeploy, "Worker 独立部署必须先验证、读取原子指�
 requirePattern(edgeHealth, "Worker 健康检查必须每日运行", /schedule:\n\s+- cron: "41 2 \* \* \*"/);
 requirePattern(edgeHealth, "Worker 健康检查未要求公开 ready", /REQUIRE_READY: "true"/);
 requirePattern(edgeHealth, "Worker 健康检查未按发行能力要求穆勒经目", /REQUIRE_MULLER_INDEX: "true"/);
+requireReleaseCapabilityGate(edgeHealth, {
+  description: "Worker 健康检查未按固定发行能力要求 Gemmell《金刚经》",
+  environmentName: "REQUIRE_GEMMELL_INDEX",
+  minimumMinorVersion: 26,
+});
 requirePattern(
   edgeHealth,
   "Worker 健康检查缺少公开验证",

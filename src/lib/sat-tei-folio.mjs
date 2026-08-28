@@ -1,7 +1,7 @@
-import { locateSatBody, parseSatReadingLines } from "./sat-tei.mjs";
+import { locateSatBody, parseSatReadingLines, satChapterPage } from "./sat-tei.mjs";
 
 export function parseSatFolioSlice(xmlSlice, { canonId, page }) {
-  if (!page || !/^c\d{2}$/.test(page)) throw new Error(`${canonId} SAT 版页切片缺少章节号`);
+  if (!page || !/^c\d{2}(?:-\d{2})?$/.test(page)) throw new Error(`${canonId} SAT 版页切片缺少章节号`);
   try {
     return parseSatReadingLines(`<body>${xmlSlice}</body>`, { canonId })
       .filter((segment) => segment.page === page);
@@ -30,11 +30,7 @@ export function iterateSatChapterRanges(body) {
     const end = start + paragraph[0].length;
     const chapterTitle = paragraph[2].match(/<title type="chapter">([\s\S]*?)<\/title>/);
     if (chapterTitle) {
-      const ascii = chapterTitle[1].replace(/<[^>]+>/g, "").replace(/[０-９]/g, (digit) => (
-        String.fromCharCode(digit.charCodeAt(0) - 0xFEE0)
-      ));
-      const numbered = ascii.match(/第\s*(\d+)\s*章/) ?? ascii.match(/^\s*(\d+)\s*$/) ?? ascii.match(/(\d+)/);
-      const page = `c${(numbered?.[1] || "01").padStart(2, "0")}`;
+      const page = satChapterPage(chapterTitle[1].replace(/<[^>]+>/g, ""));
       if (current) current.end = start;
       if (current) ranges.push(current);
       current = { page, start, end };

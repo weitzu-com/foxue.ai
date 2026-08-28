@@ -4,6 +4,7 @@ import beyondTaishoSutraCatalog from "../../data/corpus/cbeta/beyond-taisho-sutr
 import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-catalog-v1.0.0.json";
 import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
 import wikisourceMullerDhpCatalog from "../../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json";
+import gutenbergGemmellDiamondCatalog from "../../data/corpus/gutenberg/diamond-sutra-gemmell-catalog-v1.0.0.json";
 import sujatoEnglishCatalog from "../../data/corpus/suttacentral/sujato-en-catalog-v1.0.0.json";
 import sujatoEnglishKnCatalog from "../../data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
@@ -64,6 +65,7 @@ export function folioCollectionLabel(sutra: Pick<Sutra, "canonRef" | "slug">) {
   if (sutra.slug.startsWith("sat-ja-") || /SAT現代日本語訳|SAT 現代日本語訳/.test(sutra.canonRef)) return "SAT日譯";
   if (sutra.slug.startsWith("wikisource-ja-") || /國譯法句經|国译法句经/.test(sutra.canonRef)) return "國譯";
   if (sutra.slug.startsWith("wikisource-en-") || /Sacred Books of the East/.test(sutra.canonRef)) return "英譯";
+  if (sutra.slug.startsWith("gutenberg-en-") || /Project Gutenberg eBook/.test(sutra.canonRef)) return "英譯";
   if (sutra.slug.startsWith("suttacentral-en-") || /Sujato EN/.test(sutra.canonRef)) return "Sujato";
   return "大正藏";
 }
@@ -391,13 +393,16 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "public_domain_english_translation_expression") {
     return "1881 年公有领域英译；挂接已持有巴利法句，不另建作品，也不把英译等同佛陀逐字亲说。署名 Wikisource、Sacred Books of the East 与译者 Friedrich Max Müller。结构与锚点已验证，扫描本逐页校勘仍待完成；汉译 T210 只记家族平行，不逐偈对齐。";
   }
+  if (file.sourceRole === "public_domain_english_translation_from_chinese_expression") {
+    return "1912 年 Gemmell 公版英译；挂接已持有 Vajracchedikā／《金刚经》作品及其鸠摩罗什汉译见证，不另建作品，也不把英译等同佛陀逐字亲说。Project Gutenberg 只标记美国公有领域，站外使用仍需核对当地法律。32 章标签由 31 个来源阅读单元覆盖，扫描本逐页校勘与独立人工译文复核仍待完成。";
+  }
   if (file.sourceRole === "sujato_english_translation_expression") {
     return "Bhikkhu Sujato CC0 英译；挂接已持有巴利经藏作品，不另建作品，也不把英译等同佛陀逐字亲说。署名 Bhikkhu Sujato 与 SuttaCentral / Bilara published 固定提交。SuttaCentral 数据不得用于生成式模型训练。";
   }
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...sujatoEnglishKnCatalog.files, ...wikisourceMullerDhpCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...sujatoEnglishKnCatalog.files, ...wikisourceMullerDhpCatalog.files, ...gutenbergGemmellDiamondCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,
@@ -409,6 +414,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
     summary: file.presentation.summary,
     sourceName: file.sourceRole === "sujato_english_translation_expression"
       ? "SuttaCentral / Bilara"
+      : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
+      ? "Project Gutenberg · Gemmell 1912"
       : file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "Wikisource 國譯法句經"
       : file.sourceRole === "public_domain_english_translation_expression"
@@ -417,6 +424,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
     sourceUrl: file.presentation.sourceUrl,
     sourceLicense: file.sourceRole === "sujato_english_translation_expression"
       ? "CC0 1.0；署名 Bhikkhu Sujato 与 SuttaCentral；禁止用于生成式模型训练"
+      : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
+      ? "Project Gutenberg 标记美国公有领域；署名 William Gemmell、1912 年伦敦版与鸠摩罗什汉译本；美国以外请核对当地法律"
       : file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "公有领域；署名 Wikisource、1918 年國譯大藏經與立花俊道"
       : file.sourceRole === "public_domain_english_translation_expression"
@@ -434,12 +443,16 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
       ? "kokuyaku-folio" as const
       : file.sourceRole === "public_domain_english_translation_expression"
       ? "english-translation-folio" as const
+      : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
+      ? "english-translation-folio" as const
       : file.parser === "sat_tei" ? "sat-folio" as const : undefined,
     status: file.sourceRole === "sujato_english_translation_expression"
       ? "完整原文 · 英文译本"
       : file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "完整原文 · 文语国译"
       : file.sourceRole === "public_domain_english_translation_expression"
+      ? "完整原文 · 公版英译"
+      : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
       ? "完整原文 · 公版英译"
       : file.parser === "sat_tei"
       ? "完整原文 · 现代日译"
