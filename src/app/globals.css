@@ -3274,6 +3274,7 @@ a {
   .jingangjing-expression-note .eyebrow { color: #f1a18f; }
   .jingangjing-expression-note a,
   .path-version-boundary a { color: #e0b77f; }
+  .jingangjing-expression-note a:hover { color: #f1a18f; }
   .path-complete-button {
     border-color: #7c2d21;
     background: #7c2d21;
