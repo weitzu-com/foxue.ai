@@ -1,6 +1,28 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test, type APIRequestContext } from "@playwright/test";
+import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+
+const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动收藏并回到稳定原文位置";
+
+test.beforeEach(async ({ page }, testInfo) => {
+  const analyticsConsent = testInfo.title === readingShelfAnalyticsTestTitle ? "granted" : "denied";
+  await page.addInitScript((consent) => {
+    window.localStorage.setItem("foxue:analytics-consent", consent);
+  }, analyticsConsent);
+});
+
+async function waitForFolioStudyDock(page: Page) {
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect.poll(async () => {
+    await page.evaluate(() => document.dispatchEvent(new Event("selectionchange")));
+    return dock.count();
+  }, {
+    message: "等待客户端接管选区并打开研读工具",
+    timeout: 10_000,
+  }).toBe(1);
+  await expect(dock).toBeVisible();
+  return dock;
+}
 
 function extractHeadValue(html: string, pattern: RegExp) {
   return html.match(pattern)?.[1] ?? null;
@@ -977,8 +999,7 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
     return { id: repeatedId, source };
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.getByText("已按完整稳定行段取文")).toBeVisible();
   await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
   await expect(dock.locator("blockquote")).toHaveText(selected.source ?? "");
@@ -1066,11 +1087,11 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
   );
 });
 
-test("本地书房保存最近研读、主动收藏并回到稳定原文位置", async ({ page }) => {
+test(readingShelfAnalyticsTestTitle, async ({ page }) => {
   const path = "/jingzang/xinjing/001-0848c";
   const locator = "T0251.001.0848c08";
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
   await page.addInitScript(() => {
-    window.localStorage.setItem("foxue:analytics-consent", "granted");
     window.gtag = (...args: unknown[]) => {
       const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
       calls.push(args);
@@ -1078,6 +1099,7 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
     };
   });
   await page.goto(path);
+  expect(await page.evaluate(() => window.localStorage.getItem("foxue:analytics-consent"))).toBe("granted");
 
   await expect(page.getByText("本页会留在“最近研读”")).toBeVisible();
   await expect(page.getByText(/只存此浏览器，可从稳定原文位置接着读/)).toBeVisible();
@@ -1242,8 +1264,7 @@ test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
     return id;
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.locator("blockquote")).toHaveAttribute("lang", "pi");
   await dock.getByRole("button", { name: /写研读笺/ }).click();
   await dock.getByPlaceholder("写给未来回到这里的自己……").fill("保留巴利原文语种，稍后再与汉译核对。");
@@ -1295,8 +1316,7 @@ test("旧锚点与规范锚点同名时仍从规范行段取文", async ({ page 
     return { id, source };
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
   await expect(dock.locator("blockquote")).toHaveText(selected.source);
 });
