@@ -165,9 +165,14 @@ function SourceAnchor({ segment, children }: { segment: SutraSegment; children: 
         className={styles.sourceAnchor}
         id={segment.id}
         data-line={segment.sourceLine?.slice(-2)}
+        data-locator={segment.id}
         data-study-segment-id={segment.id}
       >
         <span className={styles.sourceTextEquivalent} data-source-text-equivalent aria-hidden="true">{segment.text}</span>
+        <span className={styles.sourceLocator} data-source-locator={segment.id}>
+          <span className="sr-only">稳定坐标 </span>
+          {segment.id}
+        </span>
         {children}
       </span>
     </>

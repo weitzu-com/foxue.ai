@@ -3014,6 +3014,71 @@ test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
 });
 
+test("经文阅读设置兼容旧偏好并把研究坐标保留到多语页面", async ({ page }) => {
+  await page.addInitScript(() => {
+    const seedKey = "foxue-reader-preferences-test-seeded";
+    if (window.sessionStorage.getItem(seedKey)) return;
+    window.localStorage.setItem("foxue.reader.preferences.v1", JSON.stringify({
+      showPinyin: false,
+      largeText: true,
+    }));
+    window.sessionStorage.setItem(seedKey, "true");
+  });
+
+  await page.goto("/jingzang/xinjing/001-0848c");
+
+  await expect(page.getByRole("button", { name: "显示拼音" })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByRole("button", { name: "使用标准字号" })).toHaveAttribute("aria-pressed", "true");
+  const locatorButton = page.getByRole("button", { name: "显示稳定坐标" });
+  await expect(locatorButton).toHaveAttribute("aria-pressed", "false");
+  await expect(locatorButton).toHaveAttribute("data-analytics-event", "reader_preference_changed");
+  await expect(locatorButton).toHaveAttribute("data-analytics-content-id", "stable_locators");
+  await expect(locatorButton).toHaveAttribute("data-analytics-label", "enable");
+
+  const firstChineseLocator = page.locator("[data-source-locator]").first();
+  await expect(firstChineseLocator).toBeHidden();
+  await locatorButton.click();
+  await expect(page.getByRole("button", { name: "隐藏稳定坐标" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(page.getByRole("button", { name: "隐藏稳定坐标" })).toHaveAttribute(
+    "data-analytics-label",
+    "disable",
+  );
+  await expect(firstChineseLocator).toBeVisible();
+  await expect(firstChineseLocator).toHaveText(/稳定坐标 T0251\.001\.0848c03/);
+
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue.reader.preferences.v1"),
+  )).toBe(JSON.stringify({ showPinyin: false, largeText: true, showLocators: true }));
+
+  await page.reload();
+  await expect(page.getByRole("button", { name: "隐藏稳定坐标" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(page.locator('[data-source-locator="T0251.001.0848c03"]')).toBeVisible();
+
+  await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
+  await expect(page.getByRole("button", { name: /拼音/ })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "使用标准字号" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "隐藏稳定坐标" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(page.locator('[data-source-locator="dhp1:1"]')).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
 test("句末引号与标点保持在同一阅读句内", async ({ page }) => {
   await page.goto("/jingzang/xinjing/001-0848c");
   const isolatedClosingQuotes = await page
