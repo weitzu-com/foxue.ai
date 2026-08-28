@@ -5,6 +5,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
 import { ReaderJuanSelect } from "@/components/reader-juan-select";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
+import { WorkExpressionNavigator } from "@/components/work-expression-navigator";
 import { folioCollectionLabel, getSutra, isChineseLibraryLanguage } from "@/data/sutras";
 import {
   buildCatalogJuanNavigation,
@@ -158,6 +159,7 @@ export default async function SutraIndexPage({ params }: PageProps) {
         </section>
 
         <div className="reader-index-main">
+          <WorkExpressionNavigator sutra={sutra} />
           {landing ? <WorkLandingTextPanel sutra={sutra} landing={landing} /> : null}
           <section className="reader-folio-directory" aria-labelledby="folio-directory-title">
           <div className="reader-folio-directory__heading">

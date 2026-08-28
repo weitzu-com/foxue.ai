@@ -6,6 +6,7 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { SutraReadingSample } from "@/components/sutra-reading-sample";
+import { WorkExpressionNavigator } from "@/components/work-expression-navigator";
 import { getReadingFolioEdition } from "@/data/sutra-reading-editions";
 import { folioCollectionLabel, getSutra, type Sutra } from "@/data/sutras";
 import {
@@ -445,6 +446,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
           bibliographicNote={sutra.bibliographicNote}
           attributionNote={sutra.attributionNote}
           parallelEvidence={getParallelEvidence(sutra.slug) ? <ParallelEvidencePanel slug={sutra.slug} /> : undefined}
+          workExpressionNavigator={<WorkExpressionNavigator sutra={sutra} variant="reader" />}
           directory={{
             indexHref: `/jingzang/${sutra.slug}`,
             indexLabel: `返回文本目录：《${sutra.alternateTitle}》`,

@@ -1,0 +1,316 @@
+.navigator {
+  --expression-ink: var(--ink, #1d1d1f);
+  --expression-soft: var(--ink-soft, #59595e);
+  --expression-muted: var(--muted, #77776f);
+  --expression-line: var(--line, rgb(29 29 31 / 12%));
+  --expression-surface: color-mix(in srgb, var(--paper, #fff) 78%, transparent);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--expression-line);
+  border-top: 3px solid var(--cinnabar);
+  background: var(--expression-surface);
+}
+
+.reader {
+  --expression-ink: var(--reader-ink, #1d1d1f);
+  --expression-soft: var(--reader-secondary, #59595e);
+  --expression-muted: var(--reader-tertiary, #77776f);
+  --expression-line: var(--reader-hairline, rgb(29 29 31 / 12%));
+  --expression-surface: var(--reader-surface, #fff);
+  border-width: 0 0 1px;
+  border-top-width: 3px;
+}
+
+.disclosure summary {
+  list-style: none;
+}
+
+.disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.75rem;
+  cursor: pointer;
+}
+
+.headingMark {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border: 1px solid var(--cinnabar);
+  border-radius: 50%;
+  color: var(--cinnabar);
+}
+
+.headingMark svg {
+  width: 1.35rem;
+  stroke-width: 1.35;
+}
+
+.headingMark span {
+  position: absolute;
+  right: -0.35rem;
+  bottom: -0.15rem;
+  min-width: 1.45rem;
+  padding: 0.14rem 0.25rem;
+  border: 2px solid var(--expression-surface);
+  background: color-mix(in srgb, var(--cinnabar) 72%, #000);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.headingCopy > p {
+  margin: 0;
+  color: var(--cinnabar);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.headingCopy h2 {
+  margin: 0.42rem 0 0;
+  color: var(--expression-ink);
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.headingCopy > span {
+  max-width: 46rem;
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--expression-soft);
+  font-size: 0.76rem;
+  line-height: 1.75;
+}
+
+.toggle {
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--expression-line);
+  color: var(--expression-soft);
+  font-size: 0.62rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.toggle svg {
+  width: 0.85rem;
+  transition: transform 180ms ease;
+}
+
+.disclosure[open] .toggle svg {
+  transform: rotate(180deg);
+}
+
+.expressionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--expression-line);
+  list-style: none;
+}
+
+.expressionGrid > li {
+  min-width: 0;
+  border-bottom: 1px solid var(--expression-line);
+}
+
+.expressionGrid > li:nth-child(odd) {
+  border-right: 1px solid var(--expression-line);
+}
+
+.expression {
+  min-width: 0;
+  min-height: 9.5rem;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  gap: 0.3rem 1rem;
+  position: relative;
+  padding: 1.25rem 1.35rem 1.1rem;
+  color: var(--expression-ink);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.expression:not(.current):hover {
+  background: color-mix(in srgb, var(--cinnabar) 6%, var(--expression-surface));
+  color: var(--cinnabar);
+}
+
+.expressionMeta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+  color: var(--expression-muted);
+  font-size: 0.58rem;
+  line-height: 1.45;
+}
+
+.expressionMeta em {
+  padding: 0.15rem 0.35rem;
+  background: color-mix(in srgb, var(--cinnabar) 10%, transparent);
+  color: var(--cinnabar);
+  font-style: normal;
+  font-weight: 750;
+}
+
+.expression strong,
+.expression small,
+.responsibility {
+  grid-column: 1;
+  display: block;
+}
+
+.expression strong {
+  margin-top: 0.42rem;
+  overflow-wrap: anywhere;
+  font-family: var(--font-serif), serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.expression small {
+  color: var(--cinnabar);
+  font-size: 0.58rem;
+  line-height: 1.5;
+}
+
+.responsibility {
+  color: var(--expression-muted);
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
+.expression > svg {
+  grid-column: 2;
+  grid-row: 2 / span 3;
+  align-self: center;
+  width: 1rem;
+  color: var(--expression-muted);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.expression:not(.current):hover > svg {
+  color: var(--cinnabar);
+  transform: translateX(0.18rem);
+}
+
+.current {
+  background: color-mix(in srgb, var(--cinnabar) 4%, var(--expression-surface));
+  box-shadow: inset 0.22rem 0 var(--cinnabar);
+}
+
+.current .expressionMeta > span:last-child {
+  color: var(--cinnabar);
+  font-weight: 750;
+}
+
+.footer {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.85rem 1.35rem;
+  color: var(--expression-muted);
+  font-size: 0.58rem;
+}
+
+.footer svg {
+  width: 0.85rem;
+  flex: 0 0 auto;
+  color: var(--cinnabar);
+}
+
+.footer code {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--expression-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.56rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expression:focus-visible {
+  z-index: 1;
+  outline: 2px solid var(--cinnabar);
+  outline-offset: -3px;
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--cinnabar);
+  outline-offset: -4px;
+}
+
+@media (max-width: 620px) {
+  .header {
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.35rem 1.1rem;
+  }
+
+  .toggle {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .headingMark {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .headingCopy h2 {
+    font-size: 1.35rem;
+  }
+
+  .headingCopy > span {
+    font-size: 0.7rem;
+  }
+
+  .expressionGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .expressionGrid > li,
+  .expressionGrid > li:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .expression {
+    min-height: 0;
+    padding: 1.05rem 1.1rem;
+  }
+
+  .footer {
+    padding-inline: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expression,
+  .expression > svg,
+  .toggle svg {
+    transition: none;
+  }
+}

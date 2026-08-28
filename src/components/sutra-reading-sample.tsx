@@ -277,6 +277,7 @@ export function SutraReadingSample({
   bibliographicNote,
   attributionNote,
   parallelEvidence,
+  workExpressionNavigator,
   directory,
   topNavigation,
   bottomNavigation,
@@ -299,6 +300,7 @@ export function SutraReadingSample({
   bibliographicNote?: string;
   attributionNote?: string;
   parallelEvidence?: ReactNode;
+  workExpressionNavigator?: ReactNode;
   directory: ReadingDirectory;
   topNavigation: ReactNode;
   bottomNavigation: ReactNode;
@@ -461,6 +463,8 @@ export function SutraReadingSample({
           <div><dt>权利</dt><dd>{sourceLicense}</dd></div>
         </dl>
       </header>
+
+      {workExpressionNavigator}
 
       <ReadingDirectoryPanel directory={directory} />
 

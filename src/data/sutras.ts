@@ -20,6 +20,52 @@ import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-ma
 import lzhRootManifest from "../../data/corpus/suttacentral/lzh-manifest-v1.6.0.json";
 import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 
+type WorkAssignmentSource = {
+  slug: string;
+  workId: string;
+  workIdentityStatus?: string;
+  attachToExistingWork?: boolean;
+  relationDecision?: string;
+};
+
+const unverifiedWorkIdentityDecision = /链接候选|保持独立作品|不据.+合并|不声明为同一作品|不进行.+合并/;
+
+function verifiedWorkAssignmentsFrom(files: readonly WorkAssignmentSource[]) {
+  return files
+    .filter(
+      ({ workIdentityStatus, attachToExistingWork, relationDecision }) =>
+        attachToExistingWork !== false &&
+        (!workIdentityStatus || workIdentityStatus.startsWith("verified_")) &&
+        !unverifiedWorkIdentityDecision.test(relationDecision ?? ""),
+    )
+    .map(({ slug, workId }) => ({ slug, workId }));
+}
+
+const workAssignments = [
+  ...verifiedWorkAssignmentsFrom(catalog.files),
+  // 南传分册共用的是集合级作品标识，不是可互换的文本表达。
+  ...verifiedWorkAssignmentsFrom(beyondTaishoSutraCatalog.files),
+  ...verifiedWorkAssignmentsFrom(satModernJapaneseCatalog.files),
+  ...verifiedWorkAssignmentsFrom(wikisourceKokuyakuDhpCatalog.files),
+  ...verifiedWorkAssignmentsFrom(wikisourceMullerDhpCatalog.files),
+  ...verifiedWorkAssignmentsFrom(gutenbergGemmellDiamondCatalog.files),
+  ...verifiedWorkAssignmentsFrom(gutenbergSoothillLotusCatalog.files),
+  ...verifiedWorkAssignmentsFrom(sujatoEnglishCatalog.files),
+  ...verifiedWorkAssignmentsFrom(sujatoEnglishKnCatalog.files),
+  ...verifiedWorkAssignmentsFrom(suttacentralManifest.files),
+  ...verifiedWorkAssignmentsFrom(dighaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(majjhimaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(samyuttaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(anguttaraNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(khuddakaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(indicRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(vinayaRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(abhidhammaRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(lzhRootManifest.files),
+  // 德格 BDRC Work ID 明示为目录链接候选，过滤器会阻止未经复核的合并。
+  ...verifiedWorkAssignmentsFrom(dergeKangyurManifest.files),
+];
+
 export type SutraSegment = {
   id: string;
   text: string;
@@ -672,8 +718,33 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
   segments: [],
 })));
 
+const workIdBySlug = new Map(workAssignments.map(({ slug, workId }) => [slug, workId]));
+const sutrasByWorkId = new Map<string, Sutra[]>();
+
+for (const sutra of sutras) {
+  const workId = workIdBySlug.get(sutra.slug);
+  if (!workId) continue;
+  const expressions = sutrasByWorkId.get(workId) ?? [];
+  expressions.push(sutra);
+  sutrasByWorkId.set(workId, expressions);
+}
+
 export function getSutra(slug: string) {
   return sutras.find((sutra) => sutra.slug === slug);
+}
+
+export function getWorkExpressionGroup(slug: string) {
+  const current = getSutra(slug);
+  const workId = workIdBySlug.get(slug);
+  if (!current || !workId) return undefined;
+
+  const expressions = sutrasByWorkId.get(workId) ?? [];
+  if (expressions.length < 2) return undefined;
+
+  return {
+    workId,
+    expressions: [current, ...expressions.filter((sutra) => sutra.slug !== slug)],
+  };
 }
 
 export const corpusPrinciples = [
