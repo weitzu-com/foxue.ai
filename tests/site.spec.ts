@@ -290,6 +290,9 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(llms).toContain("近似转述与当前证据不足");
   expect(llms).toContain("全球佛经作品分母治理");
   expect(llms).toContain("汉巴作品关系双人复核队列");
+  expect(llms).toContain("https://www.foxue.ai/xue");
+  expect(llms).toContain("每日可核验原典");
+  expect(full).toContain("| /xue | 研读 |");
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
   expect(full).toContain("/sitemap-index.xml");
@@ -505,6 +508,39 @@ test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+});
+
+test("首页今日原典把静读、理解与核对落在同一稳定引文", async ({ page, request }) => {
+  const response = await request.get("/");
+  const html = await response.text();
+  expect(html).toContain("今日原典");
+  expect(html).toContain("T0251.001.0848c06–07");
+  expect(html).toContain("觀自在菩薩行深般若波羅蜜多時");
+
+  await page.goto("/");
+  const daily = page.getByRole("complementary", { name: "今日原典" });
+  await expect(daily).toBeVisible();
+  await expect(daily.getByRole("tab", { name: "静读" })).toHaveAttribute("aria-selected", "true");
+  await expect(daily.getByText("练习不是经文，也不代替师承。")).toBeVisible();
+
+  await daily.getByRole("tab", { name: "静读" }).press("ArrowRight");
+  await expect(daily.getByRole("tab", { name: "理解" })).toBeFocused();
+  await expect(daily.getByRole("tab", { name: "理解" })).toHaveAttribute("aria-selected", "true");
+  await expect(daily.getByText("理解提示 · 编辑说明")).toBeVisible();
+  await expect(daily.getByText("编辑辅助层不是经典原文。")).toBeVisible();
+
+  await daily.getByRole("tab", { name: "核对" }).click();
+  await expect(daily.getByText("原典核对 · 版本边界")).toBeVisible();
+  await expect(daily.locator("code")).toContainText(/^T0\d{3}\.\d{3}\.\d{4}[abc]\d{2}/);
+  await expect(daily.getByRole("link", { name: "打开原典" })).toHaveAttribute(
+    "href",
+    /\/jingzang\/.+#T0\d{3}\.\d{3}\.\d{4}[abc]\d{2}$/,
+  );
+
+  const firstLocator = await daily.locator("code").textContent();
+  await daily.getByRole("button", { name: "查看下一段原典" }).click();
+  await expect.poll(() => daily.locator("code").textContent()).not.toBe(firstLocator);
+  await expect(daily.getByText("原文、编辑提示与核对说明分层呈现。")).toBeVisible();
 });
 
 test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) => {

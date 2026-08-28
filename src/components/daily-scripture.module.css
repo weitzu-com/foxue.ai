@@ -1,0 +1,353 @@
+.daily {
+  --daily-ink: #1c251f;
+  --daily-paper: #fffdf7;
+  --daily-red: #9f392b;
+  --daily-moss: #4e6150;
+  --daily-gold: #9a7438;
+  --daily-line: #d7cfbf;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  margin-top: 2.7rem;
+  color: var(--daily-ink);
+  color-scheme: light;
+  transform: rotate(0.2deg);
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.18rem;
+  padding-top: 2rem;
+  color: var(--daily-red);
+  font-family: var(--font-serif), serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.paper {
+  position: relative;
+  min-height: 38rem;
+  padding: 1.75rem;
+  border: 1px solid var(--daily-line);
+  background:
+    linear-gradient(to right, transparent 2.3rem, rgb(159 57 43 / 11%) 2.35rem, transparent 2.4rem),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 2.25rem, rgb(216 209 194 / 29%) 2.3rem),
+    var(--daily-paper);
+  box-shadow: 0 2rem 5rem rgb(54 45 30 / 11%);
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0.45rem;
+  border: 1px solid rgb(216 209 194 / 46%);
+  pointer-events: none;
+}
+
+.topline,
+.passageNav,
+.lenses,
+.lensPanel,
+.citation {
+  position: relative;
+}
+
+.topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topline div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.topline span,
+.topline time {
+  color: #687168;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.topline strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.86rem;
+}
+
+.topline time {
+  color: var(--daily-moss);
+  white-space: nowrap;
+}
+
+.passageNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.8rem;
+}
+
+.passageNav > span {
+  color: var(--daily-red);
+  font-family: var(--font-serif), serif;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.passageNav > div {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.passageNav button,
+.actions button {
+  border: 1px solid var(--daily-line);
+  background: rgb(255 253 247 / 84%);
+  color: var(--daily-ink);
+  cursor: pointer;
+}
+
+.passageNav button {
+  width: 2.35rem;
+  height: 2.35rem;
+  display: inline-grid;
+  place-items: center;
+}
+
+.passageNav button:hover,
+.passageNav button:focus-visible,
+.actions button:hover,
+.actions button:focus-visible {
+  border-color: var(--daily-red);
+  color: var(--daily-red);
+}
+
+.passageNav svg {
+  width: 1rem;
+}
+
+.quoteMark {
+  position: relative;
+  width: 1.2rem;
+  margin: 1.5rem 0 0.2rem;
+  color: var(--daily-red);
+  opacity: 0.58;
+}
+
+.paper blockquote {
+  position: relative;
+  min-height: 8.6rem;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.32rem, 2vw, 1.82rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.lenses {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+  border-block: 1px solid var(--daily-line);
+}
+
+.lenses button {
+  min-height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 0;
+  border-right: 1px solid var(--daily-line);
+  background: transparent;
+  color: #667067;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lenses button:last-child {
+  border-right: 0;
+}
+
+.lenses button:hover,
+.lenses button:focus-visible {
+  color: var(--daily-red);
+}
+
+.lenses button.activeLens {
+  background: #eee7d9;
+  color: var(--daily-red);
+  box-shadow: inset 0 -2px var(--daily-red);
+}
+
+.lenses svg {
+  width: 0.9rem;
+}
+
+.lensPanel {
+  min-height: 8.6rem;
+  padding: 1rem 1.05rem;
+  border-left: 2px solid var(--daily-gold);
+  background: rgb(235 229 216 / 76%);
+}
+
+.lensPanel > span {
+  color: #76582b;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.lensPanel p {
+  margin: 0.55rem 0 0.4rem;
+  color: #465047;
+  font-family: var(--font-serif), serif;
+  font-size: 0.8rem;
+  line-height: 1.85;
+}
+
+.lensPanel small {
+  color: #747970;
+  font-size: 0.56rem;
+}
+
+.citation {
+  margin-top: 1.4rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--daily-line);
+}
+
+.sourceIdentity {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.sourceIdentity strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.84rem;
+}
+
+.sourceIdentity span,
+.sourceIdentity code {
+  color: #646e65;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.59rem;
+}
+
+.sourceIdentity code {
+  width: fit-content;
+  margin-top: 0.15rem;
+  padding: 0.14rem 0.3rem;
+  background: #ece5d7;
+  color: var(--daily-red);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.sourceAction,
+.actions button {
+  min-height: 2.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 0.7rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.sourceAction {
+  background: var(--daily-red);
+  color: var(--daily-paper);
+}
+
+.sourceAction:hover,
+.sourceAction:focus-visible {
+  background: #7c2b21;
+}
+
+.sourceAction svg,
+.actions button svg,
+.studyAction svg {
+  width: 0.9rem;
+}
+
+.studyAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  color: var(--daily-red);
+  font-size: 0.63rem;
+  font-weight: 700;
+}
+
+.feedback {
+  min-height: 1.15rem;
+  margin: 0.55rem 0 0;
+  color: #70776f;
+  font-size: 0.54rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .daily {
+    max-width: 35rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .daily {
+    grid-template-columns: 1.55rem minmax(0, 1fr);
+    margin-left: -0.3rem;
+  }
+
+  .rail {
+    font-size: 0.64rem;
+  }
+
+  .paper {
+    min-height: auto;
+    padding: 1.35rem;
+  }
+
+  .topline {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .paper blockquote {
+    min-height: 7rem;
+    font-size: 1.23rem;
+  }
+
+  .lenses button {
+    min-height: 3rem;
+  }
+
+  .lensPanel {
+    min-height: 9.6rem;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daily {
+    transform: none;
+  }
+}

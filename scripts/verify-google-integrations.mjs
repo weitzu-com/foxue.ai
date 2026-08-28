@@ -167,7 +167,7 @@ const pageExpectations = [
     home,
     {
       title: "佛经原典在线阅读与可核验问经",
-      description: "foxue.ai 提供可核验的佛经原典阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。",
+      description: "foxue.ai 提供每日可核验原典、佛经全文阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。",
       bodyIncludes: ["从问题，", "回到原典。", "每条主张可追溯"],
       jsonLd: [["https://www.foxue.ai/#page", "WebPage"]],
     },

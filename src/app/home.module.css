@@ -183,127 +183,6 @@
   color: var(--home-moss);
 }
 
-.passage {
-  display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr);
-  margin-top: 2.7rem;
-  transform: rotate(0.35deg);
-}
-
-.passageRail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  padding-top: 2rem;
-  color: var(--home-red);
-  font-family: var(--font-serif), serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-}
-
-.passagePaper {
-  position: relative;
-  min-height: 34rem;
-  padding: 2rem;
-  border: 1px solid var(--home-line);
-  background:
-    linear-gradient(to right, transparent 2.45rem, rgb(159 57 43 / 12%) 2.5rem, transparent 2.55rem),
-    repeating-linear-gradient(to bottom, transparent 0, transparent 2.3rem, rgb(216 209 194 / 31%) 2.35rem),
-    var(--home-paper);
-  box-shadow: 0 2rem 5rem rgb(54 45 30 / 10%);
-}
-
-.passagePaper::before {
-  content: "";
-  position: absolute;
-  inset: 0.45rem;
-  border: 1px solid rgb(216 209 194 / 45%);
-  pointer-events: none;
-}
-
-.passageMeta {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: #697169;
-  font-size: 0.63rem;
-  letter-spacing: 0.06em;
-}
-
-.passageMeta span:last-child {
-  color: var(--home-moss);
-}
-
-.passagePaper > svg {
-  margin: 3.6rem 0 0.3rem;
-  color: var(--home-red);
-  opacity: 0.55;
-}
-
-.passagePaper blockquote {
-  margin: 0;
-  font-family: var(--font-serif), serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
-  line-height: 1.58;
-}
-
-.interpretation {
-  margin: 2.2rem 0 1.8rem;
-  padding: 1rem 1.1rem;
-  border-left: 2px solid var(--home-gold);
-  background: rgb(235 229 216 / 72%);
-}
-
-.interpretation > span {
-  color: #7a5b2d;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.interpretation p {
-  margin: 0.55rem 0 0.45rem;
-  color: #475148;
-  font-family: var(--font-serif), serif;
-  font-size: 0.84rem;
-  line-height: 1.9;
-}
-
-.interpretation small {
-  color: #767a72;
-  font-size: 0.58rem;
-  line-height: 1.6;
-}
-
-.passageCitation {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--home-line);
-}
-
-.passageCitation strong,
-.passageCitation span {
-  display: block;
-}
-
-.passageCitation strong {
-  font-family: var(--font-serif), serif;
-  font-size: 0.82rem;
-}
-
-.passageCitation span {
-  margin-top: 0.1rem;
-  color: #6a726a;
-  font-size: 0.63rem;
-}
-
-.passageCitation a,
 .qualityIntro > a,
 .answerCopy > a,
 .parallelCopy > a {
@@ -1123,11 +1002,6 @@
     font-size: clamp(3.8rem, 16vw, 6rem);
   }
 
-  .passage {
-    max-width: 34rem;
-    margin-top: 0.5rem;
-  }
-
   .heroLedger {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1234,29 +1108,9 @@
     flex-direction: column;
   }
 
-  .passage {
-    grid-template-columns: 1.55rem minmax(0, 1fr);
-    margin-left: -0.3rem;
-  }
-
-  .passageRail {
-    font-size: 0.65rem;
-  }
-
-  .passagePaper {
-    min-height: auto;
-    padding: 1.5rem;
-  }
-
-  .passageMeta,
-  .passageCitation,
   .answerTopline {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .passagePaper > svg {
-    margin-top: 2.5rem;
   }
 
   .heroLedger {
