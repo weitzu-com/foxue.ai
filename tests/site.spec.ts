@@ -1,5 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test, type APIRequestContext } from "@playwright/test";
+import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
 test.beforeEach(async ({ page }) => {
@@ -7,6 +7,19 @@ test.beforeEach(async ({ page }) => {
     window.localStorage.setItem("foxue:analytics-consent", "denied");
   });
 });
+
+async function waitForFolioStudyDock(page: Page) {
+  const dock = page.locator("[data-folio-study-dock]");
+  await expect.poll(async () => {
+    await page.evaluate(() => document.dispatchEvent(new Event("selectionchange")));
+    return dock.count();
+  }, {
+    message: "等待客户端接管选区并打开研读工具",
+    timeout: 10_000,
+  }).toBe(1);
+  await expect(dock).toBeVisible();
+  return dock;
+}
 
 function extractHeadValue(html: string, pattern: RegExp) {
   return html.match(pattern)?.[1] ?? null;
@@ -983,8 +996,7 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
     return { id: repeatedId, source };
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.getByText("已按完整稳定行段取文")).toBeVisible();
   await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
   await expect(dock.locator("blockquote")).toHaveText(selected.source ?? "");
@@ -1249,8 +1261,7 @@ test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
     return id;
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.locator("blockquote")).toHaveAttribute("lang", "pi");
   await dock.getByRole("button", { name: /写研读笺/ }).click();
   await dock.getByPlaceholder("写给未来回到这里的自己……").fill("保留巴利原文语种，稍后再与汉译核对。");
@@ -1302,8 +1313,7 @@ test("旧锚点与规范锚点同名时仍从规范行段取文", async ({ page 
     return { id, source };
   });
 
-  const dock = page.locator("[data-folio-study-dock]");
-  await expect(dock).toBeVisible();
+  const dock = await waitForFolioStudyDock(page);
   await expect(dock.getByText(`1 个行段 · ${selected.id}`, { exact: true })).toBeVisible();
   await expect(dock.locator("blockquote")).toHaveText(selected.source);
 });
