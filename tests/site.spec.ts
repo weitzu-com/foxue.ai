@@ -3081,16 +3081,16 @@ test("汉译 T15 经集部完整受控并区分异译、局部译出、撰述与
 
 test("汉译 T16 经集部完整受控并区分异译、合部、单品译出与短本", async ({ page, request }) => {
   await page.goto("/jingzang/taisho-t0664/001-0359b");
-  await expect(page.getByText("合部见证 · 完整原文")).toBeVisible();
+  await expect(page.locator(".reader-header__status").getByText("合部见证 · 完整原文")).toBeVisible();
   await expect(page.getByText(/《金光明经》译本与合部见证组/)).toBeVisible();
   await expect(page.getByText(/不将其冒充单一古代译本/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t0677/001-0711b");
-  await expect(page.getByText("节译见证 · 完整来源记录")).toBeVisible();
+  await expect(page.locator(".reader-header__status").getByText("节译见证 · 完整来源记录")).toBeVisible();
   await expect(page.getByText(/《解深密经》全译与单品译出组/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t0686/001-0780a");
-  await expect(page.getByText("短本见证 · 完整来源记录")).toBeVisible();
+  await expect(page.locator(".reader-header__status").getByText("短本见证 · 完整来源记录")).toBeVisible();
   await expect(page.getByText(/《盂兰盆经》完整文本与短本见证组/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t0710/001-0819a");
@@ -3333,20 +3333,20 @@ test("汉译 T24 律部完整受控并保留异本、异译、节出、疑伪与
   await expect(page.getByText(/根本说一切有部毘奈耶及事部文本家族/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1467a/001-0910b");
-  await expect(page.getByText("後漢 · 安世高譯", { exact: true })).toBeVisible();
+  await expect(page.getByRole("definition").filter({ hasText: "後漢 · 安世高譯" })).toBeVisible();
   await expect(page.getByText(/传统译者题记，同时公开现代研究/)).toBeVisible();
   await expect(page.getByText(/T1467 a\/b 版本见证/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1467b/001-0911a");
-  await expect(page.getByText("题记未载作者或译者", { exact: true })).toBeVisible();
+  await expect(page.getByRole("definition").filter({ hasText: "题记未载作者或译者" })).toBeVisible();
   await expect(page.getByText(/不把该署名自动转移到本见证/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1482/001-0958a");
   await expect(page.getByRole("heading", { level: 1, name: "佛阿毘曇經出家相品" })).toBeVisible();
-  await expect(page.getByText("局部见证 · 完整来源记录", { exact: true })).toBeVisible();
+  await expect(page.locator(".reader-header__status").getByText("局部见证 · 完整来源记录", { exact: true })).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1483a/001-0972b");
-  await expect(page.getByText("失譯；现存形态与中国编纂层有争议", { exact: true })).toBeVisible();
+  await expect(page.getByRole("definition").filter({ hasText: "失譯；现存形态与中国编纂层有争议" })).toBeVisible();
   await expect(page.getByText(/T1483 a\/b 版本见证/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1484/001-0997a");
@@ -3381,7 +3381,7 @@ test("汉译 T24 律部完整受控并保留异本、异译、节出、疑伪与
 test("汉译 T25 释经论部完整受控并保留异译、异本、根本论复注与作者争议", async ({ page, request }) => {
   await page.goto("/jingzang/taisho-t1505/001-0001a");
   await expect(page.getByRole("heading", { level: 1, name: "四阿鋡暮抄解" })).toBeVisible();
-  await expect(page.getByText("婆素跋陀造 · 符秦 · 鳩摩羅佛提等譯", { exact: true })).toBeVisible();
+  await expect(page.getByRole("definition").filter({ hasText: "婆素跋陀造 · 符秦 · 鳩摩羅佛提等譯" })).toBeVisible();
   await expect(page.getByText(/Tridharmakaśāstra.*《三法度论》汉译组/)).toBeVisible();
 
   await page.goto("/jingzang/taisho-t1509/001-0057a");
@@ -3469,7 +3469,7 @@ test("汉译 T26 释经论与毘昙部完整受控并保留异译、异传、根
 test("汉译 T27《大毘婆沙论》完整受控并保留根本论、广释与传统集体归属边界", async ({ page, request }) => {
   await page.goto("/jingzang/taisho-t1545/001-0001a");
   await expect(page.getByRole("heading", { level: 1, name: "阿毘達磨大毘婆沙論" })).toBeVisible();
-  await expect(page.getByText("五百大阿羅漢等造 · 唐 · 玄奘譯", { exact: true })).toBeVisible();
+  await expect(page.getByRole("definition").filter({ hasText: "五百大阿羅漢等造 · 唐 · 玄奘譯" })).toBeVisible();
   await expect(page.getByText(/Jñānaprasthāna.*《发智论》与《大毘婆沙论》根本论—广释关系/)).toBeVisible();
   await expect(page.getByText(/归属边界：来源保存“五百大阿罗汉等造、玄奘译”.*独立广释作品/)).toBeVisible();
 
@@ -5115,7 +5115,7 @@ test("1912 年 Gemmell《金刚经》英译保留原书合并章界与稳定锚�
 test("1930 年 Soothill《法华经》英译节本公开 28 品与删节边界", async ({ page, request }) => {
   await page.goto("/jingzang/gutenberg-en-lotus-soothill");
   await expect(page.getByRole("heading", { level: 1, name: "The Lotus of the Wonderful Law (W. E. Soothill, 1930)" })).toBeVisible();
-  await expect(page.getByText("节译见证 · 完整来源记录", { exact: true })).toBeVisible();
+  await expect(page.locator(".reader-header__status").getByText("节译见证 · 完整来源记录", { exact: true })).toBeVisible();
   await expect(page.getByText(/Soothill 明言删去重复与部分细节/).first()).toBeVisible();
   await expect(page.getByText(/Project Gutenberg 标记美国公有领域/).first()).toBeVisible();
 
