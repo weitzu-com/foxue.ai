@@ -1479,6 +1479,10 @@
     color: #edc990 !important;
   }
 
+  .pathGold .pathTopline span {
+    color: #d8aa63;
+  }
+
   .pathGold > a:hover {
     border-color: #8d3024 !important;
     background: #8d3024 !important;
