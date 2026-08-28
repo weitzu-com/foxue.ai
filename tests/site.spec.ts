@@ -1333,6 +1333,32 @@ test("经藏目录把检索与经典直达放在常见桌面首屏", async ({ pa
   expect(searchBounds?.y).toBeLessThan(800);
 });
 
+test("同一作品的异译与译本可从作品页和经卷页直接发现", async ({ page }) => {
+  await page.goto("/jingzang/jingangjing");
+  const catalogNavigator = page.locator('[data-work-expression-navigator]');
+  await expect(catalogNavigator).toHaveAttribute("data-work-expression-count", "7");
+  await expect(catalogNavigator).toHaveAttribute("data-work-expression-variant", "catalog");
+  await expect(catalogNavigator.getByRole("heading", { name: "同一作品，保留不同表达。" })).toBeVisible();
+  await expect(catalogNavigator.locator("details")).not.toHaveAttribute("open", "");
+  await catalogNavigator.getByText("查看全部").click();
+  await expect(catalogNavigator.getByText("gbcr:work:vajracchedika-prajnaparamita")).toBeVisible();
+
+  const gemmellLink = catalogNavigator.getByRole("link", { name: /金刚经 · Gemmell 英译/ });
+  await expect(gemmellLink).toHaveAttribute("href", "/jingzang/gutenberg-en-diamond-gemmell");
+  await expect(gemmellLink).toHaveAttribute("data-analytics-event", "scripture_expression_opened");
+  await expect(gemmellLink).toHaveAttribute(
+    "data-analytics-content-id",
+    "Project Gutenberg eBook 64623 · Gemmell English translation · 1912",
+  );
+  await expect(catalogNavigator.getByRole("link")).toHaveCount(6);
+
+  await page.goto("/jingzang/jingangjing/001-0748c");
+  const readerNavigator = page.locator('[data-work-expression-variant="reader"]');
+  await expect(readerNavigator).toHaveAttribute("data-work-expression-count", "7");
+  await readerNavigator.getByText("查看全部").click();
+  await expect(readerNavigator.getByRole("link", { name: /金刚经 · Gemmell 英译/ })).toBeVisible();
+});
+
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
   await expect(page.getByText(/4144 个完整文本/)).toBeVisible();

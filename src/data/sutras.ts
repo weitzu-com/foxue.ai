@@ -20,6 +20,39 @@ import abhidhammaRootManifest from "../../data/corpus/suttacentral/abhidhamma-ma
 import lzhRootManifest from "../../data/corpus/suttacentral/lzh-manifest-v1.6.0.json";
 import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 
+type WorkAssignmentSource = {
+  slug: string;
+  workId: string;
+};
+
+function workAssignmentsFrom(files: readonly WorkAssignmentSource[]) {
+  return files.map(({ slug, workId }) => ({ slug, workId }));
+}
+
+const workAssignments = [
+  ...workAssignmentsFrom(catalog.files),
+  ...workAssignmentsFrom(nanchuanCatalog.files),
+  ...workAssignmentsFrom(beyondTaishoSutraCatalog.files),
+  ...workAssignmentsFrom(satModernJapaneseCatalog.files),
+  ...workAssignmentsFrom(wikisourceKokuyakuDhpCatalog.files),
+  ...workAssignmentsFrom(wikisourceMullerDhpCatalog.files),
+  ...workAssignmentsFrom(gutenbergGemmellDiamondCatalog.files),
+  ...workAssignmentsFrom(gutenbergSoothillLotusCatalog.files),
+  ...workAssignmentsFrom(sujatoEnglishCatalog.files),
+  ...workAssignmentsFrom(sujatoEnglishKnCatalog.files),
+  ...workAssignmentsFrom(suttacentralManifest.files),
+  ...workAssignmentsFrom(dighaNikayaManifest.files),
+  ...workAssignmentsFrom(majjhimaNikayaManifest.files),
+  ...workAssignmentsFrom(samyuttaNikayaManifest.files),
+  ...workAssignmentsFrom(anguttaraNikayaManifest.files),
+  ...workAssignmentsFrom(khuddakaNikayaManifest.files),
+  ...workAssignmentsFrom(indicRootManifest.files),
+  ...workAssignmentsFrom(vinayaRootManifest.files),
+  ...workAssignmentsFrom(abhidhammaRootManifest.files),
+  ...workAssignmentsFrom(lzhRootManifest.files),
+  ...workAssignmentsFrom(dergeKangyurManifest.files),
+];
+
 export type SutraSegment = {
   id: string;
   text: string;
@@ -672,8 +705,33 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
   segments: [],
 })));
 
+const workIdBySlug = new Map(workAssignments.map(({ slug, workId }) => [slug, workId]));
+const sutrasByWorkId = new Map<string, Sutra[]>();
+
+for (const sutra of sutras) {
+  const workId = workIdBySlug.get(sutra.slug);
+  if (!workId) continue;
+  const expressions = sutrasByWorkId.get(workId) ?? [];
+  expressions.push(sutra);
+  sutrasByWorkId.set(workId, expressions);
+}
+
 export function getSutra(slug: string) {
   return sutras.find((sutra) => sutra.slug === slug);
+}
+
+export function getWorkExpressionGroup(slug: string) {
+  const current = getSutra(slug);
+  const workId = workIdBySlug.get(slug);
+  if (!current || !workId) return undefined;
+
+  const expressions = sutrasByWorkId.get(workId) ?? [];
+  if (expressions.length < 2) return undefined;
+
+  return {
+    workId,
+    expressions: [current, ...expressions.filter((sutra) => sutra.slug !== slug)],
+  };
 }
 
 export const corpusPrinciples = [
