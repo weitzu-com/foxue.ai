@@ -1317,10 +1317,17 @@ test("经藏目录把检索与经典直达放在常见桌面首屏", async ({ pa
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/jingzang");
   const quickEntry = page.getByRole("navigation", { name: "经典直达" });
-  await expect(quickEntry.getByRole("link", { name: "心经" })).toHaveAttribute("href", "/jingzang/xinjing");
-  await expect(quickEntry.getByRole("link", { name: "金刚经" })).toHaveAttribute("href", "/jingzang/jingangjing");
-  await expect(quickEntry.getByRole("link", { name: "法句经" })).toHaveAttribute("href", "/jingzang/fajujing");
-  await expect(quickEntry.getByRole("link", { name: "长阿含经" })).toHaveAttribute("href", "/jingzang/changahanjing");
+  const quickLinks = [
+    { name: "心经", href: "/jingzang/xinjing", contentId: "大正藏 T08, no. 251" },
+    { name: "金刚经", href: "/jingzang/jingangjing", contentId: "大正藏 T08, no. 235" },
+    { name: "法句经", href: "/jingzang/fajujing", contentId: "大正藏 T04, no. 210" },
+    { name: "长阿含经", href: "/jingzang/changahanjing", contentId: "大正藏 T01, no. 1" },
+  ];
+  for (const item of quickLinks) {
+    const link = quickEntry.getByRole("link", { name: item.name });
+    await expect(link).toHaveAttribute("href", item.href);
+    await expect(link).toHaveAttribute("data-analytics-content-id", item.contentId);
+  }
 
   const searchBounds = await page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者").boundingBox();
   expect(searchBounds?.y).toBeLessThan(800);

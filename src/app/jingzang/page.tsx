@@ -24,10 +24,10 @@ const libraryPageJsonLd = buildPageJsonLd({
 });
 
 const libraryEntryPoints = [
-  { label: "心经", href: "/jingzang/xinjing" },
-  { label: "金刚经", href: "/jingzang/jingangjing" },
-  { label: "法句经", href: "/jingzang/fajujing" },
-  { label: "长阿含经", href: "/jingzang/changahanjing" },
+  { label: "心经", href: "/jingzang/xinjing", contentId: "大正藏 T08, no. 251" },
+  { label: "金刚经", href: "/jingzang/jingangjing", contentId: "大正藏 T08, no. 235" },
+  { label: "法句经", href: "/jingzang/fajujing", contentId: "大正藏 T04, no. 210" },
+  { label: "长阿含经", href: "/jingzang/changahanjing", contentId: "大正藏 T01, no. 1" },
 ] as const;
 
 export default function LibraryPage() {
@@ -52,6 +52,7 @@ export default function LibraryPage() {
                   prefetch={false}
                   data-analytics-event="scripture_opened"
                   data-analytics-location="library_quick_entry"
+                  data-analytics-content-id={entry.contentId}
                   data-analytics-label={entry.label}
                 >
                   {entry.label}<ArrowRight aria-hidden="true" size={13} />
