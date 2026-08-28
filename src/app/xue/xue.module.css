@@ -1453,6 +1453,21 @@
     background: #202821;
   }
 
+  .pathBlue .pathTopline span {
+    color: #e0b77f;
+  }
+
+  .pathBlue > a {
+    border-color: #e0b77f !important;
+    color: #e0b77f !important;
+  }
+
+  .pathBlue > a:hover {
+    border-color: #9a3d2f !important;
+    background: #9a3d2f !important;
+    color: #fffdf8 !important;
+  }
+
   .studyFinder,
   .sourceCard > footer {
     background: #2a332c;
