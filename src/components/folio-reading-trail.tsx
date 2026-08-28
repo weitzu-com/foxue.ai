@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Bookmark, BookmarkCheck, Clock3, LibraryBig, LockKeyhole } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
 import {
   readingResumeHref,
   readingResumeLocator,
@@ -113,10 +112,6 @@ export function FolioReadingTrail({
     const freshEntry = freshEntries.find((entry) => entry.id === id);
     const nextPinned = !freshEntry?.pinned;
     saveReadingShelf(setReadingPinned(freshEntries, id, nextPinned));
-    trackEvent(nextPinned ? "reading_shelf_saved" : "reading_shelf_unsaved", {
-      source_id: id,
-      source_language: quoteLang,
-    });
   };
 
   return (

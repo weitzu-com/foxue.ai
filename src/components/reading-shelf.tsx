@@ -12,7 +12,6 @@ import {
   LockKeyhole,
   X,
 } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
 import { removeReadingEntry, setReadingPinned } from "@/lib/reading-shelf";
 import {
   readReadingShelf,
@@ -78,12 +77,10 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
 
   const togglePinned = (id: string, pinned: boolean) => {
     saveReadingShelf(setReadingPinned(readReadingShelf(), id, pinned));
-    trackEvent(pinned ? "reading_shelf_saved" : "reading_shelf_unsaved", { source_id: id });
   };
 
   const removeEntry = (id: string) => {
     saveReadingShelf(removeReadingEntry(readReadingShelf(), id));
-    trackEvent("reading_shelf_entry_removed", { source_id: id });
   };
 
   return (

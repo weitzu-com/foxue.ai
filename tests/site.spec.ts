@@ -734,6 +734,14 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
 test("本地书房保存最近研读、主动收藏并回到稳定原文位置", async ({ page }) => {
   const path = "/jingzang/xinjing/001-0848c";
   const locator = "T0251.001.0848c08";
+  await page.addInitScript(() => {
+    window.localStorage.setItem("foxue:analytics-consent", "granted");
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
   await page.goto(path);
 
   await expect(page.getByText("本页会留在“最近研读”")).toBeVisible();
@@ -803,6 +811,16 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
   });
   await expect(resumeTarget).toHaveAttribute("data-reading-resume-target", "true");
   await expect(resumeTarget).toBeInViewport();
+
+  await page.goto("/xue#reading-shelf");
+  await page.getByRole("button", { name: /^从书房移除/ }).first().click();
+  const shelfAnalyticsEvents = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => (
+      call[0] === "event" && String(call[1]).startsWith("reading_shelf_")
+    ));
+  });
+  expect(shelfAnalyticsEvents).toEqual([]);
 });
 
 test("书房完整呈现所有保留收藏而不是只显示前六条", async ({ page }) => {
