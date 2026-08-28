@@ -4,7 +4,7 @@
 
 ## 1. 为什么新增 S3 批量发布器
 
-当前 GBCR v6.18 发布计划包含约 263,682 个对象。逐个启动 Wrangler 进程适合少量文件，却会把大量小文件发布放大成不可接受的进程启动成本。Cloudflare 官方建议大量文件使用 R2 的 S3 兼容接口或 rclone 等批量工具。
+当前 GBCR v6.27 发布计划包含 284,527 个对象。逐个启动 Wrangler 进程适合少量文件，却会把大量小文件发布放大成不可接受的进程启动成本。Cloudflare 官方建议大量文件使用 R2 的 S3 兼容接口或 rclone 等批量工具。
 
 `scripts/publish-corpus-release-s3.mjs` 直接使用 Node.js 标准库实现 AWS Signature Version 4，不引入运行时第三方依赖。它固定使用：
 
@@ -85,7 +85,7 @@ node scripts/publish-corpus-release-s3.mjs \
 node scripts/test-corpus-r2-publisher.mjs
 ```
 
-预检会读取全部文件并重新计算 SHA-256 和 MD5。对于约 2.87 GB 的当前版本，这是有意的端到端验证，不应为了缩短任务而跳过。
+预检会读取全部文件并重新计算 SHA-256 和 MD5。对于约 2.89 GB 的当前版本，这是有意的端到端验证，不应为了缩短任务而跳过。
 
 ## 6. 发布完成定义
 

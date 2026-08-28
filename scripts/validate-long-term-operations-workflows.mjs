@@ -113,6 +113,7 @@ requirePattern(
 requirePattern(edgeDeploy, "Worker 独立部署未要求公开 ready", /REQUIRE_READY: "true"/);
 requirePattern(edgeDeploy, "Worker 独立部署未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
 requirePattern(edgeDeploy, "Worker 独立部署未要求 Gemmell《金刚经》可用", /REQUIRE_GEMMELL_INDEX: "true"/);
+requirePattern(edgeDeploy, "Worker 独立部署未要求 Soothill《法华经》英译节本可用", /REQUIRE_SOOTHILL_INDEX: "true"/);
 requireOrder(edgeDeploy, "Worker 独立部署必须先验证、读取原子指针、部署、再公开验证", [
   "pnpm cloudflare:types:check && pnpm cloudflare:check",
   "https://canon.foxue.ai/v1/latest.json",
@@ -127,6 +128,11 @@ requireReleaseCapabilityGate(edgeHealth, {
   description: "Worker 健康检查未按固定发行能力要求 Gemmell《金刚经》",
   environmentName: "REQUIRE_GEMMELL_INDEX",
   minimumMinorVersion: 26,
+});
+requireReleaseCapabilityGate(edgeHealth, {
+  description: "Worker 健康检查未按固定发行能力要求 Soothill《法华经》英译节本",
+  environmentName: "REQUIRE_SOOTHILL_INDEX",
+  minimumMinorVersion: 27,
 });
 requirePattern(
   edgeHealth,
