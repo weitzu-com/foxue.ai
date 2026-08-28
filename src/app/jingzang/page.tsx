@@ -1,4 +1,5 @@
-import { Database } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Database } from "lucide-react";
 import { LibraryCatalog } from "@/components/library-catalog";
 import { corpusPrinciples, sutras } from "@/data/sutras";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
@@ -22,6 +23,13 @@ const libraryPageJsonLd = buildPageJsonLd({
   about: ["佛经在线阅读", "经藏目录", "稳定行段", "来源与版本"],
 });
 
+const libraryEntryPoints = [
+  { label: "心经", href: "/jingzang/xinjing", contentId: "大正藏 T08, no. 251" },
+  { label: "金刚经", href: "/jingzang/jingangjing", contentId: "大正藏 T08, no. 235" },
+  { label: "法句经", href: "/jingzang/fajujing", contentId: "大正藏 T04, no. 210" },
+  { label: "长阿含经", href: "/jingzang/changahanjing", contentId: "大正藏 T01, no. 1" },
+] as const;
+
 export default function LibraryPage() {
   const snapshot = buildCoverageSnapshot();
   return (
@@ -30,11 +38,27 @@ export default function LibraryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(libraryPageJsonLd) }}
       />
-      <header className="subpage-hero">
+      <header className="subpage-hero subpage-hero--library">
         <div className="page-shell subpage-hero__grid">
           <div>
             <p className="eyebrow">开放经藏 · CORPUS 0.8</p>
             <h1>经文先于工具，<br />来源先于答案。</h1>
+            <nav className="library-entry-points" aria-label="经典直达">
+              <span>直接阅读</span>
+              {libraryEntryPoints.map((entry) => (
+                <Link
+                  href={entry.href}
+                  key={entry.href}
+                  prefetch={false}
+                  data-analytics-event="scripture_opened"
+                  data-analytics-location="library_quick_entry"
+                  data-analytics-content-id={entry.contentId}
+                  data-analytics-label={entry.label}
+                >
+                  {entry.label}<ArrowRight aria-hidden="true" size={13} />
+                </Link>
+              ))}
+            </nav>
           </div>
           <div className="subpage-hero__aside">
             <p>
