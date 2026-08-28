@@ -3206,6 +3206,18 @@ test(readerPageSearchAnalyticsTestTitle, async ({ page }) => {
     },
   ]);
 
+  await page.goto("/jingzang/taisho-t2773/001-0423c");
+  await page.getByRole("button", { name: "打开本页查句" }).click();
+  const lacunaSearchInput = page.getByRole("searchbox", { name: "本页查句" });
+  await lacunaSearchInput.fill("宗趣具陳");
+  await page.getByRole("button", { name: "查找", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("当前页原文中没有找到这句话。");
+  await expect(page.locator("[data-reader-search-current=true]")).toHaveCount(0);
+  await lacunaSearchInput.fill("宗趣□□□□具陳");
+  await page.getByRole("button", { name: "查找", exact: true }).click();
+  await expect(page.getByRole("status")).toContainText("找到 1 处，当前第 1 处 · T2773.001.0423c10");
+  await expect(page.locator('[id="T2773.001.0423c10"][data-reader-search-current=true]')).toHaveCount(1);
+
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   const accessibility = await new AxeBuilder({ page })

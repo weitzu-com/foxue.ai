@@ -72,7 +72,8 @@ const searchVariantCharacters: Record<string, string> = {
 function normalizedSearchCharacters(value: string) {
   return [...value.normalize("NFKC")].flatMap((character) => {
     const normalized = (searchVariantCharacters[character] ?? character).toLowerCase();
-    return /[\p{P}\p{S}\s]/u.test(normalized) ? [] : [...normalized];
+    // Symbols such as □ are source evidence, so only punctuation and whitespace are ignorable.
+    return /[\p{P}\s]/u.test(normalized) ? [] : [...normalized];
   });
 }
 
