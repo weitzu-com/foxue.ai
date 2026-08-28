@@ -25,6 +25,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
+import { recordStudyPathProgress } from "@/components/use-study-path-activity";
 import {
   amituojingFullTextHref,
   amituojingLearningDays,
@@ -190,6 +191,10 @@ export function AmituojingLearningPath() {
   const coveredCount = completedCount + skippedCount;
 
   useEffect(() => {
+    recordStudyPathProgress("amituojing", progress.activeDay, progress.statuses);
+  }, [progress.activeDay, progress.statuses]);
+
+  useEffect(() => {
     function applySharedDay() {
       const sharedDay = dayFromHash();
       if (!sharedDay) return;
@@ -221,12 +226,19 @@ export function AmituojingLearningPath() {
 
   function markDay(status: DayStatus) {
     const nextDay = Math.min(activeDay.id + 1, 7);
+    const nextStatuses = { ...progress.statuses, [String(activeDay.id)]: status };
     setActiveLens("practice");
     setDayHash(nextDay);
     saveProgress({
       ...progress,
       activeDay: nextDay,
-      statuses: { ...progress.statuses, [String(activeDay.id)]: status },
+      statuses: nextStatuses,
+    });
+    trackEvent("study_path_step_marked", {
+      learning_path: "amituojing",
+      step_number: activeDay.id,
+      step_status: status,
+      covered_count: Object.keys(nextStatuses).length,
     });
   }
 

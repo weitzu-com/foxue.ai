@@ -50,7 +50,7 @@ const tasks = [
     icon: BookMarked,
     eyebrow: "想认真读一部经",
     title: "进入研读中心",
-    description: "七日读《心经》，或并读汉译、巴利与历史英译《法句》；每一步都回到稳定原文。",
+    description: "慢读《心经》、核读《金刚经》、净读《阿弥陀经》，或并读三源《法句》；每一步都回到稳定原文。",
     link: "/xue",
     action: "选择研读路径",
   },

@@ -10,14 +10,23 @@ import {
   Clock3,
   LibraryBig,
   LockKeyhole,
+  Route,
   X,
 } from "lucide-react";
+import { studyPathRegistry } from "@/data/study-path-registry";
+import { trackEvent } from "@/lib/analytics";
 import { removeReadingEntry, setReadingPinned } from "@/lib/reading-shelf";
+import {
+  studyPathCoveredCount,
+  studyPathResumeDay,
+  type StudyPathActivityEntry,
+} from "@/lib/study-path-activity";
 import {
   readReadingShelf,
   saveReadingShelf,
   useReadingShelf,
 } from "@/components/use-reading-shelf";
+import { useStudyPathActivities } from "@/components/use-study-path-activity";
 import styles from "./reading-shelf.module.css";
 
 function relativeReadTime(isoDate: string, now: number) {
@@ -47,11 +56,66 @@ function useRelativeReadClock(active: boolean) {
 
 export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home" }) {
   const entries = useReadingShelf();
-  const now = useRelativeReadClock(entries.length > 0);
+  const pathActivities = useStudyPathActivities();
+  const now = useRelativeReadClock(entries.length > 0 || pathActivities.length > 0);
   const [feedback, setFeedback] = useState("");
   const latest = entries[0];
+  const latestPath = pathActivities[0];
+
+  const trackPathResume = (entry: StudyPathActivityEntry, entryPoint: "home" | "study") => {
+    trackEvent("study_path_resumed", {
+      entry_point: entryPoint,
+      learning_path: entry.id,
+      step_number: studyPathResumeDay(entry),
+      covered_count: studyPathCoveredCount(entry),
+    });
+  };
 
   if (variant === "home") {
+    if (!latest && !latestPath) return null;
+    const resumePath = latestPath && (!latest || latestPath.updatedAt >= latest.lastReadAt)
+      ? latestPath
+      : undefined;
+
+    if (resumePath) {
+      const definition = studyPathRegistry[resumePath.id];
+      const coveredCount = studyPathCoveredCount(resumePath);
+      const resumeDay = studyPathResumeDay(resumePath);
+      const completed = coveredCount >= 7;
+      return (
+        <section
+          className={`${styles.homeResume} ${styles.homePathResume}`}
+          aria-labelledby="home-path-resume-title"
+          data-study-path-resume={resumePath.id}
+        >
+          <div className={styles.homeResumeMark} aria-hidden="true">
+            <Route />
+            <span>续</span>
+          </div>
+          <div className={styles.homeResumeCopy}>
+            <p>继续七日路径 · {relativeReadTime(resumePath.updatedAt, now)}</p>
+            <h2 id="home-path-resume-title">
+              {definition.title} · {completed ? "七日已走完" : `第 ${resumeDay} 天`}
+            </h2>
+            <span>
+              {completed
+                ? "七日均已标记；可从第一天重读，不设置连续天数或排名。"
+                : `已标记 ${coveredCount} / 7 · 不计连续天数，什么时候回来都可以。`}
+            </span>
+          </div>
+          <div className={styles.homeResumeActions}>
+            <Link
+              href={`${definition.href}#day-${resumeDay}`}
+              onNavigate={() => trackPathResume(resumePath, "home")}
+            >
+              {completed ? "回看第一天" : `继续第 ${resumeDay} 天`} <ArrowRight aria-hidden="true" />
+            </Link>
+            <Link href="/xue">查看全部研读路径</Link>
+          </div>
+        </section>
+      );
+    }
+
     if (!latest) return null;
     return (
       <section className={styles.homeResume} aria-labelledby="home-resume-title">
@@ -94,15 +158,72 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           <h2 id="reading-shelf-title">离开，不等于从头再来。</h2>
         </div>
         <p>
-          最近读到的稳定原文位置与主动收藏都只保存在当前浏览器；不登录，不上传阅读轨迹。
+          七日路径的下一步、最近读到的稳定原文位置与主动收藏都只保存在当前浏览器；不登录，不上传阅读轨迹。
         </p>
       </header>
+
+      {pathActivities.length > 0 && (
+        <div className={styles.pathActivitySection} aria-labelledby="path-activity-title">
+          <div className={styles.pathActivityIntro}>
+            <div>
+              <p>七日路径 · 接着走</p>
+              <h3 id="path-activity-title">不追连续天数，只保留下一步。</h3>
+            </div>
+            <span>完成与跳过都可回看；更新时间仅用于把最近路径排在前面。</span>
+          </div>
+          <div className={styles.pathActivityGrid}>
+            {pathActivities.map((entry) => {
+              const definition = studyPathRegistry[entry.id];
+              const coveredCount = studyPathCoveredCount(entry);
+              const resumeDay = studyPathResumeDay(entry);
+              const completed = coveredCount >= 7;
+              return (
+                <article
+                  className={styles.pathActivityCard}
+                  data-path-tone={definition.tone}
+                  data-study-path-card={entry.id}
+                  key={entry.id}
+                >
+                  <div className={styles.pathActivityTopline}>
+                    <span><Route aria-hidden="true" /> {completed ? "七日已走完" : "继续路径"}</span>
+                    <span>{relativeReadTime(entry.updatedAt, now)}</span>
+                  </div>
+                  <h4>{definition.title}</h4>
+                  <p>
+                    {completed
+                      ? "七日均已标记；现在可以带着新的问题重读。"
+                      : `下一步：第 ${resumeDay} 天 · 已标记 ${coveredCount} / 7`}
+                  </p>
+                  <div
+                    className={styles.pathActivityTrack}
+                    role="progressbar"
+                    aria-label={`${definition.shortTitle}七日研读进度`}
+                    aria-valuemin={0}
+                    aria-valuemax={7}
+                    aria-valuenow={coveredCount}
+                  >
+                    <span style={{ width: `${(coveredCount / 7) * 100}%` }} />
+                  </div>
+                  <Link
+                    href={`${definition.href}#day-${resumeDay}`}
+                    onNavigate={() => trackPathResume(entry, "study")}
+                  >
+                    {completed ? "回看第一天" : `继续第 ${resumeDay} 天`} <ArrowRight aria-hidden="true" />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {entries.length === 0 ? (
         <div className={styles.emptyShelf}>
           <div aria-hidden="true"><LibraryBig /></div>
           <div>
-            <h3>最近研读会留在这里</h3>
+            <h3>
+              {pathActivities.length > 0 ? "经卷中的稳定位置也会留在这里" : "最近研读会留在这里"}
+            </h3>
             <p>打开任意经卷页即可留下本地阅读位置；遇到想反复研读的页面，再将它存入书房。</p>
           </div>
           <Link href="/jingzang">

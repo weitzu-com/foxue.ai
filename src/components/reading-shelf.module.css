@@ -101,6 +101,151 @@
   width: 0.9rem;
 }
 
+.pathActivitySection {
+  margin-bottom: 1.35rem;
+  border: 1px solid var(--line-dark);
+  background: rgb(255 253 247 / 42%);
+}
+
+.pathActivityIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+  gap: 2rem;
+  align-items: end;
+  padding: 1.7rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.pathActivityIntro p,
+.pathActivityIntro h3,
+.pathActivityIntro > span,
+.pathActivityCard h4,
+.pathActivityCard p {
+  margin: 0;
+}
+
+.pathActivityIntro p {
+  color: var(--cinnabar);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.pathActivityIntro h3 {
+  margin-top: 0.45rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.45rem, 2.8vw, 2.3rem);
+  font-weight: 550;
+  line-height: 1.25;
+}
+
+.pathActivityIntro > span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.pathActivityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pathActivityCard {
+  --path-accent: var(--cinnabar);
+  min-width: 0;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  border-right: 1px solid var(--line-dark);
+  border-top: 4px solid var(--path-accent);
+}
+
+.pathActivityCard:last-child {
+  border-right: 0;
+}
+
+.pathActivityCard[data-path-tone="gold"] {
+  --path-accent: #8a5a2b;
+}
+
+.pathActivityCard[data-path-tone="blue"] {
+  --path-accent: #31596a;
+}
+
+.pathActivityTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.pathActivityTopline span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--path-accent);
+  font-weight: 800;
+}
+
+.pathActivityTopline svg {
+  width: 0.9rem;
+}
+
+.pathActivityCard h4 {
+  margin-top: 2.8rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.pathActivityCard > p {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.75;
+}
+
+.pathActivityTrack {
+  height: 3px;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  background: var(--line-dark);
+}
+
+.pathActivityTrack span {
+  height: 100%;
+  display: block;
+  background: var(--path-accent);
+}
+
+.pathActivityCard > a {
+  min-height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-inline: 1rem;
+  border: 1px solid var(--path-accent);
+  color: var(--path-accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.pathActivityCard > a:hover {
+  background: var(--path-accent);
+  color: #fffdf8;
+}
+
+.pathActivityCard > a svg {
+  width: 0.85rem;
+}
+
 .shelfGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -375,6 +520,19 @@
   width: 0.85rem;
 }
 
+.homePathResume {
+  border-left-width: 5px;
+  background:
+    linear-gradient(90deg, rgb(159 57 43 / 7%), transparent 42%),
+    rgb(255 253 247 / 68%);
+}
+
+.homePathResume .homeResumeMark {
+  border-radius: 0;
+  background: var(--home-ink, var(--ink));
+  color: var(--home-paper, #fffdf8);
+}
+
 @media (max-width: 800px) {
   .shelfHeading {
     grid-template-columns: 1fr;
@@ -392,6 +550,25 @@
 
   .shelfGrid {
     grid-template-columns: 1fr;
+  }
+
+  .pathActivityIntro {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .pathActivityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathActivityCard {
+    min-height: 15rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .pathActivityCard:last-child {
+    border-bottom: 0;
   }
 
   .homeResume {
@@ -417,6 +594,11 @@
 
   .emptyShelf > a {
     grid-column: 1;
+  }
+
+  .pathActivityIntro,
+  .pathActivityCard {
+    padding: 1.35rem;
   }
 
   .primaryEntry,
@@ -472,11 +654,35 @@
 
 @media (prefers-color-scheme: dark) {
   .emptyShelf,
-  .shelfEntry {
+  .shelfEntry,
+  .pathActivitySection {
     background: #202821;
   }
 
   .primaryEntry {
     background: #111713;
+  }
+
+  .pathActivityCard {
+    --path-accent: #f1a18f;
+  }
+
+  .pathActivityCard[data-path-tone="gold"] {
+    --path-accent: #e0b77f;
+  }
+
+  .pathActivityCard[data-path-tone="blue"] {
+    --path-accent: #a9d1df;
+  }
+
+  .homeResume,
+  .homePathResume {
+    background: #202821;
+    color: #f7f1e7;
+  }
+
+  .homeResumeCopy > span,
+  .homeResumeActions a:last-child {
+    color: #b8c1ba;
   }
 }
