@@ -484,6 +484,7 @@ test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) 
 
   await expect(brandLink).toBeVisible();
   await expect(brandLink).toHaveAttribute("href", "/");
+  await expect(page.getByRole("link", { name: /回到上次读到的地方/ })).toHaveCount(0);
 });
 
 test("心经七日学习路径可访问并只在本地保存进度", async ({ page }) => {
@@ -529,6 +530,9 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await page.goto("/xue");
 
   await expect(page.getByRole("heading", { level: 1, name: /读经.*不是更快地.*得到一个结论/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "离开，不等于从头再来。" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "最近研读会留在这里" })).toBeVisible();
+  await expect(page.getByText(/不登录，不上传阅读轨迹/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "你不必先成为专家，才能认真读经。" })).toBeVisible();
   await expect(page.getByText("佛教徒 · 日常静读", { exact: true })).toBeVisible();
   await expect(page.getByText("爱好者 · 理解脉络", { exact: true })).toBeVisible();
@@ -727,6 +731,166 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
   );
 });
 
+test("本地书房保存最近研读、主动收藏并回到稳定原文位置", async ({ page }) => {
+  const path = "/jingzang/xinjing/001-0848c";
+  const locator = "T0251.001.0848c08";
+  await page.addInitScript(() => {
+    window.localStorage.setItem("foxue:analytics-consent", "granted");
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
+  await page.goto(path);
+
+  await expect(page.getByText("本页会留在“最近研读”")).toBeVisible();
+  await expect(page.getByText(/只存此浏览器，可从稳定原文位置接着读/)).toBeVisible();
+
+  const source = await page.locator(`[data-study-segment-id="${locator}"][id]`)
+    .filter({ has: page.locator("[data-source-text-equivalent]") })
+    .evaluate((element) => {
+      const top = element.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.22;
+      window.scrollTo({ top, behavior: "instant" });
+      return element.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim();
+    });
+
+  expect(source).toBeTruthy();
+  await expect.poll(async () => page.evaluate(() => {
+    const snapshot = JSON.parse(
+      window.localStorage.getItem("foxue:reading-shelf:v1") ?? '{"entries":[]}',
+    );
+    return snapshot.entries.find((entry: { id: string }) => entry.id === "xinjing/001-0848c");
+  })).toMatchObject({
+    id: "xinjing/001-0848c",
+    slug: "xinjing",
+    folioKey: "001-0848c",
+    quoteLang: "zh-Hant",
+    languageLabel: "汉文",
+    pageHref: path,
+    resumeHref: `${path}#foxue-resume=${locator}`,
+    locator,
+    preview: source,
+    pinned: false,
+  });
+
+  const saveButton = page.getByRole("button", { name: "存入书房" });
+  await saveButton.click();
+  await expect(page.getByRole("button", { name: "已存书房" })).toHaveAttribute("aria-pressed", "true");
+
+  await page.goto("/xue#reading-shelf");
+  await expect(page.getByRole("heading", { name: "离开，不等于从头再来。" })).toBeVisible();
+  await expect(page.getByText("已收藏", { exact: true })).toBeVisible();
+  await expect(page.getByText(locator, { exact: true })).toBeVisible();
+  await expect(page.locator("blockquote").filter({ hasText: source ?? "" })).toHaveAttribute("lang", "zh-Hant");
+  await expect(page.getByRole("link", { name: /回到原文位置/ }).first()).toHaveAttribute(
+    "href",
+    `${path}#foxue-resume=${locator}`,
+  );
+
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: /般若波罗蜜多心经/ })).toBeVisible();
+  const resumeLink = page.getByRole("link", { name: /回到上次读到的地方/ });
+  await expect(resumeLink).toHaveAttribute("href", `${path}#foxue-resume=${locator}`);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(page.viewportSize()?.width ?? pageWidth);
+
+  await resumeLink.click();
+  await page.waitForURL(new RegExp(`${path}#foxue-resume=${locator.replaceAll(".", "\\.")}$`));
+  const resumeTarget = page.locator(`[data-study-segment-id="${locator}"][id]`).filter({
+    has: page.locator("[data-source-text-equivalent]"),
+  });
+  await expect(resumeTarget).toHaveAttribute("data-reading-resume-target", "true");
+  await expect(resumeTarget).toBeInViewport();
+
+  await page.goto("/xue#reading-shelf");
+  await page.getByRole("button", { name: /^从书房移除/ }).first().click();
+  const shelfAnalyticsEvents = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => (
+      call[0] === "event" && String(call[1]).startsWith("reading_shelf_")
+    ));
+  });
+  expect(shelfAnalyticsEvents).toEqual([]);
+});
+
+test("书房完整呈现所有保留收藏而不是只显示前六条", async ({ page }) => {
+  await page.addInitScript(() => {
+    const entries = Array.from({ length: 7 }, (_, index) => {
+      const number = index + 1;
+      const timestamp = new Date(Date.UTC(2026, 7, 20, 0, number)).toISOString();
+      return {
+        id: `saved-work-${number}/001-page`,
+        slug: `saved-work-${number}`,
+        folioKey: "001-page",
+        workTitle: `《保留收藏 ${number}》`,
+        passageLabel: `第 ${number} 页`,
+        quoteLang: "zh-Hant",
+        languageLabel: "汉文",
+        pageHref: `/jingzang/saved-work-${number}/001-page`,
+        resumeHref: `/jingzang/saved-work-${number}/001-page#foxue-resume=line-${number}`,
+        locator: `line-${number}`,
+        preview: `第 ${number} 条保留收藏的原文快照。`,
+        pinned: true,
+        firstReadAt: timestamp,
+        lastReadAt: timestamp,
+      };
+    });
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({ version: 1, entries }));
+  });
+
+  await page.goto("/xue#reading-shelf");
+  await expect(page.getByRole("heading", { name: "《保留收藏 1》" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "《保留收藏 7》" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
+  await expect(page.getByRole("button", { name: "取消收藏 《保留收藏 1》" })).toBeVisible();
+  await page.getByRole("button", { name: "取消收藏 《保留收藏 1》" }).click();
+  await expect(page.getByRole("status")).toHaveText("已取消收藏 《保留收藏 1》");
+});
+
+test("书房停留期间相对阅读时间会继续更新", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-08-28T00:00:30.000Z") });
+  await page.addInitScript(() => {
+    const timestamp = "2026-08-28T00:00:00.000Z";
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({
+      version: 1,
+      entries: [{
+        id: "clock-test/001-page",
+        slug: "clock-test",
+        folioKey: "001-page",
+        workTitle: "《时间边界测试》",
+        passageLabel: "第 1 页",
+        quoteLang: "zh-Hant",
+        languageLabel: "汉文",
+        pageHref: "/jingzang/clock-test/001-page",
+        resumeHref: "/jingzang/clock-test/001-page#foxue-resume=line-1",
+        locator: "line-1",
+        preview: "相对时间应在页面停留期间更新。",
+        pinned: true,
+        firstReadAt: timestamp,
+        lastReadAt: timestamp,
+      }],
+    }));
+  });
+
+  await page.goto("/xue#reading-shelf");
+  const relativeTime = page.getByText("汉文 · 刚刚读过", { exact: true });
+  await expect(relativeTime).toBeVisible();
+  expect(await relativeTime.evaluate((element) => element.closest("[aria-live]")?.getAttribute("aria-live") ?? null))
+    .toBeNull();
+  await page.clock.fastForward(31_000);
+  await expect(page.getByText("汉文 · 1 分钟前", { exact: true })).toBeVisible();
+});
+
 test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
   await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
 
@@ -758,6 +922,18 @@ test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
     locator: selected,
     quoteLang: "pi",
     sourceHref: `/jingzang/dhammapada-pali/001-dhp1-20#${selected}`,
+  }));
+
+  const storedReading = await page.evaluate(() => {
+    const snapshot = JSON.parse(
+      window.localStorage.getItem("foxue:reading-shelf:v1") ?? '{"entries":[]}',
+    );
+    return snapshot.entries.find((entry: { id: string }) => entry.id === "dhammapada-pali/001-dhp1-20");
+  });
+  expect(storedReading).toEqual(expect.objectContaining({
+    quoteLang: "pi",
+    languageLabel: "巴利文",
+    pageHref: "/jingzang/dhammapada-pali/001-dhp1-20",
   }));
 });
 
