@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/verify-jingangjing-learning-path.mjs",
     "build": "next build",
-    "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs && node scripts/verify-jingangjing-learning-path.mjs",
+    "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
