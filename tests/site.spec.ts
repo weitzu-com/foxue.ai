@@ -3,9 +3,13 @@ import { expect, test, type APIRequestContext, type Page } from "@playwright/tes
 import { readFile } from "node:fs/promises";
 
 const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动收藏并回到稳定原文位置";
+const readerPreferencesAnalyticsTestTitle = "经文阅读设置兼容旧偏好并把研究坐标保留到多语页面";
 
 test.beforeEach(async ({ page }, testInfo) => {
-  const analyticsConsent = testInfo.title === readingShelfAnalyticsTestTitle ? "granted" : "denied";
+  const analyticsConsent = [
+    readingShelfAnalyticsTestTitle,
+    readerPreferencesAnalyticsTestTitle,
+  ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
   }, analyticsConsent);
@@ -3014,7 +3018,15 @@ test("完整原文使用母版行号并兼容旧锚点", async ({ page }) => {
   await expect(page.locator('[id="T0210.004.0562a16"]')).toHaveCount(1);
 });
 
-test("经文阅读设置兼容旧偏好并把研究坐标保留到多语页面", async ({ page }) => {
+test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
+  await page.addInitScript(() => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
   await page.addInitScript(() => {
     const seedKey = "foxue-reader-preferences-test-seeded";
     if (window.sessionStorage.getItem(seedKey)) return;
@@ -3048,6 +3060,21 @@ test("经文阅读设置兼容旧偏好并把研究坐标保留到多语页面",
   );
   await expect(firstChineseLocator).toBeVisible();
   await expect(firstChineseLocator).toHaveText(/稳定坐标 T0251\.001\.0848c03/);
+  const preferenceAnalyticsEvents = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => (
+      call[0] === "event" && call[1] === "reader_preference_changed"
+    ));
+  });
+  expect(preferenceAnalyticsEvents).toEqual([[
+    "event",
+    "reader_preference_changed",
+    {
+      content_id: "stable_locators",
+      link_location: "scripture_reader_toolbar",
+      link_text: "enable",
+    },
+  ]]);
 
   await expect.poll(() => page.evaluate(() =>
     window.localStorage.getItem("foxue.reader.preferences.v1"),
