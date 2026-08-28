@@ -852,6 +852,9 @@ test("书房完整呈现所有保留收藏而不是只显示前六条", async ({
   await expect(page.getByRole("heading", { name: "《保留收藏 1》" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "《保留收藏 7》" })).toBeVisible();
   await expect(page.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
+  await expect(page.getByRole("button", { name: "取消收藏 《保留收藏 1》" })).toBeVisible();
+  await page.getByRole("button", { name: "取消收藏 《保留收藏 1》" }).click();
+  await expect(page.getByRole("status")).toHaveText("已取消收藏 《保留收藏 1》");
 });
 
 test("书房停留期间相对阅读时间会继续更新", async ({ page }) => {
@@ -880,7 +883,10 @@ test("书房停留期间相对阅读时间会继续更新", async ({ page }) => 
   });
 
   await page.goto("/xue#reading-shelf");
-  await expect(page.getByText("汉文 · 刚刚读过", { exact: true })).toBeVisible();
+  const relativeTime = page.getByText("汉文 · 刚刚读过", { exact: true });
+  await expect(relativeTime).toBeVisible();
+  expect(await relativeTime.evaluate((element) => element.closest("[aria-live]")?.getAttribute("aria-live") ?? null))
+    .toBeNull();
   await page.clock.fastForward(31_000);
   await expect(page.getByText("汉文 · 1 分钟前", { exact: true })).toBeVisible();
 });

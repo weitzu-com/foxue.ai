@@ -48,6 +48,7 @@ function useRelativeReadClock(active: boolean) {
 export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home" }) {
   const entries = useReadingShelf();
   const now = useRelativeReadClock(entries.length > 0);
+  const [feedback, setFeedback] = useState("");
   const latest = entries[0];
 
   if (variant === "home") {
@@ -75,12 +76,14 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
     );
   }
 
-  const togglePinned = (id: string, pinned: boolean) => {
+  const togglePinned = (id: string, pinned: boolean, workTitle: string) => {
     saveReadingShelf(setReadingPinned(readReadingShelf(), id, pinned));
+    setFeedback(pinned ? `已收藏 ${workTitle}` : `已取消收藏 ${workTitle}`);
   };
 
-  const removeEntry = (id: string) => {
+  const removeEntry = (id: string, workTitle: string) => {
     saveReadingShelf(removeReadingEntry(readReadingShelf(), id));
+    setFeedback(`已从书房移除 ${workTitle}`);
   };
 
   return (
@@ -107,7 +110,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           </Link>
         </div>
       ) : (
-        <div className={styles.shelfGrid} aria-live="polite">
+        <div className={styles.shelfGrid}>
           {entries.map((entry, index) => (
             <article className={index === 0 ? styles.primaryEntry : styles.shelfEntry} key={entry.id}>
               <div className={styles.entryTopline}>
@@ -131,7 +134,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
                   type="button"
                   aria-label={entry.pinned ? `取消收藏 ${entry.workTitle}` : `收藏 ${entry.workTitle}`}
                   aria-pressed={entry.pinned}
-                  onClick={() => togglePinned(entry.id, !entry.pinned)}
+                  onClick={() => togglePinned(entry.id, !entry.pinned, entry.workTitle)}
                 >
                   {entry.pinned ? <BookmarkCheck aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
                   <span>{entry.pinned ? "取消收藏" : "收藏"}</span>
@@ -139,7 +142,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
                 <button
                   type="button"
                   aria-label={`从书房移除 ${entry.workTitle}`}
-                  onClick={() => removeEntry(entry.id)}
+                  onClick={() => removeEntry(entry.id, entry.workTitle)}
                 >
                   <X aria-hidden="true" />
                   <span>移除</span>
@@ -149,6 +152,10 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           ))}
         </div>
       )}
+
+      <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {feedback}
+      </p>
 
       <footer className={styles.shelfPrivacy}>
         <LockKeyhole aria-hidden="true" />
