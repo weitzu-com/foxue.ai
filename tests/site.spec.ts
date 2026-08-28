@@ -2,10 +2,13 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => {
-    window.localStorage.setItem("foxue:analytics-consent", "denied");
-  });
+const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动收藏并回到稳定原文位置";
+
+test.beforeEach(async ({ page }, testInfo) => {
+  const analyticsConsent = testInfo.title === readingShelfAnalyticsTestTitle ? "granted" : "denied";
+  await page.addInitScript((consent) => {
+    window.localStorage.setItem("foxue:analytics-consent", consent);
+  }, analyticsConsent);
 });
 
 async function waitForFolioStudyDock(page: Page) {
@@ -1084,12 +1087,11 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
   );
 });
 
-test("本地书房保存最近研读、主动收藏并回到稳定原文位置", async ({ page }) => {
+test(readingShelfAnalyticsTestTitle, async ({ page }) => {
   const path = "/jingzang/xinjing/001-0848c";
   const locator = "T0251.001.0848c08";
   await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
   await page.addInitScript(() => {
-    window.localStorage.setItem("foxue:analytics-consent", "granted");
     window.gtag = (...args: unknown[]) => {
       const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
       calls.push(args);
@@ -1097,6 +1099,7 @@ test("本地书房保存最近研读、主动收藏并回到稳定原文位置",
     };
   });
   await page.goto(path);
+  expect(await page.evaluate(() => window.localStorage.getItem("foxue:analytics-consent"))).toBe("granted");
 
   await expect(page.getByText("本页会留在“最近研读”")).toBeVisible();
   await expect(page.getByText(/只存此浏览器，可从稳定原文位置接着读/)).toBeVisible();
