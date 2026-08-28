@@ -28,6 +28,7 @@
 | `question_submitted` | 问经任务完成率 | `entry_point`, `input_length`, `result_status`, `evidence_count` | 问经页生成本地证据结果 | 是 |
 | `source_opened` | 回到原典的核心信任行为 | `content_id`, `link_location`, `link_text` | 从证据卡打开原文 | 是 |
 | `scripture_opened` | 经藏阅读启动率 | `content_id`, `link_location`, `link_text` | 从经藏目录打开一部经典 | 否 |
+| `citation_copied` | 带出处保存引文 | `content_id`, `entry_point` | 从“今日原典”或研读路径复制引文、版本、行段与链接 | 否 |
 
 `input_length` 只记录字符数，绝不记录输入内容。`page_location` 只保留路径与 UTM/gclid/dclid 参数，其他查询参数会被丢弃。
 

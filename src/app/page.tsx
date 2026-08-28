@@ -15,11 +15,11 @@ import {
   Link2,
   MessagesSquare,
   Network,
-  Quote,
   Scale,
   ShieldCheck,
   Users,
 } from "lucide-react";
+import { DailyScripture } from "@/components/daily-scripture";
 import { SearchConsole } from "@/components/search-console";
 import { ReadingShelf } from "@/components/reading-shelf";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
@@ -29,7 +29,7 @@ import styles from "./home.module.css";
 
 const homeTitle = "佛经原典在线阅读与可核验问经";
 const homeDescription =
-  "foxue.ai 提供可核验的佛经原典阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。";
+  "foxue.ai 提供每日可核验原典、佛经全文阅读、稳定行段定位与证据问经；完整原文、人工复核范围与建设缺口均公开。";
 
 export const metadata: Metadata = buildPageMetadata({
   title: homeTitle,
@@ -41,7 +41,7 @@ const homeJsonLd = buildPageJsonLd({
   path: "/",
   title: homeTitle,
   description: homeDescription,
-  about: ["佛经原典阅读", "佛经检索", "证据问经", "佛典版本", "数字人文学"],
+  about: ["每日佛经原典", "佛经原典阅读", "佛经检索", "证据问经", "佛典版本", "数字人文学"],
 });
 
 const tasks = [
@@ -151,36 +151,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <aside className={`${styles.passage} ${styles.revealThree}`} aria-labelledby="passage-title">
-            <div className={styles.passageRail} aria-hidden="true">
-              <span>原</span><span>文</span><span>不</span><span>藏</span><span>在</span><span>答</span><span>案</span><span>后</span>
-            </div>
-            <div className={styles.passagePaper}>
-              <div className={styles.passageMeta}>
-                <span>般若部 · 原典样本</span>
-                <span>稳定锚点已核验</span>
-              </div>
-              <Quote aria-hidden="true" />
-              <blockquote id="passage-title">照见五蕴皆空，度一切苦厄。</blockquote>
-              <div className={styles.interpretation}>
-                <span>理解提示 · 平台释义</span>
-                <p>
-                  “空”不是把生活抹去，而是提醒我们：身体、感受和念头都依条件而起，
-                  不必把它们紧握成永恒不变的“我”。
-                </p>
-                <small>此提示不是经文直译，当前未标注外部具名审校。</small>
-              </div>
-              <div className={styles.passageCitation}>
-                <div>
-                  <strong>《般若波罗蜜多心经》</strong>
-                  <span>唐 · 玄奘译 · T0251</span>
-                </div>
-                <Link href="/jingzang/xinjing/001-0848c#T0251.001.0848c06">
-                  打开原句 <ArrowRight aria-hidden="true" size={15} />
-                </Link>
-              </div>
-            </div>
-          </aside>
+          <DailyScripture className={styles.revealThree} />
         </div>
 
         <dl className={styles.heroLedger} aria-label="当前可核验能力">
