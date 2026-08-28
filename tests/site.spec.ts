@@ -45,6 +45,7 @@ async function readSitemaps(request: APIRequestContext) {
 const criticalRoutes = [
   "/",
   "/wenjing",
+  "/hedui",
   "/gainian",
   "/xue",
   "/xue/biji",
@@ -113,6 +114,7 @@ const criticalRoutes = [
 const sitemapLandingRoutes = [
   "/",
   "/wenjing",
+  "/hedui",
   "/gainian",
   "/xue",
   "/xue/biji",
@@ -151,6 +153,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
 
@@ -187,6 +190,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
   const cases = [
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
+    ["/hedui", "https://www.foxue.ai/hedui"],
     ["/xue", "https://www.foxue.ai/xue"],
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
     ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
@@ -271,6 +275,8 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   }
 
   expect(llms).toContain("AI 问经与原典出处对照");
+  expect(llms).toContain("https://www.foxue.ai/hedui");
+  expect(llms).toContain("近似转述与当前证据不足");
   expect(llms).toContain("全球佛经作品分母治理");
   expect(llms).toContain("汉巴作品关系双人复核队列");
   expect(full).toContain("/gainian/wuchang");
@@ -307,6 +313,13 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/wenjing#page", "WebPage"],
         ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/hedui",
+      required: [
+        ["https://www.foxue.ai/hedui#page", "WebPage"],
+        ["https://www.foxue.ai/hedui#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -997,6 +1010,91 @@ test("问经结果同时展示结论、范围和原典证据", async ({ page }) 
   await expect(sourceLink).toHaveAttribute("href", /\/jingzang\/xinjing\/001-0848c#/);
   expect(new URL(page.url()).search).toBe("");
   expect(page.url()).not.toContain(encodeURIComponent(question));
+});
+
+test("首页核对原句入口以标签页存储传递内容且不泄露到网址", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("tab", { name: "核对原句" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("色即是空，空即是色");
+  await page.getByRole("button", { name: "核对出处" }).click();
+
+  await page.waitForURL(/\/hedui$/);
+  await expect(page.getByText("原句可核验", { exact: true })).toBeVisible();
+  await expect(page.getByText("T0251.001.0848c07", { exact: true })).toBeVisible();
+  expect(new URL(page.url()).search).toBe("");
+  expect(page.url()).not.toContain(encodeURIComponent("色即是空"));
+});
+
+test("说法核对明确区分原句、近似转述与当前证据不足", async ({ page }) => {
+  await page.goto("/hedui");
+  const input = page.getByLabel("输入要核对的佛学说法");
+
+  await input.fill("诸恶莫作，诸善奉行，自净其意，是诸佛教");
+  await page.getByRole("button", { name: "核对原句" }).click();
+  await expect(page.getByText("原句可核验", { exact: true })).toBeVisible();
+  await expect(page.getByText("T0210.002.0567b01", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "打开原句" })).toHaveAttribute(
+    "href",
+    "/jingzang/fajujing/002-0567b#T0210.002.0567b01",
+  );
+
+  await input.fill("无所住而生心");
+  await page.getByRole("button", { name: "核对原句" }).click();
+  await expect(page.getByText("找到近似原句", { exact: true })).toBeVisible();
+  await expect(page.getByText(/底本原句多了“应”与“其”二字/)).toBeVisible();
+  await expect(page.getByText("T0235.001.0749c22", { exact: true })).toBeVisible();
+
+  await input.fill("佛说：不执着但要发心");
+  await page.getByRole("button", { name: "核对原句" }).click();
+  await expect(page.getByText("找到近似原句", { exact: true })).toBeVisible();
+  await expect(page.getByText(/现代概括，不是底本原句/)).toBeVisible();
+
+  const unsupported = "前世五百次的回眸，才换来今生的擦肩而过";
+  await input.fill(unsupported);
+  await page.getByRole("button", { name: "核对原句" }).click();
+  await expect(page.getByText("当前证据不足", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "不要先把它标成“佛说”。" })).toBeVisible();
+  await expect(page.getByText(/不能说：整部汉译、巴利、藏文或梵文佛典/)).toBeVisible();
+  expect(new URL(page.url()).search).toBe("");
+
+  await input.fill("色即是空，所以物质根本不存在");
+  await page.getByRole("button", { name: "核对原句" }).click();
+  await expect(page.getByText("当前证据不足", { exact: true })).toBeVisible();
+});
+
+test("说法核对忽略旧查询参数并通过可访问性检查", async ({ page }) => {
+  await page.goto("/hedui?q=这是不应进入页面的私密说法");
+
+  await expect(page.getByLabel("输入要核对的佛学说法")).toHaveValue("");
+  await expect(page.getByText("这是不应进入页面的私密说法")).toHaveCount(0);
+
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  const severe = accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  );
+  expect(severe).toEqual([]);
+});
+
+test("说法核对的五条证据链接均打开包含句首锚点的正确版页", async ({ request }) => {
+  const targets = [
+    ["/jingzang/xinjing/001-0848c", "T0251.001.0848c07"],
+    ["/jingzang/jingangjing/001-0749c", "T0235.001.0749c22"],
+    ["/jingzang/jingangjing/001-0752b", "T0235.001.0752b28"],
+    ["/jingzang/fajujing/002-0567b", "T0210.002.0567b01"],
+    ["/jingzang/xinjing/001-0848c", "T0251.001.0848c14"],
+  ] as const;
+
+  for (const [path, locator] of targets) {
+    const response = await request.get(path);
+    expect(response.ok(), `${path} 应可访问`).toBeTruthy();
+    expect(await response.text()).toContain(`id="${locator}"`);
+  }
 });
 
 test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ page, request }) => {
