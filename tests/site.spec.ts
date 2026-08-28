@@ -836,6 +836,37 @@ test("书房完整呈现所有保留收藏而不是只显示前六条", async ({
   await expect(page.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
 });
 
+test("书房停留期间相对阅读时间会继续更新", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-08-28T00:00:30.000Z") });
+  await page.addInitScript(() => {
+    const timestamp = "2026-08-28T00:00:00.000Z";
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({
+      version: 1,
+      entries: [{
+        id: "clock-test/001-page",
+        slug: "clock-test",
+        folioKey: "001-page",
+        workTitle: "《时间边界测试》",
+        passageLabel: "第 1 页",
+        quoteLang: "zh-Hant",
+        languageLabel: "汉文",
+        pageHref: "/jingzang/clock-test/001-page",
+        resumeHref: "/jingzang/clock-test/001-page#foxue-resume=line-1",
+        locator: "line-1",
+        preview: "相对时间应在页面停留期间更新。",
+        pinned: true,
+        firstReadAt: timestamp,
+        lastReadAt: timestamp,
+      }],
+    }));
+  });
+
+  await page.goto("/xue#reading-shelf");
+  await expect(page.getByText("汉文 · 刚刚读过", { exact: true })).toBeVisible();
+  await page.clock.fastForward(31_000);
+  await expect(page.getByText("汉文 · 1 分钟前", { exact: true })).toBeVisible();
+});
+
 test("多语种卷页保存原文语种与稳定坐标", async ({ page }) => {
   await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
 

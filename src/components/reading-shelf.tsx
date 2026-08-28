@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -20,8 +21,8 @@ import {
 } from "@/components/use-reading-shelf";
 import styles from "./reading-shelf.module.css";
 
-function relativeReadTime(isoDate: string) {
-  const elapsed = Math.max(0, Date.now() - Date.parse(isoDate));
+function relativeReadTime(isoDate: string, now: number) {
+  const elapsed = Math.max(0, now - Date.parse(isoDate));
   const minutes = Math.floor(elapsed / 60_000);
   if (minutes < 1) return "刚刚读过";
   if (minutes < 60) return `${minutes} 分钟前`;
@@ -33,8 +34,21 @@ function relativeReadTime(isoDate: string) {
     .format(new Date(isoDate));
 }
 
+function useRelativeReadClock(active: boolean) {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    if (!active) return;
+    const timer = window.setInterval(() => setNow(Date.now()), 30_000);
+    return () => window.clearInterval(timer);
+  }, [active]);
+
+  return now;
+}
+
 export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home" }) {
   const entries = useReadingShelf();
+  const now = useRelativeReadClock(entries.length > 0);
   const latest = entries[0];
 
   if (variant === "home") {
@@ -46,7 +60,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           <span>续</span>
         </div>
         <div className={styles.homeResumeCopy}>
-          <p>继续研读 · {relativeReadTime(latest.lastReadAt)}</p>
+          <p>继续研读 · {relativeReadTime(latest.lastReadAt, now)}</p>
           <h2 id="home-resume-title">{latest.workTitle} · {latest.passageLabel}</h2>
           <span>
             {latest.locator ? `${latest.languageLabel} · ${latest.locator}` : `${latest.languageLabel} · 从本页继续`}
@@ -104,7 +118,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
                   {entry.pinned ? <BookmarkCheck aria-hidden="true" /> : <Clock3 aria-hidden="true" />}
                   {entry.pinned ? "已收藏" : index === 0 ? "接着读" : "最近研读"}
                 </span>
-                <span>{entry.languageLabel} · {relativeReadTime(entry.lastReadAt)}</span>
+                <span>{entry.languageLabel} · {relativeReadTime(entry.lastReadAt, now)}</span>
               </div>
               <div className={styles.entryCopy}>
                 <h3>{entry.workTitle}</h3>
