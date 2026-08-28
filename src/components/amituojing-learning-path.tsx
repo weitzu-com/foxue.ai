@@ -25,7 +25,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
-import { recordStudyPathProgress } from "@/components/use-study-path-activity";
+import { useStudyPathActivityRecorder } from "@/components/use-study-path-activity";
 import {
   amituojingFullTextHref,
   amituojingLearningDays,
@@ -190,9 +190,11 @@ export function AmituojingLearningPath() {
   ).length;
   const coveredCount = completedCount + skippedCount;
 
-  useEffect(() => {
-    recordStudyPathProgress("amituojing", progress.activeDay, progress.statuses);
-  }, [progress.activeDay, progress.statuses]);
+  const clearStudyPathActivity = useStudyPathActivityRecorder(
+    "amituojing",
+    progress.activeDay,
+    progress.statuses,
+  );
 
   useEffect(() => {
     function applySharedDay() {
@@ -244,6 +246,7 @@ export function AmituojingLearningPath() {
 
   function resetProgress() {
     if (!window.confirm("清除这台设备上的《佛说阿弥陀经》7 天研读进度？")) return;
+    clearStudyPathActivity();
     setActiveLens("practice");
     setDayHash(1);
     clearProgress();

@@ -16,7 +16,7 @@ import {
   SkipForward,
 } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
-import { recordStudyPathProgress } from "@/components/use-study-path-activity";
+import { useStudyPathActivityRecorder } from "@/components/use-study-path-activity";
 import {
   jingangjingFullTextHref,
   jingangjingLearningDays,
@@ -172,9 +172,11 @@ export function JingangjingLearningPath() {
   ).length;
   const coveredCount = completedCount + skippedCount;
 
-  useEffect(() => {
-    recordStudyPathProgress("jingangjing", progress.activeDay, progress.statuses);
-  }, [progress.activeDay, progress.statuses]);
+  const clearStudyPathActivity = useStudyPathActivityRecorder(
+    "jingangjing",
+    progress.activeDay,
+    progress.statuses,
+  );
 
   useEffect(() => {
     function applySharedDay() {
@@ -225,6 +227,7 @@ export function JingangjingLearningPath() {
 
   function resetProgress() {
     if (!window.confirm("清除这台设备上的《金刚经》7 天研读进度？")) return;
+    clearStudyPathActivity();
     setDayHash(1);
     clearProgress();
   }

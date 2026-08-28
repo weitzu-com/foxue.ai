@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useSyncExternalStore } from "react";
 import type { StudyPathId } from "@/data/study-path-registry";
 import {
   EMPTY_STUDY_PATH_ACTIVITY_SNAPSHOT,
@@ -56,7 +56,7 @@ export function useStudyPathActivities() {
   return useMemo(() => parseStudyPathActivities(snapshot), [snapshot]);
 }
 
-export function recordStudyPathProgress(
+function recordStudyPathProgress(
   id: StudyPathId,
   activeDay: number,
   statuses: Record<string, StudyPathDayStatus>,
@@ -67,4 +67,26 @@ export function recordStudyPathProgress(
     new Date().toISOString(),
   );
   saveSnapshot(serializeStudyPathActivities(next));
+}
+
+export function useStudyPathActivityRecorder(
+  id: StudyPathId,
+  activeDay: number,
+  statuses: Record<string, StudyPathDayStatus>,
+) {
+  const clearedPristineState = useRef(false);
+
+  useEffect(() => {
+    const pristine = activeDay === 1 && Object.keys(statuses).length === 0;
+    if (clearedPristineState.current && pristine) return;
+    clearedPristineState.current = false;
+    recordStudyPathProgress(id, activeDay, statuses);
+  }, [activeDay, id, statuses]);
+
+  return useCallback(() => {
+    clearedPristineState.current = true;
+    const next = parseStudyPathActivities(readSnapshot())
+      .filter((entry) => entry.id !== id);
+    saveSnapshot(serializeStudyPathActivities(next));
+  }, [id]);
 }

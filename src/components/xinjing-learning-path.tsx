@@ -22,7 +22,7 @@ import {
   type XinjingLearningDay,
 } from "@/data/xinjing-learning-path";
 import { StudyNoteComposer } from "@/components/study-note-composer";
-import { recordStudyPathProgress } from "@/components/use-study-path-activity";
+import { useStudyPathActivityRecorder } from "@/components/use-study-path-activity";
 import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "foxue:xinjing-seven-day-progress:v1";
@@ -307,9 +307,11 @@ export function XinjingLearningPath() {
   ).length;
   const coveredCount = completedCount + skippedCount;
 
-  useEffect(() => {
-    recordStudyPathProgress("xinjing", progress.activeDay, progress.statuses);
-  }, [progress.activeDay, progress.statuses]);
+  const clearStudyPathActivity = useStudyPathActivityRecorder(
+    "xinjing",
+    progress.activeDay,
+    progress.statuses,
+  );
 
   useEffect(() => {
     function applySharedDay() {
@@ -360,6 +362,7 @@ export function XinjingLearningPath() {
 
   function resetProgress() {
     if (!window.confirm("清除这台设备上的《心经》7 天学习进度？")) return;
+    clearStudyPathActivity();
     window.localStorage.removeItem(STORAGE_KEY);
     window.dispatchEvent(new Event(PROGRESS_EVENT));
   }

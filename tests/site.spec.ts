@@ -641,6 +641,9 @@ test("金刚经七日研读保留原典、版本边界与本地进度", async ({
   expect(await page.evaluate(() =>
     window.localStorage.getItem("foxue:jingangjing-seven-day-progress:v1"),
   )).toBeNull();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"jingangjing"');
 
   const source = await request.get("/jingzang/jingangjing/001-0749c");
   expect(source.ok()).toBeTruthy();
@@ -736,6 +739,15 @@ test("阿弥陀经七日净读分开修持、理解与双译校读", async ({ pa
   expect(accessibility.violations.filter((item) =>
     item.impact === "serious" || item.impact === "critical",
   )).toEqual([]);
+
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "清除本地进度" }).click();
+  expect(await page.evaluate(() =>
+    window.localStorage.getItem("foxue:amituojing-seven-day-progress:v1"),
+  )).toBeNull();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"amituojing"');
 });
 
 test("七日路径在首页和研读中心保留下一步而不制造连续打卡", async ({ page }) => {
@@ -791,6 +803,20 @@ test("七日路径在首页和研读中心保留下一步而不制造连续打�
   expect(mobileAccessibility.violations.filter((item) =>
     item.impact === "serious" || item.impact === "critical",
   )).toEqual([]);
+
+  await page.goto("/xue/xinjing#day-4");
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "清除本地进度" }).click();
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).not.toContain('"id":"xinjing"');
+
+  await page.goto("/xue");
+  await expect(page.locator('[data-study-path-card="xinjing"]')).toHaveCount(0);
+  await expect(page.locator('[data-study-path-card="amituojing"]')).toBeVisible();
+  await page.goto("/");
+  await expect(page.locator('[data-study-path-resume="xinjing"]')).toHaveCount(0);
+  await expect(page.locator('[data-study-path-resume="amituojing"]')).toBeVisible();
 });
 
 test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
