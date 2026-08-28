@@ -26,6 +26,8 @@ import { trackEvent } from "@/lib/analytics";
 const STORAGE_KEY = "foxue:jingangjing-seven-day-progress:v1";
 const PROGRESS_EVENT = "foxue:jingangjing-seven-day-progress-change";
 const EMPTY_SNAPSHOT = '{"version":1,"activeDay":1,"statuses":{}}';
+let memorySnapshot = EMPTY_SNAPSHOT;
+let localStorageAvailable = true;
 
 type DayStatus = "completed" | "skipped";
 
@@ -45,7 +47,14 @@ function subscribe(onStoreChange: () => void) {
 }
 
 function readSnapshot() {
-  return window.localStorage.getItem(STORAGE_KEY) ?? EMPTY_SNAPSHOT;
+  if (!localStorageAvailable) return memorySnapshot;
+
+  try {
+    memorySnapshot = window.localStorage.getItem(STORAGE_KEY) ?? EMPTY_SNAPSHOT;
+  } catch {
+    localStorageAvailable = false;
+  }
+  return memorySnapshot;
 }
 
 function readServerSnapshot() {
@@ -73,7 +82,26 @@ function parseProgress(snapshot: string): LearningProgress {
 }
 
 function saveProgress(progress: LearningProgress) {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  memorySnapshot = JSON.stringify(progress);
+  if (localStorageAvailable) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, memorySnapshot);
+    } catch {
+      localStorageAvailable = false;
+    }
+  }
+  window.dispatchEvent(new Event(PROGRESS_EVENT));
+}
+
+function clearProgress() {
+  memorySnapshot = EMPTY_SNAPSHOT;
+  if (localStorageAvailable) {
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      localStorageAvailable = false;
+    }
+  }
   window.dispatchEvent(new Event(PROGRESS_EVENT));
 }
 
@@ -185,8 +213,8 @@ export function JingangjingLearningPath() {
 
   function resetProgress() {
     if (!window.confirm("清除这台设备上的《金刚经》7 天研读进度？")) return;
-    window.localStorage.removeItem(STORAGE_KEY);
-    window.dispatchEvent(new Event(PROGRESS_EVENT));
+    setDayHash(1);
+    clearProgress();
   }
 
   return (

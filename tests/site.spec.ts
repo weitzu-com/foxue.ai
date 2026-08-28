@@ -585,6 +585,15 @@ test("金刚经七日研读保留原典、版本边界与本地进度", async ({
   );
   expect(stored).toContain('"6":"completed"');
 
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "清除本地进度" }).click();
+  await expect(page).toHaveURL(/#day-1$/);
+  await expect(page.locator(".path-day-paper__header p")).toContainText("第 1 天");
+  await expect(page.locator(".path-day-list .is-completed")).toHaveCount(0);
+  expect(await page.evaluate(() =>
+    window.localStorage.getItem("foxue:jingangjing-seven-day-progress:v1"),
+  )).toBeNull();
+
   const source = await request.get("/jingzang/jingangjing/001-0749c");
   expect(source.ok()).toBeTruthy();
   expect(await source.text()).toContain('id="T0235.001.0749c21"');
@@ -600,6 +609,30 @@ test("金刚经七日研读保留原典、版本边界与本地进度", async ({
     item.impact === "serious" || item.impact === "critical",
   );
   expect(severe).toEqual([]);
+});
+
+test("金刚经研读在本地存储被禁用时仍可阅读和推进", async ({ page }) => {
+  await page.addInitScript(() => {
+    const unavailable = () => {
+      throw new DOMException("Storage is unavailable", "SecurityError");
+    };
+    Object.defineProperties(Storage.prototype, {
+      getItem: { configurable: true, value: unavailable },
+      setItem: { configurable: true, value: unavailable },
+      removeItem: { configurable: true, value: unavailable },
+    });
+  });
+  await page.goto("/xue/jingangjing");
+
+  await expect(page.locator("h1")).toContainText("《金刚经》入门");
+  await page.getByRole("button", { name: /第 6 天.*未标记/ }).click();
+  await expect(page).toHaveURL(/#day-6$/);
+  await expect(page.getByRole("heading", { level: 2, name: "无住，不等于无心" })).toBeVisible();
+
+  await page.getByRole("button", { name: /读完这一日/ }).click();
+  await expect(page.getByRole("button", { name: /第 6 天.*已完成/ })).toBeVisible();
+  await expect(page.locator(".path-day-paper__header p")).toContainText("第 7 天");
+  await expect(page).toHaveURL(/#day-7$/);
 });
 
 test("研读中心按静读、理解与校勘组织入口", async ({ page }) => {
