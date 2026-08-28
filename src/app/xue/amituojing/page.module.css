@@ -1,0 +1,251 @@
+.page {
+  background:
+    linear-gradient(180deg, rgb(35 56 70 / 9%), transparent 650px),
+    var(--canvas);
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1fr) 330px;
+}
+
+.hero :global(.learning-hero__copy h1 em) {
+  color: #8d6428;
+}
+
+.heroSeal {
+  min-height: 350px;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  overflow: hidden;
+  border: 1px solid #213541;
+  background:
+    linear-gradient(150deg, rgb(255 255 255 / 5%), transparent 42%),
+    #172935;
+  color: #fff9ed;
+  box-shadow: 18px 18px 0 #d6c8a8;
+  transform: translateY(12px) rotate(-0.65deg);
+}
+
+.heroSeal > span {
+  display: grid;
+  place-items: center;
+  border-right: 1px solid rgb(255 255 255 / 18%);
+  color: #d9ad63;
+  font-family: var(--font-serif), serif;
+  font-size: 8.4rem;
+  line-height: 1;
+}
+
+.heroSeal > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.7rem 1.4rem;
+}
+
+.heroSeal svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-bottom: auto;
+  color: #d9ad63;
+  stroke-width: 1.35;
+}
+
+.heroSeal strong {
+  font-family: var(--font-serif), serif;
+  font-size: 1.05rem;
+}
+
+.heroSeal p {
+  margin: 0.6rem 0 0;
+  color: #c5d0d5;
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.overview :global(.learning-overview__grid a:hover) {
+  color: #8d6428;
+}
+
+.overview :global(.learning-overview__grid a > span:first-child),
+.overview :global(.learning-overview__link) {
+  color: #8d6428;
+}
+
+.expressionLedger {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  margin: -1rem 0 5rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid #7f6d50;
+  background:
+    linear-gradient(90deg, rgb(166 117 47 / 6%) 1px, transparent 1px),
+    color-mix(in srgb, #e5d5b6 35%, var(--paper));
+  background-size: 2.5rem 100%;
+}
+
+.expressionIntro > svg {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1.25rem;
+  color: #8d6428;
+  stroke-width: 1.4;
+}
+
+.expressionIntro h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.16;
+}
+
+.expressionIntro > p:last-child {
+  max-width: 44ch;
+  margin: 1.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.9;
+}
+
+.expressionLedger > ol {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #7f6d50;
+  list-style: none;
+}
+
+.expressionLedger li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+  gap: 1rem;
+  align-items: center;
+  min-height: 8.5rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #7f6d50;
+}
+
+.expressionLedger li > span {
+  align-self: start;
+  color: #8d6428;
+  font-family: var(--font-serif), serif;
+  font-size: 1.15rem;
+}
+
+.expressionLedger small {
+  color: #8d6428;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.expressionLedger h3 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.expressionLedger p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.67rem;
+}
+
+.expressionLedger code {
+  display: inline-block;
+  margin-top: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.56rem;
+  white-space: normal;
+}
+
+.expressionLedger li > a {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid #7f6d50;
+  color: #6d4a1f;
+}
+
+.expressionLedger li > a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.expressionLedger li > a svg {
+  width: 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroSeal {
+    width: min(100%, 440px);
+    min-height: 220px;
+    grid-template-columns: 150px 1fr;
+    transform: none;
+  }
+
+  .heroSeal > span {
+    font-size: 7rem;
+  }
+
+  .expressionLedger {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .heroSeal {
+    min-height: 195px;
+    grid-template-columns: 108px 1fr;
+  }
+
+  .heroSeal > span {
+    font-size: 5.4rem;
+  }
+
+  .expressionLedger {
+    padding: 1.5rem;
+  }
+
+  .expressionLedger li {
+    grid-template-columns: 1.8rem minmax(0, 1fr) 2.3rem;
+    gap: 0.65rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero :global(.learning-hero__copy h1 em),
+  .overview :global(.learning-overview__grid a > span:first-child),
+  .overview :global(.learning-overview__link),
+  .expressionIntro > svg,
+  .expressionLedger li > span,
+  .expressionLedger small {
+    color: #e0b66c;
+  }
+
+  .heroSeal {
+    border-color: #0d1b23;
+    background: #0f202a;
+    box-shadow: 18px 18px 0 #34362f;
+  }
+
+  .expressionLedger {
+    background:
+      linear-gradient(90deg, rgb(224 182 108 / 4%) 1px, transparent 1px),
+      color-mix(in srgb, #5b492c 32%, var(--paper));
+    background-size: 2.5rem 100%;
+  }
+
+  .expressionLedger li > a {
+    color: #e0b66c;
+  }
+}

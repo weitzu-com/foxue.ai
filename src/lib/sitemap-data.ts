@@ -11,6 +11,7 @@ export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitem
 const editorialHubPaths = [
   "/hedui",
   "/xue",
+  "/xue/amituojing",
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/biji",

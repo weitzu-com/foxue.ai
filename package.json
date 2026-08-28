@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/verify-jingangjing-learning-path.mjs && node scripts/verify-daily-scripture.mjs",
+    "prebuild": "node scripts/verify-jingangjing-learning-path.mjs && node scripts/verify-amituojing-learning-path.mjs && node scripts/verify-daily-scripture.mjs",
     "build": "next build",
     "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs",
     "start": "next start",
@@ -380,6 +380,7 @@
     "build:work-landing-text": "node scripts/build-work-landing-text.mjs --write",
     "verify:work-landing-text": "node scripts/build-work-landing-text.mjs",
     "verify:jingangjing-learning-path": "node scripts/verify-jingangjing-learning-path.mjs",
+    "verify:amituojing-learning-path": "node scripts/verify-amituojing-learning-path.mjs",
     "verify:daily-scripture": "node scripts/verify-daily-scripture.mjs",
     "verify:corpus-folio-runtime-guard": "node scripts/verify-corpus-folio-runtime-guard.mjs",
     "verify:sitemap-runtime-guard": "node scripts/verify-sitemap-runtime-guard.mjs",

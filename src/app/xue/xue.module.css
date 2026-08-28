@@ -285,7 +285,7 @@
 
 .pathGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -318,6 +318,25 @@
 
 .pathGold > a:hover {
   background: #74471d !important;
+  color: #fffdf8 !important;
+}
+
+.pathBlue {
+  background: #dce5e7;
+  color: var(--ink);
+}
+
+.pathBlue .pathTopline span {
+  color: #31596a;
+}
+
+.pathBlue > a {
+  border-color: #31596a !important;
+  color: #244756 !important;
+}
+
+.pathBlue > a:hover {
+  background: #244756 !important;
   color: #fffdf8 !important;
 }
 
@@ -1428,9 +1447,25 @@
   .modeGrid article,
   .pathWarm,
   .pathGold,
+  .pathBlue,
   .fajuSpecimen,
   .sourceCard {
     background: #202821;
+  }
+
+  .pathBlue .pathTopline span {
+    color: #e0b77f;
+  }
+
+  .pathBlue > a {
+    border-color: #e0b77f !important;
+    color: #e0b77f !important;
+  }
+
+  .pathBlue > a:hover {
+    border-color: #9a3d2f !important;
+    background: #9a3d2f !important;
+    color: #fffdf8 !important;
   }
 
   .studyFinder,
