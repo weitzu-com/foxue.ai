@@ -1357,6 +1357,12 @@ test("同一作品的异译与译本可从作品页和经卷页直接发现", as
   await expect(readerNavigator).toHaveAttribute("data-work-expression-count", "7");
   await readerNavigator.getByText("查看全部").click();
   await expect(readerNavigator.getByRole("link", { name: /金刚经 · Gemmell 英译/ })).toBeVisible();
+
+  await page.goto("/jingzang/derge-kangyur-d0017");
+  await expect(page.locator('[data-work-expression-navigator]')).toHaveCount(0);
+
+  await page.goto("/jingzang/nanchuan-digha-01");
+  await expect(page.locator('[data-work-expression-navigator]')).toHaveCount(0);
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {

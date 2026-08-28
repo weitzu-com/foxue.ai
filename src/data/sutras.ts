@@ -23,34 +23,47 @@ import dergeKangyurManifest from "../../data/corpus/derge/manifest-v0.1.0.json";
 type WorkAssignmentSource = {
   slug: string;
   workId: string;
+  workIdentityStatus?: string;
+  attachToExistingWork?: boolean;
+  relationDecision?: string;
 };
 
-function workAssignmentsFrom(files: readonly WorkAssignmentSource[]) {
-  return files.map(({ slug, workId }) => ({ slug, workId }));
+const unverifiedWorkIdentityDecision = /链接候选|保持独立作品|不据.+合并|不声明为同一作品|不进行.+合并/;
+
+function verifiedWorkAssignmentsFrom(files: readonly WorkAssignmentSource[]) {
+  return files
+    .filter(
+      ({ workIdentityStatus, attachToExistingWork, relationDecision }) =>
+        attachToExistingWork !== false &&
+        (!workIdentityStatus || workIdentityStatus.startsWith("verified_")) &&
+        !unverifiedWorkIdentityDecision.test(relationDecision ?? ""),
+    )
+    .map(({ slug, workId }) => ({ slug, workId }));
 }
 
 const workAssignments = [
-  ...workAssignmentsFrom(catalog.files),
-  ...workAssignmentsFrom(nanchuanCatalog.files),
-  ...workAssignmentsFrom(beyondTaishoSutraCatalog.files),
-  ...workAssignmentsFrom(satModernJapaneseCatalog.files),
-  ...workAssignmentsFrom(wikisourceKokuyakuDhpCatalog.files),
-  ...workAssignmentsFrom(wikisourceMullerDhpCatalog.files),
-  ...workAssignmentsFrom(gutenbergGemmellDiamondCatalog.files),
-  ...workAssignmentsFrom(gutenbergSoothillLotusCatalog.files),
-  ...workAssignmentsFrom(sujatoEnglishCatalog.files),
-  ...workAssignmentsFrom(sujatoEnglishKnCatalog.files),
-  ...workAssignmentsFrom(suttacentralManifest.files),
-  ...workAssignmentsFrom(dighaNikayaManifest.files),
-  ...workAssignmentsFrom(majjhimaNikayaManifest.files),
-  ...workAssignmentsFrom(samyuttaNikayaManifest.files),
-  ...workAssignmentsFrom(anguttaraNikayaManifest.files),
-  ...workAssignmentsFrom(khuddakaNikayaManifest.files),
-  ...workAssignmentsFrom(indicRootManifest.files),
-  ...workAssignmentsFrom(vinayaRootManifest.files),
-  ...workAssignmentsFrom(abhidhammaRootManifest.files),
-  ...workAssignmentsFrom(lzhRootManifest.files),
-  ...workAssignmentsFrom(dergeKangyurManifest.files),
+  ...verifiedWorkAssignmentsFrom(catalog.files),
+  // 南传分册共用的是集合级作品标识，不是可互换的文本表达。
+  ...verifiedWorkAssignmentsFrom(beyondTaishoSutraCatalog.files),
+  ...verifiedWorkAssignmentsFrom(satModernJapaneseCatalog.files),
+  ...verifiedWorkAssignmentsFrom(wikisourceKokuyakuDhpCatalog.files),
+  ...verifiedWorkAssignmentsFrom(wikisourceMullerDhpCatalog.files),
+  ...verifiedWorkAssignmentsFrom(gutenbergGemmellDiamondCatalog.files),
+  ...verifiedWorkAssignmentsFrom(gutenbergSoothillLotusCatalog.files),
+  ...verifiedWorkAssignmentsFrom(sujatoEnglishCatalog.files),
+  ...verifiedWorkAssignmentsFrom(sujatoEnglishKnCatalog.files),
+  ...verifiedWorkAssignmentsFrom(suttacentralManifest.files),
+  ...verifiedWorkAssignmentsFrom(dighaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(majjhimaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(samyuttaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(anguttaraNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(khuddakaNikayaManifest.files),
+  ...verifiedWorkAssignmentsFrom(indicRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(vinayaRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(abhidhammaRootManifest.files),
+  ...verifiedWorkAssignmentsFrom(lzhRootManifest.files),
+  // 德格 BDRC Work ID 明示为目录链接候选，过滤器会阻止未经复核的合并。
+  ...verifiedWorkAssignmentsFrom(dergeKangyurManifest.files),
 ];
 
 export type SutraSegment = {
