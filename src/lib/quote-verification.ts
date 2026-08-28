@@ -76,8 +76,8 @@ export const verifiedQuoteEvidence: QuoteEvidence[] = [
     title: "《般若波羅蜜多心經》",
     attribution: "唐 · 玄奘譯",
     canonId: "T0251",
-    locator: "T0251.001.0848c08",
-    href: "/jingzang/xinjing/001-0848c#T0251.001.0848c08",
+    locator: "T0251.001.0848c07",
+    href: "/jingzang/xinjing/001-0848c#T0251.001.0848c07",
     exactAliases: ["色即是空，空即是色", "色即是空"],
   },
   {
@@ -108,7 +108,7 @@ export const verifiedQuoteEvidence: QuoteEvidence[] = [
     attribution: "後秦 · 鳩摩羅什譯",
     canonId: "T0235",
     locator: "T0235.001.0752b28",
-    href: "/jingzang/jingangjing/001-0749c#T0235.001.0752b28",
+    href: "/jingzang/jingangjing/001-0752b#T0235.001.0752b28",
     exactAliases: ["一切有為法，如夢幻泡影，如露亦如電，應作如是觀"],
   },
   {
@@ -138,8 +138,8 @@ export const verifiedQuoteEvidence: QuoteEvidence[] = [
     title: "《般若波羅蜜多心經》",
     attribution: "唐 · 玄奘譯",
     canonId: "T0251",
-    locator: "T0251.001.0848c15",
-    href: "/jingzang/xinjing/001-0848c#T0251.001.0848c15",
+    locator: "T0251.001.0848c14",
+    href: "/jingzang/xinjing/001-0848c#T0251.001.0848c14",
     exactAliases: ["心無掛礙，無掛礙故，無有恐怖", "心無罣礙，無罣礙故，無有恐怖"],
   },
 ];

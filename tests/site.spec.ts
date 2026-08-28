@@ -1020,7 +1020,7 @@ test("首页核对原句入口以标签页存储传递内容且不泄露到网�
 
   await page.waitForURL(/\/hedui$/);
   await expect(page.getByText("原句可核验", { exact: true })).toBeVisible();
-  await expect(page.getByText("T0251.001.0848c08", { exact: true })).toBeVisible();
+  await expect(page.getByText("T0251.001.0848c07", { exact: true })).toBeVisible();
   expect(new URL(page.url()).search).toBe("");
   expect(page.url()).not.toContain(encodeURIComponent("色即是空"));
 });
@@ -1079,6 +1079,22 @@ test("说法核对忽略旧查询参数并通过可访问性检查", async ({ pa
     item.impact === "serious" || item.impact === "critical",
   );
   expect(severe).toEqual([]);
+});
+
+test("说法核对的五条证据链接均打开包含句首锚点的正确版页", async ({ request }) => {
+  const targets = [
+    ["/jingzang/xinjing/001-0848c", "T0251.001.0848c07"],
+    ["/jingzang/jingangjing/001-0749c", "T0235.001.0749c22"],
+    ["/jingzang/jingangjing/001-0752b", "T0235.001.0752b28"],
+    ["/jingzang/fajujing/002-0567b", "T0210.002.0567b01"],
+    ["/jingzang/xinjing/001-0848c", "T0251.001.0848c14"],
+  ] as const;
+
+  for (const [path, locator] of targets) {
+    const response = await request.get(path);
+    expect(response.ok(), `${path} 应可访问`).toBeTruthy();
+    expect(await response.text()).toContain(`id="${locator}"`);
+  }
 });
 
 test("空概念 Hub 区分传统边界并提供稳定原典入口", async ({ page, request }) => {
