@@ -90,7 +90,7 @@ pnpm build
 
 ## 5. 恢复网站
 
-平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 3,829 个受控完整全文表达或版本见证、46 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文见证与覆盖登记册。
+平台无关的最低恢复方式：在任意支持 Node 22 的环境执行 `pnpm build` 和 `pnpm start`。当前生产平台是 Vercel，但代码不依赖专有运行时即可阅读 4,144 个受控完整来源表达或版本见证、46 个节译、后分、节本、短本、残篇、组件、局部、分离、版本或已知缺文来源记录与覆盖登记册。
 
 Vercel 恢复顺序：
 
@@ -126,7 +126,7 @@ Vercel 恢复顺序：
 
 当前设计使用 Cloudflare R2 与 Worker，但对象布局和网站回退均不依赖该供应商。恢复顺序必须是：
 
-截至 2026-08-28 的生产事实：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health`、`/ready` 与 `v1/latest.json` 均已从公网验证。Worker 正在从私有 R2 桶 `foxue-ai-corpus` 以只读方式提供当前发行 `gbcr-6.26.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-dd80008cb1a9`；`storage=ready`、`preservationReady=true`，公开指针的清单 SHA-256 为 `c94718353e37df5f02d9df6552c4a6b246bd6e6501e933f60869699152124bc2`。该清单固定 284,495 个不可变对象与 2,892,796,439 字节；恢复演练除代表性旧对象外，还必须核验 Gemmell《金刚经》的 `works/GUTENBERG-DIAMOND-GEMMELL-1912/index.json`、`folios/001-c01.json`、`folios/001-c03-04.json` 与 `folios/001-c32.json`，其中合并的第三、四章不得被拆成虚构章节。Vercel Production 已设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 并完成重新部署。此为单一已验证发行与服务状态，不构成全球佛经覆盖率、全球公版判断或百年可用性保证。
+截至 2026-08-28 的生产事实：`canon.foxue.ai` 已绑定 `foxue-ai-corpus-edge`，Cloudflare TLS、`/health`、`/ready` 与 `v1/latest.json` 均已从公网验证。Worker 正在从私有 R2 桶 `foxue-ai-corpus` 以只读方式提供当前发行 `gbcr-6.27.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-f7eed38c2e74`；`storage=ready`、`preservationReady=true`，公开指针的清单 SHA-256 为 `82cd1aeda32a5593417cac81fd3a595eceb288aa13a10b35f4e6fb7e0dbdc843`。该清单固定 284,525 个不可变内容对象与 2,893,423,673 字节；恢复演练除代表性旧对象外，还必须核验 Gemmell《金刚经》的 `works/GUTENBERG-DIAMOND-GEMMELL-1912/index.json`、`folios/001-c01.json`、`folios/001-c03-04.json` 与 `folios/001-c32.json`，以及 Soothill《法华经》英译节本的 `works/GUTENBERG-LOTUS-SOOTHILL-1930/index.json`、`folios/001-c01.json` 与 `folios/001-c28.json`。Gemmell 原书合并的第三、四章不得被拆成虚构章节；Soothill 的 28 品来源记录完整，但其自述删节边界不得被恢复程序改写成无删节全文。Vercel Production 已设置 `CORPUS_ASSET_BASE_URL=https://canon.foxue.ai` 并完成重新部署。此为单一已验证发行与服务状态，不构成全球佛经覆盖率、全球公版判断或百年可用性保证。
 
 1. 建立私有对象桶 `foxue-ai-corpus`，配置最小权限的发布凭据；
 2. 运行 `pnpm build:corpus-release` 与 `pnpm verify:corpus-release`，记录本次构建输出的发布 ID、清单 SHA-256、对象计数、对象字节数与 `upload-plan.json`；不得把历史 v6.18 的计数或哈希当作后续内容寻址发行的预期值；

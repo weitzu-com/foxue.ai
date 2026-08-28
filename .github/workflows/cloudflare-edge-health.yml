@@ -25,9 +25,10 @@ jobs:
         env:
           # Keep these values aligned with the release actually deployed at canon.foxue.ai.
           # Update them in the deployment follow-up commit, never ahead of the Worker.
-          EXPECTED_RELEASE_ID: gbcr-6.26.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-dd80008cb1a9
-          EXPECTED_MANIFEST_SHA256: c94718353e37df5f02d9df6552c4a6b246bd6e6501e933f60869699152124bc2
+          EXPECTED_RELEASE_ID: gbcr-6.27.0-2b8ab8d5e4fe-eac6c24781dd-a582cf471b7c-f7eed38c2e74
+          EXPECTED_MANIFEST_SHA256: 82cd1aeda32a5593417cac81fd3a595eceb288aa13a10b35f4e6fb7e0dbdc843
           REQUIRE_READY: "true"
           REQUIRE_MULLER_INDEX: "true"
           REQUIRE_GEMMELL_INDEX: "true"
+          REQUIRE_SOOTHILL_INDEX: "true"
         run: node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai
