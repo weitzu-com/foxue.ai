@@ -677,6 +677,7 @@
 
   .homeResume,
   .homePathResume {
+    --home-red: #f1a18f;
     background: #202821;
     color: #f7f1e7;
   }
