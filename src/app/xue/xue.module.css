@@ -285,7 +285,7 @@
 
 .pathGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -300,6 +300,25 @@
 .pathWarm {
   background: #f8f3e8;
   color: var(--ink);
+}
+
+.pathGold {
+  background: #e8dcc3;
+  color: var(--ink);
+}
+
+.pathGold .pathTopline span {
+  color: #8a5a2b;
+}
+
+.pathGold > a {
+  border-color: #8a5a2b !important;
+  color: #74471d !important;
+}
+
+.pathGold > a:hover {
+  background: #74471d !important;
+  color: #fffdf8 !important;
 }
 
 .pathDark {
@@ -1185,6 +1204,7 @@
   }
 
   .modeGrid,
+  .pathGrid,
   .lensGrid {
     grid-template-columns: 1fr;
   }
@@ -1407,6 +1427,7 @@
 
   .modeGrid article,
   .pathWarm,
+  .pathGold,
   .fajuSpecimen,
   .sourceCard {
     background: #202821;
@@ -1447,8 +1468,24 @@
 
   .pathDark,
   .pathWarm,
+  .pathGold,
   .fajuSpecimen,
   .sourceCard {
     color: #f4eee3;
+  }
+
+  .pathGold > a {
+    border-color: #d8aa63 !important;
+    color: #edc990 !important;
+  }
+
+  .pathGold .pathTopline span {
+    color: #d8aa63;
+  }
+
+  .pathGold > a:hover {
+    border-color: #8d3024 !important;
+    background: #8d3024 !important;
+    color: #fffdf8 !important;
   }
 }

@@ -27,7 +27,7 @@ import styles from "./xue.module.css";
 
 const title = "佛经研读中心｜从静读到版本校勘";
 const description =
-  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：七日读《心经》，从汉译、巴利与历史英译并读《法句》，每一步都能回到稳定原典。";
+  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：七日读《心经》与《金刚经》，从汉译、巴利与历史英译并读《法句》，每一步都能回到稳定原典。";
 const pagePath = "/xue";
 
 export const metadata: Metadata = buildPageMetadata({ title, description, path: pagePath });
@@ -41,7 +41,7 @@ const pageJsonLd = buildPageJsonLd({
     { name: "首页", path: "/" },
     { name: "研读", path: pagePath },
   ],
-  about: ["佛经研读", "心经", "法句经", "巴利三藏", "佛典版本研究"],
+  about: ["佛经研读", "心经", "金刚经", "法句经", "巴利三藏", "佛典版本研究"],
   mainEntityId: `${absoluteUrl(pagePath)}#study-paths`,
 });
 
@@ -59,6 +59,17 @@ const studyPaths = [
   },
   {
     number: "02",
+    status: "七日核读",
+    title: "《金刚经》：从“云何住”读到“如是观”",
+    description:
+      "七段原文、七个稳定行段；每一天把入门提示、版本边界和个人观照分开呈现。",
+    meta: ["鸠摩罗什译 T0235", "7 段可核验引文", "7 种文本表达入口"],
+    href: "/xue/jingangjing",
+    action: "开始《金刚经》七日研读",
+    tone: "gold",
+  },
+  {
+    number: "03",
     status: "三源研读档案",
     title: "《法句》：让汉译、巴利与英译各自站稳",
     description:
@@ -121,7 +132,7 @@ export default function StudyPage() {
               <Link href="/xue/xinjing">
                 从《心经》开始 <ArrowRight aria-hidden="true" />
               </Link>
-              <Link href="/xue/faju">并读《法句》三种表达</Link>
+              <Link href="/xue/jingangjing">研读《金刚经》七段原文</Link>
               <Link href="/xue/biji">打开我的研读笺</Link>
             </div>
           </div>
@@ -187,15 +198,21 @@ export default function StudyPage() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>现在可读 · OPEN PATHS</p>
-              <h2 id="study-paths-title">两条路径，两种节奏。</h2>
+              <h2 id="study-paths-title">三条路径，三种进入方式。</h2>
             </div>
-            <p>一条适合连续七天慢慢进入；一条适合在一小时内完成一次有边界的跨语种观察。</p>
+            <p>两条七日路径分别练习逐段慢读与版本核读；一份三源档案适合在一小时内完成有边界的跨语种观察。</p>
           </div>
           <div className={styles.pathGrid}>
             {studyPaths.map((path) => (
               <article
                 key={path.href}
-                className={path.tone === "cinnabar" ? styles.pathWarm : styles.pathDark}
+                className={
+                  path.tone === "cinnabar"
+                    ? styles.pathWarm
+                    : path.tone === "gold"
+                      ? styles.pathGold
+                      : styles.pathDark
+                }
               >
                 <div className={styles.pathTopline}>
                   <span>{path.number}</span>

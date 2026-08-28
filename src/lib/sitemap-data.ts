@@ -8,7 +8,13 @@ export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitem
 // Editorial study pages can ship independently of the large corpus ledger.
 // Keep them in the lightweight hub sitemap without shifting every precomputed
 // corpus shard; a future full corpus rebuild may absorb them into the ledger.
-const editorialHubPaths = ["/hedui", "/xue", "/xue/faju", "/xue/biji"];
+const editorialHubPaths = [
+  "/hedui",
+  "/xue",
+  "/xue/faju",
+  "/xue/jingangjing",
+  "/xue/biji",
+];
 
 function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
   const url = `${siteOrigin}${path}`;
