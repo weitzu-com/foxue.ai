@@ -1313,6 +1313,19 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
   await expect(page.getByText("这是不应进入页面的私密问题")).toHaveCount(0);
 });
 
+test("经藏目录把检索与经典直达放在常见桌面首屏", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/jingzang");
+  const quickEntry = page.getByRole("navigation", { name: "经典直达" });
+  await expect(quickEntry.getByRole("link", { name: "心经" })).toHaveAttribute("href", "/jingzang/xinjing");
+  await expect(quickEntry.getByRole("link", { name: "金刚经" })).toHaveAttribute("href", "/jingzang/jingangjing");
+  await expect(quickEntry.getByRole("link", { name: "法句经" })).toHaveAttribute("href", "/jingzang/fajujing");
+  await expect(quickEntry.getByRole("link", { name: "长阿含经" })).toHaveAttribute("href", "/jingzang/changahanjing");
+
+  const searchBounds = await page.getByPlaceholder("输入经名、D／T 编号、EWTS 题名或译者").boundingBox();
+  expect(searchBounds?.y).toBeLessThan(800);
+});
+
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
   await expect(page.getByText(/4144 个完整文本/)).toBeVisible();
