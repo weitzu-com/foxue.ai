@@ -6,6 +6,7 @@ const expectedManifestSha256 = process.env.EXPECTED_MANIFEST_SHA256;
 const requireReady = process.env.REQUIRE_READY === "true";
 const requireMullerIndex = process.env.REQUIRE_MULLER_INDEX === "true";
 const requireGemmellIndex = process.env.REQUIRE_GEMMELL_INDEX === "true";
+const requireSoothillIndex = process.env.REQUIRE_SOOTHILL_INDEX === "true";
 const failures = [];
 const successes = [];
 
@@ -234,6 +235,25 @@ if (requireGemmellIndex && health?.body?.releaseId) {
       object.response.status === (shouldBeReady ? 200 : 503),
       `Gemmell《金刚经》${label}可用性与存储状态一致（${object.response.status}）`,
       `Gemmell《金刚经》${label}未通过公网对象键门禁（${object.response.status}）`,
+    );
+  }
+}
+
+if (requireSoothillIndex && health?.body?.releaseId) {
+  const base = `/v1/releases/${health.body.releaseId}/works/GUTENBERG-LOTUS-SOOTHILL-1930`;
+  const requiredObjects = [
+    ["索引", `${base}/index.json`],
+    ["第一品", `${base}/folios/001-c01.json`],
+    ["第二十八品", `${base}/folios/001-c28.json`],
+  ];
+  for (const [label, pathname] of requiredObjects) {
+    const object = await request(pathname, { method: "HEAD" });
+    if (!object) continue;
+    const shouldBeReady = health.body?.storage === "ready";
+    check(
+      object.response.status === (shouldBeReady ? 200 : 503),
+      `Soothill《法华经》英译节本${label}可用性与存储状态一致（${object.response.status}）`,
+      `Soothill《法华经》英译节本${label}未通过公网对象键门禁（${object.response.status}）`,
     );
   }
 }

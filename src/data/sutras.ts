@@ -5,6 +5,7 @@ import satModernJapaneseCatalog from "../../data/corpus/sat/modern-japanese-cata
 import wikisourceKokuyakuDhpCatalog from "../../data/corpus/wikisource/kokuyaku-dhp-catalog-v1.0.0.json";
 import wikisourceMullerDhpCatalog from "../../data/corpus/wikisource/muller-dhp-catalog-v1.0.0.json";
 import gutenbergGemmellDiamondCatalog from "../../data/corpus/gutenberg/diamond-sutra-gemmell-catalog-v1.0.0.json";
+import gutenbergSoothillLotusCatalog from "../../data/corpus/gutenberg/lotus-sutra-soothill-catalog-v1.0.0.json";
 import sujatoEnglishCatalog from "../../data/corpus/suttacentral/sujato-en-catalog-v1.0.0.json";
 import sujatoEnglishKnCatalog from "../../data/corpus/suttacentral/sujato-en-kn-catalog-v1.0.0.json";
 import suttacentralManifest from "../../data/corpus/suttacentral/manifest-v0.7.0.json";
@@ -396,13 +397,16 @@ const cbetaAttributionNote = (file: (typeof catalog.files)[number]) => {
   if (file.sourceRole === "public_domain_english_translation_from_chinese_expression") {
     return "1912 年 Gemmell 公版英译；挂接已持有 Vajracchedikā／《金刚经》作品及其鸠摩罗什汉译见证，不另建作品，也不把英译等同佛陀逐字亲说。Project Gutenberg 只标记美国公有领域，站外使用仍需核对当地法律。32 章标签由 31 个来源阅读单元覆盖，扫描本逐页校勘与独立人工译文复核仍待完成。";
   }
+  if (file.sourceRole === "public_domain_abridged_english_translation_from_chinese_expression") {
+    return "1930 年 Soothill 公版英译节本；挂接已持有 T0262《妙法莲华经》及鸠摩罗什汉译见证，不另建作品。Project Gutenberg 只标记美国公有领域；28 品来源正文全部保存，但 Soothill 明言删去重复与部分细节，因此不标作未删节全译。扫描对勘、独立人工译文复核与 T0262 逐句对齐仍待完成。";
+  }
   if (file.sourceRole === "sujato_english_translation_expression") {
     return "Bhikkhu Sujato CC0 英译；挂接已持有巴利经藏作品，不另建作品，也不把英译等同佛陀逐字亲说。署名 Bhikkhu Sujato 与 SuttaCentral / Bilara published 固定提交。SuttaCentral 数据不得用于生成式模型训练。";
   }
   return undefined;
 };
 
-export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...sujatoEnglishKnCatalog.files, ...wikisourceMullerDhpCatalog.files, ...gutenbergGemmellDiamondCatalog.files].map((file) => {
+export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...beyondTaishoSutraCatalog.files, ...satModernJapaneseCatalog.files, ...wikisourceKokuyakuDhpCatalog.files, ...sujatoEnglishCatalog.files, ...sujatoEnglishKnCatalog.files, ...wikisourceMullerDhpCatalog.files, ...gutenbergGemmellDiamondCatalog.files, ...gutenbergSoothillLotusCatalog.files].map((file) => {
   const generated: Sutra = {
     slug: file.slug,
     title: file.presentation.title,
@@ -416,6 +420,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
       ? "SuttaCentral / Bilara"
       : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
       ? "Project Gutenberg · Gemmell 1912"
+      : file.sourceRole === "public_domain_abridged_english_translation_from_chinese_expression"
+      ? "Project Gutenberg · Soothill 1930"
       : file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "Wikisource 國譯法句經"
       : file.sourceRole === "public_domain_english_translation_expression"
@@ -426,6 +432,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
       ? "CC0 1.0；署名 Bhikkhu Sujato 与 SuttaCentral；禁止用于生成式模型训练"
       : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
       ? "Project Gutenberg 标记美国公有领域；署名 William Gemmell、1912 年伦敦版与鸠摩罗什汉译本；美国以外请核对当地法律"
+      : file.sourceRole === "public_domain_abridged_english_translation_from_chinese_expression"
+      ? "Project Gutenberg 标记美国公有领域；署名 W. E. Soothill、前言所记 Bunno Kato 合作、1930 年 Oxford 版与鸠摩罗什汉译本；美国以外请核对当地法律"
       : file.sourceRole === "kokuyaku_japanese_translation_expression"
       ? "公有领域；署名 Wikisource、1918 年國譯大藏經與立花俊道"
       : file.sourceRole === "public_domain_english_translation_expression"
@@ -445,6 +453,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
       ? "english-translation-folio" as const
       : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
       ? "english-translation-folio" as const
+      : file.sourceRole === "public_domain_abridged_english_translation_from_chinese_expression"
+      ? "english-translation-folio" as const
       : file.parser === "sat_tei" ? "sat-folio" as const : undefined,
     status: file.sourceRole === "sujato_english_translation_expression"
       ? "完整原文 · 英文译本"
@@ -454,6 +464,8 @@ export const sutras: Sutra[] = [...catalog.files, ...nanchuanCatalog.files, ...b
       ? "完整原文 · 公版英译"
       : file.sourceRole === "public_domain_english_translation_from_chinese_expression"
       ? "完整原文 · 公版英译"
+      : file.sourceRole === "public_domain_abridged_english_translation_from_chinese_expression"
+      ? "节译见证 · 完整来源记录"
       : file.parser === "sat_tei"
       ? "完整原文 · 现代日译"
       : file.completeness === "complete_source_file_partial_work_witness"

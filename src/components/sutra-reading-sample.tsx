@@ -321,6 +321,7 @@ export function SutraReadingSample({
   const isKokuyaku = edition.sourceKind === "wikisource" && edition.contentLanguage === "ja";
   const isEnglishWikisource = edition.sourceKind === "wikisource" && edition.contentLanguage === "en";
   const isGemmellTranslation = slug === "gutenberg-en-diamond-gemmell";
+  const isSoothillTranslation = slug === "gutenberg-en-lotus-soothill";
   const segmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行" : "段";
   const stableSegmentUnit = isCbeta || isDerge || isSat || isKokuyaku || isEnglishWikisource ? "行段" : "段落";
   const textLanguageLabel = isPinyin
@@ -369,6 +370,11 @@ export function SutraReadingSample({
             title: "忠实保留 Gemmell 公版英译。",
             body: "1912 年英译原书分次、译者责任、鸠摩罗什汉译来源关系与 Project Gutenberg 的美国公有领域边界保持不变；扫描本逐页校勘状态如实公开。",
           }
+      : isSoothillTranslation
+        ? {
+            title: "忠实保留 Soothill 英译节本。",
+            body: "1930 年英译节本的 28 品、编辑责任、鸠摩罗什汉译来源关系与美国公有领域边界保持不变；译者明言删节，不能当作未删节全译。",
+          }
       : isEnglishWikisource
         ? {
             title: "忠实保留公版英译。",
@@ -403,6 +409,8 @@ export function SutraReadingSample({
           ? "本页仅重组显示层；1918 年文语国译、品次、责任署名与稳定行号均未改动。"
         : isGemmellTranslation
           ? "本页仅重组显示层；1912 年 Gemmell 公版英译、原书分次、译者责任与稳定行号均未改动；Chapter 3 and 4 的合并边界如实保留。"
+        : isSoothillTranslation
+          ? "本页仅重组显示层；1930 年 Soothill 公版英译节本、28 品次序、编辑责任与稳定行号均未改动；省略重复与细节的删节边界如实保留。"
         : isEnglishWikisource
           ? "本页仅重组显示层；1881 年公版英译、品次、译者责任与稳定行号均未改动。"
         : "本页仅重组显示层；原文、原生次序与 Bilara 段落标识均未改动。";

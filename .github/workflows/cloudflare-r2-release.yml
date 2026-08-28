@@ -128,6 +128,7 @@ jobs:
           REQUIRE_READY: "true"
           REQUIRE_MULLER_INDEX: "true"
           REQUIRE_GEMMELL_INDEX: "true"
+          REQUIRE_SOOTHILL_INDEX: "true"
         run: |
           set -Eeuo pipefail
           deadline=$((SECONDS + 180))

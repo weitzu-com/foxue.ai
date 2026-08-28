@@ -60,6 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const kokuyaku = sutra.readerMode === "kokuyaku-folio";
     const englishTranslation = sutra.readerMode === "english-translation-folio";
     const gemmellTranslation = sutra.slug === "gutenberg-en-diamond-gemmell";
+    const soothillTranslation = sutra.slug === "gutenberg-en-lotus-soothill";
     const collection = folioCollectionLabel(sutra);
     const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
     const originalLanguageLabel = derge
@@ -81,6 +82,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
           : gemmellTranslation
             ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 分，1912 年 William Gemmell 公版英译。`
+          : soothillTranslation
+            ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 品，1930 年 W. E. Soothill 公版英译节本；本品来源完整，但全书明确经过删节。`
           : englishTranslation
             ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
           : sat
@@ -219,11 +222,12 @@ export default async function SutraFolioPage({ params }: PageProps) {
   const kokuyaku = sutra.readerMode === "kokuyaku-folio";
   const englishTranslation = sutra.readerMode === "english-translation-folio";
   const gemmellTranslation = sutra.slug === "gutenberg-en-diamond-gemmell";
+  const soothillTranslation = sutra.slug === "gutenberg-en-lotus-soothill";
   const translationChapter = sat || kokuyaku || englishTranslation;
   const collection = folioCollectionLabel(sutra);
   const partialWitness = sutra.status.includes("见证 · 完整来源记录") || sutra.status === "残篇候选 · 完整来源记录";
   const partialHeading = sutra.status.replace(" · 完整来源记录", " · 完整来源分页");
-  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : gemmellTranslation ? "分" : englishTranslation ? "品" : translationChapter ? "章" : "卷";
+  const groupUnit = chaptered ? "品" : bilara ? "阅读页" : derge ? "函" : gemmellTranslation ? "分" : soothillTranslation || englishTranslation ? "品" : translationChapter ? "章" : "卷";
   const originalLanguageLabel = kokuyaku
     ? "文语国译"
     : englishTranslation
@@ -266,6 +270,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 國譯`
         : gemmellTranslation
           ? `第 ${translatedChapterNumber(folio.item.label)} 分 · Gemmell 英譯`
+        : soothillTranslation
+          ? `第 ${translatedChapterNumber(folio.item.label)} 品 · Soothill 英译节本`
         : englishTranslation
           ? `第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品 · 英譯`
         : sat
@@ -305,11 +311,13 @@ export default async function SutraFolioPage({ params }: PageProps) {
         : kokuyaku
           ? "国译"
           : englishTranslation
-            ? "英译"
+            ? soothillTranslation ? "英译节本" : "英译"
           : sat
             ? "日译"
             : "全经";
-  const corpusScopeLabel = bilara
+  const corpusScopeLabel = soothillTranslation
+    ? "节译见证"
+    : bilara
     ? partialWitness
       ? "局部见证"
       : /律藏|论藏|毗昙/.test(sutra.tradition)
@@ -326,6 +334,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
         ? "完整藏文原文 · 德格版页"
         : gemmellTranslation
           ? "完整公版英译 · 原书分次"
+        : soothillTranslation
+          ? "删节公版英译 · 28 品完整来源"
         : englishTranslation
           ? "完整公版英译 · 分品阅读"
         : partialWitness
@@ -353,6 +363,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1918 年文语国译。`
         : gemmellTranslation
           ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 分，1912 年 William Gemmell 公版英译。`
+        : soothillTranslation
+          ? `${sutra.title}第 ${translatedChapterNumber(folio.item.label)} 品，1930 年 W. E. Soothill 公版英译节本；本品来源完整，但全书明确经过删节。`
         : englishTranslation
           ? `${sutra.title}第 ${Number(String(folio.item.label).replace(/^c/, ""))} 品，1881 年 Max Müller 公版英译。`
         : sat
@@ -413,7 +425,11 @@ export default async function SutraFolioPage({ params }: PageProps) {
           folioKey={folio.item.key}
           workTitle={`《${sutra.title}》`}
           passageLabel={currentHeading}
-          folioLabel={gemmellTranslation ? `第 ${translatedChapterNumber(folio.item.label)} 分` : folio.item.label}
+          folioLabel={gemmellTranslation
+            ? `第 ${translatedChapterNumber(folio.item.label)} 分`
+            : soothillTranslation
+              ? `第 ${translatedChapterNumber(folio.item.label)} 品`
+              : folio.item.label}
           edition={readingEdition}
           segments={folio.segments}
           sourceName={sutra.sourceName}
@@ -445,6 +461,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? "国译品次"
                     : gemmellTranslation
                       ? "Gemmell 英译分次"
+                    : soothillTranslation
+                      ? "Soothill 英译节本品次"
                     : englishTranslation
                       ? "英译品次"
                     : sat
@@ -453,6 +471,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
             currentLabel: currentHeading,
             groupsLabel: gemmellTranslation
               ? "原书英译分目"
+              : soothillTranslation
+              ? "英译节本品目"
               : englishTranslation
               ? "英译品目"
               : useNearbyDirectory ? `附近${groupUnit}目` : `全经${groupUnit}目`,
@@ -466,6 +486,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                     ? "当前品"
                     : gemmellTranslation
                       ? "当前分次"
+                    : soothillTranslation
+                      ? "当前品"
                     : englishTranslation
                       ? "英译品次"
                     : sat
@@ -487,6 +509,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                       ? `第 ${Number(group.juan)} 品`
                       : gemmellTranslation
                         ? `第 ${translatedChapterNumber(group.first.label)} 分`
+                      : soothillTranslation
+                        ? `第 ${translatedChapterNumber(group.first.label)} 品`
                       : englishTranslation
                         ? `第 ${Number(String(group.first.label).replace(/^c/, ""))} 品`
                       : sat
@@ -508,6 +532,8 @@ export default async function SutraFolioPage({ params }: PageProps) {
                       ? `第 ${Number(item.juan)} 品`
                       : gemmellTranslation
                         ? `第 ${translatedChapterNumber(item.label)} 分`
+                      : soothillTranslation
+                        ? `第 ${translatedChapterNumber(item.label)} 品`
                       : englishTranslation
                         ? `第 ${Number(String(item.label).replace(/^c/, ""))} 品`
                       : sat

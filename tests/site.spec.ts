@@ -87,6 +87,9 @@ const criticalRoutes = [
   "/jingzang/gutenberg-en-diamond-gemmell/001-c01",
   "/jingzang/gutenberg-en-diamond-gemmell/001-c03-04",
   "/jingzang/gutenberg-en-diamond-gemmell/001-c32",
+  "/jingzang/gutenberg-en-lotus-soothill",
+  "/jingzang/gutenberg-en-lotus-soothill/001-c01",
+  "/jingzang/gutenberg-en-lotus-soothill/001-c28",
   "/jingzang/digha-nikaya-dn1/001-dn1-0001-0120",
   "/jingzang/majjhima-nikaya-mn1/001-mn1-0001-0120",
   "/jingzang/samyutta-nikaya-sn1/001-sn1-1-0001-0020",
@@ -1312,7 +1315,7 @@ test("旧查询参数不会被读取或显示", async ({ page }) => {
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
-  await expect(page.getByText(/4143 个完整文本/)).toBeVisible();
+  await expect(page.getByText(/4144 个完整文本/)).toBeVisible();
   await expect(page.locator(".sutra-row")).toHaveCount(60);
   await expect(page.getByRole("link", { name: "第 66 页" })).toHaveAttribute("href", "/jingzang/page/66");
 
@@ -1522,7 +1525,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     },
     globalDenominatorImpact: "none_until_scope_policy_identity_deduplication_and_independent_review",
   });
-  expect(coverage.generatedFrom.registryVersion).toBe("6.26.0");
+  expect(coverage.generatedFrom.registryVersion).toBe("6.27.0");
   expect(coverage.candidateInventory.globalDenominatorGovernance).toMatchObject({
     status: "public_draft_not_publishable",
     standardVersion: "0.1.0",
@@ -1541,10 +1544,10 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   expect(coverage.candidateInventory.globalDenominatorGovernance.publicationGates).toHaveLength(8);
   expect(coverage.localHoldings).toMatchObject({
     registeredWorks: 3396,
-    registeredExpressions: 4189,
+    registeredExpressions: 4190,
     fullSourceTextWorks: 3369,
-    fullSourceTextExpressions: 4143,
-    stableSegments: 5945340,
+    fullSourceTextExpressions: 4144,
+    stableSegments: 5945851,
     structureVerifiedWorks: 3396,
   });
   expect(coverage.candidateInventory.dergeKangyurFullTextWitness).toMatchObject({
@@ -2330,7 +2333,7 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
   });
   expect(coverage.links).toMatchObject({
     human: "https://www.foxue.ai/fugai",
-    registry: expect.stringContaining("registry-v6.26.0.json"),
+    registry: expect.stringContaining("registry-v6.27.0.json"),
     sourceSnapshot: expect.stringContaining("source-snapshots-v4.8.0.json"),
     chineseRemainingCollectionsInventory: expect.stringContaining("cbeta-remaining-collections-inventory-v0.1.0.json"),
     chineseRemainingFosuoFilter: expect.stringContaining("cbeta-remaining-fosuo-filter-v1.0.0.json"),
@@ -2343,6 +2346,8 @@ test("覆盖登记册拒绝伪造全球百分比并公开可复算 API", async (
     wikisourceMullerDhpBoundaryAudit: expect.stringContaining("muller-dhp-batch-v1.0.0.json"),
     gutenbergGemmellDiamondIngest: expect.stringContaining("gutenberg-diamond-gemmell-ingest-v1.0.0.json"),
     gutenbergGemmellDiamondBoundaryAudit: expect.stringContaining("diamond-sutra-gemmell-batch-v1.0.0.json"),
+    gutenbergSoothillLotusIngest: expect.stringContaining("gutenberg-lotus-soothill-ingest-v1.0.0.json"),
+    gutenbergSoothillLotusBoundaryAudit: expect.stringContaining("lotus-sutra-soothill-batch-v1.0.0.json"),
     suttacentralSujatoEnglishIngest: expect.stringContaining("suttacentral-sujato-en-ingest-v1.0.0.json"),
     suttacentralSujatoEnglishRightsAudit: expect.stringContaining("suttacentral-sujato-en-rights-audit-v1.0.0.json"),
     suttacentralSujatoEnglishBoundaryAudit: expect.stringContaining("sujato-en-batch-v1.0.0.json"),
@@ -5059,6 +5064,31 @@ test("1912 年 Gemmell《金刚经》英译保留原书合并章界与稳定锚�
   expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell");
   expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell/001-c03-04");
   expect(sitemap).toContain("/jingzang/gutenberg-en-diamond-gemmell/001-c32");
+});
+
+test("1930 年 Soothill《法华经》英译节本公开 28 品与删节边界", async ({ page, request }) => {
+  await page.goto("/jingzang/gutenberg-en-lotus-soothill");
+  await expect(page.getByRole("heading", { level: 1, name: "The Lotus of the Wonderful Law (W. E. Soothill, 1930)" })).toBeVisible();
+  await expect(page.getByText("节译见证 · 完整来源记录", { exact: true })).toBeVisible();
+  await expect(page.getByText(/Soothill 明言删去重复与部分细节/).first()).toBeVisible();
+  await expect(page.getByText(/Project Gutenberg 标记美国公有领域/).first()).toBeVisible();
+
+  await page.goto("/jingzang/gutenberg-en-lotus-soothill/001-c01");
+  await expect(page.getByText(/第 1 品 · Soothill 英译节本/).first()).toBeVisible();
+  await expect(page.getByText("删节公版英译 · 28 品完整来源", { exact: true })).toBeVisible();
+  await expect(page.getByText("Soothill 英译节本品次", { exact: true })).toBeVisible();
+  await expect(page.getByText(/Once the Buddha.*Vulture Peak/).first()).toBeVisible();
+  await expect(page.locator("#GUTENBERG-LOTUS-SOOTHILL-1930\\.001\\.s0000000100")).toBeVisible();
+
+  await page.goto("/jingzang/gutenberg-en-lotus-soothill/001-c28");
+  await expect(page.getByText(/第 28 品 · Soothill 英译节本/).first()).toBeVisible();
+  await expect(page.getByText(/made salutation to him and withdrew/).first()).toBeVisible();
+  await expect(page.locator("#GUTENBERG-LOTUS-SOOTHILL-1930\\.001\\.s0000051100")).toBeVisible();
+
+  const sitemap = await readSitemaps(request);
+  expect(sitemap).toContain("/jingzang/gutenberg-en-lotus-soothill");
+  expect(sitemap).toContain("/jingzang/gutenberg-en-lotus-soothill/001-c01");
+  expect(sitemap).toContain("/jingzang/gutenberg-en-lotus-soothill/001-c28");
 });
 
 test("Sujato CC0 英译挂接既有巴利作品并保留 Bilara 段落标识", async ({ page, request }) => {

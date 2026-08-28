@@ -70,6 +70,7 @@ for (const secret of [
 requirePattern(r2, "R2 发布未要求公开 ready", /REQUIRE_READY: "true"/);
 requirePattern(r2, "R2 发布未要求穆勒经目可用", /REQUIRE_MULLER_INDEX: "true"/);
 requirePattern(r2, "R2 发布未要求 Gemmell《金刚经》可用", /REQUIRE_GEMMELL_INDEX: "true"/);
+requirePattern(r2, "R2 发布未要求 Soothill《法华经》英译节本可用", /REQUIRE_SOOTHILL_INDEX: "true"/);
 requireOrder(r2, "R2 发布门禁必须先验证、再上传、再部署、最后公开验证", [
   "run: pnpm verify",
   "--dry-run --plan",
