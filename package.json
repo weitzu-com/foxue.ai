@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs",
+    "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs && node scripts/verify-jingangjing-learning-path.mjs",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
@@ -378,6 +378,7 @@
     "verify:corpus-folio-locator": "node scripts/build-corpus-folio-locator.mjs",
     "build:work-landing-text": "node scripts/build-work-landing-text.mjs --write",
     "verify:work-landing-text": "node scripts/build-work-landing-text.mjs",
+    "verify:jingangjing-learning-path": "node scripts/verify-jingangjing-learning-path.mjs",
     "verify:corpus-folio-runtime-guard": "node scripts/verify-corpus-folio-runtime-guard.mjs",
     "verify:sitemap-runtime-guard": "node scripts/verify-sitemap-runtime-guard.mjs",
     "verify:corpus-runtime-traces": "node scripts/verify-corpus-runtime-traces.mjs",
