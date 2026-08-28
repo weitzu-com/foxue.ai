@@ -9,6 +9,8 @@
   --reader-action-bg: #1d1d1f;
   --reader-action-ink: #fff;
   --reader-action-secondary: #d1d1d6;
+  --reader-search-match: #fff0ad;
+  --reader-search-current: #ffd970;
   min-width: 0;
   overflow: clip;
   border: 1px solid var(--reader-hairline);
@@ -431,6 +433,130 @@
   color: var(--reader-ink);
 }
 
+.pageSearch {
+  position: sticky;
+  top: 8.25rem;
+  z-index: 11;
+  padding: 1.25rem 1rem 1.35rem;
+  border-bottom: 1px solid var(--reader-hairline);
+  background: var(--reader-canvas);
+  color: var(--reader-ink);
+}
+
+.pageSearchHeading,
+.pageSearchFooter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pageSearchHeading label {
+  display: block;
+  color: var(--reader-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.pageSearchHeading p,
+.pageSearchFooter p {
+  margin: 0;
+  color: var(--reader-secondary);
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
+
+.pageSearchHeading p {
+  margin-top: 0.2rem;
+}
+
+.pageSearchHeading > button,
+.pageSearchNavigation button,
+.pageSearchSubmit {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--reader-hairline);
+  border-radius: 0.65rem;
+  background: var(--reader-surface);
+  color: var(--reader-ink);
+  font-size: 0.76rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+}
+
+.pageSearchHeading > button {
+  width: 2.75rem;
+  flex: 0 0 2.75rem;
+  padding: 0;
+}
+
+.pageSearchControls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.pageSearchControls input {
+  min-width: 0;
+  min-height: 2.85rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--reader-hairline);
+  border-radius: 0.7rem;
+  background: var(--reader-surface);
+  color: var(--reader-ink);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.pageSearchControls input::placeholder {
+  color: var(--reader-tertiary);
+  opacity: 1;
+}
+
+.pageSearchSubmit {
+  min-width: 5.2rem;
+  padding-inline: 0.9rem;
+  border-color: var(--reader-action-bg);
+  background: var(--reader-action-bg);
+  color: var(--reader-action-ink);
+}
+
+.pageSearchFooter {
+  align-items: center;
+  min-height: 2.75rem;
+  margin-top: 0.75rem;
+}
+
+.pageSearchFooter > p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pageSearchNavigation {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.35rem;
+}
+
+.pageSearchNavigation button {
+  padding-inline: 0.65rem;
+}
+
+.pageSearchHeading > button:hover,
+.pageSearchNavigation button:hover:not(:disabled) {
+  background: var(--reader-control);
+}
+
+.pageSearchNavigation button:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
 .pinyinNotice {
   max-width: 42rem;
   display: grid;
@@ -647,6 +773,18 @@
   scroll-margin-top: 9.5rem;
 }
 
+.experience [data-study-segment-id][data-reader-search-match="true"] {
+  border-radius: 0.16em;
+  background: var(--reader-search-match);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.experience [data-study-segment-id][data-reader-search-current="true"] {
+  background: var(--reader-search-current);
+  box-shadow: inset 0 -0.12em var(--cinnabar);
+}
+
 .sourceAnchor::before {
   content: "";
   display: none;
@@ -836,6 +974,8 @@
     --reader-action-bg: #f5f5f7;
     --reader-action-ink: #111113;
     --reader-action-secondary: #3a3a3c;
+    --reader-search-match: #55491e;
+    --reader-search-current: #74591d;
     box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%);
   }
 
@@ -852,6 +992,8 @@
 .readingDirectory summary:focus-visible,
 .directoryContent a:focus-visible,
 .toolbarActions button:focus-visible,
+.pageSearch button:focus-visible,
+.pageSearch input:focus-visible,
 .sourceDetails summary:focus-visible,
 .sourceDetails a:focus-visible,
 .paper :global(.reader-pager a:focus-visible) {
@@ -918,13 +1060,34 @@
 }
 
 @media (max-width: 559px) {
-  .toolbarLabel small {
+  .toolbarLabel {
     display: none;
   }
 
+  .toolbarActions {
+    width: 100%;
+  }
+
   .toolbarActions button {
-    min-width: 4.2rem;
-    padding-inline: 0.45rem;
+    min-width: 0;
+    flex: 1 1 0;
+    padding-inline: 0.3rem;
+  }
+
+  .pageSearchFooter {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .pageSearchNavigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pageSearchNavigation button {
+    min-width: 0;
+    padding-inline: 0.3rem;
   }
 
   .paper :global(.reader-pager) {
@@ -1054,6 +1217,10 @@
     padding-inline: 2rem;
   }
 
+  .pageSearch {
+    top: 8.875rem;
+  }
+
   .readingDirectory summary,
   .directoryContent {
     padding-inline: 5.5rem;
@@ -1116,6 +1283,7 @@
   .directoryCurrent svg,
   .directoryGrid a,
   .toolbarActions button,
+  .pageSearch button,
   .readingParagraph,
   .ruby rt,
   .sourceDetails summary > svg,

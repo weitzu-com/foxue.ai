@@ -4,11 +4,13 @@ import { readFile } from "node:fs/promises";
 
 const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动收藏并回到稳定原文位置";
 const readerPreferencesAnalyticsTestTitle = "经文阅读设置兼容旧偏好并把研究坐标保留到多语页面";
+const readerPageSearchAnalyticsTestTitle = "本页查句跨稳定段落定位且不上传原文";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const analyticsConsent = [
     readingShelfAnalyticsTestTitle,
     readerPreferencesAnalyticsTestTitle,
+    readerPageSearchAnalyticsTestTitle,
   ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
@@ -3112,6 +3114,111 @@ test(readerPreferencesAnalyticsTestTitle, async ({ page }) => {
   expect(accessibility.violations.filter((item) =>
     item.impact === "serious" || item.impact === "critical",
   )).toEqual([]);
+});
+
+test(readerPageSearchAnalyticsTestTitle, async ({ page }) => {
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
+  await page.addInitScript(() => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
+
+  await page.goto("/jingzang/xinjing/001-0848c");
+  const searchToggle = page.getByRole("button", { name: "打开本页查句" });
+  await expect(searchToggle).toHaveAttribute("aria-expanded", "false");
+  await searchToggle.click();
+  await expect(page.getByRole("button", { name: "关闭本页查句" }).first()).toHaveAttribute(
+    "aria-expanded",
+    "true",
+  );
+
+  const searchInput = page.getByRole("searchbox", { name: "本页查句" });
+  await expect(searchInput).toBeFocused();
+  await searchInput.fill("照见五蕴皆空");
+  await page.getByRole("button", { name: "查找", exact: true }).click();
+  await expect(page.getByRole("status")).toContainText(
+    "找到 1 处，当前第 1 处 · T0251.001.0848c06 → T0251.001.0848c07",
+  );
+  await expect.poll(async () => page.locator("[data-reader-search-current=true]").evaluateAll(
+    (elements) => [...new Set(elements.map((element) => (
+      (element as HTMLElement).dataset.studySegmentId
+    )))],
+  )).toEqual(["T0251.001.0848c06", "T0251.001.0848c07"]);
+  expect(new URL(page.url()).pathname).toBe("/jingzang/xinjing/001-0848c");
+  expect(new URL(page.url()).search).toBe("");
+  expect(new URL(page.url()).hash).toBe("");
+
+  const completedSearchEvents = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => (
+      call[0] === "event" && call[1] === "reader_page_search_completed"
+    ));
+  });
+  expect(completedSearchEvents).toEqual([[
+    "event",
+    "reader_page_search_completed",
+    {
+      query_length: 6,
+      match_count: 1,
+      search_scope: "current_folio",
+    },
+  ]]);
+  expect(await page.evaluate(() => (
+    window.sessionStorage.getItem("foxue:test-analytics-calls") ?? ""
+  ))).not.toContain("照见五蕴皆空");
+
+  await page.getByRole("button", { name: "清除", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("已清除本页查句结果。");
+  await expect(page.locator("[data-reader-search-match], [data-reader-search-current]")).toHaveCount(0);
+
+  await page.goto("/jingzang/dhammapada-pali/001-dhp1-20");
+  await page.getByRole("button", { name: "打开本页查句" }).click();
+  const paliSearchInput = page.getByRole("searchbox", { name: "本页查句" });
+  await paliSearchInput.fill("MANOPUBBAṄGAMĀ DHAMMĀ");
+  await page.getByRole("button", { name: "查找", exact: true }).click();
+  await expect(page.getByRole("status")).toContainText("找到 2 处，当前第 1 处 · dhp1:1");
+  await expect(page.locator('[data-study-segment-id="dhp1:1"][data-reader-search-current=true]')).toHaveCount(1);
+  await page.getByRole("button", { name: "下一个查句结果" }).click();
+  await expect(page.getByRole("status")).toContainText("找到 2 处，当前第 2 处 · dhp2:1");
+  await expect(page.locator('[data-study-segment-id="dhp2:1"][data-reader-search-current=true]')).toHaveCount(1);
+  await expect.poll(async () => {
+    const box = await page.getByRole("button", { name: "下一个查句结果" }).boundingBox();
+    return box ? box.y >= 0 && box.y + box.height <= (page.viewportSize()?.height ?? 0) : false;
+  }).toBe(true);
+
+  const allAnalyticsCalls = await page.evaluate(() => (
+    window.sessionStorage.getItem("foxue:test-analytics-calls") ?? ""
+  ));
+  expect(allAnalyticsCalls).not.toContain("MANOPUBBAṄGAMĀ DHAMMĀ");
+  const paliCompletedEvent = JSON.parse(allAnalyticsCalls).filter((call: unknown[]) => (
+    call[0] === "event" && call[1] === "reader_page_search_completed"
+  )).at(-1);
+  expect(paliCompletedEvent).toEqual([
+    "event",
+    "reader_page_search_completed",
+    {
+      query_length: 20,
+      match_count: 2,
+      search_scope: "current_folio",
+    },
+  ]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("search", { name: "在当前页原文中查句" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "打开本页查句" })).toBeFocused();
+  await expect(page.locator("[data-reader-search-match], [data-reader-search-current]")).toHaveCount(0);
 });
 
 test("句末引号与标点保持在同一阅读句内", async ({ page }) => {
