@@ -2174,7 +2174,27 @@ a {
   font-size: 0.7rem;
 }
 .analytics-consent button:hover { background: var(--wash); }
-.analytics-consent .analytics-consent__accept { background: var(--cinnabar); color: #fffdf7; }
+.analytics-consent .analytics-consent__accept {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar);
+  color: #fffdf7;
+}
+.analytics-consent .analytics-consent__accept:hover {
+  border-color: var(--cinnabar-deep);
+  background: var(--cinnabar-deep);
+}
+
+@media (prefers-color-scheme: dark) {
+  .analytics-consent .analytics-consent__accept {
+    border-color: #9f392b;
+    background: #9f392b;
+  }
+
+  .analytics-consent .analytics-consent__accept:hover {
+    border-color: #79291f;
+    background: #79291f;
+  }
+}
 
 @media (max-width: 680px) {
   .analytics-consent {

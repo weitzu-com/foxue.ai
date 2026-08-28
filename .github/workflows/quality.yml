@@ -28,10 +28,18 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm verify
+        env:
+          # A fake, format-valid ID renders the first-visit consent UI in E2E.
+          # It cannot write to the production property; normal tests seed denied.
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-FOXUETEST
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:seo:e2e
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-FOXUETEST
       - run: pnpm verify:seo:local-production
       - run: pnpm test:e2e
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-FOXUETEST
       - run: pnpm preserve
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: github.event_name == 'push'
