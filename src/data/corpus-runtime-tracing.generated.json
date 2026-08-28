@@ -1,8 +1,8 @@
 {
   "schema": "https://foxue.ai/schemas/corpus-runtime-tracing-v0.2",
   "maxBucketBytes": 8388608,
-  "totalAssets": 15081,
-  "totalBytes": 1239342190,
+  "totalAssets": 15082,
+  "totalBytes": 1239611654,
   "buckets": [
     {
       "id": "cb01",
@@ -433,7 +433,7 @@
         "src/data/corpus-work-catalog-chunks/53.json",
         "src/data/corpus-work-catalog-chunks/55.json",
         "src/data/corpus-work-catalog-chunks/76.json",
-        "src/data/corpus-work-catalog-chunks/87.json"
+        "src/data/corpus-work-catalog-chunks/88.json"
       ],
       "paths": [
         "data/corpus/cbeta/N09n0005.xml",
@@ -9378,7 +9378,7 @@
         "src/data/corpus-work-catalog-chunks/76.json",
         "src/data/corpus-work-catalog-chunks/78.json",
         "src/data/corpus-work-catalog-chunks/85.json",
-        "src/data/corpus-work-catalog-chunks/86.json",
+        "src/data/corpus-work-catalog-chunks/87.json",
         "src/data/corpus-work-catalog-chunks/88.json",
         "src/data/corpus-work-catalog-chunks/90.json",
         "src/data/corpus-work-catalog-chunks/91.json"
@@ -10696,24 +10696,30 @@
     {
       "id": "ws01",
       "sourceFamily": "wikisource",
-      "bytes": 302376,
+      "bytes": 571840,
       "smokePath": "/jingzang/gutenberg-en-diamond-gemmell/001-c01",
       "includeGlobs": [
         "data/corpus/gutenberg/diamond-sutra-gemmell-1912.xml",
+        "data/corpus/gutenberg/lotus-sutra-soothill-1930.xml",
         "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
         "data/corpus/wikisource/muller-dhp-1881.xml",
         "src/data/corpus-folio-locator-ledger.generated.json",
         "src/data/corpus-work-ledger.generated.json",
+        "src/data/corpus-folio-locator-chunks/31.json",
         "src/data/corpus-work-catalog-chunks/81.json",
-        "src/data/corpus-work-catalog-chunks/83.json"
+        "src/data/corpus-work-catalog-chunks/82.json",
+        "src/data/corpus-work-catalog-chunks/83.json",
+        "src/data/corpus-work-catalog-chunks/84.json"
       ],
       "paths": [
         "data/corpus/gutenberg/diamond-sutra-gemmell-1912.xml",
+        "data/corpus/gutenberg/lotus-sutra-soothill-1930.xml",
         "data/corpus/wikisource/kokuyaku-dhp-tachibana-1918.xml",
         "data/corpus/wikisource/muller-dhp-1881.xml"
       ],
       "slugs": [
         "gutenberg-en-diamond-gemmell",
+        "gutenberg-en-lotus-soothill",
         "wikisource-en-dhp-muller",
         "wikisource-ja-dhp"
       ]

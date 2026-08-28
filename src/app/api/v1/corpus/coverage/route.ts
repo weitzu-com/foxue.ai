@@ -9,7 +9,7 @@ export function GET() {
       ...buildCoverageSnapshot(),
       links: {
         human: absoluteUrl("/fugai"),
-        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.26.0.json",
+        registry: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/registry-v6.27.0.json",
         globalDenominatorHuman: absoluteUrl("/fenmu"),
         globalDenominatorStandard: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-standard-v0.1.0.json",
         globalDenominatorSourceUniverse: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/global-denominator-source-universe-v0.1.0.json",
@@ -36,6 +36,8 @@ export function GET() {
         wikisourceMullerDhpBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/wikisource/muller-dhp-batch-v1.0.0.json",
         gutenbergGemmellDiamondIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/gutenberg-diamond-gemmell-ingest-v1.0.0.json",
         gutenbergGemmellDiamondBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/gutenberg/diamond-sutra-gemmell-batch-v1.0.0.json",
+        gutenbergSoothillLotusIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/gutenberg-lotus-soothill-ingest-v1.0.0.json",
+        gutenbergSoothillLotusBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/gutenberg/lotus-sutra-soothill-batch-v1.0.0.json",
         suttacentralSujatoEnglishIngest: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-ingest-v1.0.0.json",
         suttacentralSujatoEnglishRightsAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-sujato-en-rights-audit-v1.0.0.json",
         suttacentralSujatoEnglishBoundaryAudit: "https://github.com/weitzu-com/foxue.ai/blob/main/data/corpus/suttacentral/sujato-en-batch-v1.0.0.json",

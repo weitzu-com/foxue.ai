@@ -1,0 +1,33 @@
+{
+  "schema": "https://foxue.ai/schemas/gbcr/gutenberg-lotus-soothill-ingest-v0.1",
+  "version": "1.0.0",
+  "generatedAt": "2026-08-28",
+  "cut": "first_principles_missing_legal_abridged_translation_expression",
+  "ingest": {
+    "title": "The Lotus of the Wonderful Law, or The Lotus Gospel",
+    "englishEditorTranslator": "W. E. Soothill",
+    "collaboratorStatedInPreface": "Bunno Kato",
+    "year": 1930,
+    "expressionSlug": "gutenberg-en-lotus-soothill",
+    "workId": "gbcr:work:saddharma-pundarika-t0262",
+    "newWorks": 0,
+    "newExpressions": 1,
+    "completeDigitalSourceFiles": 1,
+    "unabridgedTranslations": 0,
+    "globalCoverage": null,
+    "dualHumanReview": 0,
+    "mapping": "The 1930 abridged English edition attaches to the existing T0262 Saddharmapuṇḍarīka work and records its stated dependence on Kumārajīva's Chinese recension without claiming sentence alignment.",
+    "rights": {
+      "status": "approved_us_public_domain_with_jurisdiction_notice",
+      "commercialUse": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+      "redistribution": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+      "sourceRightsLabel": "Public domain in the USA.",
+      "publicationYear": 1930,
+      "attribution": "Project Gutenberg eBook 79267 + 1930 Oxford edition + W. E. Soothill + Bunno Kato collaboration stated in preface + Kumārajīva Chinese recension",
+      "reviewedAt": "2026-08-28",
+      "note": "Project Gutenberg's metadata makes a United States public-domain statement, not a worldwide claim. The reading asset preserves the complete 28-chapter body of Soothill's explicitly abridged edition and its editorial responsibility."
+    },
+    "qualityBoundary": "All 28 published chapter bodies and 511 normalized source paragraphs are present. Soothill explicitly omitted repetitions and detail; the expression is not labeled an unabridged or line-complete translation. Scan collation and independent human translation review remain false."
+  },
+  "caveat": "This ledger proves one complete digital source body for a public-domain-in-the-USA, explicitly abridged English Lotus Sutra edition was attached to an existing work. It does not prove worldwide public-domain status, unabridged completeness, sentence-level accuracy, or global Buddhist-canon coverage."
+}

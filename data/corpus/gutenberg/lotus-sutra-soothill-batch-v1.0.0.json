@@ -1,0 +1,134 @@
+{
+  "schema": "https://foxue.ai/schemas/gutenberg-lotus-soothill-batch-v1.0",
+  "version": "1.0.0",
+  "publishedAt": "2026-08-28",
+  "collection": "Project Gutenberg W. E. Soothill Lotus Sutra 1930",
+  "rightsCategory": "Project Gutenberg marks the 1930 English edition public domain in the USA; local-law check required elsewhere",
+  "upstreamSnapshot": {
+    "ebook": 79267,
+    "ebookUrl": "https://www.gutenberg.org/ebooks/79267",
+    "plainTextUrl": "https://www.gutenberg.org/cache/epub/79267/pg79267.txt",
+    "fetchedAt": "2026-08-28",
+    "releasedAt": "2026-08-04",
+    "textBytes": 409468,
+    "textSha256": "35f23836f209c0c7b9011f46e8462627eaf956c738cad1b57a74459b6357d893",
+    "rightsLabel": "Public domain in the USA."
+  },
+  "rightsDecision": {
+    "status": "approved_us_public_domain_with_jurisdiction_notice",
+    "commercialUse": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+    "redistribution": "allowed_in_usa_public_domain_local_law_check_elsewhere",
+    "sourceRightsLabel": "Public domain in the USA.",
+    "publicationYear": 1930,
+    "attribution": "Project Gutenberg eBook 79267 + 1930 Oxford edition + W. E. Soothill + Bunno Kato collaboration stated in preface + Kumārajīva Chinese recension",
+    "reviewedAt": "2026-08-28",
+    "note": "Project Gutenberg's metadata makes a United States public-domain statement, not a worldwide claim. The reading asset preserves the complete 28-chapter body of Soothill's explicitly abridged edition and its editorial responsibility."
+  },
+  "files": [
+    {
+      "id": "GUTENBERG-LOTUS-SOOTHILL-1930",
+      "slug": "gutenberg-en-lotus-soothill",
+      "workId": "gbcr:work:saddharma-pundarika-t0262",
+      "workTitle": "Saddharmapuṇḍarīka / 妙法莲华经",
+      "attachToExistingWork": true,
+      "sourceRole": "public_domain_abridged_english_translation_from_chinese_expression",
+      "canonicalStatus": "lotus_sutra_abridged_english_translation_from_kumarajiva_chinese",
+      "buddhaWordStatus": "translation_and_editorial_abridgment_not_verbatim_authorship_claim",
+      "bibliographicRelations": [
+        {
+          "type": "same_work_translation_group_verified",
+          "groupId": "lotus-soothill-english-kumarajiva",
+          "label": "Soothill English Lotus Sutra / Kumārajīva Chinese Saddharmapuṇḍarīka",
+          "evidence": "Soothill's preface identifies the common Chinese text as Kumārajīva's version and describes this English book as the result of translation work with Bunno Kato. It attaches to the existing T0262 Saddharmapuṇḍarīka work and creates no new canonical work.",
+          "externalIds": {
+            "projectGutenberg": [
+              "79267"
+            ],
+            "cbeta": [
+              "T0262"
+            ],
+            "responsibility": [
+              "W. E. Soothill",
+              "Bunno Kato"
+            ]
+          }
+        },
+        {
+          "type": "abridged_translation_of_expression_verified_not_aligned",
+          "groupId": "soothill-1930-abridged-from-t0262-recension",
+          "label": "Soothill 1930 abridgment / Kumārajīva Chinese recension",
+          "evidence": "Soothill explicitly says he omitted repetitions and detail and calls the publication an abbreviated version. All 28 published chapters are retained, but no sentence-level alignment or unabridged completeness is claimed.",
+          "externalIds": {
+            "cbeta": [
+              "T0262"
+            ],
+            "projectGutenberg": [
+              "79267"
+            ]
+          }
+        }
+      ],
+      "authorityIds": {
+        "projectGutenberg": "79267",
+        "cbetaRecension": "T0262",
+        "englishEditorTranslator": "W. E. Soothill",
+        "collaborator": "Bunno Kato",
+        "year": "1930"
+      },
+      "localPath": "data/corpus/gutenberg/lotus-sutra-soothill-1930.xml",
+      "upstreamPath": "Project Gutenberg eBook 79267 plain text",
+      "upstreamUrl": "https://www.gutenberg.org/cache/epub/79267/pg79267.txt",
+      "upstreamBytes": 409468,
+      "upstreamSha256": "35f23836f209c0c7b9011f46e8462627eaf956c738cad1b57a74459b6357d893",
+      "localBytes": 269464,
+      "localSha256": "9b0bbd8c4b49cf03b96f6b108ef592731c417bf2a0adc54d4765d5b8ac388b18",
+      "format": "application/tei+xml",
+      "completeness": "complete_source_file_partial_work_witness",
+      "parser": "sat_tei",
+      "presentation": {
+        "title": "The Lotus of the Wonderful Law (W. E. Soothill, 1930)",
+        "alternateTitle": "法华经 · Soothill 英译节本",
+        "tradition": "Mahāyāna Buddhism · Lotus Sutra",
+        "language": "English",
+        "canonRef": "Project Gutenberg eBook 79267 · Soothill English abridgment · 1930 · from Kumārajīva Chinese",
+        "translator": "W. E. Soothill 英译节编；前言记与 Bunno Kato 合作；据鸠摩罗什汉译本",
+        "summary": "W. E. Soothill's 1930 English abridgment from Kumārajīva's Chinese Lotus Sutra. All 28 chapters of the published abridged source are present. Repetitions and detail were deliberately omitted by the editor-translator, so this is not represented as an unabridged translation.",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/79267"
+      },
+      "verification": {
+        "segments": 511,
+        "folios": 28,
+        "juanRange": [
+          1,
+          1
+        ],
+        "juanSequence": [
+          1
+        ],
+        "anchors": [
+          "GUTENBERG-LOTUS-SOOTHILL-1930.001.s0000000100",
+          "GUTENBERG-LOTUS-SOOTHILL-1930.001.s0000051100"
+        ],
+        "chapterCount": 28,
+        "sourceHeadingCount": 28,
+        "sourceParagraphCount": 511,
+        "isAbridged": true,
+        "excludedPrefaceAndIntroductions": true,
+        "excludedGlossaryIndexAndNotes": true,
+        "humanSampleVerified": false,
+        "scanCollated": false,
+        "sentenceAlignedToT0262": false
+      }
+    }
+  ],
+  "collectionTotals": {
+    "newWorks": 0,
+    "attachedExistingWorks": 1,
+    "newExpressions": 1,
+    "completeDigitalSourceFiles": 1,
+    "unabridgedTranslations": 0,
+    "newStableSegments": 511,
+    "newFolios": 28,
+    "workCountingDecision": "The abridged English translation attaches to the existing T0262 Saddharmapuṇḍarīka work. It does not increase the canonical-work denominator or create a global coverage claim."
+  }
+}
