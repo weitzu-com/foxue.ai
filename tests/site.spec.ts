@@ -6,6 +6,7 @@ const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动�
 const readerPreferencesAnalyticsTestTitle = "经文阅读设置兼容旧偏好并把研究坐标保留到多语页面";
 const readerPageSearchAnalyticsTestTitle = "本页查句跨稳定段落定位且不上传原文";
 const savedPassagesAnalyticsTestTitle = "本地选文按稳定行段收藏、回显、导出且不上传原文";
+const passageQuestionAnalyticsTestTitle = "选中经文可锁定稳定出处进入问经且不上传原文";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const analyticsConsent = [
@@ -13,6 +14,7 @@ test.beforeEach(async ({ page }, testInfo) => {
     readerPreferencesAnalyticsTestTitle,
     readerPageSearchAnalyticsTestTitle,
     savedPassagesAnalyticsTestTitle,
+    passageQuestionAnalyticsTestTitle,
   ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
@@ -1093,6 +1095,175 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
     "href",
     `/jingzang/xinjing/001-0848c#${selected.id}`,
   );
+});
+
+test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
+  const path = "/jingzang/xinjing/001-0848c";
+  const locator = "T0251.001.0848c07";
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
+  await page.addInitScript(() => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
+  await page.goto(path);
+
+  const source = await page.evaluate((stableLocator) => {
+    const target = document.getElementById(stableLocator);
+    const sourceText = target
+      ?.querySelector<HTMLElement>("[data-source-text-equivalent]")
+      ?.textContent
+      ?.trim();
+    if (!target || !sourceText) throw new Error(`Missing stable source ${stableLocator}`);
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return sourceText;
+  }, locator);
+
+  const dock = await waitForFolioStudyDock(page);
+  const askPassage = dock.getByRole("link", { name: "问这段" });
+  await expect(askPassage).toHaveAttribute("href", "/wenjing");
+  await askPassage.click();
+  await page.waitForURL("/wenjing");
+
+  const sourceContext = page.locator("[data-question-source-context]");
+  await expect(sourceContext).toBeVisible();
+  await expect(sourceContext.getByRole("heading", { name: "已锁定原典，不会暗中换经" })).toBeVisible();
+  await expect(sourceContext.locator("blockquote")).toHaveText(source);
+  await expect(sourceContext.getByText(locator, { exact: true })).toBeVisible();
+  await expect(sourceContext.getByText("《般若波罗蜜多心经》", { exact: true })).toBeVisible();
+  await expect(sourceContext.getByText("唐玄奘译", { exact: true })).toBeVisible();
+  await expect(sourceContext.getByText(/大正藏 T08, no\. 251 · CBETA Online/)).toBeVisible();
+  await expect(sourceContext.getByRole("link", { name: "回到所选原文" })).toHaveAttribute(
+    "href",
+    `${path}#${locator}`,
+  );
+  await expect(page.getByLabel("输入佛学问题")).toHaveValue("这段经文是什么意思？");
+  await expect(page.getByText("问题与所选原文只保存在当前浏览器标签页，不写入网址或发送给服务器。")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /“空”不是虚无/ })).toBeVisible();
+  await expect(page.locator(".evidence-card").first().locator("blockquote")).toHaveText(source);
+  await expect(page.locator(".evidence-card").first().getByText(locator, { exact: true })).toBeVisible();
+
+  const storedContext = await page.evaluate(() => JSON.parse(
+    window.sessionStorage.getItem("foxue:question-source-context:v1") ?? "null",
+  ));
+  expect(storedContext).toMatchObject({
+    version: 1,
+    id: expect.stringMatching(/^folio:/),
+    workTitle: "《般若波罗蜜多心经》",
+    locator,
+    quote: source,
+    quoteLang: "zh-Hant",
+    sourceHref: `${path}#${locator}`,
+    sourceName: "CBETA Online",
+    responsibility: "唐玄奘译",
+    canonRef: "大正藏 T08, no. 251",
+    segmentCount: 1,
+  });
+
+  const startedAnalytics = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => call[0] === "event" && call[1] === "passage_question_started");
+  });
+  expect(startedAnalytics).toEqual([[
+    "event",
+    "passage_question_started",
+    {
+      source_id: expect.stringMatching(/^folio:/),
+      segment_count: 1,
+      source_language: "zh-Hant",
+    },
+  ]]);
+  expect(JSON.stringify(startedAnalytics)).not.toContain(source);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await sourceContext.getByRole("button", { name: "解除选段" }).click();
+  await expect(sourceContext).toHaveCount(0);
+  expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:question-source-context:v1"))).toBeNull();
+  await expect(page.getByRole("heading", { name: "当前经藏样本尚不足以可靠回答这个问题" })).toBeVisible();
+  const removedAnalytics = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => call[0] === "event" && call[1] === "passage_question_context_removed");
+  });
+  expect(removedAnalytics).toHaveLength(1);
+  expect(JSON.stringify(removedAnalytics)).not.toContain(source);
+});
+
+test("问这段超出审核解释范围时保留原文并明确停下", async ({ page }) => {
+  const path = "/jingzang/amituojing/001-0346c";
+  const locator = "T0366.001.0346c10";
+  await page.goto(path);
+
+  const source = await page.evaluate((stableLocator) => {
+    const target = document.getElementById(stableLocator);
+    const sourceText = target
+      ?.querySelector<HTMLElement>("[data-source-text-equivalent]")
+      ?.textContent
+      ?.trim();
+    if (!target || !sourceText) throw new Error(`Missing stable source ${stableLocator}`);
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return sourceText;
+  }, locator);
+
+  const dock = await waitForFolioStudyDock(page);
+  await dock.getByRole("link", { name: "问这段" }).click();
+  await page.waitForURL("/wenjing");
+
+  await expect(page.getByRole("heading", { name: "原文已锁定，解释证据仍不足" })).toBeVisible();
+  await expect(page.getByText("这里没有补写经义，也没有把平台推断标成佛说。")).toBeVisible();
+  const firstEvidence = page.locator(".evidence-card").first();
+  await expect(firstEvidence.locator("blockquote")).toHaveText(source);
+  await expect(firstEvidence.getByText(locator, { exact: true })).toBeVisible();
+  await expect(firstEvidence.getByRole("link", { name: /打开.*原文/ })).toHaveAttribute(
+    "href",
+    `${path}#${locator}`,
+  );
+});
+
+test("问经拒绝伪造的外部原典上下文", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.sessionStorage.setItem("foxue:pending-question", "这段经文是什么意思？");
+    window.sessionStorage.setItem("foxue:question-mode", "passage");
+    window.sessionStorage.setItem("foxue:question-source-context:v1", JSON.stringify({
+      version: 1,
+      id: "folio:forged",
+      workTitle: "伪造文本",
+      passageLabel: "伪造段落",
+      locator: "forged:1",
+      quote: "伪造原文",
+      quoteLang: "zh-Hans",
+      sourceHref: "https://example.com/not-a-scripture#forged",
+      sourceName: "未知来源",
+      responsibility: "未知责任者",
+      canonRef: "未知目录号",
+      segmentCount: 1,
+    }));
+  });
+  await page.goto("/wenjing");
+
+  await expect(page.locator("[data-question-source-context]")).toHaveCount(0);
+  await expect(page.getByText("伪造原文", { exact: true })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "回到所选原文" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "当前经藏样本尚不足以可靠回答这个问题" })).toBeVisible();
 });
 
 test(savedPassagesAnalyticsTestTitle, async ({ page }) => {

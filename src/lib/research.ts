@@ -7,6 +7,7 @@ import {
   observingMindConcept,
   type ConceptEntry,
 } from "@/lib/concepts";
+import type { QuestionSourceContext } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -51,12 +52,49 @@ function inlineEvidence(evidence: Evidence) {
   return evidence;
 }
 
-export function buildResearchResult(rawQuery: string): ResearchResult {
+function attachSourceContext(
+  result: ResearchResult,
+  sourceContext?: QuestionSourceContext | null,
+): ResearchResult {
+  if (!sourceContext) return result;
+
+  const selectedEvidence: Evidence = {
+    label: sourceContext.workTitle,
+    quote: sourceContext.quote,
+    href: sourceContext.sourceHref,
+    source: sourceContext.sourceName,
+    locator: sourceContext.locator,
+    relation: "直接",
+  };
+
+  return {
+    ...result,
+    evidence: [
+      selectedEvidence,
+      ...result.evidence.filter((item) =>
+        item.locator !== selectedEvidence.locator
+        || item.href !== selectedEvidence.href,
+      ),
+    ],
+  };
+}
+
+export function buildResearchResult(
+  rawQuery: string,
+  sourceContext?: QuestionSourceContext | null,
+): ResearchResult {
   const query = rawQuery.trim();
   const has = (...words: string[]) => words.some((word) => query.includes(word));
+  const sourceHas = (...phrases: string[]) => Boolean(
+    sourceContext && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
+  );
+  const finish = (result: ResearchResult) => attachSourceContext(result, sourceContext);
 
-  if (has("无我", "無我", "我所", "无我义", "無我義", "补特伽罗", "補特伽羅", "身无我", "身無我")) {
-    return {
+  if (
+    has("无我", "無我", "我所", "无我义", "無我義", "补特伽罗", "補特伽羅", "身无我", "身無我")
+    || sourceHas("色不是我", "悉皆無我", "無有我及以我所", "周遍內外，不見本性")
+  ) {
+    return finish({
       query,
       status: "有充分来源",
       title: "无我不是否认经验，而是不把身心执为固定主宰",
@@ -102,11 +140,14 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
           relation: "相关",
         }),
       ],
-    };
+    });
   }
 
-  if (has("无常", "無常", "老病死", "生者皆归死", "生者皆歸死", "一切有为法", "一切有爲法")) {
-    return {
+  if (
+    has("无常", "無常", "老病死", "生者皆归死", "生者皆歸死", "一切有为法", "一切有爲法")
+    || sourceHas("生者皆歸死", "未曾有一事，不被無常吞", "色是無常", "一切有爲法")
+  ) {
+    return finish({
       query,
       status: "有充分来源",
       title: "无常不是悲观口号，而是如实看见生灭与衰变",
@@ -152,11 +193,14 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
           relation: "相关",
         }),
       ],
-    };
+    });
   }
 
-  if (has("空", "五蕴", "心经", "执着", "执著")) {
-    return {
+  if (
+    has("空", "五蕴", "心经", "执着", "执著")
+    || sourceHas("照見五蘊皆空", "五蘊皆空", "色不異空", "色即是空", "諸法空相")
+  ) {
+    return finish({
       query,
       status: "有充分来源",
       title: "“空”不是虚无，而是不把因缘所生误认为固定自性",
@@ -173,11 +217,14 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
         evidenceFor("xinjing", 1),
         evidenceFor("jingangjing", 0, "相关"),
       ].filter((item): item is Evidence => item !== null),
-    };
+    });
   }
 
-  if (has("烦恼", "情绪", "痛苦", "焦虑", "心")) {
-    return {
+  if (
+    has("烦恼", "情绪", "痛苦", "焦虑", "心")
+    || sourceHas("心為法本", "心尊心使", "惡念而行", "善念而行")
+  ) {
+    return finish({
       query,
       status: "来源存在分歧",
       title: "先看清心如何带动语言与行动，再谈离苦",
@@ -194,11 +241,14 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
         evidenceFor("fajujing", 1),
         evidenceFor("xinjing", 0, "相关"),
       ].filter((item): item is Evidence => item !== null),
-    };
+    });
   }
 
-  if (has("无住", "金刚经", "如梦", "有为法", "发心")) {
-    return {
+  if (
+    has("无住", "金刚经", "如梦", "有为法", "发心")
+    || sourceHas("應無所住而生其心", "如夢幻泡影")
+  ) {
+    return finish({
       query,
       status: "有充分来源",
       title: "无住不是消极不做，而是不以占有心行动",
@@ -215,10 +265,25 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
         evidenceFor("jingangjing", 3),
         evidenceFor("jingangjing", 0, "相关"),
       ].filter((item): item is Evidence => item !== null),
-    };
+    });
   }
 
-  return {
+  if (sourceContext) {
+    return finish({
+      query,
+      status: "未找到可靠来源",
+      title: "原文已锁定，解释证据仍不足",
+      answer: [
+        `你所问的内容已锁定到${sourceContext.workTitle}的稳定坐标 ${sourceContext.locator}，下方第一张证据卡就是选中的原文，不会被系统暗中替换。`,
+        "当前可信原型尚未为这段登记经过审核的解释。锁定原文只能证明文字和出处，不能自动证明某一种解释；请先打开前后文，或改问一个更具体的术语。",
+      ],
+      caution:
+        "这里没有补写经义，也没有把平台推断标成佛说。解释范围扩大前，系统只保留原文、出处与可继续核对的路径。",
+      evidence: [],
+    });
+  }
+
+  return finish({
     query,
     status: query ? "未找到可靠来源" : "仅找到间接资料",
     title: query ? "当前经藏样本尚不足以可靠回答这个问题" : "从一个真实问题开始",
@@ -238,5 +303,5 @@ export function buildResearchResult(rawQuery: string): ResearchResult {
       : [evidenceFor("xinjing", 0, "相关")].filter(
           (item): item is Evidence => item !== null,
         ),
-  };
+  });
 }

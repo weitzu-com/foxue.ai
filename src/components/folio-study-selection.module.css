@@ -170,10 +170,16 @@
   cursor: pointer;
 }
 
-.quickActions .savePassageButton {
+.quickActions .askPassageLink {
   border-color: var(--cinnabar);
   background: var(--cinnabar);
   color: #fffdf8;
+}
+
+.quickActions .savePassageButton {
+  border-color: var(--cinnabar);
+  background: color-mix(in srgb, var(--cinnabar) 7%, transparent);
+  color: var(--ink);
 }
 
 .quickActions .savePassageButton[aria-pressed="true"] {
@@ -211,6 +217,12 @@
 }
 
 .quickActions .savePassageButton:hover {
+  background: color-mix(in srgb, var(--cinnabar) 12%, transparent);
+  color: var(--cinnabar);
+}
+
+.quickActions .askPassageLink:hover {
+  border-color: var(--cinnabar-deep);
   background: var(--cinnabar-deep);
   color: #fffdf8;
 }
@@ -491,12 +503,12 @@
     background: rgb(219 117 100 / 7%);
   }
 
-  .quickActions .savePassageButton {
+  .quickActions .askPassageLink {
     border-color: #8d3024;
     background: #8d3024;
   }
 
-  .quickActions .savePassageButton:hover {
+  .quickActions .askPassageLink:hover {
     background: #79291f;
   }
 
