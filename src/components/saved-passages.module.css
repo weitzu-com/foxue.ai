@@ -1,0 +1,338 @@
+.passages {
+  scroll-margin-top: 7rem;
+  padding: 0 0 84px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 34px 0 28px;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.toolbar p,
+.toolbar h2,
+.emptyState p,
+.emptyState h3 {
+  margin: 0;
+}
+
+.toolbar p,
+.emptyState p {
+  color: var(--cinnabar);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.toolbar h2 {
+  margin-top: 4px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.toolbar > div:first-child > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.toolbar > div:first-child > span svg {
+  width: 14px;
+  color: var(--success);
+}
+
+.toolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.toolbarActions button,
+.passageCard footer button {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.toolbarActions button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 15px;
+  border: 1px solid var(--cinnabar);
+  background: var(--cinnabar);
+  color: #fffdf8;
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.toolbarActions button:disabled {
+  border-color: var(--line-dark);
+  background: transparent;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.toolbarActions .clearButton {
+  border-color: var(--line-dark);
+  background: transparent;
+  color: var(--muted);
+}
+
+.toolbarActions button:not(:disabled):hover {
+  border-color: var(--cinnabar-deep);
+  background: var(--cinnabar-deep);
+}
+
+.toolbarActions .clearButton:hover {
+  border-color: var(--cinnabar);
+  background: transparent;
+  color: var(--cinnabar);
+}
+
+.toolbarActions svg {
+  width: 14px;
+}
+
+.emptyState {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 42px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.emptyState > svg {
+  width: 38px;
+  color: var(--cinnabar);
+}
+
+.emptyState h3 {
+  margin-top: 7px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 500;
+}
+
+.emptyState span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.emptyState a,
+.passageCard footer a,
+.passageCard footer button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 13px;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  color: inherit;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.emptyState a,
+.passageCard footer > a {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.emptyState a:hover,
+.passageCard footer a:hover,
+.passageCard footer button:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.passageList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passageCard {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.passageCard article {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.passageCard header {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 18px;
+  align-content: start;
+  padding: 30px 30px 30px 0;
+}
+
+.passageCard header > span {
+  color: var(--cinnabar);
+  font-family: var(--font-serif), serif;
+  font-size: 1.35rem;
+}
+
+.passageCard header p,
+.passageCard h3,
+.passageCard header small {
+  margin: 0;
+}
+
+.passageCard header p {
+  color: var(--cinnabar);
+  font: 700 0.55rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.passageCard h3 {
+  margin-top: 8px;
+  font-family: var(--font-serif), serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.passageCard header small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.59rem;
+}
+
+.passageCard blockquote {
+  margin: 0;
+  padding: 30px 34px;
+  border-left: 1px solid var(--line);
+  background: rgb(255 253 247 / 52%);
+  font-family: var(--font-serif), serif;
+  font-size: 0.92rem;
+  line-height: 1.95;
+  white-space: pre-line;
+}
+
+.passageCard footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.passageCard footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.passageCard footer svg {
+  width: 13px;
+}
+
+.feedback {
+  min-height: 1.6em;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.58rem;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .passages {
+    padding-bottom: 64px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .toolbarActions {
+    justify-content: flex-start;
+  }
+
+  .emptyState {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .emptyState a {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .passageCard article {
+    grid-template-columns: 1fr;
+  }
+
+  .passageCard header {
+    padding-right: 0;
+  }
+
+  .passageCard blockquote {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .passageCard footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbarActions,
+  .passageCard footer > div {
+    flex-direction: column;
+  }
+
+  .toolbarActions button,
+  .emptyState a,
+  .passageCard footer a,
+  .passageCard footer button {
+    width: 100%;
+  }
+
+  .emptyState {
+    grid-template-columns: 1fr;
+  }
+
+  .emptyState a {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .toolbarActions button:not(:disabled):not(.clearButton) {
+    border-color: #9f392b;
+    background: #9f392b;
+  }
+
+  .toolbarActions button:not(:disabled):not(.clearButton):hover {
+    border-color: #79291f;
+    background: #79291f;
+  }
+
+  .passageCard blockquote {
+    background: rgb(255 255 255 / 2%);
+  }
+}

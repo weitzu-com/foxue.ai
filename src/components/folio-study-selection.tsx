@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, ShieldCheck, X } from "lucide-react";
+import { Bookmark, BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, ShieldCheck, X } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
+import {
+  readSavedPassages,
+  saveSavedPassages,
+  useSavedPassages,
+} from "@/components/use-saved-passages";
 import { trackEvent } from "@/lib/analytics";
 import {
   buildFolioCitationRecord,
@@ -18,6 +23,10 @@ import {
   STUDY_NOTES_CANONICAL_ORIGIN,
   type StudyNoteSeed,
 } from "@/lib/study-notes";
+import {
+  removeSavedPassage,
+  savePassage,
+} from "@/lib/saved-passages";
 import styles from "./folio-study-selection.module.css";
 
 const MAX_QUOTE_CHARACTERS = 1_200;
@@ -25,6 +34,7 @@ const MAX_QUOTE_CHARACTERS = 1_200;
 type ActiveStudySelection = {
   seed: StudyNoteSeed;
   segmentCount: number;
+  segmentIds: string[];
 };
 
 function stableHash(value: string) {
@@ -70,10 +80,28 @@ export function FolioStudySelection({
   sourceLicense: string;
 }) {
   const selectionRootRef = useRef<HTMLDivElement>(null);
+  const savedPassages = useSavedPassages();
   const [activeSelection, setActiveSelection] = useState<ActiveStudySelection | null>(null);
   const [warning, setWarning] = useState("");
   const [feedback, setFeedback] = useState("");
   const [workbenchOpen, setWorkbenchOpen] = useState(false);
+  const savedOnCurrentPage = useMemo(() => savedPassages.filter((passage) =>
+    passage.slug === slug && passage.folioKey === folioKey,
+  ), [folioKey, savedPassages, slug]);
+  const activeSelectionSaved = activeSelection
+    ? savedPassages.some((passage) => passage.id === activeSelection.seed.id)
+    : false;
+
+  useEffect(() => {
+    const root = selectionRootRef.current;
+    if (!root) return;
+    const savedIds = new Set(savedOnCurrentPage.flatMap((passage) => passage.segmentIds));
+    root.querySelectorAll<HTMLElement>("[data-study-segment-id]").forEach((element) => {
+      const segmentId = element.dataset.studySegmentId;
+      if (segmentId && savedIds.has(segmentId)) element.dataset.savedPassage = "true";
+      else delete element.dataset.savedPassage;
+    });
+  }, [savedOnCurrentPage]);
 
   useEffect(() => {
     if (!activeSelection) return;
@@ -144,6 +172,7 @@ export function FolioStudySelection({
       setWorkbenchOpen(false);
       setActiveSelection({
         segmentCount: segmentIds.length,
+        segmentIds,
         seed: {
           id,
           workTitle,
@@ -253,6 +282,38 @@ export function FolioStudySelection({
     });
   }
 
+  function toggleSavedPassage() {
+    if (!activeSelection) return;
+    const current = readSavedPassages();
+    try {
+      if (activeSelectionSaved) {
+        saveSavedPassages(removeSavedPassage(current, activeSelection.seed.id));
+        setFeedback("已从本地选文移除；原典与其他笔记不受影响。");
+      } else {
+        saveSavedPassages(savePassage(current, {
+          id: activeSelection.seed.id,
+          slug,
+          folioKey,
+          workTitle: activeSelection.seed.workTitle,
+          passageLabel: activeSelection.seed.passageLabel,
+          locator: activeSelection.seed.locator,
+          quote: activeSelection.seed.quote,
+          quoteLang: activeSelection.seed.quoteLang,
+          sourceHref: activeSelection.seed.sourceHref,
+          segmentIds: activeSelection.segmentIds,
+        }, new Date().toISOString()));
+        setFeedback("已收藏到本地选文；下次回到本页仍会标出这些稳定行段。");
+      }
+      trackEvent("saved_passage_toggled", {
+        source_id: activeSelection.seed.id,
+        segment_count: activeSelection.segmentCount,
+        saved: !activeSelectionSaved,
+      });
+    } catch {
+      setFeedback("浏览器未能保存选文；可改用复制引文或导出引用。");
+    }
+  }
+
   const dock = activeSelection ? (
     <aside className={styles.dock} role="region" aria-label="选中文本研读工具" data-folio-study-dock>
       <header className={styles.dockHeader}>
@@ -271,6 +332,15 @@ export function FolioStudySelection({
       <blockquote lang={activeSelection.seed.quoteLang}>{activeSelection.seed.quote}</blockquote>
 
       <div className={styles.quickActions}>
+        <button
+          type="button"
+          className={styles.savePassageButton}
+          aria-pressed={activeSelectionSaved}
+          onClick={toggleSavedPassage}
+        >
+          {activeSelectionSaved ? <Check aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
+          {activeSelectionSaved ? "已收藏选文" : "收藏选文"}
+        </button>
         <button type="button" onClick={() => copyCitation("bibliographic")}>
           {feedback.startsWith("已复制书目") ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
           复制书目引文
@@ -284,8 +354,8 @@ export function FolioStudySelection({
         >
           <Braces aria-hidden="true" /> 引用工作台 <ChevronDown aria-hidden="true" />
         </button>
-        <Link href="/xue/biji"><BookMarked aria-hidden="true" /> 我的研读笺</Link>
-        <span><ShieldCheck aria-hidden="true" /> 笔记不登录、不上传</span>
+        <Link href="/xue/biji#saved-passages"><BookMarked aria-hidden="true" /> 我的选文</Link>
+        <span><ShieldCheck aria-hidden="true" /> 选文与笔记不登录、不上传</span>
       </div>
 
       {workbenchOpen && (
@@ -332,10 +402,13 @@ export function FolioStudySelection({
       <div className={styles.selectionHint}>
         <Highlighter aria-hidden="true" />
         <p>
-          <strong>选一句，留下可回到原典的研读笺。</strong>
-          <span>选中任意经文，即可按完整稳定行段写笔记，或导出可复核引用。</span>
+          <strong>选一句，收藏、写笔记或带走可复核引用。</strong>
+          <span>
+            选中任意经文，系统会按完整稳定行段取文。
+            {savedOnCurrentPage.length > 0 && ` 本页已有 ${savedOnCurrentPage.length} 则本地选文。`}
+          </span>
         </p>
-        <Link href="/xue/biji">我的研读笺</Link>
+        <Link href="/xue/biji#saved-passages">我的选文</Link>
       </div>
       <div ref={selectionRootRef}>{children}</div>
       {dock && typeof document !== "undefined" ? createPortal(dock, document.body) : null}
