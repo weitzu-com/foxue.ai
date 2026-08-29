@@ -773,6 +773,14 @@
   scroll-margin-top: 9.5rem;
 }
 
+.experience [data-study-segment-id][data-saved-passage="true"] {
+  border-radius: 0.16em;
+  background: color-mix(in srgb, var(--cinnabar) 8%, transparent);
+  box-shadow: inset 0 -0.08em color-mix(in srgb, var(--cinnabar) 50%, transparent);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .experience [data-study-segment-id][data-reader-search-match="true"] {
   border-radius: 0.16em;
   background: var(--reader-search-match);

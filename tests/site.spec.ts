@@ -5,12 +5,14 @@ import { readFile } from "node:fs/promises";
 const readingShelfAnalyticsTestTitle = "本地书房保存最近研读、主动收藏并回到稳定原文位置";
 const readerPreferencesAnalyticsTestTitle = "经文阅读设置兼容旧偏好并把研究坐标保留到多语页面";
 const readerPageSearchAnalyticsTestTitle = "本页查句跨稳定段落定位且不上传原文";
+const savedPassagesAnalyticsTestTitle = "本地选文按稳定行段收藏、回显、导出且不上传原文";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const analyticsConsent = [
     readingShelfAnalyticsTestTitle,
     readerPreferencesAnalyticsTestTitle,
     readerPageSearchAnalyticsTestTitle,
+    savedPassagesAnalyticsTestTitle,
   ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
@@ -1091,6 +1093,136 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
     "href",
     `/jingzang/xinjing/001-0848c#${selected.id}`,
   );
+});
+
+test(savedPassagesAnalyticsTestTitle, async ({ page }) => {
+  const path = "/jingzang/xinjing/001-0848c";
+  const locator = "T0251.001.0848c06";
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
+  await page.addInitScript(() => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
+  await page.goto(path);
+
+  const selectPassage = async () => page.evaluate((stableLocator) => {
+    const target = document.getElementById(stableLocator);
+    const source = target?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim();
+    if (!target || !source) throw new Error(`Missing stable source ${stableLocator}`);
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return source;
+  }, locator);
+
+  const source = await selectPassage();
+  const dock = await waitForFolioStudyDock(page);
+  const saveButton = dock.getByRole("button", { name: "收藏选文" });
+  await expect(saveButton).toHaveAttribute("aria-pressed", "false");
+  await saveButton.click();
+  await expect(dock.getByRole("button", { name: "已收藏选文" })).toHaveAttribute("aria-pressed", "true");
+  await expect(dock.getByText("已收藏到本地选文；下次回到本页仍会标出这些稳定行段。")).toBeVisible();
+
+  const stored = await page.evaluate(() => JSON.parse(
+    window.localStorage.getItem("foxue:saved-passages:v1") ?? '{"passages":[]}',
+  ));
+  expect(stored).toMatchObject({
+    version: 1,
+    passages: [expect.objectContaining({
+      slug: "xinjing",
+      folioKey: "001-0848c",
+      workTitle: "《般若波罗蜜多心经》",
+      locator,
+      quote: source,
+      quoteLang: "zh-Hant",
+      sourceHref: `${path}#${locator}`,
+      segmentIds: [locator],
+    })],
+  });
+  await expect(page.locator(`[data-study-segment-id="${locator}"][data-saved-passage="true"]`).first()).toBeVisible();
+
+  const savedAnalytics = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => call[0] === "event" && call[1] === "saved_passage_toggled");
+  });
+  expect(savedAnalytics).toEqual([[
+    "event",
+    "saved_passage_toggled",
+    {
+      source_id: expect.stringMatching(/^folio:/),
+      segment_count: 1,
+      saved: true,
+    },
+  ]]);
+  expect(JSON.stringify(savedAnalytics)).not.toContain(source);
+
+  await dock.getByRole("button", { name: "关闭选文研读工具" }).click();
+  await page.reload();
+  await expect(page.locator(`[data-study-segment-id="${locator}"][data-saved-passage="true"]`).first()).toBeVisible();
+  await expect(page.getByText("本页已有 1 则本地选文。")).toBeVisible();
+
+  await page.goto("/xue/biji#saved-passages");
+  const passageCollection = page.getByRole("region", { name: "我的选文" });
+  await expect(passageCollection).toBeVisible();
+  await expect(passageCollection.locator("blockquote")).toHaveText(source);
+  await expect(passageCollection.getByText(locator, { exact: true })).toBeVisible();
+  await expect(passageCollection.getByRole("link", { name: /回到原典/ })).toHaveAttribute(
+    "href",
+    `${path}#${locator}`,
+  );
+
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await passageCollection.getByRole("button", { name: "复制 Markdown" }).click();
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain(`- 稳定坐标：${locator}`);
+  expect(copied).toContain(`https://www.foxue.ai${path}#${locator}`);
+  expect(copied).toContain(`> ${source}`);
+
+  const downloadPromise = page.waitForEvent("download");
+  await passageCollection.getByRole("button", { name: "导出全部选文" }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^foxue-ai-saved-passages-\d{4}-\d{2}-\d{2}\.md$/);
+  const downloadPath = await download.path();
+  expect(downloadPath).not.toBeNull();
+  const markdown = await readFile(downloadPath ?? "", "utf8");
+  expect(markdown).toContain("# foxue.ai 本地选文");
+  expect(markdown).toContain(locator);
+  expect(markdown).toContain(source);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await passageCollection.getByRole("link", { name: /回到原典/ }).click();
+  await page.waitForURL(`${path}#${locator}`);
+  await selectPassage();
+  const reopenedDock = await waitForFolioStudyDock(page);
+  const removeButton = reopenedDock.getByRole("button", { name: "已收藏选文" });
+  await expect(removeButton).toHaveAttribute("aria-pressed", "true");
+  await removeButton.click();
+  await expect(reopenedDock.getByRole("button", { name: "收藏选文" })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.locator(`[data-study-segment-id="${locator}"][data-saved-passage="true"]`)).toHaveCount(0);
+  expect(await page.evaluate(() => JSON.parse(
+    window.localStorage.getItem("foxue:saved-passages:v1") ?? '{"passages":[]}',
+  ))).toEqual({ version: 1, passages: [] });
+
+  const toggles = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) => call[0] === "event" && call[1] === "saved_passage_toggled");
+  });
+  expect(toggles.map((call: unknown[]) => (call[2] as { saved: boolean }).saved)).toEqual([true, false]);
+  expect(JSON.stringify(toggles)).not.toContain(source);
 });
 
 test(readingShelfAnalyticsTestTitle, async ({ page }) => {

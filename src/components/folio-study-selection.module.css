@@ -170,10 +170,16 @@
   cursor: pointer;
 }
 
-.quickActions button {
+.quickActions .savePassageButton {
   border-color: var(--cinnabar);
   background: var(--cinnabar);
   color: #fffdf8;
+}
+
+.quickActions .savePassageButton[aria-pressed="true"] {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--success) 13%, transparent);
+  color: var(--ink);
 }
 
 .quickActions .workbenchToggle {
@@ -199,7 +205,20 @@
 }
 
 .quickActions button:hover {
+  border-color: var(--cinnabar);
+  background: rgb(159 57 43 / 5%);
+  color: var(--cinnabar);
+}
+
+.quickActions .savePassageButton:hover {
   background: var(--cinnabar-deep);
+  color: #fffdf8;
+}
+
+.quickActions .savePassageButton[aria-pressed="true"]:hover {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--success) 20%, transparent);
+  color: var(--ink);
 }
 
 .quickActions a:hover {
@@ -472,13 +491,20 @@
     background: rgb(219 117 100 / 7%);
   }
 
-  .quickActions button {
+  .quickActions .savePassageButton {
     border-color: #8d3024;
     background: #8d3024;
   }
 
-  .quickActions button:hover {
+  .quickActions .savePassageButton:hover {
     background: #79291f;
+  }
+
+  .quickActions .savePassageButton[aria-pressed="true"],
+  .quickActions .savePassageButton[aria-pressed="true"]:hover {
+    border-color: var(--success);
+    background: color-mix(in srgb, var(--success) 18%, transparent);
+    color: var(--ink);
   }
 }
 
