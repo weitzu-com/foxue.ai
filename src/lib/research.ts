@@ -7,7 +7,7 @@ import {
   observingMindConcept,
   type ConceptEntry,
 } from "@/lib/concepts";
-import type { QuestionSourceContext } from "@/lib/question-session";
+import { PASSAGE_QUESTION_PROMPT, type QuestionSourceContext } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -85,8 +85,10 @@ export function buildResearchResult(
 ): ResearchResult {
   const query = rawQuery.trim();
   const has = (...words: string[]) => words.some((word) => query.includes(word));
+  // Only the initial passage prompt may infer a topic from the locked quote.
   const sourceHas = (...phrases: string[]) => Boolean(
-    sourceContext && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
+    query === PASSAGE_QUESTION_PROMPT
+    && sourceContext && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
   );
   const finish = (result: ResearchResult) => attachSourceContext(result, sourceContext);
 

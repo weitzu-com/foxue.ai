@@ -1099,7 +1099,7 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
 
 test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   const path = "/jingzang/xinjing/001-0848c";
-  const locator = "T0251.001.0848c07";
+  const locator = "T0251.001.0848c08";
   await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
   await page.addInitScript(() => {
     window.gtag = (...args: unknown[]) => {
@@ -1111,7 +1111,7 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   await page.goto(path);
 
   const source = await page.evaluate((stableLocator) => {
-    const target = document.getElementById(stableLocator);
+    const target = document.querySelector(`[data-study-segment-id="${stableLocator}"]`);
     const sourceText = target
       ?.querySelector<HTMLElement>("[data-source-text-equivalent]")
       ?.textContent
@@ -1181,6 +1181,46 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
     },
   ]]);
   expect(JSON.stringify(startedAnalytics)).not.toContain(source);
+
+  const followUps = [
+    { question: "无住是什么意思？", title: "无住不是消极不做，而是不以占有心行动" },
+    { question: "量子计算是什么意思？", title: "原文已锁定，解释证据仍不足" },
+  ];
+  const submittedRequests: string[] = [];
+  page.on("request", (request) => {
+    submittedRequests.push(`${request.url()} ${request.postData() ?? ""}`);
+  });
+  for (const { question, title } of followUps) {
+    await page.getByLabel("输入佛学问题").fill(question);
+    await page.getByRole("button", { name: "查找证据" }).click();
+    await expect(page.getByRole("heading", { name: title, exact: true })).toBeVisible();
+    await expect(page).toHaveURL(/\/wenjing$/);
+    await expect(sourceContext.locator("blockquote")).toHaveText(source);
+    const firstEvidence = page.locator(".evidence-card").first();
+    await expect(firstEvidence.locator("blockquote")).toHaveText(source);
+    await expect(firstEvidence.getByText(locator, { exact: true })).toBeVisible();
+    await expect(firstEvidence.getByRole("link", { name: /打开.*原文/ })).toHaveAttribute(
+      "href", `${path}#${locator}`,
+    );
+    expect(await page.evaluate(() => JSON.parse(
+      window.sessionStorage.getItem("foxue:question-source-context:v1") ?? "null",
+    ))).toEqual(storedContext);
+  }
+  await expect(page.locator(".evidence-card")).toHaveCount(1);
+  const submittedAnalytics = await page.evaluate(() => JSON.parse(
+    window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]",
+  ).filter((call: unknown[]) => call[0] === "event" && call[1] === "question_submitted"));
+  expect(submittedAnalytics).toHaveLength(2);
+  for (const privateText of [source, ...followUps.map(({ question }) => question)]) {
+    expect(JSON.stringify(submittedAnalytics)).not.toContain(privateText);
+    expect(submittedRequests.join("\n")).not.toContain(privateText);
+    expect(submittedRequests.join("\n")).not.toContain(encodeURIComponent(privateText));
+  }
+
+  // Returning to the passage prompt still uses its reviewed keyword route.
+  await page.getByLabel("输入佛学问题").fill("这段经文是什么意思？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByRole("heading", { name: /“空”不是虚无/ })).toBeVisible();
 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);

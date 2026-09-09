@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "codex/pr103-followup-priority": false
+    }
+  },
   "framework": "nextjs",
   "buildCommand": "NODE_OPTIONS=--max-old-space-size=6144 pnpm run build",
   "cleanUrls": true
