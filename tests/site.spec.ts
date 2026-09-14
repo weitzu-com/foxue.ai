@@ -2087,6 +2087,20 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
   await expect(unsupportedDock.getByRole("link", { name: "查看异译／表达（7）" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 
+  await page.goto("/jingzang/taisho-t0208/002-0537a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0208.002.0537a09");
+    if (!target) throw new Error("Missing spatial use of 無住");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const spatialNoAbidingDock = await waitForFolioStudyDock(page);
+  await expect(spatialNoAbidingDock.getByRole("link", { name: "解释术语：无住" })).toHaveCount(0);
+
   await page.goto("/jingzang/fajujing/001-0559a");
   await page.evaluate(() => {
     const target = document.getElementById("T0210.001.0559a10");
