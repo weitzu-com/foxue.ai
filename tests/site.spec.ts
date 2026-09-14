@@ -2544,6 +2544,28 @@ test("非八正道经中的初禅公式不会被误标为八正道", async ({ pa
   ).toBeVisible();
 });
 
+test("其他分类法中的八支词不会被当作整条八正道的直接证据", async ({ page }) => {
+  await page.goto("/jingzang/digha-nikaya-dn33/004-dn33-0361-0480");
+  await page.evaluate(() => {
+    const target = document.getElementById("dn33:1.11.139");
+    if (!target) throw new Error("Missing DN 33 four-dhamma taxonomy segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("dn33:1.11.139", { exact: true }),
+  ).toBeVisible();
+});
+
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
   await page.goto("/jingzang");
   await expect(page.getByText(/4144 个完整文本/)).toBeVisible();

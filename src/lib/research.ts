@@ -98,6 +98,11 @@ export function buildResearchResult(
     && sourceContext
     && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
   );
+  const sourceIs = (...hrefPrefixes: string[]) => Boolean(
+    isInitialPassageQuestion
+    && sourceContext
+    && hrefPrefixes.some((prefix) => sourceContext.sourceHref.startsWith(prefix)),
+  );
   const finish = (result: ResearchResult) => attachSourceContext(
     result,
     sourceContext,
@@ -124,14 +129,19 @@ export function buildResearchResult(
       "正見、正志、正語、正業、正命、正方便、正念、正定",
       "正见、正志、正语、正业、正命、正方便、正念、正定",
       "Katamo ca, bhikkhave, ariyo aṭṭhaṅgiko maggo",
-      "sammādiṭṭhi",
-      "sammāsaṅkappo",
-      "sammāvācā",
-      "sammākammanto",
-      "sammāājīvo",
-      "sammāvāyāmo",
-      "sammāsati",
-      "sammāsamādhi",
+    )
+    || (
+      sourceIs("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#")
+      && sourceHas(
+        "sammādiṭṭhi",
+        "sammāsaṅkappo",
+        "sammāvācā",
+        "sammākammanto",
+        "sammāājīvo",
+        "sammāvāyāmo",
+        "sammāsati",
+        "sammāsamādhi",
+      )
     )
   ) {
     return finish({
