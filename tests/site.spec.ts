@@ -2037,6 +2037,13 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
 
   const expressionsLink = entries.getByRole("link", { name: "查看异译／表达（7）" });
   await expect(expressionsLink).toHaveAttribute("href", "#work-expressions-jingangjing");
+  const entriesAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(entriesAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
   await expressionsLink.click();
   await expect(dock).toHaveCount(0);
   await expect(page).toHaveURL(`${path}#work-expressions-jingangjing`);
@@ -2063,12 +2070,6 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-  const accessibility = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-    .analyze();
-  expect(accessibility.violations.filter((item) =>
-    item.impact === "serious" || item.impact === "critical",
-  )).toEqual([]);
 
   await page.goto("/jingzang/amituojing/001-0346c");
   await page.evaluate(() => {
@@ -2083,6 +2084,7 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
   });
   const unsupportedDock = await waitForFolioStudyDock(page);
   await expect(unsupportedDock.getByRole("link", { name: /解释术语：/ })).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
