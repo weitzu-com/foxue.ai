@@ -124,13 +124,14 @@ export function buildResearchResult(
       "正見、正志、正語、正業、正命、正方便、正念、正定",
       "正见、正志、正语、正业、正命、正方便、正念、正定",
       "Katamo ca, bhikkhave, ariyo aṭṭhaṅgiko maggo",
-      "dukkhe ñāṇaṁ",
-      "nekkhammasaṅkappo",
-      "musāvādā veramaṇī",
-      "micchāājīvaṁ pahāya",
-      "anuppannānaṁ pāpakānaṁ akusalānaṁ dhammānaṁ",
-      "kāye kāyānupassī viharati",
-      "paṭhamaṁ jhānaṁ upasampajja viharati",
+      "sammādiṭṭhi",
+      "sammāsaṅkappo",
+      "sammāvācā",
+      "sammākammanto",
+      "sammāājīvo",
+      "sammāvāyāmo",
+      "sammāsati",
+      "sammāsamādhi",
     )
   ) {
     return finish({

@@ -2459,7 +2459,7 @@ test("汉巴八正道定义均可从选文进入受控概念页并带原文问�
 
   await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
   await page.evaluate(() => {
-    const target = document.getElementById("sn45.8:5.2");
+    const target = document.getElementById("sn45.8:5.1");
     if (!target) throw new Error("Missing Pali eightfold path source segment");
     const range = document.createRange();
     range.selectNodeContents(target);
@@ -2478,7 +2478,31 @@ test("汉巴八正道定义均可从选文进入受控概念页并带原文问�
   await page.waitForURL(/\/wenjing$/);
   await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
   await expect(
-    page.locator("[data-question-source-context]").getByText("sn45.8:5.2", { exact: true }),
+    page.locator("[data-question-source-context]").getByText("sn45.8:5.1", { exact: true }),
+  ).toBeVisible();
+});
+
+test("非八正道经中的初禅公式不会被误标为八正道", async ({ page }) => {
+  await page.goto("/jingzang/anguttara-nikaya-an9/046-an9-45-0001-0012");
+  await page.evaluate(() => {
+    const target = document.getElementById("an9.45:2.1");
+    if (!target) throw new Error("Missing generic first-jhana segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveCount(0);
+
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("an9.45:2.1", { exact: true }),
   ).toBeVisible();
 });
 
