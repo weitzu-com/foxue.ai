@@ -52,6 +52,18 @@ export function SearchConsole() {
       return;
     }
 
+    if (mode === "research") {
+      saveQuestionToSession(question, mode);
+      trackEvent("question_started", {
+        entry_point: "home",
+        example_used: exampleUsed,
+        input_length: question.trim().length,
+        mode,
+      });
+      router.push("/yanjiu");
+      return;
+    }
+
     const relatedConcept = conceptForQuery(question);
     if (mode === "term" && relatedConcept) {
       trackEvent("concept_opened", {
@@ -149,6 +161,8 @@ export function SearchConsole() {
         <span>
           {mode === "quote" ? (
             <>本地核对：首批 5 个逐字复核条目；未命中不会被写成“佛经没有”。{" "}<Link href="/hedui">查看核验边界</Link></>
+          ) : mode === "research" ? (
+            <>本地研究：先定义问题与来源范围，再把收藏的原典整理成证据矩阵。{" "}<Link href="/yanjiu">打开研究工作台</Link></>
           ) : (
             <>可信原型：当前问经仅检索三部人工复核样本，尚未启用生成式模型。{" "}<Link href="/wenjing">查看能力边界</Link></>
           )}

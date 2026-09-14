@@ -31,8 +31,12 @@
 | `citation_copied` | 带出处保存引文 | `content_id`, `entry_point` | 从“今日原典”或研读路径复制引文、版本、行段与链接 | 否 |
 | `study_path_step_marked` | 七日路径推进率 | `learning_path`, `step_number`, `step_status`, `covered_count` | 读者将一天标为完成或跳过 | 否 |
 | `study_path_resumed` | 七日路径续读率 | `entry_point`, `learning_path`, `step_number`, `covered_count` | 从首页或研读中心返回本地保存的下一步 | 是 |
+| `research_evidence_assessed` | 原典是否进入真实论证 | `evidence_status`, `evidence_count` | 读者把一条本地选文标为支持、限定、反证、背景或不纳入 | 否 |
+| `research_report_exported` | 研究任务是否形成可带走成果 | `evidence_count`, `assessed_count`, `work_count`, `counter_evidence_count` | 浏览器生成并下载研究证据 Markdown | 是 |
+| `research_workspace_cleared` | 本地研究任务清理 | `evidence_count` | 读者确认清空研究问题与证据判断；不删除选文 | 否 |
 
 `input_length` 只记录字符数，绝不记录输入内容。`page_location` 只保留路径与 UTM/gclid/dclid 参数，其他查询参数会被丢弃。七日路径事件只记录经名代号、1–7 的步骤编号与计数，不记录问题、笔记、引文或连续天数。
+研究工作台事件同样只记录计数与枚举状态，不发送研究问题、范围、暂定结论、证据关系说明、引文或稳定段号。
 
 ## 隐私与同意
 

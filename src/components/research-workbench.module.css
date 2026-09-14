@@ -1,0 +1,759 @@
+.workbench {
+  padding: 0 0 96px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 34px 0 28px;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.toolbar p,
+.toolbar h2,
+.sectionHeading p,
+.sectionHeading h3,
+.emptyState p,
+.emptyState h4,
+.methodAudit p,
+.methodAudit h3 {
+  margin: 0;
+}
+
+.toolbar p,
+.sectionHeading p,
+.emptyState p,
+.methodAudit p {
+  color: var(--cinnabar);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.toolbar h2 {
+  margin-top: 4px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.toolbar > div:first-child > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.toolbar > div:first-child > span svg {
+  width: 14px;
+  color: var(--success);
+}
+
+.toolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.toolbarActions button,
+.incomingQuestion button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 15px;
+  border: 1px solid var(--cinnabar);
+  border-radius: 0;
+  background: var(--cinnabar);
+  color: #fffdf8;
+  font-size: 0.62rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.toolbarActions button:disabled {
+  border-color: var(--line-dark);
+  background: transparent;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.toolbarActions .resetButton {
+  border-color: var(--line-dark);
+  background: transparent;
+  color: var(--muted);
+}
+
+.toolbarActions button:not(:disabled):hover,
+.incomingQuestion button:hover {
+  border-color: var(--cinnabar-deep);
+  background: var(--cinnabar-deep);
+}
+
+.toolbarActions .resetButton:hover {
+  border-color: var(--cinnabar);
+  background: transparent;
+  color: var(--cinnabar);
+}
+
+.toolbarActions svg {
+  width: 14px;
+}
+
+.plan,
+.matrix {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.sectionHeading h3 {
+  margin-top: 6px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.sectionHeading > span {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.plan ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: var(--line-dark);
+  list-style: none;
+}
+
+.plan li {
+  min-height: 128px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  align-content: center;
+  padding: 24px;
+  background: #f5f1e7;
+}
+
+.plan li[data-complete="true"] {
+  background: #e5ebe3;
+}
+
+.plan li > span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+  color: var(--cinnabar);
+  font-family: var(--font-serif), serif;
+  font-size: 0.75rem;
+}
+
+.plan li[data-complete="true"] > span {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.plan li > span svg {
+  width: 15px;
+}
+
+.plan strong,
+.plan small {
+  display: block;
+}
+
+.plan strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.93rem;
+}
+
+.plan small {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.59rem;
+  line-height: 1.65;
+}
+
+.incomingQuestion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin-top: 34px;
+  padding: 20px 22px;
+  border: 1px solid #9d735d;
+  background: #f2e4d6;
+}
+
+.incomingQuestion > svg {
+  width: 22px;
+  color: var(--cinnabar);
+}
+
+.incomingQuestion strong,
+.incomingQuestion p {
+  margin: 0;
+}
+
+.incomingQuestion strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.88rem;
+}
+
+.incomingQuestion p {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  line-height: 1.7;
+}
+
+.briefGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  padding: 1px;
+  background: var(--line-dark);
+}
+
+.briefGrid label {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background: #f8f5ed;
+}
+
+.briefGrid .findingField {
+  grid-column: 1 / -1;
+}
+
+.briefGrid label > span,
+.assessmentFields label > span {
+  color: var(--cinnabar);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.briefGrid textarea,
+.assessmentFields textarea,
+.assessmentFields select {
+  width: 100%;
+  border: 1px solid var(--line-dark);
+  border-radius: 0;
+  background: #fffdf8;
+  color: var(--ink);
+  font: inherit;
+}
+
+.briefGrid textarea {
+  min-height: 128px;
+  margin-top: 13px;
+  padding: 16px;
+  font-family: var(--font-serif), serif;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  resize: vertical;
+}
+
+.briefGrid .findingField textarea {
+  min-height: 108px;
+}
+
+.briefGrid small {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.7;
+}
+
+.briefGrid textarea:focus,
+.assessmentFields textarea:focus,
+.assessmentFields select:focus {
+  border-color: var(--cinnabar);
+  outline: 2px solid color-mix(in srgb, var(--cinnabar) 22%, transparent);
+  outline-offset: 1px;
+}
+
+.matrix .sectionHeading dl {
+  display: flex;
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: var(--line-dark);
+}
+
+.matrix .sectionHeading dl > div {
+  min-width: 82px;
+  padding: 10px 13px;
+  background: #f8f5ed;
+  text-align: center;
+}
+
+.matrix dt,
+.matrix dd {
+  margin: 0;
+}
+
+.matrix dt {
+  color: var(--muted);
+  font-size: 0.53rem;
+}
+
+.matrix dd {
+  margin-top: 2px;
+  font-family: var(--font-serif), serif;
+  font-size: 1.1rem;
+}
+
+.emptyState {
+  min-height: 220px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+  padding: 42px 0;
+  border-top: 1px solid var(--line-dark);
+}
+
+.emptyState > svg {
+  width: 38px;
+  color: var(--cinnabar);
+}
+
+.emptyState h4 {
+  margin-top: 7px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 500;
+}
+
+.emptyState span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.emptyState a,
+.evidenceCard header a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.emptyState a:hover,
+.evidenceCard header a:hover {
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.emptyState a svg,
+.evidenceCard header a svg {
+  width: 14px;
+}
+
+.evidenceList {
+  display: grid;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evidenceCard {
+  border: 1px solid var(--line-dark);
+  background: #f8f5ed;
+  box-shadow: 9px 9px 0 #d9d2c5;
+}
+
+.evidenceCard[data-status="supports"] {
+  border-top: 4px solid #47694f;
+}
+
+.evidenceCard[data-status="qualifies"],
+.evidenceCard[data-status="challenges"] {
+  border-top: 4px solid var(--cinnabar);
+}
+
+.evidenceCard[data-status="context"] {
+  border-top: 4px solid #657284;
+}
+
+.evidenceCard[data-status="excluded"] {
+  border-top: 4px solid #8a8174;
+  opacity: 0.84;
+}
+
+.evidenceCard header {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 26px;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.evidenceCard header > span {
+  color: var(--cinnabar);
+  font-family: var(--font-serif), serif;
+  font-size: 1.25rem;
+}
+
+.evidenceCard header p,
+.evidenceCard header h4,
+.evidenceCard header small {
+  margin: 0;
+}
+
+.evidenceCard header p {
+  color: var(--cinnabar);
+  font: 700 0.54rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.evidenceCard header h4 {
+  margin-top: 4px;
+  font-family: var(--font-serif), serif;
+  font-size: 1.25rem;
+}
+
+.evidenceCard header small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.58rem;
+}
+
+.evidenceCard blockquote {
+  margin: 0;
+  padding: 30px 34px;
+  border-bottom: 1px solid var(--line-dark);
+  color: #26332a;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.assessmentFields {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1.65fr);
+  gap: 22px;
+  padding: 26px;
+}
+
+.assessmentFields label {
+  min-width: 0;
+}
+
+.assessmentFields label > span {
+  display: block;
+  margin-bottom: 9px;
+}
+
+.assessmentFields select {
+  min-height: 48px;
+  padding: 0 13px;
+}
+
+.assessmentFields textarea {
+  min-height: 92px;
+  padding: 13px;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.linkedNote {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 13px;
+  margin: 0 26px 26px;
+  padding: 17px;
+  border: 1px dashed var(--line-dark);
+  background: #eee9de;
+}
+
+.linkedNote > svg {
+  width: 18px;
+  color: var(--cinnabar);
+}
+
+.linkedNote strong,
+.linkedNote p,
+.linkedNote small {
+  display: block;
+  margin: 0;
+}
+
+.linkedNote strong {
+  font-size: 0.66rem;
+}
+
+.linkedNote p {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.linkedNote small {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.55rem;
+}
+
+.methodAudit {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+  gap: 50px;
+  margin-top: 56px;
+  padding: 34px;
+  background: #202a23;
+  color: #f5efe4;
+}
+
+.methodAudit > div > svg {
+  width: 24px;
+  color: #e08370;
+}
+
+.methodAudit p {
+  margin-top: 17px;
+  color: #e08370;
+}
+
+.methodAudit h3 {
+  max-width: 13ch;
+  margin-top: 8px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.methodAudit ul {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: #59625b;
+  list-style: none;
+}
+
+.methodAudit li {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: #29342c;
+  color: #aeb8b0;
+  font-size: 0.65rem;
+}
+
+.methodAudit li svg {
+  width: 15px;
+  color: #747e76;
+}
+
+.methodAudit li[data-complete="true"] {
+  color: #f5efe4;
+}
+
+.methodAudit li[data-complete="true"] svg {
+  color: #91bd9a;
+}
+
+.feedback {
+  min-height: 22px;
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 0.58rem;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .plan ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .methodAudit {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .toolbar,
+  .sectionHeading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .toolbarActions {
+    justify-content: stretch;
+  }
+
+  .toolbarActions button {
+    flex: 1 1 auto;
+  }
+
+  .plan,
+  .matrix {
+    padding: 42px 0;
+  }
+
+  .plan ol,
+  .briefGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan li {
+    min-height: 106px;
+  }
+
+  .briefGrid .findingField {
+    grid-column: auto;
+  }
+
+  .incomingQuestion,
+  .emptyState {
+    grid-template-columns: 1fr;
+  }
+
+  .incomingQuestion > svg,
+  .emptyState > svg {
+    width: 28px;
+  }
+
+  .matrix .sectionHeading dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .matrix .sectionHeading dl > div {
+    min-width: 0;
+  }
+
+  .evidenceCard {
+    box-shadow: 5px 5px 0 #d9d2c5;
+  }
+
+  .evidenceCard header {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 20px;
+  }
+
+  .evidenceCard header a {
+    grid-column: 1 / -1;
+  }
+
+  .evidenceCard blockquote {
+    padding: 24px 20px;
+  }
+
+  .assessmentFields {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .linkedNote {
+    margin: 0 20px 20px;
+  }
+
+  .methodAudit {
+    margin-top: 42px;
+    padding: 24px;
+  }
+
+  .feedback {
+    text-align: left;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .toolbarActions button:not(:disabled):not(.resetButton),
+  .incomingQuestion button {
+    border-color: #9f392b;
+    background: #9f392b;
+    color: #fffdf8;
+  }
+
+  .toolbarActions button:not(:disabled):not(.resetButton):hover,
+  .incomingQuestion button:hover {
+    border-color: #79291f;
+    background: #79291f;
+  }
+
+  .plan li,
+  .briefGrid label,
+  .matrix .sectionHeading dl > div,
+  .evidenceCard {
+    background: #19211b;
+  }
+
+  .plan li[data-complete="true"] {
+    background: #243129;
+  }
+
+  .incomingQuestion {
+    border-color: #805a48;
+    background: #38261f;
+  }
+
+  .briefGrid textarea,
+  .assessmentFields textarea,
+  .assessmentFields select {
+    background: #101612;
+  }
+
+  .evidenceCard {
+    box-shadow: 9px 9px 0 #0d120e;
+  }
+
+  .evidenceCard blockquote {
+    color: var(--ink);
+  }
+
+  .linkedNote {
+    background: #242e27;
+  }
+
+  .methodAudit {
+    background: #0d1410;
+  }
+}

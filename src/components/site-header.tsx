@@ -7,6 +7,7 @@ const navigation: Array<{ href: string; label: string; prefetch?: false }> = [
   { href: "/hedui", label: "核对" },
   { href: "/jingzang", label: "经藏", prefetch: false },
   { href: "/xue", label: "研读" },
+  { href: "/yanjiu", label: "研究" },
   { href: "/fugai", label: "覆盖" },
   { href: "/yuanze", label: "原则" },
   { href: "/touming", label: "透明" },

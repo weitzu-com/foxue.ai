@@ -76,10 +76,10 @@ const tasks = [
     number: "04",
     icon: FileSearch,
     eyebrow: "想做进一步研究",
-    title: "查看覆盖与缺口",
-    description: "分别核对目录、原文、译文、权利与质量，不把不同分母混成一个百分比。",
-    link: "/fugai",
-    action: "打开覆盖账本",
+    title: "建立证据矩阵",
+    description: "先限定问题与来源范围，再逐条标注支持、限定和反证，最后带稳定出处导出。",
+    link: "/yanjiu",
+    action: "开始研究任务",
   },
 ];
 
