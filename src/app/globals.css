@@ -2272,6 +2272,30 @@ a {
     color-mix(in srgb, var(--paper) 48%, transparent);
 }
 
+.concept-page--wuyun {
+  --concept-teal: #6d5742;
+  --concept-teal-deep: #2b241d;
+  --concept-mist: #e9dfcf;
+  --concept-line: #bda98d;
+}
+
+.concept-page--wuyun .emptiness-lens__glyph {
+  max-width: 76%;
+  text-align: center;
+  font-size: clamp(4.8rem, 8.2vw, 7.4rem);
+  line-height: 0.94;
+  letter-spacing: 0.08em;
+}
+
+.concept-page--wuyun .term-register { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.concept-page--wuyun .term-register article {
+  min-height: 350px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--concept-mist) 46%, transparent), transparent 42%),
+    color-mix(in srgb, var(--paper) 48%, transparent);
+}
+.concept-page--wuyun .term-register h3 { font-size: 1.82rem; }
+
 .concept-hero {
   position: relative;
   overflow: hidden;
@@ -2463,6 +2487,9 @@ a {
   .concept-hero__copy h1 { font-size: clamp(3.5rem, 7.2vw, 5.4rem); }
   .term-register { grid-template-columns: repeat(2, 1fr); }
   .term-register article { min-height: 265px; }
+  .concept-page--wuyun .term-register { grid-template-columns: repeat(2, 1fr); }
+  .concept-page--wuyun .term-register article { min-height: 285px; }
+  .concept-page--wuyun .term-register article:last-child { grid-column: span 2; }
   .tradition-ledger article { grid-template-columns: 0.65fr 1fr 1fr; }
   .tradition-ledger code { grid-column: 2 / -1; }
 }
@@ -2501,6 +2528,9 @@ a {
   .concept-section__heading { margin-bottom: 35px; }
   .term-register { grid-template-columns: 1fr; }
   .term-register article { min-height: 235px; }
+  .concept-page--wuyun .term-register { grid-template-columns: 1fr; }
+  .concept-page--wuyun .term-register article { min-height: 245px; }
+  .concept-page--wuyun .term-register article:last-child { grid-column: auto; }
   .concept-boundaries { padding-block: 78px; }
   .tradition-ledger article { grid-template-columns: 1fr; gap: 21px; padding-block: 28px; }
   .tradition-ledger code { grid-column: 1; }
@@ -3299,6 +3329,12 @@ a {
     --concept-teal-deep: #24160f;
     --concept-mist: #38271e;
     --concept-line: #795b47;
+  }
+  .concept-page--wuyun {
+    --concept-teal: #d7b98d;
+    --concept-teal-deep: #201a14;
+    --concept-mist: #342c22;
+    --concept-line: #76644f;
   }
   .emptiness-lens::after { background: var(--canvas); }
   .concept-boundaries { background: #0b1718; }

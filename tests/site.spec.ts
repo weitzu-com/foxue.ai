@@ -1956,6 +1956,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/yuanqi"]')).toContainText("缘起");
   await expect(page.locator('a[href="/gainian/sidi"]')).toContainText("四圣谛");
   await expect(page.locator('a[href="/gainian/bazhengdao"]')).toContainText("八正道");
+  await expect(page.locator('a[href="/gainian/wuyun"]')).toContainText("五蕴");
 
   const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
@@ -1968,6 +1969,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   expect(body).toContain("/gainian/yuanqi");
   expect(body).toContain("/gainian/sidi");
   expect(body).toContain("/gainian/bazhengdao");
+  expect(body).toContain("/gainian/wuyun");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
@@ -2036,6 +2038,17 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
   await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
     "href",
     "/jingzang/zaahanjing/028-0199a#T0099.028.0199a10",
+  );
+
+  await page.goto("/gainian/wuyun");
+  await expect(page.getByRole("heading", { level: 1, name: /五蕴.*不是五个.*灵魂部件/ })).toBeVisible();
+  await expect(page.getByText("五蕴 = 五个灵魂部件", { exact: true })).toBeVisible();
+  await expect(page.getByText("pañcakkhandhā · pañcupādānakkhandhā", { exact: true })).toBeVisible();
+  await expect(page.locator(".term-register article")).toHaveCount(5);
+  await expect(page.getByRole("link", { name: "站内稳定原文" })).toHaveCount(5);
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/xinjing/001-0848c#T0251.001.0848c06",
   );
 
   const viewport = page.viewportSize();
@@ -2160,6 +2173,22 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(eightfoldPathHubLink).toBeVisible();
   await eightfoldPathHubLink.click();
   await page.waitForURL(/\/gainian\/bazhengdao$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("五取蕴");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/wuyun$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("《心经》中的五蕴是什么？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/五蕴不是五个灵魂部件/)).toBeVisible();
+  await expect(page.locator(".evidence-card")).toHaveCount(4);
+  const fiveAggregatesHubLink = page.getByRole("link", { name: /进入“五蕴”概念 Hub/ });
+  await expect(fiveAggregatesHubLink).toBeVisible();
+  await fiveAggregatesHubLink.click();
+  await page.waitForURL(/\/gainian\/wuyun$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {
@@ -2611,6 +2640,76 @@ test("中英八正道明确别名的选文入口与问经答案保持一致", as
       page.locator("[data-question-source-context]").getByText(item.segmentId, { exact: true }),
     ).toBeVisible();
   }
+});
+
+test("汉巴五蕴名目与定义段均可从选文进入五蕴页并带原文问经", async ({ page }) => {
+  const cases = [
+    {
+      href: "/jingzang/xinjing/001-0848c",
+      segmentId: "T0251.001.0848c06",
+    },
+    {
+      href: "/jingzang/taisho-t0102/001-0499c",
+      segmentId: "T0102.001.0499c23",
+    },
+    {
+      href: "/jingzang/samyutta-nikaya-sn22/048-sn22-48-0001-0021",
+      segmentId: "sn22.48:1.4",
+    },
+    {
+      href: "/jingzang/samyutta-nikaya-sn22/079-sn22-79-0001-0120",
+      segmentId: "sn22.79:3.2",
+    },
+  ];
+
+  for (const item of cases) {
+    await page.goto(item.href);
+    await page.evaluate((segmentId) => {
+      const target = document.getElementById(segmentId);
+      if (!target) throw new Error(`Missing five aggregates source segment: ${segmentId}`);
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      document.dispatchEvent(new Event("selectionchange"));
+    }, item.segmentId);
+
+    const dock = await waitForFolioStudyDock(page);
+    await expect(dock.getByRole("link", { name: "解释术语：五蕴" })).toHaveAttribute(
+      "href",
+      "/gainian/wuyun",
+    );
+    await dock.getByRole("button", { name: "问这段" }).click();
+    await page.waitForURL(/\/wenjing$/);
+    await expect(page.getByText(/五蕴不是五个灵魂部件/)).toBeVisible();
+    await expect(
+      page.locator("[data-question-source-context]").getByText(item.segmentId, { exact: true }),
+    ).toBeVisible();
+  }
+});
+
+test("其他经中的单个 rūpa 不会被误标成整套五蕴", async ({ page }) => {
+  await page.goto("/jingzang/samyutta-nikaya-sn22/059-sn22-59-0001-0059");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn22.59:2.1");
+    if (!target) throw new Error("Missing standalone rupa segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：五蕴" })).toHaveCount(0);
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/五蕴不是五个灵魂部件/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn22.59:2.1", { exact: true }),
+  ).toBeVisible();
 });
 
 test("非八正道经中的初禅公式不会被误标为八正道", async ({ page }) => {
