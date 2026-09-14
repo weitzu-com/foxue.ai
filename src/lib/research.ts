@@ -2,6 +2,7 @@ import { sutras } from "@/data/sutras";
 import {
   dependentOriginationConcept,
   emptinessConcept,
+  fourNobleTruthsConcept,
   impermanenceConcept,
   nonAbidingConcept,
   nonSelfConcept,
@@ -101,6 +102,85 @@ export function buildResearchResult(
     sourceContext,
     isInitialPassageQuestion,
   );
+
+  if (
+    has(
+      "四圣谛",
+      "四聖諦",
+      "四谛",
+      "四諦",
+      "苦集灭道",
+      "苦集滅道",
+      "cattāri ariyasaccāni",
+      "cattari ariyasaccani",
+      "four noble truths",
+      "Four Noble Truths",
+    )
+    || sourceHas(
+      "苦聖諦當知",
+      "苦圣谛当知",
+      "苦集聖諦當知、當斷",
+      "苦集圣谛当知、当断",
+      "苦滅聖諦當知、當證",
+      "苦灭圣谛当知、当证",
+      "苦滅道跡聖諦當知、當修",
+      "苦灭道迹圣谛当知、当修",
+      "三轉十二行",
+      "三转十二行",
+      "dukkhaṁ ariyasaccaṁ pariññeyyaṁ",
+      "dukkhasamudayaṁ ariyasaccaṁ pahātabbaṁ",
+      "dukkhanirodhaṁ ariyasaccaṁ sacchikātabbaṁ",
+      "dukkhanirodhagāminī paṭipadā ariyasaccaṁ bhāvetabbaṁ",
+    )
+  ) {
+    return finish({
+      query,
+      status: "有充分来源",
+      title: "四圣谛不是四句悲观结论，而是知苦、断集、证灭、修道的四项任务",
+      answer: [
+        "《杂阿含经》把四谛分别落在动作上：苦圣谛当知、当解，苦集圣谛当断，苦灭圣谛当证，苦灭道迹圣谛当修。若只说“人生是苦”，就删掉了同一段里的集、灭、道，也删掉了改变与修习。",
+        "同卷经文进一步把四谛展开为三转十二行：先认识这是一谛，再知道这项任务应当完成，最后说明任务已经完成。能背出“苦集灭道”，不等于知、断、证、修已经发生。",
+        "巴利 SN 56.11 也分别界定苦、苦集、苦灭与导向苦灭的道路，并用 pariññeyya、pahātabba、sacchikātabba、bhāvetabba 标出应遍知、应舍断、应证得、应修习。实践上可从一个具体苦开始，分别问：事实是什么、什么条件令它续起、何谓止息、下一项可修的道路是什么。",
+      ],
+      caution:
+        "这里并读《杂阿含经》与巴利《相应部》的相关结构，但不据此硬判它们是已经审定的一一平行经；巴利文中文均为本站工作释义，也不替代后世论典、宗派教判、医疗或心理危机支持。",
+      concept: fourNobleTruthsConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《杂阿含经》T0099",
+          quote: "若比丘於苦聖諦當知、當解，於苦集聖諦當知、當斷，於苦滅聖諦當知、當證，於苦滅道跡聖諦當知、當修。",
+          href: "/jingzang/zaahanjing/015-0104b#T0099.015.0104b15",
+          source: "CBETA T02n0099",
+          locator: "T0099.015.0104b15–18",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《杂阿含经》T0099",
+          quote: "此苦聖諦，本所未曾聞法，當正思惟。……苦集聖諦已知當斷……苦滅聖諦已知當作證……苦滅道跡聖諦已知當修。",
+          href: "/jingzang/zaahanjing/015-0103c#T0099.015.0103c14",
+          source: "CBETA T02n0099",
+          locator: "T0099.015.0103c14–0104a08",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 56.11",
+          quote: "Idaṁ kho pana, bhikkhave, dukkhaṁ ariyasaccaṁ … dukkhasamudayaṁ ariyasaccaṁ … dukkhanirodhaṁ ariyasaccaṁ … dukkhanirodhagāminī paṭipadā ariyasaccaṁ.",
+          href: "/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060#sn56.11:4.1",
+          source: "SuttaCentral SN 56.11",
+          locator: "sn56.11:4.1–10",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 56.11",
+          quote: "Dukkhaṁ ariyasaccaṁ pariññeyyaṁ … dukkhasamudayaṁ ariyasaccaṁ pahātabbaṁ … dukkhanirodhaṁ ariyasaccaṁ sacchikātabbaṁ … dukkhanirodhagāminī paṭipadā ariyasaccaṁ bhāvetabbaṁ.",
+          href: "/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060#sn56.11:5.2",
+          source: "SuttaCentral SN 56.11",
+          locator: "sn56.11:5.2 · 6.2 · 7.2 · 8.2",
+          relation: "直接",
+        }),
+      ],
+    });
+  }
 
   if (
     has(
