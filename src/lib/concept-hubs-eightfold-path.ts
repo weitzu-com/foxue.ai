@@ -19,6 +19,12 @@ export const eightfoldPathConceptHub = {
       "noble eightfold path",
     ],
     selectionAliases: [
+      "八正道",
+      "八聖道",
+      "八圣道",
+      "ariyo aṭṭhaṅgiko maggo",
+      "ariya atthangika magga",
+      "noble eightfold path",
       "正見、正志、正語、正業、正命、正方便、正念、正定",
       "正见、正志、正语、正业、正命、正方便、正念、正定",
       "正见、正思惟、正语、正业、正命、正精进、正念、正定",

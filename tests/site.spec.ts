@@ -2482,6 +2482,44 @@ test("汉巴八正道定义均可从选文进入受控概念页并带原文问�
   ).toBeVisible();
 });
 
+test("汉巴八正道名称行均提供概念入口", async ({ page }) => {
+  await page.goto("/jingzang/zaahanjing/028-0199a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.028.0199a10");
+    if (!target) throw new Error("Missing Chinese eightfold path naming line");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const chineseDock = await waitForFolioStudyDock(page);
+  await expect(chineseDock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+
+  await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn45.8:2.1");
+    if (!target) throw new Error("Missing Pali eightfold path naming segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliDock = await waitForFolioStudyDock(page);
+  await expect(paliDock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+});
+
 test("非八正道经中的初禅公式不会被误标为八正道", async ({ page }) => {
   await page.goto("/jingzang/anguttara-nikaya-an9/046-an9-45-0001-0012");
   await page.evaluate(() => {
