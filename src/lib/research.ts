@@ -1,5 +1,6 @@
 import { sutras } from "@/data/sutras";
 import {
+  dependentOriginationConcept,
   emptinessConcept,
   impermanenceConcept,
   nonAbidingConcept,
@@ -100,6 +101,68 @@ export function buildResearchResult(
     sourceContext,
     isInitialPassageQuestion,
   );
+
+  if (
+    has(
+      "缘起",
+      "緣起",
+      "因缘法",
+      "因緣法",
+      "十二因缘",
+      "十二因緣",
+      "paṭiccasamuppāda",
+      "idappaccayatā",
+    )
+    || sourceHas("此有故彼有", "此生故彼生", "此無故彼無", "此滅故彼滅", "法住法界")
+  ) {
+    return finish({
+      query,
+      status: "有充分来源",
+      title: "缘起不是宿命，而是同时看见条件怎样生起、怎样止息",
+      answer: [
+        "《杂阿含经》把两面放在同一段：一面是“此有故彼有，此生故彼生”，另一面是“此无故彼无，此灭故彼灭”。若只保留生起而删掉止息，就会把经文误读成单向决定论。",
+        "同经另一段先说因缘法，再另说缘生法；这提醒我们区分条件关系与由条件而生、会衰灭的诸支，而不是把“缘起”当成一个固定实体。",
+        "巴利《相应部》以 idappaccayatā 与 paṭiccasamuppāda 说明这种条件性，并在 SN 12.15 把生灭链放在避开“一切有／一切无”两端的中道语境里。实践起点不是猜测神秘因缘，而是核对：此刻哪些条件正在延续苦，哪些条件可以停止。",
+      ],
+      caution:
+        "这里并读《杂阿含经》与巴利《相应部》的相关表达，但不据此硬判它们是已经审定的一一平行经；巴利文中文均为本站工作释义，也不替代后世论典与宗派解释。",
+      concept: dependentOriginationConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《杂阿含经》T0099",
+          quote: "此有故彼有，此生故彼生，謂緣無明有行，乃至生、老、病、死、憂、悲、惱、苦集；所謂此無故彼無，此滅故彼滅。",
+          href: "/jingzang/zaahanjing/010-0067a#T0099.010.0067a05",
+          source: "CBETA T02n0099",
+          locator: "T0099.010.0067a05–08",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《杂阿含经》T0099",
+          quote: "云何為因緣法？謂此有故彼有……云何緣生法？謂無明、行。若佛出世，若未出世，此法常住，法住法界。",
+          href: "/jingzang/zaahanjing/012-0084b#T0099.012.0084b14",
+          source: "CBETA T02n0099",
+          locator: "T0099.012.0084b14–24",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 12.20",
+          quote: "Uppādā vā tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā. … Ayaṁ vuccati, bhikkhave, paṭiccasamuppādo.",
+          href: "/jingzang/samyutta-nikaya-sn12/020-sn12-20-0001-0064#sn12.20:2.3",
+          source: "SuttaCentral SN 12.20",
+          locator: "sn12.20:2.3 · 3.16–17",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 12.15",
+          quote: "‘Sabbamatthī’ti kho, kaccāna, ayameko anto. ‘Sabbaṁ natthī’ti ayaṁ dutiyo anto. Ete te, kaccāna, ubho ante anupagamma majjhena tathāgato dhammaṁ deseti.",
+          href: "/jingzang/samyutta-nikaya-sn12/015-sn12-15-0001-0024#sn12.15:3.1",
+          source: "SuttaCentral SN 12.15",
+          locator: "sn12.15:3.1–9",
+          relation: "相关",
+        }),
+      ],
+    });
+  }
 
   if (
     has("无我", "無我", "我所", "无我义", "無我義", "补特伽罗", "補特伽羅", "身无我", "身無我")

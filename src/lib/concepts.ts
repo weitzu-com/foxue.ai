@@ -7,8 +7,9 @@ export const impermanenceConcept = getConceptEntry("wuchang");
 export const nonSelfConcept = getConceptEntry("wuwo");
 export const nonAbidingConcept = getConceptEntry("wuzhu");
 export const observingMindConcept = getConceptEntry("guanxin");
+export const dependentOriginationConcept = getConceptEntry("yuanqi");
 
-if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept) {
+if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept || !dependentOriginationConcept) {
   throw new Error("概念 Hub 配置不完整");
 }
 

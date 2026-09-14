@@ -170,7 +170,7 @@ export function AskExperience() {
         <article className="answer-sheet">
           <div className="answer-sheet__meta">
             <StatusPill status={result.status} />
-            <span>回答范围：已登记汉译样本</span>
+            <span>回答范围：已登记受控样本</span>
           </div>
           {result.query && <p className="answer-question">“{result.query}”</p>}
           <h2>{result.title}</h2>
