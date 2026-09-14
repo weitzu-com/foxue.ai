@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { Bookmark, BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, ShieldCheck, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Bookmark, BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, MessageCircleQuestion, ShieldCheck, X } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
 import {
   readSavedPassages,
@@ -23,6 +24,7 @@ import {
   STUDY_NOTES_CANONICAL_ORIGIN,
   type StudyNoteSeed,
 } from "@/lib/study-notes";
+import { savePassageQuestionToSession } from "@/lib/question-session";
 import {
   removeSavedPassage,
   savePassage,
@@ -79,6 +81,7 @@ export function FolioStudySelection({
   sourceUrl: string;
   sourceLicense: string;
 }) {
+  const router = useRouter();
   const selectionRootRef = useRef<HTMLDivElement>(null);
   const savedPassages = useSavedPassages();
   const [activeSelection, setActiveSelection] = useState<ActiveStudySelection | null>(null);
@@ -314,6 +317,33 @@ export function FolioStudySelection({
     }
   }
 
+  function startPassageQuestion() {
+    if (!activeSelection) return;
+    try {
+      savePassageQuestionToSession({
+        id: activeSelection.seed.id,
+        workTitle: activeSelection.seed.workTitle,
+        passageLabel: activeSelection.seed.passageLabel,
+        locator: activeSelection.seed.locator,
+        quote: activeSelection.seed.quote,
+        quoteLang: activeSelection.seed.quoteLang,
+        sourceHref: activeSelection.seed.sourceHref,
+        sourceName,
+        responsibility,
+        canonRef,
+        segmentCount: activeSelection.segmentCount,
+      });
+      trackEvent("passage_question_started", {
+        source_id: activeSelection.seed.id,
+        segment_count: activeSelection.segmentCount,
+        source_language: activeSelection.seed.quoteLang,
+      });
+      router.push("/wenjing");
+    } catch {
+      setFeedback("浏览器未能锁定这段原文；请保留本页，或先复制书目引文。");
+    }
+  }
+
   const dock = activeSelection ? (
     <aside className={styles.dock} role="region" aria-label="选中文本研读工具" data-folio-study-dock>
       <header className={styles.dockHeader}>
@@ -332,6 +362,13 @@ export function FolioStudySelection({
       <blockquote lang={activeSelection.seed.quoteLang}>{activeSelection.seed.quote}</blockquote>
 
       <div className={styles.quickActions}>
+        <button
+          type="button"
+          className={styles.askPassageButton}
+          onClick={startPassageQuestion}
+        >
+          <MessageCircleQuestion aria-hidden="true" /> 问这段
+        </button>
         <button
           type="button"
           className={styles.savePassageButton}
@@ -402,9 +439,9 @@ export function FolioStudySelection({
       <div className={styles.selectionHint}>
         <Highlighter aria-hidden="true" />
         <p>
-          <strong>选一句，收藏、写笔记或带走可复核引用。</strong>
+          <strong>选一句，问含义、收藏、写笔记或带走引用。</strong>
           <span>
-            选中任意经文，系统会按完整稳定行段取文。
+            选中任意经文，系统会按完整稳定行段取文；问经时不会暗中换经。
             {savedOnCurrentPage.length > 0 && ` 本页已有 ${savedOnCurrentPage.length} 则本地选文。`}
           </span>
         </p>

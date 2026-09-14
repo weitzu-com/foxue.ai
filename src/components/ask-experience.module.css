@@ -1,0 +1,220 @@
+.sourceContext {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1.15rem 1.2rem 1rem;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-left: 3px solid var(--cinnabar);
+  background:
+    linear-gradient(90deg, rgb(159 57 43 / 4%) 1px, transparent 1px) 1.75rem 0 / 2.75rem 100%,
+    var(--paper);
+}
+
+.sourceContext::after {
+  content: "原";
+  position: absolute;
+  right: 1.2rem;
+  top: 3.2rem;
+  color: rgb(159 57 43 / 6%);
+  font-family: var(--font-serif), serif;
+  font-size: 7.5rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.sourceContextHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sourceContextHeader p,
+.sourceContextHeader h2,
+.sourceContextBoundary {
+  margin: 0;
+}
+
+.sourceContextHeader p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cinnabar);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.sourceContextHeader p svg {
+  width: 0.9rem;
+}
+
+.sourceContextHeader h2 {
+  margin-top: 0.28rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 650;
+}
+
+.sourceContextHeader button {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+  padding-inline: 0.75rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sourceContextHeader button:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.sourceContextHeader button svg {
+  width: 0.85rem;
+}
+
+.sourceContext blockquote {
+  position: relative;
+  z-index: 1;
+  max-height: 9rem;
+  margin: 0.9rem 0 0;
+  overflow: auto;
+  padding: 0.8rem 1rem;
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--wash) 74%, transparent);
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 0.86rem;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.sourceContextMeta {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  margin-top: 0.8rem;
+}
+
+.sourceContextMeta dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.sourceContextMeta dl > div {
+  min-width: 0;
+}
+
+.sourceContextMeta dt,
+.sourceContextMeta dd {
+  margin: 0;
+}
+
+.sourceContextMeta dt {
+  color: var(--muted);
+  font-size: 0.56rem;
+}
+
+.sourceContextMeta dd {
+  margin-top: 0.18rem;
+  color: var(--ink-soft);
+  font-size: 0.64rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.sourceContextMeta a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding-inline: 0.8rem;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.66rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.sourceContextMeta a:hover {
+  background: color-mix(in srgb, var(--cinnabar) 7%, transparent);
+}
+
+.sourceContextMeta a svg {
+  width: 0.85rem;
+}
+
+.sourceContextBoundary {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px dotted var(--line-dark);
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 780px) {
+  .sourceContextMeta {
+    grid-template-columns: 1fr;
+  }
+
+  .sourceContextMeta dl {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sourceContextMeta a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .sourceContext {
+    padding: 1rem;
+  }
+
+  .sourceContextHeader {
+    display: grid;
+  }
+
+  .sourceContextHeader button {
+    justify-self: start;
+  }
+
+  .sourceContextMeta dl {
+    grid-template-columns: 1fr;
+  }
+
+  .sourceContextMeta a {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sourceContext {
+    background:
+      linear-gradient(90deg, rgb(219 117 100 / 5%) 1px, transparent 1px) 1.75rem 0 / 2.75rem 100%,
+      var(--paper);
+  }
+
+  .sourceContext::after {
+    color: rgb(219 117 100 / 7%);
+  }
+}
