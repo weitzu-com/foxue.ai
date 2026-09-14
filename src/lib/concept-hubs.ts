@@ -1,7 +1,8 @@
 import { expandedConceptHubs } from "@/lib/concept-hubs-expanded";
+import { fourNobleTruthsConceptHub } from "@/lib/concept-hubs-four-truths";
 import { dependentOriginationConceptHub } from "@/lib/concept-hubs-yuanqi";
 
-export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi";
+export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi" | "sidi";
 
 export type ConceptEntry = {
   slug: ConceptSlug;
@@ -714,6 +715,7 @@ const conceptHubs: readonly ConceptHub[] = [
   ...baseConceptHubs,
   ...expandedConceptHubs,
   dependentOriginationConceptHub,
+  fourNobleTruthsConceptHub,
 ];
 
 export const allConceptHubs = [...conceptHubs];

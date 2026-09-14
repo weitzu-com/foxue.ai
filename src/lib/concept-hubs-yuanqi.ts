@@ -211,5 +211,5 @@ export const dependentOriginationConceptHub = {
   updatedAt: "2026-09-15",
   footerActionLabel: "带着条件继续问",
   footerActionHref: "/wenjing",
-  related: ["wuchang", "wuwo", "kong", "guanxin"],
+  related: ["sidi", "wuchang", "wuwo", "kong", "guanxin"],
 } as const satisfies ConceptHub;

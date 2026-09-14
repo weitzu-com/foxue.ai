@@ -45,7 +45,7 @@ const corePages: CorePage[] = [
   {
     path: "/gainian",
     label: "概念",
-    summary: "主题层入口；按空、缘起、无常、无我、无住、观心等受控证据页进入佛学高频问题。",
+    summary: "主题层入口；按四圣谛、缘起、空、无常、无我、无住、观心等受控证据页进入佛学高频问题。",
   },
   {
     path: "/fugai",

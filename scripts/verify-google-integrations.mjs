@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -136,6 +136,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/wuzhu"),
   get("/gainian/guanxin"),
   get("/gainian/yuanqi"),
+  get("/gainian/sidi"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -191,7 +192,7 @@ const pageExpectations = [
     gainian,
     {
       title: "佛教概念与主题 Hub｜foxue.ai",
-      description: "按主题进入空、缘起、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+      description: "按主题进入四圣谛、缘起、空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
       bodyIncludes: ["先进入主题层", "再下钻到原典证据。", "进入概念 Hub"],
       jsonLd: [
         ["https://www.foxue.ai/gainian#page", "CollectionPage"],
@@ -276,6 +277,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/yuanqi#page", "WebPage"],
         ["https://www.foxue.ai/gainian/yuanqi#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/yuanqi#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/sidi",
+    gainianSidi,
+    {
+      title: "四圣谛｜概念 Hub｜foxue.ai",
+      description: "从《杂阿含经》与巴利《相应部》的稳定原典理解四圣谛：知苦、断集、证灭、修道，并辨清悲观论等常见误读。",
+      bodyIncludes: ["不是四句", "知 · 遍知", "每项判断，都有可以重新打开的位置。"],
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/sidi#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/sidi#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/sidi#breadcrumb", "BreadcrumbList"],
       ],
     },
   ],

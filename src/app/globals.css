@@ -2388,6 +2388,7 @@ a {
 .tradition-ledger code { align-self: end; color: #91aaa7; font-size: 0.64rem; line-height: 1.6; }
 
 .concept-evidence__heading { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.55fr); }
+.concept-evidence { scroll-margin-top: 86px; }
 .concept-evidence__heading > p { display: flex; align-items: flex-start; gap: 10px; }
 .concept-evidence__heading > p svg { flex: 0 0 auto; color: var(--concept-teal); }
 .concept-evidence__list { border-top: 1px solid var(--ink); }

@@ -96,6 +96,7 @@ const criticalRoutes = [
   "/gainian/wuzhu",
   "/gainian/guanxin",
   "/gainian/yuanqi",
+  "/gainian/sidi",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -176,6 +177,7 @@ const sitemapLandingRoutes = [
   "/gainian/wuzhu",
   "/gainian/guanxin",
   "/gainian/yuanqi",
+  "/gainian/sidi",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -257,6 +259,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/wuzhu", "https://www.foxue.ai/gainian/wuzhu"],
     ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
     ["/gainian/yuanqi", "https://www.foxue.ai/gainian/yuanqi"],
+    ["/gainian/sidi", "https://www.foxue.ai/gainian/sidi"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
@@ -342,6 +345,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
   expect(full).toContain("/gainian/yuanqi");
+  expect(full).toContain("/gainian/sidi");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -476,6 +480,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/yuanqi#page", "WebPage"],
         ["https://www.foxue.ai/gainian/yuanqi#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/yuanqi#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/sidi",
+      required: [
+        ["https://www.foxue.ai/gainian/sidi#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/sidi#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/sidi#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -1929,6 +1941,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/wuzhu"]')).toContainText("无住");
   await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
   await expect(page.locator('a[href="/gainian/yuanqi"]')).toContainText("缘起");
+  await expect(page.locator('a[href="/gainian/sidi"]')).toContainText("四圣谛");
 
   const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
@@ -1939,6 +1952,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   expect(body).toContain("/gainian/wuzhu");
   expect(body).toContain("/gainian/guanxin");
   expect(body).toContain("/gainian/yuanqi");
+  expect(body).toContain("/gainian/sidi");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
@@ -1986,6 +2000,16 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
   await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
     "href",
     "/jingzang/zaahanjing/010-0067a#T0099.010.0067a05",
+  );
+
+  await page.goto("/gainian/sidi");
+  await expect(page.getByRole("heading", { level: 1, name: /四圣谛.*不是四句.*悲观结论/ })).toBeVisible();
+  await expect(page.getByText("四圣谛 = 人生只有痛苦", { exact: true })).toBeVisible();
+  await expect(page.getByText("知 · 遍知", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" })).toHaveCount(4);
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/zaahanjing/015-0104b#T0099.015.0104b15",
   );
 
   const viewport = page.viewportSize();
@@ -2078,6 +2102,22 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(dependentOriginationHubLink).toBeVisible();
   await dependentOriginationHubLink.click();
   await page.waitForURL(/\/gainian\/yuanqi$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("苦集灭道");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/sidi$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("四圣谛是不是说人生只有痛苦？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
+  await expect(page.locator(".evidence-card")).toHaveCount(4);
+  const fourTruthsHubLink = page.getByRole("link", { name: /进入“四圣谛”概念 Hub/ });
+  await expect(fourTruthsHubLink).toBeVisible();
+  await fourTruthsHubLink.click();
+  await page.waitForURL(/\/gainian\/sidi$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {
@@ -2298,6 +2338,56 @@ test("杂阿含缘起句可从选文进入受控概念页", async ({ page }) => 
   const conceptLink = dock.getByRole("link", { name: "解释术语：缘起" });
   await expect(conceptLink).toHaveAttribute("href", "/gainian/yuanqi");
   await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
+});
+
+test("汉巴四谛任务句均可从选文进入受控概念页并带原文问经", async ({ page }) => {
+  await page.goto("/jingzang/zaahanjing/015-0104b");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.015.0104b16");
+    if (!target) throw new Error("Missing four noble truths source line");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  const conceptLink = dock.getByRole("link", { name: "解释术语：四圣谛" });
+  await expect(conceptLink).toHaveAttribute("href", "/gainian/sidi");
+  await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
+
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("T0099.015.0104b16", { exact: true }),
+  ).toBeVisible();
+
+  await page.goto("/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn56.11:5.2");
+    if (!target) throw new Error("Missing Pali four noble truths task segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliDock = await waitForFolioStudyDock(page);
+  await expect(paliDock.getByRole("link", { name: "解释术语：四圣谛" })).toHaveAttribute(
+    "href",
+    "/gainian/sidi",
+  );
+  await paliDock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn56.11:5.2", { exact: true }),
+  ).toBeVisible();
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
