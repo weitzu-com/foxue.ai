@@ -12,6 +12,7 @@ import {
   useSavedPassages,
 } from "@/components/use-saved-passages";
 import { trackEvent } from "@/lib/analytics";
+import { selectionMatchesConcept } from "@/lib/concept-selection";
 import {
   buildFolioCitationRecord,
   folioCitationFilename,
@@ -48,6 +49,7 @@ type StudyConceptLink = {
     sourceHrefPrefix: string;
     aliases: string[];
   }>;
+  sourceHrefs?: string[];
 };
 
 type WorkExpressionSummary = {
@@ -56,18 +58,7 @@ type WorkExpressionSummary = {
 };
 
 function conceptsInText(text: string, sourceHref: string, concepts: StudyConceptLink[]) {
-  const normalizedText = text.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, "");
-  const includesAlias = (alias: string) => normalizedText.includes(
-    alias.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, ""),
-  );
-
-  return concepts.filter((concept) =>
-    concept.aliases.some(includesAlias)
-    || concept.scopedAliases?.some((scope) =>
-      sourceHref.startsWith(scope.sourceHrefPrefix)
-      && scope.aliases.some(includesAlias),
-    ),
-  );
+  return concepts.filter((concept) => selectionMatchesConcept(text, sourceHref, concept));
 }
 
 function stableHash(value: string) {

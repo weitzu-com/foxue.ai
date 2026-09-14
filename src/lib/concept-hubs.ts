@@ -16,6 +16,7 @@ export type ConceptEntry = {
     sourceHrefPrefix: string;
     aliases: string[];
   }>;
+  selectionSourceHrefs?: string[];
   prompt: string;
 };
 

@@ -30,6 +30,28 @@ export const eightfoldPathPaliLimbSelectionAliases = [
   "sammāsamādhī",
 ] as const;
 
+const eightfoldPathPaliSourcePath = "/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044";
+
+export const eightfoldPathPaliDefinitionSourceHrefs = [
+  "sn45.8:3.2",
+  "sn45.8:4.2",
+  "sn45.8:5.2",
+  "sn45.8:6.2",
+  "sn45.8:7.2",
+  "sn45.8:8.2",
+  "sn45.8:8.3",
+  "sn45.8:8.4",
+  "sn45.8:8.5",
+  "sn45.8:9.2",
+  "sn45.8:9.3",
+  "sn45.8:9.4",
+  "sn45.8:9.5",
+  "sn45.8:10.2",
+  "sn45.8:10.3",
+  "sn45.8:10.4",
+  "sn45.8:10.5",
+].map((segmentId) => `${eightfoldPathPaliSourcePath}#${segmentId}`);
+
 export const eightfoldPathConceptHub = {
   entry: {
     slug: "bazhengdao",
@@ -52,9 +74,10 @@ export const eightfoldPathConceptHub = {
     ],
     selectionAliases: [...eightfoldPathGlobalSelectionAliases],
     scopedSelectionAliases: [{
-      sourceHrefPrefix: "/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#",
+      sourceHrefPrefix: `${eightfoldPathPaliSourcePath}#`,
       aliases: [...eightfoldPathPaliLimbSelectionAliases],
     }],
+    selectionSourceHrefs: eightfoldPathPaliDefinitionSourceHrefs,
     prompt: "八正道是八条要逐项完成的规则吗？",
   },
   metadataTitle: "八正道｜概念 Hub",

@@ -2482,8 +2482,8 @@ test("汉巴八正道定义均可从选文进入受控概念页并带原文问�
   ).toBeVisible();
 });
 
-test("SN 45.8 八支实际变格可进入八正道概念页并带原文问经", async ({ page }) => {
-  for (const segmentId of ["sn45.8:7.2", "sn45.8:10.6"]) {
+test("SN 45.8 定义正文与八支实际变格均可进入八正道概念页并带原文问经", async ({ page }) => {
+  for (const segmentId of ["sn45.8:3.2", "sn45.8:8.2", "sn45.8:7.2", "sn45.8:10.6"]) {
     await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
     await page.evaluate((id) => {
       const target = document.getElementById(id);

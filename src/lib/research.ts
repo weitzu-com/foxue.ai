@@ -15,10 +15,7 @@ import {
   type QuestionSourceContext,
 } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
-import {
-  eightfoldPathGlobalSelectionAliases,
-  eightfoldPathPaliLimbSelectionAliases,
-} from "@/lib/concept-hubs-eightfold-path";
+import { selectionMatchesConcept } from "@/lib/concept-selection";
 
 export type Evidence = {
   label: string;
@@ -102,10 +99,14 @@ export function buildResearchResult(
     && sourceContext
     && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
   );
-  const sourceIs = (...hrefPrefixes: string[]) => Boolean(
+  const sourceMatchesConcept = (concept: ConceptEntry) => Boolean(
     isInitialPassageQuestion
     && sourceContext
-    && hrefPrefixes.some((prefix) => sourceContext.sourceHref.startsWith(prefix)),
+    && selectionMatchesConcept(sourceContext.quote, sourceContext.sourceHref, {
+      aliases: concept.selectionAliases,
+      scopedAliases: concept.scopedSelectionAliases,
+      sourceHrefs: concept.selectionSourceHrefs,
+    }),
   );
   const finish = (result: ResearchResult) => attachSourceContext(
     result,
@@ -119,18 +120,9 @@ export function buildResearchResult(
       "八支聖道",
       "圣八支道",
       "聖八支道",
-      ...eightfoldPathGlobalSelectionAliases,
+      ...eightfoldPathConcept.selectionAliases,
     )
-    || sourceHas(
-      ...eightfoldPathGlobalSelectionAliases,
-      "有八正道，能斷愛欲",
-      "有八正道，能断爱欲",
-      "Katamo ca, bhikkhave, ariyo aṭṭhaṅgiko maggo",
-    )
-    || (
-      sourceIs("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#")
-      && sourceHas(...eightfoldPathPaliLimbSelectionAliases)
-    )
+    || sourceMatchesConcept(eightfoldPathConcept)
   ) {
     return finish({
       query,
