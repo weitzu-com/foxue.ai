@@ -119,7 +119,10 @@ export function buildResearchResult(
       "圣八支道",
       "聖八支道",
       "ariyo aṭṭhaṅgiko maggo",
+      "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
+      "ariyaṁ aṭṭhaṅgikaṁ maggaṁ",
       "ariya atthangika magga",
+      "ariyam atthangikam maggam",
       "noble eightfold path",
       "Noble Eightfold Path",
     )
@@ -128,6 +131,7 @@ export function buildResearchResult(
       "有八正道，能断爱欲",
       "正見、正志、正語、正業、正命、正方便、正念、正定",
       "正见、正志、正语、正业、正命、正方便、正念、正定",
+      "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
       "Katamo ca, bhikkhave, ariyo aṭṭhaṅgiko maggo",
     )
     || (
