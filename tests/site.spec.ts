@@ -98,6 +98,7 @@ const criticalRoutes = [
   "/gainian/yuanqi",
   "/gainian/sidi",
   "/gainian/bazhengdao",
+  "/gainian/wuyun",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -180,6 +181,7 @@ const sitemapLandingRoutes = [
   "/gainian/yuanqi",
   "/gainian/sidi",
   "/gainian/bazhengdao",
+  "/gainian/wuyun",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -213,6 +215,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/wuyun</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
 
   const works = await (await request.get("/sitemap-works.xml")).text();
@@ -264,6 +267,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/yuanqi", "https://www.foxue.ai/gainian/yuanqi"],
     ["/gainian/sidi", "https://www.foxue.ai/gainian/sidi"],
     ["/gainian/bazhengdao", "https://www.foxue.ai/gainian/bazhengdao"],
+    ["/gainian/wuyun", "https://www.foxue.ai/gainian/wuyun"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
@@ -351,6 +355,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/yuanqi");
   expect(full).toContain("/gainian/sidi");
   expect(full).toContain("/gainian/bazhengdao");
+  expect(full).toContain("/gainian/wuyun");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -501,6 +506,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/bazhengdao#page", "WebPage"],
         ["https://www.foxue.ai/gainian/bazhengdao#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/bazhengdao#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/wuyun",
+      required: [
+        ["https://www.foxue.ai/gainian/wuyun#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/wuyun#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/wuyun#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
