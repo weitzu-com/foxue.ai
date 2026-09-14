@@ -127,6 +127,57 @@
   border-top: 1px solid var(--line-dark);
 }
 
+.researchBridge {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  gap: 68px;
+  padding: 82px 0;
+  border-top: 1px solid var(--line-dark);
+}
+
+.researchBridge h2 {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.1rem, 4vw, 3.7rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.18;
+}
+
+.researchBridge > div:last-child {
+  align-self: center;
+}
+
+.researchBridge > div:last-child p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.9;
+}
+
+.researchBridge a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 0 16px;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.63rem;
+  font-weight: 800;
+}
+
+.researchBridge a:hover {
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.researchBridge a svg {
+  width: 15px;
+}
+
 .method h2 {
   max-width: 14ch;
   margin: 0;
@@ -169,6 +220,10 @@
 
   .modeLedger {
     width: min(100%, 620px);
+  }
+
+  .researchBridge {
+    grid-template-columns: 1fr;
   }
 }
 

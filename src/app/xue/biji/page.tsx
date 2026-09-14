@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
+  ArrowRight,
   Bookmark,
   BookOpenText,
   Download,
@@ -101,6 +102,20 @@ export default function StudyNotesPage() {
         <SavedPassages />
 
         <StudyNotebook />
+
+        <section className={styles.researchBridge} aria-labelledby="research-bridge-title">
+          <div>
+            <p className={sharedStyles.eyebrow}>从收藏到论证 · RESEARCH</p>
+            <h2 id="research-bridge-title">选文不只收藏，<br />还可以进入证据矩阵。</h2>
+          </div>
+          <div>
+            <p>
+              研究工作台会读取当前浏览器中的本地选文，让你逐条说明它是在支持、限定、反驳主张，
+              还是仅作为背景；原典和个人判断仍严格分层。
+            </p>
+            <Link href="/yanjiu">打开研究证据工作台 <ArrowRight aria-hidden="true" /></Link>
+          </div>
+        </section>
 
         <section className={styles.method} aria-labelledby="notes-method-title">
           <div>

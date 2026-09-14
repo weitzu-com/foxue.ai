@@ -8,6 +8,7 @@ const readerPageSearchAnalyticsTestTitle = "本页查句跨稳定段落定位且
 const savedPassagesAnalyticsTestTitle = "本地选文按稳定行段收藏、回显、导出且不上传原文";
 const passageQuestionAnalyticsTestTitle = "选中经文可锁定稳定出处进入问经且不上传原文";
 const selectionResearchEntryAnalyticsTestTitle = "选中经句只展示已审核术语与同作品表达且不伪造逐句对齐";
+const researchWorkspaceAnalyticsTestTitle = "做研究进入本地证据工作台并导出主张—证据矩阵";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const analyticsConsent = [
@@ -17,6 +18,7 @@ test.beforeEach(async ({ page }, testInfo) => {
     savedPassagesAnalyticsTestTitle,
     passageQuestionAnalyticsTestTitle,
     selectionResearchEntryAnalyticsTestTitle,
+    researchWorkspaceAnalyticsTestTitle,
   ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
@@ -80,6 +82,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/yanjiu",
   "/gainian",
   "/xue",
   "/xue/amituojing",
@@ -158,6 +161,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/yanjiu",
   "/gainian",
   "/xue",
   "/xue/amituojing",
@@ -238,6 +242,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/hedui", "https://www.foxue.ai/hedui"],
+    ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/xue", "https://www.foxue.ai/xue"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
@@ -469,6 +474,13 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       ],
     },
     {
+      path: "/yanjiu",
+      required: [
+        ["https://www.foxue.ai/yanjiu#page", "WebPage"],
+        ["https://www.foxue.ai/yanjiu#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
       path: "/jingzang/page/2",
       required: [
         ["https://www.foxue.ai/jingzang/page/2#page", "CollectionPage"],
@@ -554,6 +566,94 @@ test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   const viewport = page.viewportSize();
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+});
+
+test(researchWorkspaceAnalyticsTestTitle, async ({ page }) => {
+  const savedPassage = {
+    id: "folio:research-evidence-test",
+    slug: "xinjing",
+    folioKey: "001-0848c",
+    workTitle: "《般若波罗蜜多心经》",
+    passageLabel: "大正藏版页 0848c · 1 个稳定行段",
+    locator: "T0251.001.0848c07",
+    quote: "色不異空，空不異色；色即是空，空即是色。",
+    quoteLang: "zh-Hant",
+    sourceHref: "/jingzang/xinjing/001-0848c#T0251.001.0848c07",
+    segmentIds: ["T0251.001.0848c07"],
+    savedAt: "2026-09-14T08:00:00.000Z",
+  };
+  await page.addInitScript((passage) => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+    window.localStorage.setItem("foxue:saved-passages:v1", JSON.stringify({
+      version: 1,
+      passages: [passage],
+    }));
+  }, savedPassage);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "做研究" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("《心经》如何说明色与空的关系？");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL("/yanjiu");
+
+  const question = page.getByLabel(/^01 · 研究问题/);
+  await expect(question).toHaveValue("《心经》如何说明色与空的关系？");
+  await page.getByLabel(/^02 · 来源范围与排除条件/).fill("先核对玄奘译 T0251；暂不把现代讲解当作原典证据。");
+  await page.getByLabel(/^03 · 暂定结论/).fill("色与空在此处被表述为不异，而非简单等同于虚无。");
+  await page.getByLabel("《般若波罗蜜多心经》与研究主张的关系").selectOption("supports");
+  await page.getByLabel("《般若波罗蜜多心经》证据关系说明").fill(
+    "原句直接支持‘不异’这一表述，但单一译本不能证明所有传统措辞一致。",
+  );
+
+  await expect(page.getByText("4 / 4 步已有材料", { exact: true })).toBeVisible();
+  await expect(page.getByText("每条原典都已说明与主张的关系")).toHaveAttribute("data-complete", "true");
+  const stored = await page.evaluate(() => JSON.parse(
+    window.localStorage.getItem("foxue:research-workspace:v1") ?? "{}",
+  ));
+  expect(stored.workspace).toMatchObject({
+    question: "《心经》如何说明色与空的关系？",
+    scope: "先核对玄奘译 T0251；暂不把现代讲解当作原典证据。",
+    assessments: [{
+      passageId: "folio:research-evidence-test",
+      status: "supports",
+      reasoning: "原句直接支持‘不异’这一表述，但单一译本不能证明所有传统措辞一致。",
+    }],
+  });
+  expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:question-mode"))).toBeNull();
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出研究报告" }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^foxue-ai-research-evidence-\d{4}-\d{2}-\d{2}\.md$/);
+  const downloadPath = await download.path();
+  expect(downloadPath).not.toBeNull();
+  const markdown = await readFile(downloadPath ?? "", "utf8");
+  expect(markdown).toContain("# foxue.ai 研究证据报告");
+  expect(markdown).toContain("## 主张—证据矩阵");
+  expect(markdown).toContain("《心经》如何说明色与空的关系？");
+  expect(markdown).toContain("T0251.001.0848c07");
+  expect(markdown).toContain("| 1 | 支持 |");
+
+  const analyticsCalls = await page.evaluate(() => JSON.parse(
+    window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]",
+  ));
+  expect(analyticsCalls.some((call: unknown[]) => call[1] === "research_evidence_assessed")).toBe(true);
+  expect(analyticsCalls.some((call: unknown[]) => call[1] === "research_report_exported")).toBe(true);
+  expect(JSON.stringify(analyticsCalls)).not.toContain("《心经》如何说明色与空的关系？");
+  expect(JSON.stringify(analyticsCalls)).not.toContain(savedPassage.quote);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
 });
 
 test("首页今日原典把静读、理解与核对落在同一稳定引文", async ({ page, request }) => {
