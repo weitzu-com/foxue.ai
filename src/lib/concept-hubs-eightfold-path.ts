@@ -23,6 +23,7 @@ export const eightfoldPathPaliLimbSelectionAliases = [
   "sammāvācā",
   "sammākammanto",
   "sammāājīvo",
+  "sammāājīvena",
   "sammāvāyāmo",
   "sammāsati",
   "sammāsamādhi",
