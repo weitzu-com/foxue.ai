@@ -2580,6 +2580,10 @@ test("中英八正道明确别名的选文入口与问经答案保持一致", as
       href: "/jingzang/suttacentral-en-kp/004-kp4-0001-0022",
       segmentId: "kp4:8.2",
     },
+    {
+      href: "/jingzang/suttacentral-t1548/025-t1548-4-0121-0240",
+      segmentId: "t1548.4:123.0",
+    },
   ];
 
   for (const item of cases) {

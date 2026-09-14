@@ -115,13 +115,7 @@ export function buildResearchResult(
   );
 
   if (
-    has(
-      "八支圣道",
-      "八支聖道",
-      "圣八支道",
-      "聖八支道",
-      ...eightfoldPathConcept.selectionAliases,
-    )
+    has(...eightfoldPathConcept.selectionAliases)
     || sourceMatchesConcept(eightfoldPathConcept)
   ) {
     return finish({
