@@ -43,11 +43,11 @@ type ReadingDirectory = {
   pages: ReadingDirectoryItem[];
 };
 
-const selectionConcepts = allConcepts.map(({ slug, title, href, aliases }) => ({
+const selectionConcepts = allConcepts.map(({ slug, title, href, aliases, selectionAliases }) => ({
   slug,
   title,
   href,
-  aliases,
+  aliases: selectionAliases ?? aliases.filter((alias) => [...alias].length > 1),
 }));
 
 const sentenceEnding = /[。！？；][」』]*$/u;

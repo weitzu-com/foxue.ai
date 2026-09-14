@@ -2071,10 +2071,10 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 
-  await page.goto("/jingzang/amituojing/001-0346c");
+  await page.goto("/jingzang/jingangjing/001-0749a");
   await page.evaluate(() => {
-    const target = document.getElementById("T0366.001.0346c10");
-    if (!target) throw new Error("Missing Amitabha Sutra stable source");
+    const target = document.getElementById("T0235.001.0749a16");
+    if (!target) throw new Error("Missing spatial use of 虛空");
     const range = document.createRange();
     range.selectNodeContents(target);
     const selection = window.getSelection();
@@ -2084,6 +2084,7 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
   });
   const unsupportedDock = await waitForFolioStudyDock(page);
   await expect(unsupportedDock.getByRole("link", { name: /解释术语：/ })).toHaveCount(0);
+  await expect(unsupportedDock.getByRole("link", { name: "查看异译／表达（7）" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 

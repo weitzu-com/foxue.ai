@@ -8,6 +8,7 @@ export type ConceptEntry = {
   href: `/gainian/${ConceptSlug}`;
   summary: string;
   aliases: string[];
+  selectionAliases?: string[];
   prompt: string;
 };
 
@@ -112,6 +113,24 @@ const baseConceptHubs: readonly ConceptHub[] = [
       href: "/gainian/kong",
       summary: "区分巴利经藏与汉译般若的术语语境，并从每项判断回到稳定原典。",
       aliases: ["空", "空性", "空相", "五蕴皆空", "五蘊皆空", "śūnya", "śūnyatā", "sunyata", "suñña", "suññatā", "sunnata"],
+      selectionAliases: [
+        "空性",
+        "空相",
+        "五蕴皆空",
+        "五蘊皆空",
+        "色不异空",
+        "色不異空",
+        "空不异色",
+        "空不異色",
+        "色即是空",
+        "空即是色",
+        "śūnya",
+        "śūnyatā",
+        "sunyata",
+        "suñña",
+        "suññatā",
+        "sunnata",
+      ],
       prompt: "佛教里的“空”是什么意思？",
     },
     metadataTitle: "空｜概念 Hub",
