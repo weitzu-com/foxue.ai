@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Bookmark, BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, MessageCircleQuestion, ShieldCheck, X } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
 import {
@@ -80,6 +81,7 @@ export function FolioStudySelection({
   sourceUrl: string;
   sourceLicense: string;
 }) {
+  const router = useRouter();
   const selectionRootRef = useRef<HTMLDivElement>(null);
   const savedPassages = useSavedPassages();
   const [activeSelection, setActiveSelection] = useState<ActiveStudySelection | null>(null);
@@ -315,7 +317,7 @@ export function FolioStudySelection({
     }
   }
 
-  function startPassageQuestion(event: MouseEvent<HTMLAnchorElement>) {
+  function startPassageQuestion() {
     if (!activeSelection) return;
     try {
       savePassageQuestionToSession({
@@ -336,8 +338,8 @@ export function FolioStudySelection({
         segment_count: activeSelection.segmentCount,
         source_language: activeSelection.seed.quoteLang,
       });
+      router.push("/wenjing");
     } catch {
-      event.preventDefault();
       setFeedback("浏览器未能锁定这段原文；请保留本页，或先复制书目引文。");
     }
   }
@@ -360,13 +362,13 @@ export function FolioStudySelection({
       <blockquote lang={activeSelection.seed.quoteLang}>{activeSelection.seed.quote}</blockquote>
 
       <div className={styles.quickActions}>
-        <Link
-          className={styles.askPassageLink}
-          href="/wenjing"
+        <button
+          type="button"
+          className={styles.askPassageButton}
           onClick={startPassageQuestion}
         >
           <MessageCircleQuestion aria-hidden="true" /> 问这段
-        </Link>
+        </button>
         <button
           type="button"
           className={styles.savePassageButton}

@@ -170,7 +170,7 @@
   cursor: pointer;
 }
 
-.quickActions .askPassageLink {
+.quickActions .askPassageButton {
   border-color: var(--cinnabar);
   background: var(--cinnabar);
   color: #fffdf8;
@@ -221,7 +221,7 @@
   color: var(--cinnabar);
 }
 
-.quickActions .askPassageLink:hover {
+.quickActions .askPassageButton:hover {
   border-color: var(--cinnabar-deep);
   background: var(--cinnabar-deep);
   color: #fffdf8;
@@ -503,12 +503,12 @@
     background: rgb(219 117 100 / 7%);
   }
 
-  .quickActions .askPassageLink {
+  .quickActions .askPassageButton {
     border-color: #8d3024;
     background: #8d3024;
   }
 
-  .quickActions .askPassageLink:hover {
+  .quickActions .askPassageButton:hover {
     background: #79291f;
   }
 

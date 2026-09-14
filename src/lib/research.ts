@@ -7,7 +7,10 @@ import {
   observingMindConcept,
   type ConceptEntry,
 } from "@/lib/concepts";
-import type { QuestionSourceContext } from "@/lib/question-session";
+import {
+  PASSAGE_QUESTION_PROMPT,
+  type QuestionSourceContext,
+} from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
 
 export type Evidence = {
@@ -55,8 +58,9 @@ function inlineEvidence(evidence: Evidence) {
 function attachSourceContext(
   result: ResearchResult,
   sourceContext?: QuestionSourceContext | null,
+  includeAsEvidence = false,
 ): ResearchResult {
-  if (!sourceContext) return result;
+  if (!sourceContext || !includeAsEvidence) return result;
 
   const selectedEvidence: Evidence = {
     label: sourceContext.workTitle,
@@ -84,11 +88,18 @@ export function buildResearchResult(
   sourceContext?: QuestionSourceContext | null,
 ): ResearchResult {
   const query = rawQuery.trim();
+  const isInitialPassageQuestion = query === PASSAGE_QUESTION_PROMPT;
   const has = (...words: string[]) => words.some((word) => query.includes(word));
   const sourceHas = (...phrases: string[]) => Boolean(
-    sourceContext && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
+    isInitialPassageQuestion
+    && sourceContext
+    && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
   );
-  const finish = (result: ResearchResult) => attachSourceContext(result, sourceContext);
+  const finish = (result: ResearchResult) => attachSourceContext(
+    result,
+    sourceContext,
+    isInitialPassageQuestion,
+  );
 
   if (
     has("无我", "無我", "我所", "无我义", "無我義", "补特伽罗", "補特伽羅", "身无我", "身無我")
@@ -273,10 +284,15 @@ export function buildResearchResult(
       query,
       status: "未找到可靠来源",
       title: "原文已锁定，解释证据仍不足",
-      answer: [
-        `你所问的内容已锁定到${sourceContext.workTitle}的稳定坐标 ${sourceContext.locator}，下方第一张证据卡就是选中的原文，不会被系统暗中替换。`,
-        "当前可信原型尚未为这段登记经过审核的解释。锁定原文只能证明文字和出处，不能自动证明某一种解释；请先打开前后文，或改问一个更具体的术语。",
-      ],
+      answer: isInitialPassageQuestion
+        ? [
+            `你所问的内容已锁定到${sourceContext.workTitle}的稳定坐标 ${sourceContext.locator}，下方第一张证据卡就是选中的原文，不会被系统暗中替换。`,
+            "当前可信原型尚未为这段登记经过审核的解释。锁定原文只能证明文字和出处，不能自动证明某一种解释；请先打开前后文，或改问一个更具体的术语。",
+          ]
+        : [
+            `你的追问仍与${sourceContext.workTitle}的稳定坐标 ${sourceContext.locator} 保持关联，但回答只按这次明确输入的问题检索。`,
+            "当前可信原型尚未为这个追问登记足够证据。所选原文只保留为可核对的上下文，不会被冒充为问题答案；请打开前后文，或换用更具体的经名、术语或句子。",
+          ],
       caution:
         "这里没有补写经义，也没有把平台推断标成佛说。解释范围扩大前，系统只保留原文、出处与可继续核对的路径。",
       evidence: [],

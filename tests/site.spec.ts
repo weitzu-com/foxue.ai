@@ -1127,8 +1127,7 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   }, locator);
 
   const dock = await waitForFolioStudyDock(page);
-  const askPassage = dock.getByRole("link", { name: "问这段" });
-  await expect(askPassage).toHaveAttribute("href", "/wenjing");
+  const askPassage = dock.getByRole("button", { name: "问这段" });
   await askPassage.click();
   await page.waitForURL("/wenjing");
 
@@ -1149,6 +1148,13 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   await expect(page.getByRole("heading", { name: /“空”不是虚无/ })).toBeVisible();
   await expect(page.locator(".evidence-card").first().locator("blockquote")).toHaveText(source);
   await expect(page.locator(".evidence-card").first().getByText(locator, { exact: true })).toBeVisible();
+
+  await page.getByLabel("输入佛学问题").fill("无住是什么意思？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByRole("heading", { name: "无住不是消极不做，而是不以占有心行动" })).toBeVisible();
+  await expect(sourceContext.locator("blockquote")).toHaveText(source);
+  await expect(page.locator(".evidence-card").first().getByText(locator, { exact: true })).toHaveCount(0);
+  await expect(page.locator(".evidence-card").first().locator("blockquote")).not.toHaveText(source);
 
   const storedContext = await page.evaluate(() => JSON.parse(
     window.sessionStorage.getItem("foxue:question-source-context:v1") ?? "null",
@@ -1194,7 +1200,7 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   await sourceContext.getByRole("button", { name: "解除选段" }).click();
   await expect(sourceContext).toHaveCount(0);
   expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:question-source-context:v1"))).toBeNull();
-  await expect(page.getByRole("heading", { name: "当前经藏样本尚不足以可靠回答这个问题" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "无住不是消极不做，而是不以占有心行动" })).toBeVisible();
   const removedAnalytics = await page.evaluate(() => {
     const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
     return calls.filter((call: unknown[]) => call[0] === "event" && call[1] === "passage_question_context_removed");
@@ -1225,7 +1231,7 @@ test("问这段超出审核解释范围时保留原文并明确停下", async ({
   }, locator);
 
   const dock = await waitForFolioStudyDock(page);
-  await dock.getByRole("link", { name: "问这段" }).click();
+  await dock.getByRole("button", { name: "问这段" }).click();
   await page.waitForURL("/wenjing");
 
   await expect(page.getByRole("heading", { name: "原文已锁定，解释证据仍不足" })).toBeVisible();
