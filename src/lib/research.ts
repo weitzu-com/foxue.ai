@@ -15,6 +15,7 @@ import {
   type QuestionSourceContext,
 } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
+import { eightfoldPathGlobalSelectionAliases } from "@/lib/concept-hubs-eightfold-path";
 
 export type Evidence = {
   label: string;
@@ -111,27 +112,16 @@ export function buildResearchResult(
 
   if (
     has(
-      "八正道",
-      "八聖道",
-      "八圣道",
       "八支圣道",
       "八支聖道",
       "圣八支道",
       "聖八支道",
-      "ariyo aṭṭhaṅgiko maggo",
-      "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
-      "ariyaṁ aṭṭhaṅgikaṁ maggaṁ",
-      "ariya atthangika magga",
-      "ariyam atthangikam maggam",
-      "noble eightfold path",
-      "Noble Eightfold Path",
+      ...eightfoldPathGlobalSelectionAliases,
     )
     || sourceHas(
+      ...eightfoldPathGlobalSelectionAliases,
       "有八正道，能斷愛欲",
       "有八正道，能断爱欲",
-      "正見、正志、正語、正業、正命、正方便、正念、正定",
-      "正见、正志、正语、正业、正命、正方便、正念、正定",
-      "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
       "Katamo ca, bhikkhave, ariyo aṭṭhaṅgiko maggo",
     )
     || (

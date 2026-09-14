@@ -1,5 +1,22 @@
 import type { ConceptHub } from "@/lib/concept-hubs";
 
+export const eightfoldPathGlobalSelectionAliases = [
+  "八正道",
+  "八聖道",
+  "八圣道",
+  "ariyo aṭṭhaṅgiko maggo",
+  "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
+  "ariyaṁ aṭṭhaṅgikaṁ maggaṁ",
+  "ariya atthangika magga",
+  "ariyam atthangikam maggam",
+  "noble eightfold path",
+  "Noble Eightfold Path",
+  "正見、正志、正語、正業、正命、正方便、正念、正定",
+  "正见、正志、正语、正业、正命、正方便、正念、正定",
+  "正见、正思惟、正语、正业、正命、正精进、正念、正定",
+  "正見、正思惟、正語、正業、正命、正精進、正念、正定",
+] as const;
+
 export const eightfoldPathConceptHub = {
   entry: {
     slug: "bazhengdao",
@@ -20,21 +37,7 @@ export const eightfoldPathConceptHub = {
       "ariyam atthangikam maggam",
       "noble eightfold path",
     ],
-    selectionAliases: [
-      "八正道",
-      "八聖道",
-      "八圣道",
-      "ariyo aṭṭhaṅgiko maggo",
-      "Ariyaṁ vo, bhikkhave, aṭṭhaṅgikaṁ maggaṁ desessāmi",
-      "ariyaṁ aṭṭhaṅgikaṁ maggaṁ",
-      "ariya atthangika magga",
-      "ariyam atthangikam maggam",
-      "noble eightfold path",
-      "正見、正志、正語、正業、正命、正方便、正念、正定",
-      "正见、正志、正语、正业、正命、正方便、正念、正定",
-      "正见、正思惟、正语、正业、正命、正精进、正念、正定",
-      "正見、正思惟、正語、正業、正命、正精進、正念、正定",
-    ],
+    selectionAliases: [...eightfoldPathGlobalSelectionAliases],
     scopedSelectionAliases: [{
       sourceHrefPrefix: "/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#",
       aliases: [

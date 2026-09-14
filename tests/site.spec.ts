@@ -2542,6 +2542,45 @@ test("汉巴八正道名称行均提供概念入口", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("中英八正道明确别名的选文入口与问经答案保持一致", async ({ page }) => {
+  const cases = [
+    {
+      href: "/jingzang/suttacentral-benshi-jing-t0765/127-t765-127-0001-0030",
+      segmentId: "t765.127:1.11",
+    },
+    {
+      href: "/jingzang/suttacentral-en-kp/004-kp4-0001-0022",
+      segmentId: "kp4:8.2",
+    },
+  ];
+
+  for (const item of cases) {
+    await page.goto(item.href);
+    await page.evaluate((segmentId) => {
+      const target = document.getElementById(segmentId);
+      if (!target) throw new Error(`Missing explicit eightfold path alias: ${segmentId}`);
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      document.dispatchEvent(new Event("selectionchange"));
+    }, item.segmentId);
+
+    const dock = await waitForFolioStudyDock(page);
+    await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+      "href",
+      "/gainian/bazhengdao",
+    );
+    await dock.getByRole("button", { name: "问这段" }).click();
+    await page.waitForURL(/\/wenjing$/);
+    await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+    await expect(
+      page.locator("[data-question-source-context]").getByText(item.segmentId, { exact: true }),
+    ).toBeVisible();
+  }
+});
+
 test("非八正道经中的初禅公式不会被误标为八正道", async ({ page }) => {
   await page.goto("/jingzang/anguttara-nikaya-an9/046-an9-45-0001-0012");
   await page.evaluate(() => {
