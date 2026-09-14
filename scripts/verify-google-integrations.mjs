@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -137,6 +137,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/guanxin"),
   get("/gainian/yuanqi"),
   get("/gainian/sidi"),
+  get("/gainian/bazhengdao"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -192,7 +193,7 @@ const pageExpectations = [
     gainian,
     {
       title: "佛教概念与主题 Hub｜foxue.ai",
-      description: "按主题进入四圣谛、缘起、空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+      description: "按主题进入四圣谛、八正道、缘起、空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
       bodyIncludes: ["先进入主题层", "再下钻到原典证据。", "进入概念 Hub"],
       jsonLd: [
         ["https://www.foxue.ai/gainian#page", "CollectionPage"],
@@ -291,6 +292,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/sidi#page", "WebPage"],
         ["https://www.foxue.ai/gainian/sidi#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/sidi#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/bazhengdao",
+    gainianBazhengdao,
+    {
+      title: "八正道｜概念 Hub｜foxue.ai",
+      description: "从《杂阿含经》《中阿含经》与巴利 SN 45.8 的稳定原典理解八正道、八支关系及正志／正思惟、正方便／正精进等译语边界。",
+      bodyIncludes: ["不是八条", "正思惟 · 正志", "每项判断，都有可以重新打开的位置。"],
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/bazhengdao#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/bazhengdao#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/bazhengdao#breadcrumb", "BreadcrumbList"],
       ],
     },
   ],

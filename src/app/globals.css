@@ -2252,6 +2252,26 @@ a {
   --concept-line: #9db8b3;
 }
 
+.concept-page--bazhengdao {
+  --concept-teal: #8a4d2b;
+  --concept-teal-deep: #3c251a;
+  --concept-mist: #efe1d2;
+  --concept-line: #c6a083;
+}
+
+.concept-page--bazhengdao .emptiness-lens__glyph {
+  max-width: 72%;
+  text-align: center;
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  line-height: 0.92;
+}
+
+.concept-page--bazhengdao .term-register article {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--concept-mist) 32%, transparent), transparent 58%),
+    color-mix(in srgb, var(--paper) 48%, transparent);
+}
+
 .concept-hero {
   position: relative;
   overflow: hidden;
@@ -3273,6 +3293,12 @@ a {
     --concept-teal-deep: #142426;
     --concept-mist: #233937;
     --concept-line: #557c78;
+  }
+  .concept-page--bazhengdao {
+    --concept-teal: #dda178;
+    --concept-teal-deep: #24160f;
+    --concept-mist: #38271e;
+    --concept-line: #795b47;
   }
   .emptiness-lens::after { background: var(--canvas); }
   .concept-boundaries { background: #0b1718; }
