@@ -604,8 +604,8 @@ test(researchWorkspaceAnalyticsTestTitle, async ({ page }) => {
   await expect(question).toHaveValue("《心经》如何说明色与空的关系？");
   await page.getByLabel(/^02 · 来源范围与排除条件/).fill("先核对玄奘译 T0251；暂不把现代讲解当作原典证据。");
   await page.getByLabel(/^03 · 暂定结论/).fill("色与空在此处被表述为不异，而非简单等同于虚无。");
-  await page.getByLabel("《般若波罗蜜多心经》与研究主张的关系").selectOption("supports");
-  await page.getByLabel("《般若波罗蜜多心经》证据关系说明").fill(
+  await page.getByLabel("《般若波罗蜜多心经》 T0251.001.0848c07 与研究主张的关系").selectOption("supports");
+  await page.getByLabel("《般若波罗蜜多心经》 T0251.001.0848c07 证据关系说明").fill(
     "原句直接支持‘不异’这一表述，但单一译本不能证明所有传统措辞一致。",
   );
 

@@ -356,7 +356,7 @@ export function ResearchWorkbench() {
                       <label>
                         <span>与研究主张的关系</span>
                         <select
-                          aria-label={`${passage.workTitle}与研究主张的关系`}
+                          aria-label={`${passage.workTitle} ${passage.locator} 与研究主张的关系`}
                           value={status}
                           onChange={(event) => assessPassage(passage.id, {
                             status: event.target.value as ResearchEvidenceStatus,
@@ -370,7 +370,7 @@ export function ResearchWorkbench() {
                       <label>
                         <span>这条原文怎样支持、限制或反驳判断</span>
                         <textarea
-                          aria-label={`${passage.workTitle}证据关系说明`}
+                          aria-label={`${passage.workTitle} ${passage.locator} 证据关系说明`}
                           value={assessment?.reasoning ?? ""}
                           onChange={(event) => assessPassage(passage.id, {
                             reasoning: event.target.value,
