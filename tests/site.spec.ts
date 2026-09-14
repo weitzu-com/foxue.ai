@@ -95,6 +95,7 @@ const criticalRoutes = [
   "/gainian/wuwo",
   "/gainian/wuzhu",
   "/gainian/guanxin",
+  "/gainian/yuanqi",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -174,6 +175,7 @@ const sitemapLandingRoutes = [
   "/gainian/wuwo",
   "/gainian/wuzhu",
   "/gainian/guanxin",
+  "/gainian/yuanqi",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -254,6 +256,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/wuwo", "https://www.foxue.ai/gainian/wuwo"],
     ["/gainian/wuzhu", "https://www.foxue.ai/gainian/wuzhu"],
     ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
+    ["/gainian/yuanqi", "https://www.foxue.ai/gainian/yuanqi"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
@@ -338,6 +341,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("| /xue | 研读 |");
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
+  expect(full).toContain("/gainian/yuanqi");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -464,6 +468,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/guanxin#page", "WebPage"],
         ["https://www.foxue.ai/gainian/guanxin#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/guanxin#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/yuanqi",
+      required: [
+        ["https://www.foxue.ai/gainian/yuanqi#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/yuanqi#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/yuanqi#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -1916,6 +1928,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/wuwo"]')).toContainText("无我");
   await expect(page.locator('a[href="/gainian/wuzhu"]')).toContainText("无住");
   await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
+  await expect(page.locator('a[href="/gainian/yuanqi"]')).toContainText("缘起");
 
   const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
@@ -1925,6 +1938,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   expect(body).toContain("/gainian/wuwo");
   expect(body).toContain("/gainian/wuzhu");
   expect(body).toContain("/gainian/guanxin");
+  expect(body).toContain("/gainian/yuanqi");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
@@ -1963,6 +1977,26 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
     "href",
     "/jingzang/fajujing/001-0559a#T0210.001.0562a13",
   );
+
+  await page.goto("/gainian/yuanqi");
+  await expect(page.getByRole("heading", { level: 1, name: /缘起.*不是宿命/ })).toBeVisible();
+  await expect(page.getByText("缘起 = 宿命论", { exact: true })).toBeVisible();
+  await expect(page.getByText("paṭiccasamuppāda", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "站内稳定原文" })).toHaveCount(4);
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/zaahanjing/010-0067a#T0099.010.0067a05",
+  );
+
+  const viewport = page.viewportSize();
+  const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
 });
 
 test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ page }) => {
@@ -2030,6 +2064,20 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(mindHubLink).toBeVisible();
   await mindHubLink.click();
   await page.waitForURL(/\/gainian\/guanxin$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("十二因缘");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/yuanqi$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("缘起是不是说一切都注定了？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  const dependentOriginationHubLink = page.getByRole("link", { name: /进入“缘起”概念 Hub/ });
+  await expect(dependentOriginationHubLink).toBeVisible();
+  await dependentOriginationHubLink.click();
+  await page.waitForURL(/\/gainian\/yuanqi$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {
@@ -2231,6 +2279,25 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
     "href",
     "/gainian/wuwo",
   );
+});
+
+test("杂阿含缘起句可从选文进入受控概念页", async ({ page }) => {
+  await page.goto("/jingzang/zaahanjing/010-0067a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.010.0067a05");
+    if (!target) throw new Error("Missing dependent origination source line");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  const conceptLink = dock.getByRole("link", { name: "解释术语：缘起" });
+  await expect(conceptLink).toHaveAttribute("href", "/gainian/yuanqi");
+  await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {

@@ -1,6 +1,7 @@
 import { expandedConceptHubs } from "@/lib/concept-hubs-expanded";
+import { dependentOriginationConceptHub } from "@/lib/concept-hubs-yuanqi";
 
-export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin";
+export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi";
 
 export type ConceptEntry = {
   slug: ConceptSlug;
@@ -311,7 +312,7 @@ const baseConceptHubs: readonly ConceptHub[] = [
     updatedAt: "2026-08-20",
     footerActionLabel: "带着语境继续问",
     footerActionHref: "/wenjing",
-    related: ["wuzhu", "guanxin"],
+    related: ["wuzhu", "guanxin", "yuanqi"],
   },
   {
     entry: {
@@ -709,7 +710,11 @@ const baseConceptHubs: readonly ConceptHub[] = [
   },
 ] as const;
 
-const conceptHubs: readonly ConceptHub[] = [...baseConceptHubs, ...expandedConceptHubs];
+const conceptHubs: readonly ConceptHub[] = [
+  ...baseConceptHubs,
+  ...expandedConceptHubs,
+  dependentOriginationConceptHub,
+];
 
 export const allConceptHubs = [...conceptHubs];
 export const allConcepts = conceptHubs.map((hub) => hub.entry);

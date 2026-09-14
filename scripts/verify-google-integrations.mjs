@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -135,6 +135,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/wuwo"),
   get("/gainian/wuzhu"),
   get("/gainian/guanxin"),
+  get("/gainian/yuanqi"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -178,7 +179,7 @@ const pageExpectations = [
     {
       title: "证据问经与佛经原典出处对照｜foxue.ai",
       description: "输入佛学问题，在可信原型中查看佛经原典出处、版本边界、平台综合与证据不足提示。",
-      bodyIncludes: ["先看证据，再听综合。", "当前问经原型仅检索三部已完成人工样本复核的经典"],
+      bodyIncludes: ["先看证据，再听综合。", "当前问经只回答已登记、可回到稳定原文的受控主题"],
       jsonLd: [
         ["https://www.foxue.ai/wenjing#page", "WebPage"],
         ["https://www.foxue.ai/wenjing#breadcrumb", "BreadcrumbList"],
@@ -190,7 +191,7 @@ const pageExpectations = [
     gainian,
     {
       title: "佛教概念与主题 Hub｜foxue.ai",
-      description: "按主题进入空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+      description: "按主题进入空、缘起、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
       bodyIncludes: ["先进入主题层", "再下钻到原典证据。", "进入概念 Hub"],
       jsonLd: [
         ["https://www.foxue.ai/gainian#page", "CollectionPage"],
@@ -261,6 +262,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/guanxin#page", "WebPage"],
         ["https://www.foxue.ai/gainian/guanxin#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/guanxin#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/yuanqi",
+    gainianYuanqi,
+    {
+      title: "缘起｜概念 Hub｜foxue.ai",
+      description: "从《杂阿含经》与巴利《相应部》的稳定原典理解缘起、因缘法与此缘性，保留汉巴表达差异并辨清宿命论等误读。",
+      bodyIncludes: ["不是宿命", "相近表达可以并读", "每项判断，都有可以重新打开的位置。"],
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/yuanqi#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/yuanqi#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/yuanqi#breadcrumb", "BreadcrumbList"],
       ],
     },
   ],
