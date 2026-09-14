@@ -1200,6 +1200,8 @@ test(passageQuestionAnalyticsTestTitle, async ({ page }) => {
   await sourceContext.getByRole("button", { name: "解除选段" }).click();
   await expect(sourceContext).toHaveCount(0);
   expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:question-source-context:v1"))).toBeNull();
+  await expect(page.getByLabel("输入佛学问题")).toHaveValue("无住是什么意思？");
+  expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:pending-question"))).toBe("无住是什么意思？");
   await expect(page.getByRole("heading", { name: "无住不是消极不做，而是不以占有心行动" })).toBeVisible();
   const removedAnalytics = await page.evaluate(() => {
     const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
@@ -1243,6 +1245,14 @@ test("问这段超出审核解释范围时保留原文并明确停下", async ({
     "href",
     `${path}#${locator}`,
   );
+
+  const sourceContext = page.locator("[data-question-source-context]");
+  await sourceContext.getByRole("button", { name: "解除选段" }).click();
+  await expect(sourceContext).toHaveCount(0);
+  await expect(page.getByLabel("输入佛学问题")).toHaveValue("");
+  await expect(page.getByRole("heading", { name: "从一个真实问题开始" })).toBeVisible();
+  expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:pending-question"))).toBeNull();
+  expect(await page.evaluate(() => window.sessionStorage.getItem("foxue:question-mode"))).toBeNull();
 });
 
 test("问经拒绝伪造的外部原典上下文", async ({ page }) => {

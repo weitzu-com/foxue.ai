@@ -8,6 +8,7 @@ import { StatusPill } from "@/components/status-pill";
 import { buildResearchResult } from "@/lib/research";
 import {
   clearQuestionSourceContextFromSession,
+  PASSAGE_QUESTION_PROMPT,
   parseQuestionSourceContext,
   QUESTION_CHANGE_EVENT,
   QUESTION_MAX_LENGTH,
@@ -92,6 +93,15 @@ export function AskExperience() {
       source_id: sourceContext.id,
       segment_count: sourceContext.segmentCount,
     });
+    const shouldClearGeneratedPrompt = storedQuestion === PASSAGE_QUESTION_PROMPT
+      && activeQuestion === PASSAGE_QUESTION_PROMPT;
+    if (shouldClearGeneratedPrompt) {
+      const preservedDraft = inputValue === PASSAGE_QUESTION_PROMPT ? null : inputValue;
+      saveQuestionToSession("");
+      setDraft(preservedDraft);
+      setSubmitted(null);
+      return;
+    }
     clearQuestionSourceContextFromSession();
   }
 
