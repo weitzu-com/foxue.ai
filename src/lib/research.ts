@@ -93,8 +93,11 @@ export function buildResearchResult(
   sourceContext?: QuestionSourceContext | null,
 ): ResearchResult {
   const query = rawQuery.trim();
+  const normalizedQuery = query.toLocaleLowerCase();
   const isInitialPassageQuestion = query === PASSAGE_QUESTION_PROMPT;
-  const has = (...words: string[]) => words.some((word) => query.includes(word));
+  const has = (...words: string[]) => words.some((word) =>
+    normalizedQuery.includes(word.toLocaleLowerCase()),
+  );
   const sourceHas = (...phrases: string[]) => Boolean(
     isInitialPassageQuestion
     && sourceContext
@@ -114,9 +117,11 @@ export function buildResearchResult(
     sourceContext,
     isInitialPassageQuestion,
   );
+  const asksAboutEmptinessOfAggregates = has("五蕴皆空", "五蘊皆空");
 
   if (
-    has(...fiveAggregatesConcept.selectionAliases, "五蕴是什么", "五蘊是什麼", "心经中的五蕴", "心經中的五蘊")
+    (!asksAboutEmptinessOfAggregates
+      && has(...fiveAggregatesConcept.selectionAliases, "五蕴是什么", "五蘊是什麼", "心经中的五蕴", "心經中的五蘊"))
     || sourceMatchesConcept(fiveAggregatesConcept)
   ) {
     return finish({

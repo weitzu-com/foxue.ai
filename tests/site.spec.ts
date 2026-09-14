@@ -2191,6 +2191,25 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await page.waitForURL(/\/gainian\/wuyun$/);
 });
 
+test("五蕴问经兼容英文大小写并保留五蕴皆空的空义优先级", async ({ page }) => {
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("What are the Five Aggregates?");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/五蕴不是五个灵魂部件/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“五蕴”概念 Hub/ })).toHaveAttribute(
+    "href",
+    "/gainian/wuyun",
+  );
+
+  await page.getByLabel("输入佛学问题").fill("五蕴皆空是什么意思？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/“空”不是虚无/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“空”概念 Hub/ })).toHaveAttribute(
+    "href",
+    "/gainian/kong",
+  );
+});
+
 test("旧查询参数不会被读取或显示", async ({ page }) => {
   await page.goto("/wenjing?q=这是不应进入页面的私密问题");
 
