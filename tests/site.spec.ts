@@ -2086,6 +2086,37 @@ test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
   await expect(unsupportedDock.getByRole("link", { name: /解释术语：/ })).toHaveCount(0);
   await expect(unsupportedDock.getByRole("link", { name: "查看异译／表达（7）" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+
+  await page.goto("/jingzang/fajujing/001-0559a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0210.001.0559a10");
+    if (!target) throw new Error("Missing grammatical use of 我所");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const grammaticalDock = await waitForFolioStudyDock(page);
+  await expect(grammaticalDock.getByRole("link", { name: "解释术语：无我" })).toHaveCount(0);
+
+  await page.goto("/jingzang/zaahanjing/001-0002a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.001.0002a04");
+    if (!target) throw new Error("Missing doctrinal use of 非我所");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const nonSelfDock = await waitForFolioStudyDock(page);
+  await expect(nonSelfDock.getByRole("link", { name: "解释术语：无我" })).toHaveAttribute(
+    "href",
+    "/gainian/wuwo",
+  );
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {
