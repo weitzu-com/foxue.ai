@@ -17,6 +17,18 @@ export const eightfoldPathGlobalSelectionAliases = [
   "正見、正思惟、正語、正業、正命、正精進、正念、正定",
 ] as const;
 
+export const eightfoldPathPaliLimbSelectionAliases = [
+  "sammādiṭṭhi",
+  "sammāsaṅkappo",
+  "sammāvācā",
+  "sammākammanto",
+  "sammāājīvo",
+  "sammāvāyāmo",
+  "sammāsati",
+  "sammāsamādhi",
+  "sammāsamādhī",
+] as const;
+
 export const eightfoldPathConceptHub = {
   entry: {
     slug: "bazhengdao",
@@ -40,16 +52,7 @@ export const eightfoldPathConceptHub = {
     selectionAliases: [...eightfoldPathGlobalSelectionAliases],
     scopedSelectionAliases: [{
       sourceHrefPrefix: "/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#",
-      aliases: [
-        "sammādiṭṭhi",
-        "sammāsaṅkappo",
-        "sammāvācā",
-        "sammākammanto",
-        "sammāājīvo",
-        "sammāvāyāmo",
-        "sammāsati",
-        "sammāsamādhi",
-      ],
+      aliases: [...eightfoldPathPaliLimbSelectionAliases],
     }],
     prompt: "八正道是八条要逐项完成的规则吗？",
   },

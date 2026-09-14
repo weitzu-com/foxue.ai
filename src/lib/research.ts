@@ -15,7 +15,10 @@ import {
   type QuestionSourceContext,
 } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
-import { eightfoldPathGlobalSelectionAliases } from "@/lib/concept-hubs-eightfold-path";
+import {
+  eightfoldPathGlobalSelectionAliases,
+  eightfoldPathPaliLimbSelectionAliases,
+} from "@/lib/concept-hubs-eightfold-path";
 
 export type Evidence = {
   label: string;
@@ -126,16 +129,7 @@ export function buildResearchResult(
     )
     || (
       sourceIs("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#")
-      && sourceHas(
-        "sammādiṭṭhi",
-        "sammāsaṅkappo",
-        "sammāvācā",
-        "sammākammanto",
-        "sammāājīvo",
-        "sammāvāyāmo",
-        "sammāsati",
-        "sammāsamādhi",
-      )
+      && sourceHas(...eightfoldPathPaliLimbSelectionAliases)
     )
   ) {
     return finish({

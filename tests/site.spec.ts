@@ -2482,6 +2482,32 @@ test("汉巴八正道定义均可从选文进入受控概念页并带原文问�
   ).toBeVisible();
 });
 
+test("SN 45.8 正定结句变格可进入八正道概念页并带原文问经", async ({ page }) => {
+  await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn45.8:10.6");
+    if (!target) throw new Error("Missing inflected right-concentration segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn45.8:10.6", { exact: true }),
+  ).toBeVisible();
+});
+
 test("汉巴八正道名称行均提供概念入口", async ({ page }) => {
   await page.goto("/jingzang/zaahanjing/028-0199a");
   await page.evaluate(() => {
