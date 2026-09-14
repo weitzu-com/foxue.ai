@@ -164,7 +164,7 @@ export function SearchConsole() {
           ) : mode === "research" ? (
             <>本地研究：先定义问题与来源范围，再把收藏的原典整理成证据矩阵。{" "}<Link href="/yanjiu">打开研究工作台</Link></>
           ) : (
-            <>可信原型：当前问经仅检索三部人工复核样本，尚未启用生成式模型。{" "}<Link href="/wenjing">查看能力边界</Link></>
+            <>可信原型：当前问经只回答已登记受控主题，尚未启用生成式模型。{" "}<Link href="/wenjing">查看能力边界</Link></>
           )}
         </span>
       </div>

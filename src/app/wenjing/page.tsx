@@ -48,7 +48,7 @@ export default function AskPage() {
         <div className="prototype-note">
           <Info aria-hidden="true" size={17} />
           <p>
-            当前问经原型仅检索三部已完成人工样本复核的经典；
+            当前问经只回答已登记、可回到稳定原文的受控主题；
             经藏另有 {readableCount} 个完整原文表达可独立阅读，尚未启用生成式模型。
           </p>
         </div>
