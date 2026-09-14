@@ -146,6 +146,80 @@
   white-space: pre-line;
 }
 
+.researchEntries {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--wash) 68%, transparent);
+}
+
+.researchEntries header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.researchEntries header > svg {
+  width: 1rem;
+  flex: 0 0 auto;
+  color: var(--cinnabar);
+}
+
+.researchEntries header strong,
+.researchEntries header small {
+  display: block;
+}
+
+.researchEntries header strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.75rem;
+}
+
+.researchEntries header small,
+.researchEntries > p {
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.55;
+}
+
+.researchEntries header small {
+  margin-top: 0.08rem;
+}
+
+.researchEntries > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.researchEntries a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  padding-inline: 0.72rem;
+  border: 1px solid var(--line-dark);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.researchEntries a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.researchEntries a svg {
+  width: 0.86rem;
+}
+
+.researchEntries > p {
+  margin: 0.48rem 0 0;
+}
+
 .quickActions {
   display: flex;
   align-items: center;
@@ -443,6 +517,15 @@
   .quickActions {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .researchEntries > div {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .researchEntries a {
+    width: 100%;
   }
 
   .quickActions button,

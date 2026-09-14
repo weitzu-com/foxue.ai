@@ -10,6 +10,7 @@ import { SutraReaderPreferences } from "@/components/sutra-reader-preferences";
 import { FolioStudySelection } from "@/components/folio-study-selection";
 import { FolioReadingTrail } from "@/components/folio-reading-trail";
 import { pinyinForBuddhistText } from "@/lib/buddhist-pinyin.mjs";
+import { allConcepts } from "@/lib/concept-hubs";
 import styles from "./sutra-reading-sample.module.css";
 
 type InlinePiece = {
@@ -41,6 +42,13 @@ type ReadingDirectory = {
   groups: ReadingDirectoryItem[];
   pages: ReadingDirectoryItem[];
 };
+
+const selectionConcepts = allConcepts.map(({ slug, title, href, aliases }) => ({
+  slug,
+  title,
+  href,
+  aliases,
+}));
 
 const sentenceEnding = /[。！？；][」』]*$/u;
 
@@ -278,6 +286,7 @@ export function SutraReadingSample({
   attributionNote,
   parallelEvidence,
   workExpressionNavigator,
+  workExpressionSummary,
   directory,
   topNavigation,
   bottomNavigation,
@@ -301,6 +310,10 @@ export function SutraReadingSample({
   attributionNote?: string;
   parallelEvidence?: ReactNode;
   workExpressionNavigator?: ReactNode;
+  workExpressionSummary?: {
+    anchorId: string;
+    count: number;
+  };
   directory: ReadingDirectory;
   topNavigation: ReactNode;
   bottomNavigation: ReactNode;
@@ -499,6 +512,8 @@ export function SutraReadingSample({
             sourceName={sourceName}
             sourceUrl={sourceUrl}
             sourceLicense={sourceLicense}
+            concepts={selectionConcepts}
+            workExpressionSummary={workExpressionSummary}
           >
             <div
               className={styles.readingBody}

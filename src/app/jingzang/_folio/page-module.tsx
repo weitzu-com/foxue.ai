@@ -6,9 +6,17 @@ import { ReaderHashRedirect } from "@/components/reader-hash-redirect";
 import { ReaderHeader } from "@/components/reader-header";
 import { ParallelEvidencePanel } from "@/components/parallel-evidence-panel";
 import { SutraReadingSample } from "@/components/sutra-reading-sample";
-import { WorkExpressionNavigator } from "@/components/work-expression-navigator";
+import {
+  WorkExpressionNavigator,
+  workExpressionAnchorId,
+} from "@/components/work-expression-navigator";
 import { getReadingFolioEdition } from "@/data/sutra-reading-editions";
-import { folioCollectionLabel, getSutra, type Sutra } from "@/data/sutras";
+import {
+  folioCollectionLabel,
+  getSutra,
+  getWorkExpressionGroup,
+  type Sutra,
+} from "@/data/sutras";
 import {
   buildLegacyAliasMap,
   buildJuanNavigation,
@@ -404,6 +412,7 @@ export default async function SutraFolioPage({ params }: PageProps) {
       },
     ],
   };
+  const workExpressionGroup = getWorkExpressionGroup(sutra.slug);
 
   return (
     <>
@@ -446,7 +455,13 @@ export default async function SutraFolioPage({ params }: PageProps) {
           bibliographicNote={sutra.bibliographicNote}
           attributionNote={sutra.attributionNote}
           parallelEvidence={getParallelEvidence(sutra.slug) ? <ParallelEvidencePanel slug={sutra.slug} /> : undefined}
-          workExpressionNavigator={<WorkExpressionNavigator sutra={sutra} variant="reader" />}
+          workExpressionNavigator={workExpressionGroup
+            ? <WorkExpressionNavigator sutra={sutra} variant="reader" />
+            : undefined}
+          workExpressionSummary={workExpressionGroup ? {
+            anchorId: workExpressionAnchorId(sutra.slug),
+            count: workExpressionGroup.expressions.length,
+          } : undefined}
           directory={{
             indexHref: `/jingzang/${sutra.slug}`,
             indexLabel: `返回文本目录：《${sutra.alternateTitle}》`,
