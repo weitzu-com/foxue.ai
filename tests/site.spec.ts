@@ -2580,6 +2580,7 @@ test("其他分类法中的八支词不会被当作整条八正道的直接证�
   });
 
   const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveCount(0);
   await dock.getByRole("button", { name: "问这段" }).click();
   await page.waitForURL(/\/wenjing$/);
   await expect(page.getByText(/八正道不是八条孤立规则/)).toHaveCount(0);

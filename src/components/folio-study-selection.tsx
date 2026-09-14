@@ -44,6 +44,10 @@ type StudyConceptLink = {
   title: string;
   href: string;
   aliases: string[];
+  scopedAliases?: Array<{
+    sourceHrefPrefix: string;
+    aliases: string[];
+  }>;
 };
 
 type WorkExpressionSummary = {
@@ -51,11 +55,19 @@ type WorkExpressionSummary = {
   count: number;
 };
 
-function conceptsInText(text: string, concepts: StudyConceptLink[]) {
+function conceptsInText(text: string, sourceHref: string, concepts: StudyConceptLink[]) {
   const normalizedText = text.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, "");
-  return concepts.filter((concept) => concept.aliases.some((alias) =>
-    normalizedText.includes(alias.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, "")),
-  ));
+  const includesAlias = (alias: string) => normalizedText.includes(
+    alias.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, ""),
+  );
+
+  return concepts.filter((concept) =>
+    concept.aliases.some(includesAlias)
+    || concept.scopedAliases?.some((scope) =>
+      sourceHref.startsWith(scope.sourceHrefPrefix)
+      && scope.aliases.some(includesAlias),
+    ),
+  );
 }
 
 function stableHash(value: string) {
@@ -118,7 +130,9 @@ export function FolioStudySelection({
     ? savedPassages.some((passage) => passage.id === activeSelection.seed.id)
     : false;
   const matchedConcepts = useMemo(
-    () => activeSelection ? conceptsInText(activeSelection.seed.quote, concepts) : [],
+    () => activeSelection
+      ? conceptsInText(activeSelection.seed.quote, activeSelection.seed.sourceHref, concepts)
+      : [],
     [activeSelection, concepts],
   );
   const hasResearchEntry = matchedConcepts.length > 0 || Boolean(workExpressionSummary);

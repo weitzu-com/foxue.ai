@@ -12,6 +12,10 @@ export type ConceptEntry = {
   summary: string;
   aliases: string[];
   selectionAliases: string[];
+  scopedSelectionAliases?: Array<{
+    sourceHrefPrefix: string;
+    aliases: string[];
+  }>;
   prompt: string;
 };
 
