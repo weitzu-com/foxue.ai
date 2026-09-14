@@ -127,10 +127,14 @@ export function buildResearchResult(
       "苦灭道迹圣谛当知、当修",
       "三轉十二行",
       "三转十二行",
-      "dukkhaṁ ariyasaccaṁ pariññeyyaṁ",
-      "dukkhasamudayaṁ ariyasaccaṁ pahātabbaṁ",
-      "dukkhanirodhaṁ ariyasaccaṁ sacchikātabbaṁ",
-      "dukkhanirodhagāminī paṭipadā ariyasaccaṁ bhāvetabbaṁ",
+      "Idaṁ kho pana, bhikkhave, dukkhaṁ ariyasaccaṁ",
+      "Idaṁ kho pana, bhikkhave, dukkhasamudayaṁ ariyasaccaṁ",
+      "Idaṁ kho pana, bhikkhave, dukkhanirodhaṁ ariyasaccaṁ",
+      "Idaṁ kho pana, bhikkhave, dukkhanirodhagāminī paṭipadā ariyasaccaṁ",
+      "pariññeyyan’ti",
+      "pahātabban’ti",
+      "sacchikātabban’ti",
+      "bhāvetabban’ti",
     )
   ) {
     return finish({

@@ -2340,7 +2340,7 @@ test("杂阿含缘起句可从选文进入受控概念页", async ({ page }) => 
   await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
 });
 
-test("杂阿含四谛任务句可从选文进入受控概念页并带原文问经", async ({ page }) => {
+test("汉巴四谛任务句均可从选文进入受控概念页并带原文问经", async ({ page }) => {
   await page.goto("/jingzang/zaahanjing/015-0104b");
   await page.evaluate(() => {
     const target = document.getElementById("T0099.015.0104b16");
@@ -2363,6 +2363,30 @@ test("杂阿含四谛任务句可从选文进入受控概念页并带原文问�
   await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
   await expect(
     page.locator("[data-question-source-context]").getByText("T0099.015.0104b16", { exact: true }),
+  ).toBeVisible();
+
+  await page.goto("/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn56.11:5.2");
+    if (!target) throw new Error("Missing Pali four noble truths task segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliDock = await waitForFolioStudyDock(page);
+  await expect(paliDock.getByRole("link", { name: "解释术语：四圣谛" })).toHaveAttribute(
+    "href",
+    "/gainian/sidi",
+  );
+  await paliDock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn56.11:5.2", { exact: true }),
   ).toBeVisible();
 });
 
