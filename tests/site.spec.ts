@@ -7,6 +7,7 @@ const readerPreferencesAnalyticsTestTitle = "经文阅读设置兼容旧偏好�
 const readerPageSearchAnalyticsTestTitle = "本页查句跨稳定段落定位且不上传原文";
 const savedPassagesAnalyticsTestTitle = "本地选文按稳定行段收藏、回显、导出且不上传原文";
 const passageQuestionAnalyticsTestTitle = "选中经文可锁定稳定出处进入问经且不上传原文";
+const selectionResearchEntryAnalyticsTestTitle = "选中经句只展示已审核术语与同作品表达且不伪造逐句对齐";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const analyticsConsent = [
@@ -15,6 +16,7 @@ test.beforeEach(async ({ page }, testInfo) => {
     readerPageSearchAnalyticsTestTitle,
     savedPassagesAnalyticsTestTitle,
     passageQuestionAnalyticsTestTitle,
+    selectionResearchEntryAnalyticsTestTitle,
   ].includes(testInfo.title) ? "granted" : "denied";
   await page.addInitScript((consent) => {
     window.localStorage.setItem("foxue:analytics-consent", consent);
@@ -1987,6 +1989,148 @@ test("同一作品的异译与译本可从作品页和经卷页直接发现", as
 
   await page.goto("/jingzang/nanchuan-digha-01");
   await expect(page.locator('[data-work-expression-navigator]')).toHaveCount(0);
+});
+
+test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {
+  const path = "/jingzang/jingangjing/001-0749c";
+  const locator = "T0235.001.0749c22";
+  const lastLocator = "T0235.001.0749c23";
+  await page.route("https://www.googletagmanager.com/**", (route) => route.abort());
+  await page.addInitScript(() => {
+    window.gtag = (...args: unknown[]) => {
+      const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+      calls.push(args);
+      window.sessionStorage.setItem("foxue:test-analytics-calls", JSON.stringify(calls));
+    };
+  });
+  await page.goto(path);
+
+  const source = await page.evaluate(({ firstLocator, finalLocator }) => {
+    const target = document.getElementById(firstLocator);
+    const finalTarget = document.getElementById(finalLocator);
+    const sourceText = [target, finalTarget].map((element) =>
+      element?.querySelector<HTMLElement>("[data-source-text-equivalent]")?.textContent?.trim(),
+    ).filter(Boolean).join("\n");
+    if (!target || !finalTarget || !sourceText) {
+      throw new Error(`Missing stable source range ${firstLocator}–${finalLocator}`);
+    }
+    const range = document.createRange();
+    range.setStartBefore(target);
+    range.setEndAfter(finalTarget);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return sourceText;
+  }, { firstLocator: locator, finalLocator: lastLocator });
+
+  const dock = await waitForFolioStudyDock(page);
+  const entries = dock.locator("[data-selection-research-entries]");
+  await expect(entries.getByText("从原文进入已审核研读入口", { exact: true })).toBeVisible();
+  await expect(entries.getByText("同作品表达不等于本段已经逐句对齐。", { exact: false })).toBeVisible();
+
+  const conceptLink = entries.getByRole("link", { name: "解释术语：无住" });
+  await expect(conceptLink).toHaveAttribute("href", "/gainian/wuzhu");
+  await expect(conceptLink).toHaveAttribute("data-analytics-event", "concept_opened");
+  await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
+  await expect(entries.getByRole("link", { name: /解释术语：空/ })).toHaveCount(0);
+
+  const expressionsLink = entries.getByRole("link", { name: "查看异译／表达（7）" });
+  await expect(expressionsLink).toHaveAttribute("href", "#work-expressions-jingangjing");
+  const entriesAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(entriesAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await expressionsLink.click();
+  await expect(dock).toHaveCount(0);
+  await expect(page).toHaveURL(`${path}#work-expressions-jingangjing`);
+  const navigator = page.locator("#work-expressions-jingangjing");
+  await expect(navigator.locator("details")).toHaveAttribute("open", "");
+  await expect(navigator.getByRole("link", { name: /金刚经 · Gemmell 英译/ })).toBeVisible();
+
+  const analytics = await page.evaluate(() => {
+    const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
+    return calls.filter((call: unknown[]) =>
+      call[0] === "event" && call[1] === "scripture_expression_navigator_opened",
+    );
+  });
+  expect(analytics).toEqual([[
+    "event",
+    "scripture_expression_navigator_opened",
+    {
+      content_id: "jingangjing",
+      expression_count: 7,
+      entry_point: "folio_selection",
+    },
+  ]]);
+  expect(JSON.stringify(analytics)).not.toContain(source);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+
+  await page.goto("/jingzang/jingangjing/001-0749a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0235.001.0749a16");
+    if (!target) throw new Error("Missing spatial use of 虛空");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const unsupportedDock = await waitForFolioStudyDock(page);
+  await expect(unsupportedDock.getByRole("link", { name: /解释术语：/ })).toHaveCount(0);
+  await expect(unsupportedDock.getByRole("link", { name: "查看异译／表达（7）" })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+
+  await page.goto("/jingzang/taisho-t0208/002-0537a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0208.002.0537a09");
+    if (!target) throw new Error("Missing spatial use of 無住");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const spatialNoAbidingDock = await waitForFolioStudyDock(page);
+  await expect(spatialNoAbidingDock.getByRole("link", { name: "解释术语：无住" })).toHaveCount(0);
+
+  await page.goto("/jingzang/fajujing/001-0559a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0210.001.0559a10");
+    if (!target) throw new Error("Missing grammatical use of 我所");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const grammaticalDock = await waitForFolioStudyDock(page);
+  await expect(grammaticalDock.getByRole("link", { name: "解释术语：无我" })).toHaveCount(0);
+
+  await page.goto("/jingzang/zaahanjing/001-0002a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.001.0002a04");
+    if (!target) throw new Error("Missing doctrinal use of 非我所");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+  const nonSelfDock = await waitForFolioStudyDock(page);
+  await expect(nonSelfDock.getByRole("link", { name: "解释术语：无我" })).toHaveAttribute(
+    "href",
+    "/gainian/wuwo",
+  );
 });
 
 test("经藏目录以服务端分页支持元数据检索与语种筛选", async ({ page, request }) => {

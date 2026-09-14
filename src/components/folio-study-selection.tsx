@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Bookmark, BookMarked, Braces, Check, ChevronDown, Copy, Download, Highlighter, MessageCircleQuestion, ShieldCheck, X } from "lucide-react";
+import { Bookmark, BookCopy, BookMarked, BookOpenText, Braces, Check, ChevronDown, Copy, Download, Highlighter, MessageCircleQuestion, ShieldCheck, X } from "lucide-react";
 import { StudyNoteComposer } from "@/components/study-note-composer";
 import {
   readSavedPassages,
@@ -39,6 +39,25 @@ type ActiveStudySelection = {
   segmentIds: string[];
 };
 
+type StudyConceptLink = {
+  slug: string;
+  title: string;
+  href: string;
+  aliases: string[];
+};
+
+type WorkExpressionSummary = {
+  anchorId: string;
+  count: number;
+};
+
+function conceptsInText(text: string, concepts: StudyConceptLink[]) {
+  const normalizedText = text.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, "");
+  return concepts.filter((concept) => concept.aliases.some((alias) =>
+    normalizedText.includes(alias.normalize("NFKC").toLocaleLowerCase().replace(/\s+/gu, "")),
+  ));
+}
+
 function stableHash(value: string) {
   let hash = 2166136261;
   for (const character of value) {
@@ -68,6 +87,8 @@ export function FolioStudySelection({
   sourceName,
   sourceUrl,
   sourceLicense,
+  concepts,
+  workExpressionSummary,
 }: {
   children: ReactNode;
   slug: string;
@@ -80,6 +101,8 @@ export function FolioStudySelection({
   sourceName: string;
   sourceUrl: string;
   sourceLicense: string;
+  concepts: StudyConceptLink[];
+  workExpressionSummary?: WorkExpressionSummary;
 }) {
   const router = useRouter();
   const selectionRootRef = useRef<HTMLDivElement>(null);
@@ -94,6 +117,11 @@ export function FolioStudySelection({
   const activeSelectionSaved = activeSelection
     ? savedPassages.some((passage) => passage.id === activeSelection.seed.id)
     : false;
+  const matchedConcepts = useMemo(
+    () => activeSelection ? conceptsInText(activeSelection.seed.quote, concepts) : [],
+    [activeSelection, concepts],
+  );
+  const hasResearchEntry = matchedConcepts.length > 0 || Boolean(workExpressionSummary);
 
   useEffect(() => {
     const root = selectionRootRef.current;
@@ -344,6 +372,19 @@ export function FolioStudySelection({
     }
   }
 
+  function revealWorkExpressions() {
+    if (!workExpressionSummary) return;
+    const target = document.getElementById(workExpressionSummary.anchorId);
+    const disclosure = target?.querySelector<HTMLDetailsElement>("details");
+    if (disclosure) disclosure.open = true;
+    trackEvent("scripture_expression_navigator_opened", {
+      content_id: slug,
+      expression_count: workExpressionSummary.count,
+      entry_point: "folio_selection",
+    });
+    closeTools();
+  }
+
   const dock = activeSelection ? (
     <aside className={styles.dock} role="region" aria-label="选中文本研读工具" data-folio-study-dock>
       <header className={styles.dockHeader}>
@@ -360,6 +401,51 @@ export function FolioStudySelection({
       </header>
 
       <blockquote lang={activeSelection.seed.quoteLang}>{activeSelection.seed.quote}</blockquote>
+
+      {hasResearchEntry && (
+        <section
+          className={styles.researchEntries}
+          aria-label="所选原文的受控研读入口"
+          data-selection-research-entries
+        >
+          <header>
+            <BookOpenText aria-hidden="true" />
+            <div>
+              <strong>从原文进入已审核研读入口</strong>
+              <small>只显示站内已有证据边界的术语与作品关系。</small>
+            </div>
+          </header>
+          <div>
+            {matchedConcepts.map((concept) => (
+              <Link
+                href={concept.href}
+                prefetch={false}
+                onClick={closeTools}
+                data-analytics-event="concept_opened"
+                data-analytics-content-id={concept.slug}
+                data-analytics-location="folio_selection"
+                data-analytics-label={concept.title}
+                key={concept.slug}
+              >
+                <BookOpenText aria-hidden="true" /> 解释术语：{concept.title}
+              </Link>
+            ))}
+            {workExpressionSummary && (
+              <Link
+                href={`#${workExpressionSummary.anchorId}`}
+                prefetch={false}
+                onClick={revealWorkExpressions}
+              >
+                <BookCopy aria-hidden="true" /> 查看异译／表达（{workExpressionSummary.count}）
+              </Link>
+            )}
+          </div>
+          <p>
+            {matchedConcepts.length > 0 && "术语入口回到受控概念证据；"}
+            {workExpressionSummary && "同作品表达不等于本段已经逐句对齐。"}
+          </p>
+        </section>
+      )}
 
       <div className={styles.quickActions}>
         <button
@@ -439,7 +525,7 @@ export function FolioStudySelection({
       <div className={styles.selectionHint}>
         <Highlighter aria-hidden="true" />
         <p>
-          <strong>选一句，问含义、收藏、写笔记或带走引用。</strong>
+          <strong>选一句，查术语、看异译、问含义或带走引用。</strong>
           <span>
             选中任意经文，系统会按完整稳定行段取文；问经时不会暗中换经。
             {savedOnCurrentPage.length > 0 && ` 本页已有 ${savedOnCurrentPage.length} 则本地选文。`}

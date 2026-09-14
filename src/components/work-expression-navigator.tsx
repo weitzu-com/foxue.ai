@@ -3,6 +3,10 @@ import { ArrowRight, BookCopy, ChevronDown, Fingerprint } from "lucide-react";
 import { getWorkExpressionGroup, type Sutra } from "@/data/sutras";
 import styles from "./work-expression-navigator.module.css";
 
+export function workExpressionAnchorId(slug: string) {
+  return `work-expressions-${slug}`;
+}
+
 export function WorkExpressionNavigator({
   sutra,
   variant = "catalog",
@@ -14,10 +18,12 @@ export function WorkExpressionNavigator({
   if (!group) return null;
 
   const languageCount = new Set(group.expressions.map((expression) => expression.language)).size;
-  const titleId = `work-expressions-${sutra.slug}`;
+  const anchorId = workExpressionAnchorId(sutra.slug);
+  const titleId = `${anchorId}-title`;
 
   return (
     <section
+      id={anchorId}
       className={`${styles.navigator} ${styles[variant]}`}
       aria-labelledby={titleId}
       data-work-expression-navigator
