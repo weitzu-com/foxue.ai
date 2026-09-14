@@ -9,8 +9,9 @@ export const nonAbidingConcept = getConceptEntry("wuzhu");
 export const observingMindConcept = getConceptEntry("guanxin");
 export const dependentOriginationConcept = getConceptEntry("yuanqi");
 export const fourNobleTruthsConcept = getConceptEntry("sidi");
+export const eightfoldPathConcept = getConceptEntry("bazhengdao");
 
-if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept || !dependentOriginationConcept || !fourNobleTruthsConcept) {
+if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept || !dependentOriginationConcept || !fourNobleTruthsConcept || !eightfoldPathConcept) {
   throw new Error("概念 Hub 配置不完整");
 }
 

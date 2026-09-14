@@ -213,5 +213,5 @@ export const fourNobleTruthsConceptHub = {
   updatedAt: "2026-09-15",
   footerActionLabel: "带着任务继续问",
   footerActionHref: "/wenjing",
-  related: ["yuanqi", "guanxin", "wuchang", "wuwo"],
+  related: ["bazhengdao", "yuanqi", "guanxin", "wuchang", "wuwo"],
 } as const satisfies ConceptHub;

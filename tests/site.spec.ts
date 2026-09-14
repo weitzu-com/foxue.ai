@@ -97,6 +97,7 @@ const criticalRoutes = [
   "/gainian/guanxin",
   "/gainian/yuanqi",
   "/gainian/sidi",
+  "/gainian/bazhengdao",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -178,6 +179,7 @@ const sitemapLandingRoutes = [
   "/gainian/guanxin",
   "/gainian/yuanqi",
   "/gainian/sidi",
+  "/gainian/bazhengdao",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -210,6 +212,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
 
   const works = await (await request.get("/sitemap-works.xml")).text();
@@ -260,6 +263,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/guanxin", "https://www.foxue.ai/gainian/guanxin"],
     ["/gainian/yuanqi", "https://www.foxue.ai/gainian/yuanqi"],
     ["/gainian/sidi", "https://www.foxue.ai/gainian/sidi"],
+    ["/gainian/bazhengdao", "https://www.foxue.ai/gainian/bazhengdao"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
@@ -346,6 +350,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/wuwo");
   expect(full).toContain("/gainian/yuanqi");
   expect(full).toContain("/gainian/sidi");
+  expect(full).toContain("/gainian/bazhengdao");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -488,6 +493,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/sidi#page", "WebPage"],
         ["https://www.foxue.ai/gainian/sidi#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/sidi#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/bazhengdao",
+      required: [
+        ["https://www.foxue.ai/gainian/bazhengdao#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/bazhengdao#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/bazhengdao#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -1942,6 +1955,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/guanxin"]')).toContainText("观心");
   await expect(page.locator('a[href="/gainian/yuanqi"]')).toContainText("缘起");
   await expect(page.locator('a[href="/gainian/sidi"]')).toContainText("四圣谛");
+  await expect(page.locator('a[href="/gainian/bazhengdao"]')).toContainText("八正道");
 
   const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
@@ -1953,6 +1967,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   expect(body).toContain("/gainian/guanxin");
   expect(body).toContain("/gainian/yuanqi");
   expect(body).toContain("/gainian/sidi");
+  expect(body).toContain("/gainian/bazhengdao");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
@@ -2010,6 +2025,17 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
   await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
     "href",
     "/jingzang/zaahanjing/015-0104b#T0099.015.0104b15",
+  );
+
+  await page.goto("/gainian/bazhengdao");
+  await expect(page.getByRole("heading", { level: 1, name: /八正道.*不是八条.*彼此孤立的清单/ })).toBeVisible();
+  await expect(page.getByText("八正道 = 八项独立打卡", { exact: true })).toBeVisible();
+  await expect(page.getByText("正思惟 · 正志", { exact: true })).toBeVisible();
+  await expect(page.locator(".term-register article")).toHaveCount(8);
+  await expect(page.getByRole("link", { name: "站内稳定原文" })).toHaveCount(5);
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).first()).toHaveAttribute(
+    "href",
+    "/jingzang/zaahanjing/028-0199a#T0099.028.0199a10",
   );
 
   const viewport = page.viewportSize();
@@ -2118,6 +2144,22 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(fourTruthsHubLink).toBeVisible();
   await fourTruthsHubLink.click();
   await page.waitForURL(/\/gainian\/sidi$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("八支圣道");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/bazhengdao$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("八正道是八条独立规则吗？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+  await expect(page.locator(".evidence-card")).toHaveCount(4);
+  const eightfoldPathHubLink = page.getByRole("link", { name: /进入“八正道”概念 Hub/ });
+  await expect(eightfoldPathHubLink).toBeVisible();
+  await eightfoldPathHubLink.click();
+  await page.waitForURL(/\/gainian\/bazhengdao$/);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {
@@ -2387,6 +2429,234 @@ test("汉巴四谛任务句均可从选文进入受控概念页并带原文问�
   await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
   await expect(
     page.locator("[data-question-source-context]").getByText("sn56.11:5.2", { exact: true }),
+  ).toBeVisible();
+});
+
+test("汉巴八正道定义均可从选文进入受控概念页并带原文问经", async ({ page }) => {
+  await page.goto("/jingzang/zaahanjing/028-0199a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.028.0199a11");
+    if (!target) throw new Error("Missing Chinese eightfold path source line");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  const conceptLink = dock.getByRole("link", { name: "解释术语：八正道" });
+  await expect(conceptLink).toHaveAttribute("href", "/gainian/bazhengdao");
+  await expect(conceptLink).toHaveAttribute("data-analytics-location", "folio_selection");
+
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("T0099.028.0199a11", { exact: true }),
+  ).toBeVisible();
+
+  await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn45.8:5.1");
+    if (!target) throw new Error("Missing Pali eightfold path source segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliDock = await waitForFolioStudyDock(page);
+  await expect(paliDock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+  await paliDock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn45.8:5.1", { exact: true }),
+  ).toBeVisible();
+});
+
+test("SN 45.8 定义正文与八支实际变格均可进入八正道概念页并带原文问经", async ({ page }) => {
+  for (const segmentId of ["sn45.8:3.2", "sn45.8:8.2", "sn45.8:7.2", "sn45.8:10.6"]) {
+    await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
+    await page.evaluate((id) => {
+      const target = document.getElementById(id);
+      if (!target) throw new Error(`Missing inflected eightfold path segment: ${id}`);
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      document.dispatchEvent(new Event("selectionchange"));
+    }, segmentId);
+
+    const dock = await waitForFolioStudyDock(page);
+    await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+      "href",
+      "/gainian/bazhengdao",
+    );
+    await dock.getByRole("button", { name: "问这段" }).click();
+    await page.waitForURL(/\/wenjing$/);
+    await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+    await expect(
+      page.locator("[data-question-source-context]").getByText(segmentId, { exact: true }),
+    ).toBeVisible();
+  }
+});
+
+test("汉巴八正道名称行均提供概念入口", async ({ page }) => {
+  await page.goto("/jingzang/zaahanjing/028-0199a");
+  await page.evaluate(() => {
+    const target = document.getElementById("T0099.028.0199a10");
+    if (!target) throw new Error("Missing Chinese eightfold path naming line");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const chineseDock = await waitForFolioStudyDock(page);
+  await expect(chineseDock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+
+  await page.goto("/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn45.8:2.1");
+    if (!target) throw new Error("Missing Pali eightfold path naming segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliDock = await waitForFolioStudyDock(page);
+  await expect(paliDock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+    "href",
+    "/gainian/bazhengdao",
+  );
+
+  await page.evaluate(() => {
+    const target = document.getElementById("sn45.8:1.2");
+    if (!target) throw new Error("Missing accusative Pali eightfold path introduction");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const paliIntroductionDock = await waitForFolioStudyDock(page);
+  await expect(
+    paliIntroductionDock.getByRole("link", { name: "解释术语：八正道" }),
+  ).toHaveAttribute("href", "/gainian/bazhengdao");
+  await paliIntroductionDock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn45.8:1.2", { exact: true }),
+  ).toBeVisible();
+});
+
+test("中英八正道明确别名的选文入口与问经答案保持一致", async ({ page }) => {
+  const cases = [
+    {
+      href: "/jingzang/suttacentral-benshi-jing-t0765/127-t765-127-0001-0030",
+      segmentId: "t765.127:1.11",
+    },
+    {
+      href: "/jingzang/suttacentral-en-kp/004-kp4-0001-0022",
+      segmentId: "kp4:8.2",
+    },
+    {
+      href: "/jingzang/suttacentral-t1548/025-t1548-4-0121-0240",
+      segmentId: "t1548.4:123.0",
+    },
+  ];
+
+  for (const item of cases) {
+    await page.goto(item.href);
+    await page.evaluate((segmentId) => {
+      const target = document.getElementById(segmentId);
+      if (!target) throw new Error(`Missing explicit eightfold path alias: ${segmentId}`);
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      document.dispatchEvent(new Event("selectionchange"));
+    }, item.segmentId);
+
+    const dock = await waitForFolioStudyDock(page);
+    await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveAttribute(
+      "href",
+      "/gainian/bazhengdao",
+    );
+    await dock.getByRole("button", { name: "问这段" }).click();
+    await page.waitForURL(/\/wenjing$/);
+    await expect(page.getByText(/八正道不是八条孤立规则/)).toBeVisible();
+    await expect(
+      page.locator("[data-question-source-context]").getByText(item.segmentId, { exact: true }),
+    ).toBeVisible();
+  }
+});
+
+test("非八正道经中的初禅公式不会被误标为八正道", async ({ page }) => {
+  await page.goto("/jingzang/anguttara-nikaya-an9/046-an9-45-0001-0012");
+  await page.evaluate(() => {
+    const target = document.getElementById("an9.45:2.1");
+    if (!target) throw new Error("Missing generic first-jhana segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveCount(0);
+
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("an9.45:2.1", { exact: true }),
+  ).toBeVisible();
+});
+
+test("其他分类法中的八支词不会被当作整条八正道的直接证据", async ({ page }) => {
+  await page.goto("/jingzang/digha-nikaya-dn33/004-dn33-0361-0480");
+  await page.evaluate(() => {
+    const target = document.getElementById("dn33:1.11.139");
+    if (!target) throw new Error("Missing DN 33 four-dhamma taxonomy segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：八正道" })).toHaveCount(0);
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/八正道不是八条孤立规则/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("dn33:1.11.139", { exact: true }),
   ).toBeVisible();
 });
 

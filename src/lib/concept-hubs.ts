@@ -1,8 +1,9 @@
 import { expandedConceptHubs } from "@/lib/concept-hubs-expanded";
+import { eightfoldPathConceptHub } from "@/lib/concept-hubs-eightfold-path";
 import { fourNobleTruthsConceptHub } from "@/lib/concept-hubs-four-truths";
 import { dependentOriginationConceptHub } from "@/lib/concept-hubs-yuanqi";
 
-export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi" | "sidi";
+export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi" | "sidi" | "bazhengdao";
 
 export type ConceptEntry = {
   slug: ConceptSlug;
@@ -11,6 +12,11 @@ export type ConceptEntry = {
   summary: string;
   aliases: string[];
   selectionAliases: string[];
+  scopedSelectionAliases?: Array<{
+    sourceHrefPrefix: string;
+    aliases: string[];
+  }>;
+  selectionSourceHrefs?: string[];
   prompt: string;
 };
 
@@ -88,7 +94,7 @@ export type ConceptHub = {
   stats: [ConceptStat, ConceptStat, ConceptStat, ConceptStat];
   termsHeading: string;
   termsIntro: string;
-  terms: [ConceptTerm, ConceptTerm, ConceptTerm, ConceptTerm];
+  terms: readonly ConceptTerm[];
   boundariesHeading: string;
   boundariesIntro: string;
   traditions: [ConceptTradition, ConceptTradition, ConceptTradition];
@@ -716,6 +722,7 @@ const conceptHubs: readonly ConceptHub[] = [
   ...expandedConceptHubs,
   dependentOriginationConceptHub,
   fourNobleTruthsConceptHub,
+  eightfoldPathConceptHub,
 ];
 
 export const allConceptHubs = [...conceptHubs];

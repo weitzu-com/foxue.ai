@@ -1,6 +1,7 @@
 import { sutras } from "@/data/sutras";
 import {
   dependentOriginationConcept,
+  eightfoldPathConcept,
   emptinessConcept,
   fourNobleTruthsConcept,
   impermanenceConcept,
@@ -14,6 +15,7 @@ import {
   type QuestionSourceContext,
 } from "@/lib/question-session";
 import { segmentHref } from "@/lib/reader-routes";
+import { selectionMatchesConcept } from "@/lib/concept-selection";
 
 export type Evidence = {
   label: string;
@@ -97,11 +99,73 @@ export function buildResearchResult(
     && sourceContext
     && phrases.some((phrase) => sourceContext.quote.includes(phrase)),
   );
+  const sourceMatchesConcept = (concept: ConceptEntry) => Boolean(
+    isInitialPassageQuestion
+    && sourceContext
+    && selectionMatchesConcept(sourceContext.quote, sourceContext.sourceHref, {
+      aliases: concept.selectionAliases,
+      scopedAliases: concept.scopedSelectionAliases,
+      sourceHrefs: concept.selectionSourceHrefs,
+    }),
+  );
   const finish = (result: ResearchResult) => attachSourceContext(
     result,
     sourceContext,
     isInitialPassageQuestion,
   );
+
+  if (
+    has(...eightfoldPathConcept.selectionAliases)
+    || sourceMatchesConcept(eightfoldPathConcept)
+  ) {
+    return finish({
+      query,
+      status: "有充分来源",
+      title: "八正道不是八条孤立规则，而是同属一条趋向苦灭道路的八支",
+      answer: [
+        "《杂阿含经》第 752 经用“有八正道，能断爱欲”交代道路目标，并列正见、正志、正语、正业、正命、正方便、正念、正定；第 749 经又把明、正见、其余诸支、正定与解脱放在连续关系中。八支因此不宜读成互不相干的打卡项目。",
+        "《中阿含经·分别圣谛经》把八支放在苦灭道圣谛中逐项解释：见解与意向会进入言语、行为和生计，也需要用力、觉察与定。只突出“正念”或“正见”，都会删掉道路的其余部分。",
+        "巴利 SN 45.8 同样逐支定义：正见知苦集灭道，正意向指向出离、无瞋与不害，正语、正业、正命进入可观察的生活，正精进、正念与正定又分别展开。实践上可从一件具体处境检查八支怎样互相影响，而不是急着给自己总分。",
+      ],
+      caution:
+        "T0099、T0026 与 SN 45.8 在八支结构上可作相关并读，但当前没有双人审校结论支持严格平行经认定；“正志／正思惟”“正方便／正精进”等译语应保留版本边界，巴利中文均为本站工作释义。",
+      concept: eightfoldPathConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《杂阿含经》T0099 · 第 752 经",
+          quote: "有八正道，能斷愛欲，謂正見、正志、正語、正業、正命、正方便、正念、正定。",
+          href: "/jingzang/zaahanjing/028-0199a#T0099.028.0199a10",
+          source: "CBETA T02n0099",
+          locator: "T0099.028.0199a10–11",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《杂阿含经》T0099 · 第 749 经",
+          quote: "若起明為前相，生諸善法。……能生正見，正見生已，起正志、正語、正業、正命、正方便、正念、正定，次第而起。",
+          href: "/jingzang/zaahanjing/028-0198b#T0099.028.0198b19",
+          source: "CBETA T02n0099",
+          locator: "T0099.028.0198b19–24",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《中阿含经》T0026 ·《分别圣谛经》",
+          quote: "云何苦滅道聖諦？謂正見、正志、正語、正業、正命、正方便、正念、正定。",
+          href: "/jingzang/zhongahanjing/007-0469a#T0026.007.0469a13",
+          source: "CBETA T01n0026",
+          locator: "T0026.007.0469a13–0469b29",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 45.8",
+          quote: "Yaṁ kho, bhikkhave, dukkhe ñāṇaṁ, dukkhasamudaye ñāṇaṁ, dukkhanirodhe ñāṇaṁ, dukkhanirodhagāminiyā paṭipadāya ñāṇaṁ—ayaṁ vuccati, bhikkhave, sammādiṭṭhi.",
+          href: "/jingzang/samyutta-nikaya-sn45/008-sn45-8-0001-0044#sn45.8:3.2",
+          source: "SuttaCentral SN 45.8",
+          locator: "sn45.8:3.2–3.3",
+          relation: "直接",
+        }),
+      ],
+    });
+  }
 
   if (
     has(

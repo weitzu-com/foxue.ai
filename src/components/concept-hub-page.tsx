@@ -49,7 +49,7 @@ export function ConceptHubPage({ hub }: { hub: ConceptHub }) {
     .filter((concept): concept is NonNullable<typeof concept> => Boolean(concept));
 
   return (
-    <article className="concept-page">
+    <article className={`concept-page concept-page--${hub.entry.slug}`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(conceptPageJsonLd) }}
