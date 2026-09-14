@@ -8,6 +8,7 @@ export const expandedConceptHubs = [
       href: "/gainian/wuchang",
       summary: "从《佛说无常经》与《佛说五蕴皆空经》现有证据理解“无常”不是悲观口号，而是如实看见生灭与衰变。",
       aliases: ["无常", "無常", "老病死", "生者皆归死", "生者皆歸死", "无常吞", "一切有为法", "變衰", "变衰"],
+      selectionAliases: ["无常", "無常", "老病死", "生者皆归死", "生者皆歸死", "无常吞", "一切有为法", "變衰", "变衰"],
       prompt: "无常是不是悲观？",
     },
     metadataTitle: "无常｜概念 Hub",

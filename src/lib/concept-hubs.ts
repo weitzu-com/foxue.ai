@@ -8,7 +8,7 @@ export type ConceptEntry = {
   href: `/gainian/${ConceptSlug}`;
   summary: string;
   aliases: string[];
-  selectionAliases?: string[];
+  selectionAliases: string[];
   prompt: string;
 };
 
@@ -332,6 +332,19 @@ const baseConceptHubs: readonly ConceptHub[] = [
         "金刚经 无住",
         "金剛經 無住",
       ],
+      selectionAliases: [
+        "无住",
+        "無住",
+        "应无所住",
+        "應無所住",
+        "无所住",
+        "無所住",
+        "住著",
+        "住著于相",
+        "住著於相",
+        "金刚经 无住",
+        "金剛經 無住",
+      ],
       prompt: "无住是不是消极？",
     },
     metadataTitle: "无住｜概念 Hub",
@@ -514,6 +527,22 @@ const baseConceptHubs: readonly ConceptHub[] = [
       href: "/gainian/guanxin",
       summary: "从《法句经》与《心经》现有样本理解“观心”如何面对烦恼、语言、行动与离苦。",
       aliases: [
+        "观心",
+        "觀心",
+        "烦恼",
+        "煩惱",
+        "情绪",
+        "情緒",
+        "焦虑",
+        "焦慮",
+        "怎样观察自己的心",
+        "怎樣觀察自己的心",
+        "观察自己的心",
+        "觀察自己的心",
+        "心乱",
+        "心亂",
+      ],
+      selectionAliases: [
         "观心",
         "觀心",
         "烦恼",
