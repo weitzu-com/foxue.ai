@@ -198,7 +198,7 @@ export default {
     const headers = new Headers();
     object.writeHttpMetadata(headers);
     headers.set("etag", object.httpEtag);
-    applyPublicHeaders(headers, request, key !== latestKey);
+    applyPublicHeaders(headers, request, key !== latestKey && key !== searchLatestKey);
 
     if (request.headers.get("if-none-match") === object.httpEtag) {
       return new Response(null, { status: 304, headers });

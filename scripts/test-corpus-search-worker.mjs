@@ -35,7 +35,14 @@ const bucket = {
     }
     try {
       const bytes = await readFile(resolve(artifactRoot, key));
-      return { async json() { return JSON.parse(bytes.toString("utf8")); } };
+      return {
+        body: bytes,
+        httpEtag: '"fixture-etag"',
+        writeHttpMetadata(headers) {
+          headers.set("content-type", "application/json; charset=utf-8");
+        },
+        async json() { return JSON.parse(bytes.toString("utf8")); },
+      };
     } catch (error) {
       if (error?.code === "ENOENT") return null;
       throw error;
@@ -79,4 +86,23 @@ const invalid = await search("/search?q=%E7%A9%BA");
 assert.equal(invalid.response.status, 400);
 assert.equal(invalid.body.error, "invalid_query_length");
 
-console.log("✓ Worker 全文检索完成候选交集、原页回查、稳定锚点与 CORS 验证");
+const searchPointer = await worker.fetch(
+  new Request("https://canon.foxue.ai/v1/search/latest.json"),
+  env,
+);
+assert.equal(searchPointer.status, 200);
+assert.equal(
+  searchPointer.headers.get("cache-control"),
+  "public, max-age=60, stale-while-revalidate=300",
+);
+assert.doesNotMatch(searchPointer.headers.get("cache-control") ?? "", /immutable/);
+
+const pointerBody = await searchPointer.json();
+const searchManifest = await worker.fetch(
+  new Request(`https://canon.foxue.ai/${pointerBody.manifestObjectKey}`),
+  env,
+);
+assert.equal(searchManifest.status, 200);
+assert.equal(searchManifest.headers.get("cache-control"), "public, max-age=31536000, immutable");
+
+console.log("✓ Worker 全文检索完成候选交集、原页回查、稳定锚点、CORS 与可变指针缓存验证");

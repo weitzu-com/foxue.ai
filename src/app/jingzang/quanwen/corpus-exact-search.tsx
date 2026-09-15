@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
 import { ArrowRight, BookOpenText, LoaderCircle, Search, TriangleAlert } from "lucide-react";
@@ -56,6 +56,7 @@ export function CorpusExactSearch({
   initialLanguage: string;
 }) {
   const inputId = useId();
+  const activeRequest = useRef<AbortController | null>(null);
   const [query, setQuery] = useState(initialQuery);
   const [language, setLanguage] = useState<Language>(validLanguage(initialLanguage));
   const [state, setState] = useState<
@@ -65,18 +66,29 @@ export function CorpusExactSearch({
     | { status: "success"; data: SearchResponse; searchedQuery: string }
   >({ status: "idle" });
 
-  async function fetchResults(nextQuery: string, nextLanguage: Language, replaceUrl = true) {
+  useEffect(() => () => activeRequest.current?.abort(), []);
+
+  async function fetchResults(
+    nextQuery: string,
+    nextLanguage: Language,
+    controller: AbortController,
+    replaceUrl = true,
+  ) {
     const cleanQuery = nextQuery.trim();
     const requestUrl = new URL(endpoint);
     requestUrl.searchParams.set("q", cleanQuery);
     if (nextLanguage !== "all") requestUrl.searchParams.set("language", nextLanguage);
     requestUrl.searchParams.set("limit", "10");
     try {
-      const response = await fetch(requestUrl, { headers: { accept: "application/json" } });
+      const response = await fetch(requestUrl, {
+        headers: { accept: "application/json" },
+        signal: controller.signal,
+      });
       const body = await response.json() as SearchResponse | { message?: string };
       if (!response.ok) {
         throw new Error("message" in body && body.message ? body.message : "全文索引暂时不可用。");
       }
+      if (activeRequest.current !== controller) return;
       setState({ status: "success", data: body as SearchResponse, searchedQuery: cleanQuery });
       if (replaceUrl) {
         const pageUrl = new URL(window.location.href);
@@ -86,16 +98,22 @@ export function CorpusExactSearch({
         window.history.replaceState(null, "", pageUrl);
       }
     } catch (error) {
+      if (controller.signal.aborted || activeRequest.current !== controller) return;
       setState({
         status: "error",
         message: error instanceof Error ? error.message : "全文索引暂时不可用。",
       });
+    } finally {
+      if (activeRequest.current === controller) activeRequest.current = null;
     }
   }
 
   function startSearch(nextQuery: string, nextLanguage: Language) {
+    activeRequest.current?.abort();
+    const controller = new AbortController();
+    activeRequest.current = controller;
     setState({ status: "loading" });
-    void fetchResults(nextQuery, nextLanguage);
+    void fetchResults(nextQuery, nextLanguage, controller);
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {

@@ -416,6 +416,56 @@ test("全文检索页区分书目与正文，并返回稳定原典定位", async
   );
 });
 
+test("全文检索忽略被后续查询取代的旧响应", async ({ page }) => {
+  const firstQuery = "應無所住而生其心";
+  const latestQuery = "色即是空空即是色";
+
+  await page.route("https://canon.foxue.ai/search**", async (route) => {
+    const query = new URL(route.request().url()).searchParams.get("q") ?? "";
+    await new Promise((resolve) => setTimeout(resolve, query === firstQuery ? 220 : 10));
+    try {
+      await route.fulfill({
+        contentType: "application/json; charset=utf-8",
+        body: JSON.stringify({
+          query: { normalizedCodePoints: Array.from(query).length, language: "all" },
+          release: { searchReleaseId: "search-fixture", corpusReleaseId: "gbcr-fixture" },
+          coverage: { expressions: 4190, documents: 265253, indexedDocuments: 265246 },
+          counts: { candidateDocuments: 1, inspectedCandidates: 1, results: 1, truncated: false },
+          results: [{
+            documentId: query === firstQuery ? 7 : 8,
+            title: query === firstQuery ? "较慢的旧结果" : "最后一次查询结果",
+            canonRef: "并发测试见证",
+            language: "古漢語（繁體）",
+            languageCode: "zh",
+            folio: { key: "001-test", label: "测试页", juan: "001" },
+            locator: "fixture-line",
+            href: "https://www.foxue.ai/jingzang/xinjing/001-0848c#fixture-line",
+            excerpt: {
+              before: "",
+              match: query,
+              after: "",
+              startsBeforeExcerpt: false,
+              continuesAfterExcerpt: false,
+            },
+          }],
+        }),
+      });
+    } catch (error) {
+      if (query !== firstQuery) throw error;
+    }
+  });
+
+  await page.goto("/jingzang/quanwen");
+  await page.getByRole("button", { name: firstQuery, exact: true }).click();
+  await page.getByRole("button", { name: latestQuery, exact: true }).click();
+
+  await expect(page.getByRole("heading", { level: 3, name: "最后一次查询结果" })).toBeVisible();
+  await page.waitForTimeout(300);
+  await expect(page.getByRole("heading", { level: 3, name: "较慢的旧结果" })).toHaveCount(0);
+  await expect(page.locator("mark")).toHaveText(latestQuery);
+  expect(new URL(page.url()).searchParams.get("q")).toBe(latestQuery);
+});
+
 test("llms 文本使用 www 主域并反映真实页面职责", async ({ request }) => {
   const [llmsResponse, fullResponse] = await Promise.all([
     request.get("/llms.txt"),
