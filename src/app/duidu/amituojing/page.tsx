@@ -16,7 +16,7 @@ import {
   amituojingFullTextHref,
   xuanzangAmituojingHref,
 } from "@/data/amituojing-learning-path";
-import { getSutra, getWorkExpressionGroup, type Sutra } from "@/data/sutras";
+import { getWorkExpressionGroup, type Sutra } from "@/data/sutras";
 import { getLocalSutraReading, getSutraFolio } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
 import {
@@ -33,6 +33,7 @@ const pageDescription =
   "按七个修学关口对读《佛说阿弥陀经》T0366 与《称赞净土佛摄受经》T0367；每行返回稳定原典坐标，相关段落不等于逐句对齐。";
 const workId = "gbcr:work:smaller-sukhavati-vyuha-t0366";
 const expressionSlugs = ["amituojing", "taisho-t0367"] as const;
+const workExpressionSlugs = [...expressionSlugs, "sat-ja-t0366"] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -246,8 +247,14 @@ export default async function AmituojingComparisonPage() {
   }
 
   const bySlug = new Map(group.expressions.map((expression) => [expression.slug, expression]));
+  const unexpected = group.expressions.filter((expression) => !workExpressionSlugs.includes(
+    expression.slug as (typeof workExpressionSlugs)[number],
+  ));
+  if (bySlug.size !== workExpressionSlugs.length || unexpected.length > 0) {
+    throw new Error("阿弥陀经同作品表达集合已变化，须重新审核双译窗口");
+  }
   const editions = await Promise.all(expressionSlugs.map((slug, index) => {
-    const sutra = bySlug.get(slug) ?? getSutra(slug);
+    const sutra = bySlug.get(slug);
     if (!sutra) throw new Error(`阿弥陀经双译对读缺少 ${slug}`);
     return loadEdition(sutra, index === 0 ? "primary" : "parallel");
   }));
