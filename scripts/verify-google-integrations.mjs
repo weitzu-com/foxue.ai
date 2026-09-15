@@ -434,7 +434,7 @@ const pageExpectations = [
     "/jingzang/fanwen",
     jingzangFanwen,
     {
-      title: "梵文佛经原典门｜梵文与俗语全文阅读｜foxue.ai",
+      title: "梵文佛经原典门｜三部原文与目录｜foxue.ai",
       description: "阅读三部已核验的梵文与俗语佛典原文，共 1,909 个稳定段；查看来源、版本、许可与异本关系，并明确 DSBC、GRETIL 候选资料的版权边界。",
       bodyIncludes: ["梵文，", "不是装饰。", "当前获准再发布 0 个", "可访问 ≠ 可复制"],
       jsonLd: [

@@ -30,7 +30,7 @@ import {
 import styles from "./page.module.css";
 
 const pagePath = "/jingzang/fanwen";
-const pageTitle = "梵文佛经原典门｜梵文与俗语全文阅读";
+const pageTitle = "梵文佛经原典门｜三部原文与目录";
 const pageDescription =
   "阅读三部已核验的梵文与俗语佛典原文，共 1,909 个稳定段；查看来源、版本、许可与异本关系，并明确 DSBC、GRETIL 候选资料的版权边界。";
 
