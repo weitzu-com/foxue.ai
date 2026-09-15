@@ -904,6 +904,9 @@ export default function CoveragePage() {
               共 {snapshot.candidateInventory.suttacentralIndicRoots.stableSegments?.toLocaleString("zh-CN")} 个稳定段落。
             </p>
             <small>{snapshot.candidateInventory.suttacentralIndicRoots.caveat}</small>
+            <Link className="text-link" href="/jingzang/fanwen">
+              进入梵文原典门 <ArrowRight aria-hidden="true" size={13} />
+            </Link>
             <a
               className="text-link"
               href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-indic-root-rights-audit-v0.8.0.json"

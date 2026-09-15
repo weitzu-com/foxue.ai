@@ -68,6 +68,11 @@ const corePages: CorePage[] = [
     summary: "佛经在线阅读目录；按来源、版本、经号与稳定行段浏览已登记文本。",
   },
   {
+    path: "/jingzang/fanwen",
+    label: "梵文原典门",
+    summary: "阅读三份已核验的梵文与俗语佛典原文；公开稳定锚点、异本关系及 DSBC、GRETIL 候选资料的权利准入边界。",
+  },
+  {
     path: "/gainian",
     label: "概念",
     summary: "主题层入口；按四圣谛、八正道、缘起、空、无常、无我、无住、观心等受控证据页进入佛学高频问题。",
@@ -158,6 +163,7 @@ ${renderCorePageBullets()}
 - /duidu/xinjing 只并排已审核的同作品表达；左右位置不表示逐句或逐段对应
 - /duidu/jingangjing 只提供七个经文导航窗口；六种汉译与 Gemmell 1912 英译不被混成现代合译
 - /yanjiu 只在浏览器本地保存研究问题与判断；导出报告明确区分原典证据和读者结论
+- /jingzang/fanwen 当前开放 3 个受控梵文与俗语文本表达、24 个固定源文件与 1,909 个稳定段；DSBC、GRETIL 候选资料未获再发布许可前不冒充站内全文
 
 ## AI Entry Points
 
@@ -241,6 +247,14 @@ ${renderCorePageTable()}
 - 页面不生成现代合译，也不把传统译者署名当作无争议的现代裁决
 - ${absoluteUrl("/duidu/jingangjing")} 从发心、四相、不住、见相、筏喻与结偈等七个关口进入六种汉译和 Gemmell 1912 英译
 - 金刚经页面的窗口只证明片段位置与阅读范围；同一主题、相邻位置或共享作品标识均不构成逐句对应
+
+## 梵文原典准入边界
+
+- ${absoluteUrl("/jingzang/fanwen")} 当前开放 Mahāvadānasūtra、Candrasūtra 与 Patna Dharmapada 三个受控文本表达
+- 站内资产来自 24 个固定 SuttaCentral 源文件，共 1,909 个稳定段；2 个梵文文件与 22 个俗语文件分别保留来源、版本和锚点
+- DSBC 的 486 条罗马字目录记录只计作候选目录，GRETIL 的 417 个固定文件只计作外部候选；目录项和物理文件都不自动等于去重后的佛经作品
+- 免费访问不等于允许复制；权利未明确前不镜像 DSBC 或 GRETIL 正文，也不把候选数量加入站内全文分母
+- 跨语种题名与内容相似只建立待校勘关系，不自动合并作品，不生成机器逐段对齐
 
 ## AI 入口点
 

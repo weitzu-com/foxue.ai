@@ -106,6 +106,7 @@ const criticalRoutes = [
   "/gainian/wuyun",
   "/gainian/ku",
   "/jingzang",
+  "/jingzang/fanwen",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
   "/jingzang/taisho-t0002",
@@ -195,6 +196,7 @@ const sitemapLandingRoutes = [
   "/gainian/wuyun",
   "/gainian/ku",
   "/jingzang",
+  "/jingzang/fanwen",
   "/fugai",
   "/fenmu",
   "/shenjiao",
@@ -234,6 +236,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/wuyun</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/ku</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/jingzang/fanwen</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
 
   const works = await (await request.get("/sitemap-works.xml")).text();
@@ -290,6 +293,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/bazhengdao", "https://www.foxue.ai/gainian/bazhengdao"],
     ["/gainian/wuyun", "https://www.foxue.ai/gainian/wuyun"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
+    ["/jingzang/fanwen", "https://www.foxue.ai/jingzang/fanwen"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
     ["/jingzang/xinjing/001-0848c", "https://www.foxue.ai/jingzang/xinjing/001-0848c"],
@@ -380,6 +384,9 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/ku");
   expect(full).toContain("| /duidu | 对读 |");
   expect(full).toContain("| /duidu/ebt | 汉巴 EBT 证据书案 |");
+  expect(full).toContain("| /jingzang/fanwen | 梵文原典门 |");
+  expect(full).toContain("DSBC 的 486 条罗马字目录记录只计作候选目录");
+  expect(full).toContain("免费访问不等于允许复制");
   expect(full).toContain("/duidu/jingangjing");
   expect(full).toContain("/duidu/xinjing");
   expect(full).toContain("/sitemap-index.xml");
@@ -600,6 +607,15 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       ],
     },
     {
+      path: "/jingzang/fanwen",
+      required: [
+        ["https://www.foxue.ai/jingzang/fanwen#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang/fanwen#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/fanwen#readable-works", "ItemList"],
+        ["https://www.foxue.ai/jingzang/fanwen#source-snapshot", "Dataset"],
+      ],
+    },
+    {
       path: "/yanjiu",
       required: [
         ["https://www.foxue.ai/yanjiu#page", "WebPage"],
@@ -693,6 +709,20 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       );
       expect(evidenceCases?.numberOfItems).toBe(3);
       expect(evidenceCases?.itemListElement).toHaveLength(3);
+    }
+
+    if (path === "/jingzang/fanwen") {
+      const readableWorks = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/jingzang/fanwen#readable-works",
+      );
+      const sourceSnapshot = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/jingzang/fanwen#source-snapshot",
+      );
+      expect(readableWorks?.numberOfItems).toBe(3);
+      expect(readableWorks?.itemListElement).toHaveLength(3);
+      expect(sourceSnapshot?.variableMeasured).toContain("1909 个稳定段");
+      expect(sourceSnapshot?.variableMeasured).toContain("486 条 DSBC 目录候选");
+      expect(sourceSnapshot?.variableMeasured).toContain("417 个 GRETIL 文件候选");
     }
 
     if (path === "/duidu/xinjing") {
@@ -794,6 +824,40 @@ test("汉巴 EBT 书案开放原文、反证与零裁决状态", async ({ page }
   await page.goto("/jingzang/majjhima-nikaya-mn21");
   await expect(page.getByRole("link", { name: "进入汉巴 EBT 证据书案" }))
     .toHaveAttribute("href", "/duidu/ebt");
+});
+
+test("梵文原典门让三类读者直达全文并隔离未获许可候选", async ({ page }) => {
+  await page.goto("/jingzang/fanwen");
+
+  await expect(page.getByRole("heading", { level: 1, name: /梵文.*不是装饰/ })).toBeVisible();
+  await expect(page.locator("[data-sanskrit-dossier]")).toHaveCount(3);
+  await expect(page.getByText("佛教徒", { exact: true })).toBeVisible();
+  await expect(page.getByText("佛学爱好者", { exact: true })).toBeVisible();
+  await expect(page.getByText("研究者", { exact: true })).toBeVisible();
+  await expect(page.getByText("1,909", { exact: true })).toBeVisible();
+  await expect(page.getByText("486", { exact: true })).toBeVisible();
+  await expect(page.getByText("417", { exact: true })).toBeVisible();
+  await expect(page.getByText("当前获准再发布 0 个，因此全部保持元数据、哈希与外链状态。", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /从 sf36:0.1 开始读/ }))
+    .toHaveAttribute("href", "/jingzang/sanskrit-mahavadanasutra/001-sf36-0001-0120#sf36:0.1");
+  await expect(page.getByRole("link", { name: /从 sf276:0.1 开始读/ }))
+    .toHaveAttribute("href", "/jingzang/sanskrit-candrasutra/001-sf276-0001-0025#sf276:0.1");
+  await expect(page.getByRole("link", { name: /从 pdhp1:0.0 开始读/ }))
+    .toHaveAttribute("href", "/jingzang/patna-dharmapada/001-pdhp1-13-0001-0034#pdhp1:0.0");
+  await expect(page.getByRole("link", { name: /查看 DSBC 用途政策/ }))
+    .toHaveAttribute("href", "https://www.dsbcproject.org/pages/usage-policy");
+  await expect(page.locator('link[rel="canonical"]'))
+    .toHaveAttribute("href", "https://www.foxue.ai/jingzang/fanwen");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {
