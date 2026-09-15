@@ -72,6 +72,28 @@
   color: #8d6428;
 }
 
+.comparisonCta {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+  padding: 0.72rem 0.85rem;
+  border: 1px solid #8d6428;
+  color: #6d4a1f;
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.comparisonCta:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.comparisonCta svg {
+  width: 0.95rem;
+}
+
 .expressionLedger {
   display: grid;
   grid-template-columns: minmax(16rem, 0.65fr) minmax(0, 1.35fr);
@@ -246,6 +268,11 @@
   }
 
   .expressionLedger li > a {
+    color: #e0b66c;
+  }
+
+  .comparisonCta {
+    border-color: #e0b66c;
     color: #e0b66c;
   }
 }

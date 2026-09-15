@@ -82,6 +82,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
   "/yanjiu",
@@ -168,6 +169,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
   "/yanjiu",
@@ -219,6 +221,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
@@ -409,6 +412,15 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/hedui#page", "WebPage"],
         ["https://www.foxue.ai/hedui#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/duidu/amituojing",
+      required: [
+        ["https://www.foxue.ai/duidu/amituojing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/amituojing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/amituojing#expressions", "ItemList"],
+        ["https://www.foxue.ai/duidu/amituojing#loci", "ItemList"],
       ],
     },
     {
@@ -659,6 +671,19 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       );
       expect(expressions?.numberOfItems).toBe(7);
       expect(expressions?.itemListElement).toHaveLength(7);
+      expect(loci?.numberOfItems).toBe(7);
+      expect(loci?.itemListElement).toHaveLength(7);
+    }
+
+    if (path === "/duidu/amituojing") {
+      const expressions = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/amituojing#expressions",
+      );
+      const loci = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/amituojing#loci",
+      );
+      expect(expressions?.numberOfItems).toBe(2);
+      expect(expressions?.itemListElement).toHaveLength(2);
       expect(loci?.numberOfItems).toBe(7);
       expect(loci?.itemListElement).toHaveLength(7);
     }
@@ -2465,6 +2490,53 @@ test("心经七译可同屏切换并各自回到稳定原典且不伪造逐句�
   await expect(left).toHaveAttribute("data-comparison-edition", "taisho-t0257");
   await expect(right).toHaveAttribute("data-comparison-edition", "xinjing");
 
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test("阿弥陀经双译按七个修学关口并读且引用可复用", async ({ page }) => {
+  await page.goto("/duidu/amituojing");
+  await expect(page.getByRole("heading", { level: 1, name: /同向净土.*不等于同一句/ })).toBeVisible();
+  await expect(page.getByText("相关不等于对齐", { exact: true })).toBeVisible();
+  await expect(page.getByText("不制造自动逐句对齐", { exact: false })).toBeVisible();
+
+  const comparison = page.locator("[data-amituojing-comparison]");
+  const loci = comparison.locator("[data-comparison-locus]");
+  await expect(loci).toHaveCount(7);
+  await expect(comparison.locator("[data-comparison-edition]")).toHaveCount(14);
+
+  const firstLocus = loci.first();
+  const primary = firstLocus.locator('[data-comparison-side="primary"]');
+  const parallel = firstLocus.locator('[data-comparison-side="parallel"]');
+  await expect(primary).toHaveAttribute("data-comparison-edition", "amituojing");
+  await expect(parallel).toHaveAttribute("data-comparison-edition", "taisho-t0367");
+  await expect(primary.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(3);
+  await expect(parallel.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(6);
+  await expect(primary.locator('a[data-analytics-event="comparison_segment_opened"]').first()).toHaveAttribute(
+    "href",
+    "/jingzang/amituojing/001-0346c#T0366.001.0346c10",
+  );
+
+  const holdingLocus = comparison.locator('[data-comparison-locus="day-6"]');
+  await expect(holdingLocus.getByText("阿彌陀佛，執持名號，若一日、若二日、若三", { exact: true })).toBeVisible();
+  await expect(holdingLocus.getByText("號、極樂世界功德莊嚴，聞已思惟，若一日夜，", { exact: true })).toBeVisible();
+  await expect(holdingLocus.getByText("或二、或三、或四、或五、或六、或七，繫念不亂。是", { exact: true })).toBeVisible();
+
+  await firstLocus.getByRole("button", { name: "复制本关口引用" }).click();
+  await expect(firstLocus.getByRole("status")).toContainText(/已复制|未允许复制/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.foxue.ai/duidu/amituojing",
+  );
+
+  await page.evaluate(() => window.scrollTo(0, 0));
   const accessibility = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
     .analyze();

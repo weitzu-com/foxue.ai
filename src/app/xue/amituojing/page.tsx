@@ -149,6 +149,9 @@ export default function AmituojingLearningPage() {
               <li><Route aria-hidden="true" /> 七日随时可读</li>
               <li><ShieldCheck aria-hidden="true" /> 进度仅存本地</li>
             </ul>
+            <Link href="/duidu/amituojing" className={styles.comparisonCta}>
+              <Languages aria-hidden="true" /> 打开七关口双译对读 <ArrowRight aria-hidden="true" />
+            </Link>
           </div>
 
           <aside className={styles.heroSeal} aria-label="研读方法">
@@ -233,6 +236,7 @@ export default function AmituojingLearningPage() {
             <div><dt>本次修订</dt><dd><time dateTime={modifiedDate}>2026-08-29</time> · 新增七日路径、双译定位、本地进度与研读笺</dd></div>
           </dl>
           <div className="learning-editorial__actions">
+            <Link href="/duidu/amituojing">打开双译对读 <ArrowUpRight aria-hidden="true" /></Link>
             <Link href={amituojingFullTextHref}>打开完整 T0366 <ArrowUpRight aria-hidden="true" /></Link>
             <Link href={xuanzangAmituojingHref}>打开完整 T0367</Link>
             <Link href="/touming">查看来源与数据方法</Link>
