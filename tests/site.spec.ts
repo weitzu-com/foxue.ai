@@ -82,6 +82,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu",
   "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
@@ -169,6 +170,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu",
   "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
@@ -221,6 +223,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/duidu</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/xinjing</loc>");
@@ -371,6 +374,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/bazhengdao");
   expect(full).toContain("/gainian/wuyun");
   expect(full).toContain("/gainian/ku");
+  expect(full).toContain("| /duidu | 对读 |");
   expect(full).toContain("/duidu/jingangjing");
   expect(full).toContain("/duidu/xinjing");
   expect(full).toContain("/sitemap-index.xml");
@@ -412,6 +416,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/hedui#page", "WebPage"],
         ["https://www.foxue.ai/hedui#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/duidu",
+      required: [
+        ["https://www.foxue.ai/duidu#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu#dossiers", "ItemList"],
       ],
     },
     {
@@ -654,6 +666,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       ).toBeTruthy();
     }
 
+    if (path === "/duidu") {
+      const dossiers = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu#dossiers",
+      );
+      expect(dossiers?.numberOfItems).toBe(3);
+      expect(dossiers?.itemListElement).toHaveLength(3);
+    }
+
     if (path === "/duidu/xinjing") {
       const expressions = items.find(
         (item) => item["@id"] === "https://www.foxue.ai/duidu/xinjing#expressions",
@@ -688,6 +708,39 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       expect(loci?.itemListElement).toHaveLength(7);
     }
   }
+});
+
+test("对读书案让三类读者进入三份已核验卷宗且守住比较边界", async ({ page }) => {
+  await page.goto("/duidu");
+
+  await expect(page.getByRole("heading", { level: 1, name: /并读.*不是把差异.*磨成同一句/ }))
+    .toBeVisible();
+  await expect(page.locator("[data-comparison-dossier]")).toHaveCount(3);
+  await expect(page.getByText("佛教徒 · 从修学进入", { exact: true })).toBeVisible();
+  await expect(page.getByText("佛学爱好者 · 从问题进入", { exact: true })).toBeVisible();
+  await expect(page.getByText("研究者 · 从证据进入", { exact: true })).toBeVisible();
+  await expect(page.getByText("自动逐句对齐：0", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /打开七译全文/ })).toHaveAttribute("href", "/duidu/xinjing");
+  await expect(page.getByRole("link", { name: /从第一问开始/ })).toHaveAttribute("href", "/duidu/jingangjing");
+  await expect(page.getByRole("link", { name: /打开双译七关/ })).toHaveAttribute("href", "/duidu/amituojing");
+  await expect(page.locator('header a[href="/duidu"]').first()).toHaveAttribute("href", "/duidu");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://www.foxue.ai/duidu");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+
+  await page.goto("/jingzang/amituojing");
+  const navigator = page.locator("[data-work-expression-navigator]");
+  await navigator.locator("summary").click();
+  await expect(navigator.getByRole("link", { name: "双译七关口对读" }))
+    .toHaveAttribute("href", "/duidu/amituojing");
 });
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {

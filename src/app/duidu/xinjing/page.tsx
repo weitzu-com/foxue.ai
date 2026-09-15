@@ -34,7 +34,7 @@ const pageJsonLdBase = buildPageJsonLd({
   type: "CollectionPage",
   breadcrumb: [
     { name: "首页", path: "/" },
-    { name: "经藏", path: "/jingzang" },
+    { name: "对读", path: "/duidu" },
     { name: "心经异译对读", path: pagePath },
   ],
   about: ["般若波罗蜜多心经", "心经异译", "佛经版本对读", "CBETA 稳定行段"],
@@ -151,7 +151,7 @@ export default async function HeartSutraComparisonPage() {
       />
       <div className="page-shell">
         <nav className={styles.breadcrumb} aria-label="面包屑">
-          <Link href="/jingzang"><ArrowLeft aria-hidden="true" /> 经藏</Link>
+          <Link href="/duidu"><ArrowLeft aria-hidden="true" /> 对读书案</Link>
           <span>/</span>
           <Link href="/jingzang/xinjing">心经</Link>
           <span>/</span>

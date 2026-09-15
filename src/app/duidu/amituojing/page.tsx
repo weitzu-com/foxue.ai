@@ -210,7 +210,7 @@ const pageJsonLdBase = buildPageJsonLd({
   type: "CollectionPage",
   breadcrumb: [
     { name: "首页", path: "/" },
-    { name: "研读", path: "/xue" },
+    { name: "对读", path: "/duidu" },
     { name: "阿弥陀经双译对读", path: pagePath },
   ],
   about: ["佛说阿弥陀经", "称赞净土佛摄受经", "Sukhāvatīvyūha", "净土经典", "佛经异译对读"],
@@ -312,7 +312,7 @@ export default async function AmituojingComparisonPage() {
       />
       <div className="page-shell">
         <nav className={styles.breadcrumb} aria-label="面包屑">
-          <Link href="/xue"><ArrowLeft aria-hidden="true" /> 研读中心</Link>
+          <Link href="/duidu"><ArrowLeft aria-hidden="true" /> 对读书案</Link>
           <span>/</span>
           <Link href={amituojingFullTextHref}>阿弥陀经</Link>
           <span>/</span>

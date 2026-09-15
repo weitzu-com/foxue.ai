@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -140,6 +140,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/bazhengdao"),
   get("/gainian/wuyun"),
   get("/gainian/ku"),
+  get("/duidu"),
   get("/duidu/xinjing"),
   get("/duidu/jingangjing"),
   get("/duidu/amituojing"),
@@ -339,6 +340,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
         ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/duidu",
+    duidu,
+    {
+      title: "佛经异译与跨本对读｜可核验原典书案｜foxue.ai",
+      description: "面向佛教徒、佛学爱好者与研究者的佛经对读入口：并读《心经》《金刚经》《阿弥陀经》的已核验文本表达，每一段回到版本与稳定原典坐标。",
+      bodyIncludes: ["并读，不是把差异", "三部经，三种诚实的比较方式", "自动逐句对齐：0"],
+      jsonLd: [
+        ["https://www.foxue.ai/duidu#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu#dossiers", "ItemList"],
       ],
     },
   ],
@@ -691,6 +706,14 @@ check(
 );
 const xinjingExpressions = extractJsonLdItems(duiduXinjing.body).find(
   (item) => item["@id"] === "https://www.foxue.ai/duidu/xinjing#expressions",
+);
+const duiduDossiers = extractJsonLdItems(duidu.body).find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu#dossiers",
+);
+check(
+  duiduDossiers?.numberOfItems === 3 && duiduDossiers.itemListElement?.length === 3,
+  "/duidu JSON-LD 完整列出三份已核验对读书案",
+  "/duidu JSON-LD 未完整列出三份已核验对读书案",
 );
 check(
   xinjingExpressions?.numberOfItems === 7 && xinjingExpressions.itemListElement?.length === 7,

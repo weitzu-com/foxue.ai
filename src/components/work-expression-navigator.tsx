@@ -24,7 +24,9 @@ export function WorkExpressionNavigator({
     ? { href: "/duidu/xinjing", label: "七译同屏对读" }
     : group.workId === "gbcr:work:vajracchedika-prajnaparamita"
       ? { href: "/duidu/jingangjing", label: "七种表达主题对读" }
-      : undefined;
+      : group.workId === "gbcr:work:smaller-sukhavati-vyuha-t0366"
+        ? { href: "/duidu/amituojing", label: "双译七关口对读" }
+        : undefined;
 
   return (
     <section
