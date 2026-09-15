@@ -17,6 +17,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <Link href="/jingzang" prefetch={false}>浏览经藏</Link>
+          <Link href="/shufang">我的书房</Link>
           <Link href="/jingzang/quanwen">佛经全文检索</Link>
           <Link href="/jingzang/fanwen">梵文原典门</Link>
           <Link href="/duidu">佛经对读书案</Link>

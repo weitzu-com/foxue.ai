@@ -18,6 +18,7 @@ const editorialHubPaths = [
   "/duidu/xinjing",
   "/hedui",
   "/yanjiu",
+  "/shufang",
   "/gainian/yuanqi",
   "/gainian/sidi",
   "/gainian/bazhengdao",
@@ -28,7 +29,6 @@ const editorialHubPaths = [
   "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
-  "/xue/biji",
 ];
 
 function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {

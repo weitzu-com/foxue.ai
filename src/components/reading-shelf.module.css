@@ -387,6 +387,17 @@
   border-color: #687269;
 }
 
+.primaryEntry .entryActions > a {
+  border-color: #f1a18f;
+  color: #f6b5a6;
+}
+
+.primaryEntry .entryActions > a:hover {
+  border-color: #f1a18f;
+  background: #f1a18f;
+  color: #202a23;
+}
+
 .entryActions button:hover,
 .entryActions button[aria-pressed="true"] {
   border-color: var(--cinnabar);

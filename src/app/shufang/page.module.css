@@ -1,0 +1,478 @@
+.page {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, transparent 0 7.5%, rgb(151 113 58 / 6%) 7.5% calc(7.5% + 1px), transparent calc(7.5% + 1px)),
+    #f1ede3;
+}
+
+.breadcrumb {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--line-dark);
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+.breadcrumb a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a:hover {
+  color: var(--cinnabar);
+}
+
+.breadcrumb svg {
+  width: 14px;
+}
+
+.hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.8fr);
+  gap: 5rem;
+  align-items: center;
+  padding: 4.7rem 0 6.2rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.eyebrow,
+.heroCopy h1,
+.lead,
+.heroCopy ul,
+.roomMap p,
+.collectionIntro h2,
+.collectionIntro > p,
+.researchBridge h2,
+.researchBridge > div > p,
+.boundary h2,
+.boundary dl {
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--cinnabar);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.heroCopy h1 {
+  margin-top: 1.25rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.5rem, 6.5vw, 6.25rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.04;
+}
+
+.heroCopy h1 em {
+  color: var(--cinnabar);
+  font-style: normal;
+}
+
+.lead {
+  max-width: 43rem;
+  margin-top: 1.8rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.heroActions a {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-inline: 1.1rem;
+  border: 1px solid var(--line-dark);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.heroActions a:first-child {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.heroActions a:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.heroActions a:first-child:hover {
+  background: var(--cinnabar-deep);
+  color: #fffdf8;
+}
+
+.heroActions svg {
+  width: 0.85rem;
+}
+
+.heroCopy ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-top: 1.65rem;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+}
+
+.heroCopy li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.61rem;
+  font-weight: 700;
+}
+
+.heroCopy li svg {
+  width: 0.88rem;
+  color: var(--success);
+}
+
+.roomMap {
+  padding: 2rem;
+  border: 1px solid #2d3830;
+  background: #202a23;
+  color: #f5efe4;
+  box-shadow: 18px 18px 0 #d5cdbf;
+}
+
+.roomMapTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.3rem;
+  border-bottom: 1px solid #566058;
+}
+
+.roomMapTitle span {
+  font-family: var(--font-serif), serif;
+  font-size: 1.05rem;
+}
+
+.roomMapTitle small {
+  align-self: center;
+  color: #b8c1ba;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.roomMap ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roomMap li {
+  display: grid;
+  grid-template-columns: 2.2rem 1.5rem minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid #566058;
+}
+
+.roomMap li > span {
+  color: #e08370;
+  font-family: var(--font-serif), serif;
+}
+
+.roomMap li > svg {
+  width: 1.1rem;
+  color: #d1d8d2;
+  stroke-width: 1.4;
+}
+
+.roomMap strong,
+.roomMap small {
+  display: block;
+}
+
+.roomMap strong {
+  font-family: var(--font-serif), serif;
+  font-size: 0.92rem;
+}
+
+.roomMap small {
+  color: #aeb8b0;
+  font-size: 0.56rem;
+}
+
+.roomMap > p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  color: #b8c1ba;
+  font-size: 0.58rem;
+}
+
+.roomMap > p svg {
+  width: 0.95rem;
+  color: #95aa98;
+}
+
+.collectionIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.65fr);
+  gap: 4rem;
+  align-items: end;
+  padding: 7rem 0 3.4rem;
+  border-top: 1px solid var(--line-dark);
+}
+
+.collectionIntro h2,
+.researchBridge h2,
+.boundary h2 {
+  max-width: 17ch;
+  margin-top: 0.7rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.13;
+}
+
+.collectionIntro > p {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.95;
+}
+
+.researchBridge {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 2.2rem;
+  align-items: center;
+  margin-top: 7rem;
+  padding: 3rem;
+  border: 1px solid var(--line-dark);
+  background: rgb(255 253 247 / 48%);
+}
+
+.researchMark {
+  position: relative;
+  width: 6rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--cinnabar);
+  border-radius: 50%;
+  color: var(--cinnabar);
+}
+
+.researchMark svg {
+  width: 1.5rem;
+}
+
+.researchMark span {
+  position: absolute;
+  right: -0.2rem;
+  bottom: -0.2rem;
+  width: 2rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cinnabar);
+  color: #fffdf8;
+  font-family: var(--font-serif), serif;
+}
+
+.researchBridge h2 {
+  max-width: 21ch;
+  font-size: clamp(1.8rem, 3.5vw, 3.25rem);
+}
+
+.researchBridge > div > p:last-child {
+  max-width: 62ch;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.9;
+}
+
+.researchBridge > a {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.researchBridge > a:hover {
+  background: var(--cinnabar);
+  color: #fffdf8;
+}
+
+.researchBridge > a svg {
+  width: 0.85rem;
+}
+
+.boundary {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 5rem;
+  padding: 7rem 0;
+}
+
+.boundary h2 {
+  max-width: 13ch;
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+}
+
+.boundary dl {
+  border-top: 1px solid var(--line-dark);
+}
+
+.boundary dl > div {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.boundary dt {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+}
+
+.boundary dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .roomMap {
+    width: min(100%, 42rem);
+  }
+
+  .researchBridge {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .researchBridge > a {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    background: #f1ede3;
+  }
+
+  .hero {
+    min-height: auto;
+    gap: 3.5rem;
+    padding: 3.4rem 0 4.8rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(3rem, 16vw, 4.7rem);
+  }
+
+  .heroCopy ul {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .roomMap {
+    padding: 1.5rem;
+    box-shadow: 9px 9px 0 #d5cdbf;
+  }
+
+  .collectionIntro,
+  .boundary {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .researchBridge {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.4rem;
+  }
+
+  .researchBridge > a {
+    grid-column: 1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroActions a {
+    width: 100%;
+  }
+
+  .roomMapTitle {
+    flex-direction: column;
+  }
+
+  .boundary dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroActions a,
+  .researchBridge > a {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    background:
+      linear-gradient(90deg, transparent 0 7.5%, rgb(190 148 82 / 8%) 7.5% calc(7.5% + 1px), transparent calc(7.5% + 1px)),
+      #171d19;
+  }
+
+  .roomMap {
+    border-color: #505c53;
+    background: #0d1410;
+    box-shadow: 18px 18px 0 #303a32;
+  }
+
+  .heroActions a:first-child {
+    border-color: #c96e5e;
+    background: #7c3026;
+    color: #fffdf8;
+  }
+
+  .heroActions a:first-child:hover {
+    background: #64251e;
+  }
+
+  .researchBridge {
+    background: rgb(24 33 28 / 72%);
+  }
+}

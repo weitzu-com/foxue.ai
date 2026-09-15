@@ -265,7 +265,7 @@ export default function StudyPage() {
             <p>
               全藏经卷页都可选文：选中一行或一段，写下观照、理解或待求证问题；引文、稳定段号和原典链接会一起留在当前浏览器。
             </p>
-            <Link href="/xue/biji">
+            <Link href="/shufang">
               打开本地研读笺 <ArrowRight aria-hidden="true" />
             </Link>
           </div>

@@ -1,0 +1,253 @@
+.overview {
+  padding: 2.5rem 0 0;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.6fr);
+  gap: 4rem;
+  align-items: end;
+  padding-bottom: 2rem;
+}
+
+.heading p,
+.heading h2,
+.heading > span,
+.ledgerGrid p,
+.ledgerGrid strong,
+.ledgerGrid > article > span,
+.nextStep p,
+.nextStep h3,
+.nextStep span {
+  margin: 0;
+}
+
+.heading p {
+  color: var(--cinnabar);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.heading h2 {
+  max-width: 20ch;
+  margin-top: 0.7rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.8rem, 3.4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.heading > span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.9;
+}
+
+.ledgerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.ledgerGrid > article {
+  min-width: 0;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.55rem;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: rgb(255 253 247 / 40%);
+}
+
+.ledgerTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--cinnabar);
+}
+
+.ledgerTopline > span {
+  font-family: var(--font-serif), serif;
+  font-size: 0.95rem;
+}
+
+.ledgerTopline svg {
+  width: 1.2rem;
+  stroke-width: 1.45;
+}
+
+.ledgerGrid p {
+  margin-top: 2.7rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ledgerGrid strong {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.25rem, 4vw, 3.7rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.ledgerGrid strong small {
+  color: var(--muted);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+}
+
+.ledgerGrid > article > span {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.64rem;
+  line-height: 1.75;
+}
+
+.ledgerGrid a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  margin-top: auto;
+  color: var(--cinnabar);
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.ledgerGrid a:hover {
+  color: var(--cinnabar-deep);
+}
+
+.ledgerGrid a svg {
+  width: 0.82rem;
+}
+
+.nextStep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1.6rem;
+  align-items: center;
+  margin-top: 1.35rem;
+  padding: 1.6rem;
+  border: 1px solid #263129;
+  background: #202a23;
+  color: #f5efe4;
+}
+
+.nextStep > div:first-child {
+  width: 3.6rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid #647067;
+  border-radius: 50%;
+  color: #e08370;
+}
+
+.nextStep svg {
+  width: 1.2rem;
+}
+
+.nextStep p {
+  color: #e08370;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.nextStep h3 {
+  margin-top: 0.25rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.nextStep span {
+  display: block;
+  margin-top: 0.25rem;
+  color: #b8c1ba;
+  font-size: 0.62rem;
+}
+
+.nextStep > a {
+  min-height: 2.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-inline: 1rem;
+  border: 1px solid #e08370;
+  color: #f3c4b8;
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.nextStep > a:hover {
+  background: #9f392b;
+  color: #fffdf8;
+}
+
+.nextStep > a svg {
+  width: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .ledgerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .overview {
+    padding-top: 1rem;
+  }
+
+  .ledgerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ledgerGrid > article {
+    min-height: 14rem;
+  }
+
+  .ledgerGrid p {
+    margin-top: 1.9rem;
+  }
+
+  .nextStep {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .nextStep > a {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ledgerGrid > article {
+    background: rgb(24 33 28 / 72%);
+  }
+
+  .nextStep {
+    border-color: #505c53;
+    background: #0d1410;
+  }
+}

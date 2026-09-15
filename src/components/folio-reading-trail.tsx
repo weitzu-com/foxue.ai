@@ -133,7 +133,7 @@ export function FolioReadingTrail({
               : <Bookmark aria-hidden="true" />}
             {currentEntry?.pinned ? "已存书房" : "存入书房"}
           </button>
-          <Link href="/xue#reading-shelf">
+          <Link href="/shufang#reading-shelf">
             <LibraryBig aria-hidden="true" />
             查看书房
           </Link>
