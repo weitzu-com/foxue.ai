@@ -48,15 +48,21 @@ export function ParallelEvidencePanel({ slug }: { slug: string }) {
             </li>
           ))}
         </ul>
-        <a
-          className="parallel-evidence__ledger"
-          href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-chinese-parallels-v0.7.0.json"
-          target="_blank"
-          rel="noreferrer"
-        >
-          查看 {parallelEvidenceMetadata.completeLedgerEdges.toLocaleString("zh-CN")} 条完整账本
-          <ExternalLink aria-hidden="true" size={12} />
-        </a>
+        <div className="parallel-evidence__actions">
+          <Link className="parallel-evidence__desk" href="/duidu/ebt">
+            进入汉巴 EBT 证据书案
+            <GitCompareArrows aria-hidden="true" size={12} />
+          </Link>
+          <a
+            className="parallel-evidence__ledger"
+            href="https://github.com/weitzu-com/foxue.ai/blob/main/data/gbcr/suttacentral-chinese-parallels-v0.7.0.json"
+            target="_blank"
+            rel="noreferrer"
+          >
+            查看 {parallelEvidenceMetadata.completeLedgerEdges.toLocaleString("zh-CN")} 条完整账本
+            <ExternalLink aria-hidden="true" size={12} />
+          </a>
+        </div>
       </div>
     </section>
   );

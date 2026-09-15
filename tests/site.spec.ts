@@ -83,6 +83,7 @@ const criticalRoutes = [
   "/wenjing",
   "/hedui",
   "/duidu",
+  "/duidu/ebt",
   "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
@@ -171,6 +172,7 @@ const sitemapLandingRoutes = [
   "/wenjing",
   "/hedui",
   "/duidu",
+  "/duidu/ebt",
   "/duidu/amituojing",
   "/duidu/jingangjing",
   "/duidu/xinjing",
@@ -224,6 +226,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/ebt</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/xinjing</loc>");
@@ -267,6 +270,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/hedui", "https://www.foxue.ai/hedui"],
+    ["/duidu/ebt", "https://www.foxue.ai/duidu/ebt"],
     ["/duidu/jingangjing", "https://www.foxue.ai/duidu/jingangjing"],
     ["/duidu/xinjing", "https://www.foxue.ai/duidu/xinjing"],
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
@@ -375,6 +379,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/wuyun");
   expect(full).toContain("/gainian/ku");
   expect(full).toContain("| /duidu | 对读 |");
+  expect(full).toContain("| /duidu/ebt | 汉巴 EBT 证据书案 |");
   expect(full).toContain("/duidu/jingangjing");
   expect(full).toContain("/duidu/xinjing");
   expect(full).toContain("/sitemap-index.xml");
@@ -424,6 +429,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/duidu#page", "CollectionPage"],
         ["https://www.foxue.ai/duidu#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/duidu#dossiers", "ItemList"],
+      ],
+    },
+    {
+      path: "/duidu/ebt",
+      required: [
+        ["https://www.foxue.ai/duidu/ebt#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/ebt#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/ebt#cases", "ItemList"],
       ],
     },
     {
@@ -670,8 +683,16 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       const dossiers = items.find(
         (item) => item["@id"] === "https://www.foxue.ai/duidu#dossiers",
       );
-      expect(dossiers?.numberOfItems).toBe(3);
-      expect(dossiers?.itemListElement).toHaveLength(3);
+      expect(dossiers?.numberOfItems).toBe(4);
+      expect(dossiers?.itemListElement).toHaveLength(4);
+    }
+
+    if (path === "/duidu/ebt") {
+      const evidenceCases = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/ebt#cases",
+      );
+      expect(evidenceCases?.numberOfItems).toBe(3);
+      expect(evidenceCases?.itemListElement).toHaveLength(3);
     }
 
     if (path === "/duidu/xinjing") {
@@ -710,12 +731,12 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
   }
 });
 
-test("对读书案让三类读者进入三份已核验卷宗且守住比较边界", async ({ page }) => {
+test("对读书案让三类读者进入四份受控卷宗且守住比较边界", async ({ page }) => {
   await page.goto("/duidu");
 
   await expect(page.getByRole("heading", { level: 1, name: /并读.*不是把差异.*磨成同一句/ }))
     .toBeVisible();
-  await expect(page.locator("[data-comparison-dossier]")).toHaveCount(3);
+  await expect(page.locator("[data-comparison-dossier]")).toHaveCount(4);
   await expect(page.getByText("佛教徒 · 从修学进入", { exact: true })).toBeVisible();
   await expect(page.getByText("佛学爱好者 · 从问题进入", { exact: true })).toBeVisible();
   await expect(page.getByText("研究者 · 从证据进入", { exact: true })).toBeVisible();
@@ -723,6 +744,7 @@ test("对读书案让三类读者进入三份已核验卷宗且守住比较边�
   await expect(page.getByRole("link", { name: /打开七译全文/ })).toHaveAttribute("href", "/duidu/xinjing");
   await expect(page.getByRole("link", { name: /从第一问开始/ })).toHaveAttribute("href", "/duidu/jingangjing");
   await expect(page.getByRole("link", { name: /打开双译七关/ })).toHaveAttribute("href", "/duidu/amituojing");
+  await expect(page.getByRole("link", { name: /打开三份 EBT 书案/ })).toHaveAttribute("href", "/duidu/ebt");
   await expect(page.locator('header a[href="/duidu"]').first()).toHaveAttribute("href", "/duidu");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://www.foxue.ai/duidu");
 
@@ -741,6 +763,37 @@ test("对读书案让三类读者进入三份已核验卷宗且守住比较边�
   await navigator.locator("summary").click();
   await expect(navigator.getByRole("link", { name: "双译七关口对读" }))
     .toHaveAttribute("href", "/duidu/amituojing");
+});
+
+test("汉巴 EBT 书案开放原文、反证与零裁决状态", async ({ page }) => {
+  await page.goto("/duidu/ebt");
+
+  await expect(page.getByRole("heading", { level: 1, name: /相似.*先不是相同/ })).toBeVisible();
+  await expect(page.locator("[data-ebt-case]")).toHaveCount(3);
+  await expect(page.getByText("5,161", { exact: true })).toBeVisible();
+  await expect(page.getByText("P0 证据包", { exact: true })).toBeVisible();
+  await expect(page.getByText("已裁决", { exact: true })).toBeVisible();
+  await expect(page.getByText("0 / 2 真人复核", { exact: true })).toHaveCount(3);
+  await expect(page.getByText(/EA 50\.8 开头与 MN 21/)).toBeVisible();
+  await expect(page.getByText(/后段的邪见、纠正与蛇喻却更接近 MN 22/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /从首行读汉译/ }).first())
+    .toHaveAttribute("href", "/jingzang/zaahanjing#T0099.001.0001a06");
+  await expect(page.locator('link[rel="canonical"]'))
+    .toHaveAttribute("href", "https://www.foxue.ai/duidu/ebt");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+
+  await page.goto("/jingzang/majjhima-nikaya-mn21");
+  await expect(page.getByRole("link", { name: "进入汉巴 EBT 证据书案" }))
+    .toHaveAttribute("href", "/duidu/ebt");
 });
 
 test("首页核心任务可见且没有水平溢出", async ({ page }) => {

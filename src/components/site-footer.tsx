@@ -18,6 +18,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <Link href="/jingzang" prefetch={false}>浏览经藏</Link>
           <Link href="/duidu">佛经对读书案</Link>
+          <Link href="/duidu/ebt">汉巴 EBT 证据书案</Link>
           <Link href="/duidu/amituojing" prefetch={false}>阿弥陀经双译对读</Link>
           <Link href="/duidu/xinjing" prefetch={false}>心经异译对读</Link>
           <Link href="/duidu/jingangjing" prefetch={false}>金刚经主题对读</Link>

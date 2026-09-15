@@ -513,6 +513,11 @@
   --dossier-wash: #e2ebec;
 }
 
+.ebt {
+  --dossier-accent: #66507b;
+  --dossier-wash: #ebe4ef;
+}
+
 .methodSection {
   display: grid;
   grid-template-columns: minmax(290px, 0.72fr) minmax(0, 1.28fr);

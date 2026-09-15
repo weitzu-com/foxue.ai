@@ -1375,7 +1375,10 @@ a {
 .parallel-evidence__examples span { margin-top: 3px; color: var(--cinnabar); font-size: 0.57rem; overflow-wrap: anywhere; }
 .parallel-evidence__examples small { margin-top: 3px; color: var(--muted); font-size: 0.53rem; line-height: 1.45; }
 .parallel-evidence__examples a:hover strong { color: var(--cinnabar); }
-.parallel-evidence__ledger { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; color: var(--cinnabar); font-size: 0.59rem; line-height: 1.5; }
+.parallel-evidence__actions { display: flex; flex-wrap: wrap; gap: 7px 13px; align-items: center; margin-top: 10px; }
+.parallel-evidence__desk, .parallel-evidence__ledger { display: inline-flex; align-items: center; gap: 5px; color: var(--cinnabar); font-size: 0.59rem; line-height: 1.5; }
+.parallel-evidence__desk { padding: 5px 7px; border: 1px solid var(--cinnabar); font-weight: 700; }
+.parallel-evidence__desk:hover { background: var(--cinnabar); color: white; }
 
 /* Ask */
 .ask-page { padding-bottom: 120px; }
