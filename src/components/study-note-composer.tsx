@@ -148,7 +148,7 @@ function StudyNoteComposerForSeed({ seed }: { seed: StudyNoteSeed }) {
           <ShieldCheck aria-hidden="true" /> 不登录、不上传，只保存在当前浏览器。
         </p>
         <div>
-          {existing && <Link href="/xue/biji">查看全部研读笺</Link>}
+          {existing && <Link href="/shufang#notebook-title">查看全部研读笺</Link>}
           <button type="button" onClick={saveNote}>保存研读笺</button>
         </div>
       </div>

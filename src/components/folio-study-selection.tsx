@@ -482,7 +482,7 @@ export function FolioStudySelection({
         >
           <Braces aria-hidden="true" /> 引用工作台 <ChevronDown aria-hidden="true" />
         </button>
-        <Link href="/xue/biji#saved-passages"><BookMarked aria-hidden="true" /> 我的选文</Link>
+        <Link href="/shufang#saved-passages"><BookMarked aria-hidden="true" /> 我的选文</Link>
         <span><ShieldCheck aria-hidden="true" /> 选文与笔记不登录、不上传</span>
       </div>
 
@@ -536,7 +536,7 @@ export function FolioStudySelection({
             {savedOnCurrentPage.length > 0 && ` 本页已有 ${savedOnCurrentPage.length} 则本地选文。`}
           </span>
         </p>
-        <Link href="/xue/biji#saved-passages">我的选文</Link>
+        <Link href="/shufang#saved-passages">我的选文</Link>
       </div>
       <div ref={selectionRootRef}>{children}</div>
       {dock && typeof document !== "undefined" ? createPortal(dock, document.body) : null}

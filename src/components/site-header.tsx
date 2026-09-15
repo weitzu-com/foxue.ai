@@ -8,8 +8,8 @@ const navigation: Array<{ href: string; label: string; prefetch?: false }> = [
   { href: "/jingzang", label: "经藏", prefetch: false },
   { href: "/duidu", label: "对读" },
   { href: "/xue", label: "研读" },
+  { href: "/shufang", label: "书房" },
   { href: "/yanjiu", label: "研究" },
-  { href: "/fugai", label: "覆盖" },
   { href: "/yuanze", label: "原则" },
   { href: "/touming", label: "透明" },
 ];

@@ -91,7 +91,7 @@ const criticalRoutes = [
   "/gainian",
   "/xue",
   "/xue/amituojing",
-  "/xue/biji",
+  "/shufang",
   "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
@@ -183,7 +183,7 @@ const sitemapLandingRoutes = [
   "/gainian",
   "/xue",
   "/xue/amituojing",
-  "/xue/biji",
+  "/shufang",
   "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
@@ -225,7 +225,8 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
-  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/shufang</loc>");
+  expect(hubs).not.toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/fahuajing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
@@ -281,6 +282,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/duidu/jingangjing", "https://www.foxue.ai/duidu/jingangjing"],
     ["/duidu/xinjing", "https://www.foxue.ai/duidu/xinjing"],
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
+    ["/shufang", "https://www.foxue.ai/shufang"],
     ["/xue", "https://www.foxue.ai/xue"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
     ["/xue/fahuajing", "https://www.foxue.ai/xue/fahuajing"],
@@ -566,7 +568,10 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(llms).toContain("全球佛经作品分母治理");
   expect(llms).toContain("汉巴作品关系双人复核队列");
   expect(llms).toContain("https://www.foxue.ai/xue");
+  expect(llms).toContain("https://www.foxue.ai/shufang");
+  expect(llms).toContain("本地私密佛经书房");
   expect(llms).toContain("每日可核验原典");
+  expect(full).toContain("| /shufang | 书房 |");
   expect(full).toContain("| /xue | 研读 |");
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
@@ -1537,12 +1542,151 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByRole("link", { name: /打开《法华经》七关地图/ }))
     .toHaveAttribute("href", "/xue/fahuajing");
   await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
-  await expect(page.getByRole("link", { name: /打开本地研读笺/ })).toHaveAttribute("href", "/xue/biji");
+  await expect(page.getByRole("link", { name: /打开本地研读笺/ })).toHaveAttribute("href", "/shufang");
   await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
 
   await page.setViewportSize({ width: 390, height: 844 });
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(390);
+});
+
+test("独立书房汇集续读、选文、研读笺与研究状态且不上传私密正文", async ({ page }) => {
+  const privateNote = "PRIVATE_NOTE_只应留在浏览器";
+  const privateQuestion = "PRIVATE_QUESTION_不得进入网络请求";
+  const now = "2026-09-16T08:00:00.000Z";
+  await page.addInitScript(({ note, question, timestamp }) => {
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({
+      version: 1,
+      entries: [{
+        id: "xinjing/001-0848c",
+        slug: "xinjing",
+        folioKey: "001-0848c",
+        workTitle: "《般若波罗蜜多心经》",
+        passageLabel: "卷一 · 0848c",
+        quoteLang: "zh-Hant",
+        languageLabel: "汉文",
+        pageHref: "/jingzang/xinjing/001-0848c",
+        resumeHref: "/jingzang/xinjing/001-0848c#foxue-resume=T0251.001.0848c06",
+        locator: "T0251.001.0848c06",
+        preview: "照見五蘊皆空",
+        pinned: true,
+        firstReadAt: timestamp,
+        lastReadAt: timestamp,
+      }],
+    }));
+    window.localStorage.setItem("foxue:study-path-activity:v1", JSON.stringify({
+      version: 1,
+      entries: [{
+        id: "xinjing",
+        activeDay: 3,
+        completedDays: [1, 2],
+        skippedDays: [],
+        updatedAt: "2026-09-16T09:00:00.000Z",
+      }],
+    }));
+    window.localStorage.setItem("foxue:saved-passages:v1", JSON.stringify({
+      version: 1,
+      passages: [{
+        id: "folio:xinjing:001-0848c:T0251.001.0848c06",
+        slug: "xinjing",
+        folioKey: "001-0848c",
+        workTitle: "《般若波罗蜜多心经》",
+        passageLabel: "卷一 · 0848c",
+        locator: "T0251.001.0848c06",
+        quote: "照見五蘊皆空",
+        quoteLang: "zh-Hant",
+        sourceHref: "/jingzang/xinjing/001-0848c#T0251.001.0848c06",
+        segmentIds: ["T0251.001.0848c06"],
+        savedAt: timestamp,
+      }],
+    }));
+    window.localStorage.setItem("foxue:study-notes:v1", JSON.stringify({
+      version: 1,
+      notes: [{
+        id: "folio:xinjing:001-0848c:T0251.001.0848c06",
+        workTitle: "《般若波罗蜜多心经》",
+        passageLabel: "卷一 · 0848c",
+        locator: "T0251.001.0848c06",
+        quote: "照見五蘊皆空",
+        quoteLang: "zh-Hant",
+        sourceHref: "/jingzang/xinjing/001-0848c#T0251.001.0848c06",
+        studyHref: "/xue/xinjing#day-3",
+        kind: "verify",
+        body: note,
+        createdAt: timestamp,
+        updatedAt: timestamp,
+      }],
+    }));
+    window.localStorage.setItem("foxue:research-workspace:v1", JSON.stringify({
+      version: 1,
+      workspace: {
+        question,
+        scope: "只核对 T0251 当前段落与上下文。",
+        provisionalFinding: "仍待补充反证。",
+        assessments: [{
+          passageId: "folio:xinjing:001-0848c:T0251.001.0848c06",
+          status: "qualifies",
+          reasoning: "只能限定当前译本的这一处表达。",
+          updatedAt: timestamp,
+        }],
+        updatedAt: timestamp,
+      },
+    }));
+  }, { note: privateNote, question: privateQuestion, timestamp: now });
+
+  const requests: Array<{ url: string; body: string }> = [];
+  page.on("request", (request) => {
+    requests.push({ url: request.url(), body: request.postData() ?? "" });
+  });
+
+  await page.goto("/shufang");
+  await expect(page).toHaveURL(/\/shufang$/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.foxue.ai/shufang",
+  );
+  await expect(page.locator('header a[href="/shufang"]').first()).toHaveText("书房");
+  await expect(page.getByRole("heading", { level: 1, name: /有一处放下.*再回来/ })).toBeVisible();
+  await expect(page.locator('[data-room-ledger="reading"] strong')).toContainText("2");
+  await expect(page.locator('[data-room-ledger="passages"] strong')).toContainText("1");
+  await expect(page.locator('[data-room-ledger="notes"] strong')).toContainText("1");
+  await expect(page.locator('[data-room-ledger="research"] strong')).toContainText(/1\s*\/\s*1/);
+  await expect(page.locator("[data-study-room-next]")).toHaveAttribute("href", "/xue/xinjing#day-3");
+  await expect(page.getByText(privateNote, { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /打开研究证据工作台/ })).toHaveAttribute("href", "/yanjiu");
+
+  await page.evaluate(() => {
+    const shelf = JSON.parse(window.localStorage.getItem("foxue:reading-shelf:v1") ?? "{}");
+    shelf.entries[0].lastReadAt = "2026-09-16T10:00:00.000Z";
+    window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify(shelf));
+    window.dispatchEvent(new Event("foxue:reading-shelf-change"));
+  });
+  await expect(page.locator("[data-study-room-next]")).toHaveAttribute(
+    "href",
+    "/jingzang/xinjing/001-0848c#foxue-resume=T0251.001.0848c06",
+  );
+
+  const serializedRequests = JSON.stringify(requests);
+  expect(serializedRequests).not.toContain(privateNote);
+  expect(serializedRequests).not.toContain(privateQuestion);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
+test("旧研读笺地址永久归入书房并保留选文入口", async ({ page }) => {
+  await page.goto("/xue/biji");
+  await expect(page).toHaveURL(/\/shufang#saved-passages$/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.foxue.ai/shufang",
+  );
 });
 
 test("法句三源档案保留稳定引文与比较边界", async ({ page, request }) => {
@@ -1581,7 +1725,7 @@ test("法句三源档案保留稳定引文与比较边界", async ({ page, reque
   const body = await sitemap.text();
   expect(body).toContain("<loc>https://www.foxue.ai/xue</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
-  expect(body).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
+  expect(body).toContain("<loc>https://www.foxue.ai/shufang</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(body).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
 });
@@ -1614,8 +1758,8 @@ test("研读笺把个人笔记、稳定坐标与原典链接一起留在本地",
   expect(stored).toContain("T0210.001.0562a13–14");
   expect(stored).toContain(noteText);
 
-  await page.goto("/xue/biji");
-  await expect(page.getByRole("heading", { level: 1, name: /把读过的经文.*可回到原典.*的一页/ })).toBeVisible();
+  await page.goto("/shufang");
+  await expect(page.getByRole("heading", { level: 1, name: /有一处放下.*再回来/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: "我的研读笺" })).toBeVisible();
   await expect(page.getByText(noteText, { exact: true })).toBeVisible();
   await expect(page.getByText("求证 · T0210.001.0562a13–14", { exact: true })).toBeVisible();
@@ -1758,7 +1902,7 @@ test("任意经文卷页可从后半句生成稳定引文与本地研读笺", as
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(page.viewportSize()?.width ?? pageWidth);
 
-  await page.goto("/xue/biji");
+  await page.goto("/shufang");
   await expect(page.getByText(noteText, { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /核对原典/ })).toHaveAttribute(
     "href",
@@ -2023,7 +2167,7 @@ test(savedPassagesAnalyticsTestTitle, async ({ page }) => {
   await expect(page.locator(`[data-study-segment-id="${locator}"][data-saved-passage="true"]`).first()).toBeVisible();
   await expect(page.getByText("本页已有 1 则本地选文。")).toBeVisible();
 
-  await page.goto("/xue/biji#saved-passages");
+  await page.goto("/shufang#saved-passages");
   const passageCollection = page.getByRole("region", { name: "我的选文" });
   await expect(passageCollection).toBeVisible();
   await expect(passageCollection.locator("blockquote")).toHaveText(source);
@@ -2129,10 +2273,11 @@ test(readingShelfAnalyticsTestTitle, async ({ page }) => {
   await saveButton.click();
   await expect(page.getByRole("button", { name: "已存书房" })).toHaveAttribute("aria-pressed", "true");
 
-  await page.goto("/xue#reading-shelf");
+  await page.goto("/shufang#reading-shelf");
   await expect(page.getByRole("heading", { name: "离开，不等于从头再来。" })).toBeVisible();
   await expect(page.getByText("已收藏", { exact: true })).toBeVisible();
-  await expect(page.getByText(locator, { exact: true })).toBeVisible();
+  const readingShelf = page.getByRole("region", { name: "离开，不等于从头再来。" });
+  await expect(readingShelf.getByText(locator, { exact: true })).toBeVisible();
   await expect(page.locator("blockquote").filter({ hasText: source ?? "" })).toHaveAttribute("lang", "zh-Hant");
   await expect(page.getByRole("link", { name: /回到原文位置/ }).first()).toHaveAttribute(
     "href",
@@ -2163,7 +2308,7 @@ test(readingShelfAnalyticsTestTitle, async ({ page }) => {
   await expect(resumeTarget).toHaveAttribute("data-reading-resume-target", "true");
   await expect(resumeTarget).toBeInViewport();
 
-  await page.goto("/xue#reading-shelf");
+  await page.goto("/shufang#reading-shelf");
   await page.getByRole("button", { name: /^从书房移除/ }).first().click();
   const shelfAnalyticsEvents = await page.evaluate(() => {
     const calls = JSON.parse(window.sessionStorage.getItem("foxue:test-analytics-calls") ?? "[]");
@@ -2199,13 +2344,14 @@ test("书房完整呈现所有保留收藏而不是只显示前六条", async ({
     window.localStorage.setItem("foxue:reading-shelf:v1", JSON.stringify({ version: 1, entries }));
   });
 
-  await page.goto("/xue#reading-shelf");
-  await expect(page.getByRole("heading", { name: "《保留收藏 1》" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "《保留收藏 7》" })).toBeVisible();
-  await expect(page.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
-  await expect(page.getByRole("button", { name: "取消收藏 《保留收藏 1》" })).toBeVisible();
-  await page.getByRole("button", { name: "取消收藏 《保留收藏 1》" }).click();
-  await expect(page.getByRole("status")).toHaveText("已取消收藏 《保留收藏 1》");
+  await page.goto("/shufang#reading-shelf");
+  const shelf = page.getByRole("region", { name: "离开，不等于从头再来。" });
+  await expect(shelf.getByRole("heading", { name: "《保留收藏 1》", exact: true })).toBeVisible();
+  await expect(shelf.getByRole("heading", { name: "《保留收藏 7》", exact: true })).toBeVisible();
+  await expect(shelf.getByRole("button", { name: /^从书房移除/ })).toHaveCount(7);
+  await expect(shelf.getByRole("button", { name: "取消收藏 《保留收藏 1》" })).toBeVisible();
+  await shelf.getByRole("button", { name: "取消收藏 《保留收藏 1》" }).click();
+  await expect(shelf.getByRole("status")).toHaveText("已取消收藏 《保留收藏 1》");
 });
 
 test("书房停留期间相对阅读时间会继续更新", async ({ page }) => {
@@ -2233,7 +2379,7 @@ test("书房停留期间相对阅读时间会继续更新", async ({ page }) => 
     }));
   });
 
-  await page.goto("/xue#reading-shelf");
+  await page.goto("/shufang#reading-shelf");
   const relativeTime = page.getByText("汉文 · 刚刚读过", { exact: true });
   await expect(relativeTime).toBeVisible();
   expect(await relativeTime.evaluate((element) => element.closest("[aria-live]")?.getAttribute("aria-live") ?? null))

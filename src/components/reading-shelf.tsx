@@ -134,7 +134,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           <Link href={latest.resumeHref} prefetch={false}>
             回到上次读到的地方 <ArrowRight aria-hidden="true" />
           </Link>
-          <Link href="/xue#reading-shelf">打开我的书房</Link>
+          <Link href="/shufang#reading-shelf">打开我的书房</Link>
         </div>
       </section>
     );
@@ -282,7 +282,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
         <LockKeyhole aria-hidden="true" />
         <span>本地私密</span>
         <p>清除浏览器网站数据会一并移除这些记录；研读笺仍可在“我的研读笺”中另行导出。</p>
-        <Link href="/xue/biji"><BookOpenText aria-hidden="true" /> 我的研读笺</Link>
+        <Link href="/shufang#notebook-title"><BookOpenText aria-hidden="true" /> 我的研读笺</Link>
       </footer>
     </section>
   );
