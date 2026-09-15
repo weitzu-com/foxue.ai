@@ -48,6 +48,14 @@ test("首次统计选择在深浅主题与移动端均清楚可达且默认不�
   expect(bounds?.x ?? 0).toBeGreaterThanOrEqual(0);
   expect((bounds?.x ?? 0) + (bounds?.width ?? 0)).toBeLessThanOrEqual(viewport?.width ?? Infinity);
 
+  if ((viewport?.width ?? Infinity) <= 820) {
+    const taskNavigationBounds = await page.locator("[data-mobile-task-nav]").boundingBox();
+    expect(bounds?.y ?? Infinity).toBeGreaterThanOrEqual(0);
+    expect((bounds?.y ?? 0) + (bounds?.height ?? 0)).toBeLessThanOrEqual(
+      (taskNavigationBounds?.y ?? Infinity) - 11,
+    );
+  }
+
   await deny.click();
   await expect(consent).toBeHidden();
   expect(await page.evaluate((key) => window.localStorage.getItem(key), consentKey)).toBe("denied");
