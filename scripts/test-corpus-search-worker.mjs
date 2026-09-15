@@ -91,15 +91,30 @@ assert.equal(firstPage.body.counts.nextCandidateOffset, 1);
 assert.ok(firstPage.body.counts.remainingCandidateDocuments > 0);
 assert.equal(typeof firstPage.body.nextCursor, "string");
 
-const secondPage = await search(
-  `/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1&cursor=${encodeURIComponent(firstPage.body.nextCursor)}`,
-);
+const paginationPages = [firstPage];
+let currentPage = firstPage;
+while (currentPage.body.nextCursor && paginationPages.length < 20) {
+  const nextPage = await search(
+    `/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1&cursor=${encodeURIComponent(currentPage.body.nextCursor)}`,
+  );
+  assert.equal(nextPage.response.status, 200);
+  assert.equal(nextPage.body.counts.candidateOffset, currentPage.body.counts.nextCandidateOffset);
+  paginationPages.push(nextPage);
+  currentPage = nextPage;
+}
+const secondPage = paginationPages[1];
 assert.equal(secondPage.response.status, 200);
 assert.equal(secondPage.body.counts.candidateOffset, 1);
 assert.ok(secondPage.body.counts.inspectedCandidates >= 1);
 assert.ok(secondPage.body.counts.inspectedCandidates <= 8);
 assert.equal(secondPage.body.results.length, 1);
 assert.notEqual(secondPage.body.results[0].documentId, firstPage.body.results[0].documentId);
+const pagedDocumentIds = paginationPages.flatMap((page) => page.body.results.map((result) => result.documentId));
+assert.equal(pagedDocumentIds.length, firstPage.body.counts.candidateDocuments);
+assert.equal(new Set(pagedDocumentIds).size, pagedDocumentIds.length);
+assert.equal(currentPage.body.counts.nextCandidateOffset, firstPage.body.counts.candidateDocuments);
+assert.equal(currentPage.body.counts.remainingCandidateDocuments, 0);
+assert.equal(currentPage.body.nextCursor, undefined);
 
 const mismatchedCursor = await search(
   `/search?q=%E8%89%B2%E5%8D%B3%E6%98%AF%E7%A9%BA%E7%A9%BA%E5%8D%B3%E6%98%AF%E8%89%B2&language=zh&limit=1&cursor=${encodeURIComponent(firstPage.body.nextCursor)}`,
