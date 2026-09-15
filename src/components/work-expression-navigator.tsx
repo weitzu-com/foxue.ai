@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookCopy, ChevronDown, Fingerprint } from "lucide-react";
+import { ArrowRight, BookCopy, ChevronDown, Columns2, Fingerprint } from "lucide-react";
 import { getWorkExpressionGroup, type Sutra } from "@/data/sutras";
 import styles from "./work-expression-navigator.module.css";
 
@@ -20,6 +20,9 @@ export function WorkExpressionNavigator({
   const languageCount = new Set(group.expressions.map((expression) => expression.language)).size;
   const anchorId = workExpressionAnchorId(sutra.slug);
   const titleId = `${anchorId}-title`;
+  const comparisonHref = group.workId === "gbcr:work:prajnaparamita-hrdaya"
+    ? "/duidu/xinjing"
+    : undefined;
 
   return (
     <section
@@ -90,9 +93,23 @@ export function WorkExpressionNavigator({
         </ul>
 
         <footer className={styles.footer}>
-          <Fingerprint aria-hidden="true" />
-          <span>稳定作品标识</span>
-          <code>{group.workId}</code>
+          <span className={styles.workIdentity}>
+            <Fingerprint aria-hidden="true" />
+            <span>稳定作品标识</span>
+            <code>{group.workId}</code>
+          </span>
+          {comparisonHref && (
+            <Link
+              className={styles.comparisonLink}
+              href={comparisonHref}
+              prefetch={false}
+              data-analytics-event="scripture_comparison_opened"
+              data-analytics-location={`work_expression_${variant}`}
+              data-analytics-content-id={group.workId}
+            >
+              <Columns2 aria-hidden="true" /> 七译同屏对读 <ArrowRight aria-hidden="true" />
+            </Link>
+          )}
         </footer>
       </details>
     </section>

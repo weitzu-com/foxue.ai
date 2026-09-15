@@ -82,6 +82,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/xinjing",
   "/yanjiu",
   "/gainian",
   "/xue",
@@ -166,6 +167,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/xinjing",
   "/yanjiu",
   "/gainian",
   "/xue",
@@ -215,6 +217,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/wuyun</loc>");
@@ -255,6 +258,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/hedui", "https://www.foxue.ai/hedui"],
+    ["/duidu/xinjing", "https://www.foxue.ai/duidu/xinjing"],
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/xue", "https://www.foxue.ai/xue"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
@@ -360,6 +364,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/bazhengdao");
   expect(full).toContain("/gainian/wuyun");
   expect(full).toContain("/gainian/ku");
+  expect(full).toContain("/duidu/xinjing");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -399,6 +404,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/hedui#page", "WebPage"],
         ["https://www.foxue.ai/hedui#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/duidu/xinjing",
+      required: [
+        ["https://www.foxue.ai/duidu/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/xinjing#expressions", "ItemList"],
       ],
     },
     {
@@ -613,6 +626,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         items.some((item) => item["@id"] === id && item["@type"] === type),
         `${path} should include ${type} ${id}`,
       ).toBeTruthy();
+    }
+
+    if (path === "/duidu/xinjing") {
+      const expressions = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/xinjing#expressions",
+      );
+      expect(expressions?.numberOfItems).toBe(7);
+      expect(expressions?.itemListElement).toHaveLength(7);
     }
   }
 });
@@ -2370,6 +2391,59 @@ test("同一作品的异译与译本可从作品页和经卷页直接发现", as
 
   await page.goto("/jingzang/nanchuan-digha-01");
   await expect(page.locator('[data-work-expression-navigator]')).toHaveCount(0);
+});
+
+test("心经七译可同屏切换并各自回到稳定原典且不伪造逐句对齐", async ({ page }) => {
+  await page.goto("/jingzang/xinjing");
+  const navigator = page.locator('[data-work-expression-navigator]');
+  await navigator.getByText("查看全部").click();
+  const comparisonEntry = navigator.getByRole("link", { name: "七译同屏对读" });
+  await expect(comparisonEntry).toHaveAttribute("href", "/duidu/xinjing");
+  await expect(comparisonEntry).toHaveAttribute("data-analytics-event", "scripture_comparison_opened");
+
+  await comparisonEntry.click();
+  await expect(page).toHaveURL(/\/duidu\/xinjing$/);
+  await expect(page.getByRole("heading", { name: /七译同题.*不抹平差异/ })).toBeVisible();
+  await expect(page.getByText("并排不是对齐", { exact: true })).toBeVisible();
+  await expect(page.getByText("行高、位置相近或共用词语，都不构成段落对应关系。", { exact: false })).toBeVisible();
+
+  const comparison = page.locator("[data-heart-sutra-comparison]");
+  const left = comparison.locator('[data-comparison-side="left"]');
+  const right = comparison.locator('[data-comparison-side="right"]');
+  await expect(left).toHaveAttribute("data-comparison-edition", "xinjing");
+  await expect(right).toHaveAttribute("data-comparison-edition", "taisho-t0250");
+  await expect(left.getByText("大正藏 T08, no. 251", { exact: true })).toBeVisible();
+  await expect(right.getByText("大正藏 T08, no. 250", { exact: true })).toBeVisible();
+  await expect(page.getByText("它说明保存范围，不用于比较译文长短。", { exact: false })).toBeVisible();
+  await expect(left.getByRole("link", { name: "跳到经文正文" })).toHaveAttribute(
+    "href",
+    "#comparison-left-T0251.001.0848c06",
+  );
+  await expect(left.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(72);
+  await expect(right.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(23);
+
+  const firstLeftLocator = left.locator('a[data-analytics-event="comparison_segment_opened"]').first();
+  await expect(firstLeftLocator).toHaveAttribute("href", /\/jingzang\/xinjing\/001-0848a#T0251\.001\.0848a/);
+  await expect(firstLeftLocator).toHaveAttribute("data-analytics-content-id", /^T0251\.001\.0848a/);
+
+  await page.getByLabel("乙本：右侧文本表达").selectOption("taisho-t0257");
+  await expect(right).toHaveAttribute("data-comparison-edition", "taisho-t0257");
+  await expect(right.getByText("大正藏 T08, no. 257", { exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/left=xinjing&right=taisho-t0257/);
+
+  await page.getByRole("button", { name: "交换甲本与乙本" }).click();
+  await expect(left).toHaveAttribute("data-comparison-edition", "taisho-t0257");
+  await expect(right).toHaveAttribute("data-comparison-edition", "xinjing");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 
 test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {

@@ -230,19 +230,27 @@
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 0.85rem 1.35rem;
   color: var(--expression-muted);
   font-size: 0.58rem;
 }
 
-.footer svg {
+.workIdentity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.workIdentity svg {
   width: 0.85rem;
   flex: 0 0 auto;
   color: var(--cinnabar);
 }
 
-.footer code {
+.workIdentity code {
   min-width: 0;
   overflow: hidden;
   color: var(--expression-soft);
@@ -250,6 +258,27 @@
   font-size: 0.56rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.comparisonLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--cinnabar);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.comparisonLink svg {
+  width: 0.82rem;
+}
+
+.comparisonLink svg:last-child {
+  transition: transform 180ms ease;
+}
+
+.comparisonLink:hover svg:last-child {
+  transform: translateX(0.16rem);
 }
 
 .expression:focus-visible {
@@ -303,6 +332,8 @@
   }
 
   .footer {
+    align-items: flex-start;
+    flex-direction: column;
     padding-inline: 1.1rem;
   }
 }
@@ -311,6 +342,10 @@
   .expression,
   .expression > svg,
   .toggle svg {
+    transition: none;
+  }
+
+  .comparisonLink svg:last-child {
     transition: none;
   }
 }
