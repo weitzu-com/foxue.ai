@@ -331,12 +331,15 @@ if (requireSearch) {
         { headers: { origin: "https://www.foxue.ai" } },
       );
       if (paginationSecond) {
+        const firstDocumentId = paginationFirst.body?.results?.[0]?.documentId;
+        const secondDocumentId = paginationSecond.body?.results?.[0]?.documentId;
         check(
           paginationSecond.response.status === 200 &&
             paginationSecond.body?.counts?.candidateOffset ===
               paginationFirst.body?.counts?.nextCandidateOffset &&
-            paginationSecond.body?.results?.[0]?.documentId !==
-              paginationFirst.body?.results?.[0]?.documentId,
+            Number.isSafeInteger(firstDocumentId) &&
+            Number.isSafeInteger(secondDocumentId) &&
+            secondDocumentId !== firstDocumentId,
           "全文检索游标继续到不同的下一条稳定结果",
           `全文检索游标未能稳定续查（HTTP ${paginationSecond.response.status}）`,
         );
