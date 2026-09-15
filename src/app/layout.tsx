@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { MobileTaskNav } from "@/components/mobile-task-nav";
 import { serializeJsonLd, siteOrigin } from "@/lib/site-metadata";
 import "./globals.css";
 
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <MobileTaskNav />
         <GoogleAnalytics />
       </body>
     </html>

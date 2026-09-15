@@ -1079,6 +1079,87 @@ test("首页核心任务可见且没有水平溢出", async ({ page }) => {
   expect(pageWidth).toBeLessThanOrEqual(viewport?.width ?? pageWidth);
 });
 
+test("全站导航按读者任务收束且移动端常用入口始终可达", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/gainian");
+
+  const desktopNavigation = page.getByRole("navigation", { name: "主要导航" });
+  await expect(desktopNavigation).toBeVisible();
+  for (const [label, href] of [
+    ["问经", "/wenjing"],
+    ["经藏", "/jingzang"],
+    ["探索", "/gainian"],
+    ["对读", "/duidu"],
+    ["研读", "/xue"],
+    ["书房", "/shufang"],
+    ["全文检索", "/jingzang/quanwen"],
+  ]) {
+    await expect(desktopNavigation.getByRole("link", { name: label, exact: true }))
+      .toHaveAttribute("href", href);
+  }
+
+  const more = desktopNavigation.locator(".desktop-nav__more");
+  await more.locator("summary").click();
+  const moreEntries = more.getByRole("group", { name: "更多入口" });
+  await expect(moreEntries).toBeVisible();
+  await expect(moreEntries.getByRole("link", { name: "核对说法" })).toHaveAttribute("href", "/hedui");
+  await expect(moreEntries.getByRole("link", { name: "研究", exact: true })).toHaveAttribute("href", "/yanjiu");
+  await expect(moreEntries.getByRole("link", { name: "原则", exact: true })).toHaveAttribute("href", "/yuanze");
+  await expect(moreEntries.getByRole("link", { name: "透明", exact: true })).toHaveAttribute("href", "/touming");
+  await moreEntries.getByRole("link", { name: "核对说法" }).click();
+  await expect(page).toHaveURL(/\/hedui$/);
+  await expect(more).not.toHaveAttribute("open", "");
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/shufang");
+
+  const taskNavigation = page.getByRole("navigation", { name: "移动端常用任务" });
+  await expect(taskNavigation).toBeVisible();
+  await expect(taskNavigation.getByRole("link")).toHaveCount(4);
+  await expect(taskNavigation.getByRole("link", { name: "书房", exact: true }))
+    .toHaveAttribute("aria-current", "page");
+  await expect(taskNavigation.getByRole("link", { name: "首页", exact: true })).toHaveAttribute("href", "/");
+  await expect(taskNavigation.getByRole("link", { name: "搜索", exact: true }))
+    .toHaveAttribute("href", "/jingzang/quanwen");
+  await expect(taskNavigation.getByRole("link", { name: "问经", exact: true })).toHaveAttribute("href", "/wenjing");
+
+  const layout = await page.evaluate(() => {
+    const navigation = document.querySelector<HTMLElement>("[data-mobile-task-nav]");
+    const rect = navigation?.getBoundingClientRect();
+    return {
+      bodyPaddingBottom: Number.parseFloat(getComputedStyle(document.body).paddingBottom),
+      navigationHeight: rect?.height ?? 0,
+      navigationBottom: rect?.bottom ?? 0,
+      viewportHeight: window.innerHeight,
+      scrollWidth: document.documentElement.scrollWidth,
+    };
+  });
+  expect(layout.bodyPaddingBottom).toBeGreaterThanOrEqual(layout.navigationHeight - 1);
+  expect(layout.navigationBottom).toBeCloseTo(layout.viewportHeight, 0);
+  expect(layout.scrollWidth).toBeLessThanOrEqual(390);
+
+  await taskNavigation.getByRole("link", { name: "搜索", exact: true }).click();
+  await expect(page).toHaveURL(/\/jingzang\/quanwen$/);
+  await expect(taskNavigation.getByRole("link", { name: "搜索", exact: true }))
+    .toHaveAttribute("aria-current", "page");
+
+  const allNavigation = page.locator(".mobile-nav");
+  await allNavigation.locator("summary").click();
+  const allNavigationLinks = allNavigation.getByRole("navigation", { name: "全部导航" });
+  await expect(allNavigationLinks.getByRole("link", { name: "探索", exact: true })).toHaveAttribute("href", "/gainian");
+  await expect(allNavigationLinks.getByRole("link", { name: "研究", exact: true })).toHaveAttribute("href", "/yanjiu");
+  await allNavigationLinks.getByRole("link", { name: "探索", exact: true }).click();
+  await expect(page).toHaveURL(/\/gainian$/);
+  await expect(allNavigation).not.toHaveAttribute("open", "");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
 test(researchWorkspaceAnalyticsTestTitle, async ({ page }) => {
   const savedPassage = {
     id: "folio:research-evidence-test",
