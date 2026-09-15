@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, duiduJingangjing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -142,6 +142,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/ku"),
   get("/duidu/xinjing"),
   get("/duidu/jingangjing"),
+  get("/duidu/amituojing"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -338,6 +339,21 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
         ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/duidu/amituojing",
+    duiduAmituojing,
+    {
+      title: "阿弥陀经鸠摩罗什译与玄奘译双译对读｜foxue.ai",
+      description: "按七个修学关口对读《佛说阿弥陀经》T0366 与《称赞净土佛摄受经》T0367；每行返回稳定原典坐标，相关段落不等于逐句对齐。",
+      bodyIncludes: ["同向净土", "相关不等于对齐", "复制本关口引用"],
+      jsonLd: [
+        ["https://www.foxue.ai/duidu/amituojing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/amituojing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/amituojing#expressions", "ItemList"],
+        ["https://www.foxue.ai/duidu/amituojing#loci", "ItemList"],
       ],
     },
   ],
@@ -682,6 +698,23 @@ check(
   "/duidu/xinjing JSON-LD 未完整列出七种文本表达",
 );
 const jingangItems = extractJsonLdItems(duiduJingangjing.body);
+const amituojingItems = extractJsonLdItems(duiduAmituojing.body);
+const amituojingExpressions = amituojingItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/amituojing#expressions",
+);
+const amituojingLoci = amituojingItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/amituojing#loci",
+);
+check(
+  amituojingExpressions?.numberOfItems === 2 && amituojingExpressions.itemListElement?.length === 2,
+  "/duidu/amituojing JSON-LD 完整列出两种古汉译表达",
+  "/duidu/amituojing JSON-LD 未完整列出两种古汉译表达",
+);
+check(
+  amituojingLoci?.numberOfItems === 7 && amituojingLoci.itemListElement?.length === 7,
+  "/duidu/amituojing JSON-LD 完整列出七个修学关口",
+  "/duidu/amituojing JSON-LD 未完整列出七个修学关口",
+);
 const jingangExpressions = jingangItems.find(
   (item) => item["@id"] === "https://www.foxue.ai/duidu/jingangjing#expressions",
 );
