@@ -28,6 +28,7 @@
 | `question_submitted` | 问经任务完成率 | `entry_point`, `input_length`, `result_status`, `evidence_count` | 问经页生成本地证据结果 | 是 |
 | `source_opened` | 回到原典的核心信任行为 | `content_id`, `link_location`, `link_text` | 从证据卡打开原文 | 是 |
 | `scripture_opened` | 经藏阅读启动率 | `content_id`, `link_location`, `link_text` | 从经藏目录打开一部经典 | 否 |
+| `scripture_path_selected` | 选经导航是否转化为真实阅读 | `content_id`, `link_location`, `link_text` | 从选经页进入一条已有研读路径 | 否 |
 | `citation_copied` | 带出处保存引文 | `content_id`, `entry_point` | 从“今日原典”或研读路径复制引文、版本、行段与链接 | 否 |
 | `study_path_step_marked` | 七日路径推进率 | `learning_path`, `step_number`, `step_status`, `covered_count` | 读者将一天标为完成或跳过 | 否 |
 | `study_path_resumed` | 七日路径续读率 | `entry_point`, `learning_path`, `step_number`, `covered_count` | 从首页或研读中心返回本地保存的下一步 | 是 |
@@ -37,6 +38,7 @@
 
 `input_length` 只记录字符数，绝不记录输入内容。`page_location` 只保留路径与 UTM/gclid/dclid 参数，其他查询参数会被丢弃。七日路径事件只记录经名代号、1–7 的步骤编号与计数，不记录问题、笔记、引文或连续天数。
 研究工作台事件同样只记录计数与枚举状态，不发送研究问题、范围、暂定结论、证据关系说明、引文或稳定段号。
+选经事件的 `content_id` 只记录六个受控路径代号，不记录个人动机、宗派身份或页面停留时输入的任何文字。
 
 ## 隐私与同意
 

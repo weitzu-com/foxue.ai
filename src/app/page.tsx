@@ -48,11 +48,11 @@ const tasks = [
   {
     number: "01",
     icon: BookMarked,
-    eyebrow: "想认真读一部经",
-    title: "进入研读中心",
-    description: "慢读《心经》、核读《金刚经》、净读《阿弥陀经》，或并读三源《法句》；每一步都回到稳定原文。",
-    link: "/xue",
-    action: "选择研读路径",
+    eyebrow: "不知道先读哪部",
+    title: "按目的选择经典",
+    description: "先说清此刻为什么读、喜欢短偈还是长篇、能投入多少时间，再进入一条有原文和边界的窄路径。",
+    link: "/xue/xuanjing",
+    action: "找到第一条路径",
   },
   {
     number: "02",
