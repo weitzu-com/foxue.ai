@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import { getWorkExpressionGroup } from "@/data/sutras";
 import {
+  ebtEvidenceDeskSnapshot,
+  verifyEbtEvidenceDesk,
+} from "@/lib/ebt-evidence-desk";
+import {
   absoluteUrl,
   buildPageJsonLd,
   buildPageMetadata,
@@ -23,7 +27,7 @@ import styles from "./page.module.css";
 const pagePath = "/duidu";
 const pageTitle = "佛经异译与跨本对读｜可核验原典书案";
 const pageDescription =
-  "面向佛教徒、佛学爱好者与研究者的佛经对读入口：并读《心经》《金刚经》《阿弥陀经》的已核验文本表达，每一段回到版本与稳定原典坐标。";
+  "面向佛教徒、佛学爱好者与研究者的佛经对读入口：并读《心经》《金刚经》《阿弥陀经》的已核验表达，并以汉巴 EBT 证据书案查看原文、反证与真人复核状态。";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -89,6 +93,29 @@ const dossiers = [
     studyLabel: "先走七日净读",
     tone: "pureland",
   },
+  {
+    number: "04",
+    seal: "證",
+    rootSlug: "ebt",
+    workId: "gbcr:evidence-desk:han-pali-ebt-v0.1",
+    expectedGroupCount: 0,
+    relation: "跨传统 · 审前证据",
+    title: "汉巴早期佛典 EBT 证据书案",
+    description:
+      "从五蕴、锯喻与央掘魔罗三个问题进入巴利原文、Sujato 英译和汉译阿含候选范围；支持线索与反证一起开放。",
+    question: "相似关系，怎样既能帮助阅读又不抢先裁决？",
+    metrics: [
+      `${ebtEvidenceDeskSnapshot.parallelEdges.toLocaleString("zh-CN")} 条证据`,
+      `${ebtEvidenceDeskSnapshot.p0Packets} 份 P0 包`,
+      `${ebtEvidenceDeskSnapshot.adjudicatedItems} 项裁决`,
+    ],
+    boundary: "候选关系不等于同一作品；机器定位不等于逐段对齐，AI 也不计入真人复核。",
+    href: "/duidu/ebt",
+    action: "打开三份 EBT 书案",
+    studyHref: "/shenjiao",
+    studyLabel: "查看双人复核规则",
+    tone: "ebt",
+  },
 ] as const;
 
 const readerRoutes = [
@@ -113,8 +140,8 @@ const readerRoutes = [
     label: "研究者 · 从证据进入",
     title: "让每一项比较都带着版本、责任与坐标。",
     description: "把对读当作发现问题的入口；判断仍须回到各本全文、版本信息与可复核引用。",
-    href: "/duidu/jingangjing",
-    action: "从《金刚经》七关口开始",
+    href: "/duidu/ebt",
+    action: "从汉巴 EBT 证据书案开始",
   },
 ] as const;
 
@@ -122,7 +149,7 @@ const method = [
   {
     icon: Fingerprint,
     title: "先确认关系",
-    description: "只有作品关系与表达身份已经进入受控目录，文本才进入对读书案。",
+    description: "作品关系、候选关系与表达身份必须分层登记；未裁决的证据永不冒充同一作品。",
   },
   {
     icon: Columns2,
@@ -143,6 +170,10 @@ const method = [
 
 function verifyDossierRelationships() {
   for (const dossier of dossiers) {
+    if (dossier.rootSlug === "ebt") {
+      verifyEbtEvidenceDesk();
+      continue;
+    }
     const group = getWorkExpressionGroup(dossier.rootSlug);
     if (
       !group ||
@@ -212,15 +243,15 @@ export default function ComparisonHubPage() {
               再把每一段放回自己的版本、责任题记与稳定坐标。
             </p>
             <div className={styles.heroActions}>
-              <a href="#dossiers"><LibraryBig aria-hidden="true" /> 查看三份书案</a>
+              <a href="#dossiers"><LibraryBig aria-hidden="true" /> 查看四份书案</a>
               <Link href="/xue">先从单本研读开始</Link>
             </div>
           </div>
 
-          <aside className={styles.archiveMap} aria-label="三份已核验对读书案">
+          <aside className={styles.archiveMap} aria-label="四份受控对读书案">
             <div className={styles.archiveTopline}>
               <span>开放书案</span>
-              <code>03 / VERIFIED</code>
+              <code>04 / CONTROLLED</code>
             </div>
             <ol>
               {dossiers.map((dossier) => (
@@ -264,8 +295,8 @@ export default function ComparisonHubPage() {
         <section className={styles.dossierSection} id="dossiers" aria-labelledby="dossiers-title">
           <header className={styles.sectionHeading}>
             <div>
-              <p>已核验书案 · OPEN DOSSIERS</p>
-              <h2 id="dossiers-title">三部经，三种诚实的比较方式。</h2>
+              <p>受控书案 · OPEN DOSSIERS</p>
+              <h2 id="dossiers-title">三部经与一个证据室，四种诚实的比较方式。</h2>
             </div>
             <p>每份书案都说明纳入什么、怎样选择片段，以及哪些结论不能由页面布局自动推出。</p>
           </header>

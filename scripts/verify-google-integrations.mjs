@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -141,6 +141,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/wuyun"),
   get("/gainian/ku"),
   get("/duidu"),
+  get("/duidu/ebt"),
   get("/duidu/xinjing"),
   get("/duidu/jingangjing"),
   get("/duidu/amituojing"),
@@ -348,12 +349,26 @@ const pageExpectations = [
     duidu,
     {
       title: "佛经异译与跨本对读｜可核验原典书案｜foxue.ai",
-      description: "面向佛教徒、佛学爱好者与研究者的佛经对读入口：并读《心经》《金刚经》《阿弥陀经》的已核验文本表达，每一段回到版本与稳定原典坐标。",
-      bodyIncludes: ["并读，不是把差异", "三部经，三种诚实的比较方式", "自动逐句对齐：0"],
+      description: "面向佛教徒、佛学爱好者与研究者的佛经对读入口：并读《心经》《金刚经》《阿弥陀经》的已核验表达，并以汉巴 EBT 证据书案查看原文、反证与真人复核状态。",
+      bodyIncludes: ["并读，不是把差异", "三部经与一个证据室", "自动逐句对齐：0"],
       jsonLd: [
         ["https://www.foxue.ai/duidu#page", "CollectionPage"],
         ["https://www.foxue.ai/duidu#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/duidu#dossiers", "ItemList"],
+      ],
+    },
+  ],
+  [
+    "/duidu/ebt",
+    duiduEbt,
+    {
+      title: "汉巴早期佛典 EBT 证据书案｜原文、反证与复核状态｜foxue.ai",
+      description: "从五蕴、锯喻与央掘魔罗三个书案进入汉巴早期佛典：直达巴利原文、Sujato 英译与阿含候选范围，并公开反证、证据哈希和双人复核状态。",
+      bodyIncludes: ["相似，", "先不是相同", "0 / 2 真人复核", "后段的邪见、纠正与蛇喻却更接近 MN 22"],
+      jsonLd: [
+        ["https://www.foxue.ai/duidu/ebt#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/ebt#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/ebt#cases", "ItemList"],
       ],
     },
   ],
@@ -711,9 +726,17 @@ const duiduDossiers = extractJsonLdItems(duidu.body).find(
   (item) => item["@id"] === "https://www.foxue.ai/duidu#dossiers",
 );
 check(
-  duiduDossiers?.numberOfItems === 3 && duiduDossiers.itemListElement?.length === 3,
-  "/duidu JSON-LD 完整列出三份已核验对读书案",
-  "/duidu JSON-LD 未完整列出三份已核验对读书案",
+  duiduDossiers?.numberOfItems === 4 && duiduDossiers.itemListElement?.length === 4,
+  "/duidu JSON-LD 完整列出四份受控对读书案",
+  "/duidu JSON-LD 未完整列出四份受控对读书案",
+);
+const duiduEbtCases = extractJsonLdItems(duiduEbt.body).find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/ebt#cases",
+);
+check(
+  duiduEbtCases?.numberOfItems === 3 && duiduEbtCases.itemListElement?.length === 3,
+  "/duidu/ebt JSON-LD 完整列出三份汉巴证据书案",
+  "/duidu/ebt JSON-LD 未完整列出三份汉巴证据书案",
 );
 check(
   xinjingExpressions?.numberOfItems === 7 && xinjingExpressions.itemListElement?.length === 7,
