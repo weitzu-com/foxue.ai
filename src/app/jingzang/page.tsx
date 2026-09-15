@@ -28,6 +28,7 @@ const libraryEntryPoints = [
   { label: "金刚经", href: "/jingzang/jingangjing", contentId: "大正藏 T08, no. 235" },
   { label: "法句经", href: "/jingzang/fajujing", contentId: "大正藏 T04, no. 210" },
   { label: "长阿含经", href: "/jingzang/changahanjing", contentId: "大正藏 T01, no. 1" },
+  { label: "梵文原典", href: "/jingzang/fanwen", contentId: "SuttaCentral Indic Roots" },
 ] as const;
 
 export default function LibraryPage() {

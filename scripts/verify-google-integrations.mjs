@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangFanwen, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -146,6 +146,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/duidu/jingangjing"),
   get("/duidu/amituojing"),
   get("/jingzang"),
+  get("/jingzang/fanwen"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
   get("/jingzang/xinjing/001-0848c"),
@@ -426,6 +427,21 @@ const pageExpectations = [
       jsonLd: [
         ["https://www.foxue.ai/jingzang#page", "CollectionPage"],
         ["https://www.foxue.ai/jingzang#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/jingzang/fanwen",
+    jingzangFanwen,
+    {
+      title: "梵文佛经原典门｜梵文与俗语全文阅读｜foxue.ai",
+      description: "阅读三部已核验的梵文与俗语佛典原文，共 1,909 个稳定段；查看来源、版本、许可与异本关系，并明确 DSBC、GRETIL 候选资料的版权边界。",
+      bodyIncludes: ["梵文，", "不是装饰。", "当前获准再发布 0 个", "可访问 ≠ 可复制"],
+      jsonLd: [
+        ["https://www.foxue.ai/jingzang/fanwen#page", "CollectionPage"],
+        ["https://www.foxue.ai/jingzang/fanwen#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/jingzang/fanwen#readable-works", "ItemList"],
+        ["https://www.foxue.ai/jingzang/fanwen#source-snapshot", "Dataset"],
       ],
     },
   ],
@@ -737,6 +753,25 @@ check(
   duiduEbtCases?.numberOfItems === 3 && duiduEbtCases.itemListElement?.length === 3,
   "/duidu/ebt JSON-LD 完整列出三份汉巴证据书案",
   "/duidu/ebt JSON-LD 未完整列出三份汉巴证据书案",
+);
+const sanskritGateItems = extractJsonLdItems(jingzangFanwen.body);
+const sanskritReadableWorks = sanskritGateItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/jingzang/fanwen#readable-works",
+);
+const sanskritSourceSnapshot = sanskritGateItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/jingzang/fanwen#source-snapshot",
+);
+check(
+  sanskritReadableWorks?.numberOfItems === 3 && sanskritReadableWorks.itemListElement?.length === 3,
+  "/jingzang/fanwen JSON-LD 完整列出三份梵文与俗语原典",
+  "/jingzang/fanwen JSON-LD 未完整列出三份梵文与俗语原典",
+);
+check(
+  sanskritSourceSnapshot?.variableMeasured?.includes("1909 个稳定段") &&
+    sanskritSourceSnapshot.variableMeasured.includes("486 条 DSBC 目录候选") &&
+    sanskritSourceSnapshot.variableMeasured.includes("417 个 GRETIL 文件候选"),
+  "/jingzang/fanwen JSON-LD 分层公开站内全文与外部候选",
+  "/jingzang/fanwen JSON-LD 未完整公开站内全文与外部候选边界",
 );
 check(
   xinjingExpressions?.numberOfItems === 7 && xinjingExpressions.itemListElement?.length === 7,
