@@ -182,7 +182,7 @@ export const expandedConceptHubs = [
     updatedAt: "2026-08-20",
     footerActionLabel: "带着问题继续问",
     footerActionHref: "/wenjing",
-    related: ["wuwo", "wuzhu", "kong", "yuanqi"],
+    related: ["wuwo", "wuzhu", "kong", "yuanqi", "wuyun"],
   },
   {
     entry: {
@@ -387,6 +387,6 @@ export const expandedConceptHubs = [
     updatedAt: "2026-08-20",
     footerActionLabel: "带着问题继续问",
     footerActionHref: "/wenjing",
-    related: ["kong", "wuchang", "guanxin", "yuanqi"],
+    related: ["kong", "wuchang", "guanxin", "yuanqi", "wuyun"],
   },
 ] as const satisfies readonly ConceptHub[];

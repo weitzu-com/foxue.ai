@@ -3,6 +3,7 @@ import {
   dependentOriginationConcept,
   eightfoldPathConcept,
   emptinessConcept,
+  fiveAggregatesConcept,
   fourNobleTruthsConcept,
   impermanenceConcept,
   nonAbidingConcept,
@@ -92,8 +93,11 @@ export function buildResearchResult(
   sourceContext?: QuestionSourceContext | null,
 ): ResearchResult {
   const query = rawQuery.trim();
+  const normalizedQuery = query.toLocaleLowerCase();
   const isInitialPassageQuestion = query === PASSAGE_QUESTION_PROMPT;
-  const has = (...words: string[]) => words.some((word) => query.includes(word));
+  const has = (...words: string[]) => words.some((word) =>
+    normalizedQuery.includes(word.toLocaleLowerCase()),
+  );
   const sourceHas = (...phrases: string[]) => Boolean(
     isInitialPassageQuestion
     && sourceContext
@@ -113,6 +117,61 @@ export function buildResearchResult(
     sourceContext,
     isInitialPassageQuestion,
   );
+  const asksAboutEmptinessOfAggregates = has("五蕴皆空", "五蘊皆空");
+
+  if (
+    (!asksAboutEmptinessOfAggregates
+      && has(...fiveAggregatesConcept.selectionAliases, "五蕴是什么", "五蘊是什麼", "心经中的五蕴", "心經中的五蘊"))
+    || sourceMatchesConcept(fiveAggregatesConcept)
+  ) {
+    return finish({
+      query,
+      status: "有充分来源",
+      title: "五蕴不是五个灵魂部件，而是色、受、想、行、识五组观察范围",
+      answer: [
+        "巴利 SN 22.48 依次列出色、受、想、行、识。入门时可先把它们理解为身体与物质形态、感受调性、辨认活动、造作活动与识知活动；这些只是进入原文的导航，不等于五个彼此封闭的现代心理模块。",
+        "同一部短经分别设问 pañcakkhandhā 与 pañcupādānakkhandhā，也就是五蕴与五取蕴。五取蕴段反复出现 sāsava、upādāniya，因此研究和解释时不能悄悄删掉“取”字，再把两者宣称为完全同义。",
+        "《心经》把“照见五蕴皆空”与行深般若、度苦放在一起；T0102 则以无常、不可随欲支配、无我与无我所观察五蕴。两组汉译都没有要求把身心经验删除，而是改变把经验执作固定自我的方式。",
+      ],
+      caution:
+        "这里并读 T0251、T0102、SN 22.48 与 SN 22.79，但当前没有双人审校结论支持严格平行经认定；巴利中文均为本站工作释义，五项也不能直接等同于现代心理学分类。",
+      concept: fiveAggregatesConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《般若波罗蜜多心经》T0251",
+          quote: "觀自在菩薩行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+          href: "/jingzang/xinjing/001-0848c#T0251.001.0848c06",
+          source: "CBETA T08n0251",
+          locator: "T0251.001.0848c06–07",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 22.48",
+          quote: "Katame ca, bhikkhave, pañcakkhandhā? … rūpakkhandho … vedanā … saññā … saṅkhārā … viññāṇakkhandho.",
+          href: "/jingzang/samyutta-nikaya-sn22/048-sn22-48-0001-0021#sn22.48:1.4",
+          source: "SuttaCentral SN 22.48",
+          locator: "sn22.48:1.4–1.10",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 22.79",
+          quote: "Ruppatīti … rūpaṁ. Vedayatīti … vedanā. Sañjānātīti … saññā. Saṅkhatamabhisaṅkharontīti … saṅkhārā. Vijānātīti … viññāṇaṁ.",
+          href: "/jingzang/samyutta-nikaya-sn22/079-sn22-79-0001-0120#sn22.79:2.1",
+          source: "SuttaCentral SN 22.79",
+          locator: "sn22.79:2.1–6.5",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "《佛说五蘊皆空经》T0102",
+          quote: "色為是常？為是無常？……色是無常。……應知受想行識，常與無常，亦復如是。……觀此五取蘊，知無有我及以我所。",
+          href: "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c14",
+          source: "CBETA T02n0102",
+          locator: "T0102.001.0499c14–23",
+          relation: "直接",
+        }),
+      ],
+    });
+  }
 
   if (
     has(...eightfoldPathConcept.selectionAliases)
@@ -419,7 +478,7 @@ export function buildResearchResult(
   }
 
   if (
-    has("空", "五蕴", "心经", "执着", "执著")
+    has("空", "五蕴皆空", "五蘊皆空", "心经", "执着", "执著")
     || sourceHas("照見五蘊皆空", "五蘊皆空", "色不異空", "色即是空", "諸法空相")
   ) {
     return finish({
