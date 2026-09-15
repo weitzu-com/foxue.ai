@@ -1,0 +1,337 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 118px;
+  background:
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), color-mix(in srgb, var(--line) 55%, transparent) 50%, transparent calc(50% + 1px)),
+    radial-gradient(circle at 82% 8%, color-mix(in srgb, var(--cinnabar) 7%, transparent), transparent 28rem),
+    var(--canvas);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.breadcrumb a:hover {
+  color: var(--cinnabar);
+}
+
+.breadcrumb svg {
+  width: 14px;
+}
+
+.hero {
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.55fr);
+  gap: 84px;
+  align-items: center;
+  padding: 70px 0 92px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.heroCopy > p:first-child,
+.principlesLead > p,
+.closing > p {
+  margin: 0 0 18px;
+  color: var(--cinnabar);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.7rem, 7vw, 6.7rem);
+  font-weight: 500;
+  letter-spacing: -0.068em;
+  line-height: 1.02;
+}
+
+.hero h1 em {
+  color: var(--cinnabar);
+  font-style: normal;
+}
+
+.heroCopy > p:nth-of-type(2) {
+  max-width: 760px;
+  margin: 34px 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif), serif;
+  font-size: 1.02rem;
+  line-height: 2;
+}
+
+.heroAction {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 32px;
+  padding: 0 18px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.71rem;
+  font-weight: 700;
+}
+
+.heroAction:hover {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar);
+}
+
+.heroAction svg {
+  width: 17px;
+}
+
+.identityCard {
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 31px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 17px 17px 0 var(--line);
+}
+
+.identityCard > p {
+  margin: 0;
+  color: var(--cinnabar);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.identityCard > code {
+  max-width: 82%;
+  margin-top: 25px;
+  color: var(--ink);
+  font-size: 0.7rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.identityCard dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto 0 0;
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line);
+}
+
+.identityCard dl > div {
+  padding: 13px 9px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.identityCard dt {
+  color: var(--muted);
+  font-size: 0.53rem;
+}
+
+.identityCard dd {
+  margin: 7px 0 0;
+  color: var(--cinnabar);
+  font-family: var(--font-serif), serif;
+  font-size: 1.28rem;
+}
+
+.identityCard small {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.6;
+}
+
+.seal {
+  width: 116px;
+  height: 116px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: -20px;
+  right: -14px;
+  border: 1px solid color-mix(in srgb, var(--cinnabar) 38%, transparent);
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--cinnabar) 28%, transparent);
+  font-family: var(--font-serif), serif;
+  font-size: 2.8rem;
+  transform: rotate(10deg);
+}
+
+.principles {
+  padding: 108px 0 0;
+}
+
+.principlesLead {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 45px;
+}
+
+.principlesLead h2,
+.closing h2 {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.45rem, 4.7vw, 4.4rem);
+  font-weight: 500;
+  letter-spacing: -0.052em;
+  line-height: 1.1;
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--line-dark);
+}
+
+.principleGrid article {
+  min-height: 275px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  background: color-mix(in srgb, var(--paper) 55%, transparent);
+}
+
+.principleGrid header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--cinnabar);
+  font-size: 0.63rem;
+}
+
+.principleGrid header svg {
+  width: 20px;
+  stroke-width: 1.4;
+}
+
+.principleGrid h3 {
+  margin: 42px 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.principleGrid p {
+  margin: auto 0 0;
+  padding-top: 25px;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.85;
+}
+
+.closing {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+  gap: 74px;
+  align-items: end;
+  padding: 105px 0 10px;
+  border-top: 1px solid var(--ink);
+}
+
+.closing > p {
+  grid-column: 1 / -1;
+  margin-bottom: -44px;
+}
+
+.closing > div {
+  display: grid;
+  border-top: 1px solid var(--ink);
+}
+
+.closing a {
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--line-dark);
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.closing a:hover {
+  padding-left: 9px;
+  color: var(--cinnabar);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .identityCard {
+    min-height: 330px;
+  }
+
+  .principleGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .closing {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .closing > p {
+    margin-bottom: -12px;
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding-bottom: 80px;
+  }
+
+  .breadcrumb {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 54px 0 72px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 15vw, 4.6rem);
+  }
+
+  .identityCard {
+    min-height: 315px;
+    padding: 25px;
+    box-shadow: 9px 9px 0 var(--line);
+  }
+
+  .principles {
+    padding-top: 76px;
+  }
+
+  .principleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .principleGrid article {
+    min-height: 220px;
+  }
+
+  .closing {
+    padding-top: 78px;
+  }
+}

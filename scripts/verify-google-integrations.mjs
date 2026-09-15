@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -140,6 +140,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/bazhengdao"),
   get("/gainian/wuyun"),
   get("/gainian/ku"),
+  get("/duidu/xinjing"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -336,6 +337,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
         ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/duidu/xinjing",
+    duiduXinjing,
+    {
+      title: "心经七种汉译异译对读｜foxue.ai",
+      description: "并排阅读《心经》七种已审核汉译表达；每个行段回到各自 CBETA 原典坐标，明确同作品关系不等于逐句对齐。",
+      bodyIncludes: ["七译同题", "并排不是对齐", "自动对齐"],
+      jsonLd: [
+        ["https://www.foxue.ai/duidu/xinjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/xinjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/xinjing#expressions", "ItemList"],
       ],
     },
   ],
@@ -641,6 +656,14 @@ check(
   typeof xinjingWork?.translator?.name === "string" && xinjingWork.translator.name.includes("玄奘"),
   "/jingzang/xinjing JSON-LD 以玄奘为译者",
   "/jingzang/xinjing JSON-LD 缺少历史译者",
+);
+const xinjingExpressions = extractJsonLdItems(duiduXinjing.body).find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/xinjing#expressions",
+);
+check(
+  xinjingExpressions?.numberOfItems === 7 && xinjingExpressions.itemListElement?.length === 7,
+  "/duidu/xinjing JSON-LD 完整列出七种文本表达",
+  "/duidu/xinjing JSON-LD 未完整列出七种文本表达",
 );
 check(jingzangJingangjing.body.includes("如是我聞"), "/jingzang/jingangjing 可见如是我聞", "/jingzang/jingangjing 缺少如是我聞");
 check(jingzangFajujing.body.includes("諸惡莫作"), "/jingzang/fajujing 可见诸恶莫作", "/jingzang/fajujing 缺少诸恶莫作");

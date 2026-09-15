@@ -523,7 +523,12 @@ async function loadLocatedFolioSegments(slug: string, item: ReaderNavigationItem
   return remapFolioJuan(reading.segments, item);
 }
 
-export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
+/**
+ * Resolve a reading from the reviewed catalog without consulting the mutable
+ * edge release pointer. Use this for pages whose complete text is prerendered
+ * into a build artifact and must remain independent of runtime corpus storage.
+ */
+export async function getLocalSutraReading(sutra: Sutra): Promise<SutraReading> {
   const asset = completeAssets[sutra.slug];
   if (!asset) {
     return {
@@ -536,19 +541,6 @@ export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
         id: segment.id,
         label: String(index + 1).padStart(2, "0"),
       })),
-    };
-  }
-
-  const edgeIndex = await loadEdgeIndex(asset.canonId);
-  if (edgeIndex) {
-    return {
-      complete: true,
-      source: "edge",
-      releaseId: edgeIndex.releaseId,
-      canonId: asset.canonId,
-      segmentCount: edgeIndex.totals.segments,
-      segments: sutra.segments,
-      navigation: edgeIndex.navigation,
     };
   }
 
@@ -565,6 +557,26 @@ export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
     segmentFolios: catalog.segmentFolios,
     segmentFolioRanges: catalog.segmentFolioRanges,
   };
+}
+
+export async function getSutraReading(sutra: Sutra): Promise<SutraReading> {
+  const asset = completeAssets[sutra.slug];
+  if (!asset) return getLocalSutraReading(sutra);
+
+  const edgeIndex = await loadEdgeIndex(asset.canonId);
+  if (edgeIndex) {
+    return {
+      complete: true,
+      source: "edge",
+      releaseId: edgeIndex.releaseId,
+      canonId: asset.canonId,
+      segmentCount: edgeIndex.totals.segments,
+      segments: sutra.segments,
+      navigation: edgeIndex.navigation,
+    };
+  }
+
+  return getLocalSutraReading(sutra);
 }
 
 export type SutraFolio = {
