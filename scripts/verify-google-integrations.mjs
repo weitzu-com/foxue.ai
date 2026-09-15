@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, jingzang, jingzangFanwen, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, xueFahuajing, jingzang, jingzangFanwen, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -145,6 +145,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/duidu/xinjing"),
   get("/duidu/jingangjing"),
   get("/duidu/amituojing"),
+  get("/xue/fahuajing"),
   get("/jingzang"),
   get("/jingzang/fanwen"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
@@ -414,6 +415,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/duidu/xinjing#page", "CollectionPage"],
         ["https://www.foxue.ai/duidu/xinjing#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/duidu/xinjing#expressions", "ItemList"],
+      ],
+    },
+  ],
+  [
+    "/xue/fahuajing",
+    xueFahuajing,
+    {
+      title: "《法华经》怎么读｜七个关口回到 T0262 原典｜foxue.ai",
+      description: "面向佛教徒、佛学爱好者与研究者的《法华经》七关研读路径：从方便、譬喻与承持读到寿量和普门，每关提供鸠摩罗什译 T0262 原句、稳定行号、观照提示、校读边界与同品英译见证。",
+      bodyIncludes: ["入口不该只剩", "七处转折，打开二十八品", "编辑路标不是经文", "让时间尺度忽然打开"],
+      jsonLd: [
+        ["https://www.foxue.ai/xue/fahuajing#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/fahuajing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/fahuajing#learning-resource", "LearningResource"],
       ],
     },
   ],

@@ -1,0 +1,408 @@
+.page {
+  --lotus-red: #8d302b;
+  --lotus-deep: #18221d;
+  --lotus-gold: #a77734;
+  --lotus-mist: #e5ddd0;
+  background:
+    radial-gradient(circle at 82% 7%, rgb(141 48 43 / 11%), transparent 22rem),
+    linear-gradient(180deg, rgb(62 78 66 / 8%), transparent 760px),
+    var(--canvas);
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1fr) 340px;
+}
+
+.hero :global(.learning-hero__copy h1 em) {
+  color: var(--lotus-red);
+}
+
+.heroSeal {
+  min-height: 370px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  overflow: hidden;
+  border: 1px solid #111b16;
+  background:
+    radial-gradient(circle at 26% 74%, rgb(200 151 78 / 22%), transparent 34%),
+    var(--lotus-deep);
+  color: #fffaf0;
+  box-shadow: 18px 18px 0 #d6c8b5;
+  transform: translateY(12px) rotate(0.65deg);
+}
+
+.heroSeal::before,
+.heroSeal::after {
+  content: "";
+  position: absolute;
+  width: 11rem;
+  height: 11rem;
+  border: 1px solid rgb(215 170 94 / 22%);
+  border-radius: 70% 30% 65% 35%;
+  transform: rotate(38deg);
+}
+
+.heroSeal::before {
+  right: -6rem;
+  top: -4rem;
+}
+
+.heroSeal::after {
+  right: -4rem;
+  top: -6rem;
+  transform: rotate(74deg);
+}
+
+.heroSeal > span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid rgb(255 255 255 / 18%);
+  color: #d9a35a;
+  font-family: var(--font-serif), serif;
+  font-size: 8.6rem;
+  line-height: 1;
+}
+
+.heroSeal > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.8rem 1.45rem;
+}
+
+.heroSeal svg {
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-bottom: auto;
+  color: #d9a35a;
+  stroke-width: 1.35;
+}
+
+.heroSeal strong {
+  font-family: var(--font-serif), serif;
+  font-size: 1.06rem;
+}
+
+.heroSeal p {
+  margin: 0.65rem 0 0;
+  color: #bdc8c0;
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.overview :global(.learning-overview__grid) {
+  counter-reset: lotus-gate;
+}
+
+.overview :global(.learning-overview__grid a) {
+  background:
+    linear-gradient(135deg, rgb(141 48 43 / 4%), transparent 42%),
+    color-mix(in srgb, var(--paper) 72%, transparent);
+}
+
+.overview :global(.learning-overview__grid a:hover) {
+  color: var(--lotus-red);
+}
+
+.overview :global(.learning-overview__grid a > span:first-child),
+.overview :global(.learning-overview__link) {
+  color: var(--lotus-red);
+}
+
+.overview :global(.learning-overview__grid blockquote) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.lenses {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2.5rem, 7vw, 6.5rem);
+  padding: clamp(3rem, 7vw, 6.5rem) 0;
+  border-block: 1px solid var(--line-dark);
+}
+
+.lensesHeading h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.3rem, 4.5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.13;
+}
+
+.lensesHeading > p:last-child {
+  max-width: 44ch;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.9;
+}
+
+.lensGrid {
+  border-top: 1px solid var(--line-dark);
+}
+
+.lensGrid article {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(10rem, 0.65fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  min-height: 9.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.lensGrid svg {
+  width: 1.5rem;
+  color: var(--lotus-red);
+  stroke-width: 1.35;
+}
+
+.lensGrid small {
+  color: var(--lotus-red);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.lensGrid h3 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.15rem;
+}
+
+.lensGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.85;
+}
+
+.sourceLedger {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2.5rem, 7vw, 6.5rem);
+  margin: 5rem 0;
+  padding: clamp(2.5rem, 6vw, 5rem);
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 3%) 1px, transparent 1px),
+    var(--lotus-deep);
+  background-size: 3rem 100%;
+  color: #f8f1e4;
+}
+
+.sourceIntro > svg {
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-bottom: 1.4rem;
+  color: #d9a35a;
+  stroke-width: 1.35;
+}
+
+.sourceIntro :global(.eyebrow) {
+  color: #d98b77;
+}
+
+.sourceIntro h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.2rem, 4.3vw, 3.8rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.sourceIntro > p:last-child {
+  max-width: 46ch;
+  margin: 1.5rem 0 0;
+  color: #b8c2ba;
+  font-size: 0.76rem;
+  line-height: 1.95;
+}
+
+.sourceLedger > ol {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #56635a;
+  list-style: none;
+}
+
+.sourceLedger li {
+  display: grid;
+  grid-template-columns: 2.7rem minmax(0, 1fr);
+  gap: 1.1rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid #56635a;
+}
+
+.sourceLedger li > span {
+  color: #d9a35a;
+  font-family: var(--font-serif), serif;
+  font-size: 1.2rem;
+}
+
+.sourceLedger small {
+  color: #d98b77;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.sourceLedger h3 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sourceLedger p {
+  margin: 0.55rem 0 0;
+  color: #b8c2ba;
+  font-size: 0.69rem;
+  line-height: 1.8;
+}
+
+.sourceLedger a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+  color: #e0b76f;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.sourceLedger a:hover {
+  color: #f3cfc5;
+}
+
+.sourceLedger a svg {
+  width: 0.85rem;
+}
+
+.page :global(.fahuajing-path .path-progress__topline strong),
+.page :global(.fahuajing-path .path-day-paper__header p),
+.page :global(.fahuajing-path .path-section-label > span),
+.page :global(.fahuajing-path .path-citation),
+.page :global(.fahuajing-path .path-citation > span:last-child),
+.page :global(.fahuajing-path .path-full-text a) {
+  color: var(--lotus-red);
+}
+
+.page :global(.fahuajing-path .path-progress__track span) {
+  background: var(--lotus-red);
+}
+
+.page :global(.fahuajing-path .path-section-label > span),
+.page :global(.fahuajing-path .path-citation) {
+  border-color: var(--lotus-red);
+}
+
+.page :global(.fahuajing-path .path-complete-button) {
+  background: var(--lotus-red);
+  border-color: var(--lotus-red);
+}
+
+.page :global(.fahuajing-path .path-day-paper::before) {
+  border-color: rgb(141 48 43 / 19%);
+}
+
+.page :global(.fahuajing-path .path-day-paper__watermark) {
+  color: rgb(141 48 43 / 5%);
+}
+
+.page :global(.fahuajing-boundary-links) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+}
+
+.editorial {
+  border-color: color-mix(in srgb, var(--lotus-red) 42%, var(--line-dark));
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .lenses,
+  .sourceLedger {
+    grid-template-columns: 1fr;
+  }
+
+  .heroSeal {
+    width: min(100%, 450px);
+    min-height: 230px;
+    grid-template-columns: 150px 1fr;
+    transform: none;
+  }
+
+  .heroSeal > span {
+    font-size: 7rem;
+  }
+
+  .lensesHeading h2,
+  .sourceIntro h2 {
+    max-width: 16ch;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroSeal {
+    min-height: 195px;
+    grid-template-columns: 108px 1fr;
+  }
+
+  .heroSeal > span {
+    font-size: 5.4rem;
+  }
+
+  .lensGrid article {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .lensGrid p {
+    grid-column: 2;
+  }
+
+  .sourceLedger {
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --lotus-red: #d98b77;
+    --lotus-gold: #d9a35a;
+  }
+
+  .heroSeal {
+    border-color: #0a120e;
+    background: #101b16;
+    box-shadow: 18px 18px 0 #37342e;
+  }
+
+  .page :global(.fahuajing-path .path-version-boundary) {
+    background: color-mix(in srgb, #70482e 24%, var(--paper));
+  }
+
+  .page :global(.fahuajing-path .path-complete-button) {
+    background: #7c2d21;
+    border-color: #7c2d21;
+    color: #fffaf2;
+  }
+
+  .page :global(.fahuajing-path .path-complete-button:hover) {
+    background: #9a3d2f;
+    border-color: #9a3d2f;
+  }
+}
