@@ -44,6 +44,11 @@ const corpusRuntimeTracing = JSON.parse(
 
 if (/pull_request_target:/.test(googleWorkflow)) failures.push("Google integrations workflow 禁止使用 pull_request_target");
 requirePattern(googleWorkflow, "Google integrations workflow 根权限必须只读", /permissions:\n\s+contents: read/);
+requirePattern(
+  googleWorkflow,
+  "Google integrations workflow 的检查名不得覆盖主分支 Quality verify 门禁",
+  /jobs:\n\s+verify:\n\s+#(?:.|\n)*?\s+name:\s*google-integrations-health/,
+);
 requirePinnedActions(googleWorkflow, "Google integrations workflow");
 requirePattern(googleWorkflow, "Google integrations workflow 必须保留 deployment_status 触发", /on:\n\s+deployment_status:/);
 requirePattern(googleWorkflow, "Google integrations workflow 必须保留 workflow_dispatch 触发", /workflow_dispatch:/);

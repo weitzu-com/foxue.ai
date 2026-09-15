@@ -11,6 +11,9 @@ permissions:
 
 jobs:
   verify:
+    # Keep this context distinct from the branch-protection `verify` check
+    # emitted by quality.yml, including when this deployment check is skipped.
+    name: google-integrations-health
     if: |
       vars.GOOGLE_INTEGRATIONS_ENABLED == 'true' &&
       (
