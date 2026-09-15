@@ -18,6 +18,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <Link href="/jingzang" prefetch={false}>浏览经藏</Link>
           <Link href="/duidu/xinjing" prefetch={false}>心经异译对读</Link>
+          <Link href="/duidu/jingangjing" prefetch={false}>金刚经主题对读</Link>
           <Link href="/hedui">核对说法</Link>
           <Link href="/fugai">佛典覆盖</Link>
           <Link href="/fenmu">全球分母</Link>

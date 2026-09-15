@@ -82,6 +82,7 @@ const criticalRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/jingangjing",
   "/duidu/xinjing",
   "/yanjiu",
   "/gainian",
@@ -167,6 +168,7 @@ const sitemapLandingRoutes = [
   "/",
   "/wenjing",
   "/hedui",
+  "/duidu/jingangjing",
   "/duidu/xinjing",
   "/yanjiu",
   "/gainian",
@@ -217,6 +219,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/xinjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
@@ -258,6 +261,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/", "https://www.foxue.ai/"],
     ["/wenjing", "https://www.foxue.ai/wenjing"],
     ["/hedui", "https://www.foxue.ai/hedui"],
+    ["/duidu/jingangjing", "https://www.foxue.ai/duidu/jingangjing"],
     ["/duidu/xinjing", "https://www.foxue.ai/duidu/xinjing"],
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/xue", "https://www.foxue.ai/xue"],
@@ -364,6 +368,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/bazhengdao");
   expect(full).toContain("/gainian/wuyun");
   expect(full).toContain("/gainian/ku");
+  expect(full).toContain("/duidu/jingangjing");
   expect(full).toContain("/duidu/xinjing");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
@@ -404,6 +409,15 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/hedui#page", "WebPage"],
         ["https://www.foxue.ai/hedui#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/duidu/jingangjing",
+      required: [
+        ["https://www.foxue.ai/duidu/jingangjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/jingangjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/jingangjing#expressions", "ItemList"],
+        ["https://www.foxue.ai/duidu/jingangjing#loci", "ItemList"],
       ],
     },
     {
@@ -634,6 +648,19 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       );
       expect(expressions?.numberOfItems).toBe(7);
       expect(expressions?.itemListElement).toHaveLength(7);
+    }
+
+    if (path === "/duidu/jingangjing") {
+      const expressions = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/jingangjing#expressions",
+      );
+      const loci = items.find(
+        (item) => item["@id"] === "https://www.foxue.ai/duidu/jingangjing#loci",
+      );
+      expect(expressions?.numberOfItems).toBe(7);
+      expect(expressions?.itemListElement).toHaveLength(7);
+      expect(loci?.numberOfItems).toBe(7);
+      expect(loci?.itemListElement).toHaveLength(7);
     }
   }
 });
@@ -2378,7 +2405,10 @@ test("同一作品的异译与译本可从作品页和经卷页直接发现", as
     "data-analytics-content-id",
     "Project Gutenberg eBook 64623 · Gemmell English translation · 1912",
   );
-  await expect(catalogNavigator.getByRole("link")).toHaveCount(6);
+  const comparisonEntry = catalogNavigator.getByRole("link", { name: "七种表达主题对读" });
+  await expect(comparisonEntry).toHaveAttribute("href", "/duidu/jingangjing");
+  await expect(comparisonEntry).toHaveAttribute("data-analytics-event", "scripture_comparison_opened");
+  await expect(catalogNavigator.getByRole("link")).toHaveCount(7);
 
   await page.goto("/jingzang/jingangjing/001-0748c");
   const readerNavigator = page.locator('[data-work-expression-variant="reader"]');
@@ -2444,6 +2474,77 @@ test("心经七译可同屏切换并各自回到稳定原典且不伪造逐句�
 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test("金刚经七种表达按阅读关口对读且每段可返回底本", async ({ page }) => {
+  await page.goto("/duidu/jingangjing");
+  await expect(page.getByRole("heading", { name: /不是把诸译.*排成同一句/ })).toBeVisible();
+  await expect(page.getByText("关系不冒充对齐", { exact: true })).toBeVisible();
+  await expect(page.getByText("主题同现不等于逐句对齐", { exact: false })).toBeVisible();
+
+  const comparison = page.locator("[data-diamond-sutra-comparison]");
+  const left = comparison.locator('[data-comparison-side="left"]');
+  const right = comparison.locator('[data-comparison-side="right"]');
+  await expect(left).toHaveAttribute("data-comparison-edition", "jingangjing");
+  await expect(right).toHaveAttribute("data-comparison-edition", "taisho-t0239");
+  await expect(left).toHaveAttribute("data-passage-locus", "question");
+  await expect(right).toHaveAttribute("data-passage-locus", "question");
+  await expect(left.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(5);
+  await expect(right.locator('a[data-analytics-event="comparison_segment_opened"]')).toHaveCount(4);
+
+  const firstLocator = left.locator('a[data-analytics-event="comparison_segment_opened"]').first();
+  await expect(firstLocator).toHaveAttribute(
+    "href",
+    "/jingzang/jingangjing/001-0748c#T0235.001.0748c27",
+  );
+  await expect(firstLocator).toHaveAttribute("data-analytics-content-id", "T0235.001.0748c27");
+
+  await page.getByRole("button", { name: /最后一偈，各译真的一样吗/ }).click();
+  await expect(left).toHaveAttribute("data-passage-locus", "conditioned");
+  await expect(left.getByText("「一切有為法，如夢、幻、泡、影，", { exact: true })).toBeVisible();
+  await expect(right.getByText("「一切有為法，如星、翳、燈、幻，", { exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/locus=conditioned/);
+
+  await page.getByLabel("乙本：右侧文本表达").selectOption("gutenberg-en-diamond-gemmell");
+  await expect(right).toHaveAttribute("data-comparison-edition", "gutenberg-en-diamond-gemmell");
+  await expect(right.getByText(/phenomena of life may be likened unto a dream/)).toBeVisible();
+  await expect(right.locator("ol")).toHaveAttribute("lang", "en");
+  await expect(page).toHaveURL(/right=gutenberg-en-diamond-gemmell&locus=conditioned/);
+
+  await page.getByRole("button", { name: "交换甲本与乙本" }).click();
+  await expect(left).toHaveAttribute("data-comparison-edition", "gutenberg-en-diamond-gemmell");
+  await expect(right).toHaveAttribute("data-comparison-edition", "jingangjing");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test("金刚经主题对读深链恢复版本与阅读关口且 canonical 不带状态参数", async ({ page }) => {
+  await page.goto("/duidu/jingangjing?left=taisho-t0238&right=taisho-t0236a&locus=raft");
+  const comparison = page.locator("[data-diamond-sutra-comparison]");
+  await expect(comparison.locator('[data-comparison-side="left"]')).toHaveAttribute(
+    "data-comparison-edition",
+    "taisho-t0238",
+  );
+  await expect(comparison.locator('[data-comparison-side="right"]')).toHaveAttribute(
+    "data-comparison-edition",
+    "taisho-t0236a",
+  );
+  await expect(comparison.locator('[data-comparison-side="left"]')).toHaveAttribute(
+    "data-passage-locus",
+    "raft",
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.foxue.ai/duidu/jingangjing",
+  );
 });
 
 test(selectionResearchEntryAnalyticsTestTitle, async ({ page }) => {

@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
   Check,
   Circle,
+  Columns2,
   Copy,
   FileSearch,
   Lightbulb,
@@ -459,6 +460,9 @@ export function JingangjingLearningPath() {
 
         <div className="path-full-text">
           <p>入门提示不代替原典、注疏、师承或学术校勘。</p>
+          <Link href="/duidu/jingangjing" prefetch={false}>
+            七种表达主题对读 <Columns2 aria-hidden="true" />
+          </Link>
           <Link href={jingangjingFullTextHref}>
             完整阅读《金刚经》 <ArrowUpRight aria-hidden="true" />
           </Link>
