@@ -16,7 +16,7 @@
 .consoleHeading { display: grid; grid-template-columns: 1fr minmax(280px, 0.7fr); gap: 45px; padding: 32px 0 26px; }
 .consoleHeading h2 { margin: 6px 0 0; font-family: var(--font-serif), serif; font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 500; letter-spacing: -0.045em; }
 .consoleHeading > p { align-self: end; margin: 0; color: var(--muted); font-size: 0.72rem; line-height: 1.8; }
-.searchForm { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; border: 1px solid var(--ink); background: #fffdf8; }
+.searchForm { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; border: 1px solid var(--ink); background: var(--paper); }
 .searchForm > svg { margin-left: 20px; color: var(--cinnabar); }
 .searchForm input { min-width: 0; height: 70px; padding: 0 18px; border: 0; outline: 0; background: transparent; color: var(--ink); font: 1.08rem var(--font-serif), serif; }
 .searchForm input::placeholder { color: #96978e; }
@@ -93,5 +93,8 @@
   .resultTitle { display: block; }
   .resultTitle > span { display: inline-flex; margin-top: 10px; }
   .contract { padding: 38px 22px; }
+}
+@media (prefers-color-scheme: dark) {
+  .searchForm button { background: #9f392b; }
 }
 @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
