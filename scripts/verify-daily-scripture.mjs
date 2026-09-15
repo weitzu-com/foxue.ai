@@ -1,37 +1,113 @@
 import fs from "node:fs";
+import path from "node:path";
+import { createRequire } from "node:module";
 import vm from "node:vm";
 import ts from "typescript";
 
 const dataPath = "src/data/daily-scripture.ts";
-const dataSource = fs.readFileSync(dataPath, "utf8");
-const compiled = ts.transpileModule(dataSource, {
-  compilerOptions: {
-    module: ts.ModuleKind.CommonJS,
-    target: ts.ScriptTarget.ES2022,
-  },
-}).outputText;
-const sandbox = { exports: {}, module: { exports: {} } };
-sandbox.exports = sandbox.module.exports;
-vm.runInNewContext(compiled, sandbox);
+const moduleCache = new Map();
 
-const passages = sandbox.module.exports.dailyScripturePassages;
-const works = JSON.parse(
-  fs.readFileSync("src/data/work-landing-text.generated.json", "utf8"),
-).works;
+function resolveLocalModule(specifier, parentPath) {
+  const unresolved = specifier.startsWith("@/")
+    ? path.resolve("src", specifier.slice(2))
+    : path.resolve(path.dirname(parentPath), specifier);
+  for (const candidate of [unresolved, `${unresolved}.ts`, `${unresolved}.tsx`]) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  throw new Error(`无法解析本地 TypeScript 模块：${specifier}（来自 ${parentPath}）`);
+}
+
+function loadTypeScriptModule(modulePath) {
+  const absolutePath = path.resolve(modulePath);
+  if (moduleCache.has(absolutePath)) return moduleCache.get(absolutePath).exports;
+
+  const loadedModule = { exports: {} };
+  moduleCache.set(absolutePath, loadedModule);
+  const dataSource = fs.readFileSync(absolutePath, "utf8");
+  const compiled = ts.transpileModule(dataSource, {
+    fileName: absolutePath,
+    compilerOptions: {
+      esModuleInterop: true,
+      module: ts.ModuleKind.CommonJS,
+      target: ts.ScriptTarget.ES2022,
+    },
+  }).outputText;
+  const nativeRequire = createRequire(absolutePath);
+  const localRequire = (specifier) =>
+    specifier.startsWith("@/") || specifier.startsWith(".")
+      ? loadTypeScriptModule(resolveLocalModule(specifier, absolutePath))
+      : nativeRequire(specifier);
+  const sandbox = {
+    exports: loadedModule.exports,
+    module: loadedModule,
+    require: localRequire,
+    __dirname: path.dirname(absolutePath),
+    __filename: absolutePath,
+  };
+  vm.runInNewContext(compiled, sandbox, { filename: absolutePath });
+  return loadedModule.exports;
+}
+
+const { dailyScripturePassages: passages, dailyScriptureSeries: series } = loadTypeScriptModule(dataPath);
 const workByCanon = {
-  T0210: { slug: "fajujing", route: "fajujing" },
-  T0235: { slug: "jingangjing", route: "jingangjing" },
-  T0251: { slug: "xinjing", route: "xinjing" },
+  T0099: { route: "zaahanjing", source: "data/corpus/cbeta/T02n0099.xml" },
+  T0102: { route: "taisho-t0102", source: "data/corpus/cbeta/T02n0102.xml" },
+  T0210: { route: "fajujing", source: "data/corpus/cbeta/T04n0210.xml" },
+  T0235: { route: "jingangjing", source: "data/corpus/cbeta/T08n0235.xml" },
+  T0251: { route: "xinjing", source: "data/corpus/cbeta/T08n0251.xml" },
+  T0262: { route: "fahuajing", source: "data/corpus/cbeta/T09n0262.xml" },
+  T0366: { route: "amituojing", source: "data/corpus/cbeta/T12n0366.xml" },
+  T0801: { route: "taisho-t0801", source: "data/corpus/cbeta/T17n0801.xml" },
 };
 
-if (!Array.isArray(passages) || passages.length < 9) {
-  throw new Error("“今日原典”必须至少包含 9 段受控原文，避免伪装成每日轮换的固定卡片。");
+function decodeXmlText(value) {
+  return value
+    .replace(/<note\b[\s\S]*?<\/note>/g, "")
+    .replace(/<[^>]+>/g, "")
+    .replaceAll("&amp;", "&")
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&apos;", "'")
+    .replace(/\s+/g, "");
+}
+
+const sourceLineCache = new Map();
+function sourceLines(sourcePath) {
+  if (sourceLineCache.has(sourcePath)) return sourceLineCache.get(sourcePath);
+  const source = fs.readFileSync(sourcePath, "utf8");
+  const matches = [...source.matchAll(/<lb\b(?=[^>]*\bn="(\d{4}[abc]\d{2})")[^>]*\/>/g)];
+  const lines = new Map();
+  for (let index = 0; index < matches.length; index += 1) {
+    const current = matches[index];
+    const next = matches[index + 1];
+    const start = (current.index ?? 0) + current[0].length;
+    const end = next?.index ?? source.length;
+    lines.set(current[1], decodeXmlText(source.slice(start, end)));
+  }
+  sourceLineCache.set(sourcePath, lines);
+  return lines;
+}
+
+if (!Array.isArray(passages) || passages.length !== 30) {
+  throw new Error("“今日原典”必须恰好包含 30 段受控原文，形成完整月读清单。");
+}
+
+if (!Array.isArray(series) || series.length !== 6) {
+  throw new Error("三十段原典必须分成 6 组明确阅读路径。");
 }
 
 const ids = new Set();
+const seriesIds = new Set(series.map((item) => item.id));
+const seriesCounts = new Map(series.map((item) => [item.id, 0]));
 for (const passage of passages) {
   if (ids.has(passage.id)) throw new Error(`“今日原典”存在重复 id：${passage.id}`);
   ids.add(passage.id);
+
+  if (!seriesIds.has(passage.series)) {
+    throw new Error(`${passage.id} 使用了未知阅读组：${passage.series}`);
+  }
+  seriesCounts.set(passage.series, (seriesCounts.get(passage.series) ?? 0) + 1);
 
   for (const field of [
     "workTitle",
@@ -55,7 +131,9 @@ for (const passage of passages) {
 
   const [, canon, juan, folio, startLineText] = startMatch;
   const work = workByCanon[canon];
-  if (!work || !works[work.slug]) throw new Error(`${passage.id} 没有受控作品映射：${canon}`);
+  if (!work || !fs.existsSync(work.source)) {
+    throw new Error(`${passage.id} 没有受控 CBETA 来源映射：${canon}`);
+  }
 
   const startLine = Number(startLineText);
   const endLine = endSuffix ? Number(endSuffix) : startLine;
@@ -64,14 +142,13 @@ for (const passage of passages) {
   }
 
   const linePrefix = `${canon}.${juan}.${folio}`;
-  const segments = works[work.slug].segments.filter((segment) => {
-    if (!segment.id.startsWith(linePrefix)) return false;
-    const line = Number(segment.id.slice(-2));
-    return line >= startLine && line <= endLine;
-  });
-  const sourceText = segments.map((segment) => segment.text).join("");
+  const lines = sourceLines(work.source);
+  const sourceText = Array.from(
+    { length: endLine - startLine + 1 },
+    (_, offset) => lines.get(`${folio}${String(startLine + offset).padStart(2, "0")}`) ?? "",
+  ).join("");
 
-  if (!sourceText.includes(passage.quote)) {
+  if (!sourceText.includes(passage.quote.replace(/\s+/g, ""))) {
     throw new Error(`${passage.id} 的引文不是 ${passage.locator} 中的逐字片段。`);
   }
 
@@ -86,4 +163,9 @@ for (const passage of passages) {
   }
 }
 
-console.log(`Verified ${passages.length} daily scripture excerpts against stable source lines.`);
+for (const item of series) {
+  const count = seriesCounts.get(item.id) ?? 0;
+  if (count === 0) throw new Error(`阅读组 ${item.id} 没有任何受控原文。`);
+}
+
+console.log(`Verified ${passages.length} daily scripture excerpts across ${series.length} reading series against stable CBETA source lines.`);

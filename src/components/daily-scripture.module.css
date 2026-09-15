@@ -283,14 +283,38 @@
   width: 0.9rem;
 }
 
+.pathActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem 0.8rem;
+  margin-top: 0.9rem;
+}
+
 .studyAction {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: 0.9rem;
   color: var(--daily-red);
   font-size: 0.63rem;
   font-weight: 700;
+}
+
+.archiveAction {
+  color: #647067;
+  font-size: 0.59rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(100 112 103 / 38%);
+  text-underline-offset: 0.2rem;
+}
+
+.studyAction:hover,
+.studyAction:focus-visible,
+.archiveAction:hover,
+.archiveAction:focus-visible {
+  color: var(--daily-red);
 }
 
 .feedback {

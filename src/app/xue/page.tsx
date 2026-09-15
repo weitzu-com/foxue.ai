@@ -4,6 +4,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   BookOpenText,
+  CalendarDays,
   CircleAlert,
   Clock3,
   Download,
@@ -27,7 +28,7 @@ import styles from "./xue.module.css";
 
 const title = "佛经研读中心｜从静读到版本校勘";
 const description =
-  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：七日读《心经》《金刚经》与《阿弥陀经》，沿七个关口进入《法华经》，并从汉译、巴利与历史英译并读《法句》，每一步都能回到稳定原典。";
+  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：从30段每日原典进入《心经》《金刚经》《阿弥陀经》《法华经》与三源《法句》，每一步都能回到稳定原文。";
 const pagePath = "/xue";
 
 export const metadata: Metadata = buildPageMetadata({ title, description, path: pagePath });
@@ -41,13 +42,24 @@ const pageJsonLd = buildPageJsonLd({
     { name: "首页", path: "/" },
     { name: "研读", path: pagePath },
   ],
-  about: ["佛经研读", "心经", "金刚经", "阿弥陀经", "法华经", "法句经", "巴利三藏", "佛典版本研究"],
+  about: ["每日佛经", "佛经研读", "心经", "金刚经", "阿弥陀经", "法华经", "法句经", "巴利三藏", "佛典版本研究"],
   mainEntityId: `${absoluteUrl(pagePath)}#study-paths`,
 });
 
 const studyPaths = [
   {
     number: "01",
+    status: "30 段月读",
+    title: "每日一段：同一原文，三种读法",
+    description:
+      "从阿含、般若、法句、净土到法华；每段分开静读练习、理解提示与版本核对，不追连续天数。",
+    meta: ["30 段逐字原文", "8 部作品", "稳定行号与完整出处"],
+    href: "/xue/meiri",
+    action: "打开三十段原典",
+    tone: "paper",
+  },
+  {
+    number: "02",
     status: "七日路径",
     title: "《心经》：每天只带一个问题回到原句",
     description:
@@ -58,7 +70,7 @@ const studyPaths = [
     tone: "cinnabar",
   },
   {
-    number: "02",
+    number: "03",
     status: "七日核读",
     title: "《金刚经》：从“云何住”读到“如是观”",
     description:
@@ -69,7 +81,7 @@ const studyPaths = [
     tone: "gold",
   },
   {
-    number: "03",
+    number: "04",
     status: "七日净读",
     title: "《阿弥陀经》：从闻说进入愿、持与信",
     description:
@@ -80,7 +92,7 @@ const studyPaths = [
     tone: "blue",
   },
   {
-    number: "04",
+    number: "05",
     status: "七关路径",
     title: "《法华经》：从七处转折进入二十八品",
     description:
@@ -91,7 +103,7 @@ const studyPaths = [
     tone: "lotus",
   },
   {
-    number: "05",
+    number: "06",
     status: "三源研读档案",
     title: "《法句》：让汉译、巴利与英译各自站稳",
     description:
@@ -151,6 +163,9 @@ export default function StudyPage() {
               这里把静读、理解和校勘放在同一条路上。
             </p>
             <div className={styles.heroActions}>
+              <Link href="/xue/meiri">
+                每日一段原典 <CalendarDays aria-hidden="true" />
+              </Link>
               <Link href="/xue/xinjing">
                 从《心经》开始 <ArrowRight aria-hidden="true" />
               </Link>
@@ -221,9 +236,9 @@ export default function StudyPage() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>现在可读 · OPEN PATHS</p>
-              <h2 id="study-paths-title">五条路径，三种进入方式。</h2>
+              <h2 id="study-paths-title">六条路径，三种进入方式。</h2>
             </div>
-            <p>三条七日路径练习慢读、核读与净土原典修持；一条七关地图进入《法华经》二十八品；一份三源档案完成有边界的跨语种观察。</p>
+            <p>三十段月读适合随时开始；三条七日路径练习慢读、核读与净土原典修持；一条七关地图进入《法华经》二十八品；一份三源档案完成有边界的跨语种观察。</p>
           </div>
           <div className={styles.pathGrid}>
             {studyPaths.map((path) => (
@@ -232,6 +247,8 @@ export default function StudyPage() {
                 className={
                   path.tone === "cinnabar"
                     ? styles.pathWarm
+                    : path.tone === "paper"
+                      ? styles.pathPaper
                     : path.tone === "gold"
                       ? styles.pathGold
                       : path.tone === "blue"

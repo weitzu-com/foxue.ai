@@ -90,6 +90,7 @@ const criticalRoutes = [
   "/yanjiu",
   "/gainian",
   "/xue",
+  "/xue/meiri",
   "/xue/amituojing",
   "/shufang",
   "/xue/fahuajing",
@@ -182,6 +183,7 @@ const sitemapLandingRoutes = [
   "/yanjiu",
   "/gainian",
   "/xue",
+  "/xue/meiri",
   "/xue/amituojing",
   "/shufang",
   "/xue/fahuajing",
@@ -224,6 +226,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
 test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/meiri</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/shufang</loc>");
   expect(hubs).not.toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
@@ -284,6 +287,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/shufang", "https://www.foxue.ai/shufang"],
     ["/xue", "https://www.foxue.ai/xue"],
+    ["/xue/meiri", "https://www.foxue.ai/xue/meiri"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
     ["/xue/fahuajing", "https://www.foxue.ai/xue/fahuajing"],
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
@@ -675,6 +679,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/xue#page", "CollectionPage"],
         ["https://www.foxue.ai/xue#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/meiri",
+      required: [
+        ["https://www.foxue.ai/xue/meiri#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/meiri#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/meiri#passages", "ItemList"],
       ],
     },
     {
@@ -1252,12 +1264,15 @@ test("首页今日原典把静读、理解与核对落在同一稳定引文", as
   const response = await request.get("/");
   const html = await response.text();
   expect(html).toContain("今日原典");
-  expect(html).toContain("T0251.001.0848c06–07");
-  expect(html).toContain("觀自在菩薩行深般若波羅蜜多時");
+  expect(html).toMatch(/T0\d{3}\.\d{3}\.\d{4}[abc]\d{2}/);
+  expect(html).toContain("浏览全部 30 段");
 
   await page.goto("/");
   const daily = page.getByRole("complementary", { name: "今日原典" });
   await expect(daily).toBeVisible();
+  await expect(daily.getByText(/\/ 30/)).toBeVisible();
+  await expect(daily.getByRole("link", { name: "浏览全部 30 段" }))
+    .toHaveAttribute("href", "/xue/meiri");
   await expect(daily.getByRole("tab", { name: "静读" })).toHaveAttribute("aria-selected", "true");
   await expect(daily.getByText("练习不是经文，也不代替师承。")).toBeVisible();
 
@@ -1279,6 +1294,51 @@ test("首页今日原典把静读、理解与核对落在同一稳定引文", as
   await daily.getByRole("button", { name: "查看下一段原典" }).click();
   await expect.poll(() => daily.locator("code").textContent()).not.toBe(firstLocator);
   await expect(daily.getByText("原文、编辑提示与核对说明分层呈现。")).toBeVisible();
+});
+
+test("每日原典以三种读法组织三十段可核验引文", async ({ page, request }) => {
+  const response = await request.get("/xue/meiri");
+  expect(response.ok()).toBeTruthy();
+  const html = await response.text();
+  expect(html).toContain("每日佛经原典｜30段静读、理解与核对");
+  expect(html).toContain("T0099.015.0104b16–18");
+  expect(html).toContain("T0366.001.0347b10–13");
+  expect(html).toContain("T0262");
+
+  const jsonLdItems = extractJsonLdItems(html) as Array<Record<string, unknown>>;
+  const passageList = jsonLdItems.find((item) =>
+    item["@id"] === "https://www.foxue.ai/xue/meiri#passages"
+  );
+  expect(passageList?.["@type"]).toBe("ItemList");
+  expect(passageList?.numberOfItems).toBe(30);
+
+  await page.goto("/xue/meiri");
+  await expect(page.getByRole("heading", { level: 1, name: /三十段.*不规定一种唯一读法/ })).toBeVisible();
+  await expect(page.locator("[data-daily-series]")).toHaveCount(6);
+  await expect(page.locator("[data-daily-passage]")).toHaveCount(30);
+  await expect(page.getByText("佛教徒 · 静读", { exact: true })).toBeVisible();
+  await expect(page.getByText("佛学爱好者 · 理解", { exact: true })).toBeVisible();
+  await expect(page.getByText("研究者 · 核对", { exact: true })).toBeVisible();
+
+  const firstPassage = page.locator('[data-daily-passage="sidi-four-tasks"]');
+  await expect(firstPassage.getByText("T0099.015.0104b16–18", { exact: true })).toBeVisible();
+  await expect(firstPassage.getByRole("link", { name: /打开原典/ })).toHaveAttribute(
+    "href",
+    "/jingzang/zaahanjing/015-0104b#T0099.015.0104b16",
+  );
+  await firstPassage.locator("summary").click();
+  await expect(firstPassage.getByText("静读", { exact: true })).toBeVisible();
+  await expect(firstPassage.getByText("理解", { exact: true })).toBeVisible();
+  await expect(firstPassage.getByText("核对", { exact: true })).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
 });
 
 test("品牌首页链接的可访问名称覆盖可见文本", async ({ page }) => {
@@ -1615,6 +1675,9 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByText("佛教徒 · 日常静读", { exact: true })).toBeVisible();
   await expect(page.getByText("爱好者 · 理解脉络", { exact: true })).toBeVisible();
   await expect(page.getByText("研究者 · 可复核引用", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "六条路径，三种进入方式。" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /打开三十段原典/ }))
+    .toHaveAttribute("href", "/xue/meiri");
   await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
   await expect(page.getByRole("link", { name: /开始《金刚经》七日研读/ }))
     .toHaveAttribute("href", "/xue/jingangjing");
