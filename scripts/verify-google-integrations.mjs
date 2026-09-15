@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duiduXinjing, duiduJingangjing, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -141,6 +141,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/wuyun"),
   get("/gainian/ku"),
   get("/duidu/xinjing"),
+  get("/duidu/jingangjing"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -337,6 +338,21 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
         ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/duidu/jingangjing",
+    duiduJingangjing,
+    {
+      title: "金刚经六种汉译与英译主题对读｜foxue.ai",
+      description: "按七个关键阅读关口对读《金刚经》六种汉译与 Gemmell 1912 英译；每段返回稳定原典坐标，主题同现不等于逐句对齐。",
+      bodyIncludes: ["不是把诸译", "关系不冒充对齐", "自动对齐"],
+      jsonLd: [
+        ["https://www.foxue.ai/duidu/jingangjing#page", "CollectionPage"],
+        ["https://www.foxue.ai/duidu/jingangjing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/duidu/jingangjing#expressions", "ItemList"],
+        ["https://www.foxue.ai/duidu/jingangjing#loci", "ItemList"],
       ],
     },
   ],
@@ -664,6 +680,23 @@ check(
   xinjingExpressions?.numberOfItems === 7 && xinjingExpressions.itemListElement?.length === 7,
   "/duidu/xinjing JSON-LD 完整列出七种文本表达",
   "/duidu/xinjing JSON-LD 未完整列出七种文本表达",
+);
+const jingangItems = extractJsonLdItems(duiduJingangjing.body);
+const jingangExpressions = jingangItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/jingangjing#expressions",
+);
+const jingangLoci = jingangItems.find(
+  (item) => item["@id"] === "https://www.foxue.ai/duidu/jingangjing#loci",
+);
+check(
+  jingangExpressions?.numberOfItems === 7 && jingangExpressions.itemListElement?.length === 7,
+  "/duidu/jingangjing JSON-LD 完整列出七种文本表达",
+  "/duidu/jingangjing JSON-LD 未完整列出七种文本表达",
+);
+check(
+  jingangLoci?.numberOfItems === 7 && jingangLoci.itemListElement?.length === 7,
+  "/duidu/jingangjing JSON-LD 完整列出七个阅读关口",
+  "/duidu/jingangjing JSON-LD 未完整列出七个阅读关口",
 );
 check(jingzangJingangjing.body.includes("如是我聞"), "/jingzang/jingangjing 可见如是我聞", "/jingzang/jingangjing 缺少如是我聞");
 check(jingzangFajujing.body.includes("諸惡莫作"), "/jingzang/fajujing 可见诸恶莫作", "/jingzang/fajujing 缺少诸恶莫作");

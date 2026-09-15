@@ -20,9 +20,11 @@ export function WorkExpressionNavigator({
   const languageCount = new Set(group.expressions.map((expression) => expression.language)).size;
   const anchorId = workExpressionAnchorId(sutra.slug);
   const titleId = `${anchorId}-title`;
-  const comparisonHref = group.workId === "gbcr:work:prajnaparamita-hrdaya"
-    ? "/duidu/xinjing"
-    : undefined;
+  const comparison = group.workId === "gbcr:work:prajnaparamita-hrdaya"
+    ? { href: "/duidu/xinjing", label: "七译同屏对读" }
+    : group.workId === "gbcr:work:vajracchedika-prajnaparamita"
+      ? { href: "/duidu/jingangjing", label: "七种表达主题对读" }
+      : undefined;
 
   return (
     <section
@@ -98,16 +100,16 @@ export function WorkExpressionNavigator({
             <span>稳定作品标识</span>
             <code>{group.workId}</code>
           </span>
-          {comparisonHref && (
+          {comparison && (
             <Link
               className={styles.comparisonLink}
-              href={comparisonHref}
+              href={comparison.href}
               prefetch={false}
               data-analytics-event="scripture_comparison_opened"
               data-analytics-location={`work_expression_${variant}`}
               data-analytics-content-id={group.workId}
             >
-              <Columns2 aria-hidden="true" /> 七译同屏对读 <ArrowRight aria-hidden="true" />
+              <Columns2 aria-hidden="true" /> {comparison.label} <ArrowRight aria-hidden="true" />
             </Link>
           )}
         </footer>

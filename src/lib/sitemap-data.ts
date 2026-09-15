@@ -9,6 +9,7 @@ export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitem
 // Keep them in the lightweight hub sitemap without shifting every precomputed
 // corpus shard; a future full corpus rebuild may absorb them into the ledger.
 const editorialHubPaths = [
+  "/duidu/jingangjing",
   "/duidu/xinjing",
   "/hedui",
   "/yanjiu",

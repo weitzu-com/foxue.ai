@@ -38,6 +38,11 @@ const corePages: CorePage[] = [
     summary: "并排阅读七种已审核心经汉译表达；各行回到自己的 CBETA 坐标，并排不等于逐句对齐。",
   },
   {
+    path: "/duidu/jingangjing",
+    label: "金刚经主题对读",
+    summary: "按七个阅读关口比较六种金刚经汉译与 Gemmell 1912 英译；片段各归底本，主题同现不等于逐句对齐。",
+  },
+  {
     path: "/yanjiu",
     label: "研究",
     summary: "本地佛典研究工作台；声明问题与范围，把已收藏原典整理为主张—证据矩阵并导出 Markdown。",
@@ -133,6 +138,7 @@ ${renderCorePageBullets()}
 - /wenjing 当前是可信原型：回答范围只覆盖已完成样本复核的主题，不把未知内容伪装成结论
 - /hedui 当前核对 5 个逐字复核的高频条目；未命中不等于所有佛典都不存在相似表达
 - /duidu/xinjing 只并排已审核的同作品表达；左右位置不表示逐句或逐段对应
+- /duidu/jingangjing 只提供七个经文导航窗口；六种汉译与 Gemmell 1912 英译不被混成现代合译
 - /yanjiu 只在浏览器本地保存研究问题与判断；导出报告明确区分原典证据和读者结论
 
 ## AI Entry Points
@@ -207,6 +213,8 @@ ${renderCorePageTable()}
 - ${absoluteUrl("/duidu/xinjing")} 收录七种已审核挂接同一心经作品标识的汉译表达
 - 每个行号回到该译本自己的经号、版页与稳定行段；双栏位置不构成逐句对齐
 - 页面不生成现代合译，也不把传统译者署名当作无争议的现代裁决
+- ${absoluteUrl("/duidu/jingangjing")} 从发心、四相、不住、见相、筏喻与结偈等七个关口进入六种汉译和 Gemmell 1912 英译
+- 金刚经页面的窗口只证明片段位置与阅读范围；同一主题、相邻位置或共享作品标识均不构成逐句对应
 
 ## AI 入口点
 
