@@ -195,7 +195,7 @@ const pageJsonLdBase = buildPageJsonLd({
   type: "CollectionPage",
   breadcrumb: [
     { name: "首页", path: "/" },
-    { name: "经藏", path: "/jingzang" },
+    { name: "对读", path: "/duidu" },
     { name: "金刚经主题对读", path: pagePath },
   ],
   about: ["金刚般若波罗蜜经", "金刚经异译", "Vajracchedikā", "佛经版本对读", "CBETA 稳定行段"],
@@ -352,7 +352,7 @@ export default async function DiamondSutraComparisonPage() {
       />
       <div className="page-shell">
         <nav className={styles.breadcrumb} aria-label="面包屑">
-          <Link href="/jingzang"><ArrowLeft aria-hidden="true" /> 经藏</Link>
+          <Link href="/duidu"><ArrowLeft aria-hidden="true" /> 对读书案</Link>
           <span>/</span>
           <Link href="/jingzang/jingangjing">金刚经</Link>
           <span>/</span>
