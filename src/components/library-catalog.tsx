@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookOpenText, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpenText, Search, TextSearch } from "lucide-react";
 import { isChineseLibraryLanguage, type Sutra } from "@/data/sutras";
 import { libraryPageSize } from "@/lib/library-pagination";
 
@@ -114,7 +114,10 @@ export function LibraryCatalog({
         </nav>
         <p>
           找到 <strong>{results.length}</strong> 个文本表达；当前为第 {Math.min(page, pageCount)} / {pageCount} 页。
-          检索范围为已审计书目元数据，不把它冒充全文语义检索。
+          此处检索已审计书目元数据；若记得的是经文原句，请
+          <Link className="library-fulltext-link" href="/jingzang/quanwen">
+            <TextSearch aria-hidden="true" size={14} /> 改查正文
+          </Link>。
         </p>
       </section>
 

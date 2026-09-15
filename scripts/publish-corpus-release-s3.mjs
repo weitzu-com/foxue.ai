@@ -9,6 +9,22 @@ const DEFAULT_BUCKET = "foxue-ai-corpus";
 const DEFAULT_PREFLIGHT_CONCURRENCY = 16;
 const DEFAULT_UPLOAD_CONCURRENCY = 32;
 const MAX_CONCURRENCY = 128;
+const uploadPlanLayouts = new Map([
+  ["https://foxue.ai/schemas/corpus-upload-plan-v0.1", {
+    kind: "corpus",
+    latestKey: "v1/latest.json",
+    manifestKey: (releaseId) => `v1/releases/${releaseId}/manifest.json`,
+    immutablePrefix: (releaseId) => `v1/releases/${releaseId}/`,
+    pointerReleaseField: "releaseId",
+  }],
+  ["https://foxue.ai/schemas/corpus-search-upload-plan-v0.1", {
+    kind: "search",
+    latestKey: "v1/search/latest.json",
+    manifestKey: (releaseId) => `v1/search/releases/${releaseId}/manifest.json`,
+    immutablePrefix: (releaseId) => `v1/search/releases/${releaseId}/`,
+    pointerReleaseField: "searchReleaseId",
+  }],
+]);
 
 function sha256Hex(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -128,7 +144,7 @@ async function hashFile(path) {
   return { bytes, md5: md5.digest("hex"), sha256: sha256.digest("hex") };
 }
 
-function validateEntryShape(entry, index, planRoot, releaseId) {
+function validateEntryShape(entry, index, planRoot, releaseId, layout) {
   if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
     throw new Error(`上传计划第 ${index + 1} 项不是对象`);
   }
@@ -154,10 +170,10 @@ function validateEntryShape(entry, index, planRoot, releaseId) {
   for (const value of [entry.contentType, entry.cacheControl]) {
     if (/[\r\n]/.test(value)) throw new Error(`${entry.key} 的 HTTP 元数据包含换行符`);
   }
-  if (entry.key !== "v1/latest.json" && !entry.key.startsWith(`v1/releases/${releaseId}/`)) {
+  if (entry.key !== layout.latestKey && !entry.key.startsWith(layout.immutablePrefix(releaseId))) {
     throw new Error(`不可变对象不在发行命名空间：${entry.key}`);
   }
-  if (entry.key !== "v1/latest.json" && !entry.cacheControl.includes("immutable")) {
+  if (entry.key !== layout.latestKey && !entry.cacheControl.includes("immutable")) {
     throw new Error(`不可变对象缺少 immutable 缓存策略：${entry.key}`);
   }
 
@@ -174,7 +190,8 @@ export async function loadAndValidateUploadPlan(planPath, options = {}) {
   const planRoot = dirname(absolutePlanPath);
   const planBytes = await readFile(absolutePlanPath);
   const plan = JSON.parse(planBytes.toString("utf8"));
-  if (plan.schema !== "https://foxue.ai/schemas/corpus-upload-plan-v0.1") {
+  const layout = uploadPlanLayouts.get(plan.schema);
+  if (!layout) {
     throw new Error(`不支持的上传计划 schema：${plan.schema ?? "缺失"}`);
   }
   if (typeof plan.releaseId !== "string" || !/^[a-z0-9][a-z0-9.-]{0,95}$/.test(plan.releaseId)) {
@@ -184,17 +201,17 @@ export async function loadAndValidateUploadPlan(planPath, options = {}) {
   if (!Array.isArray(plan.entries) || plan.entries.length < 2) throw new Error("上传计划对象数量不足");
 
   const entries = plan.entries.map((entry, index) =>
-    validateEntryShape(entry, index, planRoot, plan.releaseId));
+    validateEntryShape(entry, index, planRoot, plan.releaseId, layout));
   const keys = new Set();
   for (const entry of entries) {
     if (keys.has(entry.key)) throw new Error(`上传计划包含重复对象键：${entry.key}`);
     keys.add(entry.key);
   }
-  const latestEntries = entries.filter((entry) => entry.key === "v1/latest.json");
-  if (latestEntries.length !== 1) throw new Error("上传计划必须且只能包含一个 v1/latest.json");
+  const latestEntries = entries.filter((entry) => entry.key === layout.latestKey);
+  if (latestEntries.length !== 1) throw new Error(`上传计划必须且只能包含一个 ${layout.latestKey}`);
   const latestEntry = latestEntries[0];
   const immutableEntries = entries.filter((entry) => entry !== latestEntry);
-  const manifestKey = `v1/releases/${plan.releaseId}/manifest.json`;
+  const manifestKey = layout.manifestKey(plan.releaseId);
   const manifestEntry = immutableEntries.find((entry) => entry.key === manifestKey);
   if (!manifestEntry) throw new Error(`上传计划缺少发行清单：${manifestKey}`);
 
@@ -213,16 +230,16 @@ export async function loadAndValidateUploadPlan(planPath, options = {}) {
     if (digest.sha256 !== entry.sha256) throw new Error(`${entry.key} SHA-256 不匹配`);
     return { ...entry, md5: digest.md5 };
   });
-  const verifiedLatest = verifiedEntries.find((entry) => entry.key === "v1/latest.json");
-  const verifiedImmutable = verifiedEntries.filter((entry) => entry.key !== "v1/latest.json");
+  const verifiedLatest = verifiedEntries.find((entry) => entry.key === layout.latestKey);
+  const verifiedImmutable = verifiedEntries.filter((entry) => entry.key !== layout.latestKey);
   const verifiedManifest = verifiedImmutable.find((entry) => entry.key === manifestKey);
   const latestDocument = JSON.parse(await readFile(verifiedLatest.absolutePath, "utf8"));
   if (
-    latestDocument.releaseId !== plan.releaseId ||
+    latestDocument[layout.pointerReleaseField] !== plan.releaseId ||
     latestDocument.manifestObjectKey !== manifestKey ||
     latestDocument.manifestSha256 !== verifiedManifest.sha256
   ) {
-    throw new Error("v1/latest.json 与发行清单或上传计划不一致");
+    throw new Error(`${layout.latestKey} 与发行清单或上传计划不一致`);
   }
 
   return {
@@ -230,6 +247,7 @@ export async function loadAndValidateUploadPlan(planPath, options = {}) {
     entries: verifiedEntries,
     immutableEntries: verifiedImmutable,
     latestEntry: verifiedLatest,
+    releaseKind: layout.kind,
     planSha256: sha256Hex(planBytes),
     releaseId: plan.releaseId,
     totalBytes: verifiedEntries.reduce((sum, entry) => sum + entry.bytes, 0),

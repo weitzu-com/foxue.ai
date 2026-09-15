@@ -10,6 +10,7 @@ export { getSitemapIds, getSitemapSnapshot, sitemapChunkSize } from "@/lib/sitem
 // corpus shard; a future full corpus rebuild may absorb them into the ledger.
 const editorialHubPaths = [
   "/jingzang/fanwen",
+  "/jingzang/quanwen",
   "/duidu",
   "/duidu/ebt",
   "/duidu/amituojing",

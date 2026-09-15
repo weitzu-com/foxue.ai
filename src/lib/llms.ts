@@ -73,6 +73,11 @@ const corePages: CorePage[] = [
     summary: "佛经在线阅读目录；按来源、版本、经号与稳定行段浏览已登记文本。",
   },
   {
+    path: "/jingzang/quanwen",
+    label: "佛经全文逐字检索",
+    summary: "在已审计佛典正文中按原句精确检索；每个命中返回版本、版页、稳定行段和原典链接，不做语义猜测。",
+  },
+  {
     path: "/jingzang/fanwen",
     label: "梵文原典门",
     summary: "阅读三份已核验的梵文与俗语佛典原文；公开稳定锚点、异本关系及 DSBC、GRETIL 候选资料的权利准入边界。",
@@ -169,6 +174,7 @@ ${renderCorePageBullets()}
 - /duidu/jingangjing 只提供七个经文导航窗口；六种汉译与 Gemmell 1912 英译不被混成现代合译
 - /xue/fahuajing 以 T0262 七处稳定行段打开二十八品；七关不是全经摘要，Soothill 1930 节译只作同品见证，不宣称逐句对齐
 - /yanjiu 只在浏览器本地保存研究问题与判断；导出报告明确区分原典证据和读者结论
+- /jingzang/quanwen 覆盖当前经藏发行的完整文本表达与版页；忽略空格、标点和大小写，但不自动繁简转换、扩展同义词或把无命中解释为义理不存在
 - /jingzang/fanwen 当前开放 3 个受控梵文与俗语文本表达、24 个固定源文件与 1,909 个稳定段；DSBC、GRETIL 候选资料未获再发布许可前不冒充站内全文
 
 ## AI Entry Points

@@ -1,0 +1,193 @@
+name: Publish exact-text corpus search to Cloudflare R2
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/cloudflare-search-release.yml"
+      - "infra/corpus-edge/**"
+      - "scripts/build-corpus-search-index.mjs"
+      - "scripts/publish-corpus-release-s3.mjs"
+      - "scripts/test-corpus-search-contract.mjs"
+      - "scripts/test-corpus-search-worker.mjs"
+      - "scripts/verify-corpus-search-query.mjs"
+      - "scripts/test-corpus-r2-publisher.mjs"
+      - "src/lib/corpus-search-contract.*"
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type publish-foxue-corpus-search to build, upload and activate the exact-text index
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-r2-corpus-release
+  cancel-in-progress: false
+
+jobs:
+  validate-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Verify search contract and atomic publisher
+        run: pnpm test:corpus-search-contract && node scripts/test-corpus-r2-publisher.mjs && node scripts/validate-long-term-operations-workflows.mjs
+      - name: Build and verify a representative search fixture
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          node scripts/build-corpus-search-index.mjs --write --max-expressions=10
+          node scripts/build-corpus-search-index.mjs --max-expressions=10
+          plan="$(find artifacts/corpus-search -path '*-fixture-10/upload-plan.json' -print -quit)"
+          test -n "$plan"
+          search_root="$(dirname "$plan")"
+          node scripts/verify-corpus-search-query.mjs "$search_root" "應無所住而生其心" "金剛般若波羅蜜經"
+          node scripts/publish-corpus-release-s3.mjs --dry-run --plan="$plan"
+      - name: Verify Worker package
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          pnpm cloudflare:types:check
+          pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc \
+            --dry-run --outfile /tmp/foxue-corpus-worker.mjs
+          search_root="$(find artifacts/corpus-search -mindepth 1 -maxdepth 1 -type d -name '*-fixture-10' -print -quit)"
+          node scripts/test-corpus-search-worker.mjs /tmp/foxue-corpus-worker.mjs "$search_root"
+
+  publish:
+    needs: validate-search
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CORPUS_R2_BUCKET: foxue-ai-corpus
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_PREFLIGHT_CONCURRENCY: "16"
+      R2_UPLOAD_CONCURRENCY: "32"
+    steps:
+      - name: Require explicit production confirmation
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          if [[ "$CONFIRMATION" != "publish-foxue-corpus-search" ]]; then
+            echo "Production confirmation did not match" >&2
+            exit 1
+          fi
+          for name in CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Required secret is missing: $name" >&2
+              exit 1
+            fi
+          done
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Verify code before the long index build
+        run: pnpm test:corpus-search-contract && node scripts/test-corpus-r2-publisher.mjs && pnpm cloudflare:types:check && pnpm cloudflare:check
+
+      - name: Resolve the public corpus release
+        id: corpus
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          curl -fsS --retry 3 https://canon.foxue.ai/v1/latest.json -o /tmp/foxue-corpus-latest.json
+          release_id="$(jq -r '.releaseId' /tmp/foxue-corpus-latest.json)"
+          manifest_sha="$(jq -r '.manifestSha256' /tmp/foxue-corpus-latest.json)"
+          [[ "$release_id" =~ ^[a-z0-9][a-z0-9.-]{0,95}$ ]]
+          [[ "$manifest_sha" =~ ^[a-f0-9]{64}$ ]]
+          {
+            echo "id=$release_id"
+            echo "manifest_sha=$manifest_sha"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Build and verify the complete exact-text index
+        id: search
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          pnpm build:corpus-search-index
+          pnpm verify:corpus-search-index
+          search_root="$(find artifacts/corpus-search -mindepth 1 -maxdepth 1 -type d ! -name '*fixture*' -print -quit)"
+          test -n "$search_root"
+          plan="$search_root/upload-plan.json"
+          node scripts/publish-corpus-release-s3.mjs --dry-run --plan="$plan"
+          node scripts/verify-corpus-search-query.mjs "$search_root" "應無所住而生其心" "金剛般若波羅蜜經"
+          search_id="$(jq -r '.releaseId' "$plan")"
+          corpus_id="$(jq -r '.corpusReleaseId' "$plan")"
+          if [[ "$corpus_id" != "${{ steps.corpus.outputs.id }}" ]]; then
+            echo "Built index targets $corpus_id but production corpus is ${{ steps.corpus.outputs.id }}" >&2
+            exit 1
+          fi
+          {
+            echo "id=$search_id"
+            echo "plan=$plan"
+            echo "root=$search_root"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Upload immutable search objects and update search latest last
+        env:
+          CORPUS_UPLOAD_PLAN: ${{ steps.search.outputs.plan }}
+        run: node scripts/publish-corpus-release-s3.mjs --plan="$CORPUS_UPLOAD_PLAN"
+
+      - name: Deploy the search-enabled read-only Worker
+        env:
+          RELEASE_ID: ${{ steps.corpus.outputs.id }}
+          RELEASE_MANIFEST_SHA256: ${{ steps.corpus.outputs.manifest_sha }}
+        run: |
+          pnpm exec wrangler deploy --config infra/corpus-edge/wrangler.jsonc \
+            --var "RELEASE_ID:$RELEASE_ID" \
+            --var "RELEASE_MANIFEST_SHA256:$RELEASE_MANIFEST_SHA256"
+
+      - name: Prove exact-text search from the public Internet
+        env:
+          EXPECTED_RELEASE_ID: ${{ steps.corpus.outputs.id }}
+          EXPECTED_MANIFEST_SHA256: ${{ steps.corpus.outputs.manifest_sha }}
+          REQUIRE_READY: "true"
+          REQUIRE_SEARCH: "true"
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          deadline=$((SECONDS + 240))
+          until node scripts/verify-cloudflare-edge.mjs https://canon.foxue.ai; do
+            if (( SECONDS >= deadline )); then
+              echo "Search release did not pass public verification within 240 seconds." >&2
+              exit 1
+            fi
+            sleep 5
+          done
+
+      - name: Record search publication evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cloudflare-search-publication-${{ github.run_id }}
+          path: |
+            artifacts/corpus-search/*/R2-PUBLISH-REPORT.json
+            artifacts/corpus-search/*/v1/search/releases/*/manifest.json
+            artifacts/corpus-search/*/upload-plan.json
+            artifacts/corpus-search/*/SHA256SUMS
+          if-no-files-found: warn
+          retention-days: 30
