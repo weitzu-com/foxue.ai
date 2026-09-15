@@ -328,17 +328,25 @@ async function headObject(entry, config) {
   return response.headers;
 }
 
-function verifyRemoteMetadata(entry, headers) {
+function retryableRemoteMetadataError(message) {
+  const error = new Error(message);
+  error.retryable = true;
+  return error;
+}
+
+export function verifyRemoteMetadata(entry, headers) {
   const etag = cleanEtag(headers.get("etag"));
-  if (etag !== entry.md5) throw new Error(`${entry.key} 的远端 ETag 与本地 MD5 不一致`);
+  if (etag !== entry.md5) {
+    throw retryableRemoteMetadataError(`${entry.key} 的远端 ETag 与本地 MD5 不一致`);
+  }
   if (headers.get("content-length") !== String(entry.bytes)) {
-    throw new Error(`${entry.key} 的远端字节数不一致`);
+    throw retryableRemoteMetadataError(`${entry.key} 的远端字节数不一致`);
   }
   if (normalizeHeaderValue(headers.get("content-type") ?? "") !== normalizeHeaderValue(entry.contentType)) {
-    throw new Error(`${entry.key} 的远端 Content-Type 不一致`);
+    throw retryableRemoteMetadataError(`${entry.key} 的远端 Content-Type 不一致`);
   }
   if (normalizeHeaderValue(headers.get("cache-control") ?? "") !== normalizeHeaderValue(entry.cacheControl)) {
-    throw new Error(`${entry.key} 的远端 Cache-Control 不一致`);
+    throw retryableRemoteMetadataError(`${entry.key} 的远端 Cache-Control 不一致`);
   }
 }
 

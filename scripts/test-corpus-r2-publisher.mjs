@@ -8,6 +8,7 @@ import {
   loadAndValidateUploadPlan,
   publishCorpusRelease,
   signS3Request,
+  verifyRemoteMetadata,
 } from "./publish-corpus-release-s3.mjs";
 
 const awsExample = signS3Request({
@@ -34,6 +35,28 @@ assert.equal(
 assert.equal(
   buildR2CanonicalUri("foxue-ai-corpus", "汉文/a b.json"),
   "/foxue-ai-corpus/%E6%B1%89%E6%96%87/a%20b.json",
+);
+
+const remoteEntry = {
+  key: "v1/releases/test/object.json",
+  bytes: 12,
+  md5: "0123456789abcdef0123456789abcdef",
+  contentType: "application/json; charset=utf-8",
+  cacheControl: "public, max-age=31536000, immutable",
+};
+const matchingRemoteHeaders = new Headers({
+  etag: `"${remoteEntry.md5}"`,
+  "content-length": String(remoteEntry.bytes),
+  "content-type": remoteEntry.contentType,
+  "cache-control": remoteEntry.cacheControl,
+});
+assert.doesNotThrow(() => verifyRemoteMetadata(remoteEntry, matchingRemoteHeaders));
+const transientRemoteHeaders = new Headers(matchingRemoteHeaders);
+transientRemoteHeaders.delete("content-length");
+assert.throws(
+  () => verifyRemoteMetadata(remoteEntry, transientRemoteHeaders),
+  (error) => error instanceof Error && error.retryable === true && /远端字节数不一致/.test(error.message),
+  "R2 条件写入后的瞬态 HEAD 元数据差异必须进入有限重试",
 );
 
 const fixtureRoot = await mkdtemp(join(tmpdir(), "foxue-r2-publisher-"));
