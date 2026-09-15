@@ -40,7 +40,16 @@ type SearchResponse = {
   query: { normalizedCodePoints: number; language: string };
   release: { searchReleaseId: string; corpusReleaseId: string };
   coverage: { expressions: number; documents: number; indexedDocuments: number };
-  counts: { candidateDocuments: number; inspectedCandidates: number; results: number; truncated: boolean };
+  counts: {
+    candidateDocuments: number;
+    candidateOffset?: number;
+    inspectedCandidates: number;
+    nextCandidateOffset?: number;
+    remainingCandidateDocuments?: number;
+    results: number;
+    truncated: boolean;
+  };
+  nextCursor?: string;
   results: SearchResult[];
 };
 
@@ -59,26 +68,34 @@ export function CorpusExactSearch({
   const activeRequest = useRef<AbortController | null>(null);
   const [query, setQuery] = useState(initialQuery);
   const [language, setLanguage] = useState<Language>(validLanguage(initialLanguage));
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [continuationError, setContinuationError] = useState("");
   const [state, setState] = useState<
     | { status: "idle" }
     | { status: "loading" }
     | { status: "error"; message: string }
-    | { status: "success"; data: SearchResponse; searchedQuery: string }
+    | { status: "success"; data: SearchResponse; searchedQuery: string; searchedLanguage: Language }
   >({ status: "idle" });
 
-  useEffect(() => () => activeRequest.current?.abort(), []);
+  useEffect(() => () => {
+    const controller = activeRequest.current;
+    activeRequest.current = null;
+    controller?.abort();
+  }, []);
 
   async function fetchResults(
     nextQuery: string,
     nextLanguage: Language,
     controller: AbortController,
-    replaceUrl = true,
+    options: { append?: boolean; cursor?: string; replaceUrl?: boolean } = {},
   ) {
+    const { append = false, cursor, replaceUrl = !append } = options;
     const cleanQuery = nextQuery.trim();
     const requestUrl = new URL(endpoint);
     requestUrl.searchParams.set("q", cleanQuery);
     if (nextLanguage !== "all") requestUrl.searchParams.set("language", nextLanguage);
     requestUrl.searchParams.set("limit", "10");
+    if (cursor) requestUrl.searchParams.set("cursor", cursor);
     try {
       const response = await fetch(requestUrl, {
         headers: { accept: "application/json" },
@@ -89,7 +106,39 @@ export function CorpusExactSearch({
         throw new Error("message" in body && body.message ? body.message : "全文索引暂时不可用。");
       }
       if (activeRequest.current !== controller) return;
-      setState({ status: "success", data: body as SearchResponse, searchedQuery: cleanQuery });
+      const data = body as SearchResponse;
+      setContinuationError("");
+      if (append) {
+        setState((current) => {
+          if (current.status !== "success") return current;
+          const seen = new Set(current.data.results.map((result) => `${result.documentId}:${result.locator ?? ""}`));
+          const appendedResults = data.results.filter(
+            (result) => !seen.has(`${result.documentId}:${result.locator ?? ""}`),
+          );
+          const results = [...current.data.results, ...appendedResults];
+          return {
+            ...current,
+            data: {
+              ...data,
+              counts: {
+                ...data.counts,
+                candidateOffset: current.data.counts.candidateOffset ?? 0,
+                inspectedCandidates:
+                  current.data.counts.inspectedCandidates + data.counts.inspectedCandidates,
+                results: results.length,
+              },
+              results,
+            },
+          };
+        });
+      } else {
+        setState({
+          status: "success",
+          data,
+          searchedQuery: cleanQuery,
+          searchedLanguage: nextLanguage,
+        });
+      }
       if (replaceUrl) {
         const pageUrl = new URL(window.location.href);
         pageUrl.search = "";
@@ -99,12 +148,14 @@ export function CorpusExactSearch({
       }
     } catch (error) {
       if (controller.signal.aborted || activeRequest.current !== controller) return;
-      setState({
-        status: "error",
-        message: error instanceof Error ? error.message : "全文索引暂时不可用。",
-      });
+      const message = error instanceof Error ? error.message : "全文索引暂时不可用。";
+      if (append) setContinuationError(message);
+      else setState({ status: "error", message });
     } finally {
-      if (activeRequest.current === controller) activeRequest.current = null;
+      if (activeRequest.current === controller) {
+        activeRequest.current = null;
+        setIsLoadingMore(false);
+      }
     }
   }
 
@@ -112,8 +163,24 @@ export function CorpusExactSearch({
     activeRequest.current?.abort();
     const controller = new AbortController();
     activeRequest.current = controller;
+    setIsLoadingMore(false);
+    setContinuationError("");
     setState({ status: "loading" });
     void fetchResults(nextQuery, nextLanguage, controller);
+  }
+
+  function loadMore() {
+    if (state.status !== "success" || !state.data.nextCursor || isLoadingMore) return;
+    activeRequest.current?.abort();
+    const controller = new AbortController();
+    activeRequest.current = controller;
+    setIsLoadingMore(true);
+    setContinuationError("");
+    void fetchResults(state.searchedQuery, state.searchedLanguage, controller, {
+      append: true,
+      cursor: state.data.nextCursor,
+      replaceUrl: false,
+    });
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -125,6 +192,10 @@ export function CorpusExactSearch({
     setQuery(value);
     startSearch(value, language);
   }
+
+  const verifiedCandidateCount = state.status === "success"
+    ? state.data.counts.nextCandidateOffset ?? state.data.counts.inspectedCandidates
+    : 0;
 
   return (
     <section className={styles.console} aria-labelledby="corpus-search-title">
@@ -188,7 +259,8 @@ export function CorpusExactSearch({
         ) : null}
         {state.status === "success" ? (
           <p>
-            “{state.searchedQuery}”确认 <strong>{state.data.results.length}</strong> 个版页命中；
+            “{state.searchedQuery}”已显示 <strong>{state.data.results.length}</strong> 个版页命中；
+            已核验 {verifiedCandidateCount.toLocaleString("zh-CN")} / {state.data.counts.candidateDocuments.toLocaleString("zh-CN")} 个候选版页。
             索引覆盖 {state.data.coverage.expressions.toLocaleString("zh-CN")} 个文本表达、
             {state.data.coverage.documents.toLocaleString("zh-CN")} 个版页。
           </p>
@@ -238,7 +310,34 @@ export function CorpusExactSearch({
         </div>
       ) : null}
 
-      {state.status === "success" && state.data.counts.truncated ? (
+      {state.status === "success" && state.data.nextCursor ? (
+        <div className={styles.continuation}>
+          <p>
+            尚有 {(state.data.counts.remainingCandidateDocuments
+              ?? Math.max(0, state.data.counts.candidateDocuments - verifiedCandidateCount))
+              .toLocaleString("zh-CN")} 个候选待核验；每次最多回读 48 个版页。
+          </p>
+          <button
+            type="button"
+            onClick={loadMore}
+            disabled={isLoadingMore}
+            data-analytics-event="corpus_search_continued"
+            data-analytics-location="corpus_exact_search"
+            data-analytics-content-id={state.data.release.searchReleaseId}
+          >
+            {isLoadingMore ? <LoaderCircle aria-hidden="true" className={styles.spinner} /> : null}
+            {isLoadingMore ? "继续核验中" : "继续核验下一批"}
+          </button>
+        </div>
+      ) : null}
+
+      {continuationError ? (
+        <p className={styles.continuationError} role="alert">
+          <TriangleAlert aria-hidden="true" /> {continuationError}
+        </p>
+      ) : null}
+
+      {state.status === "success" && state.data.counts.truncated && !state.data.nextCursor ? (
         <p className={styles.truncated}>
           为控制边缘读取成本，本次只核验前 {state.data.counts.inspectedCandidates} 个候选版页；结果不是穷尽式书目结论。
         </p>

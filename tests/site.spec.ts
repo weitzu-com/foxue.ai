@@ -416,6 +416,85 @@ test("全文检索页区分书目与正文，并返回稳定原典定位", async
   );
 });
 
+test("全文检索可按发行游标继续核验并累积稳定结果", async ({ page }) => {
+  const requestedCursors: Array<string | null> = [];
+
+  await page.route("https://canon.foxue.ai/search**", async (route) => {
+    const url = new URL(route.request().url());
+    const cursor = url.searchParams.get("cursor");
+    requestedCursors.push(cursor);
+    const secondPage = cursor === "fixture-cursor-1";
+    await route.fulfill({
+      contentType: "application/json; charset=utf-8",
+      body: JSON.stringify({
+        query: { normalizedCodePoints: 4, language: "zh" },
+        release: { searchReleaseId: "search-fixture", corpusReleaseId: "gbcr-fixture" },
+        coverage: { expressions: 4190, documents: 265253, indexedDocuments: 265246 },
+        counts: {
+          candidateDocuments: 2,
+          candidateOffset: secondPage ? 1 : 0,
+          inspectedCandidates: 1,
+          nextCandidateOffset: secondPage ? 2 : 1,
+          remainingCandidateDocuments: secondPage ? 0 : 1,
+          results: 1,
+          truncated: !secondPage,
+        },
+        nextCursor: secondPage ? undefined : "fixture-cursor-1",
+        results: [{
+          documentId: secondPage ? 12 : 11,
+          title: secondPage ? "長阿含經" : "金剛般若波羅蜜經",
+          canonRef: secondPage ? "大正藏 T01, no. 1" : "大正藏 T08, no. 235",
+          language: "古漢語（繁體）",
+          languageCode: "zh",
+          folio: secondPage
+            ? { key: "001-0001b", label: "0001b", juan: "001" }
+            : { key: "001-0748c", label: "0748c", juan: "001" },
+          locator: secondPage ? "T0001.001.0001b01" : "T0235.001.0748c20",
+          href: secondPage
+            ? "https://www.foxue.ai/jingzang/changahanjing/001-0001b#T0001.001.0001b01"
+            : "https://www.foxue.ai/jingzang/jingangjing/001-0748c#T0235.001.0748c20",
+          excerpt: {
+            before: secondPage ? "佛告諸比丘" : "法會因由分第一",
+            match: "如是我聞",
+            after: secondPage ? "一時佛在舍衛國" : "一時佛在舍衛國",
+            startsBeforeExcerpt: false,
+            continuesAfterExcerpt: true,
+          },
+        }],
+      }),
+    });
+  });
+
+  await page.goto("/jingzang/quanwen");
+  await page.getByRole("searchbox", { name: "输入佛经原文短句" }).fill("如是我聞");
+  await page.getByText("汉文", { exact: true }).click();
+  await page.getByRole("button", { name: "查原文" }).click();
+
+  await expect(page.getByRole("heading", { level: 3, name: "金剛般若波羅蜜經" })).toBeVisible();
+  await expect(page.getByText(/已核验 1 \/ 2 个候选版页/)).toBeVisible();
+  const continueButton = page.getByRole("button", { name: "继续核验下一批" });
+  await expect(continueButton).toHaveAttribute("data-analytics-content-id", "search-fixture");
+  await continueButton.click();
+
+  await expect(page.getByRole("heading", { level: 3, name: "長阿含經" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /打开原典定位/ })).toHaveCount(2);
+  await expect(page.getByText(/已核验 2 \/ 2 个候选版页/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "继续核验下一批" })).toHaveCount(0);
+  expect(requestedCursors).toEqual([null, "fixture-cursor-1"]);
+  const finalUrl = new URL(page.url());
+  expect(finalUrl.searchParams.get("q")).toBe("如是我聞");
+  expect(finalUrl.searchParams.get("cursor")).toBeNull();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
 test("全文检索忽略被后续查询取代的旧响应", async ({ page }) => {
   const firstQuery = "應無所住而生其心";
   const latestQuery = "色即是空空即是色";

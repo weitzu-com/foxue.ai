@@ -49,7 +49,7 @@ export default function TransparencyPage() {
     { name: "经典阅读", status: "可用", detail: `${coverage.localHoldings.fullSourceTextExpressions} 个完整文本 · 稳定段落链接`, icon: Check },
     { name: "引证式问经", status: "原型", detail: "确定性规则 · 未启用 LLM", icon: Clock3 },
     { name: "覆盖登记册", status: "公开草案", detail: `GBCR v${coverage.generatedFrom.registryVersion} · 全球分母尚待审计`, icon: Check },
-    { name: "全文逐字检索", status: "公开测试", detail: "分片倒排索引 · 命中回查原始版页", icon: Check },
+    { name: "全文逐字检索", status: "公开测试", detail: "分片索引 · 候选分批续查 · 命中回查原页", icon: Check },
     { name: "用户账户", status: "未开放", detail: "先完成隐私与数据导出设计", icon: CircleDashed },
   ];
 

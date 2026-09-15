@@ -310,6 +310,39 @@ if (requireSearch) {
       "全文检索 API 缺少规范 www 域名 CORS",
     );
   }
+
+  const paginationFirst = await request("/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1", {
+    headers: { origin: "https://www.foxue.ai" },
+  });
+  if (paginationFirst) {
+    const nextCursor = paginationFirst.body?.nextCursor;
+    check(
+      paginationFirst.response.status === 200 &&
+        paginationFirst.body?.counts?.candidateOffset === 0 &&
+        paginationFirst.body?.counts?.nextCandidateOffset > 0 &&
+        paginationFirst.body?.counts?.remainingCandidateDocuments > 0 &&
+        typeof nextCursor === "string",
+      "高频经句返回发行绑定的下一批游标",
+      `高频经句缺少可续查游标（HTTP ${paginationFirst.response.status}）`,
+    );
+    if (typeof nextCursor === "string") {
+      const paginationSecond = await request(
+        `/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1&cursor=${encodeURIComponent(nextCursor)}`,
+        { headers: { origin: "https://www.foxue.ai" } },
+      );
+      if (paginationSecond) {
+        check(
+          paginationSecond.response.status === 200 &&
+            paginationSecond.body?.counts?.candidateOffset ===
+              paginationFirst.body?.counts?.nextCandidateOffset &&
+            paginationSecond.body?.results?.[0]?.documentId !==
+              paginationFirst.body?.results?.[0]?.documentId,
+          "全文检索游标继续到不同的下一条稳定结果",
+          `全文检索游标未能稳定续查（HTTP ${paginationSecond.response.status}）`,
+        );
+      }
+    }
+  }
 }
 
 const writeAttempt = await request("/health", { method: "POST" });

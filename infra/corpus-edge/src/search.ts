@@ -25,6 +25,14 @@ type SearchPointer = {
   manifestObjectKey: string;
 };
 
+type SearchCursor = {
+  version: 1;
+  searchReleaseId: string;
+  normalizedQuery: string;
+  language: string;
+  candidateOffset: number;
+};
+
 type SearchManifest = {
   schema: string;
   searchReleaseId: string;
@@ -137,6 +145,38 @@ function parseLimit(value: string | null) {
   return parsed;
 }
 
+function encodeSearchCursor(cursor: SearchCursor) {
+  const bytes = new TextEncoder().encode(JSON.stringify(cursor));
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function decodeSearchCursor(value: string): SearchCursor | null {
+  if (!value || value.length > 1_024 || !/^[A-Za-z0-9_-]+$/.test(value)) return null;
+  try {
+    const remainder = value.length % 4;
+    if (remainder === 1) return null;
+    const base64 = value.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - remainder) % 4);
+    const binary = atob(base64);
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+    const parsed = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)) as Partial<SearchCursor>;
+    if (
+      parsed.version !== 1 ||
+      typeof parsed.searchReleaseId !== "string" ||
+      typeof parsed.normalizedQuery !== "string" ||
+      typeof parsed.language !== "string" ||
+      !Number.isSafeInteger(parsed.candidateOffset) ||
+      (parsed.candidateOffset ?? -1) < 0
+    ) {
+      return null;
+    }
+    return parsed as SearchCursor;
+  } catch {
+    return null;
+  }
+}
+
 export async function corpusSearchStorageReady(env: Env) {
   if (!env.CORPUS) return false;
   try {
@@ -167,6 +207,11 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
   if (limit === null) {
     return searchError(400, "invalid_limit", `limit 必须是 1–${maximumResultLimit} 的整数。`);
   }
+  const cursorInput = url.searchParams.get("cursor");
+  const cursor = cursorInput === null ? null : decodeSearchCursor(cursorInput);
+  if (cursorInput !== null && !cursor) {
+    return searchError(400, "invalid_cursor", "续查位置无效，请重新检索。");
+  }
 
   try {
     const pointer = await readJson<SearchPointer>(env.CORPUS, searchLatestKey);
@@ -176,6 +221,12 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
       pointer.corpusReleaseId !== manifest.corpusReleaseId
     ) {
       throw new Error("search pointer and manifest disagree");
+    }
+    if (cursor && cursor.searchReleaseId !== manifest.searchReleaseId) {
+      return searchError(409, "stale_cursor", "检索索引已更新，请从当前版本重新检索。");
+    }
+    if (cursor && (cursor.normalizedQuery !== normalized || cursor.language !== language)) {
+      return searchError(400, "invalid_cursor", "续查位置与当前经句或语种不一致，请重新检索。");
     }
     const prefix = `v1/search/releases/${manifest.searchReleaseId}`;
     const grams = selectCorpusSearchQueryGrams(normalized);
@@ -210,7 +261,11 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
     }
 
     const candidateCount = candidateIds.length;
-    const inspectIds = candidateIds.slice(0, maximumCandidatesToInspect);
+    const candidateOffset = cursor?.candidateOffset ?? 0;
+    if (candidateOffset > candidateCount) {
+      return searchError(400, "invalid_cursor", "续查位置超出当前候选范围，请重新检索。");
+    }
+    const inspectIds = candidateIds.slice(candidateOffset, candidateOffset + maximumCandidatesToInspect);
     const documentShardIds = [...new Set(inspectIds.map(corpusSearchDocumentShardId))];
     const documentShards = await Promise.all(documentShardIds.map(async (shardId) => [
       shardId,
@@ -224,9 +279,10 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
     );
     const results = [];
     let inspectedCandidates = 0;
-    let omittedConfirmedResults = false;
-    for (let index = 0; index < inspectIds.length && results.length < limit; index += 8) {
-      const batchIds = inspectIds.slice(index, index + 8);
+    let consumedCandidates = 0;
+    while (inspectedCandidates < inspectIds.length && results.length < limit) {
+      const batchSize = Math.min(8, inspectIds.length - inspectedCandidates);
+      const batchIds = inspectIds.slice(inspectedCandidates, inspectedCandidates + batchSize);
       const batch = await Promise.all(batchIds.map(async (documentId) => {
         const document = documentMap.get(documentId);
         if (!document) throw new Error(`missing search document: ${documentId}`);
@@ -236,11 +292,11 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
       }));
       inspectedCandidates += batch.length;
       for (const { document, excerpt } of batch) {
-        if (!excerpt) continue;
-        if (results.length >= limit) {
-          omittedConfirmedResults = true;
+        if (!excerpt) {
+          consumedCandidates += 1;
           continue;
         }
+        if (results.length >= limit) break;
         const anchor = excerpt.locator ? `#${encodeURIComponent(excerpt.locator)}` : "";
         results.push({
           documentId: document.id,
@@ -253,9 +309,21 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
           href: `https://www.foxue.ai/jingzang/${encodeURIComponent(document.slug)}/${encodeURIComponent(document.folioKey)}${anchor}`,
           excerpt,
         });
+        consumedCandidates += 1;
       }
     }
-    const truncated = inspectedCandidates < candidateCount || omittedConfirmedResults;
+    const nextCandidateOffset = candidateOffset + consumedCandidates;
+    const remainingCandidateDocuments = Math.max(0, candidateCount - nextCandidateOffset);
+    const truncated = remainingCandidateDocuments > 0;
+    const nextCursor = truncated
+      ? encodeSearchCursor({
+        version: 1,
+        searchReleaseId: manifest.searchReleaseId,
+        normalizedQuery: normalized,
+        language,
+        candidateOffset: nextCandidateOffset,
+      })
+      : undefined;
     return {
       status: 200,
       body: {
@@ -271,7 +339,16 @@ export async function runCorpusSearch(url: URL, env: Env): Promise<{ status: num
           documents: manifest.totals.documents,
           indexedDocuments: manifest.totals.indexedDocuments,
         },
-        counts: { candidateDocuments: candidateCount, inspectedCandidates, results: results.length, truncated },
+        counts: {
+          candidateDocuments: candidateCount,
+          candidateOffset,
+          inspectedCandidates,
+          nextCandidateOffset,
+          remainingCandidateDocuments,
+          results: results.length,
+          truncated,
+        },
+        nextCursor,
         results,
       },
     };

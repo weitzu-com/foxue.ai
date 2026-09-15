@@ -22,7 +22,7 @@ if (bundleText.startsWith("--")) {
   moduleUrl = `data:text/javascript;base64,${Buffer.from(bundleText.slice(codeStart, codeEnd)).toString("base64")}`;
 }
 const worker = (await import(moduleUrl)).default;
-const confirmedText = "菩薩摩訶薩應無所住而生其心，不住色生心。";
+const confirmedText = "如是我聞，一時佛在舍衛國。菩薩摩訶薩應無所住而生其心，不住色生心。";
 
 const bucket = {
   async get(key) {
@@ -82,6 +82,44 @@ assert.ok(hit.body.results.some((result) => result.title.includes("金剛")));
 assert.ok(hit.body.results.every((result) => result.excerpt.match === "應無所住而生其心"));
 assert.ok(hit.body.results.every((result) => result.href.includes("#T08n0235_p0750a0101")));
 
+const firstPage = await search("/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1");
+assert.equal(firstPage.response.status, 200);
+assert.equal(firstPage.body.counts.candidateOffset, 0);
+assert.ok(firstPage.body.counts.inspectedCandidates >= 1);
+assert.ok(firstPage.body.counts.inspectedCandidates <= 8);
+assert.equal(firstPage.body.counts.nextCandidateOffset, 1);
+assert.ok(firstPage.body.counts.remainingCandidateDocuments > 0);
+assert.equal(typeof firstPage.body.nextCursor, "string");
+
+const secondPage = await search(
+  `/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1&cursor=${encodeURIComponent(firstPage.body.nextCursor)}`,
+);
+assert.equal(secondPage.response.status, 200);
+assert.equal(secondPage.body.counts.candidateOffset, 1);
+assert.ok(secondPage.body.counts.inspectedCandidates >= 1);
+assert.ok(secondPage.body.counts.inspectedCandidates <= 8);
+assert.equal(secondPage.body.results.length, 1);
+assert.notEqual(secondPage.body.results[0].documentId, firstPage.body.results[0].documentId);
+
+const mismatchedCursor = await search(
+  `/search?q=%E8%89%B2%E5%8D%B3%E6%98%AF%E7%A9%BA%E7%A9%BA%E5%8D%B3%E6%98%AF%E8%89%B2&language=zh&limit=1&cursor=${encodeURIComponent(firstPage.body.nextCursor)}`,
+);
+assert.equal(mismatchedCursor.response.status, 400);
+assert.equal(mismatchedCursor.body.error, "invalid_cursor");
+
+const staleCursorPayload = JSON.parse(Buffer.from(firstPage.body.nextCursor, "base64url").toString("utf8"));
+staleCursorPayload.searchReleaseId = "search-stale-fixture";
+const staleCursor = Buffer.from(JSON.stringify(staleCursorPayload)).toString("base64url");
+const staleCursorResponse = await search(
+  `/search?q=%E5%A6%82%E6%98%AF%E6%88%91%E8%81%9E&language=zh&limit=1&cursor=${encodeURIComponent(staleCursor)}`,
+);
+assert.equal(staleCursorResponse.response.status, 409);
+assert.equal(staleCursorResponse.body.error, "stale_cursor");
+
+const malformedCursor = await search("/search?q=%E6%87%89%E7%84%A1%E6%89%80%E4%BD%8F%E8%80%8C%E7%94%9F%E5%85%B6%E5%BF%83&cursor=%25%25%25");
+assert.equal(malformedCursor.response.status, 400);
+assert.equal(malformedCursor.body.error, "invalid_cursor");
+
 const invalid = await search("/search?q=%E7%A9%BA");
 assert.equal(invalid.response.status, 400);
 assert.equal(invalid.body.error, "invalid_query_length");
@@ -105,4 +143,4 @@ const searchManifest = await worker.fetch(
 assert.equal(searchManifest.status, 200);
 assert.equal(searchManifest.headers.get("cache-control"), "public, max-age=31536000, immutable");
 
-console.log("✓ Worker 全文检索完成候选交集、原页回查、稳定锚点、CORS 与可变指针缓存验证");
+console.log("✓ Worker 全文检索完成候选交集、发行绑定续查、原页回查、稳定锚点、CORS 与可变指针缓存验证");
