@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, xueFahuajing, jingzang, jingzangFanwen, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, duidu, duiduEbt, duiduXinjing, duiduJingangjing, duiduAmituojing, xueMeiri, xueFahuajing, jingzang, jingzangFanwen, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -145,6 +145,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/duidu/xinjing"),
   get("/duidu/jingangjing"),
   get("/duidu/amituojing"),
+  get("/xue/meiri"),
   get("/xue/fahuajing"),
   get("/jingzang"),
   get("/jingzang/fanwen"),
@@ -415,6 +416,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/duidu/xinjing#page", "CollectionPage"],
         ["https://www.foxue.ai/duidu/xinjing#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/duidu/xinjing#expressions", "ItemList"],
+      ],
+    },
+  ],
+  [
+    "/xue/meiri",
+    xueMeiri,
+    {
+      title: "每日佛经原典｜30段静读、理解与核对｜foxue.ai",
+      description: "30段可核验佛经原典月读：从阿含、心经、金刚经、法句经、阿弥陀经到法华经；每段分开静读练习、理解提示与版本核对，并直达稳定行号。",
+      bodyIncludes: ["三十段，", "身份不是等级，读法可以切换", "六组原典，三十个可重开的落点", "每天一段，不把修学变成数字焦虑"],
+      jsonLd: [
+        ["https://www.foxue.ai/xue/meiri#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/meiri#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/meiri#passages", "ItemList"],
       ],
     },
   ],

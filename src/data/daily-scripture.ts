@@ -1,5 +1,17 @@
+import { amituojingLearningDays } from "@/data/amituojing-learning-path";
+import { fahuajingReadingGates } from "@/data/fahuajing-reading-path";
+
+export type DailyScriptureSeriesId =
+  | "fundamentals"
+  | "heart"
+  | "diamond"
+  | "dhammapada"
+  | "pure-land"
+  | "lotus";
+
 export type DailyScripturePassage = {
   id: string;
+  series: DailyScriptureSeriesId;
   collection: string;
   workTitle: string;
   witness: string;
@@ -14,9 +26,61 @@ export type DailyScripturePassage = {
   verification: string;
 };
 
-export const dailyScripturePassages = [
+export const dailyScriptureSeries = [
+  {
+    id: "fundamentals",
+    number: "01",
+    label: "先立路标",
+    title: "从苦、道路与条件关系开始",
+    description: "五段阿含与经集原文，把四圣谛、八正道、缘起、无常与无我放回可核对的经句。",
+  },
+  {
+    id: "heart",
+    number: "02",
+    label: "般若短读",
+    title: "《心经》两段",
+    description: "先看观照怎样发生，再读色与空；短并不等于可以脱离上下文。",
+  },
+  {
+    id: "diamond",
+    number: "03",
+    label: "般若核读",
+    title: "《金刚经》七段",
+    description: "从发问、愿行与布施，读到筏喻、无住生心和如是观。",
+  },
+  {
+    id: "dhammapada",
+    number: "04",
+    label: "法句观心",
+    title: "《法句经》两偈",
+    description: "把心念、语言、行动与后果放在一组相反相成的汉译偈颂中观察。",
+  },
+  {
+    id: "pure-land",
+    number: "05",
+    label: "净土七日",
+    title: "《阿弥陀经》七段",
+    description: "从正在说法、闻声念三宝与发愿，读到持名、难信和双译边界。",
+  },
+  {
+    id: "lotus",
+    number: "06",
+    label: "法华七关",
+    title: "《法华经》七段",
+    description: "用七处转折进入二十八品，不把长经压缩成七句摘要。",
+  },
+] as const satisfies ReadonlyArray<{
+  id: DailyScriptureSeriesId;
+  number: string;
+  label: string;
+  title: string;
+  description: string;
+}>;
+
+const coreDailyScripturePassages = [
   {
     id: "xinjing-zhaojian",
+    series: "heart",
     collection: "般若部 · 观照",
     workTitle: "《般若波罗蜜多心经》",
     witness: "唐·玄奘译 · 大正藏 T0251",
@@ -32,6 +96,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "xinjing-sekong",
+    series: "heart",
     collection: "般若部 · 色与空",
     workTitle: "《般若波罗蜜多心经》",
     witness: "唐·玄奘译 · 大正藏 T0251",
@@ -47,6 +112,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-question",
+    series: "diamond",
     collection: "般若部 · 发问",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -62,6 +128,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-no-four-marks",
+    series: "diamond",
     collection: "般若部 · 愿行",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -77,6 +144,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-giving",
+    series: "diamond",
     collection: "般若部 · 布施",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -92,6 +160,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-marks",
+    series: "diamond",
     collection: "般若部 · 见相",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -107,6 +176,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-raft",
+    series: "diamond",
     collection: "般若部 · 筏喻",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -122,6 +192,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-no-abiding",
+    series: "diamond",
     collection: "般若部 · 生心",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -137,6 +208,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "jingangjing-dream",
+    series: "diamond",
     collection: "般若部 · 如是观",
     workTitle: "《金刚般若波罗蜜经》",
     witness: "后秦·鸠摩罗什译 · 大正藏 T0235",
@@ -152,6 +224,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "fajujing-unwholesome-mind",
+    series: "dhammapada",
     collection: "本缘部 · 双要品",
     workTitle: "《法句经》",
     witness: "吴·维祇难等译 · 大正藏 T0210",
@@ -167,6 +240,7 @@ export const dailyScripturePassages = [
   },
   {
     id: "fajujing-wholesome-mind",
+    series: "dhammapada",
     collection: "本缘部 · 双要品",
     workTitle: "《法句经》",
     witness: "吴·维祇难等译 · 大正藏 T0210",
@@ -181,3 +255,131 @@ export const dailyScripturePassages = [
     verification: "引文逐字取自 T0210 第 562 页上栏第 15–16 行；“福乐”是本汉译的措辞，跨语言比较须回到各自版本。",
   },
 ] as const satisfies readonly DailyScripturePassage[];
+
+const foundationalPassages = [
+  {
+    id: "sidi-four-tasks",
+    series: "fundamentals",
+    collection: "阿含部 · 四圣谛",
+    workTitle: "《杂阿含经》",
+    witness: "刘宋·求那跋陀罗译 · 大正藏 T0099",
+    lang: "zh-Hant",
+    quote: "若比丘於苦聖諦當知、當解，於苦集聖諦當知、當斷，於苦滅聖諦當知、當證，於苦滅道跡聖諦當知、當修。",
+    locator: "T0099.015.0104b16–18",
+    sourceHref: "/jingzang/zaahanjing/015-0104b#T0099.015.0104b16",
+    studyHref: "/gainian/sidi",
+    studyLabel: "进入四圣谛证据页",
+    quietPrompt: "把眼前一件苦分成四问：事实是什么、什么令它续起、何谓止息、下一步能修什么？",
+    context: "同一段没有停在“有苦”：苦要知解，集要断，灭要证，道要修。四项动作不能被缩成一句悲观判断。",
+    verification: "引文逐字取自 T0099 第 104 页中栏第 16–18 行；页面另以巴利 SN 56.11 作相关结构并读，不宣称已完成严格平行经认定。",
+  },
+  {
+    id: "bazhengdao-one-road",
+    series: "fundamentals",
+    collection: "阿含部 · 八正道",
+    workTitle: "《杂阿含经》",
+    witness: "刘宋·求那跋陀罗译 · 大正藏 T0099",
+    lang: "zh-Hant",
+    quote: "有八正道，能斷愛欲，謂正見、正志、正語、正業、正命、正方便、正念、正定。",
+    locator: "T0099.028.0199a10–11",
+    sourceHref: "/jingzang/zaahanjing/028-0199a#T0099.028.0199a10",
+    studyHref: "/gainian/bazhengdao",
+    studyLabel: "进入八正道证据页",
+    quietPrompt: "选一件今天正在做的事，观察见解、意向、言语、行动与觉察是否正把它带向更少的执取。",
+    context: "经文先问有没有道路能断爱欲，再完整列出八支。它们同属一条道路，不是八个互不相干的打卡项目。",
+    verification: "引文逐字取自 T0099 第 199 页上栏第 10–11 行；“正志”“正方便”等古译保留原貌，不用现代熟词覆盖底本。",
+  },
+  {
+    id: "yuanqi-arising-ceasing",
+    series: "fundamentals",
+    collection: "阿含部 · 缘起",
+    workTitle: "《杂阿含经》",
+    witness: "刘宋·求那跋陀罗译 · 大正藏 T0099",
+    lang: "zh-Hant",
+    quote: "此有故彼有，此生故彼生，謂緣無明有行，乃至生、老、病、死、憂、悲、惱、苦集；所謂此無故彼無，此滅故彼滅，謂無明滅則行滅，乃至生、老、病、死、憂、悲、惱、苦滅。",
+    locator: "T0099.010.0067a05–08",
+    sourceHref: "/jingzang/zaahanjing/010-0067a#T0099.010.0067a05",
+    studyHref: "/gainian/yuanqi",
+    studyLabel: "进入缘起证据页",
+    quietPrompt: "观察一个正在发生的反应：它依靠哪些条件维持？若少一个条件，反应会不会改变？",
+    context: "生起与止息在同一段中出现。缘起因此不是宿命式的单向决定，而是让条件与可停止之处同时变得可见。",
+    verification: "引文逐字取自 T0099 第 67 页上栏第 5–8 行；同段并列条件生起与条件止息，不把省略号后的次第冒充另一段原文。",
+  },
+  {
+    id: "wuchang-turning-point",
+    series: "fundamentals",
+    collection: "经集部 · 无常",
+    workTitle: "《佛说无常经》",
+    witness: "唐·义净译 · 大正藏 T0801",
+    lang: "zh-Hant",
+    quote: "是故勸諸人，諦聽真實法，共捨無常處，當行不死門。佛法如甘露，除熱得清涼，一心應善聽，能滅諸煩惱。",
+    locator: "T0801.001.0745c11–14",
+    sourceHref: "/jingzang/taisho-t0801/001-0745c#T0801.001.0745c11",
+    studyHref: "/gainian/wuchang",
+    studyLabel: "进入无常证据页",
+    quietPrompt: "承认一件正在变化的事，再问：看见变化之后，今天能选择哪一个更少烦恼的方向？",
+    context: "这组偈没有让读者停在衰败与死亡；看见无常之后，经文立即转向听法、离苦与灭烦恼。",
+    verification: "引文逐字取自 T0801 第 745 页下栏第 11–14 行；本卡不把经中后续临终劝导与仪轨推广成所有传统的共同做法。",
+  },
+  {
+    id: "wuwo-not-owned",
+    series: "fundamentals",
+    collection: "阿含部 · 无我",
+    workTitle: "《佛说五蕴皆空经》",
+    witness: "唐·义净译 · 大正藏 T0102",
+    lang: "zh-Hant",
+    quote: "凡所有色，若過去未來現在，內外麁細，若勝若劣、若遠若近，悉皆無我。",
+    locator: "T0102.001.0499c18–20",
+    sourceHref: "/jingzang/taisho-t0102/001-0499c#T0102.001.0499c18",
+    studyHref: "/gainian/wuwo",
+    studyLabel: "进入无我证据页",
+    quietPrompt: "留意一种被称为“我的”身体感受：它能否完全按自己的意愿停留、消失或改变？",
+    context: "这一段把过去、未来、现在与内外粗细等范围逐一展开，再说“悉皆无我”；它检视的是执取，不是否认经验发生。",
+    verification: "引文逐字取自 T0102 第 499 页下栏第 18–20 行；原段随后继续观察受、想、行、识及“我所”。",
+  },
+] as const satisfies readonly DailyScripturePassage[];
+
+const amituojingPassages = amituojingLearningDays.map((day) => ({
+  id: `amituojing-day-${day.id}`,
+  series: "pure-land" as const,
+  collection: `净土部 · ${day.focus}`,
+  workTitle: "《佛说阿弥陀经》",
+  witness: "姚秦·鸠摩罗什译 · 大正藏 T0366",
+  lang: "zh-Hant" as const,
+  quote: day.reading,
+  locator: day.locator,
+  sourceHref: day.href,
+  studyHref: `/xue/amituojing#day-${day.id}`,
+  studyLabel: `继续《阿弥陀经》第 ${day.id} 日`,
+  quietPrompt: day.practice,
+  context: day.context,
+  verification: `引文逐字取自 ${day.locator}；${day.versionNote}`,
+})) satisfies readonly DailyScripturePassage[];
+
+const fahuajingPassages = fahuajingReadingGates.map((gate) => ({
+  id: `fahuajing-gate-${gate.id}`,
+  series: "lotus" as const,
+  collection: `法华部 · ${gate.chapterTitle}`,
+  workTitle: "《妙法莲华经》",
+  witness: "姚秦·鸠摩罗什译 · 大正藏 T0262",
+  lang: "zh-Hant" as const,
+  quote: gate.reading,
+  locator: gate.locator,
+  sourceHref: gate.href,
+  studyHref: `/xue/fahuajing#day-${gate.id}`,
+  studyLabel: `继续《法华经》第 ${gate.id} 关`,
+  quietPrompt: gate.pause,
+  context: gate.hint,
+  verification: `引文逐字取自 ${gate.locator}；${gate.researchCue}`,
+})) satisfies readonly DailyScripturePassage[];
+
+export const dailyScripturePassages = [
+  ...foundationalPassages,
+  ...coreDailyScripturePassages,
+  ...amituojingPassages,
+  ...fahuajingPassages,
+] as const satisfies readonly DailyScripturePassage[];
+
+if (dailyScripturePassages.length !== 30) {
+  throw new Error("三十段原典的受控清单必须保持为 30 段");
+}

@@ -302,6 +302,28 @@
   color: var(--ink);
 }
 
+.pathPaper {
+  background:
+    linear-gradient(to right, transparent 2.3rem, rgb(159 57 43 / 9%) 2.35rem, transparent 2.4rem),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 2.7rem, rgb(216 209 194 / 30%) 2.75rem),
+    #fffaf0;
+  color: var(--ink);
+}
+
+.pathPaper .pathTopline span {
+  color: #355343;
+}
+
+.pathPaper > a {
+  border-color: #355343 !important;
+  color: #355343 !important;
+}
+
+.pathPaper > a:hover {
+  background: #355343 !important;
+  color: #fffdf8 !important;
+}
+
 .pathGold {
   background: #e8dcc3;
   color: var(--ink);

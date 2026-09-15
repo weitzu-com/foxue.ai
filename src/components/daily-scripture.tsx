@@ -235,9 +235,14 @@ export function DailyScripture({ className }: { className?: string }) {
               复制引文
             </button>
           </div>
-          <Link className={styles.studyAction} href={passage.studyHref}>
-            {passage.studyLabel} <ArrowRight aria-hidden="true" />
-          </Link>
+          <div className={styles.pathActions}>
+            <Link className={styles.studyAction} href={passage.studyHref}>
+              {passage.studyLabel} <ArrowRight aria-hidden="true" />
+            </Link>
+            <Link className={styles.archiveAction} href="/xue/meiri">
+              浏览全部 30 段
+            </Link>
+          </div>
           <p className={styles.feedback} role="status" aria-live="polite">
             {copyFeedback || "原文、编辑提示与核对说明分层呈现。"}
           </p>
