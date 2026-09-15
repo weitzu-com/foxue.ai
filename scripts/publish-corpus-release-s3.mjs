@@ -323,7 +323,10 @@ async function headObject(entry, config) {
   });
   if (response.status === 404) return null;
   if (!response.ok) {
-    throw new Error(`HEAD ${entry.key} 返回 ${response.status}：${await responseSummary(response)}`);
+    const error = new Error(`HEAD ${entry.key} 返回 ${response.status}：${await responseSummary(response)}`);
+    error.retryable = response.status === 429 || response.status >= 500;
+    error.retryAfter = Number(response.headers.get("retry-after"));
+    throw error;
   }
   return response.headers;
 }
@@ -347,6 +350,64 @@ export function verifyRemoteMetadata(entry, headers) {
   }
   if (normalizeHeaderValue(headers.get("cache-control") ?? "") !== normalizeHeaderValue(entry.cacheControl)) {
     throw retryableRemoteMetadataError(`${entry.key} 的远端 Cache-Control 不一致`);
+  }
+}
+
+function verifyRemoteServingMetadata(entry, headers) {
+  if (normalizeHeaderValue(headers.get("content-type") ?? "") !== normalizeHeaderValue(entry.contentType)) {
+    throw retryableRemoteMetadataError(`${entry.key} 的 GET Content-Type 不一致`);
+  }
+  if (normalizeHeaderValue(headers.get("cache-control") ?? "") !== normalizeHeaderValue(entry.cacheControl)) {
+    throw retryableRemoteMetadataError(`${entry.key} 的 GET Cache-Control 不一致`);
+  }
+}
+
+export async function verifyRemoteObjectBody(entry, body) {
+  if (!body) throw retryableRemoteMetadataError(`${entry.key} 的 GET 正文缺失`);
+  const digest = createHash("sha256");
+  let bytes = 0;
+  for await (const chunk of body) {
+    bytes += chunk.byteLength;
+    digest.update(chunk);
+  }
+  if (bytes !== entry.bytes) {
+    throw retryableRemoteMetadataError(
+      `${entry.key} 的 GET 正文字节数不一致：期望 ${entry.bytes}，实际 ${bytes}`,
+    );
+  }
+  const actualSha256 = digest.digest("hex");
+  if (actualSha256 !== entry.sha256) {
+    throw retryableRemoteMetadataError(`${entry.key} 的 GET 正文 SHA-256 不一致`);
+  }
+}
+
+async function getAndVerifyObject(entry, config) {
+  const signed = requestConfig(entry, config, "GET");
+  const response = await fetch(signed.url, {
+    method: "GET",
+    headers: {
+      authorization: signed.authorization,
+      "x-amz-content-sha256": signed.payloadHash,
+      "x-amz-date": signed.amzDate,
+    },
+    signal: AbortSignal.timeout(config.timeoutMs),
+  });
+  if (!response.ok) {
+    const error = new Error(`GET ${entry.key} 返回 ${response.status}：${await responseSummary(response)}`);
+    error.retryable = response.status === 429 || response.status >= 500;
+    error.retryAfter = Number(response.headers.get("retry-after"));
+    throw error;
+  }
+  verifyRemoteServingMetadata(entry, response.headers);
+  try {
+    await verifyRemoteObjectBody(entry, response.body);
+  } catch (error) {
+    if (error?.retryable === true) throw error;
+    const readError = new Error(
+      `GET ${entry.key} 读取失败：${error instanceof Error ? error.message : String(error)}`,
+    );
+    readError.retryable = true;
+    throw readError;
   }
 }
 
@@ -374,8 +435,16 @@ async function putObjectOnce(entry, config, immutable) {
   });
   if (immutable && response.status === 412) {
     const headers = await headObject(entry, config);
-    if (!headers) throw new Error(`${entry.key} 条件写入冲突后对象不存在`);
-    verifyRemoteMetadata(entry, headers);
+    if (!headers) {
+      throw retryableRemoteMetadataError(`${entry.key} 条件写入冲突后对象不存在`);
+    }
+    try {
+      verifyRemoteMetadata(entry, headers);
+    } catch (error) {
+      if (error?.retryable !== true) throw error;
+      console.warn(`${error.message}；改用 GET 正文字节数与 SHA-256 复核。`);
+      await getAndVerifyObject(entry, config);
+    }
     return { reused: true };
   }
   if (!response.ok) {
