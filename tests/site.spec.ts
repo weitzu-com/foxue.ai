@@ -1106,6 +1106,9 @@ test("全站导航按读者任务收束且移动端常用入口始终可达", as
   await expect(moreEntries.getByRole("link", { name: "研究", exact: true })).toHaveAttribute("href", "/yanjiu");
   await expect(moreEntries.getByRole("link", { name: "原则", exact: true })).toHaveAttribute("href", "/yuanze");
   await expect(moreEntries.getByRole("link", { name: "透明", exact: true })).toHaveAttribute("href", "/touming");
+  await moreEntries.getByRole("link", { name: "核对说法" }).click();
+  await expect(page).toHaveURL(/\/hedui$/);
+  await expect(more).not.toHaveAttribute("open", "");
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/shufang");
@@ -1145,6 +1148,9 @@ test("全站导航按读者任务收束且移动端常用入口始终可达", as
   const allNavigationLinks = allNavigation.getByRole("navigation", { name: "全部导航" });
   await expect(allNavigationLinks.getByRole("link", { name: "探索", exact: true })).toHaveAttribute("href", "/gainian");
   await expect(allNavigationLinks.getByRole("link", { name: "研究", exact: true })).toHaveAttribute("href", "/yanjiu");
+  await allNavigationLinks.getByRole("link", { name: "探索", exact: true }).click();
+  await expect(page).toHaveURL(/\/gainian$/);
+  await expect(allNavigation).not.toHaveAttribute("open", "");
 
   const accessibility = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
