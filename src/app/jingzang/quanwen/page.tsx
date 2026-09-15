@@ -7,7 +7,7 @@ import { buildPageJsonLd, buildPageMetadata, serializeJsonLd } from "@/lib/site-
 
 type PageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 const pagePath = "/jingzang/quanwen";
-const title = "佛经全文逐字检索";
+const title = "佛经全文逐字检索｜原文与目录";
 const description = "在 foxue.ai 已审计佛典全文中按原文短句精确检索，返回版本、版页、稳定行段与可核验原典链接。";
 
 function scalar(value: string | string[] | undefined) {
