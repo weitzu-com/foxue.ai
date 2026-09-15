@@ -6,7 +6,7 @@ import {
   type HeartSutraComparisonEdition,
 } from "@/components/heart-sutra-comparison";
 import { getSutra, getWorkExpressionGroup, type Sutra } from "@/data/sutras";
-import { getSutraFolio, getSutraReading } from "@/lib/corpus-reading";
+import { getLocalSutraReading, getSutraFolio } from "@/lib/corpus-reading";
 import { folioHref } from "@/lib/reader-routes";
 import {
   absoluteUrl,
@@ -75,7 +75,10 @@ const mainTextStartBySlug: Record<string, string> = {
 };
 
 async function loadEdition(sutra: Sutra): Promise<HeartSutraComparisonEdition> {
-  const reading = await getSutraReading(sutra);
+  // The complete witnesses become part of this static page at build time. Do
+  // not consult the revalidated edge pointer here: that would turn this route
+  // into ISR and require corpus masters inside a non-bucket server function.
+  const reading = await getLocalSutraReading(sutra);
   const folios = await Promise.all(
     reading.navigation.map((item) => getSutraFolio(sutra, reading, item.key)),
   );
