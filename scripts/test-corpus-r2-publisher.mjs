@@ -9,6 +9,7 @@ import {
   publishCorpusRelease,
   signS3Request,
   verifyRemoteMetadata,
+  verifyRemoteObjectBody,
 } from "./publish-corpus-release-s3.mjs";
 
 const awsExample = signS3Request({
@@ -56,7 +57,22 @@ transientRemoteHeaders.delete("content-length");
 assert.throws(
   () => verifyRemoteMetadata(remoteEntry, transientRemoteHeaders),
   (error) => error instanceof Error && error.retryable === true && /远端字节数不一致/.test(error.message),
-  "R2 条件写入后的瞬态 HEAD 元数据差异必须进入有限重试",
+  "R2 条件写入后的 HEAD 元数据差异必须触发正文复核或有限重试",
+);
+
+const remoteBody = Buffer.from("verified R2 object\n");
+const remoteBodyEntry = {
+  key: "v1/releases/test/body.json",
+  bytes: remoteBody.length,
+  sha256: sha256(remoteBody),
+};
+await assert.doesNotReject(
+  verifyRemoteObjectBody(remoteBodyEntry, [remoteBody.subarray(0, 7), remoteBody.subarray(7)]),
+);
+await assert.rejects(
+  verifyRemoteObjectBody(remoteBodyEntry, [Buffer.from("tampered R2 object\n")]),
+  (error) => error instanceof Error && error.retryable === true && /字节数不一致|SHA-256 不一致/.test(error.message),
+  "GET 回退必须拒绝与上传计划不一致的实际正文",
 );
 
 const fixtureRoot = await mkdtemp(join(tmpdir(), "foxue-r2-publisher-"));
