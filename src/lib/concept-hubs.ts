@@ -13,6 +13,7 @@ export type ConceptEntry = {
   href: `/gainian/${ConceptSlug}`;
   summary: string;
   aliases: string[];
+  wordAliases?: string[];
   selectionAliases: string[];
   scopedSelectionAliases?: Array<{
     sourceHrefPrefix: string;

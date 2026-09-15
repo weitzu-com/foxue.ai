@@ -9,6 +9,7 @@ import {
   nonAbidingConcept,
   nonSelfConcept,
   observingMindConcept,
+  queryMatchesConcept,
   sufferingConcept,
   type ConceptEntry,
 } from "@/lib/concepts";
@@ -311,7 +312,7 @@ export function buildResearchResult(
   }
 
   if (
-    has(...sufferingConcept.aliases)
+    queryMatchesConcept(query, sufferingConcept)
     || sourceMatchesConcept(sufferingConcept)
   ) {
     return finish({

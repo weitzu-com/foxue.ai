@@ -2245,6 +2245,14 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await page.getByRole("button", { name: "回到原典" }).click();
   await page.waitForURL(/\/gainian\/ku$/);
 
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("What is adukkhamasukha?");
+  await expect(page.locator(".search-concept-hit")).toHaveCount(0);
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText("当前经藏样本尚不足以可靠回答这个问题", { exact: true })).toBeVisible();
+
   await page.goto("/wenjing");
   await page.getByLabel("输入佛学问题").fill("佛教说人生是苦，是在否定人生吗？");
   await page.getByRole("button", { name: "查找证据" }).click();
@@ -2298,6 +2306,11 @@ test("苦问经兼容英文并保留四谛与现实痛苦的既有路由", async
     "href",
     "/gainian/guanxin",
   );
+
+  await page.getByLabel("输入佛学问题").fill("What is adukkhamasukha?");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText("当前经藏样本尚不足以可靠回答这个问题", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“苦”概念 Hub/ })).toHaveCount(0);
 });
 
 test("旧查询参数不会被读取或显示", async ({ page }) => {

@@ -17,11 +17,22 @@ if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingC
   throw new Error("概念 Hub 配置不完整");
 }
 
-export function conceptForQuery(rawQuery: string): ConceptEntry | undefined {
-  const query = rawQuery.trim().toLocaleLowerCase();
-  if (!query) return undefined;
+function containsWord(query: string, word: string) {
+  const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^\\p{L}\\p{N}_])${escapedWord}($|[^\\p{L}\\p{N}_])`, "u").test(query);
+}
 
-  return allConcepts.find((concept) =>
-    concept.aliases.some((alias) => query.includes(alias.toLocaleLowerCase())),
-  );
+export function queryMatchesConcept(rawQuery: string, concept: ConceptEntry) {
+  const query = rawQuery.trim().toLocaleLowerCase();
+  if (!query) return false;
+
+  return concept.aliases.some((alias) => query.includes(alias.toLocaleLowerCase()))
+    || concept.wordAliases?.some((alias) => containsWord(query, alias.toLocaleLowerCase()))
+    || false;
+}
+
+export function conceptForQuery(rawQuery: string): ConceptEntry | undefined {
+  if (!rawQuery.trim()) return undefined;
+
+  return allConcepts.find((concept) => queryMatchesConcept(rawQuery, concept));
 }
