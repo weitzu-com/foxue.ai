@@ -2296,6 +2296,40 @@ a {
 }
 .concept-page--wuyun .term-register h3 { font-size: 1.82rem; }
 
+.concept-page--ku {
+  --concept-teal: #8b4634;
+  --concept-teal-deep: #3a211a;
+  --concept-mist: #edddd4;
+  --concept-line: #c89582;
+}
+
+.concept-page--ku .concept-hero {
+  background:
+    radial-gradient(circle at 78% 45%, color-mix(in srgb, var(--concept-mist) 74%, transparent) 0 9%, transparent 9.2% 18%, color-mix(in srgb, var(--concept-mist) 38%, transparent) 18.2% 27%, transparent 27.2%),
+    linear-gradient(180deg, color-mix(in srgb, var(--concept-mist) 42%, var(--canvas)), var(--canvas));
+}
+
+.concept-page--ku .emptiness-lens {
+  box-shadow:
+    inset 0 0 0 1.2rem color-mix(in srgb, var(--concept-mist) 34%, transparent),
+    0 2rem 5rem color-mix(in srgb, var(--concept-teal) 12%, transparent);
+}
+
+.concept-page--ku .emptiness-lens::before,
+.concept-page--ku .emptiness-lens::after {
+  border-color: color-mix(in srgb, var(--concept-teal) 34%, transparent);
+}
+
+.concept-page--ku .term-register article {
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--concept-mist) 48%, transparent), transparent 58%),
+    color-mix(in srgb, var(--paper) 52%, transparent);
+}
+
+.concept-page--ku .concept-boundaries { background: #2f211d; }
+.concept-page--ku .concept-misreadings { background: color-mix(in srgb, var(--concept-mist) 48%, var(--paper)); }
+.concept-page--ku .concept-footer { background: var(--concept-teal-deep); }
+
 .concept-hero {
   position: relative;
   overflow: hidden;
@@ -3335,6 +3369,12 @@ a {
     --concept-teal-deep: #201a14;
     --concept-mist: #342c22;
     --concept-line: #76644f;
+  }
+  .concept-page--ku {
+    --concept-teal: #e0a08d;
+    --concept-teal-deep: #21120e;
+    --concept-mist: #3e2923;
+    --concept-line: #845f53;
   }
   .emptiness-lens::after { background: var(--canvas); }
   .concept-boundaries { background: #0b1718; }

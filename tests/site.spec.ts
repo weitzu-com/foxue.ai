@@ -99,6 +99,7 @@ const criticalRoutes = [
   "/gainian/sidi",
   "/gainian/bazhengdao",
   "/gainian/wuyun",
+  "/gainian/ku",
   "/jingzang",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
@@ -182,6 +183,7 @@ const sitemapLandingRoutes = [
   "/gainian/sidi",
   "/gainian/bazhengdao",
   "/gainian/wuyun",
+  "/gainian/ku",
   "/jingzang",
   "/fugai",
   "/fenmu",
@@ -216,6 +218,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/bazhengdao</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/wuyun</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/gainian/ku</loc>");
   expect(hubs).not.toContain("/jingzang/xinjing/001-0848c");
 
   const works = await (await request.get("/sitemap-works.xml")).text();
@@ -356,6 +359,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("/gainian/sidi");
   expect(full).toContain("/gainian/bazhengdao");
   expect(full).toContain("/gainian/wuyun");
+  expect(full).toContain("/gainian/ku");
   expect(full).toContain("/sitemap-index.xml");
   expect(full).toContain("当前登记");
 });
@@ -514,6 +518,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/gainian/wuyun#page", "WebPage"],
         ["https://www.foxue.ai/gainian/wuyun#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/wuyun#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/gainian/ku",
+      required: [
+        ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
       ],
     },
     {
@@ -1961,6 +1973,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await page.goto("/gainian");
 
   await expect(page.getByRole("heading", { level: 1, name: /先进入主题层/ })).toBeVisible();
+  await expect(page.locator(".task-card")).toHaveCount(10);
   await expect(page.locator('a[href="/gainian/kong"]')).toContainText("空");
   await expect(page.locator('a[href="/gainian/wuchang"]')).toContainText("无常");
   await expect(page.locator('a[href="/gainian/wuwo"]')).toContainText("无我");
@@ -1970,6 +1983,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   await expect(page.locator('a[href="/gainian/sidi"]')).toContainText("四圣谛");
   await expect(page.locator('a[href="/gainian/bazhengdao"]')).toContainText("八正道");
   await expect(page.locator('a[href="/gainian/wuyun"]')).toContainText("五蕴");
+  await expect(page.locator('a[href="/gainian/ku"]')).toContainText("苦");
 
   const sitemap = await request.get("/sitemap-hubs.xml");
   expect(sitemap.ok()).toBeTruthy();
@@ -1983,6 +1997,7 @@ test("主题层入口页列出当前概念 Hub 并提供稳定链接", async ({ 
   expect(body).toContain("/gainian/sidi");
   expect(body).toContain("/gainian/bazhengdao");
   expect(body).toContain("/gainian/wuyun");
+  expect(body).toContain("/gainian/ku");
 });
 
 test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
@@ -2071,6 +2086,27 @@ test("新增概念 Hub 给出边界与稳定原典入口", async ({ page }) => {
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
     .analyze();
   expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.goto("/gainian/ku");
+  await expect(page.getByRole("heading", { level: 1, name: /苦.*不是对人生的.*悲观总判决/ })).toBeVisible();
+  await expect(page.getByText("第二支箭说明心理痛苦都是自己选的", { exact: true })).toBeVisible();
+  await expect(page.getByText("苦苦 · 行苦 · 坏苦", { exact: true })).toBeVisible();
+  await expect(page.locator(".term-register article")).toHaveCount(4);
+  await expect(page.getByRole("link", { name: "站内稳定原文" })).toHaveCount(4);
+  await expect(page.getByRole("link", { name: "站内稳定原文" }).nth(1)).toHaveAttribute(
+    "href",
+    "/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060#sn56.11:4.2",
+  );
+
+  const sufferingViewport = page.viewportSize();
+  const sufferingPageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(sufferingPageWidth).toBeLessThanOrEqual(sufferingViewport?.width ?? sufferingPageWidth);
+  const sufferingAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(sufferingAccessibility.violations.filter((item) =>
     item.impact === "serious" || item.impact === "critical",
   )).toEqual([]);
 });
@@ -2202,6 +2238,20 @@ test("首页搜索建议与问经结果都能进入相关概念 Hub", async ({ p
   await expect(fiveAggregatesHubLink).toBeVisible();
   await fiveAggregatesHubLink.click();
   await page.waitForURL(/\/gainian\/wuyun$/);
+
+  await page.goto("/");
+  await page.getByRole("tab", { name: "查术语" }).click();
+  await page.getByLabel("输入佛学问题、经名、句子或术语").fill("三苦");
+  await page.getByRole("button", { name: "回到原典" }).click();
+  await page.waitForURL(/\/gainian\/ku$/);
+
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("佛教说人生是苦，是在否定人生吗？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/苦不是对人生的悲观总判决/)).toBeVisible();
+  await expect(page.locator(".evidence-card")).toHaveCount(4);
+  const sufferingHubLink = page.getByRole("link", { name: /进入“苦”概念 Hub/ });
+  await expect(sufferingHubLink).toHaveAttribute("href", "/gainian/ku");
 });
 
 test("五蕴问经兼容英文大小写并保留五蕴皆空的空义优先级", async ({ page }) => {
@@ -2220,6 +2270,33 @@ test("五蕴问经兼容英文大小写并保留五蕴皆空的空义优先级",
   await expect(page.getByRole("link", { name: /进入“空”概念 Hub/ })).toHaveAttribute(
     "href",
     "/gainian/kong",
+  );
+});
+
+test("苦问经兼容英文并保留四谛与现实痛苦的既有路由", async ({ page }) => {
+  await page.goto("/wenjing");
+  await page.getByLabel("输入佛学问题").fill("What is Dukkha?");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/苦不是对人生的悲观总判决/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“苦”概念 Hub/ })).toHaveAttribute(
+    "href",
+    "/gainian/ku",
+  );
+
+  await page.getByLabel("输入佛学问题").fill("四圣谛是不是说人生只有痛苦？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/四圣谛不是四句悲观结论/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“四圣谛”概念 Hub/ })).toHaveAttribute(
+    "href",
+    "/gainian/sidi",
+  );
+
+  await page.getByLabel("输入佛学问题").fill("痛苦都是自己想出来的吗？");
+  await page.getByRole("button", { name: "查找证据" }).click();
+  await expect(page.getByText(/先看清心如何带动语言与行动/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /进入“观心”概念 Hub/ })).toHaveAttribute(
+    "href",
+    "/gainian/guanxin",
   );
 });
 
@@ -2741,6 +2818,68 @@ test("其他经中的单个 rūpa 不会被误标成整套五蕴", async ({ page
   await expect(page.getByText(/五蕴不是五个灵魂部件/)).toHaveCount(0);
   await expect(
     page.locator("[data-question-source-context]").getByText("sn22.59:2.1", { exact: true }),
+  ).toBeVisible();
+});
+
+test("三苦与两箭原段可进入苦专题并保留选文上下文", async ({ page }) => {
+  const cases = [
+    {
+      href: "/jingzang/samyutta-nikaya-sn38/014-sn38-14-0001-0017",
+      segmentId: "sn38.14:1.4",
+    },
+    {
+      href: "/jingzang/samyutta-nikaya-sn36/006-sn36-6-0001-0063",
+      segmentId: "sn36.6:1.6",
+    },
+  ];
+
+  for (const item of cases) {
+    await page.goto(item.href);
+    await page.evaluate((segmentId) => {
+      const target = document.getElementById(segmentId);
+      if (!target) throw new Error(`Missing suffering source segment: ${segmentId}`);
+      const range = document.createRange();
+      range.selectNodeContents(target);
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      document.dispatchEvent(new Event("selectionchange"));
+    }, item.segmentId);
+
+    const dock = await waitForFolioStudyDock(page);
+    await expect(dock.getByRole("link", { name: "解释术语：苦" })).toHaveAttribute(
+      "href",
+      "/gainian/ku",
+    );
+    await dock.getByRole("button", { name: "问这段" }).click();
+    await page.waitForURL(/\/wenjing$/);
+    await expect(page.getByText(/苦不是对人生的悲观总判决/)).toBeVisible();
+    await expect(
+      page.locator("[data-question-source-context]").getByText(item.segmentId, { exact: true }),
+    ).toBeVisible();
+  }
+});
+
+test("其他经中的单个 dukkha 不会被误标成整套苦专题", async ({ page }) => {
+  await page.goto("/jingzang/samyutta-nikaya-sn22/059-sn22-59-0001-0059");
+  await page.evaluate(() => {
+    const target = document.getElementById("sn22.59:6.5");
+    if (!target) throw new Error("Missing standalone dukkha segment");
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  });
+
+  const dock = await waitForFolioStudyDock(page);
+  await expect(dock.getByRole("link", { name: "解释术语：苦" })).toHaveCount(0);
+  await dock.getByRole("button", { name: "问这段" }).click();
+  await page.waitForURL(/\/wenjing$/);
+  await expect(page.getByText(/苦不是对人生的悲观总判决/)).toHaveCount(0);
+  await expect(
+    page.locator("[data-question-source-context]").getByText("sn22.59:6.5", { exact: true }),
   ).toBeVisible();
 });
 

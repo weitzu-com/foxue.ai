@@ -2,9 +2,10 @@ import { expandedConceptHubs } from "@/lib/concept-hubs-expanded";
 import { eightfoldPathConceptHub } from "@/lib/concept-hubs-eightfold-path";
 import { fiveAggregatesConceptHub } from "@/lib/concept-hubs-five-aggregates";
 import { fourNobleTruthsConceptHub } from "@/lib/concept-hubs-four-truths";
+import { sufferingConceptHub } from "@/lib/concept-hubs-suffering";
 import { dependentOriginationConceptHub } from "@/lib/concept-hubs-yuanqi";
 
-export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi" | "sidi" | "bazhengdao" | "wuyun";
+export type ConceptSlug = "kong" | "wuchang" | "wuwo" | "wuzhu" | "guanxin" | "yuanqi" | "sidi" | "bazhengdao" | "wuyun" | "ku";
 
 export type ConceptEntry = {
   slug: ConceptSlug;
@@ -725,6 +726,7 @@ const conceptHubs: readonly ConceptHub[] = [
   fourNobleTruthsConceptHub,
   eightfoldPathConceptHub,
   fiveAggregatesConceptHub,
+  sufferingConceptHub,
 ];
 
 export const allConceptHubs = [...conceptHubs];

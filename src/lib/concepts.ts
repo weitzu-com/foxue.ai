@@ -11,8 +11,9 @@ export const dependentOriginationConcept = getConceptEntry("yuanqi");
 export const fourNobleTruthsConcept = getConceptEntry("sidi");
 export const eightfoldPathConcept = getConceptEntry("bazhengdao");
 export const fiveAggregatesConcept = getConceptEntry("wuyun");
+export const sufferingConcept = getConceptEntry("ku");
 
-if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept || !dependentOriginationConcept || !fourNobleTruthsConcept || !eightfoldPathConcept || !fiveAggregatesConcept) {
+if (!emptinessConcept || !impermanenceConcept || !nonSelfConcept || !nonAbidingConcept || !observingMindConcept || !dependentOriginationConcept || !fourNobleTruthsConcept || !eightfoldPathConcept || !fiveAggregatesConcept || !sufferingConcept) {
   throw new Error("概念 Hub 配置不完整");
 }
 
