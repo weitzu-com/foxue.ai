@@ -93,13 +93,13 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
             <span>续</span>
           </div>
           <div className={styles.homeResumeCopy}>
-            <p>继续七日路径 · {relativeReadTime(resumePath.updatedAt, now)}</p>
+            <p>继续{definition.journeyLabel} · {relativeReadTime(resumePath.updatedAt, now)}</p>
             <h2 id="home-path-resume-title">
-              {definition.title} · {completed ? "七日已走完" : `第 ${resumeDay} 天`}
+              {definition.title} · {completed ? `${definition.cycleLabel}已走完` : `第 ${resumeDay} ${definition.unitLabel}`}
             </h2>
             <span>
               {completed
-                ? "七日均已标记；可从第一天重读，不设置连续天数或排名。"
+                ? `${definition.cycleLabel}均已标记；可从第一${definition.unitLabel}重读，不设置连续天数或排名。`
                 : `已标记 ${coveredCount} / 7 · 不计连续天数，什么时候回来都可以。`}
             </span>
           </div>
@@ -108,7 +108,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
               href={`${definition.href}#day-${resumeDay}`}
               onNavigate={() => trackPathResume(resumePath, "home")}
             >
-              {completed ? "回看第一天" : `继续第 ${resumeDay} 天`} <ArrowRight aria-hidden="true" />
+              {completed ? `回看第一${definition.unitLabel}` : `继续第 ${resumeDay} ${definition.unitLabel}`} <ArrowRight aria-hidden="true" />
             </Link>
             <Link href="/xue">查看全部研读路径</Link>
           </div>
@@ -158,7 +158,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
           <h2 id="reading-shelf-title">离开，不等于从头再来。</h2>
         </div>
         <p>
-          七日路径的下一步、最近读到的稳定原文位置与主动收藏都只保存在当前浏览器；不登录，不上传阅读轨迹。
+          研读路径的下一步、最近读到的稳定原文位置与主动收藏都只保存在当前浏览器；不登录，不上传阅读轨迹。
         </p>
       </header>
 
@@ -166,7 +166,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
         <div className={styles.pathActivitySection} aria-labelledby="path-activity-title">
           <div className={styles.pathActivityIntro}>
             <div>
-              <p>七日路径 · 接着走</p>
+              <p>研读路径 · 接着走</p>
               <h3 id="path-activity-title">不追连续天数，只保留下一步。</h3>
             </div>
             <span>完成与跳过都可回看；更新时间仅用于把最近路径排在前面。</span>
@@ -185,19 +185,19 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
                   key={entry.id}
                 >
                   <div className={styles.pathActivityTopline}>
-                    <span><Route aria-hidden="true" /> {completed ? "七日已走完" : "继续路径"}</span>
+                    <span><Route aria-hidden="true" /> {completed ? `${definition.cycleLabel}已走完` : "继续路径"}</span>
                     <span>{relativeReadTime(entry.updatedAt, now)}</span>
                   </div>
                   <h4>{definition.title}</h4>
                   <p>
                     {completed
-                      ? "七日均已标记；现在可以带着新的问题重读。"
-                      : `下一步：第 ${resumeDay} 天 · 已标记 ${coveredCount} / 7`}
+                      ? `${definition.cycleLabel}均已标记；现在可以带着新的问题重读。`
+                      : `下一步：第 ${resumeDay} ${definition.unitLabel} · 已标记 ${coveredCount} / 7`}
                   </p>
                   <div
                     className={styles.pathActivityTrack}
                     role="progressbar"
-                    aria-label={`${definition.shortTitle}七日研读进度`}
+                    aria-label={`${definition.shortTitle}${definition.journeyLabel}研读进度`}
                     aria-valuemin={0}
                     aria-valuemax={7}
                     aria-valuenow={coveredCount}
@@ -208,7 +208,7 @@ export function ReadingShelf({ variant = "study" }: { variant?: "study" | "home"
                     href={`${definition.href}#day-${resumeDay}`}
                     onNavigate={() => trackPathResume(entry, "study")}
                   >
-                    {completed ? "回看第一天" : `继续第 ${resumeDay} 天`} <ArrowRight aria-hidden="true" />
+                    {completed ? `回看第一${definition.unitLabel}` : `继续第 ${resumeDay} ${definition.unitLabel}`} <ArrowRight aria-hidden="true" />
                   </Link>
                 </article>
               );

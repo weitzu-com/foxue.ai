@@ -345,6 +345,43 @@
   color: #f7f1e7;
 }
 
+.pathLotus {
+  grid-column: 1 / -1;
+  min-height: 440px !important;
+  background:
+    radial-gradient(circle at 84% 18%, rgb(215 163 90 / 16%), transparent 17rem),
+    linear-gradient(118deg, #17221c 0%, #202a23 62%, #3a211d 100%);
+  color: #f7f1e7;
+}
+
+.pathLotus .pathTopline span {
+  color: #d9a35a;
+}
+
+.pathLotus h3 {
+  max-width: 21ch;
+}
+
+.pathLotus > p {
+  color: #bdc7bf !important;
+}
+
+.pathLotus li {
+  border-color: #667168;
+  color: #c8d0c9;
+}
+
+.pathLotus > a {
+  border-color: #d9a35a !important;
+  color: #edc985 !important;
+}
+
+.pathLotus > a:hover {
+  border-color: #8d302b !important;
+  background: #8d302b !important;
+  color: #fffdf8 !important;
+}
+
 .pathTopline {
   display: flex;
   align-items: center;

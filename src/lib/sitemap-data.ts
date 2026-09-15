@@ -24,6 +24,7 @@ const editorialHubPaths = [
   "/gainian/ku",
   "/xue",
   "/xue/amituojing",
+  "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/biji",

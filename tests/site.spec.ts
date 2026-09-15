@@ -92,6 +92,7 @@ const criticalRoutes = [
   "/xue",
   "/xue/amituojing",
   "/xue/biji",
+  "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/xinjing",
@@ -182,6 +183,7 @@ const sitemapLandingRoutes = [
   "/xue",
   "/xue/amituojing",
   "/xue/biji",
+  "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/xinjing",
@@ -223,6 +225,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/biji</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/fahuajing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
@@ -279,6 +282,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/xue", "https://www.foxue.ai/xue"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
+    ["/xue/fahuajing", "https://www.foxue.ai/xue/fahuajing"],
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
     ["/xue/jingangjing", "https://www.foxue.ai/xue/jingangjing"],
     ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
@@ -477,6 +481,14 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/xue#page", "CollectionPage"],
         ["https://www.foxue.ai/xue#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/fahuajing",
+      required: [
+        ["https://www.foxue.ai/xue/fahuajing#page", "CollectionPage"],
+        ["https://www.foxue.ai/xue/fahuajing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/fahuajing#learning-resource", "LearningResource"],
       ],
     },
     {
@@ -1125,6 +1137,65 @@ test("金刚经研读在本地存储被禁用时仍可阅读和推进", async ({
   await expect(page).toHaveURL(/#day-7$/);
 });
 
+test("法华经七关以稳定原典、同品见证和本地进度打开二十八品", async ({ page, request }) => {
+  await page.goto("/xue/fahuajing");
+
+  await expect(page.locator("h1")).toContainText("《法华经》很长");
+  await expect(page.getByRole("heading", { name: "七处转折，打开二十八品。" })).toBeVisible();
+  await expect(page.locator(".learning-overview__grid > li")).toHaveCount(7);
+  await expect(page.getByText("当前阅读底本：姚秦·鸠摩罗什译 T0262")).toBeVisible();
+  await expect(page.getByText(/只链接同品，不宣称逐句或逐词对应/)).toBeVisible();
+  await expect(page.getByText("编辑路标不是经文")).toBeVisible();
+  await expect(page.getByRole("button", { name: "复制引文与出处" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /写研读笺/ })).toBeVisible();
+  await expect(page.locator('a[href="/jingzang/fahuajing/001-0007a#T0262.001.0007a21"]'))
+    .toContainText("T0262.001.0007a21–28");
+  await expect(page.locator('a[href^="/jingzang/gutenberg-en-lotus-soothill/001-c02#"]'))
+    .toBeVisible();
+
+  await page.getByRole("button", { name: /第 6 关.*未标记/ }).click();
+  await expect(page).toHaveURL(/#day-6$/);
+  await expect(page.getByRole("heading", { level: 2, name: "让时间尺度忽然打开" })).toBeVisible();
+  await expect(page.locator('a[href="/jingzang/fahuajing/005-0042b#T0262.005.0042b10"]'))
+    .toContainText("T0262.005.0042b10–13");
+  await expect(page.locator('a[href^="/jingzang/gutenberg-en-lotus-soothill/001-c16#"]'))
+    .toBeVisible();
+
+  await page.getByRole("button", { name: /读完这一关/ }).click();
+  expect(await page.evaluate(() =>
+    window.localStorage.getItem("foxue:fahuajing-seven-gate-progress:v1"),
+  )).toContain('"6":"completed"');
+  await expect.poll(() => page.evaluate(() =>
+    window.localStorage.getItem("foxue:study-path-activity:v1") ?? "",
+  )).toContain('"id":"fahuajing","activeDay":7');
+
+  await page.goto("/xue");
+  const resumeCard = page.locator('[data-study-path-card="fahuajing"]');
+  await expect(resumeCard).toBeVisible();
+  await expect(resumeCard.getByText("下一步：第 7 关 · 已标记 1 / 7")).toBeVisible();
+  await expect(resumeCard.getByRole("link", { name: /继续第 7 关/ }))
+    .toHaveAttribute("href", "/xue/fahuajing#day-7");
+
+  const primarySource = await request.get("/jingzang/fahuajing/005-0042b");
+  expect(primarySource.ok()).toBeTruthy();
+  expect(await primarySource.text()).toContain('id="T0262.005.0042b10"');
+  const englishWitness = await request.get("/jingzang/gutenberg-en-lotus-soothill/001-c16");
+  expect(englishWitness.ok()).toBeTruthy();
+  expect(await englishWitness.text()).toContain(
+    'id="GUTENBERG-LOTUS-SOOTHILL-1930.001.s0000033300"',
+  );
+
+  await page.goto("/xue/fahuajing#day-7");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+});
+
 test("阿弥陀经七日净读分开修持、理解与双译校读", async ({ page, request }) => {
   await page.goto("/xue/amituojing");
 
@@ -1274,6 +1345,8 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
     .toHaveAttribute("href", "/xue/jingangjing");
   await expect(page.getByRole("link", { name: /开始《阿弥陀经》七日净读/ }))
     .toHaveAttribute("href", "/xue/amituojing");
+  await expect(page.getByRole("link", { name: /打开《法华经》七关地图/ }))
+    .toHaveAttribute("href", "/xue/fahuajing");
   await expect(page.getByRole("link", { name: /打开三源档案/ })).toHaveAttribute("href", "/xue/faju");
   await expect(page.getByRole("link", { name: /打开本地研读笺/ })).toHaveAttribute("href", "/xue/biji");
   await expect(page.locator('header a[href="/xue"]').first()).toHaveAttribute("href", "/xue");
