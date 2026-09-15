@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/verify-jingangjing-learning-path.mjs && node scripts/verify-amituojing-learning-path.mjs && node scripts/verify-fahuajing-reading-path.mjs && node scripts/verify-daily-scripture.mjs",
+    "prebuild": "node scripts/verify-jingangjing-learning-path.mjs && node scripts/verify-amituojing-learning-path.mjs && node scripts/verify-fahuajing-reading-path.mjs && node scripts/verify-daily-scripture.mjs && node scripts/test-corpus-search-contract.mjs",
     "build": "next build",
     "postbuild": "node scripts/verify-corpus-runtime-traces.mjs && node scripts/verify-corpus-folio-runtime-guard.mjs && node scripts/verify-sitemap-runtime-guard.mjs",
     "start": "next start",
@@ -365,6 +365,9 @@
     "verify:parallel-reader-index": "node scripts/build-suttacentral-parallel-reader-index.mjs --verify",
     "build:corpus-release": "node scripts/build-corpus-release.mjs",
     "verify:corpus-release": "node scripts/verify-corpus-release.mjs",
+    "build:corpus-search-index": "node scripts/build-corpus-search-index.mjs --write",
+    "verify:corpus-search-index": "node scripts/build-corpus-search-index.mjs",
+    "test:corpus-search-contract": "node scripts/test-corpus-search-contract.mjs",
     "build:corpus-runtime-buckets": "node scripts/build-corpus-runtime-buckets.mjs --write",
     "verify:corpus-runtime-buckets": "node scripts/build-corpus-runtime-buckets.mjs",
     "build:corpus-folio-index": "node scripts/build-corpus-folio-index.mjs --write",

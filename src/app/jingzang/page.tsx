@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Database } from "lucide-react";
+import { ArrowRight, Database, TextSearch } from "lucide-react";
 import { LibraryCatalog } from "@/components/library-catalog";
 import { corpusPrinciples, sutras } from "@/data/sutras";
 import { buildCoverageSnapshot } from "@/lib/corpus-registry";
@@ -60,6 +60,11 @@ export default function LibraryPage() {
                 </Link>
               ))}
             </nav>
+            <Link className="library-exact-search" href="/jingzang/quanwen">
+              <TextSearch aria-hidden="true" />
+              <span><strong>记得一句经文？</strong> 在全部已审计正文中逐字找出处</span>
+              <ArrowRight aria-hidden="true" />
+            </Link>
           </div>
           <div className="subpage-hero__aside">
             <p>

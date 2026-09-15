@@ -1,4 +1,5 @@
 import objectKeyPolicy from "../object-key-policy.json";
+import { corpusSearchStorageReady, runCorpusSearch } from "./search";
 
 // Release builders only publish public reading objects below this layout. A
 // bounded canonical identifier keeps the path policy source-agnostic without
@@ -8,6 +9,7 @@ const immutableObjectPattern = new RegExp(objectKeyPolicy.immutableObjectPattern
 const corsOrigins = new Set(["https://www.foxue.ai", "https://foxue.ai"]);
 
 const latestKey = "v1/latest.json";
+const searchLatestKey = "v1/search/latest.json";
 
 function applySecurityHeaders(headers: Headers) {
   headers.set("content-security-policy", "default-src 'none'; frame-ancestors 'none'; base-uri 'none'");
@@ -41,7 +43,7 @@ function applyPublicHeaders(headers: Headers, request: Request, immutable: boole
 }
 
 function isAllowedKey(key: string) {
-  return key === latestKey || immutableObjectPattern.test(key);
+  return key === latestKey || key === searchLatestKey || immutableObjectPattern.test(key);
 }
 
 function latestDocument(env: Env) {
@@ -91,7 +93,10 @@ export default {
     }
 
     if (url.pathname === "/" || url.pathname === "/health" || url.pathname === "/ready") {
-      const storage = await storageState(env);
+      const [storage, searchReady] = await Promise.all([
+        storageState(env),
+        corpusSearchStorageReady(env),
+      ]);
       const ready = storage.mode === "ready";
       const readinessProbe = url.pathname === "/ready";
       return json(
@@ -102,6 +107,7 @@ export default {
           storage: storage.mode,
           ready,
           preservationReady: ready,
+          searchReady,
           readOnly: true,
           originCoverage: env.ORIGIN_COVERAGE_URL,
           message: ready
@@ -111,6 +117,21 @@ export default {
         {
           status: readinessProbe && !ready ? 503 : 200,
           headers: { "cache-control": "no-store" },
+        },
+        isHead,
+      );
+    }
+
+    if (url.pathname === "/search") {
+      const search = await runCorpusSearch(url, env);
+      const headers = new Headers();
+      applyPublicHeaders(headers, request, false);
+      if (search.status !== 200) headers.set("cache-control", "no-store");
+      return json(
+        search.body,
+        {
+          status: search.status,
+          headers,
         },
         isHead,
       );

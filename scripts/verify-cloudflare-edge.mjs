@@ -7,6 +7,7 @@ const requireReady = process.env.REQUIRE_READY === "true";
 const requireMullerIndex = process.env.REQUIRE_MULLER_INDEX === "true";
 const requireGemmellIndex = process.env.REQUIRE_GEMMELL_INDEX === "true";
 const requireSoothillIndex = process.env.REQUIRE_SOOTHILL_INDEX === "true";
+const requireSearch = process.env.REQUIRE_SEARCH === "true";
 const failures = [];
 const successes = [];
 
@@ -109,6 +110,13 @@ if (health) {
     );
   } else if (health.body?.storage !== "ready") {
     console.warn(`⚠ R2 尚未就绪，当前诚实状态为 ${health.body?.storage ?? "未知"}`);
+  }
+  if (requireSearch) {
+    check(
+      health.body?.searchReady === true,
+      "全文检索索引已就绪",
+      "要求全文检索就绪，但健康状态未确认 searchReady",
+    );
   }
   if (expectedReleaseId) {
     check(
@@ -254,6 +262,52 @@ if (requireSoothillIndex && health?.body?.releaseId) {
       object.response.status === (shouldBeReady ? 200 : 503),
       `Soothill《法华经》英译节本${label}可用性与存储状态一致（${object.response.status}）`,
       `Soothill《法华经》英译节本${label}未通过公网对象键门禁（${object.response.status}）`,
+    );
+  }
+}
+
+if (requireSearch) {
+  const searchLatest = await request("/v1/search/latest.json", {
+    headers: { origin: "https://www.foxue.ai" },
+  });
+  if (searchLatest) {
+    check(
+      searchLatest.response.status === 200 &&
+        typeof searchLatest.body?.searchReleaseId === "string" &&
+        searchLatest.body?.corpusReleaseId === health?.body?.releaseId &&
+        /^v1\/search\/releases\/[a-z0-9][a-z0-9.-]{0,95}\/manifest\.json$/.test(
+          searchLatest.body?.manifestObjectKey ?? "",
+        ),
+      "全文检索指针与当前经藏发行一致",
+      "全文检索指针缺失、无效或指向不同经藏发行",
+    );
+    check(
+      searchLatest.response.headers.get("access-control-allow-origin") === "https://www.foxue.ai",
+      "全文检索指针允许规范 www 域名跨域读取",
+      "全文检索指针缺少规范 www 域名 CORS",
+    );
+  }
+
+  const search = await request("/search?q=%E6%87%89%E7%84%A1%E6%89%80%E4%BD%8F%E8%80%8C%E7%94%9F%E5%85%B6%E5%BF%83&language=zh&limit=3", {
+    headers: { origin: "https://www.foxue.ai" },
+  });
+  if (search) {
+    check(
+      search.response.status === 200 &&
+        search.body?.query?.normalized === "應無所住而生其心" &&
+        search.body?.release?.corpusReleaseId === health?.body?.releaseId &&
+        Array.isArray(search.body?.results) &&
+        search.body.results.length > 0 &&
+        search.body.results.every((result) =>
+          result?.excerpt?.match &&
+          /^https:\/\/www\.foxue\.ai\/jingzang\//.test(result?.href ?? "")),
+      "全文逐字检索返回经回查确认的稳定原典链接",
+      `全文逐字检索结果无效（HTTP ${search.response.status}）`,
+    );
+    check(
+      search.response.headers.get("access-control-allow-origin") === "https://www.foxue.ai",
+      "全文检索 API 允许规范 www 域名跨域读取",
+      "全文检索 API 缺少规范 www 域名 CORS",
     );
   }
 }

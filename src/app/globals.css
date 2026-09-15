@@ -1212,12 +1212,20 @@ a {
 .library-entry-points a svg { color: var(--cinnabar); transition: transform 180ms ease; }
 .library-entry-points a:hover { color: var(--cinnabar); }
 .library-entry-points a:hover svg { transform: translateX(2px); }
+.library-exact-search { min-height: 62px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; margin-top: 18px; padding: 13px 16px; border: 1px solid var(--line-dark); color: var(--ink-soft); }
+.library-exact-search > svg:first-child { color: var(--cinnabar); }
+.library-exact-search > svg:last-child { width: 15px; transition: transform 180ms ease; }
+.library-exact-search span { font-size: 0.7rem; }
+.library-exact-search strong { display: block; margin-bottom: 3px; color: var(--ink); font-family: var(--font-serif), serif; font-size: 0.95rem; }
+.library-exact-search:hover { border-color: var(--cinnabar); color: var(--cinnabar); }
+.library-exact-search:hover > svg:last-child { transform: translateX(3px); }
 .library-content { padding: 32px 0 125px; }
 .library-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 27px; }
 .library-search { min-height: 46px; display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.78rem; }
 .library-toolbar--search { display: grid; grid-template-columns: minmax(280px, 1fr) auto; gap: 14px 28px; padding: 18px 0 22px; border-block: 1px solid var(--line-dark); }
 .library-toolbar--search > p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 0.68rem; }
 .library-toolbar--search > p strong { color: var(--cinnabar); font-family: var(--font-serif), serif; font-size: 1rem; }
+.library-toolbar--search > p .library-fulltext-link { display: inline-flex; align-items: center; gap: 4px; margin-inline: 4px; color: var(--cinnabar); font-weight: 700; }
 .library-search { padding-left: 13px; border-bottom: 1px solid var(--ink); }
 .library-search input { width: 100%; min-width: 0; height: 46px; border: 0; outline: 0; background: transparent; color: var(--ink); font: 0.82rem var(--font-sans), sans-serif; }
 .library-search input::placeholder { color: var(--muted); opacity: 0.78; }

@@ -112,8 +112,33 @@ try {
 
   const latestContents = JSON.parse(await readFile(join(fixtureRoot, latestKey), "utf8"));
   assert.equal(latestContents.manifestObjectKey, manifestKey);
+
+  const searchReleaseId = "search-test-release";
+  const searchManifestKey = `v1/search/releases/${searchReleaseId}/manifest.json`;
+  const searchLatestKey = "v1/search/latest.json";
+  const searchManifest = await fixtureEntry(searchManifestKey, { searchReleaseId });
+  const searchLatest = await fixtureEntry(
+    searchLatestKey,
+    {
+      searchReleaseId,
+      manifestObjectKey: searchManifestKey,
+      manifestSha256: searchManifest.sha256,
+    },
+    "public, max-age=60, stale-while-revalidate=300",
+  );
+  const searchPlan = {
+    schema: "https://foxue.ai/schemas/corpus-search-upload-plan-v0.1",
+    releaseId: searchReleaseId,
+    bucket: "foxue-ai-corpus",
+    entries: [searchManifest, searchLatest],
+  };
+  await writeFile(planPath, `${JSON.stringify(searchPlan, null, 2)}\n`);
+  const validatedSearch = await loadAndValidateUploadPlan(planPath, { concurrency: 2 });
+  assert.equal(validatedSearch.releaseKind, "search");
+  assert.equal(validatedSearch.latestEntry.key, searchLatestKey);
+  assert.equal(validatedSearch.immutableEntries[0].key, searchManifestKey);
   console.log("✓ AWS SigV4 官方 PUT Object 测试向量通过");
-  console.log("✓ 上传计划路径、哈希、重复键与 latest 原子顺序验证通过");
+  console.log("✓ 经藏与全文索引上传计划的路径、哈希、重复键与 latest 原子顺序验证通过");
 } finally {
   await rm(fixtureRoot, { recursive: true, force: true });
 }

@@ -5,8 +5,9 @@ const workflowPaths = [
   ".github/workflows/preservation-recovery-drill.yml",
   ".github/workflows/cloudflare-edge-deploy.yml",
   ".github/workflows/cloudflare-edge-health.yml",
+  ".github/workflows/cloudflare-search-release.yml",
 ];
-const [r2, recovery, edgeDeploy, edgeHealth] = await Promise.all(
+const [r2, recovery, edgeDeploy, edgeHealth, searchRelease] = await Promise.all(
   workflowPaths.map((path) => readFile(path, "utf8")),
 );
 const failures = [];
@@ -45,7 +46,7 @@ function requireReleaseCapabilityGate(document, {
 
 for (const [path, document] of workflowPaths.map((path, index) => [
   path,
-  [r2, recovery, edgeDeploy, edgeHealth][index],
+  [r2, recovery, edgeDeploy, edgeHealth, searchRelease][index],
 ])) {
   if (/pull_request_target:/.test(document)) failures.push(`${path} 禁止使用 pull_request_target`);
   requirePattern(document, `${path} 根权限必须只读`, /permissions:\n\s+contents: read/);
@@ -80,6 +81,7 @@ requireOrder(r2, "R2 发布门禁必须先验证、再上传、再部署、最�
 ]);
 
 requirePattern(recovery, "恢复演练必须按季度运行", /schedule:\n\s+- cron: "17 3 1 \*\/3 \*"/);
+const productionSearchRelease = searchRelease.slice(searchRelease.indexOf("\n  publish:"));
 requirePattern(
   recovery,
   "恢复任务必须拒绝 pull_request",
@@ -139,6 +141,30 @@ requirePattern(
   "Worker 健康检查缺少公开验证",
   /node scripts\/verify-cloudflare-edge\.mjs https:\/\/canon\.foxue\.ai/,
 );
+
+requirePattern(
+  searchRelease,
+  "全文索引发布只能由 workflow_dispatch 进入生产步骤",
+  /publish:\n\s+needs: validate-search\n\s+if: github\.event_name == 'workflow_dispatch'/,
+);
+requirePattern(searchRelease, "全文索引发布缺少精确人工确认", /publish-foxue-corpus-search/);
+requirePattern(searchRelease, "全文索引发布必须与经藏发行共享并发锁", /group: cloudflare-r2-corpus-release/);
+for (const secret of [
+  "CLOUDFLARE_ACCOUNT_ID",
+  "CLOUDFLARE_API_TOKEN",
+  "R2_ACCESS_KEY_ID",
+  "R2_SECRET_ACCESS_KEY",
+]) {
+  requirePattern(searchRelease, `全文索引发布缺少 ${secret}`, new RegExp(secret));
+}
+requirePattern(searchRelease, "全文索引发布未要求公开 searchReady", /REQUIRE_SEARCH: "true"/);
+requireOrder(productionSearchRelease, "全文索引必须先构建验证、再预检、上传、部署并公开验证", [
+  "pnpm build:corpus-search-index",
+  "--dry-run --plan",
+  "node scripts/publish-corpus-release-s3.mjs --plan",
+  "wrangler deploy --config infra/corpus-edge/wrangler.jsonc",
+  "node scripts/verify-cloudflare-edge.mjs",
+]);
 
 if (failures.length > 0) {
   for (const failure of failures) console.error(`✗ ${failure}`);

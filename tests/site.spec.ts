@@ -108,6 +108,7 @@ const criticalRoutes = [
   "/gainian/ku",
   "/jingzang",
   "/jingzang/fanwen",
+  "/jingzang/quanwen",
   "/jingzang/fajujing",
   "/jingzang/fajujing/001-0559a",
   "/jingzang/taisho-t0002",
@@ -298,6 +299,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/gainian/wuyun", "https://www.foxue.ai/gainian/wuyun"],
     ["/jingzang", "https://www.foxue.ai/jingzang"],
     ["/jingzang/fanwen", "https://www.foxue.ai/jingzang/fanwen"],
+    ["/jingzang/quanwen", "https://www.foxue.ai/jingzang/quanwen"],
     ["/jingzang/page/2", "https://www.foxue.ai/jingzang/page/2"],
     ["/jingzang/xinjing", "https://www.foxue.ai/jingzang/xinjing"],
     ["/jingzang/xinjing/001-0848c", "https://www.foxue.ai/jingzang/xinjing/001-0848c"],
@@ -354,6 +356,64 @@ test("经藏搜索结果页 canonical 回落目录且声明 noindex", async ({ r
   expect(
     normalizeUrl(extractHeadValue(html, /<meta[^>]+property="og:url"[^>]+content="([^"]+)"/i)),
   ).toBe("https://www.foxue.ai/jingzang");
+});
+
+test("全文检索页区分书目与正文，并返回稳定原典定位", async ({ page, request }) => {
+  const metadataResponse = await request.get("/jingzang/quanwen?q=%E6%87%89%E7%84%A1%E6%89%80%E4%BD%8F%E8%80%8C%E7%94%9F%E5%85%B6%E5%BF%83");
+  expect(metadataResponse.ok()).toBeTruthy();
+  const metadataHtml = await metadataResponse.text();
+  expect(
+    normalizeUrl(extractHeadValue(metadataHtml, /<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i)),
+  ).toBe("https://www.foxue.ai/jingzang/quanwen");
+  expect(
+    extractHeadValue(metadataHtml, /<meta[^>]+name="robots"[^>]+content="([^"]+)"/i),
+  ).toBe("noindex, follow");
+
+  await page.route("https://canon.foxue.ai/search**", async (route) => {
+    const url = new URL(route.request().url());
+    expect(url.searchParams.get("q")).toBe("應無所住，而生其心");
+    expect(url.searchParams.get("language")).toBe("zh");
+    await route.fulfill({
+      contentType: "application/json; charset=utf-8",
+      body: JSON.stringify({
+        query: { normalizedCodePoints: 9, language: "zh" },
+        release: { searchReleaseId: "search-fixture", corpusReleaseId: "gbcr-fixture" },
+        coverage: { expressions: 4190, documents: 265253, indexedDocuments: 265253 },
+        counts: { candidateDocuments: 2, inspectedCandidates: 2, results: 1, truncated: false },
+        results: [{
+          documentId: 7,
+          title: "金剛般若波羅蜜經",
+          canonRef: "大正藏 T08, no. 235",
+          language: "古漢語（繁體）",
+          languageCode: "zh",
+          folio: { key: "001-0750a", label: "0750a", juan: "001" },
+          locator: "T08n0235_p0750a0101",
+          href: "https://www.foxue.ai/jingzang/jingangjing/001-0750a#T08n0235_p0750a0101",
+          excerpt: {
+            before: "菩薩摩訶薩",
+            match: "應無所住而生其心",
+            after: "不住色生心",
+            startsBeforeExcerpt: false,
+            continuesAfterExcerpt: true,
+          },
+        }],
+      }),
+    });
+  });
+
+  await page.goto("/jingzang/quanwen");
+  await page.getByRole("searchbox", { name: "输入佛经原文短句" }).fill("應無所住，而生其心");
+  await page.getByText("汉文", { exact: true }).click();
+  await page.getByRole("button", { name: "查原文" }).click();
+  await expect(page.getByRole("heading", { level: 3, name: "金剛般若波羅蜜經" })).toBeVisible();
+  await expect(page.locator("mark")).toHaveText("應無所住而生其心");
+  await expect(page.getByRole("link", { name: /打开原典定位/ })).toHaveAttribute(
+    "href",
+    "https://www.foxue.ai/jingzang/jingangjing/001-0750a#T08n0235_p0750a0101",
+  );
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    page.viewportSize()?.width ?? 0,
+  );
 });
 
 test("llms 文本使用 www 主域并反映真实页面职责", async ({ request }) => {

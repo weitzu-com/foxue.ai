@@ -1,0 +1,22 @@
+export const corpusSearchSchema: string;
+export const corpusSearchPointerSchema: string;
+export const corpusSearchResultSchema: string;
+export const corpusSearchGramSize: number;
+export const corpusSearchShardCount: number;
+export const corpusSearchDocumentShardSize: number;
+export const corpusSearchMinQueryLength: number;
+export const corpusSearchMaxQueryLength: number;
+export const corpusSearchMaxSelectedGrams: number;
+
+export function normalizeCorpusSearchText(value: unknown): string;
+export function corpusSearchCodePoints(value: string): string[];
+export function buildCorpusSearchGrams(normalizedValue: string): string[];
+export function selectCorpusSearchQueryGrams(normalizedValue: string): string[];
+export function corpusSearchHash(value: string): number;
+export function corpusSearchShardId(gram: string): number;
+export function corpusSearchShardLabel(shardId: number): string;
+export function corpusSearchDocumentShardId(documentId: number): number;
+export function corpusSearchDocumentShardLabel(shardId: number): string;
+export function decodeCorpusSearchPostings(bytes: Uint8Array): number[];
+export function intersectCorpusSearchPostings(postingLists: number[][]): number[];
+export function corpusSearchLanguageCode(language: unknown): "zh" | "bo" | "pi" | "en" | "ja" | "indic" | "other";

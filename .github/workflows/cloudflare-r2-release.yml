@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/cloudflare-r2-release.yml"
+      - ".github/workflows/cloudflare-search-release.yml"
       - "scripts/publish-corpus-release-s3.mjs"
       - "scripts/test-corpus-r2-publisher.mjs"
       - "scripts/validate-long-term-operations-workflows.mjs"

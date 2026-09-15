@@ -168,10 +168,10 @@ function CorpusAssetUnavailable({
       <section className="reader-index-lead">
         <BookMarked aria-hidden="true" />
         <p className="eyebrow">稳定入口已登记 · SOURCE ASSET PENDING</p>
-        <h1>目录已就绪，正文资产仍在同步。</h1>
+        <h1>目录已就绪，正文暂时未取得。</h1>
         <p>
           《{sutra.alternateTitle}》的版本、来源、稳定段落与当前页 {item.label} 已经进入全量登记册；
-          但承载正文的不可变边缘对象尚未完成播种。这里不会用样本文本冒充全文，也不会把暂时缺失误报成不存在。
+          但当前请求没有取得对应的不可变正文对象，可能是短暂同步或边缘读取故障。这里不会用样本文本冒充全文，也不会把暂时缺失误报成不存在。
         </p>
         <dl className="reader-index-stats">
           <div><dt>文本表达</dt><dd>{sutra.canonRef}</dd></div>

@@ -5,7 +5,7 @@ import corpusRuntimeTracing from "./src/data/corpus-runtime-tracing.generated.js
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
-  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
+  "connect-src 'self' https://canon.foxue.ai https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
   "font-src 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
