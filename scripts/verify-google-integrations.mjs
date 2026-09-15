@@ -126,7 +126,7 @@ async function getTxtRecords(hostname) {
   }
 }
 
-const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
+const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainianWuzhu, gainianGuanxin, gainianYuanqi, gainianSidi, gainianBazhengdao, gainianWuyun, gainianKu, jingzang, jingzangSearch, jingzangXinjing, jingzangXinjingFolio, jingzangJingangjing, jingzangFajujing, fugai, fenmu, shenjiao, touming, yuanze, robots, health, aiPolicy] = await Promise.all([
   get("/"),
   get("/wenjing"),
   get("/gainian"),
@@ -139,6 +139,7 @@ const [home, wenjing, gainian, gainianKong, gainianWuchang, gainianWuwo, gainian
   get("/gainian/sidi"),
   get("/gainian/bazhengdao"),
   get("/gainian/wuyun"),
+  get("/gainian/ku"),
   get("/jingzang"),
   get("/jingzang/sousuo?q=%E5%BF%83%E7%BB%8F"),
   get("/jingzang/xinjing"),
@@ -194,7 +195,7 @@ const pageExpectations = [
     gainian,
     {
       title: "佛教概念与主题 Hub｜foxue.ai",
-      description: "按主题进入四圣谛、八正道、五蕴、缘起、空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
+      description: "按主题进入苦、四圣谛、八正道、五蕴、缘起、空、无常、无我、无住、观心等受控证据页；先理解边界，再回到原典与问经。",
       bodyIncludes: ["先进入主题层", "再下钻到原典证据。", "进入概念 Hub"],
       jsonLd: [
         ["https://www.foxue.ai/gainian#page", "CollectionPage"],
@@ -321,6 +322,20 @@ const pageExpectations = [
         ["https://www.foxue.ai/gainian/wuyun#page", "WebPage"],
         ["https://www.foxue.ai/gainian/wuyun#term", "DefinedTerm"],
         ["https://www.foxue.ai/gainian/wuyun#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+  ],
+  [
+    "/gainian/ku",
+    gainianKu,
+    {
+      title: "苦｜dukkha、三苦与第二支箭原典导读｜foxue.ai",
+      description: "从《杂阿含经》与巴利《相应部》理解苦谛、三种苦及第二支箭，辨清 dukkha 不等于悲观主义，并回到稳定原典段落。",
+      bodyIncludes: ["不是对人生的", "苦苦 · 行苦 · 坏苦", "每项判断，都有可以重新打开的位置。"],
+      jsonLd: [
+        ["https://www.foxue.ai/gainian/ku#page", "WebPage"],
+        ["https://www.foxue.ai/gainian/ku#term", "DefinedTerm"],
+        ["https://www.foxue.ai/gainian/ku#breadcrumb", "BreadcrumbList"],
       ],
     },
   ],

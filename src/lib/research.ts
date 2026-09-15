@@ -9,6 +9,8 @@ import {
   nonAbidingConcept,
   nonSelfConcept,
   observingMindConcept,
+  queryMatchesConcept,
+  sufferingConcept,
   type ConceptEntry,
 } from "@/lib/concepts";
 import {
@@ -303,6 +305,59 @@ export function buildResearchResult(
           href: "/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060#sn56.11:5.2",
           source: "SuttaCentral SN 56.11",
           locator: "sn56.11:5.2 · 6.2 · 7.2 · 8.2",
+          relation: "直接",
+        }),
+      ],
+    });
+  }
+
+  if (
+    queryMatchesConcept(query, sufferingConcept)
+    || sourceMatchesConcept(sufferingConcept)
+  ) {
+    return finish({
+      query,
+      status: "有充分来源",
+      title: "苦不是对人生的悲观总判决，而是应被辨认、遍知并走向止息的问题",
+      answer: [
+        "SN 56.11 没有用一句抽象口号包办 dukkha，而是列出生、老、病、死，与不爱者相会、与所爱者分离、求不得，并以五取蕴作简要收束。随后经文说苦谛应被遍知；《杂阿含经》也说苦当知解，并在同一句继续说集当断、灭当证、道当修。",
+        "SN 38.14 明列三种 dukkhatā：dukkhadukkhatā、saṅkhāradukkhatā、vipariṇāmadukkhatā，常以苦苦、行苦、坏苦作中文导航。它们不是轻、中、重三档疼痛，也说明 dukkha 不能只译成当下难受。原段紧接八支圣道，分类的目的仍是遍知与实践。",
+        "SN 36.6 以两支箭区分身体苦受与随之而来的心理反应：修习不能保证第一箭不发生，但可训练不再追加第二箭。这个譬喻不能反过来责怪病人、创伤者或受害者；疾病、暴力、贫困与创伤的外部条件仍需现实帮助。",
+      ],
+      caution:
+        "这里并读 T0099、SN 56.11、SN 38.14 与 SN 36.6，但当前没有双人复核结论支持严格平行经认定；巴利中文均为本站工作释义，也不能代替医疗、心理、法律、危机支持或具资格的修学指导。",
+      concept: sufferingConcept,
+      evidence: [
+        inlineEvidence({
+          label: "《杂阿含经》T0099",
+          quote: "若比丘於苦聖諦當知、當解，於苦集聖諦當知、當斷，於苦滅聖諦當知、當證，於苦滅道跡聖諦當知、當修。",
+          href: "/jingzang/zaahanjing/015-0104b#T0099.015.0104b15",
+          source: "CBETA T02n0099",
+          locator: "T0099.015.0104b15–18",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 56.11",
+          quote: "Jātipi dukkhā, jarāpi dukkhā, byādhipi dukkho, maraṇampi dukkhaṁ … yampicchaṁ na labhati tampi dukkhaṁ—saṅkhittena pañcupādānakkhandhā dukkhā.",
+          href: "/jingzang/samyutta-nikaya-sn56/011-sn56-11-0001-0060#sn56.11:4.2",
+          source: "SuttaCentral SN 56.11",
+          locator: "sn56.11:4.2",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 38.14",
+          quote: "Tisso imā, āvuso, dukkhatā. Dukkhadukkhatā, saṅkhāradukkhatā, vipariṇāmadukkhatā.",
+          href: "/jingzang/samyutta-nikaya-sn38/014-sn38-14-0001-0017#sn38.14:1.3",
+          source: "SuttaCentral SN 38.14",
+          locator: "sn38.14:1.3–1.5",
+          relation: "直接",
+        }),
+        inlineEvidence({
+          label: "巴利《相应部》SN 36.6",
+          quote: "So dve vedanā vedayati—kāyikañca, cetasikañca. … So ekaṁ vedanaṁ vedayati—kāyikaṁ, na cetasikaṁ.",
+          href: "/jingzang/samyutta-nikaya-sn36/006-sn36-6-0001-0063#sn36.6:1.5",
+          source: "SuttaCentral SN 36.6",
+          locator: "sn36.6:1.5–1.13 · 2.1–3.6",
           relation: "直接",
         }),
       ],
