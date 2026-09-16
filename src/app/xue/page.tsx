@@ -72,6 +72,17 @@ const studyPaths = [
   },
   {
     number: "03",
+    status: "5 组校记",
+    title: "《心经》校记：看见一个字为什么这样写",
+    description:
+      "把题署与咒语中的异读放回大正藏、宋元明本与 CBETA 采用读法；先读见证，再讨论判断。",
+    meta: ["5 组 CBETA 校注", "2 条大正藏原注", "固定 TEI 来源指纹"],
+    href: "/xue/xinjing/jiaoji",
+    action: "打开《心经》校记书案",
+    tone: "paper",
+  },
+  {
+    number: "04",
     status: "七日核读",
     title: "《金刚经》：从“云何住”读到“如是观”",
     description:
@@ -82,7 +93,7 @@ const studyPaths = [
     tone: "gold",
   },
   {
-    number: "04",
+    number: "05",
     status: "七日净读",
     title: "《阿弥陀经》：从闻说进入愿、持与信",
     description:
@@ -93,7 +104,7 @@ const studyPaths = [
     tone: "blue",
   },
   {
-    number: "05",
+    number: "06",
     status: "七关路径",
     title: "《法华经》：从七处转折进入二十八品",
     description:
@@ -104,7 +115,7 @@ const studyPaths = [
     tone: "lotus",
   },
   {
-    number: "06",
+    number: "07",
     status: "三源研读档案",
     title: "《法句》：让汉译、巴利与英译各自站稳",
     description:
@@ -237,9 +248,9 @@ export default function StudyPage() {
           <div className={styles.sectionHeading}>
             <div>
               <p className={styles.eyebrow}>现在可读 · OPEN PATHS</p>
-              <h2 id="study-paths-title">六条路径，三种进入方式。</h2>
+              <h2 id="study-paths-title">七条路径，三种进入方式。</h2>
             </div>
-            <p>三十段月读适合随时开始；三条七日路径练习慢读、核读与净土原典修持；一条七关地图进入《法华经》二十八品；一份三源档案完成有边界的跨语种观察。</p>
+            <p>三十段月读适合随时开始；三条七日路径练习慢读、核读与净土原典修持；一份《心经》校记显露底本异读；一条七关地图进入《法华经》二十八品；一份三源档案完成有边界的跨语种观察。</p>
           </div>
           <div className={styles.pathGrid}>
             {studyPaths.map((path) => (

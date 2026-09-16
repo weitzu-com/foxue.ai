@@ -32,6 +32,7 @@ const editorialHubPaths = [
   "/xue/fahuajing",
   "/xue/faju",
   "/xue/jingangjing",
+  "/xue/xinjing/jiaoji",
 ];
 
 function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
