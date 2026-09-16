@@ -229,6 +229,7 @@ export default function ScriptureFinderPage() {
             <div className={styles.heroActions}>
               <a href="#routes">按目的选入口 <ArrowRight aria-hidden="true" /></a>
               <Link href="/xue/meiri">仍不确定？先读一段</Link>
+              <Link href="/xue/dujing">已经选好？学习怎样读</Link>
             </div>
           </div>
 

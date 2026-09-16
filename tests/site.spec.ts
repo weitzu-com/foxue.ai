@@ -90,6 +90,7 @@ const criticalRoutes = [
   "/yanjiu",
   "/gainian",
   "/xue",
+  "/xue/dujing",
   "/xue/xuanjing",
   "/xue/meiri",
   "/xue/amituojing",
@@ -184,6 +185,7 @@ const sitemapLandingRoutes = [
   "/yanjiu",
   "/gainian",
   "/xue",
+  "/xue/dujing",
   "/xue/xuanjing",
   "/xue/meiri",
   "/xue/amituojing",
@@ -228,6 +230,7 @@ test("站点地图索引提供单一提交入口", async ({ request }) => {
 test("站点地图按 Hub、经目和版页模板分层", async ({ request }) => {
   const hubs = await (await request.get("/sitemap-hubs.xml")).text();
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/dujing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xuanjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/meiri</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/amituojing</loc>");
@@ -290,6 +293,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/yanjiu", "https://www.foxue.ai/yanjiu"],
     ["/shufang", "https://www.foxue.ai/shufang"],
     ["/xue", "https://www.foxue.ai/xue"],
+    ["/xue/dujing", "https://www.foxue.ai/xue/dujing"],
     ["/xue/xuanjing", "https://www.foxue.ai/xue/xuanjing"],
     ["/xue/meiri", "https://www.foxue.ai/xue/meiri"],
     ["/xue/amituojing", "https://www.foxue.ai/xue/amituojing"],
@@ -576,12 +580,14 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(llms).toContain("全球佛经作品分母治理");
   expect(llms).toContain("汉巴作品关系双人复核队列");
   expect(llms).toContain("https://www.foxue.ai/xue");
+  expect(llms).toContain("https://www.foxue.ai/xue/dujing");
   expect(llms).toContain("https://www.foxue.ai/xue/xuanjing");
   expect(llms).toContain("https://www.foxue.ai/shufang");
   expect(llms).toContain("本地私密佛经书房");
   expect(llms).toContain("每日可核验原典");
   expect(full).toContain("| /shufang | 书房 |");
   expect(full).toContain("| /xue | 研读 |");
+  expect(full).toContain("| /xue/dujing | 佛经证据读法 |");
   expect(full).toContain("| /xue/xuanjing | 佛经入门选经 |");
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
@@ -685,6 +691,16 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
       required: [
         ["https://www.foxue.ai/xue#page", "CollectionPage"],
         ["https://www.foxue.ai/xue#breadcrumb", "BreadcrumbList"],
+      ],
+    },
+    {
+      path: "/xue/dujing",
+      required: [
+        ["https://www.foxue.ai/xue/dujing#page", "WebPage"],
+        ["https://www.foxue.ai/xue/dujing#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/dujing#method", "LearningResource"],
+        ["https://www.foxue.ai/xue/dujing#steps", "HowTo"],
+        ["https://www.foxue.ai/xue/dujing#questions", "FAQPage"],
       ],
     },
     {
@@ -1694,6 +1710,8 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await expect(page.getByText("研究者 · 可复核引用", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: /不知道先读哪部/ }))
     .toHaveAttribute("href", "/xue/xuanjing");
+  await expect(page.getByRole("link", { name: /读不懂.*四步读法/ }))
+    .toHaveAttribute("href", "/xue/dujing");
   await expect(page.getByRole("heading", { name: "六条路径，三种进入方式。" })).toBeVisible();
   await expect(page.getByRole("link", { name: /打开三十段原典/ }))
     .toHaveAttribute("href", "/xue/meiri");
@@ -1728,6 +1746,7 @@ test("选经页按目的、质地与时间连接六条可核验路径", async ({
   await expect(page.getByRole("link", { name: /开始《金刚经》核读/ })).toHaveAttribute("href", "/xue/jingangjing");
   await expect(page.getByRole("link", { name: /开始《阿弥陀经》净读/ })).toHaveAttribute("href", "/xue/amituojing");
   await expect(page.getByRole("link", { name: /打开《法华经》七关/ })).toHaveAttribute("href", "/xue/fahuajing");
+  await expect(page.getByRole("link", { name: /已经选好.*学习怎样读/ })).toHaveAttribute("href", "/xue/dujing");
   await expect(page.getByRole("link", { name: /浏览十个概念入口/ })).toHaveAttribute("href", "/gainian");
   await expect(page.getByRole("link", { name: /进入异译与跨本对读/ })).toHaveAttribute("href", "/duidu");
   await expect(page.locator('[data-analytics-event="scripture_path_selected"]')).toHaveCount(6);
@@ -1741,6 +1760,42 @@ test("选经页按目的、质地与时间连接六条可核验路径", async ({
 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test("读经方法页把原文、上下文、名相与复核串成可操作四步", async ({ page }) => {
+  await page.goto("/xue/dujing");
+
+  await expect(page.getByRole("heading", { level: 1, name: /读不懂.*不要急着找结论/ })).toBeVisible();
+  await expect(page.getByText("佛教徒 · 读诵与受持", { exact: true })).toBeVisible();
+  await expect(page.getByText("佛学爱好者 · 理解与探索", { exact: true })).toBeVisible();
+  await expect(page.getByText("研究者 · 校读与论证", { exact: true })).toBeVisible();
+  await expect(page.locator("[data-reading-step]")).toHaveCount(4);
+  await expect(page.locator('[data-reading-step="identity"]')).toContainText("先认文本");
+  await expect(page.locator('[data-reading-step="context"]')).toContainText("再读前后");
+  await expect(page.locator('[data-reading-step="terms"]')).toContainText("圈出名相");
+  await expect(page.locator('[data-reading-step="verify"]')).toContainText("最后复核");
+  await expect(page.getByText("諸惡莫作，諸善奉行，自淨其意，是諸佛教。", { exact: true })).toBeVisible();
+  await expect(page.getByText(/常见“众善奉行”与底本“诸善奉行”不同/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /打开原句与稳定行段/ }))
+    .toHaveAttribute("href", "/jingzang/fajujing/002-0567b#T0210.002.0567b01");
+  await expect(page.getByRole("link", { name: /继续汉译、巴利与英译三源研读/ }))
+    .toHaveAttribute("href", "/xue/faju");
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const mobileAccessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(mobileAccessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
 });
 
 test("独立书房汇集续读、选文、研读笺与研究状态且不上传私密正文", async ({ page }) => {
