@@ -3,7 +3,7 @@
   --method-sheet: #fffaf0;
   --method-ink: #1c2520;
   --method-soft: #4d5850;
-  --method-muted: #68726a;
+  --method-muted: #626c64;
   --method-line: #c9c0af;
   --method-red: #a43629;
   --method-red-dark: #7e281f;
@@ -794,7 +794,7 @@
   stroke-width: 1.5;
 }
 
-.nextLinks svg:last-child {
+.nextLinks a:first-child svg:last-child {
   grid-column: 3;
 }
 
