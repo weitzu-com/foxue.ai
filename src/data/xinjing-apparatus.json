@@ -1,0 +1,163 @@
+{
+  "source": {
+    "canon": "T0251",
+    "title": "般若波羅蜜多心經",
+    "translator": "唐 · 玄奘譯",
+    "xmlPath": "data/corpus/cbeta/T08n0251.xml",
+    "catalogVersion": "4.23.0",
+    "upstreamCommit": "2b8ab8d5e4fe957a9b94f2cde01cb0d2e2dcd2b9",
+    "localSha256": "70520aca2c87044cb5580d9c68392dc34869ba7a9883504cedda6138495335fc",
+    "sourceUpdatedAt": "2025-07-27",
+    "sourceUrl": "https://cbetaonline.dila.edu.tw/zh/T0251_001",
+    "readerHref": "/jingzang/xinjing/001-0848c"
+  },
+  "witnesses": [
+    {
+      "id": "wit.orig",
+      "code": "【大】",
+      "label": "大正藏底本",
+      "description": "TEI 文件标作原大正藏读法；不表示它天然优先于所有其他见证。"
+    },
+    {
+      "id": "wit1",
+      "code": "【宋】",
+      "label": "宋本",
+      "description": "CBETA 校记中的宋代藏经见证标记。"
+    },
+    {
+      "id": "wit2",
+      "code": "【元】",
+      "label": "元本",
+      "description": "CBETA 校记中的元代藏经见证标记。"
+    },
+    {
+      "id": "wit3",
+      "code": "【明】",
+      "label": "明本",
+      "description": "CBETA 校记中的明代藏经见证标记。"
+    },
+    {
+      "id": "wit.cbeta",
+      "code": "【CB】",
+      "label": "CBETA 采用读法",
+      "description": "CBETA 电子版当前采用的校订读法。"
+    },
+    {
+      "id": "wit4",
+      "code": "【房山-CB】",
+      "label": "房山校本标记",
+      "description": "名称依 TEI 原样呈现；本页不进一步推断其具体卷册关系。"
+    }
+  ],
+  "variants": [
+    {
+      "id": "0848002",
+      "category": "题署",
+      "title": "“唐”字有无",
+      "location": "译者题署",
+      "locator": "T0251.001.0848c05",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c05",
+      "readerExcerpt": "唐三藏法師玄奘譯",
+      "focus": "唐",
+      "sourceNote": "唐【大】，〔－〕【宋】",
+      "taishoNote": "〔唐〕－【宋】",
+      "summary": "大正藏底本有“唐”，宋本在这里没有这个字。",
+      "readings": [
+        { "text": "唐", "witnesses": ["【大】"], "kind": "reader" },
+        { "text": "缺文", "witnesses": ["【宋】"], "kind": "variant" }
+      ],
+      "boundary": "这是译者题署的文字差异，不是《心经》义理正文的增删。"
+    },
+    {
+      "id": "0848003",
+      "category": "题署",
+      "title": "“奘”还是“奘奉詔”",
+      "location": "译者题署",
+      "locator": "T0251.001.0848c05",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c05",
+      "readerExcerpt": "唐三藏法師玄奘譯",
+      "focus": "奘",
+      "sourceNote": "奘【大】，奘奉詔【宋】【元】【明】",
+      "taishoNote": "奘＋（奉詔）【三】",
+      "summary": "大正藏底本作“奘”；宋、元、明三本在后面多出“奉詔”。",
+      "readings": [
+        { "text": "奘", "witnesses": ["【大】"], "kind": "reader" },
+        { "text": "奘奉詔", "witnesses": ["【宋】", "【元】", "【明】"], "kind": "variant" }
+      ],
+      "boundary": "差异影响题署的完整写法，但不能单凭这四个字裁定传统译者署名的全部历史问题。"
+    },
+    {
+      "id": "0848005",
+      "category": "咒语音写",
+      "title": "“帝”还是“諦”",
+      "location": "咒语三处复见",
+      "locator": "T0251.001.0848c21",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c21",
+      "readerExcerpt": "揭帝　揭帝　般羅揭帝　般羅僧揭帝",
+      "focus": "帝",
+      "sourceNote": "帝【大】＊，諦【宋】＊【元】＊【明】＊",
+      "taishoNote": "帝＝諦【三】＊",
+      "summary": "大正藏底本在标记位置作“帝”；宋、元、明三本作“諦”，星号表示同类异读在后文复见。",
+      "readings": [
+        { "text": "帝", "witnesses": ["【大】"], "kind": "reader" },
+        { "text": "諦", "witnesses": ["【宋】", "【元】", "【明】"], "kind": "variant" }
+      ],
+      "boundary": "这是音写字形的见证差异；本页不据字面汉义解释咒语，也不规定读诵发音。"
+    },
+    {
+      "id": "0848006",
+      "category": "咒语音写",
+      "title": "“般”还是“波”",
+      "location": "咒语两处复见",
+      "locator": "T0251.001.0848c21",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c21",
+      "readerExcerpt": "般羅揭帝　般羅僧揭帝",
+      "focus": "般",
+      "sourceNote": "般【大】＊，波【宋】＊【元】＊【明】＊",
+      "taishoNote": "般＝波【三】＊",
+      "summary": "大正藏底本在两处作“般”；宋、元、明三本作“波”。",
+      "readings": [
+        { "text": "般", "witnesses": ["【大】"], "kind": "reader" },
+        { "text": "波", "witnesses": ["【宋】", "【元】", "【明】"], "kind": "variant" }
+      ],
+      "boundary": "两个汉字都处在音写串中；若讨论梵语形式，应另引语言学或梵本证据。"
+    },
+    {
+      "id": "0848007",
+      "category": "电子版校订",
+      "title": "“莎婆”“僧莎”与“薩婆”",
+      "location": "咒语末行",
+      "locator": "T0251.001.0848c22",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c22",
+      "readerExcerpt": "菩提　莎婆訶",
+      "focus": "莎婆",
+      "sourceNote": "莎婆【CB】【房山-CB】，僧莎【大】，薩婆【宋】【元】【明】",
+      "taishoNote": "僧莎＝薩婆【三】",
+      "summary": "当前 CBETA 正文采用“莎婆”，并标注【CB】【房山-CB】；原大正藏作“僧莎”，宋、元、明三本作“薩婆”。",
+      "readings": [
+        { "text": "莎婆", "witnesses": ["【CB】", "【房山-CB】"], "kind": "reader" },
+        { "text": "僧莎", "witnesses": ["【大】"], "kind": "variant" },
+        { "text": "薩婆", "witnesses": ["【宋】", "【元】", "【明】"], "kind": "variant" }
+      ],
+      "boundary": "这里最能看出“站内正文”与“原大正藏读法”不是永远相同；采用读法不等于其他传统读法被判作无效。"
+    }
+  ],
+  "sourceNotes": [
+    {
+      "id": "0848001",
+      "title": "经题梵名",
+      "locator": "T0251.001.0848c03",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c03",
+      "text": "Prajñāpāramitā hṛdaya（A.小）.",
+      "purpose": "大正藏原注记录经题的梵语形式；它是来源注，不是一组汉字异读。"
+    },
+    {
+      "id": "0848004",
+      "title": "咒语罗马字说明",
+      "locator": "T0251.001.0848c21",
+      "href": "/jingzang/xinjing/001-0848c#T0251.001.0848c21",
+      "text": "呪文 Gate gate pāragate pārasaṃgate bodhi Svāhā.",
+      "purpose": "大正藏原注给出咒语罗马字形式；本页原样转录，不把它改写成现代发音教程。"
+    }
+  ]
+}

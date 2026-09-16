@@ -209,6 +209,7 @@ export default async function HeartSutraComparisonPage() {
           <h2 id="comparison-next-title">对读帮助发现问题，<br />原典上下文负责回答问题。</h2>
           <div>
             <Link href="/xue/xinjing">进入《心经》七日研读</Link>
+            <Link href="/xue/xinjing/jiaoji">查看 T0251 校记与异读</Link>
             <Link href="/jingzang/xinjing">查看玄奘本目录</Link>
             <Link href="/yanjiu">把选文带入研究工作台</Link>
           </div>

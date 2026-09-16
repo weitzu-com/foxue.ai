@@ -99,6 +99,7 @@ const criticalRoutes = [
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/xinjing",
+  "/xue/xinjing/jiaoji",
   "/gainian/kong",
   "/gainian/wuchang",
   "/gainian/wuwo",
@@ -194,6 +195,7 @@ const sitemapLandingRoutes = [
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/xinjing",
+  "/xue/xinjing/jiaoji",
   "/gainian/kong",
   "/gainian/wuchang",
   "/gainian/wuwo",
@@ -240,6 +242,7 @@ test("站点地图按 Hub、经目和版页模板分层", async ({ request }) =>
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/faju</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/jingangjing</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing</loc>");
+  expect(hubs).toContain("<loc>https://www.foxue.ai/xue/xinjing/jiaoji</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/hedui</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu</loc>");
   expect(hubs).toContain("<loc>https://www.foxue.ai/duidu/ebt</loc>");
@@ -301,6 +304,7 @@ test("关键 SEO 页面输出自指 canonical、og:url 与 twitter card", async 
     ["/xue/faju", "https://www.foxue.ai/xue/faju"],
     ["/xue/jingangjing", "https://www.foxue.ai/xue/jingangjing"],
     ["/xue/xinjing", "https://www.foxue.ai/xue/xinjing"],
+    ["/xue/xinjing/jiaoji", "https://www.foxue.ai/xue/xinjing/jiaoji"],
     ["/gainian", "https://www.foxue.ai/gainian"],
     ["/gainian/kong", "https://www.foxue.ai/gainian/kong"],
     ["/gainian/wuchang", "https://www.foxue.ai/gainian/wuchang"],
@@ -581,6 +585,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(llms).toContain("汉巴作品关系双人复核队列");
   expect(llms).toContain("https://www.foxue.ai/xue");
   expect(llms).toContain("https://www.foxue.ai/xue/dujing");
+  expect(llms).toContain("https://www.foxue.ai/xue/xinjing/jiaoji");
   expect(llms).toContain("https://www.foxue.ai/xue/xuanjing");
   expect(llms).toContain("https://www.foxue.ai/shufang");
   expect(llms).toContain("本地私密佛经书房");
@@ -588,6 +593,7 @@ test("llms 文本使用 www 主域并反映真实页面职责", async ({ request
   expect(full).toContain("| /shufang | 书房 |");
   expect(full).toContain("| /xue | 研读 |");
   expect(full).toContain("| /xue/dujing | 佛经证据读法 |");
+  expect(full).toContain("| /xue/xinjing/jiaoji | 心经校记与异读 |");
   expect(full).toContain("| /xue/xuanjing | 佛经入门选经 |");
   expect(full).toContain("/gainian/wuchang");
   expect(full).toContain("/gainian/wuwo");
@@ -742,6 +748,16 @@ test("关键 SEO 页面输出页面级 JSON-LD", async ({ request }) => {
         ["https://www.foxue.ai/xue/xinjing#page", "CollectionPage"],
         ["https://www.foxue.ai/xue/xinjing#breadcrumb", "BreadcrumbList"],
         ["https://www.foxue.ai/xue/xinjing#learning-resource", "LearningResource"],
+      ],
+    },
+    {
+      path: "/xue/xinjing/jiaoji",
+      required: [
+        ["https://www.foxue.ai/xue/xinjing/jiaoji#page", "WebPage"],
+        ["https://www.foxue.ai/xue/xinjing/jiaoji#breadcrumb", "BreadcrumbList"],
+        ["https://www.foxue.ai/xue/xinjing/jiaoji#apparatus", "LearningResource"],
+        ["https://www.foxue.ai/xue/xinjing/jiaoji#variants", "ItemList"],
+        ["https://www.foxue.ai/xue/xinjing/jiaoji#questions", "FAQPage"],
       ],
     },
     {
@@ -1712,10 +1728,12 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
     .toHaveAttribute("href", "/xue/xuanjing");
   await expect(page.getByRole("link", { name: /读不懂.*四步读法/ }))
     .toHaveAttribute("href", "/xue/dujing");
-  await expect(page.getByRole("heading", { name: "六条路径，三种进入方式。" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "七条路径，三种进入方式。" })).toBeVisible();
   await expect(page.getByRole("link", { name: /打开三十段原典/ }))
     .toHaveAttribute("href", "/xue/meiri");
   await expect(page.getByRole("link", { name: /开始第一天/ })).toHaveAttribute("href", "/xue/xinjing");
+  await expect(page.getByRole("link", { name: /打开《心经》校记书案/ }))
+    .toHaveAttribute("href", "/xue/xinjing/jiaoji");
   await expect(page.getByRole("link", { name: /开始《金刚经》七日研读/ }))
     .toHaveAttribute("href", "/xue/jingangjing");
   await expect(page.getByRole("link", { name: /开始《阿弥陀经》七日净读/ }))
@@ -1729,6 +1747,44 @@ test("研读中心按静读、理解与校勘组织入口", async ({ page }) => 
   await page.setViewportSize({ width: 390, height: 844 });
   const pageWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(pageWidth).toBeLessThanOrEqual(390);
+});
+
+test("心经校记把采用读法、异读见证与来源边界分层呈现", async ({ page, request }) => {
+  const response = await request.get("/xue/xinjing/jiaoji");
+  expect(response.ok()).toBeTruthy();
+  const html = await response.text();
+  const jsonLd = extractJsonLdItems(html);
+  const variants = jsonLd.find(
+    (item) => typeof item === "object" && item !== null
+      && (item as Record<string, unknown>)["@id"]
+        === "https://www.foxue.ai/xue/xinjing/jiaoji#variants",
+  ) as Record<string, unknown> | undefined;
+  expect(variants?.numberOfItems).toBe(5);
+  expect(variants?.itemListElement).toHaveLength(5);
+
+  await page.goto("/xue/xinjing/jiaoji");
+  await expect(page.getByRole("heading", {
+    level: 1,
+    name: /同一部《心经》.*字旁还有一条证据链/,
+  })).toBeVisible();
+  await expect(page.locator('[id^="note-0848"]')).toHaveCount(5);
+  await expect(page.getByText("唐【大】，〔－〕【宋】", { exact: true })).toBeVisible();
+  await expect(page.getByText("奘【大】，奘奉詔【宋】【元】【明】", { exact: true })).toBeVisible();
+  await expect(page.getByText("莎婆【CB】【房山-CB】，僧莎【大】，薩婆【宋】【元】【明】", { exact: true })).toBeVisible();
+  await expect(page.getByText(/本页只转写当前固定 TEI 中的 5 组 CBETA 现代校注/)).toBeVisible();
+  await expect(page.getByRole("link", { name: /T0251\.001\.0848c22/ }))
+    .toHaveAttribute("href", "/jingzang/xinjing/001-0848c#T0251.001.0848c22");
+  await expect(page.getByRole("link", { name: /七译同屏对读/ }))
+    .toHaveAttribute("href", "/duidu/xinjing");
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+    .analyze();
+  expect(accessibility.violations.filter((item) =>
+    item.impact === "serious" || item.impact === "critical",
+  )).toEqual([]);
 });
 
 test("选经页按目的、质地与时间连接六条可核验路径", async ({ page }) => {
