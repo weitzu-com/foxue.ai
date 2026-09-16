@@ -196,6 +196,19 @@ function urlsForChangedFile(file) {
     addUnique(urls, [absoluteUrl("/sitemap-index.xml"), absoluteUrl("/llms.txt"), absoluteUrl("/llms-full.txt")]);
   }
 
+  const blogPostMatch = file.match(/^content\/blogs\/posts\/([a-z0-9]+(?:-[a-z0-9]+)*)\.json$/);
+  if (blogPostMatch) {
+    addUnique(urls, [
+      absoluteUrl(`/blogs/${blogPostMatch[1]}`),
+      absoluteUrl("/blogs"),
+      absoluteUrl("/blogs/feed.xml"),
+      absoluteUrl("/sitemap-hubs.xml"),
+    ]);
+  }
+  if (file.startsWith("src/app/blogs/") || file === "src/lib/blogs.ts" || file.startsWith("src/components/blog-")) {
+    addUnique(urls, [absoluteUrl("/blogs"), absoluteUrl("/blogs/feed.xml")]);
+  }
+
   if (file === "src/lib/research.ts") {
     addUnique(urls, [absoluteUrl("/wenjing")]);
   }

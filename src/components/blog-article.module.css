@@ -1,0 +1,283 @@
+.body {
+  max-width: 820px;
+  font-size: 1.02rem;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.body > p {
+  margin: 0 0 1.35em;
+}
+
+.body > p a,
+.body li a,
+.faq dd a {
+  color: var(--cinnabar);
+  text-decoration: underline;
+  text-decoration-color: rgb(159 57 43 / 35%);
+  text-underline-offset: 0.2em;
+}
+
+.body > p a:hover,
+.body li a:hover,
+.faq dd a:hover {
+  text-decoration-color: currentcolor;
+}
+
+.body h2 {
+  margin: 2.6em 0 0.9em;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  scroll-margin-top: 96px;
+}
+
+.body h3 {
+  margin: 2em 0 0.7em;
+  font-family: var(--font-serif), serif;
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.4;
+  scroll-margin-top: 96px;
+}
+
+.body ul,
+.body ol {
+  margin: 0 0 1.5em;
+  padding-left: 1.4em;
+}
+
+.body li {
+  margin: 0.35em 0;
+}
+
+.quote {
+  position: relative;
+  margin: 2em 0;
+  padding: 26px 28px 22px 30px;
+  border-left: 3px solid var(--cinnabar);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.quote > svg {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: rgb(159 57 43 / 35%);
+}
+
+.quote blockquote {
+  margin: 0;
+}
+
+.quote blockquote p {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.28rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+.quote figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.quote figcaption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  color: var(--cinnabar);
+  font-weight: 600;
+}
+
+.verified,
+.unverified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.verified {
+  background: rgb(72 99 69 / 12%);
+  color: var(--success);
+}
+
+.unverified {
+  background: rgb(114 77 23 / 12%);
+  color: var(--warning);
+}
+
+.figure {
+  margin: 2.4em 0;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: var(--wash);
+  box-shadow: var(--shadow);
+}
+
+.figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.callout {
+  display: flex;
+  gap: 14px;
+  margin: 2em 0;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  background: var(--wash);
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.callout > svg {
+  flex: none;
+  margin-top: 5px;
+  color: var(--moss);
+}
+
+.calloutWarning {
+  border-color: rgb(114 77 23 / 35%);
+  background: rgb(114 77 23 / 7%);
+}
+
+.calloutWarning > svg {
+  color: var(--warning);
+}
+
+.callout strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.86rem;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.links {
+  margin: 2.4em 0;
+  padding: 24px 26px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.links h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.links li:first-child {
+  border-top: 0;
+}
+
+.links li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--cinnabar);
+  font-weight: 600;
+}
+
+.links li span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.faq {
+  max-width: 820px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-dark);
+}
+
+.faq h2 {
+  margin: 0 0 22px;
+  font-family: var(--font-serif), serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.faq dl {
+  margin: 0;
+}
+
+.faq dl > div {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq dt {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.faq dd {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+
+@media (max-width: 720px) {
+  .body {
+    font-size: 0.98rem;
+    line-height: 1.9;
+  }
+
+  .quote {
+    padding: 20px 18px 18px 22px;
+  }
+
+  .quote blockquote p {
+    font-size: 1.12rem;
+  }
+
+  .quote figcaption a {
+    margin-left: 0;
+  }
+}
