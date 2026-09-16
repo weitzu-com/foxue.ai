@@ -50,11 +50,21 @@ const corpusRuntimeIncludes = Object.fromEntries(
     bucket.includeGlobs.map((assetPath) => `./${assetPath}`),
   ]),
 );
+// 博客文章登记目录在构建期由 fs 读取；把它打进相关路由 trace，避免托管运行时找不到文件。
+const blogContentGlob = "./content/blogs/posts/*.json";
+const blogIncludes = {
+  "/blogs": [blogContentGlob],
+  "/blogs/page": [blogContentGlob],
+  "/blogs/[slug]": [blogContentGlob],
+  "/blogs/[slug]/page": [blogContentGlob],
+  "/blogs/feed.xml": [blogContentGlob],
+  "/blogs/feed.xml/route": [blogContentGlob],
+};
 const sitemapNavigationIncludes = {
   "/sitemap-index.xml": [sitemapLedgerGlob],
   "/sitemap-index.xml/route": [sitemapLedgerGlob],
-  "/sitemap-hubs.xml": sitemapChunkGlobs,
-  "/sitemap-hubs.xml/route": sitemapChunkGlobs,
+  "/sitemap-hubs.xml": [...sitemapChunkGlobs, blogContentGlob],
+  "/sitemap-hubs.xml/route": [...sitemapChunkGlobs, blogContentGlob],
   "/sitemap-works.xml": sitemapChunkGlobs,
   "/sitemap-works.xml/route": sitemapChunkGlobs,
   "/llms.txt": [sitemapLedgerGlob],
@@ -72,6 +82,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     ...corpusRuntimeIncludes,
     ...sitemapNavigationIncludes,
+    ...blogIncludes,
   },
   experimental: {
     // Each reading page can parse a complete source witness during prerendering.

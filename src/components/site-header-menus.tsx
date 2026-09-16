@@ -19,6 +19,7 @@ const primaryNavigation: NavigationItem[] = [
 const secondaryNavigation: NavigationItem[] = [
   { href: "/hedui", label: "核对说法" },
   { href: "/yanjiu", label: "研究" },
+  { href: "/blogs", label: "博客" },
   { href: "/yuanze", label: "原则" },
   { href: "/touming", label: "透明" },
 ];

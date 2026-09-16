@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPostPath, getAllBlogPosts } from "@/lib/blogs";
 import { getSitemapLedger } from "@/lib/sitemap-ledger";
 import { loadSitemapChunkPaths } from "@/lib/sitemap-chunk-loaders.generated";
 import { siteOrigin } from "@/lib/site-metadata";
@@ -33,7 +34,13 @@ const editorialHubPaths = [
   "/xue/faju",
   "/xue/jingangjing",
   "/xue/xinjing/jiaoji",
+  "/blogs",
 ];
+
+// 博客每日新增一篇；从文章登记目录读取，避免每次都重建语料 sitemap 账本。
+function blogSitemapPaths() {
+  return getAllBlogPosts().map((post) => blogPostPath(post.slug));
+}
 
 function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
   const url = `${siteOrigin}${path}`;
@@ -41,6 +48,12 @@ function sitemapEntryForPath(path: string): MetadataRoute.Sitemap[number] {
     return { url, changeFrequency: "weekly", priority: 1 };
   }
   const parts = path.split("/").filter(Boolean);
+  if (parts[0] === "blogs" && parts.length === 1) {
+    return { url, changeFrequency: "daily", priority: 0.8 };
+  }
+  if (parts[0] === "blogs") {
+    return { url, changeFrequency: "monthly", priority: 0.7 };
+  }
   if (parts[0] === "jingzang" && parts.length === 3) {
     return { url, changeFrequency: "yearly", priority: 0.6 };
   }
@@ -74,7 +87,7 @@ export async function getHubSitemap(): Promise<MetadataRoute.Sitemap> {
     .slice(0, ledger.staticPathCount + ledger.libraryPageCount)
     .map(sitemapEntryForPath);
   const generatedUrls = new Set(generated.map((entry) => entry.url));
-  const editorial = editorialHubPaths
+  const editorial = [...editorialHubPaths, ...blogSitemapPaths()]
     .map(sitemapEntryForPath)
     .filter((entry) => !generatedUrls.has(entry.url));
   return [...generated, ...editorial];

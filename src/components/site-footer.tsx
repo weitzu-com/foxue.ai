@@ -25,6 +25,7 @@ export function SiteFooter() {
           <Link href="/duidu/amituojing" prefetch={false}>阿弥陀经双译对读</Link>
           <Link href="/duidu/xinjing" prefetch={false}>心经异译对读</Link>
           <Link href="/duidu/jingangjing" prefetch={false}>金刚经主题对读</Link>
+          <Link href="/blogs">佛学博客</Link>
           <Link href="/hedui">核对说法</Link>
           <Link href="/fugai">佛典覆盖</Link>
           <Link href="/fenmu">全球分母</Link>
