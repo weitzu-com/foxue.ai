@@ -29,7 +29,7 @@ import styles from "./xue.module.css";
 
 const title = "佛经研读中心｜从静读到版本校勘";
 const description =
-  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：从30段每日原典进入《心经》《金刚经》《阿弥陀经》《法华经》与三源《法句》，每一步都能回到稳定原文。";
+  "面向佛教徒、佛学爱好者与研究者的佛经研读入口：先用四步证据读经法读懂一段原文，再进入每日原典、经典路径、异译对读与版本校勘。";
 const pagePath = "/xue";
 
 export const metadata: Metadata = buildPageMetadata({ title, description, path: pagePath });
@@ -43,7 +43,7 @@ const pageJsonLd = buildPageJsonLd({
     { name: "首页", path: "/" },
     { name: "研读", path: pagePath },
   ],
-  about: ["每日佛经", "佛经研读", "心经", "金刚经", "阿弥陀经", "法华经", "法句经", "巴利三藏", "佛典版本研究"],
+  about: ["佛经怎么读", "每日佛经", "佛经研读", "心经", "金刚经", "阿弥陀经", "法华经", "法句经", "巴利三藏", "佛典版本研究"],
   mainEntityId: `${absoluteUrl(pagePath)}#study-paths`,
 });
 
@@ -164,18 +164,15 @@ export default function StudyPage() {
               这里把静读、理解和校勘放在同一条路上。
             </p>
             <div className={styles.heroActions}>
+              <Link href="/xue/dujing">
+                读不懂？先学四步读法 <BookOpenText aria-hidden="true" />
+              </Link>
               <Link href="/xue/xuanjing">
                 不知道先读哪部？ <Compass aria-hidden="true" />
               </Link>
               <Link href="/xue/meiri">
                 每日一段原典 <CalendarDays aria-hidden="true" />
               </Link>
-              <Link href="/xue/xinjing">
-                从《心经》开始 <ArrowRight aria-hidden="true" />
-              </Link>
-              <Link href="/xue/jingangjing">研读《金刚经》七段原文</Link>
-              <Link href="/xue/amituojing">净读《阿弥陀经》</Link>
-              <Link href="/xue/fahuajing">走进《法华经》七个关口</Link>
             </div>
           </div>
 
