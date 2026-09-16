@@ -1,0 +1,273 @@
+{
+  "schema": "https://foxue.ai/schemas/blog-post-v1",
+  "slug": "se-ji-shi-kong-shi-shenme-yisi",
+  "title": "色即是空是什么意思？回到《心经》原文逐字读",
+  "description": "色即是空是什么意思？它出自玄奘译《般若波罗蜜多心经》，“色”指五蕴中一切有形质的现象，“空”指这些现象没有独立不变的自体。本文回到大正藏原文，讲清出处、字面义、语境义，并逐一核对几种流行误读。",
+  "publishedAt": "2026-09-16",
+  "updatedAt": "2026-09-16",
+  "author": {
+    "name": "leizi",
+    "role": "foxue.ai 编辑"
+  },
+  "keywords": {
+    "primary": "色即是空是什么意思",
+    "secondary": [
+      "色即是空 空即是色",
+      "色不异空 空不异色",
+      "心经 色即是空",
+      "空即是色什么意思",
+      "色即是空 出处"
+    ]
+  },
+  "search": {
+    "source": "seed",
+    "queries": [],
+    "note": "GSC 未接入或无数据，使用种子关键词"
+  },
+  "cover": {
+    "src": "/blogs/se-ji-shi-kong-shi-shenme-yisi/cover.jpg",
+    "width": 1280,
+    "height": 720,
+    "alt": "水墨画：夜色中一圈涟漪在静水上扩散，映着微弱月光，大片留白——用来提示“色即是空”里现象与自性的关系",
+    "prompt": "Traditional Chinese ink wash painting on xuan paper: a single ripple spreading across a vast expanse of still, dark water at dusk, faint reflected moonlight breaking into the ripple, soft mist along a distant low shoreline. Overwhelming negative space, restrained brushwork, muted indigo, charcoal and warm grey tones, visible paper grain. Quiet, contemplative, meditative mood. No text, no calligraphy, no logos, no people, no religious statues or symbols.",
+    "generator": "cursor-generate-image"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "**色即是空**不是“美色终归虚无”，也不是“世界不存在”。在《心经》里，“色”是五蕴中的第一蕴，指一切有形质、可被感知的物质现象；“空”不是“没有”，而是说这些现象没有一个独立、不变、可以单独拿出来的自体。整句话的意思是：物质现象本身就是没有固定自性的，没有固定自性这件事，也正是通过物质现象呈现出来的——两者不是两样东西。下面回到原文，一句一句看。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "chuchu",
+      "text": "出处：这句话在《心经》的哪里"
+    },
+    {
+      "type": "paragraph",
+      "text": "“色即是空”出自唐代玄奘所译《般若波罗蜜多心经》，收在大正藏第八册，经号 T0251。全经只有一个版页，原文可以在站内 [《心经》0848c 版页](/jingzang/xinjing/001-0848c) 逐行核对。它在经文里的位置，是紧接着“照见五蕴皆空”之后、对舍利子说的第一句话："
+    },
+    {
+      "type": "quote",
+      "text": "色不异空，空不异色，色即是空，空即是色；受、想、行、识，亦复如是",
+      "source": {
+        "title": "般若波罗蜜多心经",
+        "canonId": "T0251",
+        "locator": "T0251.001.0848c07–08",
+        "href": "/jingzang/xinjing/001-0848c",
+        "translator": "玄奘"
+      },
+      "verification": "verified"
+    },
+    {
+      "type": "paragraph",
+      "text": "注意两点。第一，原文是四句一组：“不异”两句，“即是”两句，流行说法只截取了后两句的前半。第二，这四句后面紧跟“受、想、行、识，亦复如是”——也就是说，同样的话对另外四蕴也成立。**“色即是空”从来不是单独谈物质**，而是“五蕴皆空”的第一个例子。"
+    },
+    {
+      "type": "paragraph",
+      "text": "更早的鸠摩罗什译本（T0250，《摩诃般若波罗蜜大明咒经》）同一处译作："
+    },
+    {
+      "type": "quote",
+      "text": "非色异空，非空异色，色即是空，空即是色",
+      "source": {
+        "title": "摩诃般若波罗蜜大明咒经",
+        "canonId": "T0250",
+        "locator": "T0250.001.0847c13",
+        "href": "/duidu/xinjing",
+        "translator": "鸠摩罗什"
+      },
+      "verification": "verified"
+    },
+    {
+      "type": "paragraph",
+      "text": "两个译本的后两句完全一致，前两句只是句式不同：玄奘用“不异”，罗什用“非……异”。这说明“色即是空，空即是色”在梵本里是一个稳定的表达，不是某位译者的发挥。两种译文可以在 [《心经》异译对读](/duidu/xinjing) 中逐句对照。"
+    },
+    {
+      "src": "/blogs/se-ji-shi-kong-shi-shenme-yisi/figure-1.jpg",
+      "width": 1152,
+      "height": 864,
+      "type": "image",
+      "alt": "胶片摄影：一道海浪在浪尖碎成白色泡沫，灰绿色调，大片空白天空——浪与水的关系常被用来比喻色与空",
+      "prompt": "Analog film photograph, medium format: a single ocean wave at the moment it crests and dissolves into white sea foam, seen from low at water level, overcast soft daylight, fine film grain, muted teal, slate grey and bone white palette, shallow depth of field, minimal horizon line high in frame with lots of empty grey sky. Still, quiet, unhurried. No text, no logos, no people, no boats, no religious symbols.",
+      "generator": "cursor-generate-image",
+      "caption": "浪不在水之外，水也不离开浪而单独存在。“色不异空，空不异色”说的正是这种“不是两样东西”的关系。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "se",
+      "text": "“色”是什么：不是美色，是一切有形质的现象"
+    },
+    {
+      "type": "paragraph",
+      "text": "现代汉语里“色”常常联想到颜色或情欲，但佛典里的“色”（梵语 rūpa）是一个技术术语，指五蕴中的物质一类。《杂阿含经》对“色受阴”（即色蕴）给过一个非常直接的定义："
+    },
+    {
+      "type": "quote",
+      "text": "云何色受阴？所有色，彼一切四大，及四大所造色，是名为色受阴",
+      "source": {
+        "title": "杂阿含经",
+        "canonId": "T0099",
+        "locator": "T0099.003.0015c17（第 61 经）",
+        "href": "/jingzang/zaahanjing/003-0015c",
+        "translator": "求那跋陀罗"
+      },
+      "verification": "verified"
+    },
+    {
+      "type": "paragraph",
+      "text": "“四大”指地、水、火、风，是古印度对物质基本性质的分类：坚硬、湿润、温热、运动。“四大所造色”是由这些性质组合出的一切物质，包括我们的身体、感官和外在的对象。所以，“色”的范围是**全部物质现象**，情欲、容貌只是其中极小一部分。把“色即是空”读成“美色是空的”，是用一个字的今义替换了它在经文中的术语义。"
+    },
+    {
+      "type": "paragraph",
+      "text": "同一部经紧接着说这个色蕴“是无常、苦、变易之法”。也就是说，早期经典谈“色”时，关注的不是它“有没有”，而是它**会变、靠不住、不能当作恒常的依托**。这是理解“空”的入口。关于五蕴的整体结构，可以看 [概念：五蕴](/gainian/wuyun)。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "kong",
+      "text": "“空”是什么：不是没有，是没有独立不变的自体"
+    },
+    {
+      "type": "paragraph",
+      "text": "“空”（梵语 śūnyatā）是全篇最容易被误读的字。它不等于“不存在”。《心经》自己给了解释——在“色即是空”之后，经文接着描述“空相”是什么样的："
+    },
+    {
+      "type": "quote",
+      "text": "是诸法空相，不生不灭，不垢不净，不增不减",
+      "source": {
+        "title": "般若波罗蜜多心经",
+        "canonId": "T0251",
+        "locator": "T0251.001.0848c08–09",
+        "href": "/jingzang/xinjing/001-0848c",
+        "translator": "玄奘"
+      },
+      "verification": "verified"
+    },
+    {
+      "type": "paragraph",
+      "text": "“不生不灭、不垢不净、不增不减”，六个“不”否定的都是**对立的一对属性**：生与灭、垢与净、增与减。这些属性只有在假定一个固定的“东西”时才成立——先有一个自体，它才能生、能灭、能变脏、能变干净。经文说诸法的“空相”是这六个“不”，意思是：现象背后没有那样一个固定的自体可供这些属性附着。这就是“空”：**不是现象消失了，而是现象没有一个可以抓住的、独立于条件的内核**。"
+    },
+    {
+      "type": "paragraph",
+      "text": "为什么说“色即是空”而不是“色是空的”？因为在这个理解里，空不是色的一种属性，也不是色消失之后剩下的状态。色的存在方式本身就是“依条件而起、随条件而变”，这个存在方式就叫空。反过来，“空即是色”：空不是躲在现象背后的另一个东西，它就体现为眼前这些依条件而起的现象。用浪和水打比方：浪不是在水之外另有一物，水也不是把浪去掉之后才显现。更多讨论见 [概念：空](/gainian/kong)。"
+    },
+    {
+      "src": "/blogs/se-ji-shi-kong-shi-shenme-yisi/figure-2.jpg",
+      "width": 1152,
+      "height": 864,
+      "type": "image",
+      "alt": "静物摄影：旧纸上放着一块河石、一片枯叶、一碗清水与一缕升起的香烟，柔和侧光——石、叶、水、烟对应四大的坚、湿、暖、动，用来说明“色”是由条件组合的现象",
+      "prompt": "Quiet still-life photograph on a sheet of aged, cream-colored handmade paper: a smooth grey river stone, one dried brown leaf, a small unglazed ceramic bowl of clear water, and a thin wisp of incense smoke drifting upward from the edge of frame. Soft diffused light from a paper window on the left, long gentle shadows, visible paper fibre texture, restrained earthy palette of stone grey, ochre and off-white, generous empty space. Contemplative, understated. No text, no logos, no people, no statues, no religious icons.",
+      "generator": "cursor-generate-image",
+      "caption": "石头、枯叶、清水、烟：古印度用地、水、火、风四种性质来描述物质。“色”就是这些性质的组合，没有一个组合之外的“物自身”。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "wudu",
+      "text": "四种常见误读，逐一对照原文"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "**“色即是空”是劝人看破情欲、远离美色。** 原文的“色”是五蕴之一，指全部物质现象，而且下一句就说“受、想、行、识，亦复如是”——感受、概念、意志、认知同样是空。如果这句是在谈情欲，就无法解释为什么它对“识”也成立。",
+        "**“空”就是什么都没有、一切虚无。** 经文对“空相”的描述是“不生不灭，不垢不净，不增不减”，否定的是固定自体，不是否定现象。如果“空”是虚无，那“空即是色”这句就变成“虚无就是物质”，自相矛盾。",
+        "**“色即是空，空即是色”是说物质和精神是一回事。** 这里的“空”不是精神或意识；识（认知）本身在经文里也是被判为空的对象之一。把空理解成“精神实体”，恰好是经文要否定的那种“自体”。",
+        "**这句话是佛陀在劝人消极、放下一切追求。** 《心经》在这段之后说的是“心无罣碍……远离颠倒梦想”。经文的落点是去掉对固定自体的执取所带来的恐惧与颠倒，而不是不做事。原文中没有“看破放下、万事皆休”这一类表述。"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "id": "shenghuo",
+      "text": "这句话和普通人的生活有什么关系"
+    },
+    {
+      "type": "paragraph",
+      "text": "“色即是空”最直接的用处，是提醒我们**别把任何一个正在变化的东西当成固定不变的**。身体会老，关系会变，情绪会来去，评价会翻转。这些不是意外，而是“色”本来的存在方式。经文并不要求我们不喜欢这些东西，而是指出：期待它们“不生不灭、不增不减”地固定下来，本身就与它们的性质不符——痛苦往往来自这个不符。"
+    },
+    {
+      "type": "paragraph",
+      "text": "反过来，“空即是色”也拦住了另一种逃避：既然一切无常，那什么都不重要。经文没有这样说。空正是通过眼前这些具体的现象呈现的，离开了具体的身体、关系、行动，也没有一个别处的“空”可去。《心经》开头的动词是“照见”——不是躲开，是看清。"
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "title": "本文引文的核对方式",
+      "text": "文中每条引文都在 foxue.ai 仓库内的 CBETA TEI 受控原文中逐字比对过（T08n0251、T08n0250、T02n0099），简体照录，只做简繁与标点归一，不改写、不拼接。核对通过的引文在页面上标记“已逐字核对受控原文”。你也可以用 [核对说法](/hedui) 把任何一句“佛经名句”查一遍。"
+    },
+    {
+      "type": "links",
+      "title": "回到原典",
+      "items": [
+        {
+          "label": "《心经》0848c 版页原文",
+          "href": "/jingzang/xinjing/001-0848c",
+          "note": "玄奘译本全经所在的单一版页，逐行核对本文引文"
+        },
+        {
+          "label": "《心经》异译对读",
+          "href": "/duidu/xinjing",
+          "note": "玄奘、鸠摩罗什等译本逐句对照“色即是空”一段"
+        },
+        {
+          "label": "《杂阿含经》卷三 0015c",
+          "href": "/jingzang/zaahanjing/003-0015c",
+          "note": "第 61 经对“色受阴”的定义"
+        },
+        {
+          "label": "《心经》七日入门",
+          "href": "/xue/xinjing",
+          "note": "用七天逐句读完玄奘译本"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "色即是空的“色”是指美色或情欲吗？",
+      "answer": "不是。“色”是五蕴之一，指一切有形质的物质现象。《杂阿含经》定义为“一切四大，及四大所造色”。情欲、容貌只是其中很小一部分。"
+    },
+    {
+      "question": "色即是空出自哪部经？",
+      "answer": "出自唐代玄奘译《般若波罗蜜多心经》（大正藏 T0251）。鸠摩罗什译本《摩诃般若波罗蜜大明咒经》（T0250）作“非色异空，非空异色，色即是空，空即是色”。"
+    },
+    {
+      "question": "“空”是不是什么都没有？",
+      "answer": "不是。《心经》描述“空相”为“不生不灭，不垢不净，不增不减”，否定的是现象背后固定不变的自体，不是否定现象本身。"
+    },
+    {
+      "question": "空即是色是什么意思？",
+      "answer": "空不是躲在现象背后的另一个东西，它就体现为眼前依条件而起、随条件而变的现象。这一句防止把“空”理解成虚无或某种精神实体。"
+    },
+    {
+      "question": "色不异空、空不异色和色即是空有什么区别？",
+      "answer": "四句是一组。“不异”说色与空不是两样东西，“即是”进一步说二者就是同一存在方式的两种描述。流行引用只截取了后两句的前半。"
+    }
+  ],
+  "related": [
+    {
+      "label": "概念：空",
+      "href": "/gainian/kong",
+      "note": "空不是无，回到原典看“空”的用法"
+    },
+    {
+      "label": "概念：五蕴",
+      "href": "/gainian/wuyun",
+      "note": "色、受、想、行、识"
+    },
+    {
+      "label": "核对说法：这句是佛经原文吗",
+      "href": "/hedui",
+      "note": "把常见“佛经名句”逐字核对到受控原文"
+    },
+    {
+      "label": "《心经》校记与异译",
+      "href": "/xue/xinjing/jiaoji",
+      "note": "版本、异文与译本差异"
+    }
+  ]
+}
