@@ -7,6 +7,7 @@ import {
   CalendarDays,
   CircleAlert,
   Clock3,
+  Compass,
   Download,
   Fingerprint,
   Languages,
@@ -163,6 +164,9 @@ export default function StudyPage() {
               这里把静读、理解和校勘放在同一条路上。
             </p>
             <div className={styles.heroActions}>
+              <Link href="/xue/xuanjing">
+                不知道先读哪部？ <Compass aria-hidden="true" />
+              </Link>
               <Link href="/xue/meiri">
                 每日一段原典 <CalendarDays aria-hidden="true" />
               </Link>
