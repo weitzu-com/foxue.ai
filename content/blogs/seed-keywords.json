@@ -1,0 +1,114 @@
+{
+  "schema": "https://foxue.ai/schemas/blog-seed-keywords-v1",
+  "note": "GSC 未接入或机会簇均已覆盖时的回落选题。每条都必须能用仓库内受控原文作答；接入 GSC 后按真实查询数据重新排序。",
+  "seeds": [
+    {
+      "primary": "色即是空是什么意思",
+      "secondary": ["色即是空 空即是色", "色不异空 空不异色", "心经 色即是空", "空即是色什么意思", "色即是空 出处"],
+      "intent": "解释《心经》名句的本义、出处与常见误读",
+      "anchors": ["/jingzang/xinjing/001-0848c", "/gainian/kong", "/xue/xinjing", "/duidu/xinjing", "/gainian/wuyun"]
+    },
+    {
+      "primary": "应无所住而生其心是什么意思",
+      "secondary": ["应无所住而生其心 出处", "金刚经 应无所住", "无所住而生其心", "应无所住 而生其心 解释"],
+      "intent": "解释《金刚经》名句的上下文与“无住”的含义",
+      "anchors": ["/jingzang/jingangjing", "/gainian/wuzhu", "/xue/jingangjing", "/duidu/jingangjing"]
+    },
+    {
+      "primary": "心经全文及解释",
+      "secondary": ["心经全文", "般若波罗蜜多心经 全文", "心经 白话解释", "心经 逐句", "心经 玄奘译本"],
+      "intent": "逐句给出玄奘译本全文与要点解释，链接稳定行段",
+      "anchors": ["/jingzang/xinjing", "/jingzang/xinjing/001-0848c", "/xue/xinjing", "/xue/xinjing/jiaoji"]
+    },
+    {
+      "primary": "一切有为法如梦幻泡影是什么意思",
+      "secondary": ["一切有为法 如梦幻泡影 如露亦如电", "金刚经 六如偈", "如梦幻泡影 出处", "应作如是观"],
+      "intent": "解释《金刚经》结尾偈颂的含义与位置",
+      "anchors": ["/jingzang/jingangjing", "/xue/jingangjing", "/gainian/wuchang"]
+    },
+    {
+      "primary": "五蕴皆空是什么意思",
+      "secondary": ["五蕴是什么", "照见五蕴皆空", "色受想行识", "五蕴 解释", "五蕴皆空 出处"],
+      "intent": "解释五蕴与“照见五蕴皆空”",
+      "anchors": ["/gainian/wuyun", "/jingzang/xinjing/001-0848c", "/xue/xinjing"]
+    },
+    {
+      "primary": "无常是什么意思",
+      "secondary": ["佛教 无常", "诸行无常", "无常 是不是悲观", "无常 出处", "无常 佛经"],
+      "intent": "解释无常及其在经典中的原句",
+      "anchors": ["/gainian/wuchang", "/xue/faju", "/duidu/ebt"]
+    },
+    {
+      "primary": "无我是什么意思",
+      "secondary": ["佛教 无我", "诸法无我", "无我 是不是否定自我", "无我 解释"],
+      "intent": "解释无我及其与“我”的关系",
+      "anchors": ["/gainian/wuwo", "/gainian/wuyun", "/duidu/ebt"]
+    },
+    {
+      "primary": "缘起是什么意思",
+      "secondary": ["缘起 佛教", "此有故彼有", "十二缘起", "缘起性空", "缘起 解释"],
+      "intent": "解释缘起与经典原句",
+      "anchors": ["/gainian/yuanqi", "/gainian/kong", "/duidu/ebt"]
+    },
+    {
+      "primary": "四圣谛是什么",
+      "secondary": ["苦集灭道", "四圣谛 解释", "四谛 是什么", "四圣谛 出处"],
+      "intent": "解释四圣谛的结构与经典出处",
+      "anchors": ["/gainian/sidi", "/gainian/ku", "/gainian/bazhengdao", "/duidu/ebt"]
+    },
+    {
+      "primary": "八正道是什么",
+      "secondary": ["八正道 内容", "八正道 解释", "正见 正思维 正语", "八正道 出处"],
+      "intent": "解释八正道八支的关系",
+      "anchors": ["/gainian/bazhengdao", "/gainian/sidi", "/duidu/ebt"]
+    },
+    {
+      "primary": "凡所有相皆是虚妄是什么意思",
+      "secondary": ["凡所有相 皆是虚妄", "若见诸相非相 则见如来", "金刚经 凡所有相", "诸相非相"],
+      "intent": "解释《金刚经》名句与“相”的含义",
+      "anchors": ["/jingzang/jingangjing", "/xue/jingangjing", "/gainian/kong"]
+    },
+    {
+      "primary": "心无挂碍是什么意思",
+      "secondary": ["心无罣碍", "心无挂碍 无挂碍故 无有恐怖", "心经 心无挂碍", "远离颠倒梦想"],
+      "intent": "解释《心经》后半段的含义",
+      "anchors": ["/jingzang/xinjing/001-0848c", "/xue/xinjing", "/gainian/guanxin"]
+    },
+    {
+      "primary": "阿弥陀经讲的是什么",
+      "secondary": ["阿弥陀经 全文", "佛说阿弥陀经", "阿弥陀经 白话", "阿弥陀经 主要内容", "极乐世界 阿弥陀经"],
+      "intent": "概述《阿弥陀经》结构与核心段落",
+      "anchors": ["/jingzang/amituojing", "/xue/amituojing", "/duidu/amituojing"]
+    },
+    {
+      "primary": "金刚经讲的是什么",
+      "secondary": ["金刚经 主要内容", "金刚经 白话", "金刚经 全文", "金刚经 讲什么", "金刚经 核心思想"],
+      "intent": "概述《金刚经》的问答结构与核心主题",
+      "anchors": ["/jingzang/jingangjing", "/xue/jingangjing", "/duidu/jingangjing", "/gainian/wuzhu"]
+    },
+    {
+      "primary": "佛经怎么读",
+      "secondary": ["初学者 读佛经", "读佛经 从哪部开始", "怎么读懂佛经", "佛经 入门", "第一部佛经 推荐"],
+      "intent": "给初学者的证据式读经方法与选经建议",
+      "anchors": ["/xue/dujing", "/xue/xuanjing", "/xue", "/jingzang"]
+    },
+    {
+      "primary": "空不是什么都没有",
+      "secondary": ["佛教 空 是什么意思", "空 不是 虚无", "空性 是什么", "空 解释", "缘起性空"],
+      "intent": "澄清“空”不等于虚无，回到原典用法",
+      "anchors": ["/gainian/kong", "/jingzang/xinjing/001-0848c", "/gainian/yuanqi"]
+    },
+    {
+      "primary": "前世五百次回眸是佛经原文吗",
+      "secondary": ["前世的五百次回眸 出处", "佛经 名句 真假", "这句话是佛经原文吗", "网络 佛经 假句子"],
+      "intent": "核对流行“佛经名句”的真实出处",
+      "anchors": ["/hedui", "/jingzang/quanwen", "/yuanze"]
+    },
+    {
+      "primary": "苦是什么意思 佛教",
+      "secondary": ["佛教 苦 三苦 八苦", "苦 不是消极", "一切皆苦 是什么意思", "苦谛"],
+      "intent": "解释苦的层次与经典出处",
+      "anchors": ["/gainian/ku", "/gainian/sidi", "/duidu/ebt"]
+    }
+  ]
+}
