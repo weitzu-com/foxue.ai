@@ -1,0 +1,124 @@
+name: Daily SEO blog post
+
+# 每天 06:10（Asia/Shanghai，即 UTC 22:10 前一日）：
+#   读取 Search Console 最近 90 天数据 → 选题 → Grok 起草 → 引文逐字核对 → Grok Imagine 配图
+#   → 校验 → 开一个 PR。合并后 Vercel 部署，geo-auto-submit 会把新文章推给 IndexNow。
+#
+# 需要的仓库 Secrets：
+#   XAI_API_KEY                xAI 密钥（起草 + 生图）
+#   GSC_SERVICE_ACCOUNT_JSON   Google 服务账号 JSON（已加入 sc-domain:foxue.ai 的用户）；缺失时回落到种子关键词
+# 需要的仓库设置：Settings → Actions → General → 勾选 "Allow GitHub Actions to create and approve pull requests"。
+
+on:
+  schedule:
+    - cron: "10 22 * * *"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "手动指定主关键词（留空则按 GSC 数据自动选题）"
+        required: false
+      dry_run:
+        description: "只输出选题，不起草、不生图、不开 PR"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: blog-daily
+  cancel-in-progress: false
+
+jobs:
+  write:
+    name: blog-daily
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+      - uses: pnpm/action-setup@ff378ebe6b225b0680b81c1ad4498ae0d1d3a5e3 # v6.0.10
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Write today's post
+        id: write
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          BLOG_TOPIC: ${{ github.event.inputs.topic }}
+          BLOG_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          TZ: Asia/Shanghai
+        run: |
+          set -euo pipefail
+          TODAY="$(date +%Y-%m-%d)"
+          echo "date=${TODAY}" >> "$GITHUB_OUTPUT"
+          ARGS=(--date "$TODAY")
+          if [ -n "${BLOG_TOPIC:-}" ]; then ARGS+=(--topic "$BLOG_TOPIC"); fi
+          if [ "${BLOG_DRY_RUN:-false}" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ "${BLOG_DRY_RUN:-false}" != "true" ] && [ -z "${XAI_API_KEY:-}" ]; then
+            echo "::error::XAI_API_KEY secret is missing；文章起草与 Grok 生图都需要它"
+            exit 1
+          fi
+          node scripts/blog-daily.mjs "${ARGS[@]}" | tee result.json
+          if [ "${BLOG_DRY_RUN:-false}" = "true" ]; then
+            echo "dry_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
+            echo "slug=$(jq -r '.slug' result.json)" >> "$GITHUB_OUTPUT"
+            echo "title=$(jq -r '.title' result.json)" >> "$GITHUB_OUTPUT"
+            echo "source=$(jq -r '.source' result.json)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify blog content
+        if: steps.write.outputs.dry_run == 'false'
+        run: node scripts/verify-blogs.mjs
+
+      - name: Summarize
+        env:
+          RESULT_DRY_RUN: ${{ steps.write.outputs.dry_run }}
+        run: |
+          {
+            echo "## Daily SEO blog"
+            echo
+            echo "- Date: ${{ steps.write.outputs.date }}"
+            echo "- Dry run: ${RESULT_DRY_RUN}"
+            echo
+            echo '```json'
+            cat result.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open pull request
+        if: steps.write.outputs.dry_run == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          POST_DATE: ${{ steps.write.outputs.date }}
+          POST_SLUG: ${{ steps.write.outputs.slug }}
+          POST_TITLE: ${{ steps.write.outputs.title }}
+          POST_SOURCE: ${{ steps.write.outputs.source }}
+        run: |
+          set -euo pipefail
+          BRANCH="blog/daily-${POST_DATE}-${POST_SLUG}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add content/blogs public/blogs reports/gsc
+          if git diff --cached --quiet; then
+            echo "没有需要提交的变化"
+            exit 0
+          fi
+          git commit -m "blog: ${POST_TITLE}" -m "每日 SEO 文章（选题来源：${POST_SOURCE}）。引文已逐字核对受控原文；配图由 Grok Imagine 生成。"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --base "${GITHUB_REF_NAME}" \
+            --head "$BRANCH" \
+            --title "blog: ${POST_TITLE}" \
+            --body "$(printf '每日 SEO 文章 · %s\n\n- 路径：/blogs/%s\n- 选题来源：%s（GSC 快照见 reports/gsc/%s.json）\n- 引文已逐字核对仓库内受控原文；未核对到的引文在页面上标注“尚未逐字核对”\n- 配图由 Grok Imagine 生成，提示词随文章 JSON 保存\n\n合并前请人工过一遍正文与图片。' "$POST_DATE" "$POST_SLUG" "$POST_SOURCE" "$POST_DATE")"
