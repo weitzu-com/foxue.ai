@@ -9,7 +9,7 @@ export type BlogImage = {
   alt: string;
   width: number;
   height: number;
-  /** 生成模型标识，例如 grok-2-image-1212；人工图片写 "manual"。 */
+  /** 生成方式标识，例如 cursor-generate-image；人工图片写 "manual"。 */
   generator: string;
   prompt?: string;
 };

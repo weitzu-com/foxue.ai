@@ -1,139 +1,106 @@
-// 博客文章 JSON 结构：既作为 Grok 结构化输出的 Schema，也作为仓库内校验的依据。
+// 博客文章 JSON 结构：编辑草稿的整理规则，以及最终写入仓库的文章校验。
 
 export const blogPostSchemaId = "https://foxue.ai/schemas/blog-post-v1";
 
-const inlineText = { type: "string", minLength: 1 };
+/**
+ * 编辑（Cursor Agent）手写的草稿格式：与最终文章基本一致，只是图片以文件名引用、
+ * 引文的 verification 与图片尺寸由 finalize 计算。
+ *
+ * {
+ *   slug, title, description, secondaryKeywords: [],
+ *   cover:  { file: "cover.png", alt, prompt, generator? },
+ *   blocks: [
+ *     { type: "paragraph", text },
+ *     { type: "heading", level: 2 | 3, id, text },
+ *     { type: "list", ordered?, items: [] },
+ *     { type: "quote", text, source: { title, canonId, locator, href, translator? } },
+ *     { type: "image", file: "figure-1.png", alt, caption?, prompt, generator? },
+ *     { type: "callout", tone: "note" | "warning", title, text },
+ *     { type: "links", title?, items: [{ label, href, note? }] },
+ *   ],
+ *   faq: [{ question, answer }],
+ *   related: [{ label, href, note? }],
+ * }
+ */
+export const defaultImageGenerator = "cursor-generate-image";
 
-export const draftSchema = {
-  type: "object",
-  additionalProperties: false,
-  required: ["title", "description", "slug", "secondaryKeywords", "blocks", "faq", "related", "imagePrompts"],
-  properties: {
-    title: { type: "string", description: "含主关键词、不超过 40 个汉字、不含站名" },
-    description: { type: "string", description: "含主关键词、80–140 个汉字的摘要" },
-    slug: { type: "string", pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$", description: "拼音或英文小写连字符 slug，不超过 60 个字符" },
-    secondaryKeywords: { type: "array", items: { type: "string" }, maxItems: 8 },
-    blocks: {
-      type: "array",
-      minItems: 8,
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["type", "text", "level", "id", "items", "ordered", "source", "imageSlot", "tone", "title", "links"],
-        properties: {
-          type: { type: "string", enum: ["paragraph", "heading", "list", "quote", "image", "callout", "links"] },
-          text: { type: "string", description: "paragraph / heading / quote / callout 的正文；其他类型填空字符串" },
-          level: { type: "integer", enum: [2, 3], description: "heading 的层级；其他类型填 2" },
-          id: { type: "string", description: "heading 的锚点 id（小写英文/拼音/数字/连字符）；其他类型填空字符串" },
-          items: { type: "array", items: inlineText, description: "list 的条目；其他类型填空数组" },
-          ordered: { type: "boolean", description: "list 是否有序；其他类型填 false" },
-          source: {
-            type: "object",
-            additionalProperties: false,
-            required: ["title", "canonId", "locator", "href", "translator"],
-            properties: {
-              title: { type: "string", description: "经名，不带书名号" },
-              canonId: { type: "string", description: "大正藏经号，如 T0251" },
-              locator: { type: "string", description: "稳定行段，如 T0251.001.0848c07–09" },
-              href: { type: "string", description: "站内原文链接，如 /jingzang/xinjing/001-0848c#T0251.001.0848c07" },
-              translator: { type: "string", description: "译者，如 玄奘" },
-            },
-            description: "quote 的出处；其他类型全部填空字符串",
-          },
-          imageSlot: { type: "integer", description: "image 块对应 imagePrompts 的下标（0 起）；其他类型填 -1" },
-          tone: { type: "string", enum: ["note", "warning"], description: "callout 的语气；其他类型填 note" },
-          title: { type: "string", description: "callout / links 的标题；其他类型填空字符串" },
-          links: {
-            type: "array",
-            items: {
-              type: "object",
-              additionalProperties: false,
-              required: ["label", "href", "note"],
-              properties: { label: inlineText, href: inlineText, note: { type: "string" } },
-            },
-            description: "links 块的条目；其他类型填空数组",
-          },
-        },
-      },
-    },
-    faq: {
-      type: "array",
-      minItems: 3,
-      maxItems: 6,
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["question", "answer"],
-        properties: { question: inlineText, answer: inlineText },
-      },
-    },
-    related: {
-      type: "array",
-      minItems: 2,
-      maxItems: 6,
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["label", "href", "note"],
-        properties: { label: inlineText, href: inlineText, note: { type: "string" } },
-      },
-    },
-    imagePrompts: {
-      type: "array",
-      minItems: 3,
-      maxItems: 4,
-      description: "第 0 个是封面；其余对应正文 image 块。英文提示词，写给图像模型",
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["prompt", "alt", "caption"],
-        properties: {
-          prompt: { type: "string", description: "英文、具体、含构图/光线/材质/风格；不得出现文字、Logo、真人肖像" },
-          alt: { type: "string", description: "中文替代文本，描述画面内容并自然带上关键词" },
-          caption: { type: "string", description: "中文图注，一句话说明这张图和正文的关系" },
-        },
-      },
-    },
-  },
+const trimmed = (value, where) => {
+  if (typeof value !== "string" || !value.trim()) throw new Error(`${where} 缺少文本`);
+  return value.trim();
 };
 
-/**
- * 把 Grok 的扁平输出整理成站点使用的 block 结构（去掉无关的空字段）。
- */
-export function normalizeDraftBlock(block) {
-  switch (block.type) {
+function normalizeLinkItems(items, where) {
+  if (!Array.isArray(items) || items.length < 1) throw new Error(`${where} 没有条目`);
+  return items.map((item, index) => ({
+    label: trimmed(item.label, `${where}[${index}].label`),
+    href: trimmed(item.href, `${where}[${index}].href`),
+    ...(item.note?.trim() ? { note: item.note.trim() } : {}),
+  }));
+}
+
+function normalizeImageRef(image, where) {
+  if (!/^[a-z0-9-]+\.(?:png|jpe?g|webp)$/i.test(image.file ?? "")) throw new Error(`${where}.file 必须是 public/blogs/<slug>/ 下的图片文件名，如 cover.png`);
+  return {
+    file: image.file,
+    alt: trimmed(image.alt, `${where}.alt`),
+    prompt: trimmed(image.prompt, `${where}.prompt`),
+    generator: image.generator?.trim() || defaultImageGenerator,
+    ...(image.caption?.trim() ? { caption: image.caption.trim() } : {}),
+  };
+}
+
+export function normalizeDraftBlock(block, where = "block") {
+  switch (block?.type) {
     case "paragraph":
-      return { type: "paragraph", text: block.text.trim() };
+      return { type: "paragraph", text: trimmed(block.text, where) };
     case "heading":
-      return { type: "heading", level: block.level === 3 ? 3 : 2, id: block.id.trim(), text: block.text.trim() };
-    case "list":
-      return { type: "list", ordered: Boolean(block.ordered), items: block.items.map((item) => item.trim()).filter(Boolean) };
+      return { type: "heading", level: block.level === 3 ? 3 : 2, id: trimmed(block.id, `${where}.id`), text: trimmed(block.text, where) };
+    case "list": {
+      const items = (block.items ?? []).map((item) => (typeof item === "string" ? item.trim() : "")).filter(Boolean);
+      if (items.length < 1) throw new Error(`${where} list 没有条目`);
+      return { type: "list", ordered: Boolean(block.ordered), items };
+    }
     case "quote":
       return {
         type: "quote",
-        text: block.text.trim(),
+        text: trimmed(block.text, where),
         source: {
-          title: block.source.title.trim(),
-          canonId: block.source.canonId.trim(),
-          locator: block.source.locator.trim(),
-          href: block.source.href.trim(),
-          ...(block.source.translator?.trim() ? { translator: block.source.translator.trim() } : {}),
+          title: trimmed(block.source?.title, `${where}.source.title`),
+          canonId: trimmed(block.source?.canonId, `${where}.source.canonId`),
+          locator: trimmed(block.source?.locator, `${where}.source.locator`),
+          href: trimmed(block.source?.href, `${where}.source.href`),
+          ...(block.source?.translator?.trim() ? { translator: block.source.translator.trim() } : {}),
         },
         verification: "unverified",
       };
     case "image":
-      return { type: "image", imageSlot: block.imageSlot };
+      return { type: "image", ...normalizeImageRef(block, where) };
     case "callout":
-      return { type: "callout", tone: block.tone === "warning" ? "warning" : "note", title: block.title.trim(), text: block.text.trim() };
+      return { type: "callout", tone: block.tone === "warning" ? "warning" : "note", title: trimmed(block.title, `${where}.title`), text: trimmed(block.text, where) };
     case "links":
-      return {
-        type: "links",
-        title: block.title.trim() || "回到原典",
-        items: block.links.map((item) => ({ label: item.label.trim(), href: item.href.trim(), ...(item.note?.trim() ? { note: item.note.trim() } : {}) })),
-      };
+      return { type: "links", title: block.title?.trim() || "回到原典", items: normalizeLinkItems(block.items, where) };
     default:
-      throw new Error(`未知的 block 类型：${block.type}`);
+      throw new Error(`${where} 类型未知：${block?.type}`);
   }
+}
+
+/**
+ * 把草稿整理成待 finalize 的结构（图片仍是文件名引用）。
+ */
+export function normalizeDraft(draft) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(draft.slug ?? "")) throw new Error("draft.slug 只能是小写字母、数字、连字符");
+  if (!Array.isArray(draft.blocks)) throw new Error("draft.blocks 必须是数组");
+  if (!Array.isArray(draft.faq)) throw new Error("draft.faq 必须是数组");
+  return {
+    slug: draft.slug,
+    title: trimmed(draft.title, "draft.title"),
+    description: trimmed(draft.description, "draft.description"),
+    secondaryKeywords: (draft.secondaryKeywords ?? []).map((item) => item.trim()).filter(Boolean),
+    cover: normalizeImageRef(draft.cover ?? {}, "draft.cover"),
+    blocks: draft.blocks.map((block, index) => normalizeDraftBlock(block, `blocks[${index}]`)),
+    faq: draft.faq.map((item, index) => ({ question: trimmed(item.question, `faq[${index}].question`), answer: trimmed(item.answer, `faq[${index}].answer`) })),
+    related: normalizeLinkItems(draft.related, "related"),
+  };
 }
 
 const blockTypes = new Set(["paragraph", "heading", "list", "quote", "image", "callout", "links"]);
