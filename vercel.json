@@ -1,6 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
+  "git": {
+    "deploymentEnabled": {
+      "codex/workers-quota-manifest-cache-20261011": false
+    }
+  },
   "buildCommand": "NODE_OPTIONS=--max-old-space-size=6144 pnpm run build",
   "cleanUrls": true
 }

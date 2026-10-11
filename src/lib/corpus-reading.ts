@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import { open, readFile } from "node:fs/promises";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
+import { fetchReaderManifest } from "@/lib/corpus-reader-manifest.mjs";
 import corpusManifest from "../../data/corpus/cbeta/manifest-v4.23.0.json";
 import nanchuanManifest from "../../data/corpus/cbeta/nanchuan-manifest-v1.0.0.json";
 import beyondTaishoSutraManifest from "../../data/corpus/cbeta/beyond-taisho-sutra-manifest-v1.0.0.json";
@@ -186,19 +188,13 @@ type CorpusReleasePointer = {
   manifestSha256: string;
 };
 
-type CorpusReleaseManifest = {
-  releaseId: string;
-  expressions?: Array<{
-    canonId: string;
-    indexObjectKey: string;
-    indexSha256: string;
-  }>;
-  works?: Array<{
-    canonId: string;
-    indexObjectKey: string;
-    indexSha256: string;
-  }>;
-};
+// Include origin, immutable path and expected digest in the persistent key.
+// Cache only authenticated reader references, never the full object inventory.
+const loadReaderManifest = unstable_cache(
+  fetchReaderManifest,
+  ["corpus-reader-manifest-v1"],
+  { revalidate: 86400 },
+);
 
 type CorpusWorkIndex = {
   releaseId: string;
@@ -277,7 +273,8 @@ function isCorpusNavigationItem(value: unknown): value is CorpusNavigationItem {
 }
 
 const loadEdgeIndex = cache(async (canonId: string): Promise<CorpusWorkIndex | null> => {
-  if (!corpusBaseUrl()) return null;
+  const baseUrl = corpusBaseUrl();
+  if (!baseUrl) return null;
   try {
     const pointer = await fetchCorpusJson("v1/latest.json", 60) as CorpusReleasePointer | null;
     if (
@@ -288,12 +285,12 @@ const loadEdgeIndex = cache(async (canonId: string): Promise<CorpusWorkIndex | n
     ) {
       return null;
     }
-    const manifest = await fetchCorpusJson(
+    const manifest = await loadReaderManifest(
+      baseUrl,
       pointer.manifestObjectKey,
-      86400,
       pointer.manifestSha256,
-    ) as CorpusReleaseManifest | null;
-    const work = [...(manifest?.expressions ?? []), ...(manifest?.works ?? [])]
+    );
+    const work = manifest.expressions
       .find((candidate) => candidate.canonId === canonId);
     if (
       !manifest || manifest.releaseId !== pointer.releaseId || !work ||
