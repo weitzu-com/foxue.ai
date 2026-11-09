@@ -8,16 +8,22 @@ import {
   type AnalyticsConsent,
   trackEvent,
 } from "@/lib/analytics";
+import { enqueueGtagCommand } from "@/lib/gtag-queue";
 
 const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const validMeasurementId = /^G-[A-Z0-9]+$/.test(measurementId ?? "")
   ? measurementId
   : undefined;
 
-function queueGtag(...args: unknown[]) {
+function queueGtag() {
   window.dataLayer = window.dataLayer ?? [];
-  window.dataLayer.push(args);
+  // Must forward the Arguments object. Copying it into an array makes gtag.js drop the hit.
+  // eslint-disable-next-line prefer-rest-params -- rest parameters are arrays, which gtag.js ignores
+  enqueueGtagCommand(window.dataLayer, arguments);
 }
+
+let lastPageViewPath: string | null = null;
+let lastPageViewTitle = "";
 
 function enableAnalytics() {
   if (!validMeasurementId) return;
@@ -123,12 +129,69 @@ export function GoogleAnalytics() {
 
   useEffect(() => {
     if (consent !== "granted" || !validMeasurementId) return;
+    if (lastPageViewPath === pathname) return;
 
-    trackEvent("page_view", {
-      page_location: safePageLocation(pathname),
-      page_path: pathname,
-      page_title: document.title,
-    });
+    let cancelled = false;
+    const sendPageView = () => {
+      if (cancelled || lastPageViewPath === pathname) return;
+      lastPageViewPath = pathname;
+      lastPageViewTitle = document.title;
+      trackEvent("page_view", {
+        page_location: safePageLocation(pathname),
+        page_path: pathname,
+        page_title: document.title,
+      });
+    };
+
+    // The first HTML response already has a title. Client navigations often clear
+    // <title> and then briefly restore the previous one, so wait for a new title.
+    if (lastPageViewPath === null && document.title) {
+      sendPageView();
+      return;
+    }
+
+    const titleElement = document.querySelector("title");
+    let settled = false;
+    let pendingTitle = "";
+    let stableTimer = 0;
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+      observer.disconnect();
+      window.clearInterval(watchdog);
+      window.clearTimeout(stableTimer);
+      sendPageView();
+    };
+    const titleReady = () => document.title !== "" && document.title !== lastPageViewTitle;
+    const schedule = () => {
+      if (settled) return;
+      if (!titleReady()) return;
+      if (document.title === pendingTitle) return;
+      pendingTitle = document.title;
+      window.clearTimeout(stableTimer);
+      // Metadata can flicker back to the previous title for one frame. Send once it stays.
+      stableTimer = window.setTimeout(() => {
+        if (document.title === pendingTitle) settle();
+      }, 150);
+    };
+    const observer = new MutationObserver(schedule);
+    if (titleElement) {
+      observer.observe(titleElement, { childList: true, subtree: true, characterData: true });
+    }
+    const startedAt = Date.now();
+    const watchdog = window.setInterval(() => {
+      if (titleReady()) schedule();
+      else if (Date.now() - startedAt >= 4000) settle();
+    }, 50);
+    schedule();
+
+    return () => {
+      cancelled = true;
+      settled = true;
+      observer.disconnect();
+      window.clearInterval(watchdog);
+      window.clearTimeout(stableTimer);
+    };
   }, [consent, pathname]);
 
   useEffect(() => {
